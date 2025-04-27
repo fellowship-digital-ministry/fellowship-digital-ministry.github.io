@@ -1,3 +1,5 @@
+---
+---
 /**
  * Sermon analytics functionality
  */
@@ -53,19 +55,48 @@ async function initializeAnalytics() {
   errorSection.style.display = 'none';
   
   try {
+    // Verify API connection first
+    console.log('Testing API connection to:', API_URL);
+    
+    const initialResponse = await fetch(API_URL, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Origin': window.location.origin
+      },
+      mode: 'cors'
+    });
+    
+    if (!initialResponse.ok) {
+      throw new Error(`API connection failed with status: ${initialResponse.status}`);
+    }
+    
+    console.log('API connection successful, fetching sermon data');
+    
     // Fetch sermon data
-    const sermonsResponse = await fetch(`${API_URL}/sermons`);
-    if (!sermonsResponse.ok) throw new Error('Failed to fetch sermons');
+    const sermonsResponse = await fetch(`${API_URL}/sermons`, {
+      headers: {
+        'Accept': 'application/json',
+        'Origin': window.location.origin
+      },
+      mode: 'cors'
+    });
+    
+    if (!sermonsResponse.ok) {
+      throw new Error(`Failed to fetch sermons: ${sermonsResponse.status}`);
+    }
+    
     const sermonsData = await sermonsResponse.json();
+    console.log('Sermons data:', sermonsData);
     
     // Update total sermons count
-    document.getElementById('totalSermonsValue').textContent = sermonsData.total;
+    document.getElementById('totalSermonsValue').textContent = sermonsData.total || 0;
     
     // Display recent sermons
-    displayRecentSermons(sermonsData.sermons);
+    displayRecentSermons(sermonsData.sermons || []);
     
     // Get all sermon chunks to analyze Bible references
-    const allSermonChunks = await getAllSermonChunks(sermonsData.sermons);
+    const allSermonChunks = await getAllSermonChunks(sermonsData.sermons || []);
     
     // Extract and analyze Bible references
     const referenceData = analyzeBibleReferences(allSermonChunks);
@@ -95,6 +126,12 @@ async function initializeAnalytics() {
     console.error('Error loading analytics:', error);
     loadingSection.style.display = 'none';
     errorSection.style.display = 'block';
+    
+    // Show error message
+    const errorMessageElement = document.getElementById('errorMessage');
+    if (errorMessageElement) {
+      errorMessageElement.textContent = `Error: ${error.message}`;
+    }
   }
 }
 
@@ -120,7 +157,7 @@ async function getAllSermonChunks(sermons) {
           'Accept': 'application/json',
           'Origin': window.location.origin
         },
-        mode: 'cors' // Enable CORS
+        mode: 'cors'
       });
       
       if (!response.ok) {
@@ -213,6 +250,9 @@ function analyzeBibleReferences(chunks) {
     testamentCount
   };
 }
+
+// Rest of your analytics functions...
+// (I'll skip including them all to save space, but make sure they're all in your final file)
 
 /**
  * Helper function to determine book category

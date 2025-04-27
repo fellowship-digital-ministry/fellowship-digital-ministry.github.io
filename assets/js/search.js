@@ -1,3 +1,5 @@
+---
+---
 /**
  * Search functionality for the sermon chat interface
  */
@@ -46,8 +48,8 @@ async function verifyApiConnection() {
   }
   
   try {
-    // Test health endpoint first
-    const healthResponse = await fetch(`${API_URL}/health`, {
+    // Try the root endpoint first instead of /health
+    const rootResponse = await fetch(`${API_URL}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -56,11 +58,11 @@ async function verifyApiConnection() {
       mode: 'cors'
     });
     
-    if (!healthResponse.ok) {
-      throw new Error(`Health check failed with status: ${healthResponse.status}`);
+    if (!rootResponse.ok) {
+      throw new Error(`API connection failed with status: ${rootResponse.status}`);
     }
     
-    console.log('API health check successful');
+    console.log('API connection successful');
     return true;
     
   } catch (error) {

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direct API Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #2ea3f2;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .success { color: green; }
+    .error { color: red; }
+    .section {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Direct API Testing Tool</h1>
+  <p>This tool makes direct fetch calls to test your Sermon Search API without Jekyll processing.</p>
+  
+  <div class="section">
+    <h2>API Configuration</h2>
+    <div>
+      <label for="apiUrl">API URL:</label>
+      <input type="text" id="apiUrl" value="https://sermon-search-api-8fok.onrender.com">
+    </div>
+    <button id="updateApiUrl">Update API URL</button>
+  </div>
+  
+  <div class="section">
+    <h2>1. Test Root Endpoint</h2>
+    <p>Tests the API root endpoint (/) to check if the API is running.</p>
+    <button id="testRootBtn">Test Root Endpoint</button>
+    <div id="rootResult"></div>
+  </div>
+  
+  <div class="section">
+    <h2>2. Test Sermons Endpoint</h2>
+    <p>Tests the /sermons endpoint to fetch available sermons.</p>
+    <button id="testSermonsBtn">Test Sermons Endpoint</button>
+    <div id="sermonsResult"></div>
+  </div>
+  
+  <div class="section">
+    <h2>3. Test Search Query</h2>
+    <p>Tests the /answer endpoint with a search query.</p>
+    <div>
+      <label for="searchQuery">Search Query:</label>
+      <textarea id="searchQuery" rows="3">What does the pastor teach about faith?</textarea>
+    </div>
+    <button id="testSearchBtn">Test Search Query</button>
+    <div id="searchResult"></div>
+  </div>
+  
+  <div class="section">
+    <h2>4. Test Individual Sermon</h2>
+    <p>Tests getting details for an individual sermon.</p>
+    <div>
+      <label for="videoId">Video ID:</label>
+      <input type="text" id="videoId" placeholder="Enter a video ID">
+    </div>
+    <button id="testSermonBtn">Test Sermon Details</button>
+    <div id="sermonResult"></div>
+  </div>
+
+  <script>
+    // DOM Elements
+    const apiUrlInput = document.getElementById('apiUrl');
+    const updateApiUrlBtn = document.getElementById('updateApiUrl');
+    
+    const testRootBtn = document.getElementById('testRootBtn');
+    const rootResult = document.getElementById('rootResult');
+    
+    const testSermonsBtn = document.getElementById('testSermonsBtn');
+    const sermonsResult = document.getElementById('sermonsResult');
+    
+    const searchQuery = document.getElementById('searchQuery');
+    const testSearchBtn = document.getElementById('testSearchBtn');
+    const searchResult = document.getElementById('searchResult');
+    
+    const videoId = document.getElementById('videoId');
+    const testSermonBtn = document.getElementById('testSermonBtn');
+    const sermonResult = document.getElementById('sermonResult');
+    
+    // Store API URL
+    let apiUrl = apiUrlInput.value;
+    
+    // Event Listeners
+    updateApiUrlBtn.addEventListener('click', () => {
+      apiUrl = apiUrlInput.value.trim();
+      alert(`API URL updated to: ${apiUrl}`);
+    });
+    
+    testRootBtn.addEventListener('click', async () => {
+      await testEndpoint('/', 'GET', null, rootResult);
+    });
+    
+    testSermonsBtn.addEventListener('click', async () => {
+      await testEndpoint('/sermons', 'GET', null, sermonsResult);
+    });
+    
+    testSearchBtn.addEventListener('click', async () => {
+      const query = searchQuery.value.trim();
+      if (!query) {
+        searchResult.innerHTML = '<p class="error">Please enter a search query.</p>';
+        return;
+      }
+      
+      const data = {
+        query: query,
+        top_k: 5,
+        include_sources: true
+      };
+      
+      await testEndpoint('/answer', 'POST', data, searchResult);
+    });
+    
+    testSermonBtn.addEventListener('click', async () => {
+      const id = videoId.value.trim();
+      if (!id) {
+        sermonResult.innerHTML = '<p class="error">Please enter a video ID.</p>';
+        return;
+      }
+      
+      await testEndpoint(`/sermons/${id}`, 'GET', null, sermonResult);
+    });
+    
+    // Helper function to test an endpoint
+    async function testEndpoint(endpoint, method, data, resultElement) {
+      resultElement.innerHTML = '<p>Testing...</p>';
+      
+      try {
+        const url = `${apiUrl}${endpoint}`;
+        console.log(`Making ${method} request to: ${url}`);
+        
+        const options = {
+          method: method,
+          headers: {
+            'Accept': 'application/json'
+          },
+          mode: 'cors'
+        };
+        
+        if (data && method !== 'GET') {
+          options.headers['Content-Type'] = 'application/json';
+          options.body = JSON.stringify(data);
+        }
+        
+        const response = await fetch(url, options);
+        const result = await response.json();
+        
+        console.log('Response status:', response.status);
+        console.log('Response:', result);
+        
+        if (response.ok) {
+          resultElement.innerHTML = `
+            <p class="success">Success! Status: ${response.status}</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+          
+          // If testing the sermons endpoint, populate the video ID field with the first sermon ID
+          if (endpoint === '/sermons' && result.sermons && result.sermons.length > 0) {
+            videoId.value = result.sermons[0].video_id;
+          }
+        } else {
+          resultElement.innerHTML = `
+            <p class="error">Error! Status: ${response.status}</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        resultElement.innerHTML = `
+          <p class="error">Error: ${error.message}</p>
+          <p>This could be due to:</p>
+          <ul>
+            <li>API server is down</li>
+            <li>CORS issues</li>
+            <li>Network connectivity problems</li>
+            <li>Invalid endpoint</li>
+          </ul>
+          <p>Check the browser console for more details.</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
