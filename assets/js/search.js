@@ -9,6 +9,9 @@ const API_URL = '{{ site.api_url }}';
 const chatForm = document.getElementById('chatForm');
 const queryInput = document.getElementById('queryInput');
 const messagesContainer = document.getElementById('messages');
+const apiStatusBanner = document.getElementById('api-status-banner');
+const apiStatusMessage = document.getElementById('api-status-message');
+const retryConnectionButton = document.getElementById('retry-connection');
 
 // Bible reference regex for highlighting in responses
 const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+:\d+(-\d+)?/g;
@@ -22,7 +25,55 @@ document.addEventListener('DOMContentLoaded', function() {
       chatForm.dispatchEvent(new Event('submit'));
     }
   });
+  
+  // Add retry connection button handler
+  if (retryConnectionButton) {
+    retryConnectionButton.addEventListener('click', verifyApiConnection);
+  }
+  
+  // Verify API connection on page load
+  verifyApiConnection();
 });
+
+/**
+ * Verify API connection
+ */
+async function verifyApiConnection() {
+  console.log('Verifying API connection to:', API_URL);
+  
+  if (apiStatusBanner) {
+    apiStatusBanner.style.display = 'none';
+  }
+  
+  try {
+    // Test health endpoint first
+    const healthResponse = await fetch(`${API_URL}/health`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Origin': window.location.origin
+      },
+      mode: 'cors'
+    });
+    
+    if (!healthResponse.ok) {
+      throw new Error(`Health check failed with status: ${healthResponse.status}`);
+    }
+    
+    console.log('API health check successful');
+    return true;
+    
+  } catch (error) {
+    console.error('API connection verification failed:', error);
+    
+    if (apiStatusBanner && apiStatusMessage) {
+      apiStatusBanner.style.display = 'block';
+      apiStatusMessage.textContent = `API connection issue: ${error.message}. Check console for details.`;
+    }
+    
+    return false;
+  }
+}
 
 /**
  * Handle form submission
@@ -43,12 +94,18 @@ async function handleSubmit(event) {
   const loadingMessageId = addLoadingMessage();
   
   try {
-    // Send request to API
-    const response = await fetch(`${API_URL}/answer`, {
+    // Send request to API - ensure API URL is correctly formatted
+    const url = `${API_URL}/answer`;
+    console.log('Sending request to:', url);
+    
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin
       },
+      mode: 'cors', // Enable CORS
       body: JSON.stringify({
         query: query,
         top_k: 5,
@@ -57,7 +114,8 @@ async function handleSubmit(event) {
     });
     
     if (!response.ok) {
-      throw new Error('API request failed');
+      console.error('API Error:', response.status, response.statusText);
+      throw new Error(`API request failed with status ${response.status}`);
     }
     
     const data = await response.json();
@@ -74,8 +132,8 @@ async function handleSubmit(event) {
     // Remove loading message
     removeMessage(loadingMessageId);
     
-    // Show error message
-    addMessage('Sorry, there was an error processing your question. Please try again later.', 'bot', true);
+    // Show error message with more details
+    addMessage(`Sorry, there was an error processing your question (${error.message}). This may be a CORS issue or API endpoint problem. Please check the console for details and ensure the API is running properly.`, 'bot', true);
   }
 }
 

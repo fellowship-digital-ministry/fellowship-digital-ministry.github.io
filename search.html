@@ -8,6 +8,11 @@ custom_js: search
 ---
 
 <div class="chat-container">
+  <div id="api-status-banner" style="display: none; background-color: #ffebee; color: #c62828; padding: 8px 12px; text-align: center; font-size: 14px;">
+    <span id="api-status-message">API connection issue detected. Check console for details.</span>
+    <button id="retry-connection" style="margin-left: 10px; background: #c62828; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">Retry</button>
+  </div>
+
   <div id="messages" class="messages">
     <div class="message bot">
       Welcome! Ask any question about the pastor's sermons, and I'll provide an answer based on the sermon content.

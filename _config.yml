@@ -7,5 +7,9 @@ plugins: []
 markdown: kramdown
 
 # Custom settings
-api_url: "https://sermon-search-api-8fok.onrender.com"
-church_website: "https://fbcministries.net/"
+api_url: "https://sermon-search-api-8fok.onrender.com"  # Make sure this URL is correct and without trailing slash
+church_website: "https://www.churchwebsite.com"
+
+# CORS settings - these are applied in Jekyll's front matter processing
+# but you'll need to ensure your API allows these origins
+cors_enabled: true

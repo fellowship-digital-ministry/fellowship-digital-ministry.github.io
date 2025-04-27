@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .test-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #2ea3f2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .error {
+      color: red;
+    }
+    .success {
+      color: green;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>API Connection Test</h1>
+  <p>Use this page to test your connection to the sermon search API.</p>
+  
+  <div class="test-section">
+    <h2>1. API Health Check</h2>
+    <p>Tests if the API is online and responding.</p>
+    <button id="healthCheckBtn">Test API Health</button>
+    <div id="healthCheckResult"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>2. Get Sermons List</h2>
+    <p>Tests fetching the list of sermons.</p>
+    <button id="sermonsListBtn">Fetch Sermons</button>
+    <div id="sermonsListResult"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>3. Test Search Query</h2>
+    <p>Tests sending a search query to the API.</p>
+    <input type="text" id="searchQuery" placeholder="Enter your search query (e.g., 'What does the pastor teach about faith?')" value="What does the pastor teach about faith?">
+    <button id="searchBtn">Test Search Query</button>
+    <div id="searchResult"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>API Configuration</h2>
+    <div>
+      <label for="apiUrl">API Base URL:</label>
+      <input type="text" id="apiUrl" value="https://sermon-search-api-8fok.onrender.com">
+    </div>
+    <button id="updateUrlBtn">Update URL</button>
+  </div>
+  
+  <script>
+    // Get DOM elements
+    const healthCheckBtn = document.getElementById('healthCheckBtn');
+    const healthCheckResult = document.getElementById('healthCheckResult');
+    const sermonsListBtn = document.getElementById('sermonsListBtn');
+    const sermonsListResult = document.getElementById('sermonsListResult');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchQuery = document.getElementById('searchQuery');
+    const searchResult = document.getElementById('searchResult');
+    const apiUrlInput = document.getElementById('apiUrl');
+    const updateUrlBtn = document.getElementById('updateUrlBtn');
+    
+    // Store API URL
+    let apiUrl = apiUrlInput.value;
+    
+    // Update API URL
+    updateUrlBtn.addEventListener('click', () => {
+      apiUrl = apiUrlInput.value;
+      alert(`API URL updated to: ${apiUrl}`);
+    });
+    
+    // Health check
+    healthCheckBtn.addEventListener('click', async () => {
+      healthCheckResult.innerHTML = '<p>Testing API health...</p>';
+      
+      try {
+        const response = await fetch(`${apiUrl}/health`);
+        const data = await response.json();
+        
+        if (response.ok) {
+          healthCheckResult.innerHTML = `
+            <p class="success">✅ API is healthy!</p>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+          `;
+        } else {
+          healthCheckResult.innerHTML = `
+            <p class="error">❌ API returned an error status: ${response.status}</p>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        healthCheckResult.innerHTML = `
+          <p class="error">❌ Error connecting to API: ${error.message}</p>
+          <p>This could be due to:</p>
+          <ul>
+            <li>Incorrect API URL</li>
+            <li>API server is down</li>
+            <li>CORS issues (check browser console)</li>
+            <li>Network connectivity problems</li>
+          </ul>
+        `;
+      }
+    });
+    
+    // Get sermons list
+    sermonsListBtn.addEventListener('click', async () => {
+      sermonsListResult.innerHTML = '<p>Fetching sermons list...</p>';
+      
+      try {
+        const response = await fetch(`${apiUrl}/sermons`);
+        const data = await response.json();
+        
+        if (response.ok) {
+          sermonsListResult.innerHTML = `
+            <p class="success">✅ Fetched ${data.sermons?.length || 0} sermons!</p>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+          `;
+        } else {
+          sermonsListResult.innerHTML = `
+            <p class="error">❌ API returned an error status: ${response.status}</p>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        sermonsListResult.innerHTML = `
+          <p class="error">❌ Error fetching sermons: ${error.message}</p>
+          <p>Check browser console for more details.</p>
+        `;
+      }
+    });
+    
+    // Test search query
+    searchBtn.addEventListener('click', async () => {
+      const query = searchQuery.value.trim();
+      if (!query) {
+        searchResult.innerHTML = '<p class="error">Please enter a search query.</p>';
+        return;
+      }
+      
+      searchResult.innerHTML = '<p>Sending search query...</p>';
+      
+      try {
+        // Log the request details
+        console.log('Sending request to:', `${apiUrl}/answer`);
+        console.log('Request body:', JSON.stringify({
+          query: query,
+          top_k: 5,
+          include_sources: true
+        }));
+        
+        const response = await fetch(`${apiUrl}/answer`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            query: query,
+            top_k: 5,
+            include_sources: true
+          })
+        });
+        
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          searchResult.innerHTML = `
+            <p class="success">✅ Search query successful!</p>
+            <h3>Answer:</h3>
+            <div>${data.answer}</div>
+            <h3>Sources:</h3>
+            <pre>${JSON.stringify(data.sources, null, 2)}</pre>
+          `;
+        } else {
+          searchResult.innerHTML = `
+            <p class="error">❌ API returned an error status: ${response.status}</p>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        searchResult.innerHTML = `
+          <p class="error">❌ Error with search query: ${error.message}</p>
+          <p>This could be due to:</p>
+          <ul>
+            <li>CORS issues - the API may not allow requests from your domain</li>
+            <li>API endpoint configuration issue</li>
+            <li>Invalid request format</li>
+            <li>API server error</li>
+          </ul>
+          <p>Check browser console for more details.</p>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

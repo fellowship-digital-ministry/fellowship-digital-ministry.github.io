@@ -109,16 +109,39 @@ async function getAllSermonChunks(sermons) {
   
   for (const sermon of sermonsToProcess) {
     try {
-      const response = await fetch(`${API_URL}/sermons/${sermon.video_id}`);
-      if (response.ok) {
-        const sermonData = await response.json();
+      console.log(`Fetching sermon ${sermon.video_id}...`);
+      
+      const url = `${API_URL}/sermons/${sermon.video_id}`;
+      console.log('Request URL:', url);
+      
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Origin': window.location.origin
+        },
+        mode: 'cors' // Enable CORS
+      });
+      
+      if (!response.ok) {
+        console.error(`Error fetching sermon ${sermon.video_id}:`, response.status, response.statusText);
+        continue;
+      }
+      
+      const sermonData = await response.json();
+      console.log(`Successfully fetched sermon ${sermon.video_id} with ${sermonData.chunks?.length || 0} chunks`);
+      
+      if (sermonData.chunks && Array.isArray(sermonData.chunks)) {
         allChunks.push(...sermonData.chunks);
+      } else {
+        console.warn(`No chunks found for sermon ${sermon.video_id}`);
       }
     } catch (error) {
       console.error(`Error fetching sermon ${sermon.video_id}:`, error);
     }
   }
   
+  console.log(`Total chunks collected: ${allChunks.length}`);
   return allChunks;
 }
 
