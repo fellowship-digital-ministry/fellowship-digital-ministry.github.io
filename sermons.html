@@ -1,0 +1,47 @@
+---
+layout: default
+title: All Sermons
+description: Browse the complete sermon library from Fellowship Baptist Church
+permalink: /sermons/
+js:
+  - /assets/js/api-client.js
+  - /assets/js/sermon-list.js
+---
+
+<div class="container">
+  <div class="content-area">
+    <h1>Sermon Library</h1>
+    
+    <div class="scripture-verse">
+      <p>"Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine."</p>
+      <span class="reference">2 Timothy 4:2</span>
+    </div>
+    
+    <div class="sermon-filters">
+      <div class="filter-options">
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select">
+          <option value="date-desc">Newest First</option>
+          <option value="date-asc">Oldest First</option>
+          <option value="title">Title (A-Z)</option>
+        </select>
+      </div>
+    </div>
+    
+    <!-- Loading indicator -->
+    <div id="loading-indicator">
+      <p class="text-center">Loading sermons...</p>
+      <div class="spinner"></div>
+    </div>
+    
+    <!-- Sermons list -->
+    <div id="sermons-list" class="sermons-list"></div>
+    
+    <!-- Pagination -->
+    <div class="pagination">
+      <button id="prev-page" class="button secondary" disabled>Previous</button>
+      <span id="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+      <button id="next-page" class="button secondary">Next</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-widgets">
+        <!-- About Widget -->
+        <div class="widget">
+          <h4>About Us</h4>
+          <p>{{ site.data.site_settings.church.about }}</p>
+        </div>
+        
+        <!-- Quick Links Widget -->
+        <div class="widget">
+          <h4>Quick Links</h4>
+          <ul>
+            {% for item in site.data.navigation.footer %}
+              <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <!-- Scripture Widget -->
+        <div class="widget">
+          <h4>Scripture of the Day</h4>
+          <p>{{ site.data.site_settings.featured_verse.text }}</p>
+          <p><strong>{{ site.data.site_settings.featured_verse.reference }} ({{ site.data.site_settings.featured_verse.translation }})</strong></p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {% if site.data.site_settings.footer.copyright %}{{ site.data.site_settings.footer.copyright }}{% else %}{{ site.title }}{% endif %} {{ 'now' | date: "%Y" }}</p>
+        <p>{{ site.data.site_settings.footer.address }}</p>
+      </div>
+    </div>
+  </footer>

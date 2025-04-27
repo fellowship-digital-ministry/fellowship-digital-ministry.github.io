@@ -1,0 +1,52 @@
+# Jekyll Configuration for Sermon Library
+
+# Site settings
+title: "Fellowship Baptist Church - Sermon Library"
+description: "Searchable archive of sermons from Fellowship Baptist Church in Oakton"
+url: "" # Add your GitHub Pages URL here
+baseurl: "" # If site is in a subdirectory, add it here
+logo: "/assets/images/fbc-logo-small.png"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Collections
+collections:
+  sermons:
+    output: true
+    permalink: /sermons/:name/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "sermons"
+    values:
+      layout: "sermon"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Sermon API settings
+sermon_api:
+  base_url: "https://sermon-search-api-8fok.onrender.com"
+  search_endpoint: "/search"
+  answer_endpoint: "/answer"
+  sermons_endpoint: "/sermons"
+
+# SEO and social media
+social:
+  youtube: "https://www.youtube.com/@chrismann9821"
+  
+# Exclude files from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

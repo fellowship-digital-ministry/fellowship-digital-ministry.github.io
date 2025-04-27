@@ -1,0 +1,274 @@
+// Home page styling
+
+// Hero section
+.hero {
+    background-color: $color-background;
+    color: $color-white;
+    padding: 4em 0;
+    text-align: center;
+    position: relative;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('/assets/images/church-background.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      
+      h1 {
+        color: $color-white;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+      }
+      
+      p {
+        font-size: 1.2em;
+        margin-bottom: 2em;
+      }
+    }
+    
+    .hero-buttons {
+      .button {
+        margin: 0 0.5em 1em;
+      }
+    }
+  }
+  
+  // Featured content
+  .featured-content {
+    background-color: $color-white;
+    padding: 3em 0;
+    
+    .scripture-verse.large {
+      font-size: 1.3em;
+      margin: 1em auto 3em;
+      max-width: 800px;
+    }
+    
+    .feature-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -1em;
+      
+      .feature-block {
+        flex: 1;
+        min-width: 250px;
+        margin: 0 1em 2em;
+        padding: 1.5em;
+        background-color: $color-light-accent;
+        border-radius: 3px;
+        text-align: center;
+        
+        h2 {
+          font-size: 1.5em;
+          margin-bottom: 0.5em;
+        }
+        
+        p {
+          margin-bottom: 1.5em;
+        }
+      }
+    }
+  }
+  
+  // Introduction section
+  .introduction {
+    background-color: $color-white;
+    padding: 3em 0;
+    
+    h2 {
+      margin-bottom: 1em;
+    }
+    
+    ul {
+      margin: 1em 0 2em 1.5em;
+      
+      li {
+        margin-bottom: 0.5em;
+      }
+    }
+    
+    .gospel-message {
+      margin-top: 3em;
+      padding: 2em;
+      background-color: $color-light-accent;
+      border-radius: 3px;
+      
+      h3 {
+        margin-bottom: 1em;
+      }
+      
+      p {
+        margin-bottom: 1em;
+        
+        &:last-of-type {
+          margin-top: 1.5em;
+          text-align: center;
+        }
+      }
+    }
+  }
+  
+  // Recent sermons section
+  .recent-sermons {
+    background-color: $color-light-accent;
+    padding: 3em 0;
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
+    
+    .sermons-list {
+      margin-bottom: 2em;
+    }
+    
+    .sermon-item {
+      background-color: $color-white;
+      border-radius: 3px;
+      padding: 1.5em;
+      margin-bottom: 1.5em;
+      
+      h3 {
+        margin-bottom: 0.3em;
+      }
+      
+      .meta {
+        font-size: 0.9em;
+        color: lighten($color-body-text, 20%);
+        margin-bottom: 1em;
+        
+        .date {
+          margin-right: 1em;
+        }
+        
+        .youtube-link {
+          font-size: 0.9em;
+        }
+      }
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+  }
+  
+  // Salvation page
+  .salvation-steps {
+    margin: 2em 0;
+    
+    .salvation-step {
+      margin-bottom: 3em;
+      padding-bottom: 3em;
+      border-bottom: 1px solid $color-border-light;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      h2 {
+        margin-bottom: 0.5em;
+        color: $color-background;
+      }
+      
+      .verse-reference {
+        font-weight: 700;
+        margin-bottom: 0.2em;
+      }
+      
+      .verse-text {
+        font-family: $font-secondary;
+        font-style: italic;
+        margin-bottom: 1em;
+        font-size: 1.1em;
+      }
+    }
+  }
+  
+  .salvation-prayer {
+    background-color: $color-light-accent;
+    padding: 2em;
+    border-radius: 3px;
+    margin: 2em 0;
+    
+    h2 {
+      color: $color-background;
+      margin-bottom: 1em;
+    }
+    
+    blockquote {
+      margin: 1.5em 0;
+      font-size: 1.1em;
+    }
+  }
+  
+  .next-steps {
+    margin: 2em 0;
+    
+    h2 {
+      color: $color-background;
+      margin-bottom: 1em;
+    }
+    
+    ul {
+      margin: 1em 0 2em 1.5em;
+      
+      li {
+        margin-bottom: 0.8em;
+      }
+    }
+    
+    .button {
+      margin-top: 1em;
+    }
+  }
+  
+  // Responsive styles
+  @media (max-width: $breakpoint-tablet) {
+    .hero {
+      padding: 3em 0;
+      
+      .hero-content {
+        h1 {
+          font-size: 2em;
+        }
+      }
+    }
+    
+    .feature-blocks {
+      .feature-block {
+        min-width: 100%;
+        margin-bottom: 1.5em;
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    .hero {
+      padding: 2em 0;
+      
+      .hero-content {
+        h1 {
+          font-size: 1.8em;
+        }
+        
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+  }

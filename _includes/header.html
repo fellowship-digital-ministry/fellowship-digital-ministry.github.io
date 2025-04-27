@@ -1,0 +1,35 @@
+<header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="{{ '/' | relative_url }}">
+          {% if site.logo %}
+            <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
+          {% else %}
+            <span>{{ site.data.site_settings.church.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+      
+      <nav class="main-navigation">
+        <ul>
+          {% for item in site.data.navigation.main %}
+            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      
+      <button class="mobile-nav-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    
+    <nav class="mobile-nav">
+      <ul>
+        {% for item in site.data.navigation.mobile %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
