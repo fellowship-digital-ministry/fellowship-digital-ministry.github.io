@@ -1,155 +1,207 @@
 /**
- * Search functionality for the sermon library
+ * Search functionality for the sermon chat interface
  */
+
+// Constants
+const API_URL = '{{ site.api_url }}';
+
+// DOM Elements
+const chatForm = document.getElementById('chatForm');
+const queryInput = document.getElementById('queryInput');
+const messagesContainer = document.getElementById('messages');
+
+// Bible reference regex for highlighting in responses
+const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+:\d+(-\d+)?/g;
+
+// Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const searchTabs = document.querySelectorAll('.search-tab');
-    const tabContents = document.querySelectorAll('.search-tab-content');
-    const keywordForm = document.getElementById('keyword-search-form');
-    const questionForm = document.getElementById('question-form');
-    const loadingIndicator = document.getElementById('loading-indicator');
-    const searchResults = document.getElementById('search-results');
-    const answerContainer = document.getElementById('answer-container');
-    const answerText = document.getElementById('answer-text');
-    const sourcesList = document.getElementById('sources-list');
-    const noResults = document.getElementById('no-results');
-    
-    // Tab switching
-    searchTabs.forEach(tab => {
-      tab.addEventListener('click', function() {
-        // Remove active class from all tabs
-        searchTabs.forEach(t => t.classList.remove('active'));
-        
-        // Add active class to clicked tab
-        this.classList.add('active');
-        
-        // Hide all tab contents
-        tabContents.forEach(content => content.style.display = 'none');
-        
-        // Show the selected tab content
-        document.getElementById(this.dataset.tab).style.display = 'block';
-        
-        // Reset results
-        resetResults();
-      });
-    });
-    
-    // Keyword search form submission
-    keywordForm.addEventListener('submit', async function(e) {
+  chatForm.addEventListener('submit', handleSubmit);
+  queryInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      
-      const query = document.getElementById('keyword-query').value.trim();
-      if (!query) return;
-      
-      resetResults();
-      showLoading();
-      
-      try {
-        const results = await window.sermonApi.search(query);
-        hideLoading();
-        
-        if (results.results && results.results.length > 0) {
-          displaySearchResults(results.results);
-        } else {
-          showNoResults();
-        }
-      } catch (error) {
-        hideLoading();
-        displayError('An error occurred while searching. Please try again.');
-        console.error(error);
-      }
-    });
-    
-    // Question form submission
-    questionForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const query = document.getElementById('question-query').value.trim();
-      if (!query) return;
-      
-      resetResults();
-      showLoading();
-      
-      try {
-        const answer = await window.sermonApi.answer(query);
-        hideLoading();
-        
-        if (answer) {
-          displayAnswer(answer);
-        } else {
-          showNoResults();
-        }
-      } catch (error) {
-        hideLoading();
-        displayError('An error occurred while processing your question. Please try again.');
-        console.error(error);
-      }
-    });
-    
-    // Helper functions
-    function resetResults() {
-      searchResults.innerHTML = '';
-      answerContainer.style.display = 'none';
-      answerText.innerHTML = '';
-      sourcesList.innerHTML = '';
-      noResults.style.display = 'none';
-    }
-    
-    function showLoading() {
-      loadingIndicator.style.display = 'block';
-    }
-    
-    function hideLoading() {
-      loadingIndicator.style.display = 'none';
-    }
-    
-    function showNoResults() {
-      noResults.style.display = 'block';
-    }
-    
-    function displaySearchResults(results) {
-      searchResults.innerHTML = '';
-      
-      results.forEach(result => {
-        const resultElement = document.createElement('div');
-        resultElement.className = 'result-item';
-        
-        const formattedStartTime = SermonApiClient.formatTime(result.start_time);
-        
-        resultElement.innerHTML = `
-          <h3><a href="/sermons/${result.video_id}?t=${Math.floor(result.start_time)}">${result.title}</a></h3>
-          <div class="meta">
-            <a href="${result.url}" target="_blank" class="timestamp">${formattedStartTime}</a>
-          </div>
-          <p>${truncateText(result.text, 200)}</p>
-          <a href="/sermons/${result.video_id}?t=${Math.floor(result.start_time)}" class="button secondary">View Sermon</a>
-        `;
-        
-        searchResults.appendChild(resultElement);
-      });
-    }
-    
-    function displayAnswer(answer) {
-      answerContainer.style.display = 'block';
-      answerText.innerHTML = `<p>${answer.answer}</p>`;
-      
-      if (answer.sources && answer.sources.length > 0) {
-        displaySearchResults(answer.sources);
-      }
-    }
-    
-    function displayError(message) {
-      const errorElement = document.createElement('div');
-      errorElement.className = 'error-message';
-      errorElement.innerHTML = `<p>${message}</p>`;
-      searchResults.appendChild(errorElement);
-    }
-    
-    function truncateText(text, maxLength) {
-      if (text.length <= maxLength) return text;
-      
-      // Find the last complete word within the maxLength
-      const truncated = text.substr(0, maxLength);
-      return truncated.substr(0, truncated.lastIndexOf(' ')) + '...';
+      chatForm.dispatchEvent(new Event('submit'));
     }
   });
+});
+
+/**
+ * Handle form submission
+ */
+async function handleSubmit(event) {
+  event.preventDefault();
+  
+  const query = queryInput.value.trim();
+  if (!query) return;
+  
+  // Add user message to the chat
+  addMessage(query, 'user');
+  
+  // Clear input field
+  queryInput.value = '';
+  
+  // Add loading message
+  const loadingMessageId = addLoadingMessage();
+  
+  try {
+    // Send request to API
+    const response = await fetch(`${API_URL}/answer`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: query,
+        top_k: 5,
+        include_sources: true
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error('API request failed');
+    }
+    
+    const data = await response.json();
+    
+    // Remove loading message
+    removeMessage(loadingMessageId);
+    
+    // Display AI response
+    displayAnswer(data);
+    
+  } catch (error) {
+    console.error('Error:', error);
+    
+    // Remove loading message
+    removeMessage(loadingMessageId);
+    
+    // Show error message
+    addMessage('Sorry, there was an error processing your question. Please try again later.', 'bot', true);
+  }
+}
+
+/**
+ * Add a message to the chat
+ */
+function addMessage(text, sender, isError = false) {
+  const messageElement = document.createElement('div');
+  messageElement.className = `message ${sender}`;
+  
+  if (isError) {
+    messageElement.classList.add('error');
+  }
+  
+  // For bot messages, highlight Bible references
+  if (sender === 'bot') {
+    text = highlightBibleReferences(text);
+  }
+  
+  messageElement.innerHTML = text;
+  messageElement.id = 'msg-' + Date.now();
+  messagesContainer.appendChild(messageElement);
+  
+  // Scroll to the bottom
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  
+  return messageElement.id;
+}
+
+/**
+ * Add a loading message
+ */
+function addLoadingMessage() {
+  const loadingElement = document.createElement('div');
+  loadingElement.className = 'message bot loading';
+  loadingElement.innerHTML = '<div class="loading-spinner"></div> Searching sermon content...';
+  loadingElement.id = 'loading-' + Date.now();
+  messagesContainer.appendChild(loadingElement);
+  
+  // Scroll to the bottom
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  
+  return loadingElement.id;
+}
+
+/**
+ * Remove a message by ID
+ */
+function removeMessage(id) {
+  const message = document.getElementById(id);
+  if (message) {
+    message.remove();
+  }
+}
+
+/**
+ * Display the answer and sources from the API
+ */
+function displayAnswer(data) {
+  // Format the answer
+  let formattedAnswer = data.answer;
+  
+  // Add the answer to the chat
+  addMessage(formattedAnswer, 'bot');
+  
+  // Display sources if available
+  if (data.sources && data.sources.length > 0) {
+    // Sort sources by similarity score
+    const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
+    
+    // Display top sources
+    const sourceLimit = 3; // Limit to top 3 sources
+    const topSources = sortedSources.slice(0, sourceLimit);
+    
+    topSources.forEach((source, index) => {
+      displaySource(source, index);
+    });
+  }
+}
+
+/**
+ * Display a source with video embed
+ */
+function displaySource(source, index) {
+  const sourceElement = document.createElement('div');
+  sourceElement.className = 'source-container';
+  
+  const similarity = Math.round(source.similarity * 100);
+  const videoUrl = `https://www.youtube.com/embed/${source.video_id}?start=${Math.floor(source.start_time)}`;
+  
+  sourceElement.innerHTML = `
+    <div class="source-title">${source.title}</div>
+    <div class="source-text">"${formatText(source.text.substring(0, 150))}${source.text.length > 150 ? '...' : ''}"</div>
+    <div class="source-meta">
+      <span class="source-time">Timestamp: ${formatTimestamp(source.start_time)}</span>
+      <span class="source-match">${similarity}% match</span>
+    </div>
+    <iframe class="video-embed" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen height="215"></iframe>
+  `;
+  
+  messagesContainer.appendChild(sourceElement);
+  
+  // Scroll to the bottom
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+/**
+ * Format text (e.g., highlight Bible references)
+ */
+function formatText(text) {
+  if (!text) return '';
+  return highlightBibleReferences(text);
+}
+
+/**
+ * Highlight Bible references in text
+ */
+function highlightBibleReferences(text) {
+  return text.replace(bibleRefRegex, '<span class="bible-reference">$&</span>');
+}
+
+/**
+ * Format timestamp to MM:SS
+ */
+function formatTimestamp(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}

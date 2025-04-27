@@ -1,35 +1,23 @@
-<header class="site-header">
-    <div class="container">
-      <div class="logo">
-        <a href="{{ '/' | relative_url }}">
-          {% if site.logo %}
-            <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
-          {% else %}
-            <span>{{ site.data.site_settings.church.name }}</span>
-          {% endif %}
-        </a>
-      </div>
-      
-      <nav class="main-navigation">
+<header>
+    <nav>
+      <div class="container">
         <ul>
-          {% for item in site.data.navigation.main %}
-            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-          {% endfor %}
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/search.html' | relative_url }}">Chat about Sermons</a></li>
+          <li><a href="{{ '/analytics.html' | relative_url }}">Analytics</a></li>
+          <li class="ml-auto"><a href="{{ site.church_website }}" target="_blank">Church Website →</a></li>
         </ul>
-      </nav>
-      
-      <button class="mobile-nav-toggle" aria-label="Toggle mobile menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    
-    <nav class="mobile-nav">
-      <ul>
-        {% for item in site.data.navigation.mobile %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-        {% endfor %}
-      </ul>
+      </div>
     </nav>
+    
+    {% if page.hero %}
+    <div class="hero bg-light">
+      <div class="container">
+        <h1>{{ page.hero_title | default: page.title }}</h1>
+        {% if page.hero_description %}
+        <p class="hero-description">{{ page.hero_description }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
   </header>

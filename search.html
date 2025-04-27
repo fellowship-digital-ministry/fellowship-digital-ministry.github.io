@@ -1,78 +1,34 @@
 ---
 layout: default
-title: Search Sermons
-description: Search through the sermon library to find messages on specific topics
-permalink: /search/
-js:
-  - /assets/js/api-client.js
-  - /assets/js/search.js
+title: Chat about Sermons
+hero: true
+hero_title: Chat about Sermons
+hero_description: Ask questions about sermon content and get AI-generated answers based on the sermon library.
+custom_js: search
 ---
 
+<div class="chat-container">
+  <div id="messages" class="messages">
+    <div class="message bot">
+      Welcome! Ask any question about the pastor's sermons, and I'll provide an answer based on the sermon content.
+    </div>
+  </div>
+  
+  <form id="chatForm" class="chat-form">
+    <input type="text" id="queryInput" class="chat-input" placeholder="What does the pastor teach about faith?" required>
+    <button type="submit" class="chat-button">Send</button>
+  </form>
+</div>
+
 <div class="container">
-  <div class="content-area">
-    <h1>Search Sermons</h1>
-    
-    <div class="scripture-verse">
-      <p>"Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth."</p>
-      <span class="reference">2 Timothy 2:15</span>
-    </div>
-    
-    <div class="search-options">
-      <p>Choose how you'd like to search:</p>
-      <div class="search-tabs">
-        <button class="search-tab active" data-tab="keyword-search">Keyword Search</button>
-        <button class="search-tab" data-tab="question-answer">Ask a Question</button>
-      </div>
-    </div>
-    
-    <div class="search-tab-content" id="keyword-search">
-      <p>Search for specific words or phrases in the sermon transcripts:</p>
-      <form class="search-form" id="keyword-search-form">
-        <div class="search-input">
-          <input type="text" id="keyword-query" placeholder="Search for words, phrases, or Bible references..." required>
-          <button type="submit">Search</button>
-        </div>
-      </form>
-    </div>
-    
-    <div class="search-tab-content" id="question-answer" style="display: none;">
-      <p>Ask a question and get an answer based on sermon content:</p>
-      <form class="search-form" id="question-form">
-        <div class="search-input">
-          <input type="text" id="question-query" placeholder="Ask a question about sermon content..." required>
-          <button type="submit">Ask</button>
-        </div>
-      </form>
-      <div class="search-explanation">
-        <p><small>Example questions: "What does Pastor Mann teach about salvation?" or "What are the key points about prayer?"</small></p>
-      </div>
-    </div>
-    
-    <!-- Loading indicator -->
-    <div id="loading-indicator" style="display: none;">
-      <p class="text-center">Searching sermon library...</p>
-      <div class="spinner"></div>
-    </div>
-    
-    <!-- Results container -->
-    <div id="search-results" class="search-results"></div>
-    
-    <!-- Answer container -->
-    <div id="answer-container" style="display: none;">
-      <div class="answer-box">
-        <h3>Answer</h3>
-        <div id="answer-text"></div>
-      </div>
-      
-      <div id="answer-sources">
-        <h3>Sermon Sources</h3>
-        <div id="sources-list" class="search-results"></div>
-      </div>
-    </div>
-    
-    <!-- No results message -->
-    <div id="no-results" style="display: none;">
-      <p>No sermons found matching your search. Please try different terms or ask another question.</p>
-    </div>
+  <div class="info-section">
+    <h3>How to use this tool</h3>
+    <p>This search tool uses AI to find and present relevant information from the pastor's sermons. You can ask questions like:</p>
+    <ul>
+      <li>"What does the pastor teach about prayer?"</li>
+      <li>"How does the pastor interpret John 3:16?"</li>
+      <li>"What are the pastor's views on forgiveness?"</li>
+    </ul>
+    <p>The AI will provide answers based solely on the sermon content and include links to the relevant video segments.</p>
   </div>
 </div>

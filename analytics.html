@@ -1,0 +1,80 @@
+---
+layout: default
+title: Sermon Analytics
+hero: true
+hero_title: Sermon Analytics
+hero_description: Explore insights about Bible references and content from the sermon library.
+use_charts: true
+custom_js: analytics
+---
+
+<div class="container">
+  <div id="loadingSection" class="text-center">
+    <div class="loading-spinner"></div>
+    <p>Loading analytics data. This may take a moment as we process sermon transcripts...</p>
+  </div>
+  
+  <div id="analyticsContent" style="display: none;">
+    <div class="stats-cards">
+      <div class="stat-card">
+        <div class="stat-value" id="totalSermonsValue">...</div>
+        <div class="stat-label">Total Sermons</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="totalReferencesValue">...</div>
+        <div class="stat-label">Bible References</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="topBookValue">...</div>
+        <div class="stat-label">Most Referenced Book</div>
+      </div>
+    </div>
+    
+    <div class="analytics-section">
+      <div class="analytics-card">
+        <h2>Bible Book References</h2>
+        <div class="chart-container">
+          <canvas id="bibleReferencesChart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <div class="analytics-section">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="analytics-card">
+            <h2>Testament Distribution</h2>
+            <div class="chart-container" style="height: 300px;">
+              <canvas id="testamentChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="analytics-card">
+            <h2>Top Chapters Referenced</h2>
+            <div id="topChaptersContainer">
+              <div class="reference-list" id="topChaptersList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="analytics-section">
+      <div class="analytics-card">
+        <h2>Recent Sermons</h2>
+        <div id="recentSermonsContainer">
+          <p class="text-center">Loading sermon data...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="errorSection" style="display: none;">
+    <div class="analytics-card text-center">
+      <h2>Error Loading Data</h2>
+      <p>Sorry, there was an error loading the analytics data. Please try again later.</p>
+      <button id="retryButton" class="btn btn-primary">Retry</button>
+    </div>
+  </div>
+</div>

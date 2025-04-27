@@ -1,102 +1,165 @@
-# Fellowship Baptist Church Sermon Library
+# Fellowship Digital Ministry
 
-This repository contains the Jekyll-based frontend for the Fellowship Baptist Church Sermon Library, designed to be deployed on GitHub Pages.
+A Jekyll-based GitHub Pages site that serves as a frontend for the Sermon Search API. This project provides a user-friendly interface for searching sermon content and exploring analytics based on the sermon transcripts.
 
-## Overview
+## Features
 
-The Sermon Library provides a searchable collection of sermon transcripts and videos from the church's YouTube channel. It features:
+- **Sermon Search**: Ask questions about sermon content and get AI-generated answers based on the transcript library
+- **Video Integration**: Watch relevant sermon segments directly on the site with timestamp linking
+- **Analytics Dashboard**: Explore insights about Bible references, most cited verses, and sermon content
+- **Mobile Responsive**: Works well on all devices
 
-- Full-text search of sermon content
-- AI-powered question answering
-- Video playback with synchronized transcripts
-- Topic and scripture-based organization
-
-## Project Structure
-
-- `_data/`: Configuration files for navigation and site settings
-- `_includes/`: Reusable HTML components
-- `_layouts/`: Page templates
-- `_sass/`: SCSS stylesheets
-- `assets/`: Static files (CSS, JavaScript, images)
-- `pages/`: Additional content pages
-- Various root HTML files for main pages
-
-## Setup Instructions
+## Setup and Deployment
 
 ### Prerequisites
 
-- [Ruby](https://www.ruby-lang.org/en/downloads/) (2.7.0 or higher)
-- [Bundler](https://bundler.io/)
-- [Git](https://git-scm.com/)
+- A GitHub account
+- Basic knowledge of Git and GitHub
 
-### Local Development
+### Deployment Steps
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/your-username/fellowship-sermon-library.git
-   cd fellowship-sermon-library
-   ```
+1. **Create a new GitHub repository**
 
-2. Install dependencies:
-   ```
-   bundle install
-   ```
+   - Go to GitHub and create a new repository named `fellowship-digital-ministry.github.io`
+   - This specific name format is required for organization GitHub Pages sites
 
-3. Start the Jekyll development server:
-   ```
-   bundle exec jekyll serve
+2. **Clone this repository locally**
+
+   ```bash
+   git clone https://github.com/fellowship-digital-ministry/fellowship-digital-ministry.github.io.git
+   cd fellowship-digital-ministry.github.io
    ```
 
-4. Visit `http://localhost:4000` in your browser to view the site.
+3. **Add the files from this project**
 
-### Configuration
+   - Copy all files and directories to your local repository, maintaining the Jekyll directory structure:
+     ```
+     .
+     ├── _config.yml
+     ├── _layouts
+     │   └── default.html
+     ├── _includes
+     │   ├── header.html
+     │   └── footer.html
+     ├── assets
+     │   ├── css
+     │   │   └── style.css
+     │   └── js
+     │       ├── search.js
+     │       └── analytics.js
+     ├── index.html
+     ├── search.html
+     └── analytics.html
+     ```
 
-- Update site settings in `_config.yml`
-- Modify church information in `_data/site_settings.yml`
-- Edit navigation menus in `_data/navigation.yml`
+4. **Configure your GitHub Pages settings**
 
-## Deployment to GitHub Pages
+   - In the repository settings, go to the "Pages" section
+   - Ensure the source is set to "main" branch and the folder is set to "/ (root)"
+   - GitHub Pages will automatically recognize the Jekyll structure
 
-1. Create a new GitHub repository for your site.
+5. **Commit and push your changes**
 
-2. Update the repository settings:
-   - Go to the repository's "Settings" tab
-   - Navigate to "Pages"
-   - Select the branch you want to deploy (usually `main` or `master`)
-   - Save the settings
-
-3. Push your changes to GitHub:
-   ```
+   ```bash
    git add .
    git commit -m "Initial commit"
    git push origin main
    ```
 
-4. GitHub will automatically build and deploy your site. You can find the URL in the "Pages" section of your repository settings.
+6. **Access your site**
 
-## Connecting to the API
+   - Your site will be available at `https://fellowship-digital-ministry.github.io`
+   - It may take a few minutes for the site to be published after pushing changes
 
-The frontend connects to the sermon API deployed at `https://sermon-search-api-8fok.onrender.com`. If you need to change the API endpoint, update it in the following files:
+## Customization
 
-- `_config.yml`: Update the `sermon_api.base_url` value
-- JavaScript files where the API URL is directly referenced
+### API Endpoint
 
-## Adding Content
+The site is configured to use the Sermon Search API at `https://sermon-search-api-8fok.onrender.com`. If you need to update this endpoint:
 
-New sermons will be automatically added to the library through the backend pipeline, which:
-1. Monitors the YouTube channel for new uploads
-2. Downloads and transcribes new sermons
-3. Processes them into searchable chunks
-4. Adds them to the vector database
+1. Update the `api_url` setting in `_config.yml`
 
-No manual content management is required for the Jekyll site.
+```yaml
+api_url: "https://your-new-api-endpoint.com"
+```
 
-## Resources
+### Church Website Link
 
-- [Jekyll Documentation](https://jekyllrb.com/docs/)
-- [GitHub Pages Documentation](https://docs.github.com/en/pages)
-- [Backend API Documentation](https://sermon-search-api-8fok.onrender.com/docs)
+To update the link to the main church website:
+
+1. Update the `church_website` setting in `_config.yml`
+
+```yaml
+church_website: "https://www.your-church-website.com"
+```
+
+### Color Scheme and Styling
+
+The site uses CSS variables for consistent styling. To update the color scheme:
+
+1. Open `assets/css/style.css`
+2. Locate the `:root` CSS section at the top of the file
+3. Modify the color variables to match your desired scheme
+
+```css
+:root {
+  --color-primary: #2ea3f2; /* Primary accent color */
+  --color-bg: #ffffff;      /* Background color */
+  --color-bg-dark: #222222; /* Dark background (footer) */
+  --color-text: #666666;    /* Main text color */
+  --color-heading: #333333; /* Heading text color */
+  --color-border: #eeeeee;  /* Border color */
+}
+```
+
+## Maintenance
+
+### Adding New Pages
+
+To add new pages to the site:
+
+1. Create a new HTML file in the root directory with Jekyll front matter:
+
+```yaml
+---
+layout: default
+title: Your Page Title
+hero: true
+hero_title: Your Hero Title
+hero_description: Your page description goes here.
+custom_js: your_js_file  # Optional, if you need custom JS
+---
+
+<!-- Your page content here -->
+```
+
+2. Add any custom JavaScript to the `assets/js/` directory if needed
+3. Link to it from the navigation in `_includes/header.html`
+
+### Jekyll Configuration
+
+The site uses a simple Jekyll configuration with minimal plugins. You can modify the Jekyll configuration in `_config.yml` if needed:
+
+- Update site title and description
+- Add additional Jekyll plugins (note that GitHub Pages supports only a limited set of plugins)
+- Configure additional Jekyll settings
+
+### Updating the Site
+
+To update the site after making changes:
+
+1. Make your changes locally
+2. Commit and push to GitHub
+3. GitHub Pages will automatically rebuild and deploy your site
+
+## Technical Details
+
+- The site uses Jekyll for static site generation, which is natively supported by GitHub Pages
+- The sermon search and analytics functionality use client-side JavaScript to interact with the API
+- Chart.js is used for data visualization on the analytics page
+- All API requests are made client-side using JavaScript fetch API
+- The site does not require any build process beyond what GitHub Pages automatically provides
 
 ## License
 
-This project is licensed under the terms specified in the LICENSE file.
+This project is provided for the specific use of Fellowship Digital Ministry and is not licensed for general distribution or reuse.

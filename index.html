@@ -1,135 +1,33 @@
 ---
 layout: default
-title: Home
-custom_background: true
+title: Fellowship Digital Ministry
+hero: true
+hero_title: Fellowship Digital Ministry
+hero_description: An unofficial resource for exploring sermons through advanced search and analytics.
 ---
 
-<section class="hero">
+<section class="home-section">
   <div class="container">
-    <div class="hero-content">
-      <h1>Fellowship Baptist Church Sermon Library</h1>
-      <p>Faithfully preaching the Word of God for your spiritual growth and edification.</p>
-      <div class="hero-buttons">
-        <a href="/search/" class="button primary">Search Sermons</a>
-        <a href="/sermons/" class="button secondary">Browse All Sermons</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="featured-content">
-  <div class="container">
-    <div class="scripture-verse large">
-      <p>"So then faith cometh by hearing, and hearing by the word of God."</p>
-      <span class="reference">Romans 10:17 (KJV)</span>
+    <h2>Welcome to the Fellowship Digital Ministry</h2>
+    <p class="lead">Explore sermons and discover insights through our digital tools.</p>
+    
+    <div class="home-buttons">
+      <a href="{{ '/search.html' | relative_url }}" class="btn btn-primary">Chat about Sermons</a>
+      <a href="{{ '/analytics.html' | relative_url }}" class="btn">View Sermon Analytics</a>
     </div>
     
-    <div class="feature-blocks">
-      <div class="feature-block">
-        <h2>Search by Topic</h2>
-        <p>Find Biblical teaching on specific subjects, doctrines, or life applications.</p>
-        <a href="/search/" class="button secondary">Search Now</a>
-      </div>
-      
-      <div class="feature-block">
-        <h2>Ask Questions</h2>
-        <p>Ask questions about sermon content and get answers based on the teaching.</p>
-        <a href="/search/?tab=question" class="button secondary">Ask a Question</a>
-      </div>
-      
-      <div class="feature-block">
-        <h2>Recent Sermons</h2>
-        <p>Watch or listen to the most recent messages from our pulpit.</p>
-        <a href="/sermons/" class="button secondary">View Recent</a>
+    <div class="home-features">
+      <div class="row">
+        <div class="feature-card">
+          <h3>Search Sermon Content</h3>
+          <p>Ask questions about sermons and receive AI-powered answers with direct links to the relevant video segments.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3>Bible Reference Analytics</h3>
+          <p>Explore which Bible books, chapters, and verses are most frequently referenced in the sermon collection.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<section class="introduction">
-  <div class="container">
-    <div class="content-area">
-      <h2>About Our Sermon Library</h2>
-      <p>Welcome to the Fellowship Baptist Church sermon library, a searchable collection of messages that faithfully proclaim the truths of God's Word. This resource is designed to help you study, grow, and deepen your understanding of the Bible.</p>
-      
-      <p>With our library, you can:</p>
-      <ul>
-        <li>Search through sermon transcripts to find specific topics, Bible verses, or teachings</li>
-        <li>Ask questions about sermon content and receive AI-generated answers based on the preaching</li>
-        <li>Watch video sermons with synchronized transcripts for better comprehension</li>
-        <li>Browse sermons by date, topic, or Scripture reference</li>
-      </ul>
-      
-      <div class="gospel-message">
-        <h3>The Gospel Message</h3>
-        <p>At Fellowship Baptist Church, we believe that the Bible is the inspired, infallible, and inerrant Word of God. We preach the Gospel of Jesus Christ, which is the power of God unto salvation to everyone that believeth (Romans 1:16).</p>
-        
-        <p>The Bible teaches that all have sinned and come short of the glory of God (Romans 3:23), and the wages of sin is death (Romans 6:23). But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us (Romans 5:8).</p>
-        
-        <p>Salvation is by grace through faith in the Lord Jesus Christ (Ephesians 2:8-9). If you confess with your mouth the Lord Jesus, and believe in your heart that God has raised Him from the dead, you will be saved (Romans 10:9).</p>
-        
-        <p><a href="/salvation/" class="button primary">Learn More About Salvation</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="recent-sermons">
-  <div class="container">
-    <h2>Recent Sermons</h2>
-    <div id="recent-sermons-list" class="sermons-list"></div>
-    <div class="text-center">
-      <a href="/sermons/" class="button primary">View All Sermons</a>
-    </div>
-  </div>
-</section>
-
-<script src="{{ '/assets/js/api-client.js' | relative_url }}"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Load recent sermons
-    const recentSermonsList = document.getElementById('recent-sermons-list');
-    
-    async function loadRecentSermons() {
-      try {
-        const result = await window.sermonApi.listSermons({ limit: 3 });
-        const sermons = result.sermons || [];
-        
-        recentSermonsList.innerHTML = '';
-        
-        if (sermons.length === 0) {
-          recentSermonsList.innerHTML = '<p>No sermons found.</p>';
-          return;
-        }
-        
-        sermons.forEach(sermon => {
-          const sermonElement = document.createElement('div');
-          sermonElement.className = 'sermon-item';
-          
-          // Format date if available
-          let dateDisplay = '';
-          if (sermon.publish_date) {
-            const date = new Date(sermon.publish_date);
-            dateDisplay = `<span class="date">${date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>`;
-          }
-          
-          sermonElement.innerHTML = `
-            <h3><a href="/sermons/${sermon.video_id}">${sermon.title}</a></h3>
-            <div class="meta">
-              ${dateDisplay}
-              <a href="${sermon.url}" target="_blank" class="youtube-link">Watch on YouTube</a>
-            </div>
-            <a href="/sermons/${sermon.video_id}" class="button secondary">View Sermon</a>
-          `;
-          
-          recentSermonsList.appendChild(sermonElement);
-        });
-      } catch (error) {
-        console.error('Error loading recent sermons:', error);
-        recentSermonsList.innerHTML = '<p>Error loading recent sermons. Please try again later.</p>';
-      }
-    }
-    
-    loadRecentSermons();
-  });
-</script>

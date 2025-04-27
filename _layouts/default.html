@@ -3,57 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
-  
-  <!-- Open Graph data -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <meta property="og:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
-  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:site_name" content="{{ site.title }}">
+  <title>{{ page.title | default: site.title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% if page.use_charts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  {% endif %}
 </head>
-<body class="{% if page.custom_background %}custom-background{% endif %}">
-  
-  <!-- Header -->
+<body>
   {% include header.html %}
   
-  <!-- Main Content -->
-  <main class="main-content">
+  <main class="container">
     {{ content }}
   </main>
   
-  <!-- Call to Action -->
-  {% unless page.hide_cta %}
-  <section class="call-to-action">
-    <div class="container">
-      <p>{{ site.data.site_settings.call_to_action.text }}</p>
-      <p><strong>{{ site.data.site_settings.call_to_action.reference }}</strong></p>
-      <a href="{{ site.data.site_settings.call_to_action.button_url }}" class="button">{{ site.data.site_settings.call_to_action.button_text }}</a>
-    </div>
-  </section>
-  {% endunless %}
-  
-  <!-- Footer -->
   {% include footer.html %}
-  
-  <!-- Scripts -->
-  <script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
-  {% if page.js %}
-    {% for js_file in page.js %}
-      <script src="{{ js_file | relative_url }}"></script>
-    {% endfor %}
+
+  {% if page.custom_js %}
+    <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}"></script>
   {% endif %}
-  
 </body>
 </html>
