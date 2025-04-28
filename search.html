@@ -106,806 +106,938 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 <style>
 /* Enhanced Styles for the Sermon Search Interface */
 
-/* Language selector */
-.language-selector {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
-}
-
-.language-selector select {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-md);
-  background-color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.language-selector select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
-}
-
-/* Chat container improvements */
-.chat-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background-color: white;
-  transition: box-shadow 0.3s ease;
-}
-
-.chat-container:focus-within {
-  box-shadow: 0 6px 24px rgba(46, 163, 242, 0.15);
-}
-
-/* Message styling improvements */
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1.25rem;
-  background-color: #f8f9fa;
-  scroll-behavior: smooth;
-}
-
-.message {
-  max-width: 80%;
-  margin-bottom: 1rem;
-  padding: 0.9rem 1.1rem;
-  border-radius: 1.2rem;
-  position: relative;
-  line-height: 1.5;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  word-wrap: break-word;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-/* Message animations */
-.message-appear {
-  animation: messageAppear 0.3s ease forwards;
-}
-
-.message-disappear {
-  animation: messageDisappear 0.3s ease forwards;
-}
-
-@keyframes messageAppear {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+/* Base Variables */
+:root {
+    --color-primary: #2ea3f2;
+    --color-text: #333;
+    --color-heading: #222;
+    --color-border: #e0e5eb;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  /* Language selector */
+  .language-selector {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
   }
-}
-
-@keyframes messageDisappear {
-  from {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .language-selector select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
   }
-  to {
-    opacity: 0;
-    transform: translateY(10px);
+  
+  .language-selector select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
   }
-}
-
-.message.user {
-  background-color: var(--color-primary);
-  color: white;
-  margin-left: auto;
-  border-bottom-right-radius: 0.3rem;
-}
-
-.message.bot {
-  background-color: white;
-  margin-right: auto;
-  border-bottom-left-radius: 0.3rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* Followed-up messages have a visual connection */
-.message.followed-up::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  background-color: rgba(0,0,0,0.1);
-  top: 100%;
-  height: 10px;
-  left: 20px;
-}
-
-/* Welcome message special styling */
-.welcome-message {
-  width: 100%;
-  max-width: 90%;
-}
-
-.welcome-message h4 {
-  margin-top: 0;
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
-}
-
-.suggestion-heading {
-  margin: 1rem 0 0.5rem;
-  font-weight: 600;
-  color: #555;
-}
-
-.suggestion-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.suggestion-chip {
-  background-color: rgba(46, 163, 242, 0.1);
-  color: var(--color-primary);
-  border: 1px solid rgba(46, 163, 242, 0.2);
-  padding: 0.5rem 0.75rem;
-  border-radius: 100px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
-}
-
-.suggestion-chip:hover {
-  background-color: rgba(46, 163, 242, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Typing indicator */
-.typing-indicator {
-  min-width: 50px;
-  max-width: 50px;
-  border-radius: 1.2rem;
-  padding: 0.6rem 1rem;
-}
-
-.typing-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 26px;
-}
-
-.typing-dots .dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin: 0 2px;
-  background-color: #aaa;
-  border-radius: 50%;
-  animation: typingAnimation 1.4s infinite ease-in-out both;
-}
-
-.typing-dots .dot:nth-child(1) {
-  animation-delay: -0.32s;
-}
-
-.typing-dots .dot:nth-child(2) {
-  animation-delay: -0.16s;
-}
-
-@keyframes typingAnimation {
-  0%, 80%, 100% { 
-    transform: scale(0.7);
-    opacity: 0.6;
-  }
-  40% { 
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Enhanced input area */
-.chat-controls {
-  border-top: 1px solid var(--color-border);
-  background-color: white;
-  padding: 0.75rem;
-}
-
-.chat-form {
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.chat-input {
-  flex: 1;
-  padding: 0.9rem 1rem;
-  border: 1px solid #e0e5eb;
-  border-radius: 8px;
-  font: inherit;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05) inset;
-}
-
-.chat-input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(46, 163, 242, 0.15);
-  outline: none;
-}
-
-.chat-button {
-  padding: 0.9rem 1.25rem;
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  margin-left: 0.75rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.chat-button:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-
-/* Conversation controls */
-.conversation-controls {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 0.75rem;
-}
-
-.control-button {
-  background-color: transparent;
-  color: #777;
-  border: 1px solid #ddd;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.control-button:hover {
-  background-color: #f5f5f5;
-  color: #333;
-}
-
-/* Sources display improvements */
-.sources-container {
-  margin: 1rem 0 1.5rem;
-  background-color: white;
-  border-radius: var(--border-radius-md);
-  overflow: hidden;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-  border: 1px solid #eee;
-  max-width: 95%;
-  transition: all 0.3s ease;
-}
-
-.sources-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  background-color: #f8f9fa;
-}
-
-.sources-header h4 {
-  margin: 0;
-  font-size: 1rem;
-  color: #555;
-}
-
-.sources-toggle {
-  color: var(--color-primary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-.sources-toggle:hover {
-  opacity: 0.8;
-}
-
-.sources-content {
-  padding: 1rem;
-  max-height: 500px;
-  overflow-y: auto;
-}
-
-.source-container {
-  margin-bottom: 1.5rem;
-  padding: 1.25rem;
-  background-color: white;
-  border-radius: var(--border-radius-md);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  border: 1px solid #f0f0f0;
-  transition: all 0.2s ease;
-}
-
-.source-container:last-child {
-  margin-bottom: 0;
-}
-
-.source-container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-}
-
-.source-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.source-title {
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--color-heading);
-  margin-right: 1rem;
-  flex: 1;
-}
-
-.source-date {
-  font-size: 0.9rem;
-  color: #777;
-  font-style: italic;
-}
-
-.source-text {
-  font-size: 0.95rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
-  font-style: italic;
-  color: var(--color-text);
-  background-color: rgba(0,0,0,0.02);
-  padding: 0.75rem;
-  border-radius: var(--border-radius-sm);
-}
-
-.source-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  font-size: 0.85rem;
-  color: #777;
-}
-
-.source-time {
-  display: flex;
-  align-items: center;
-}
-
-.source-time::before {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  margin-right: 0.4rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%23777777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.source-match {
-  font-weight: 600;
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-}
-
-.source-match::before {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  margin-right: 0.4rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%232ea3f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.source-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.75rem;
-}
-
-.watch-video-btn, .open-youtube-btn, .view-transcript-btn {
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-
-.watch-video-btn {
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  flex: 1;
-}
-
-.watch-video-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-
-.open-youtube-btn, .view-transcript-btn {
-  background-color: rgba(46, 163, 242, 0.1);
-  color: var(--color-primary);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(46, 163, 242, 0.2);
-}
-
-.open-youtube-btn:hover, .view-transcript-btn:hover {
-  background-color: rgba(46, 163, 242, 0.2);
-  transform: translateY(-2px);
-}
-
-.video-embed {
-  width: 100%;
-  border-radius: var(--border-radius-sm);
-  overflow: hidden;
-  margin-bottom: 0.75rem;
-  transition: all 0.3s ease;
-}
-
-.view-all-sources {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 1rem;
-  background-color: #f8f9fa;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  color: #555;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.view-all-sources:hover {
-  background-color: #eef5f9;
-  color: var(--color-primary);
-}
-
-/* Transcript styles */
-.transcript-container {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #eee;
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.transcript-loading {
-  text-align: center;
-  padding: 1rem;
-  color: #777;
-  font-style: italic;
-}
-
-.transcript-error {
-  padding: 0.75rem;
-  background-color: rgba(231, 76, 60, 0.1);
-  color: #c0392b;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
-}
-
-.transcript-search {
-  display: flex;
-  margin-bottom: 1rem;
-  gap: 0.5rem;
-}
-
-.transcript-search-input {
-  flex: 1;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font: inherit;
-}
-
-.transcript-search-button {
-  padding: 0.5rem 0.75rem;
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.transcript-match-count {
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.transcript-content {
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.transcript-segment {
-  margin-bottom: 0.75rem;
-  display: flex;
-}
-
-.transcript-timestamp {
-  flex: 0 0 60px;
-  color: #777;
-  font-size: 0.85rem;
-  padding-top: 0.25rem;
-}
-
-.transcript-text {
-  flex: 1;
-}
-
-.transcript-highlight {
-  background-color: rgba(255, 230, 0, 0.4);
-  padding: 2px 0;
-  border-radius: 2px;
-}
-
-/* Error states */
-.error-container, .connection-error {
-  background-color: rgba(231, 76, 60, 0.05);
-  padding: 0.75rem;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-}
-
-.error-container p, .connection-error p {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  color: #c0392b;
-}
-
-.retry-button {
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  color: #555;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.retry-button:hover {
-  background-color: #eee;
-  transform: translateY(-2px);
-}
-
-/* API status banner improvements */
-#api-status-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid #eee;
-  background-color: #fef2f2;
-  color: #b91c1c;
-}
-
-#retry-connection {
-  background: #b91c1c;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
-}
-
-#retry-connection:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-
-/* Bible reference highlighting */
-.bible-reference {
-  color: var(--color-primary);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0 3px;
-  border-radius: 3px;
-  text-decoration: none;
-  background-color: rgba(46, 163, 242, 0.05);
-}
-
-.bible-reference:hover {
-  background-color: rgba(46, 163, 242, 0.15);
-  text-decoration: underline;
-}
-
-/* Make the example questions more interactive */
-.example-questions li {
-  transition: all 0.2s ease;
-  position: relative;
-  cursor: pointer;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-  border-left: 3px solid var(--color-primary);
-}
-
-.example-questions li:hover {
-  transform: translateX(5px);
-  background-color: rgba(46, 163, 242, 0.1);
-}
-
-.example-questions li::after {
-  content: '';
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%232ea3f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3Cpolyline points='12 5 19 12 12 19'%3E%3C/polyline%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.example-questions li:hover::after {
-  opacity: 1;
-}
-
-/* Right-to-left language support */
-.rtl {
-  direction: rtl;
-  text-align: right;
-}
-
-.rtl .message.user {
-  margin-right: auto;
-  margin-left: 0;
-  border-bottom-left-radius: 0.3rem;
-  border-bottom-right-radius: 1.2rem;
-}
-
-.rtl .message.bot {
-  margin-left: auto;
-  margin-right: 0;
-  border-bottom-right-radius: 0.3rem;
-  border-bottom-left-radius: 1.2rem;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
+  
+  /* Chat container improvements */
   .chat-container {
-    height: 80vh;
-    margin: 1rem auto;
-    width: 95%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: white;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .chat-container:focus-within {
+    box-shadow: 0 6px 24px rgba(46, 163, 242, 0.15);
+  }
+  
+  /* Message styling improvements */
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem;
+    background-color: #f8f9fa;
+    scroll-behavior: smooth;
   }
   
   .message {
+    max-width: 80%;
+    margin-bottom: 1rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 1.2rem;
+    position: relative;
+    line-height: 1.5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    word-wrap: break-word;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  /* Message animations */
+  .message-appear {
+    animation: messageAppear 0.3s ease forwards;
+  }
+  
+  .message-disappear {
+    animation: messageDisappear 0.3s ease forwards;
+  }
+  
+  @keyframes messageAppear {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes messageDisappear {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+  
+  .message.user {
+    background-color: var(--color-primary);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 0.3rem;
+  }
+  
+  .message.bot {
+    background-color: white;
+    margin-right: auto;
+    border-bottom-left-radius: 0.3rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  /* Followed-up messages have a visual connection */
+  .message.followed-up::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: rgba(0,0,0,0.1);
+    top: 100%;
+    height: 10px;
+    left: 20px;
+  }
+  
+  /* Welcome message special styling */
+  .welcome-message {
+    width: 100%;
     max-width: 90%;
   }
   
-  .source-header {
-    flex-direction: column;
+  .welcome-message h4 {
+    margin-top: 0;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
   }
   
-  .source-date {
-    margin-top: 0.5rem;
-  }
-  
-  .source-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .source-actions {
-    flex-direction: column;
-    gap: 0.5rem;
+  .suggestion-heading {
+    margin: 1rem 0 0.5rem;
+    font-weight: 600;
+    color: #555;
   }
   
   .suggestion-chips {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
   }
   
   .suggestion-chip {
-    max-width: 100%;
+    background-color: rgba(46, 163, 242, 0.1);
+    color: var(--color-primary);
+    border: 1px solid rgba(46, 163, 242, 0.2);
+    padding: 0.5rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  
+  .suggestion-chip:hover {
+    background-color: rgba(46, 163, 242, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Typing indicator */
+  .typing-indicator {
+    min-width: 50px;
+    max-width: 50px;
+    border-radius: 1.2rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .typing-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+  }
+  
+  .typing-dots .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    background-color: #aaa;
+    border-radius: 50%;
+    animation: typingAnimation 1.4s infinite ease-in-out both;
+  }
+  
+  .typing-dots .dot:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+  
+  .typing-dots .dot:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+  
+  @keyframes typingAnimation {
+    0%, 80%, 100% { 
+      transform: scale(0.7);
+      opacity: 0.6;
+    }
+    40% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Enhanced input area */
+  .chat-controls {
+    border-top: 1px solid var(--color-border);
+    background-color: white;
+    padding: 0.75rem;
   }
   
   .chat-form {
-    flex-direction: column;
-    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .chat-input {
+    flex: 1;
+    padding: 0.9rem 1rem;
+    border: 1px solid #e0e5eb;
+    border-radius: 8px;
+    font: inherit;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) inset;
+  }
+  
+  .chat-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(46, 163, 242, 0.15);
+    outline: none;
   }
   
   .chat-button {
-    margin-left: 0;
-    width: 100%;
+    padding: 0.9rem 1.25rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-left: 0.75rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
   }
   
-  .language-selector {
-    justify-content: center;
+  .chat-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
   }
-}
-    /* Formatted message styling */
-    .message.bot strong {
-        display: block;
-        font-size: 1.1em;
-        color: #333;
-        margin: 0.75rem 0 0.5rem;
+  
+  /* Conversation controls */
+  .conversation-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+  }
+  
+  .control-button {
+    background-color: transparent;
+    color: #777;
+    border: 1px solid #ddd;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .control-button:hover {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* Sources display improvements */
+  .sources-container {
+    margin: 1rem 0 1.5rem;
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    max-width: 95%;
+    transition: all 0.3s ease;
+  }
+  
+  .sources-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background-color: #f8f9fa;
+  }
+  
+  .sources-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .sources-toggle {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+  
+  .sources-toggle:hover {
+    opacity: 0.8;
+  }
+  
+  .sources-content {
+    padding: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .source-container {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.2s ease;
+  }
+  
+  .source-container:last-child {
+    margin-bottom: 0;
+  }
+  
+  .source-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  }
+  
+  .source-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .source-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-heading);
+    margin-right: 1rem;
+    flex: 1;
+  }
+  
+  .source-date {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+  }
+  
+  .source-text {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--color-text);
+    background-color: rgba(0,0,0,0.02);
+    padding: 0.75rem;
+    border-radius: var(--border-radius-sm);
+  }
+  
+  .source-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  
+  .source-time {
+    display: flex;
+    align-items: center;
+  }
+  
+  .source-time::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 0.4rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%23777777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .source-match {
+    font-weight: 600;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+  }
+  
+  .source-match::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 0.4rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%232ea3f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .source-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  
+  .watch-video-btn, .open-youtube-btn, .view-transcript-btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+  
+  .watch-video-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    flex: 1;
+  }
+  
+  .watch-video-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  .open-youtube-btn, .view-transcript-btn {
+    background-color: rgba(46, 163, 242, 0.1);
+    color: var(--color-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(46, 163, 242, 0.2);
+  }
+  
+  .open-youtube-btn:hover, .view-transcript-btn:hover {
+    background-color: rgba(46, 163, 242, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .video-embed {
+    width: 100%;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  
+  .view-all-sources {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    color: #555;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .view-all-sources:hover {
+    background-color: #eef5f9;
+    color: var(--color-primary);
+  }
+  
+  /* Transcript styles */
+  .transcript-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .transcript-loading {
+    text-align: center;
+    padding: 1rem;
+    color: #777;
+    font-style: italic;
+  }
+  
+  .transcript-error {
+    padding: 0.75rem;
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .transcript-search {
+    display: flex;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .transcript-search-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font: inherit;
+  }
+  
+  .transcript-search-button {
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .transcript-match-count {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .transcript-content {
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  .transcript-segment {
+    margin-bottom: 0.75rem;
+    display: flex;
+  }
+  
+  .transcript-timestamp {
+    flex: 0 0 60px;
+    color: #777;
+    font-size: 0.85rem;
+    padding-top: 0.25rem;
+  }
+  
+  .transcript-text {
+    flex: 1;
+  }
+  
+  .transcript-highlight {
+    background-color: rgba(255, 230, 0, 0.4);
+    padding: 2px 0;
+    border-radius: 2px;
+  }
+  
+  /* Error states */
+  .error-container, .connection-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .error-container p, .connection-error p {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #c0392b;
+  }
+  
+  .retry-button {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .retry-button:hover {
+    background-color: #eee;
+    transform: translateY(-2px);
+  }
+  
+  /* API status banner improvements */
+  #api-status-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #eee;
+    background-color: #fef2f2;
+    color: #b91c1c;
+  }
+  
+  #retry-connection {
+    background: #b91c1c;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+  
+  #retry-connection:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  /* Bible reference highlighting */
+  .bible-reference {
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 3px;
+    border-radius: 3px;
+    text-decoration: none;
+    background-color: rgba(46, 163, 242, 0.05);
+  }
+  
+  .bible-reference:hover {
+    background-color: rgba(46, 163, 242, 0.15);
+    text-decoration: underline;
+  }
+  
+  /* Make the example questions more interactive */
+  .example-questions li {
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primary);
+  }
+  
+  .example-questions li:hover {
+    transform: translateX(5px);
+    background-color: rgba(46, 163, 242, 0.1);
+  }
+  
+  .example-questions li::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%232ea3f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3Cpolyline points='12 5 19 12 12 19'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .example-questions li:hover::after {
+    opacity: 1;
+  }
+  
+  /* Right-to-left language support */
+  .rtl {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .rtl .message.user {
+    margin-right: auto;
+    margin-left: 0;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 1.2rem;
+  }
+  
+  .rtl .message.bot {
+    margin-left: auto;
+    margin-right: 0;
+    border-bottom-right-radius: 0.3rem;
+    border-bottom-left-radius: 1.2rem;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .chat-container {
+      height: 80vh;
+      margin: 1rem auto;
+      width: 95%;
     }
     
-    .message.bot .list-item {
-        margin-bottom: 0.75rem;
-        display: flex;
+    .message {
+      max-width: 90%;
     }
     
-    .message.bot .list-number {
-        color: #2ea3f2;
-        font-weight: bold;
-        margin-right: 0.5rem;
-        min-width: 1.5em;
+    .source-header {
+      flex-direction: column;
     }
     
-    .message.bot p {
-        margin-bottom: 0.75rem;
+    .source-date {
+      margin-top: 0.5rem;
     }
-
-    .message.bot .bible-reference {
-        color: #2ea3f2;
-        font-weight: 600;
-        cursor: pointer;
-        padding: 0 3px;
-        border-radius: 3px;
-        background-color: rgba(46, 163, 242, 0.05);
-        }
     
-    .message.bot .bible-reference:hover {
-            background-color: rgba(46, 163, 242, 0.15);
-            text-decoration: underline;
-        }
+    .source-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .source-actions {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .suggestion-chips {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .suggestion-chip {
+      max-width: 100%;
+    }
+    
+    .chat-form {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .chat-button {
+      margin-left: 0;
+      width: 100%;
+    }
+    
+    .language-selector {
+      justify-content: center;
+    }
+  }
+  
+  /* IMPROVED MESSAGE FORMATTING - ADD THESE STYLES */
+  
+  /* Formatted message styling - improved version */
+  .message.bot strong {
+      display: block;
+      font-size: 1.1em;
+      color: #333;
+      margin: 0.75rem 0 0.5rem;
+  }
+  
+  /* Improved list styling */
+  .message.bot .list-item {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+  }
+  
+  .message.bot .list-number {
+      color: #2ea3f2;
+      font-weight: bold;
+      margin-right: 8px;
+      min-width: 24px;
+      flex-shrink: 0;
+  }
+  
+  /* Fix paragraph spacing */
+  .message.bot p {
+      margin: 0 0 0.75rem 0;
+      line-height: 1.5;
+  }
+  
+  .message.bot p:last-child {
+      margin-bottom: 0;
+  }
+  
+  /* Make sure Bible references are properly styled */
+  .message.bot .bible-reference {
+      color: #2ea3f2;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0 3px;
+      border-radius: 3px;
+      background-color: rgba(46, 163, 242, 0.05);
+      display: inline-block;
+  }
+      
+  .message.bot .bible-reference:hover {
+      background-color: rgba(46, 163, 242, 0.15);
+      text-decoration: underline;
+  }
+  
+  /* Ensure nested HTML renders properly */
+  .message.bot ul, .message.bot ol {
+      margin: 0.5rem 0 0.75rem 1.5rem;
+      padding-left: 0;
+  }
+  
+  .message.bot li {
+      margin-bottom: 0.5rem;
+  }
+  
+  .message.bot ul li {
+      list-style-type: disc;
+  }
+  
+  .message.bot ol li {
+      list-style-type: decimal;
+  }
+  
+  /* Fixed spacing for sources section */
+  .sources-container {
+      margin-top: 15px;
+      margin-bottom: 0;
+  }
+  
+  /* Improved styling for blockquotes if used */
+  .message.bot blockquote {
+      border-left: 3px solid var(--color-primary);
+      margin: 0.75rem 0;
+      padding: 0.5rem 0 0.5rem 1rem;
+      background-color: rgba(46, 163, 242, 0.05);
+      font-style: italic;
+  }
+  
+  /* Add proper rendering for inline code if used */
+  .message.bot code {
+      background-color: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 0.9em;
+  }
+  
+  /* Ensure content is properly wrapped */
+  .message.bot {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      hyphens: auto;
+  }
+  
+  /* Ensure images don't break layout if included */
+  .message.bot img {
+      max-width: 100%;
+      height: auto;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+  }
+  
+  /* Fix for tables if included in responses */
+  .message.bot table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9em;
+  }
+  
+  .message.bot th, 
+  .message.bot td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+  }
+  
+  .message.bot th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+  }
+  
+  .message.bot tr:nth-child(even) {
+      background-color: #f8f8f8;
+  }
+  
+  /* Add better styling for welcome message */
+  .welcome-message {
+      background-color: rgba(46, 163, 242, 0.05);
+      border-left: 3px solid var(--color-primary);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+  }
+  
+  /* Fix scrollbars for smoother appearance */
+  .messages::-webkit-scrollbar {
+      width: 8px;
+  }
+  
+  .messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+  }
+  
+  .messages::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+  }
+  
+  .messages::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+  }
 </style>
 <script>
-    
-/**
+    /**
  * Enhanced Multilingual Sermon Search with Conversation Memory
  * Supports English, Spanish, and Chinese
  */
@@ -913,15 +1045,24 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 // API Configuration
 const API_URL = '{{ site.api_url }}' || 'https://sermon-search-api-8fok.onrender.com';
 
-// DOM Elements
-const chatForm = document.getElementById('chatForm');
-const queryInput = document.getElementById('queryInput');
-const messagesContainer = document.getElementById('messages');
-const apiStatusBanner = document.getElementById('api-status-banner');
-const apiStatusMessage = document.getElementById('api-status-message');
-const retryConnectionButton = document.getElementById('retry-connection');
-const languageSelect = document.getElementById('languageSelect');
-const clearConversationBtn = document.getElementById('clearConversation');
+// Safely get DOM elements with error handling
+function safeGetElement(id) {
+  const element = document.getElementById(id);
+  if (!element) {
+    console.warn(`Element with ID '${id}' not found`);
+  }
+  return element;
+}
+
+// DOM Elements - Using safe getter
+const chatForm = safeGetElement('chatForm');
+const queryInput = safeGetElement('queryInput');
+const messagesContainer = safeGetElement('messages');
+const apiStatusBanner = safeGetElement('api-status-banner');
+const apiStatusMessage = safeGetElement('api-status-message');
+const retryConnectionButton = safeGetElement('retry-connection');
+const languageSelect = safeGetElement('languageSelect');
+const clearConversationBtn = safeGetElement('clearConversation');
 
 // Bible reference regex for highlighting in responses
 const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi;
@@ -1099,6 +1240,29 @@ let isFirstLoad = true;
 // Current language
 let currentLanguage = 'en';
 
+// Add global error handler
+window.addEventListener('error', function(event) {
+  console.error('Global error caught:', event.error);
+  
+  // Try to show error in the UI if possible
+  if (messagesContainer) {
+    const errorMsg = `
+      <div class="error-container">
+        <p>A script error occurred: ${event.error.message}. Try refreshing the page.</p>
+      </div>
+    `;
+    
+    try {
+      addMessage(errorMsg, 'bot', true);
+    } catch (e) {
+      console.error('Could not display error message:', e);
+    }
+  }
+  
+  // Prevent the error from causing more issues
+  event.preventDefault();
+});
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM loaded, initializing sermon search...');
@@ -1107,11 +1271,26 @@ document.addEventListener('DOMContentLoaded', function() {
   if (chatForm) {
     console.log('Chat form found, adding event listeners');
     
-    chatForm.addEventListener('submit', handleSubmit);
+    chatForm.addEventListener('submit', function(event) {
+      try {
+        handleSubmit(event);
+      } catch (error) {
+        console.error('Error in form submission handler:', error);
+        if (messagesContainer) {
+          // Show error to user
+          const errorMsg = `
+            <div class="error-container">
+              <p>Sorry, an error occurred: ${error.message}</p>
+            </div>
+          `;
+          addMessage(errorMsg, 'bot', true);
+        }
+      }
+    });
     
     if (queryInput) {
-      // Add placeholder text cycling
-      setupPlaceholderCycling(queryInput, getTranslatedQueries());
+      // Set a STATIC placeholder instead of cycling
+      queryInput.placeholder = "Ask a question about the sermons...";
       
       queryInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
@@ -1201,34 +1380,18 @@ function getTranslatedQueries() {
 }
 
 /**
- * Setup placeholder text cycling for input field
+ * Setup placeholder text cycling for input field - DISABLED VERSION
+ * This function is kept for compatibility but now sets a static placeholder
  */
 function setupPlaceholderCycling(inputElement, suggestions) {
-  let currentIndex = 0;
+  // Just set a static placeholder without cycling
+  inputElement.placeholder = "Ask a question about the sermons...";
   
-  // Set initial placeholder
-  inputElement.placeholder = suggestions[0];
+  // No need for opacity changes or intervals
+  inputElement.style.opacity = 1;
   
-  // Change placeholder text every 3 seconds
-  const cycleInterval = setInterval(() => {
-    currentIndex = (currentIndex + 1) % suggestions.length;
-    
-    // Animate the placeholder change
-    inputElement.style.opacity = 0;
-    
-    setTimeout(() => {
-      inputElement.placeholder = suggestions[currentIndex];
-      inputElement.style.opacity = 1;
-    }, 200);
-  }, 3000);
-  
-  // Store interval ID for cleanup
-  inputElement.dataset.cycleInterval = cycleInterval;
-  
-  // Reset opacity on focus
-  inputElement.addEventListener('focus', () => {
-    inputElement.style.opacity = 1;
-  });
+  // For cleanup consistency, still set the data attribute but with null
+  inputElement.dataset.cycleInterval = null;
 }
 
 /**
@@ -1296,14 +1459,14 @@ function changeLanguage(language) {
     }
   });
   
-  // Reset placeholder cycling with new language
+  // Set static placeholder for query input
   if (queryInput) {
-    // Clear existing interval
-    if (queryInput.dataset.cycleInterval) {
+    // Clear existing interval if any
+    if (queryInput.dataset.cycleInterval && queryInput.dataset.cycleInterval !== 'null') {
       clearInterval(parseInt(queryInput.dataset.cycleInterval));
     }
-    // Setup new cycling with translated queries
-    setupPlaceholderCycling(queryInput, getTranslatedQueries());
+    // Set static placeholder with translated text
+    queryInput.placeholder = translate('what-does-pastor-teach');
   }
   
   // Update welcome message if it exists
@@ -1541,79 +1704,86 @@ function clearConversation() {
 }
 
 /**
- * Format the text with markdown-like syntax
+ * Format the text with markdown-like syntax - IMPROVED VERSION
  */
- function formatResponse(text) {
-    if (!text) return '';
-    
-    // Replace section headers (text between ** **)
-    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-    // Format numbered lists
-    text = text.replace(/(\d+\.\s+)([^\n]+)/g, '<div class="list-item"><span class="list-number">$1</span>$2</div>');
-    
-    // Highlight Bible references
-    text = text.replace(/\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomio|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Ephesians|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi, '<span class="bible-reference">$&</span>');
-    
-    // Create proper paragraphs from double line breaks
-    if (text.includes('\n\n')) {
-      text = text.split('\n\n').map(para => `<p>${para}</p>`).join('');
-    }
-    
-    // Format single line breaks (but not inside list items)
-    if (!text.includes('<div class="list-item">') && text.includes('\n')) {
-      text = text.split('\n').map(line => `<p>${line}</p>`).join('');
-    }
-    
-    return text;
+function formatResponse(text) {
+  if (!text) return '';
+  
+  // Convert line breaks to HTML breaks for proper rendering
+  text = text.replace(/\n/g, '<br>');
+  
+  // Replace section headers (text between ** **)
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  
+  // Format numbered lists (more robust pattern)
+  text = text.replace(/(\d+\.\s+)([^\n<]+)(<br>|$)/g, '<div class="list-item"><span class="list-number">$1</span>$2</div>$3');
+  
+  // Highlight Bible references with improved regex
+  text = text.replace(/\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi, '<span class="bible-reference">$&</span>');
+  
+  // Wrap paragraphs in <p> tags, but not if they're already in a div or other block element
+  text = text.replace(/(^|<\/div>)([^<]+)(<br>|$)/g, '$1<p>$2</p>$3');
+  
+  // Clean up any extra <br> tags after </p> tags
+  text = text.replace(/<\/p><br>/g, '</p>');
+  
+  return text;
+}
+
+/**
+ * Add a message to the chat - IMPROVED VERSION
+ */
+function addMessage(text, sender, isError = false) {
+  const messageElement = document.createElement('div');
+  messageElement.className = `message ${sender}`;
+  messageElement.id = 'msg-' + Date.now(); // Add an ID to each message for reference
+  
+  if (isError) {
+    messageElement.classList.add('error');
   }
   
-  /**
-   * Add a message to the chat
-   */
-  function addMessage(text, sender, isError = false) {
-    const messageElement = document.createElement('div');
-    messageElement.className = `message ${sender}`;
-    
-    if (isError) {
-      messageElement.classList.add('error');
-    }
-    
-    // For bot messages, apply formatting
-    if (sender === 'bot') {
-      // Apply markdown-style formatting
+  // For bot messages, apply formatting
+  if (sender === 'bot') {
+    if (text.startsWith('<div class="welcome-message">') || 
+        text.startsWith('<div class="error-container">') ||
+        text.startsWith('<div class="connection-error">')) {
+      // For pre-formatted HTML content, use it directly
+      messageElement.innerHTML = text;
+    } else {
+      // For regular text responses, apply the formatting
       const formattedText = formatResponse(text);
       messageElement.innerHTML = formattedText;
-      
-      // Make all links open in new tab
-      const links = messageElement.querySelectorAll('a');
-      links.forEach(link => {
-        if (!link.hasAttribute('target')) {
-          link.setAttribute('target', '_blank');
-        }
-      });
-      
-      // Make Bible references clickable
-      const bibleRefs = messageElement.querySelectorAll('.bible-reference');
-      bibleRefs.forEach(ref => {
-        ref.addEventListener('click', function() {
-          // Open Bible reference in a Bible website
-          const reference = this.textContent.trim();
-          window.open(`https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=NIV`, '_blank');
-        });
-      });
-    } else {
-      // For user messages, use text content for safety
-      messageElement.textContent = text;
     }
     
-    messagesContainer.appendChild(messageElement);
+    // Make all links open in new tab
+    const links = messageElement.querySelectorAll('a');
+    links.forEach(link => {
+      if (!link.hasAttribute('target')) {
+        link.setAttribute('target', '_blank');
+      }
+    });
     
-    // Scroll to the bottom
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    
-    return messageElement;
+    // Make Bible references clickable
+    const bibleRefs = messageElement.querySelectorAll('.bible-reference');
+    bibleRefs.forEach(ref => {
+      ref.addEventListener('click', function() {
+        // Open Bible reference in a Bible website
+        const reference = this.textContent.trim();
+        window.open(`https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=NIV`, '_blank');
+      });
+    });
+  } else {
+    // For user messages, use text content for safety
+    messageElement.textContent = text;
   }
+  
+  messagesContainer.appendChild(messageElement);
+  
+  // Scroll to the bottom
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  
+  return messageElement;
+}
 
 /**
  * Add a typing indicator
@@ -1739,91 +1909,107 @@ function formatSermonTitle(title) {
 }
 
 /**
- * Display the answer and sources from the API
+ * Display the answer and sources from the API - FIXED VERSION
  */
 function displayAnswer(data) {
+  if (!data || !data.answer) {
+    console.error('Invalid data received from API');
+    addMessage("Sorry, I received an invalid response from the API. Please try again.", 'bot');
+    return;
+  }
+  
   // Add the answer to the chat - allow HTML rendering
-  const answerId = addMessage(data.answer, 'bot');
+  const messageElement = addMessage(data.answer, 'bot');
   
   // Display sources if available
   if (data.sources && data.sources.length > 0) {
-    // Sort sources by similarity score
-    const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
-// Create a sources container
-    const sourcesContainer = document.createElement('div');
-    sourcesContainer.className = 'sources-container';
-    sourcesContainer.innerHTML = `
-      <div class="sources-header">
-        <h4>${translate('sources-found')} (${sortedSources.length})</h4>
-        <div class="sources-toggle">${translate('show-sources')}</div>
-      </div>
-      <div class="sources-content" style="display: none;"></div>
-    `;
-    
-    // Add sources container after the answer
-    const answerElement = document.getElementById(answerId);
-    answerElement.after(sourcesContainer);
-    
-    // Get the sources content container
-    const sourcesContent = sourcesContainer.querySelector('.sources-content');
-    
-    // Add toggle functionality
-    const sourcesToggle = sourcesContainer.querySelector('.sources-toggle');
-    sourcesToggle.addEventListener('click', function() {
-      const isHidden = sourcesContent.style.display === 'none';
+    try {
+      // Sort sources by similarity score
+      const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
       
-      // Toggle the content display
-      sourcesContent.style.display = isHidden ? 'block' : 'none';
+      // Create a sources container
+      const sourcesContainer = document.createElement('div');
+      sourcesContainer.className = 'sources-container';
+      sourcesContainer.innerHTML = `
+        <div class="sources-header">
+          <h4>${translate('sources-found')} (${sortedSources.length})</h4>
+          <div class="sources-toggle">${translate('show-sources')}</div>
+        </div>
+        <div class="sources-content" style="display: none;"></div>
+      `;
       
-      // Update the toggle text
-      this.textContent = isHidden ? translate('hide-sources') : translate('show-sources');
-      
-      // Scroll into view if showing
-      if (isHidden) {
-        setTimeout(() => {
-          sourcesContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
+      // Add sources container after the answer
+      if (messageElement && messageElement.parentNode) {
+        messageElement.parentNode.insertBefore(sourcesContainer, messageElement.nextSibling);
+      } else {
+        console.warn('Could not find messageElement parent for sources, adding to messages container');
+        messagesContainer.appendChild(sourcesContainer);
       }
-    });
-    
-    // Display top sources
-    const sourceLimit = Math.min(sortedSources.length, 3); // Limit to top 3 sources
-    const topSources = sortedSources.slice(0, sourceLimit);
-    
-    // Add sources to the content container
-    topSources.forEach((source, index) => {
-      const sourceElement = createSourceElement(source, index);
-      sourcesContent.appendChild(sourceElement);
-    });
-    
-    // If there are more sources, add a "View all sources" button
-    if (sortedSources.length > sourceLimit) {
-      const viewAllButton = document.createElement('button');
-      viewAllButton.className = 'view-all-sources';
-      viewAllButton.textContent = `${translate('view-all-sources')} (${sortedSources.length})`;
-      viewAllButton.addEventListener('click', function() {
-        // Clear existing sources
-        sourcesContent.innerHTML = '';
+      
+      // Get the sources content container
+      const sourcesContent = sourcesContainer.querySelector('.sources-content');
+      
+      // Add toggle functionality
+      const sourcesToggle = sourcesContainer.querySelector('.sources-toggle');
+      sourcesToggle.addEventListener('click', function() {
+        const isHidden = sourcesContent.style.display === 'none';
         
-        // Add all sources
-        sortedSources.forEach((source, index) => {
-          const sourceElement = createSourceElement(source, index);
-          sourcesContent.appendChild(sourceElement);
-        });
+        // Toggle the content display
+        sourcesContent.style.display = isHidden ? 'block' : 'none';
         
-        // Remove self
-        this.remove();
+        // Update the toggle text
+        this.textContent = isHidden ? translate('hide-sources') : translate('show-sources');
+        
+        // Scroll into view if showing
+        if (isHidden) {
+          setTimeout(() => {
+            sourcesContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
       });
       
-      sourcesContent.appendChild(viewAllButton);
-    }
-    
-    // Add a "continue conversation" hint if this is the first answer
-    if (conversationHistory.length <= 2) {
-      const continueHint = document.createElement('div');
-      continueHint.className = 'continue-hint';
-      continueHint.innerHTML = `<p><em>${translate('continue-conversation')}</em></p>`;
-      messagesContainer.appendChild(continueHint);
+      // Display top sources
+      const sourceLimit = Math.min(sortedSources.length, 3); // Limit to top 3 sources
+      const topSources = sortedSources.slice(0, sourceLimit);
+      
+      // Add sources to the content container
+      topSources.forEach((source, index) => {
+        const sourceElement = createSourceElement(source, index);
+        sourcesContent.appendChild(sourceElement);
+      });
+      
+      // If there are more sources, add a "View all sources" button
+      if (sortedSources.length > sourceLimit) {
+        const viewAllButton = document.createElement('button');
+        viewAllButton.className = 'view-all-sources';
+        viewAllButton.textContent = `${translate('view-all-sources')} (${sortedSources.length})`;
+        viewAllButton.addEventListener('click', function() {
+          // Clear existing sources
+          sourcesContent.innerHTML = '';
+          
+          // Add all sources
+          sortedSources.forEach((source, index) => {
+            const sourceElement = createSourceElement(source, index);
+            sourcesContent.appendChild(sourceElement);
+          });
+          
+          // Remove self
+          this.remove();
+        });
+        
+        sourcesContent.appendChild(viewAllButton);
+      }
+      
+      // Add a "continue conversation" hint if this is the first answer
+      if (conversationHistory.length <= 2) {
+        const continueHint = document.createElement('div');
+        continueHint.className = 'continue-hint';
+        continueHint.innerHTML = `<p><em>${translate('continue-conversation')}</em></p>`;
+        messagesContainer.appendChild(continueHint);
+      }
+    } catch (error) {
+      console.error('Error displaying sources:', error);
+      // Continue without displaying sources
     }
   }
 }
@@ -1870,23 +2056,39 @@ function createSourceElement(source, index) {
 }
 
 /**
- * Toggle video display
+ * Toggle video display - FIXED VERSION WITH ERROR HANDLING
  */
 function toggleVideo(button) {
-  const videoEmbed = button.parentElement.nextElementSibling;
-  const isHidden = videoEmbed.style.display === 'none';
-  
-  // Toggle the video display
-  videoEmbed.style.display = isHidden ? 'block' : 'none';
-  
-  // Update the button text
-  button.textContent = isHidden ? translate('hide-video') : translate('watch-video');
-  
-  // Scroll to make video visible if showing
-  if (isHidden) {
-    setTimeout(() => {
-      videoEmbed.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
+  try {
+    if (!button || !button.parentElement) {
+      console.error('Invalid button element for toggleVideo');
+      return;
+    }
+    
+    const videoEmbed = button.parentElement.nextElementSibling;
+    if (!videoEmbed || !videoEmbed.classList.contains('video-embed')) {
+      console.error('Could not find video embed element');
+      return;
+    }
+    
+    const isHidden = videoEmbed.style.display === 'none';
+    
+    // Toggle the video display
+    videoEmbed.style.display = isHidden ? 'block' : 'none';
+    
+    // Update the button text safely
+    const hideText = typeof translate === 'function' ? translate('hide-video') : 'Hide Video';
+    const showText = typeof translate === 'function' ? translate('watch-video') : 'Watch Video';
+    button.textContent = isHidden ? hideText : showText;
+    
+    // Scroll to make video visible if showing
+    if (isHidden) {
+      setTimeout(() => {
+        videoEmbed.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  } catch (error) {
+    console.error('Error in toggleVideo:', error);
   }
 }
 
@@ -2262,38 +2464,48 @@ function searchTranscript(query, transcriptContent) {
 }
 
 /**
- * Toggle transcript visibility and load if needed
+ * Toggle transcript visibility and load if needed - FIXED VERSION
  */
 function toggleTranscript(videoId, startTime = 0) {
-  const transcriptContainer = document.getElementById(`transcript-${videoId}`);
-  const button = document.querySelector(`.view-transcript-btn[onclick="toggleTranscript('${videoId}')"]`) ||
-                document.querySelector(`.view-transcript-btn[onclick="toggleTranscript('${videoId}', ${startTime})"]`);
-  
-  if (!transcriptContainer) {
-    // Transcript hasn't been loaded yet, fetch it
-    fetchTranscript(videoId, startTime);
-    // Update button text if found
-    if (button) {
-      button.textContent = translate('hide-transcript');
+  try {
+    if (!videoId) {
+      console.error('Invalid videoId for toggleTranscript');
+      return;
     }
-    return;
-  }
-  
-  // Toggle visibility
-  const isHidden = transcriptContainer.style.display === 'none';
-  transcriptContainer.style.display = isHidden ? 'block' : 'none';
-  
-  // Update button text
-  if (button) {
-    button.textContent = isHidden ? translate('hide-transcript') : translate('view-transcript');
-  }
-  
-  // Scroll into view if showing
-  if (isHidden) {
-    setTimeout(() => {
-      transcriptContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
+    
+    const transcriptContainer = document.getElementById(`transcript-${videoId}`);
+    const button = document.querySelector(`.view-transcript-btn[onclick*="toggleTranscript('${videoId}')"]`);
+    
+    if (!transcriptContainer) {
+      // Transcript hasn't been loaded yet, fetch it
+      fetchTranscript(videoId, startTime);
+      // Update button text if found
+      if (button) {
+        button.textContent = typeof translate === 'function' ? 
+          translate('hide-transcript') : 'Hide Transcript';
+      }
+      return;
+    }
+    
+    // Toggle visibility
+    const isHidden = transcriptContainer.style.display === 'none';
+    transcriptContainer.style.display = isHidden ? 'block' : 'none';
+    
+    // Update button text
+    if (button) {
+      const hideText = typeof translate === 'function' ? translate('hide-transcript') : 'Hide Transcript';
+      const showText = typeof translate === 'function' ? translate('view-transcript') : 'View Transcript';
+      button.textContent = isHidden ? hideText : showText;
+    }
+    
+    // Scroll into view if showing
+    if (isHidden) {
+      setTimeout(() => {
+        transcriptContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  } catch (error) {
+    console.error('Error in toggleTranscript:', error);
   }
 }
-
 </script>
