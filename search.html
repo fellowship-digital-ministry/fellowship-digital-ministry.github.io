@@ -37,8 +37,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     
     <div class="chat-controls">
       <form id="chatForm" class="chat-form">
-        <input type="text" id="queryInput" class="chat-input" data-i18n-placeholder="what-does-pastor-teach" required>
-        <button type="submit" class="chat-button" data-i18n="send">Send</button>
+        <input type="text" id="queryInput" class="chat-input" placeholder="Ask a question about the sermons..." required>        <button type="submit" class="chat-button" data-i18n="send">Send</button>
       </form>
       <div class="conversation-controls">
         <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear Conversation</button>
@@ -1103,17 +1102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     chatForm.addEventListener('submit', handleSubmit);
     
-    if (queryInput) {
-      // Add placeholder text cycling
-      setupPlaceholderCycling(queryInput, getTranslatedQueries());
-      
-      queryInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          chatForm.dispatchEvent(new Event('submit'));
-        }
-      });
-      
+    
       // Focus the input field on page load
       setTimeout(() => queryInput.focus(), 500);
     }
