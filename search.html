@@ -1911,7 +1911,638 @@ function formatSermonTitle(title) {
 /**
  * Display the answer and sources from the API - FIXED VERSION
  */
+
+ /**
+ * Enhanced Conversational Fallback System for Sermon Search
+ * 
+ * This system activates when no direct sermon content is found,
+ * enabling a more human-like chat experience while still guiding
+ * users toward sermon content.
+ */
+
+// Topic categories to help classify questions
+const SERMON_TOPICS = [
+"prayer", "faith", "forgiveness", "salvation", "holy spirit",
+"discipleship", "worship", "evangelism", "relationships", "suffering",
+"biblical interpretation", "theology", "christian living", "spiritual growth"
+];
+
+/**
+* Main handler for conversation mode
+* Call this when the API returns no sermon content
+*/
+function handleConversationFallback(query, conversationHistory) {
+// Extract topics from the current query
+const queryTopics = extractTopics(query, SERMON_TOPICS);
+
+// Extract topics from previous responses that had sermon content
+const previousSermonTopics = extractPreviousSermonTopics(conversationHistory);
+
+// Analyze conversation to determine the best fallback strategy
+const fallbackStrategy = determineFallbackStrategy(query, conversationHistory, queryTopics, previousSermonTopics);
+
+// Generate the appropriate fallback response
+return generateFallbackResponse(query, conversationHistory, fallbackStrategy, queryTopics, previousSermonTopics);
+}
+
+/**
+* Extract topics from the query text
+*/
+function extractTopics(text, topicList) {
+const foundTopics = [];
+const lowerText = text.toLowerCase();
+
+// Check for explicit topic mentions
+topicList.forEach(topic => {
+  if (lowerText.includes(topic.toLowerCase())) {
+    foundTopics.push(topic);
+  }
+});
+
+// Check for related words/synonyms
+const topicSynonyms = {
+  "prayer": ["praying", "pray", "intercession", "supplication"],
+  "faith": ["belief", "trust", "believing", "faithful"],
+  "forgiveness": ["forgiving", "forgive", "pardon", "mercy"],
+  "relationships": ["marriage", "family", "parenting", "friendship"]
+  // Add more synonyms as needed
+};
+
+// Check for synonyms
+Object.entries(topicSynonyms).forEach(([topic, synonyms]) => {
+  if (!foundTopics.includes(topic)) {
+    for (const synonym of synonyms) {
+      if (lowerText.includes(synonym.toLowerCase())) {
+        foundTopics.push(topic);
+        break;
+      }
+    }
+  }
+});
+
+return foundTopics;
+}
+
+/**
+* Extract topics from previous sermon content
+*/
+function extractPreviousSermonTopics(conversationHistory) {
+const topics = [];
+
+// Look through past assistant responses for sermon content
+for (let i = conversationHistory.length - 1; i >= 0; i--) {
+  const message = conversationHistory[i];
+  
+  // Only process assistant messages
+  if (message.role === 'assistant') {
+    // Skip messages that indicate no sermon content was found
+    if (message.content.includes("No relevant sermon content found")) {
+      continue;
+    }
+    
+    // Extract topics from the message content
+    SERMON_TOPICS.forEach(topic => {
+      if (message.content.toLowerCase().includes(topic.toLowerCase()) && !topics.includes(topic)) {
+        topics.push(topic);
+      }
+    });
+  }
+}
+
+return topics;
+}
+
+/**
+* Determine the appropriate fallback strategy
+*/
+function determineFallbackStrategy(query, conversationHistory, queryTopics, previousSermonTopics) {
+// Default strategy
+let strategy = "suggest_related";
+
+// Check if this is a clarification question about previous content
+if (isClarificationQuestion(query, conversationHistory)) {
+  strategy = "clarify_previous";
+}
+// Check if this is a follow-up question to previous content
+else if (isFollowUpQuestion(query, conversationHistory)) {
+  strategy = "follow_up";
+}
+// Check if we should suggest related topics
+else if (queryTopics.length > 0) {
+  strategy = "suggest_related";
+}
+// If completely new topic with no relation to previous, suggest search refinement
+else {
+  strategy = "refine_search";
+}
+
+return strategy;
+}
+
+/**
+* Check if the query is asking for clarification about previous content
+*/
+function isClarificationQuestion(query, conversationHistory) {
+const clarificationPatterns = [
+  "what do you mean", "can you explain", "what does that mean",
+  "could you clarify", "i don't understand", "please explain",
+  "what is meant by", "what are you saying", "how does that work"
+];
+
+const lowerQuery = query.toLowerCase();
+
+// Check for clarification phrases
+for (const pattern of clarificationPatterns) {
+  if (lowerQuery.includes(pattern)) {
+    return true;
+  }
+}
+
+// Check if question refers to previous content
+const referencePatterns = ["you said", "you mentioned", "that sermon", "the pastor said"];
+for (const pattern of referencePatterns) {
+  if (lowerQuery.includes(pattern)) {
+    return true;
+  }
+}
+
+return false;
+}
+
+/**
+* Check if the query is a follow-up to previous content
+*/
+function isFollowUpQuestion(query, conversationHistory) {
+if (conversationHistory.length < 2) return false;
+
+const lowerQuery = query.toLowerCase();
+
+// Check for follow-up indicators
+const followUpPatterns = [
+  "more about", "tell me more", "elaborate", "and what about",
+  "what else", "in addition", "furthermore", "also", "too", "as well"
+];
+
+for (const pattern of followUpPatterns) {
+  if (lowerQuery.includes(pattern)) {
+    return true;
+  }
+}
+
+// Check if it's related to the last topic discussed
+const lastResponse = findLastSermonResponse(conversationHistory);
+if (lastResponse) {
+  const lastResponseTopics = extractTopics(lastResponse, SERMON_TOPICS);
+  const queryTopics = extractTopics(query, SERMON_TOPICS);
+  
+  // If there's topic overlap, it's likely a follow-up
+  for (const topic of queryTopics) {
+    if (lastResponseTopics.includes(topic)) {
+      return true;
+    }
+  }
+}
+
+return false;
+}
+
+/**
+* Find the last response that contained sermon content
+*/
+function findLastSermonResponse(conversationHistory) {
+for (let i = conversationHistory.length - 1; i >= 0; i--) {
+  const message = conversationHistory[i];
+  if (message.role === 'assistant' && !message.content.includes("No relevant sermon content found")) {
+    return message.content;
+  }
+}
+return null;
+}
+
+/**
+* Generate a conversational fallback response based on the determined strategy
+*/
+function generateFallbackResponse(query, conversationHistory, strategy, queryTopics, previousSermonTopics) {
+let response = "";
+
+switch (strategy) {
+  case "clarify_previous":
+    response = generateClarificationResponse(query, conversationHistory);
+    break;
+  case "follow_up":
+    response = generateFollowUpResponse(query, conversationHistory, queryTopics);
+    break;
+  case "suggest_related":
+    response = generateRelatedTopicsResponse(query, queryTopics, previousSermonTopics);
+    break;
+  case "refine_search":
+    response = generateSearchRefinementResponse(query);
+    break;
+  default:
+    response = generateGenericFallbackResponse(query);
+}
+
+return response;
+}
+
+/**
+* Generate a response to clarify previous content
+*/
+function generateClarificationResponse(query, conversationHistory) {
+const lastResponse = findLastSermonResponse(conversationHistory);
+if (!lastResponse) {
+  return generateGenericFallbackResponse(query);
+}
+
+// Extract topic of the clarification
+const topics = extractTopics(query, SERMON_TOPICS);
+let topicPhrase = topics.length > 0 ? 
+  `about ${topics.join(" and ")}` : 
+  "on that topic";
+
+return `I don't have specific sermon content that addresses your question ${topicPhrase}. 
+
+From the previous sermon content we discussed, the pastor focused more on the practical application rather than detailed explanations. Would you like me to suggest a different aspect of this topic that might be covered in the sermons? Or perhaps you could rephrase your question to focus on a specific biblical passage or practical application?`;
+}
+
+/**
+* Generate a response that follows up on previous content
+*/
+function generateFollowUpResponse(query, conversationHistory, queryTopics) {
+// Get topic from query or from previous conversation
+const topicPhrase = queryTopics.length > 0 ? 
+  queryTopics.join(" and ") : 
+  "that specific aspect";
+
+return `I couldn't find sermon content that specifically addresses ${topicPhrase} in relation to your follow-up question. 
+
+The pastor may have covered this in other sermons not in our current database. Would you like me to help you explore a related topic that is covered in the sermons? For example, I could search for sermon content about the biblical foundations or practical applications related to this topic.`;
+}
+
+/**
+* Generate a response suggesting related topics
+*/
+function generateRelatedTopicsResponse(query, queryTopics, previousSermonTopics) {
+// Combine query topics with previous topics, removing duplicates
+const allTopics = [...new Set([...queryTopics, ...previousSermonTopics])];
+
+// Generate related topics based on current topics
+const relatedTopics = generateRelatedTopics(allTopics);
+
+// Create a list of suggested search terms
+const suggestedSearches = relatedTopics.map(topic => {
+  if (queryTopics.length > 0) {
+    return `"${queryTopics[0]} and ${topic}"`;
+  } else {
+    return `"${topic}"`;
+  }
+});
+
+// Format the suggested searches
+const suggestionsText = suggestedSearches.length > 0 ? 
+  `You might want to try searching for:\n- ${suggestedSearches.join("\n- ")}` : 
+  "You might want to try rephrasing your question to focus on specific biblical teachings or practical applications.";
+
+return `I couldn't find sermon content that directly addresses your question about ${queryTopics.join(" and ")}. 
+
+The pastor may have discussed this in other sermons or from a different perspective than how you phrased your question. ${suggestionsText}
+
+Would you like me to search for any of these related topics?`;
+}
+
+/**
+* Generate a response suggesting search refinement
+*/
+function generateSearchRefinementResponse(query) {
+return `I couldn't find sermon content that directly answers your question. The pastor may have addressed this topic using different terminology or approached it from a different angle.
+
+To help me find relevant sermon content, you could:
+- Try using more specific biblical terms
+- Mention a Bible passage you're interested in
+- Ask about practical application of a spiritual principle
+- Focus on a specific aspect of Christian living
+
+Would you like me to help you rephrase your question?`;
+}
+
+/**
+* Generate a generic fallback response when other strategies don't apply
+*/
+function generateGenericFallbackResponse(query) {
+return `I don't have sermon content that directly addresses your question. However, I'd be happy to help you explore other topics from the pastor's teachings.
+
+Here are some topics that are well-covered in the sermon database:
+- Prayer and communication with God
+- Faith and trust in difficult times
+- Biblical interpretation and understanding
+- Practical Christian living
+
+Would you like me to search for sermon content on any of these topics instead?`;
+}
+
+/**
+* Generate related topics based on given topics
+*/
+function generateRelatedTopics(topics) {
+// Topic relationships - what topics are commonly related to others
+const topicRelationships = {
+  "prayer": ["faith", "spiritual disciplines", "hearing from God"],
+  "faith": ["trust", "doubt", "spiritual growth"],
+  "forgiveness": ["reconciliation", "healing", "relationships"],
+  "relationships": ["family", "marriage", "community"],
+  "biblical interpretation": ["theology", "hermeneutics", "Bible study"],
+  "spiritual growth": ["discipleship", "maturity", "sanctification"]
+  // Add more relationships as needed
+};
+
+const relatedTopics = [];
+
+// Find related topics based on the topic relationships
+topics.forEach(topic => {
+  if (topicRelationships[topic]) {
+    topicRelationships[topic].forEach(relatedTopic => {
+      if (!topics.includes(relatedTopic) && !relatedTopics.includes(relatedTopic)) {
+        relatedTopics.push(relatedTopic);
+      }
+    });
+  }
+});
+
+// If we still don't have enough related topics, add some general ones
+if (relatedTopics.length < 3) {
+  const generalTopics = ["prayer", "faith", "biblical teaching", "spiritual growth"];
+  generalTopics.forEach(topic => {
+    if (!topics.includes(topic) && !relatedTopics.includes(topic)) {
+      relatedTopics.push(topic);
+    }
+  });
+}
+
+// Return at most 3 related topics
+return relatedTopics.slice(0, 3);
+}
+
+/**
+* Modified displayAnswer function that integrates conversation fallback
+*/
 function displayAnswer(data) {
+if (!data || !data.answer) {
+  console.error('Invalid data received from API');
+  addMessage("Sorry, I received an invalid response from the API. Please try again.", 'bot');
+  return;
+}
+
+// Check if there are any sermon sources
+const hasSermonContent = data.sources && data.sources.length > 0;
+
+// If no sermon content was found but we have conversation history
+if (!hasSermonContent && data.answer.includes("No relevant sermon content found") && conversationHistory.length > 0) {
+  
+  // Generate a conversational response instead
+  const conversationalResponse = handleConversationFallback(
+    data.query, 
+    conversationHistory
+  );
+  
+  // Display the conversational response
+  const messageElement = addMessage(conversationalResponse, 'bot');
+  
+  // Add to conversation history
+  conversationHistory.push({ 
+    role: 'assistant', 
+    content: conversationalResponse 
+  });
+  
+  return;
+}
+
+// Regular processing for when sermon content is found
+const messageElement = addMessage(data.answer, 'bot');
+
+// Display sources if available
+if (hasSermonContent) {
+  try {
+    // Sort sources by similarity score
+    const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
+    
+    // Create a sources container
+    const sourcesContainer = document.createElement('div');
+    sourcesContainer.className = 'sources-container';
+    sourcesContainer.innerHTML = `
+      <div class="sources-header">
+        <h4>${translate('sources-found')} (${sortedSources.length})</h4>
+        <div class="sources-toggle">${translate('show-sources')}</div>
+      </div>
+      <div class="sources-content" style="display: none;"></div>
+    `;
+    
+    // Add sources container after the answer
+    if (messageElement && messageElement.parentNode) {
+      messageElement.parentNode.insertBefore(sourcesContainer, messageElement.nextSibling);
+    } else {
+      console.warn('Could not find messageElement parent for sources, adding to messages container');
+      messagesContainer.appendChild(sourcesContainer);
+    }
+    
+    // Get the sources content container
+    const sourcesContent = sourcesContainer.querySelector('.sources-content');
+    
+    // Add toggle functionality
+    const sourcesToggle = sourcesContainer.querySelector('.sources-toggle');
+    sourcesToggle.addEventListener('click', function() {
+      const isHidden = sourcesContent.style.display === 'none';
+      
+      // Toggle the content display
+      sourcesContent.style.display = isHidden ? 'block' : 'none';
+      
+      // Update the toggle text
+      this.textContent = isHidden ? translate('hide-sources') : translate('show-sources');
+      
+      // Scroll into view if showing
+      if (isHidden) {
+        setTimeout(() => {
+          sourcesContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    });
+    
+    // Display top sources
+    const sourceLimit = Math.min(sortedSources.length, 3); // Limit to top 3 sources
+    const topSources = sortedSources.slice(0, sourceLimit);
+    
+    // Add sources to the content container
+    topSources.forEach((source, index) => {
+      const sourceElement = createSourceElement(source, index);
+      sourcesContent.appendChild(sourceElement);
+    });
+    
+    // If there are more sources, add a "View all sources" button
+    if (sortedSources.length > sourceLimit) {
+      const viewAllButton = document.createElement('button');
+      viewAllButton.className = 'view-all-sources';
+      viewAllButton.textContent = `${translate('view-all-sources')} (${sortedSources.length})`;
+      viewAllButton.addEventListener('click', function() {
+        // Clear existing sources
+        sourcesContent.innerHTML = '';
+        
+        // Add all sources
+        sortedSources.forEach((source, index) => {
+          const sourceElement = createSourceElement(source, index);
+          sourcesContent.appendChild(sourceElement);
+        });
+        
+        // Remove self
+        this.remove();
+      });
+      
+      sourcesContent.appendChild(viewAllButton);
+    }
+    
+    // Add a "continue conversation" hint if this is the first answer
+    if (conversationHistory.length <= 2) {
+      const continueHint = document.createElement('div');
+      continueHint.className = 'continue-hint';
+      continueHint.innerHTML = `<p><em>${translate('continue-conversation')}</em></p>`;
+      messagesContainer.appendChild(continueHint);
+    }
+  } catch (error) {
+    console.error('Error displaying sources:', error);
+    // Continue without displaying sources
+  }
+}
+}
+
+/**
+* Modified handleSubmit function to integrate with the new conversation features
+*/
+async function handleSubmit(event) {
+event.preventDefault();
+console.log('Form submitted');
+
+const query = queryInput.value.trim();
+if (!query) {
+  console.log('Empty query, ignoring');
+  return;
+}
+
+// Add user message to the chat
+addMessage(query, 'user');
+
+// Add to conversation history
+conversationHistory.push({ role: 'user', content: query });
+
+// Limit history length
+if (conversationHistory.length > MAX_MEMORY_LENGTH * 2) {
+  conversationHistory = conversationHistory.slice(-MAX_MEMORY_LENGTH * 2);
+}
+
+// Clear input field
+queryInput.value = '';
+
+// Add typing indicator
+const typingId = addTypingIndicator();
+
+try {
+  // Check API connection first
+  const isConnected = await verifyApiConnection(false);
+  
+  if (!isConnected) {
+    removeMessage(typingId);
+    addMessage(`
+      <div class="connection-error">
+        <p>${translate('connection-error')}</p>
+        <button class="retry-button">${translate('retry')}</button>
+      </div>
+    `, 'bot', true);
+    
+    // Add click handler for retry button
+    document.querySelector('.retry-button').addEventListener('click', function() {
+      verifyApiConnection(true);
+    });
+    
+    return;
+  }
+  
+  // Send request to API with conversation history for context
+  const url = `${API_URL}/answer`;
+  console.log('Sending request to:', url);
+  
+  // Create API request payload
+  const payload = {
+    query: query,
+    top_k: 5,
+    include_sources: true,
+    language: currentLanguage // Send language preference to API
+  };
+  
+  // Add conversation history if available
+  if (conversationHistory.length > 1) {
+    payload.conversation_history = conversationHistory.slice(0, -1); // Exclude current query
+  }
+  
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Origin': window.location.origin,
+      'Accept-Language': currentLanguage // Language header
+    },
+    mode: 'cors',
+    body: JSON.stringify(payload)
+  });
+  
+  if (!response.ok) {
+    console.error('API Error:', response.status, response.statusText);
+    throw new Error(`API request failed with status ${response.status}`);
+  }
+  
+  const data = await response.json();
+  console.log('Received response:', data);
+  
+  // Remove typing indicator
+  removeMessage(typingId);
+  
+  // Display AI response (with conversation fallback if needed)
+  displayAnswer(data);
+  
+  // Add to conversation history only if we showed sermon content
+  // If we used the conversation fallback, we already added to history there
+  if (data.sources && data.sources.length > 0) {
+    conversationHistory.push({ role: 'assistant', content: data.answer });
+  }
+  
+  // Check if there was a previous message to connect this one with
+  const messages = messagesContainer.querySelectorAll('.message.bot:not(.typing-indicator)');
+  if (messages.length > 1) {
+    // Mark the previous bot message as having a follow-up
+    messages[messages.length - 2].classList.add('followed-up');
+  }
+  
+} catch (error) {
+  console.error('Error:', error);
+  
+  // Remove typing indicator
+  removeMessage(typingId);
+  
+  // Show error message with retry option
+  addMessage(`
+    <div class="error-container">
+      <p>Sorry, there was an error processing your question (${error.message}).</p>
+      <button class="retry-button">${translate('try-again')}</button>
+    </div>
+  `, 'bot', true);
+  
+  // Add click handler for retry button
+  document.querySelector('.retry-button').addEventListener('click', function() {
+    // Put the query back in the input
+    queryInput.value = query;
+    // Focus the input
+    queryInput.focus();
+  });
+}
+}
+
   if (!data || !data.answer) {
     console.error('Invalid data received from API');
     addMessage("Sorry, I received an invalid response from the API. Please try again.", 'bot');
