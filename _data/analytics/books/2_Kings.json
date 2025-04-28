@@ -1,0 +1,39 @@
+{
+  "book": "2 Kings",
+  "sermons": [
+    {
+      "sermon_id": "MPv8bPsuptg",
+      "sermon_title": "Sermon MPv8bPsuptg",
+      "url": "https://www.youtube.com/watch?v=MPv8bPsuptg",
+      "publish_date": "2025-04-28",
+      "occurrences": [
+        {
+          "reference": "2 Kings 6",
+          "sermon_id": "MPv8bPsuptg",
+          "timestamp": 1332.3599853515625,
+          "context": "...that? Well, we see what happens in Egypt during this great famine. We see what happens in Israel in 2 Kings 6. We understand what's going to happen in Revelation 13. And as we begin to think about our lives an..."
+        }
+      ]
+    },
+    {
+      "sermon_id": "Wiu68PR_4NQ",
+      "sermon_title": "Sermon Wiu68PR_4NQ",
+      "url": "https://www.youtube.com/watch?v=Wiu68PR_4NQ",
+      "publish_date": "2025-04-28",
+      "occurrences": [
+        {
+          "reference": "2 Kings 8",
+          "sermon_id": "Wiu68PR_4NQ",
+          "timestamp": 2090.02001953125,
+          "context": "...gave him favor, the Lord preserved him withersoever he went, the Bible tells us, but it tells us in 2 Kings 8 and verse 14, that Edom, that David put garrisons in Edom and all they of Edom became David's serva..."
+        },
+        {
+          "reference": "2 Kings 8",
+          "sermon_id": "Wiu68PR_4NQ",
+          "timestamp": 2146.740020751953,
+          "context": "...gave him favor, the Lord preserved him withersoever he went, the Bible tells us, but it tells us in 2 Kings 8 and verse 14, that Edom, that David put garrisons in Edom and all they of Edom became David's serva..."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "book": "Ezekiel",
+  "sermons": [
+    {
+      "sermon_id": "d7fsLPs8FTY",
+      "sermon_title": "Sermon d7fsLPs8FTY",
+      "url": "https://www.youtube.com/watch?v=d7fsLPs8FTY",
+      "publish_date": "2025-04-28",
+      "occurrences": [
+        {
+          "reference": "Ezekiel 48",
+          "sermon_id": "d7fsLPs8FTY",
+          "timestamp": 2191.800018310547,
+          "context": "...udy the Scriptures, okay, well, Dan's not here and Dan's not here, but then Dan's over here. And in Ezekiel 48, verses 1 and 2, in fact, you can look at Ezekiel. It's very interesting, the lots of land that are..."
+        }
+      ]
+    },
+    {
+      "sermon_id": "Wiu68PR_4NQ",
+      "sermon_title": "Sermon Wiu68PR_4NQ",
+      "url": "https://www.youtube.com/watch?v=Wiu68PR_4NQ",
+      "publish_date": "2025-04-28",
+      "occurrences": [
+        {
+          "reference": "Ezekiel 25",
+          "sermon_id": "Wiu68PR_4NQ",
+          "timestamp": 2274.040008544922,
+          "context": "... the plagues thereof. The Bible says very similarly in the book of Ezekiel, look over, if you will, Ezekiel 25. In Ezekiel 25, in verses 12 through 14, we read this judgment that is given again in this portion ..."
+        },
+        {
+          "reference": "Ezekiel 25",
+          "sermon_id": "Wiu68PR_4NQ",
+          "timestamp": 2274.040008544922,
+          "context": "... the plagues thereof. The Bible says very similarly in the book of Ezekiel, look over, if you will, Ezekiel 25. In Ezekiel 25, in verses 12 through 14, we read this judgment that is given again in this portion ..."
+        }
+      ]
+    }
+  ]
+}
