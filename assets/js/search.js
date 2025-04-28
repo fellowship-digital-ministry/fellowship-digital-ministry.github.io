@@ -2,9 +2,7 @@
 ---
 /**
  * Enhanced Search functionality for the sermon chat interface
- * - Improved HTML rendering
- * - Better source display
- * - Enhanced error handling
+ * With improved metadata display for sermon titles and dates
  */
 
 // Constants
@@ -23,21 +21,31 @@ const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Ju
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-  chatForm.addEventListener('submit', handleSubmit);
-  queryInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      chatForm.dispatchEvent(new Event('submit'));
+  // Check if the form exists on this page before attaching events
+  if (chatForm) {
+    console.log('Chat form found and initialized');
+    
+    chatForm.addEventListener('submit', handleSubmit);
+    
+    if (queryInput) {
+      queryInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          chatForm.dispatchEvent(new Event('submit'));
+        }
+      });
     }
-  });
-  
-  // Add retry connection button handler
-  if (retryConnectionButton) {
-    retryConnectionButton.addEventListener('click', verifyApiConnection);
+    
+    // Add retry connection button handler
+    if (retryConnectionButton) {
+      retryConnectionButton.addEventListener('click', verifyApiConnection);
+    }
+    
+    // Verify API connection on page load
+    verifyApiConnection();
+  } else {
+    console.log('Chat form not found on this page');
   }
-  
-  // Verify API connection on page load
-  verifyApiConnection();
 });
 
 /**
@@ -85,6 +93,9 @@ async function verifyApiConnection() {
  */
 async function handleSubmit(event) {
   event.preventDefault();
+  
+  // Log that handle submit was called
+  console.log('Handle submit called');
   
   const query = queryInput.value.trim();
   if (!query) return;
@@ -209,6 +220,69 @@ function removeMessage(id) {
 }
 
 /**
+ * Format a date string from various possible formats
+ */
+function formatSermonDate(dateStr) {
+  if (!dateStr) return 'Date unknown';
+  
+  try {
+    // Handle YYYYMMDD format (common in the metadata)
+    if (typeof dateStr === 'number' || (typeof dateStr === 'string' && /^\d{8}$/.test(dateStr))) {
+      const yearStr = String(dateStr).substring(0, 4);
+      const monthStr = String(dateStr).substring(4, 6);
+      const dayStr = String(dateStr).substring(6, 8);
+      
+      const year = parseInt(yearStr);
+      const month = parseInt(monthStr) - 1; // JavaScript months are 0-indexed
+      const day = parseInt(dayStr);
+      
+      const date = new Date(year, month, day);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      });
+    }
+    
+    // Handle ISO date strings
+    if (typeof dateStr === 'string' && dateStr.includes('-')) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      });
+    }
+    
+    // Handle timestamp
+    if (typeof dateStr === 'number') {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      });
+    }
+    
+    // Return as is if we can't parse it
+    return dateStr;
+  } catch (e) {
+    console.error(`Error parsing date: ${dateStr}`, e);
+    return 'Date unknown';
+  }
+}
+
+/**
+ * Clean and format sermon title
+ */
+function formatSermonTitle(title) {
+  if (!title) return 'Unknown Sermon';
+  
+  // Remove quotes that might be in the title
+  return title.replace(/^["']|["']$/g, '');
+}
+
+/**
  * Display the answer and sources from the API
  */
 function displayAnswer(data) {
@@ -231,7 +305,7 @@ function displayAnswer(data) {
 }
 
 /**
- * Display a source with video embed
+ * Display a source with video embed and enhanced metadata
  */
 function displaySource(source, index) {
   const sourceElement = document.createElement('div');
@@ -240,14 +314,26 @@ function displaySource(source, index) {
   const similarity = Math.round(source.similarity * 100);
   const videoUrl = `https://www.youtube.com/embed/${source.video_id}?start=${Math.floor(source.start_time)}`;
   
+  // Format title and date for display
+  const formattedTitle = formatSermonTitle(source.title);
+  const formattedDate = formatSermonDate(source.publish_date);
+  
   sourceElement.innerHTML = `
-    <div class="source-title">${escapeHTML(source.title || 'Sermon excerpt')}</div>
+    <div class="source-header">
+      <div class="source-title">${escapeHTML(formattedTitle)}</div>
+      <div class="source-date">${formattedDate}</div>
+    </div>
     <div class="source-text">"${formatText(source.text.substring(0, 150))}${source.text.length > 150 ? '...' : ''}"</div>
     <div class="source-meta">
       <span class="source-time">Timestamp: ${formatTimestamp(source.start_time)}</span>
       <span class="source-match">${similarity}% match</span>
     </div>
     <iframe class="video-embed" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen height="215"></iframe>
+    <div class="source-link-container">
+      <a href="https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}" target="_blank" class="source-link">
+        Watch on YouTube
+      </a>
+    </div>
   `;
   
   messagesContainer.appendChild(sourceElement);
