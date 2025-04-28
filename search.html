@@ -1,39 +1,59 @@
 ---
 layout: default
 title: Chat about Sermons
-hero: true
-hero_title: Chat about Sermons
+hero_banner: true
+hero_title: CHAT ABOUT SERMONS
+hero_subtitle: EXPLORE BIBLICAL TEACHINGS
 hero_description: Ask questions about sermon content and get AI-generated answers based on the sermon library.
+quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World"
 custom_js: search
 ---
 
-<div class="chat-container">
-  <div id="api-status-banner" style="display: none; background-color: #ffebee; color: #c62828; padding: 8px 12px; text-align: center; font-size: 14px;">
-    <span id="api-status-message">API connection issue detected. Check console for details.</span>
-    <button id="retry-connection" style="margin-left: 10px; background: #c62828; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">Retry</button>
-  </div>
-
-  <div id="messages" class="messages">
-    <div class="message bot">
-      Welcome! Ask any question about the pastor's sermons, and I'll provide an answer based on the sermon content.
-    </div>
-  </div>
-  
-  <form id="chatForm" class="chat-form">
-    <input type="text" id="queryInput" class="chat-input" placeholder="What does the pastor teach about faith?" required>
-    <button type="submit" class="chat-button">Send</button>
-  </form>
-</div>
-
 <div class="container">
-  <div class="info-section">
-    <h3>How to use this tool</h3>
-    <p>This search tool uses AI to find and present relevant information from the pastor's sermons. You can ask questions like:</p>
-    <ul>
-      <li>"What does the pastor teach about prayer?"</li>
-      <li>"How does the pastor interpret John 3:16?"</li>
-      <li>"What are the pastor's views on forgiveness?"</li>
-    </ul>
-    <p>The AI will provide answers based solely on the sermon content and include links to the relevant video segments.</p>
+  <div class="chat-container">
+    <div id="api-status-banner" style="display: none; background-color: #fef2f2; color: #b91c1c; padding: 8px 12px; text-align: center; font-size: 14px; border-bottom: 1px solid #eeeeee;">
+      <span id="api-status-message">API connection issue detected. Check console for details.</span>
+      <button id="retry-connection" style="margin-left: 10px; background: #b91c1c; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">Retry</button>
+    </div>
+
+    <div id="messages" class="messages">
+      <div class="message bot">
+        Welcome! Ask any question about the pastor's sermons, and I'll provide an answer based on the sermon content.
+      </div>
+    </div>
+    
+    <form id="chatForm" class="chat-form">
+      <input type="text" id="queryInput" class="chat-input" placeholder="What does the pastor teach about faith?" required>
+      <button type="submit" class="chat-button">Send</button>
+    </form>
+  </div>
+
+  <div class="info-section content-section">
+    <div class="analytics-card">
+      <h2>How to use this tool</h2>
+      <p class="analytics-description">This search tool uses AI to find and present relevant information from sermons.</p>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="info-box">
+            <h3>Sample Questions</h3>
+            <ul>
+              <li>"What does the pastor teach about prayer?"</li>
+              <li>"How does the pastor interpret John 3:16?"</li>
+              <li>"What are the pastor's views on forgiveness?"</li>
+              <li>"Explain the sermon series on Revelation"</li>
+              <li>"Find references to the Holy Spirit"</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="info-box">
+            <h3>About This Tool</h3>
+            <p>The AI will provide answers based solely on the sermon content and include links to the relevant video segments where available.</p>
+            <p>This tool searches through transcriptions of sermons to find the most relevant content for your questions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

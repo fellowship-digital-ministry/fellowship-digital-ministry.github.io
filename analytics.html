@@ -1,9 +1,11 @@
 ---
 layout: default
 title: Sermon Analytics
-hero: true
-hero_title: Sermon Analytics
-hero_description: Explore insights about Bible references and content from the sermon library.
+hero_banner: true
+hero_title: SERMON ANALYTICS
+hero_subtitle: EXPLORING BIBLICAL INSIGHTS
+hero_description: Discover patterns and insights from the sermon library.
+quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World"
 use_charts: true
 custom_js: analytics-optimized
 ---
@@ -11,7 +13,7 @@ custom_js: analytics-optimized
 <div class="container">
   <div id="loadingSection" class="text-center">
     <div class="loading-spinner"></div>
-    <p>Loading analytics data...</p>
+    <p class="loading-text">Loading analytics data...</p>
   </div>
   
   <div id="analyticsContent" style="display: none;">
@@ -85,8 +87,9 @@ custom_js: analytics-optimized
     <div class="analytics-section">
       <div class="analytics-card">
         <h2>Recent Sermons</h2>
-        <p class="analytics-description">Latest messages added to our library</p>
+        <p class="analytics-description">Latest messages from Fellowship Baptist Church</p>
         <div id="recentSermonsContainer">
+          <div class="loading-spinner"></div>
           <p class="text-center">Loading sermon data...</p>
         </div>
       </div>
@@ -101,6 +104,9 @@ custom_js: analytics-optimized
     </div>
   </div>
 </div>
+
+<!-- Include the simplified recent sermons script -->
+<script src="{{ '/assets/js/simplified-recent-sermons.js' | relative_url }}"></script>
 
 <style>
   .filter-controls {

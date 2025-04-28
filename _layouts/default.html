@@ -11,14 +11,23 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   {% endif %}
 </head>
-<body class="custom-background">
+<body class="{% if page.url == '/' %}home{% endif %}">
   <div class="main-container">
     <div class="logo-container">
-      <img src="{{ '/assets/images/digital-ministry-logo.png' | relative_url }}" alt="Fellowship Digital Ministry" class="digital-ministry-logo">
+      <img src="{{ '/assets/images/digital-ministry-logo.svg' | relative_url }}" alt="Fellowship Digital Ministry" class="digital-ministry-logo">
       <span class="logo-text">Fellowship Digital Ministry</span>
     </div>
     
-    {% include header.html %}
+    <nav>
+      <div class="container">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/search.html' | relative_url }}">Chat about Sermons</a></li>
+          <li><a href="{{ '/analytics.html' | relative_url }}">Analytics</a></li>
+          <li class="ml-auto"><a href="{{ site.church_website }}" target="_blank">Church Website →</a></li>
+        </ul>
+      </div>
+    </nav>
     
     {% if page.hero_banner %}
     <div class="hero" {% if page.hero_image %}style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ page.hero_image | relative_url }}');"{% endif %}>
@@ -42,11 +51,23 @@
     </div>
     {% endif %}
     
-    <main class="container">
+    <main>
       {{ content }}
     </main>
     
-    {% include footer.html %}
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>Fellowship Digital Ministry</h3>
+            <p>A digital resource supporting Fellowship Baptist Church's mission.</p>
+          </div>
+          <div class="footer-links">
+            <a href="{{ site.church_website }}" target="_blank">Visit Church Website →</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   {% if page.custom_js %}
