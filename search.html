@@ -51,19 +51,18 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     <h2 class="content-section-header" data-i18n="how-to-use">How to Use This Tool</h2>
     
     <div class="row">
-      <div class="col-md-6">
-        <div class="content-card">
-          <h3 data-i18n="sample-questions">Sample Questions</h3>
-          <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
-          <ul class="example-questions">
-            <li data-i18n="example-1">"How does a person get to heaven?"</li>
-            <li data-i18n="example-2">"What does the Bible teach about the Trinity?"
-
-            </li>
-            <li data-i18n="example-3">"Why read the King James Bible?"</li>
-            <li data-i18n="example-4">"Who is Pastor's favorite Bible character?"</li>
-            <li data-i18n="example-5">"Find a funny anecdote in these sermons."</li>
-          </ul>
+        <div class="col-md-6">
+          <div class="content-card">
+            <h3 data-i18n="sample-questions">Sample Questions</h3>
+            <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
+            <ul class="example-questions">
+              <li data-i18n="example-1">"How does a person get to heaven?"</li>
+              <li data-i18n="example-2">"What is the Trinity?"</li>
+              <li data-i18n="example-3">"How should Christians live?"</li>
+              <li data-i18n="example-4">"Why read the King James Bible?"</li>
+              <li data-i18n="example-5">"Who is Melchizedek?"</li>
+            </ul>
+          </div>
         </div>
       </div>
       
@@ -1037,6 +1036,34 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   .messages::-webkit-scrollbar-thumb:hover {
       background: #aaa;
   }
+
+  /* Fix for Bible reference tables */
+    .message.bot table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+        table-layout: fixed;
+    }
+    
+    .message.bot th,
+    .message.bot td {
+        border: 1px solid #e2e8f0;
+        padding: 8px 12px;
+        text-align: left;
+        vertical-align: top;
+        word-wrap: break-word;
+    }
+    
+    /* Make tables responsive */
+    @media (max-width: 767px) {
+        .message.bot table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 0.9rem;
+        }
+    }
 </style>
 <script>
  /**
@@ -1082,10 +1109,10 @@ const translations = {
     "sample-questions": "Sample Questions",
     "examples-intro": "Here are some examples of questions you can ask:",
     "example-1": "How does a person get to heaven?",
-    "example-2": "What does the Bible teach about the Trinity?",
-    "example-3": "Why read the King James Bible?",
-    "example-4": "Who is Pastor's favorite Bible character?",
-    "example-5": "Find a funny anecdote in these sermons.",
+    "example-2": "What is the Trinity?",
+    "example-3": "How should Christians live?",
+    "example-4": "Why read the King James Bible?",
+    "example-5": "Who is Melchizedek?",
     "about-tool": "About This Tool",
     "search-explanation": "This search tool uses artificial intelligence to analyze sermon transcripts and provide relevant information.",
     "ai-features": "When you ask a question, the AI will:",
@@ -1132,10 +1159,10 @@ const translations = {
     "sample-questions": "Preguntas de Ejemplo",
     "examples-intro": "Aquí hay algunos ejemplos de preguntas que puede hacer:",
     "example-1": "¿Cómo puede una persona ir al cielo?",
-    "example-2": "¿Qué enseña la Biblia sobre la Trinidad?",
-    "example-3": "¿Por qué leer la Biblia Reina Valera?",
-    "example-4": "¿Cuál es el personaje bíblico favorito del Pastor?",
-    "example-5": "Encuentra una anécdota graciosa en estos sermones.",
+    "example-2": "¿Qué es la Trinidad?",
+    "example-3": "¿Cómo deben vivir los cristianos?",
+    "example-4": "¿Por qué leer la Biblia Reina Valera?",
+    "example-5": "¿Quién es Melquisedec?",
     "about-tool": "Acerca de Esta Herramienta",
     "search-explanation": "Esta herramienta de búsqueda utiliza inteligencia artificial para analizar transcripciones de sermones y proporcionar información relevante.",
     "ai-features": "Cuando hace una pregunta, la IA:",
@@ -1182,10 +1209,10 @@ const translations = {
     "sample-questions": "示例问题",
     "examples-intro": "以下是一些您可以提问的示例问题：",
     "example-1": "一个人如何才能上天堂？",
-    "example-2": "圣经关于三位一体有什么教导？",
-    "example-3": "为什么要读钦定版圣经？",
-    "example-4": "牧师最喜欢的圣经人物是谁？",
-    "example-5": "在这些讲道中找到一个有趣的轶事。",
+    "example-2": "三位一体是什么？",
+    "example-3": "基督徒应该如何生活？",
+    "example-4": "为什么要读钦定版圣经？",
+    "example-5": "麦基洗德是谁？",
     "about-tool": "关于此工具",
     "search-explanation": "这个搜索工具使用人工智能分析讲道文稿并提供相关信息。",
     "ai-features": "当您提出问题时，人工智能将：",
