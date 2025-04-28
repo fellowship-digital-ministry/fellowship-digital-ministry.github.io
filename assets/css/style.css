@@ -14,6 +14,7 @@
     --color-shadow: rgba(0,0,0,0.05);
     --color-error: #e74c3c;
     --color-success: #2ecc71;
+    --color-banner: #36454F; /* Charcoal Gray for banner */
     
     /* Typography */
     --font-sans: 'Open Sans', Arial, sans-serif;
@@ -262,18 +263,12 @@
   /* Hero section */
   .hero {
     padding: var(--space-xxl) 0;
-    background-color: #1a3c5a; /* Navy blue banner by default */
-    background-image: linear-gradient(
-      to bottom,
-      rgba(26, 60, 90, 0.95),
-      rgba(26, 60, 90, 0.9)
-    ), 
-    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-color: var(--color-banner); /* Updated: Charcoal Gray */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
     background-size: cover;
     background-position: center;
     color: white;
     border-bottom: none;
-    box-shadow: inset 0 -10px 10px -10px rgba(0,0,0,0.2);
   }
   
   .hero h1, .hero .hero-description {
@@ -288,8 +283,6 @@
     font-size: 42px;
     text-align: center;
     color: white;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    margin-bottom: 0.5rem;
   }
   
   .hero-subtitle {
@@ -300,15 +293,13 @@
     margin-top: 0.5rem;
     font-size: 24px;
     color: rgba(255,255,255,0.9);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
   
   .hero-description {
     font-size: 16px;
     max-width: 700px;
-    margin: 1.5rem auto 0;
+    margin: 1rem auto 0;
     line-height: 1.7;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   }
   
   /* Quote banner similar to church site */
@@ -326,26 +317,6 @@
     line-height: 1.6;
   }
   
-  /* Styling for pages without hero banner */
-  .page-header {
-    padding: 3rem 0 1.5rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-  
-  .page-header h1 {
-    color: var(--color-heading);
-    font-size: 2.25rem;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-  }
-  
-  .page-header .lead {
-    font-size: 1.125rem;
-    color: var(--color-text);
-    max-width: 700px;
-  }
-  
   /* Section headers to match church site style */
   .section-header {
     color: var(--color-heading);
@@ -353,6 +324,63 @@
     font-weight: 500;
     margin-bottom: 1.5rem;
     text-align: center;
+  }
+  
+  /* Enhanced Section Headers with Visual Interest */
+  .content-section-header {
+    position: relative;
+    margin: 2rem 0 1.5rem;
+    padding-bottom: 0.75rem;
+    color: #36454F;
+    font-size: 1.75rem;
+    font-weight: 600;
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  .content-section-header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-primary);
+  }
+  
+  /* Enhanced Page Introduction */
+  .page-intro {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .page-intro p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  /* Consistent Card Styling */
+  .content-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #eeeeee;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .content-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .content-card h3 {
+    color: #36454F;
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
   }
   
   /* Content section */
@@ -424,170 +452,116 @@
     font-weight: 600;
   }
   
-  /* Streamlined and improved feature cards */
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-  }
-  
+  /* Feature cards */
   .feature-card {
+    margin-bottom: 2rem;
+    padding: var(--space-lg);
     background-color: white;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #eeeeee;
   }
   
   .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+  
+  .feature-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
   }
   
   .feature-icon {
     color: var(--color-primary);
     margin-bottom: 1.5rem;
-    height: 60px;
-    width: 60px;
-    padding: 1rem;
-    background-color: rgba(46, 163, 242, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 48px;
+    width: 48px;
   }
   
-  .feature-card h3 {
-    color: var(--color-heading);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-  
-  .feature-card p {
-    color: var(--color-text);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-  
-  .feature-card .btn {
-    margin-top: auto;
-    min-width: 180px;
-  }
-  
-  /* Improved church info section */
-  .church-info-section {
-    margin-top: 4rem;
-  }
-  
-  .church-card {
-    background-color: white;
-    border-radius: 12px;
-    padding: 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
-  .church-card-header {
-    background-color: var(--color-primary);
-    color: white;
-    padding: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  
-  .church-card-header h3 {
-    margin: 0;
-    color: white;
-    font-size: 1.35rem;
-  }
-  
-  .church-card-header svg {
-    width: 24px;
-    height: 24px;
-    stroke: white;
-  }
-  
-  .schedule-grid {
-    padding: 1.5rem;
-  }
-  
-  .schedule-item {
-    margin-bottom: 1.5rem;
-  }
-  
-  .schedule-item:last-child {
-    margin-bottom: 0;
-  }
-  
-  .day {
-    font-weight: 700;
-    color: var(--color-heading);
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-  
-  .times div {
-    padding: 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .times span {
-    color: var(--color-text);
-    font-weight: normal;
-  }
-  
-  .church-address {
-    padding: 1.5rem 1.5rem 0.75rem;
-    font-style: normal;
-    line-height: 1.6;
-  }
-  
-  .church-contact {
-    padding: 0 1.5rem 1.5rem;
-  }
-  
-  .church-actions {
-    padding: 1rem 1.5rem;
-    background-color: #f8f9fa;
-    display: flex;
-    gap: 1rem;
-    border-top: 1px solid var(--color-border);
-    margin-top: auto;
-  }
-  
-  .action-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  .feature-link {
+    display: inline-block;
     color: var(--color-primary);
     font-weight: 600;
-    font-size: 0.95rem;
+    margin-top: auto;
   }
   
-  .action-link:hover {
-    opacity: 0.8;
+  .feature-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Info boxes */
+  .info-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .info-box h3 {
+    color: var(--color-heading);
+    margin-bottom: 1rem;
+  }
+  
+  .info-box p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Schedule list */
+  .schedule-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .schedule-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  .schedule-list li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Church contact section */
+  .church-contact {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eeeeee;
+  }
+  
+  .church-contact h4 {
+    margin-bottom: 0.75rem;
+    color: var(--color-heading);
+  }
+  
+  address {
+    font-style: normal;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .map-link {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+  
+  .map-link:hover {
+    text-decoration: underline;
   }
   
   /* Chat page */
   .chat-container {
-    max-width: 1000px; /* Increased from 800px */
-    margin: 0 auto 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    height: 70vh; /* Taller chat window */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    height: 70vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -739,15 +713,22 @@
     display: flex;
     padding: 1rem;
     border-top: 1px solid var(--color-border);
-    background-color: white;
+    background-color: #f8f9fa;
   }
   
   .chat-input {
     flex: 1;
     padding: 0.8rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid #dee2e6;
     border-radius: 4px;
     font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .chat-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(46, 163, 242, 0.25);
+    outline: none;
   }
   
   .chat-button {
@@ -806,31 +787,52 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     padding: 1.5rem;
     margin-bottom: 2rem;
+    border: 1px solid #eeeeee;
   }
   
   .analytics-card h2 {
+    color: #36454F;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  .analytics-card h3 {
+    color: #36454F;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+  }
+  
+  .analytics-card h3::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
   }
   
   .analytics-description {
     color: var(--color-text);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    line-height: 1.6;
   }
   
   .chart-container {
     position: relative;
-    height: 450px; /* Increased from 400px */
+    height: 400px;
     max-width: 100%;
   }
   
   .stats-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 0 0 2.5rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
   
   .stat-card {
@@ -839,7 +841,8 @@
     padding: 1.5rem;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eeeeee;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -847,6 +850,8 @@
   
   .stat-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: rgba(46, 163, 242, 0.3);
   }
   
   .stat-icon {
@@ -870,7 +875,7 @@
   }
   
   .reference-list {
-    max-height: 350px; /* Increased from 300px */
+    max-height: 300px;
     overflow-y: auto;
     border: 1px solid var(--color-border);
     border-radius: 4px;
@@ -882,8 +887,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
-    transition: all 0.2s ease;
   }
   
   .reference-item:last-child {
@@ -892,7 +897,7 @@
   
   .reference-item:hover {
     background-color: rgba(46, 163, 242, 0.05);
-    transform: translateX(3px);
+    transform: translateX(5px);
   }
   
   .reference-book {
@@ -922,7 +927,7 @@
   
   /* Filter controls */
   .filter-controls {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
   
   .filter-card {
@@ -950,6 +955,26 @@
     background-color: white;
     color: var(--color-text);
     font: inherit;
+  }
+  
+  /* Example Questions Styling */
+  .example-questions {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+  
+  .example-questions li {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primary);
+    transition: transform 0.2s ease;
+  }
+  
+  .example-questions li:hover {
+    transform: translateX(5px);
   }
   
   /* Reference viewer */
@@ -1134,10 +1159,16 @@
     align-self: center;
   }
   
-  /* Only show the hero banner on the homepage */
-  body:not(.home) .hero,
-  body:not(.home) .quote-banner {
+  /* Hide "Chat about Sermons" banner on subpages */
+  body:not(.home) .chat-banner {
     display: none;
+  }
+  
+  /* Loading text styling */
+  .loading-text {
+    color: var(--color-text);
+    font-size: 1rem;
+    margin-top: 0.75rem;
   }
   
   /* Responsive styles */
@@ -1168,10 +1199,6 @@
     
     .chat-container {
       height: 80vh;
-    }
-    
-    .feature-grid {
-      grid-template-columns: 1fr;
     }
     
     .home-buttons .btn {
@@ -1234,10 +1261,5 @@
     .sermon-btn {
       align-self: stretch;
       margin-top: 0.5rem;
-    }
-    
-    .church-actions {
-      flex-direction: column;
-      gap: 0.75rem;
     }
   }

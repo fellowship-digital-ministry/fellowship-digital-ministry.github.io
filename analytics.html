@@ -1,25 +1,33 @@
 ---
 layout: default
 title: Sermon Analytics
+hero_banner: true
+hero_title: SERMON ANALYTICS
+hero_subtitle: EXPLORING BIBLICAL INSIGHTS
+hero_description: Discover patterns and insights from the sermon library.
+quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World"
 use_charts: true
 custom_js: analytics-optimized
 ---
 
 <div class="container">
-  <div class="page-header">
-    <h1>Sermon Analytics</h1>
-    <p class="lead">Discover patterns and insights from the sermon library.</p>
-  </div>
-  
   <div id="loadingSection" class="text-center">
     <div class="loading-spinner"></div>
     <p class="loading-text">Loading analytics data...</p>
   </div>
   
   <div id="analyticsContent" style="display: none;">
+    <!-- Page Introduction -->
+    <div class="page-intro">
+      <h2 class="content-section-header">Biblical Insights Dashboard</h2>
+      <p>This dashboard provides visualization of Bible references throughout the sermon library. Explore which books, chapters, and verses are most frequently referenced in the pastor's teachings.</p>
+    </div>
+    
+    <!-- Time Filter -->
     <div class="filter-controls">
-      <div class="filter-card">
-        <label for="timeFilterSelect">Filter Analytics by Time Period:</label>
+      <div class="content-card">
+        <h3>Filter Analytics by Time Period</h3>
+        <p>Select a specific timeframe to focus your analysis.</p>
         <select id="timeFilterSelect" class="form-control">
           <option value="all">All Time</option>
           <!-- Dynamically populated by JavaScript -->
@@ -27,6 +35,8 @@ custom_js: analytics-optimized
       </div>
     </div>
     
+    <!-- Key Statistics -->
+    <h2 class="content-section-header">Key Statistics</h2>
     <div class="stats-cards">
       <div class="stat-card">
         <div class="stat-icon">
@@ -51,51 +61,52 @@ custom_js: analytics-optimized
       </div>
     </div>
     
-    <div class="analytics-section">
-      <div class="analytics-card">
-        <h2>Bible Book References</h2>
-        <p class="analytics-description">Frequency of Bible book citations across all sermons</p>
-        <div class="chart-container">
-          <canvas id="bibleReferencesChart"></canvas>
+    <!-- Bible Books Chart -->
+    <h2 class="content-section-header">Bible Book References</h2>
+    <div class="analytics-card">
+      <h3>Frequency of Bible Book Citations</h3>
+      <p class="analytics-description">Explore which books of the Bible are most frequently referenced across all sermons.</p>
+      <div class="chart-container">
+        <canvas id="bibleReferencesChart"></canvas>
+      </div>
+    </div>
+    
+    <!-- Testament & Chapters Section -->
+    <h2 class="content-section-header">Detailed Reference Analysis</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="analytics-card">
+          <h3>Testament Distribution</h3>
+          <p class="analytics-description">Proportion of Old vs. New Testament references in the sermon library.</p>
+          <div class="chart-container" style="height: 300px;">
+            <canvas id="testamentChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="analytics-card">
+          <h3>Top Chapters Referenced</h3>
+          <p class="analytics-description">Most frequently cited Bible chapters across the sermon library.</p>
+          <div id="topChaptersContainer">
+            <div class="reference-list" id="topChaptersList"></div>
+          </div>
         </div>
       </div>
     </div>
     
-    <div class="analytics-section">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="analytics-card">
-            <h2>Testament Distribution</h2>
-            <p class="analytics-description">Proportion of Old vs. New Testament references</p>
-            <div class="chart-container" style="height: 300px;">
-              <canvas id="testamentChart"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="analytics-card">
-            <h2>Top Chapters Referenced</h2>
-            <p class="analytics-description">Most frequently cited Bible chapters</p>
-            <div id="topChaptersContainer">
-              <div class="reference-list" id="topChaptersList"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="analytics-section">
-      <div class="analytics-card">
-        <h2>Recent Sermons</h2>
-        <p class="analytics-description">Latest messages from Fellowship Baptist Church</p>
-        <div id="recentSermonsContainer">
-          <div class="loading-spinner"></div>
-          <p class="text-center">Loading sermon data...</p>
-        </div>
+    <!-- Recent Sermons Section -->
+    <h2 class="content-section-header">Recent Sermons</h2>
+    <div class="analytics-card">
+      <h3>Latest Messages from Fellowship Baptist Church</h3>
+      <p class="analytics-description">Browse the most recent sermons from our church library.</p>
+      <div id="recentSermonsContainer">
+        <div class="loading-spinner"></div>
+        <p class="text-center">Loading sermon data...</p>
       </div>
     </div>
   </div>
   
+  <!-- Error Section -->
   <div id="errorSection" style="display: none;">
     <div class="analytics-card text-center">
       <h2>Error Loading Data</h2>
