@@ -2076,7 +2076,55 @@ function removeMessage(id) {
 /**
  * Format a date string from various possible formats
  */
-
+function formatSermonDate(dateStr) {
+  if (!dateStr) return 'Date unknown';
+  
+  try {
+    // Handle YYYYMMDD format (common in the metadata)
+    if (typeof dateStr === 'number' || (typeof dateStr === 'string' && /^\d{8}$/.test(dateStr))) {
+      const yearStr = String(dateStr).substring(0, 4);
+      const monthStr = String(dateStr).substring(4, 6);
+      const dayStr = String(dateStr).substring(6, 8);
+      
+      const year = parseInt(yearStr);
+      const month = parseInt(monthStr) - 1; // JavaScript months are 0-indexed
+      const day = parseInt(dayStr);
+      
+      const date = new Date(year, month, day);
+      return new Intl.DateTimeFormat(currentLanguage, {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      }).format(date);
+    }
+    
+    // Handle ISO date strings
+    if (typeof dateStr === 'string' && dateStr.includes('-')) {
+      const date = new Date(dateStr);
+      return new Intl.DateTimeFormat(currentLanguage, {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      }).format(date);
+    }
+    
+    // Handle timestamp
+    if (typeof dateStr === 'number') {
+      const date = new Date(dateStr);
+      return new Intl.DateTimeFormat(currentLanguage, {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      }).format(date);
+    }
+    
+    // Return as is if we can't parse it
+    return dateStr;
+  } catch (e) {
+    console.error(`Error parsing date: ${dateStr}`, e);
+    return 'Date unknown';
+  }
+}
 
 /**
  * Clean and format sermon title

@@ -1418,3 +1418,119 @@
       gap: 0.5rem;
     }
   }
+  /* Improved How to Use This Tool Section */
+.info-section {
+    margin: 2rem 0;
+  }
+  
+  .info-section h2.content-section-header {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  
+  .info-section h2.content-section-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-primary);
+  }
+  
+  /* Example Questions Card */
+  .example-questions {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .example-questions li {
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primary);
+  }
+  
+  .example-questions li:hover {
+    transform: translateX(5px);
+    background-color: rgba(46, 163, 242, 0.1);
+  }
+  
+  .example-questions li::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%232ea3f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3Cpolyline points='12 5 19 12 12 19'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .example-questions li:hover::after {
+    opacity: 1;
+  }
+  
+  /* Info cards for content-card in the How to Use section */
+  .info-section .content-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #eee;
+    height: 100%;
+  }
+  
+  .info-section .content-card h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+  
+  .info-section .content-card p {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  
+  .info-section .content-card ul {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info-section .content-card ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+  
+  /* Fix row and column layout */
+  .info-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+  
+  .info-section .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 768px) {
+    .info-section .col-md-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
