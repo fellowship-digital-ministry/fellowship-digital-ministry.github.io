@@ -1,0 +1,16 @@
+{
+  "total_sermons": 5,
+  "total_chunks": 500,
+  "total_references": 150,
+  "top_books": {
+    "John": 40,
+    "Romans": 35,
+    "Matthew": 25,
+    "Psalms": 20,
+    "1 Corinthians": 15
+  },
+  "testament_distribution": {
+    "Old Testament": 60,
+    "New Testament": 90
+  }
+}
