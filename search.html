@@ -1641,7 +1641,7 @@ function addMessage(text, sender, isError = false) {
       ref.addEventListener('click', function() {
         // Open Bible reference in a Bible website
         const reference = this.textContent.trim();
-        window.open(`https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=NIV`, '_blank');
+        window.open(`https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=KJV`, '_blank');
       });
     });
   } else {
