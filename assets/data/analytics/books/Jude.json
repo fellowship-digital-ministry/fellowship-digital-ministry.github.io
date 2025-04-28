@@ -1,0 +1,19 @@
+{
+  "book": "Jude",
+  "sermons": [
+    {
+      "sermon_id": "LgRl3wwGxNo",
+      "sermon_title": "Sermon LgRl3wwGxNo",
+      "url": "https://www.youtube.com/watch?v=LgRl3wwGxNo",
+      "publish_date": "2025-04-28",
+      "occurrences": [
+        {
+          "reference": "Jude 1",
+          "sermon_id": "LgRl3wwGxNo",
+          "timestamp": 1969.4200134277344,
+          "context": "...th of God's Word. The one that wants to deceive you, the one that's crept in unawares, according to Jude 1, that individual that's crept in unawares, they will try to put on this facade of obedience and eve..."
+        }
+      ]
+    }
+  ]
+}
