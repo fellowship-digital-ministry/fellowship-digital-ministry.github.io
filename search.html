@@ -2940,39 +2940,4 @@ styleElement.textContent = `
 
 // Add the styles to the document
 document.head.appendChild(styleElement);
-/* Additional CSS for Conversational Mode */
-const styleElement = document.createElement('style');
-styleElement.textContent = `
-/* Conversational suggestion styles */
-.suggestion-list {
-  margin-top: 10px;
-}
-
-.suggestion-list li {
-  margin-bottom: 5px;
-  cursor: pointer;
-  color: var(--color-primary);
-  text-decoration: underline;
-}
-
-.suggestion-list li:hover {
-  opacity: 0.8;
-}
-
-/* Enhanced continue-hint styling */
-.continue-hint {
-  text-align: center;
-  margin: 10px 0;
-  font-style: italic;
-  color: #666;
-}
-
-/* Highlight for conversation mode responses */
-.message.bot.conversation-mode {
-  border-left: 3px solid var(--color-primary);
-}
-`;
-
-// Add the styles to the document
-document.head.appendChild(styleElement);
 </script>
