@@ -27,7 +27,7 @@ jobs:
       
       - name: Run incremental analytics generation
         env:
-          API_URL: ${{ secrets.API_URL }}
+          API_URL: ${{ secrets.API_URL && 'https://' }}${{ secrets.API_URL }}
           METADATA_DIR: ${{ github.workspace }}/_data/metadata
         run: |
           # Create metadata directory
@@ -45,11 +45,11 @@ jobs:
             echo "No metadata repository configured. Using API data only."
           fi
           
+          # Create sample data to get things started
+          python scripts/copy_analytics_data.py
+          
           # Run the incremental analytics script
           python scripts/incremental_analytics.py
-          
-          # Copy data to assets directory for GitHub Pages
-          python scripts/copy_analytics_data.py
           
       - name: Commit and push if changes
         run: |

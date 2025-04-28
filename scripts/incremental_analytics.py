@@ -58,6 +58,10 @@ def setup_directory():
 
 async def fetch_with_retry(client, url, method="GET", data=None):
     """Fetch data from the API with retry logic."""
+    # Make sure URL has http/https
+    if not (url.startswith('http://') or url.startswith('https://')):
+        url = 'https://' + url.lstrip('/')
+    
     for attempt in range(MAX_RETRIES):
         try:
             if method == "GET":
@@ -182,10 +186,15 @@ def load_sermon_metadata_from_files():
 
 async def fetch_sermon_list():
     """Fetch the list of available sermons from the API."""
+    # Make sure API_URL has http/https
+    api_url = API_URL
+    if api_url and not (api_url.startswith('http://') or api_url.startswith('https://')):
+        api_url = 'https://' + api_url.lstrip('/')
+    
     async with httpx.AsyncClient() as client:
         try:
-            print(f"Fetching sermon list from {API_URL}/sermons")
-            data = await fetch_with_retry(client, f"{API_URL}/sermons")
+            print(f"Fetching sermon list from {api_url}/sermons")
+            data = await fetch_with_retry(client, f"{api_url}/sermons")
             return data.get("sermons", [])
         except Exception as e:
             print(f"Error fetching sermon list: {e}")
@@ -193,9 +202,14 @@ async def fetch_sermon_list():
 
 async def fetch_sermon_chunks(client, video_id):
     """Fetch chunks for a single sermon."""
+    # Make sure API_URL has http/https
+    api_url = API_URL
+    if api_url and not (api_url.startswith('http://') or api_url.startswith('https://')):
+        api_url = 'https://' + api_url.lstrip('/')
+        
     try:
         print(f"Fetching chunks for sermon {video_id}")
-        data = await fetch_with_retry(client, f"{API_URL}/sermons/{video_id}")
+        data = await fetch_with_retry(client, f"{api_url}/sermons/{video_id}")
         return data.get("chunks", [])
     except Exception as e:
         print(f"Error fetching chunks for sermon {video_id}: {e}")
@@ -458,7 +472,7 @@ async def generate_reference_files(reference_occurrences, sermon_data):
         with open(file_path, 'w') as f:
             json.dump(existing_data, f, indent=2)
 
-def generate_analytics_files(analytics_data):
+def generate_analytics_files(analytics_data, processed_sermon_ids=None):
     """
     Generate all the JSON files needed for the analytics dashboard.
     """
@@ -513,8 +527,9 @@ def generate_analytics_files(analytics_data):
         json.dump(reference_counts, f, indent=2)
     
     # 9. Update processed sermons list
-    with open(OUTPUT_DIR / "processed_sermons.json", "w") as f:
-        json.dump(processed_sermon_ids, f, indent=2)
+    if processed_sermon_ids is not None:
+        with open(OUTPUT_DIR / "processed_sermons.json", "w") as f:
+            json.dump(processed_sermon_ids, f, indent=2)
     
     print("Analytics files generated successfully.")
 
@@ -553,7 +568,7 @@ async def main():
     )
     
     # Generate all analytics files
-    generate_analytics_files(analytics_data)
+    generate_analytics_files(analytics_data, processed_sermon_ids)
     
     print(f"Incremental sermon analytics generation completed at {datetime.now().isoformat()}")
 
