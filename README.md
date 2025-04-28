@@ -1,165 +1,157 @@
 # Fellowship Digital Ministry
 
-A Jekyll-based GitHub Pages site that serves as a frontend for the Sermon Search API. This project provides a user-friendly interface for searching sermon content and exploring analytics based on the sermon transcripts.
+A Jekyll-based GitHub Pages site that provides an interface for exploring sermon content through search and analytics, powered by a Pinecone vector database.
 
 ## Features
 
 - **Sermon Search**: Ask questions about sermon content and get AI-generated answers based on the transcript library
 - **Video Integration**: Watch relevant sermon segments directly on the site with timestamp linking
+- **Bible Reference Explorer**: Click on any Bible reference to see all sermon mentions with context
 - **Analytics Dashboard**: Explore insights about Bible references, most cited verses, and sermon content
+- **Time Filtering**: Analyze sermons by year, month, or specific time periods
 - **Mobile Responsive**: Works well on all devices
+
+## Project Structure
+
+```
+.
+├── _config.yml               # Jekyll configuration
+├── _data/                    # Pre-computed analytics data
+│   └── analytics/            # JSON files for analytics
+├── _includes/                # Reusable components
+│   ├── footer.html
+│   └── header.html
+├── _layouts/                 # Page templates
+│   └── default.html
+├── .github/workflows/        # GitHub Actions
+│   └── generate-analytics.yml # Weekly analytics generation
+├── assets/                   # Static assets
+│   ├── css/
+│   │   ├── style.css
+│   │   └── style-additions.css
+│   ├── img/
+│   │   └── default-thumbnail.svg
+│   └── js/
+│       ├── analytics-optimized.js
+│       ├── bible-references.js
+│       ├── cors-proxy.js
+│       ├── reference-viewer.js
+│       └── search.js
+├── scripts/                  # Python scripts for data generation
+│   ├── generate_analytics.py
+│   └── process_existing_metadata.py
+├── index.html                # Home page
+├── search.html               # Search interface
+├── analytics.html            # Analytics dashboard
+├── reference-viewer.html     # Bible reference viewer
+├── api-test.html             # Tool for API testing
+└── API-TROUBLESHOOTING.md    # Guide for API issues
+```
 
 ## Setup and Deployment
 
 ### Prerequisites
 
 - A GitHub account
-- Basic knowledge of Git and GitHub
+- The sermon transcripts API endpoint
 
 ### Deployment Steps
 
-1. **Create a new GitHub repository**
+1. **Create a GitHub repository**
 
-   - Go to GitHub and create a new repository named `fellowship-digital-ministry.github.io`
-   - This specific name format is required for organization GitHub Pages sites
+   Create a new repository named `fellowship-digital-ministry.github.io`
 
-2. **Clone this repository locally**
+2. **Clone this repository**
 
    ```bash
    git clone https://github.com/fellowship-digital-ministry/fellowship-digital-ministry.github.io.git
    cd fellowship-digital-ministry.github.io
    ```
 
-3. **Add the files from this project**
+3. **Configure your API endpoint**
 
-   - Copy all files and directories to your local repository, maintaining the Jekyll directory structure:
-     ```
-     .
-     ├── _config.yml
-     ├── _layouts
-     │   └── default.html
-     ├── _includes
-     │   ├── header.html
-     │   └── footer.html
-     ├── assets
-     │   ├── css
-     │   │   └── style.css
-     │   └── js
-     │       ├── search.js
-     │       └── analytics.js
-     ├── index.html
-     ├── search.html
-     └── analytics.html
-     ```
+   Update the `api_url` in `_config.yml`:
 
-4. **Configure your GitHub Pages settings**
-
-   - In the repository settings, go to the "Pages" section
-   - Ensure the source is set to "main" branch and the folder is set to "/ (root)"
-   - GitHub Pages will automatically recognize the Jekyll structure
-
-5. **Commit and push your changes**
-
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
+   ```yaml
+   api_url: "https://sermon-search-api-8fok.onrender.com"
    ```
 
-6. **Access your site**
+4. **Set up GitHub secrets**
 
-   - Your site will be available at `https://fellowship-digital-ministry.github.io`
-   - It may take a few minutes for the site to be published after pushing changes
+   In your repository settings, add the following secret:
+   - `API_URL`: Your sermon search API endpoint
+
+5. **Run the initial analytics generation**
+
+   Manually run the GitHub Action workflow to generate the initial analytics data.
+
+6. **Enable GitHub Pages**
+
+   In repository settings, enable GitHub Pages from the main branch.
+
+7. **Access your site**
+
+   Your site will be available at `https://fellowship-digital-ministry.github.io`
+
+## Analytics Generation
+
+The site uses pre-computed analytics data to efficiently display insights about all 428 sermon transcripts. This data is automatically updated weekly by a GitHub Action workflow:
+
+1. **Process Existing Metadata** (`process_existing_metadata.py`)
+   - Fetches sermon metadata from your API
+   - Organizes sermon titles, dates, and other information 
+
+2. **Generate Analytics** (`generate_analytics.py`)
+   - Analyzes sermon chunks for Bible references
+   - Generates statistics for books, chapters, and verses
+   - Creates time-based groupings for filtering
+   - Builds reference occurrence data for the reference viewer
+
+3. **Data Storage**
+   - All data is stored as static JSON files in `_data/analytics/`
+   - The site's JavaScript components read from these files
+   - No runtime API calls are needed for analytics
+
+## Components
+
+### Search Interface
+
+The search interface allows users to ask questions about sermon content and get AI-generated answers. It makes direct API calls to your Render API endpoint.
+
+### Analytics Dashboard
+
+The analytics dashboard visualizes Bible references across all sermons. Features include:
+- Bible book reference chart
+- Testament distribution pie chart
+- Top chapters list
+- Time period filtering
+
+### Bible Reference Explorer
+
+Every Bible reference on the site is clickable and leads to a reference viewer page showing:
+- All occurrences of that reference across sermons
+- Context in which the reference was mentioned
+- Direct links to YouTube videos at the exact timestamp
+- Sermon metadata (title, date, etc.)
 
 ## Customization
 
+### Styling
+
+To customize the appearance:
+1. Edit `assets/css/style.css` for base styles
+2. Edit `assets/css/style-additions.css` for component-specific styles
+
 ### API Endpoint
 
-The site is configured to use the Sermon Search API at `https://sermon-search-api-8fok.onrender.com`. If you need to update this endpoint:
+If your API endpoint changes:
+1. Update `_config.yml`
+2. Update GitHub secret `API_URL`
 
-1. Update the `api_url` setting in `_config.yml`
+## Troubleshooting
 
-```yaml
-api_url: "https://your-new-api-endpoint.com"
-```
-
-### Church Website Link
-
-To update the link to the main church website:
-
-1. Update the `church_website` setting in `_config.yml`
-
-```yaml
-church_website: "https://www.your-church-website.com"
-```
-
-### Color Scheme and Styling
-
-The site uses CSS variables for consistent styling. To update the color scheme:
-
-1. Open `assets/css/style.css`
-2. Locate the `:root` CSS section at the top of the file
-3. Modify the color variables to match your desired scheme
-
-```css
-:root {
-  --color-primary: #2ea3f2; /* Primary accent color */
-  --color-bg: #ffffff;      /* Background color */
-  --color-bg-dark: #222222; /* Dark background (footer) */
-  --color-text: #666666;    /* Main text color */
-  --color-heading: #333333; /* Heading text color */
-  --color-border: #eeeeee;  /* Border color */
-}
-```
-
-## Maintenance
-
-### Adding New Pages
-
-To add new pages to the site:
-
-1. Create a new HTML file in the root directory with Jekyll front matter:
-
-```yaml
----
-layout: default
-title: Your Page Title
-hero: true
-hero_title: Your Hero Title
-hero_description: Your page description goes here.
-custom_js: your_js_file  # Optional, if you need custom JS
----
-
-<!-- Your page content here -->
-```
-
-2. Add any custom JavaScript to the `assets/js/` directory if needed
-3. Link to it from the navigation in `_includes/header.html`
-
-### Jekyll Configuration
-
-The site uses a simple Jekyll configuration with minimal plugins. You can modify the Jekyll configuration in `_config.yml` if needed:
-
-- Update site title and description
-- Add additional Jekyll plugins (note that GitHub Pages supports only a limited set of plugins)
-- Configure additional Jekyll settings
-
-### Updating the Site
-
-To update the site after making changes:
-
-1. Make your changes locally
-2. Commit and push to GitHub
-3. GitHub Pages will automatically rebuild and deploy your site
-
-## Technical Details
-
-- The site uses Jekyll for static site generation, which is natively supported by GitHub Pages
-- The sermon search and analytics functionality use client-side JavaScript to interact with the API
-- Chart.js is used for data visualization on the analytics page
-- All API requests are made client-side using JavaScript fetch API
-- The site does not require any build process beyond what GitHub Pages automatically provides
+If you encounter API connection issues, refer to `API-TROUBLESHOOTING.md` for guidance on diagnosing and resolving common problems.
 
 ## License
 
-This project is provided for the specific use of Fellowship Digital Ministry and is not licensed for general distribution or reuse.
+This project is provided for the specific use of Fellowship Digital Ministry.

@@ -25,21 +25,35 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests python-dotenv httpx
       
-      - name: Process existing metadata from API
+      - name: Run incremental analytics generation
         env:
           API_URL: ${{ secrets.API_URL }}
+          METADATA_DIR: ${{ github.workspace }}/_data/metadata
         run: |
-          python scripts/process_existing_metadata.py
+          # Create metadata directory
+          mkdir -p $METADATA_DIR
           
-      - name: Generate analytics data
-        env:
-          API_URL: ${{ secrets.API_URL }}
-        run: |
-          python scripts/generate_analytics.py
+          # First, check if we can access the metadata repository
+          if [ -n "${{ secrets.METADATA_REPO }}" ]; then
+            echo "Trying to fetch metadata from external repository"
+            git clone ${{ secrets.METADATA_REPO }} metadata_repo
+            if [ -d "metadata_repo/transcription/metadata" ]; then
+              echo "Copying metadata files"
+              cp -r metadata_repo/transcription/metadata/* $METADATA_DIR/
+            fi
+          else
+            echo "No metadata repository configured. Using API data only."
+          fi
+          
+          # Run the incremental analytics script
+          python scripts/incremental_analytics.py
+          
+          # Copy data to assets directory for GitHub Pages
+          python scripts/copy_analytics_data.py
           
       - name: Commit and push if changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add _data/analytics/*.json
+          git add _data/analytics/*.json assets/data/analytics/*.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update sermon analytics data [skip ci]" && git push)
