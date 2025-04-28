@@ -10,14 +10,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 
 <section class="content-section">
   <div class="container">
-    <h2 class="section-header">Welcome to the Fellowship Digital Ministry</h2>
-    <p class="lead">Explore sermons and discover Biblical insights through our digital tools.</p>
-    
-    <div class="home-buttons">
-      <a href="{{ '/search.html' | relative_url }}" class="btn btn-primary">Chat about Sermons</a>
-      <a href="{{ '/analytics.html' | relative_url }}" class="btn">View Sermon Analytics</a>
-    </div>
-    
+    <!-- Main Features Grid - Simplified and Visual -->
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-icon">
@@ -26,8 +19,8 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
           </svg>
         </div>
         <h3>Search Sermon Content</h3>
-        <p>Ask questions about sermons and receive AI-powered answers with direct links to the relevant video segments.</p>
-        <a href="{{ '/search.html' | relative_url }}" class="feature-link">Try it now →</a>
+        <p>Ask questions and receive answers based on sermon content with direct links to video segments.</p>
+        <a href="{{ '/search.html' | relative_url }}" class="btn btn-primary">Chat about Sermons</a>
       </div>
       
       <div class="feature-card">
@@ -40,8 +33,8 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
           </svg>
         </div>
         <h3>Bible Reference Analytics</h3>
-        <p>Explore which Bible books, chapters, and verses are most frequently referenced in the sermon collection.</p>
-        <a href="{{ '/analytics.html' | relative_url }}" class="feature-link">Explore analytics →</a>
+        <p>Explore which Bible books, chapters, and verses are most frequently referenced in sermons.</p>
+        <a href="{{ '/analytics.html' | relative_url }}" class="btn">View Analytics</a>
       </div>
       
       <div class="feature-card">
@@ -52,38 +45,69 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         </div>
         <h3>Reference Viewer</h3>
         <p>View all occurrences of specific Bible passages across our sermon library with timestamp links.</p>
-        <a href="{{ '/reference-viewer.html' | relative_url }}" class="feature-link">Browse references →</a>
+        <a href="{{ '/reference-viewer.html' | relative_url }}" class="btn">Browse References</a>
       </div>
     </div>
     
-    <div class="schedule-location-section">
+    <!-- Church Info - Cleaner Layout -->
+    <div class="church-info-section">
       <div class="row">
         <div class="col-md-6">
-          <div class="info-box">
-            <h3>Church Schedule</h3>
-            <ul class="schedule-list">
-              <li><strong>Sunday School:</strong> 9:30 a.m.</li>
-              <li><strong>Morning Worship:</strong> 10:30 a.m.</li>
-              <li><strong>Evening Worship:</strong> 6:00 p.m.</li>
-              <li><strong>Wednesday Bible Study:</strong> 7:00 p.m.</li>
-            </ul>
-            <div class="church-contact">
-              <h4>Fellowship Baptist Church</h4>
-              <address>
-                11032 Oakton Road<br>
-                Oakton, VA 22124<br>
-                Phone: <a href="tel:7033858516">703-385-8516</a>
-              </address>
-              <a href="https://maps.google.com/?q=11032+Oakton+Road+Oakton+VA+22124" class="map-link" target="_blank">View on Map</a>
+          <div class="church-card">
+            <div class="church-card-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <h3>Church Schedule</h3>
+            </div>
+            <div class="schedule-grid">
+              <div class="schedule-item">
+                <div class="day">Sunday</div>
+                <div class="times">
+                  <div>9:30 a.m. <span>Sunday School</span></div>
+                  <div>10:30 a.m. <span>Morning Worship</span></div>
+                  <div>6:00 p.m. <span>Evening Worship</span></div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="day">Wednesday</div>
+                <div class="times">
+                  <div>7:00 p.m. <span>Bible Study</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="info-box">
-            <h3>About This Ministry</h3>
-            <p>Fellowship Digital Ministry provides tools to help you explore and study sermon content from Fellowship Baptist Church. This project aims to make sermon content more accessible and searchable through technology.</p>
-            <p>This ministry was created to support the church's mission of "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World".</p>
-            <a href="{{ site.church_website }}" target="_blank" class="btn">Visit Church Website</a>
+          <div class="church-card">
+            <div class="church-card-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <h3>Visit Us</h3>
+            </div>
+            <address class="church-address">
+              <strong>Fellowship Baptist Church</strong><br>
+              11032 Oakton Road<br>
+              Oakton, VA 22124
+            </address>
+            <div class="church-contact">
+              Phone: <a href="tel:7033858516">703-385-8516</a>
+            </div>
+            <div class="church-actions">
+              <a href="https://maps.google.com/?q=11032+Oakton+Road+Oakton+VA+22124" class="action-link" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                Get Directions
+              </a>
+              <a href="{{ site.church_website }}" class="action-link" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                Church Website
+              </a>
+            </div>
           </div>
         </div>
       </div>
