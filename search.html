@@ -865,6 +865,37 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     justify-content: center;
   }
 }
+/* Formatted message styling */
+.message.bot strong {
+    color: #333;
+    display: block;
+    margin: 0.75rem 0 0.5rem;
+  }
+  
+  .message.bot .list-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+  }
+  
+  .message.bot .list-number {
+    color: #2ea3f2;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .message.bot .bible-reference {
+    color: #2ea3f2;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0 3px;
+    border-radius: 3px;
+    background-color: rgba(46, 163, 242, 0.05);
+  }
+  
+  .message.bot .bible-reference:hover {
+    background-color: rgba(46, 163, 242, 0.15);
+    text-decoration: underline;
+  }
 </style>
 <script>
     
@@ -1504,47 +1535,79 @@ function clearConversation() {
 }
 
 /**
- * Add a message to the chat
+ * Format the text with markdown-like syntax
  */
-function addMessage(text, sender, isError = false) {
-  const messageElement = document.createElement('div');
-  messageElement.className = `message ${sender}`;
-  
-  if (isError) {
-    messageElement.classList.add('error');
+ function formatResponse(text) {
+    if (!text) return '';
+    
+    // Replace section headers (text between ** **)
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Format numbered lists
+    text = text.replace(/(\d+\.\s+)([^\n]+)/g, '<div class="list-item"><span class="list-number">$1</span>$2</div>');
+    
+    // Highlight Bible references
+    text = text.replace(/\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomio|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Ephesians|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi, '<span class="bible-reference">$&</span>');
+    
+    // Create proper paragraphs from double line breaks
+    if (text.includes('\n\n')) {
+      text = text.split('\n\n').map(para => `<p>${para}</p>`).join('');
+    }
+    
+    // Format single line breaks (but not inside list items)
+    if (!text.includes('<div class="list-item">') && text.includes('\n')) {
+      text = text.split('\n').map(line => `<p>${line}</p>`).join('');
+    }
+    
+    return text;
   }
   
-  // Add animation classes
-  messageElement.classList.add('message-appear');
-  
-  // For bot messages, process and render HTML properly
-  if (sender === 'bot') {
-    // First highlight Bible references
-    text = highlightBibleReferences(text);
+  /**
+   * Add a message to the chat
+   */
+  function addMessage(text, sender, isError = false) {
+    const messageElement = document.createElement('div');
+    messageElement.className = `message ${sender}`;
     
-    // Set the HTML content directly to properly render HTML tags
-    messageElement.innerHTML = text;
+    if (isError) {
+      messageElement.classList.add('error');
+    }
     
-    // Make all links open in new tab
-    const links = messageElement.querySelectorAll('a');
-    links.forEach(link => {
-      if (!link.hasAttribute('target')) {
-        link.setAttribute('target', '_blank');
-      }
-    });
-  } else {
-    // For user messages, escape HTML
-    messageElement.textContent = text;
+    // For bot messages, apply formatting
+    if (sender === 'bot') {
+      // Apply markdown-style formatting
+      const formattedText = formatResponse(text);
+      messageElement.innerHTML = formattedText;
+      
+      // Make all links open in new tab
+      const links = messageElement.querySelectorAll('a');
+      links.forEach(link => {
+        if (!link.hasAttribute('target')) {
+          link.setAttribute('target', '_blank');
+        }
+      });
+      
+      // Make Bible references clickable
+      const bibleRefs = messageElement.querySelectorAll('.bible-reference');
+      bibleRefs.forEach(ref => {
+        ref.addEventListener('click', function() {
+          // Open Bible reference in a Bible website
+          const reference = this.textContent.trim();
+          window.open(`https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=NIV`, '_blank');
+        });
+      });
+    } else {
+      // For user messages, use text content for safety
+      messageElement.textContent = text;
+    }
+    
+    messagesContainer.appendChild(messageElement);
+    
+    // Scroll to the bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
+    return messageElement;
   }
-  
-  messageElement.id = 'msg-' + Date.now();
-  messagesContainer.appendChild(messageElement);
-  
-  // Scroll to the bottom
-  smoothScrollToBottom(messagesContainer);
-  
-  return messageElement.id;
-}
 
 /**
  * Add a typing indicator
@@ -2226,4 +2289,5 @@ function toggleTranscript(videoId, startTime = 0) {
     }, 100);
   }
 }
+
 </script>
