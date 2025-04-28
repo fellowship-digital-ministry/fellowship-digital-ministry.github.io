@@ -9,81 +9,93 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 ---
 
 <div class="container">
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <select id="languageSelect" aria-label="Select language">
+      <option value="en" selected>English</option>
+      <option value="es">Español</option>
+      <option value="zh">中文</option>
+    </select>
+  </div>
+
   <!-- Page Introduction -->
   <div class="page-intro">
-    <h2 class="content-section-header">Sermon Search Tool</h2>
-    <p>This interactive tool uses AI to search through sermon transcripts and provide relevant answers to your questions about the pastor's teachings.</p>
+    <h2 class="content-section-header" data-i18n="sermon-search-tool">Sermon Search Tool</h2>
+    <p data-i18n="tool-description">This interactive tool uses AI to search through sermon transcripts and provide relevant answers to your questions about the pastor's teachings.</p>
   </div>
 
   <!-- Chat Interface -->
   <div class="chat-container">
-    <div id="api-status-banner" style="display: none; background-color: #fef2f2; color: #b91c1c; padding: 8px 12px; text-align: center; font-size: 14px; border-bottom: 1px solid #eeeeee;">
-      <span id="api-status-message">API connection issue detected. Check console for details.</span>
-      <button id="retry-connection" style="margin-left: 10px; background: #b91c1c; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">Retry</button>
+    <div id="api-status-banner" style="display: none;">
+      <span id="api-status-message" data-i18n="api-connection-issue">API connection issue detected.</span>
+      <button id="retry-connection" data-i18n="retry">Retry</button>
     </div>
 
     <div id="messages" class="messages">
-      <div class="message bot">
-        Welcome! Ask any question about the pastor's sermons, and I'll provide an answer based on the sermon content.
-      </div>
+      <!-- Welcome message will be added by JavaScript -->
     </div>
     
-    <form id="chatForm" class="chat-form">
-      <input type="text" id="queryInput" class="chat-input" placeholder="What does the pastor teach about faith?" required>
-      <button type="submit" class="chat-button">Send</button>
-    </form>
+    <div class="chat-controls">
+      <form id="chatForm" class="chat-form">
+        <input type="text" id="queryInput" class="chat-input" data-i18n-placeholder="what-does-pastor-teach" required>
+        <button type="submit" class="chat-button" data-i18n="send">Send</button>
+      </form>
+      <div class="conversation-controls">
+        <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear Conversation</button>
+      </div>
+    </div>
   </div>
 
   <!-- Help Section -->
   <div class="info-section">
-    <h2 class="content-section-header">How to Use This Tool</h2>
+    <h2 class="content-section-header" data-i18n="how-to-use">How to Use This Tool</h2>
     
     <div class="row">
       <div class="col-md-6">
         <div class="content-card">
-          <h3>Sample Questions</h3>
-          <p>Here are some examples of questions you can ask:</p>
+          <h3 data-i18n="sample-questions">Sample Questions</h3>
+          <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
           <ul class="example-questions">
-            <li>"What does the pastor teach about prayer?"</li>
-            <li>"How does the pastor interpret John 3:16?"</li>
-            <li>"What are the pastor's views on forgiveness?"</li>
-            <li>"Explain the sermon series on Revelation"</li>
-            <li>"Find references to the Holy Spirit"</li>
+            <li data-i18n="example-1">"What does the pastor teach about prayer?"</li>
+            <li data-i18n="example-2">"How does the pastor interpret John 3:16?"</li>
+            <li data-i18n="example-3">"What are the pastor's views on forgiveness?"</li>
+            <li data-i18n="example-4">"Explain the sermon series on Revelation"</li>
+            <li data-i18n="example-5">"Find references to the Holy Spirit"</li>
           </ul>
         </div>
       </div>
       
       <div class="col-md-6">
         <div class="content-card">
-          <h3>About This Tool</h3>
-          <p>This search tool uses artificial intelligence to analyze sermon transcripts and provide relevant information.</p>
-          <p>When you ask a question, the AI will:</p>
+          <h3 data-i18n="about-tool">About This Tool</h3>
+          <p data-i18n="search-explanation">This search tool uses artificial intelligence to analyze sermon transcripts and provide relevant information.</p>
+          <p data-i18n="ai-features">When you ask a question, the AI will:</p>
           <ul>
-            <li>Search through the entire sermon library</li>
-            <li>Find the most relevant content to your question</li>
-            <li>Provide direct links to video timestamps</li>
-            <li>Show you the exact context where information was found</li>
+            <li data-i18n="feature-1">Search through the entire sermon library</li>
+            <li data-i18n="feature-2">Find the most relevant content to your question</li>
+            <li data-i18n="feature-3">Provide direct links to video timestamps</li>
+            <li data-i18n="feature-4">Show you the exact context where information was found</li>
           </ul>
-          <p>All answers are based solely on the pastor's actual sermon content.</p>
+          <p data-i18n="answers-source">All answers are based solely on the pastor's actual sermon content.</p>
         </div>
       </div>
     </div>
     
     <div class="content-card">
-      <h3>Tips for Better Results</h3>
+      <h3 data-i18n="tips">Tips for Better Results</h3>
       <div class="row">
         <div class="col-md-6">
           <ul>
-            <li>Be specific in your questions</li>
-            <li>Include Bible references if relevant</li>
-            <li>Ask about specific topics or passages</li>
+            <li data-i18n="tip-1">Be specific in your questions</li>
+            <li data-i18n="tip-2">Include Bible references if relevant</li>
+            <li data-i18n="tip-3">Ask about specific topics or passages</li>
           </ul>
         </div>
         <div class="col-md-6">
           <ul>
-            <li>Try reformulating if you don't get a helpful answer</li>
-            <li>You can ask follow-up questions for clarification</li>
-            <li>Check the video links to hear the full context</li>
+            <li data-i18n="tip-4">Try reformulating if you don't get a helpful answer</li>
+            <li data-i18n="tip-5">You can ask follow-up questions for clarification</li>
+            <li data-i18n="tip-6">Check the video links to hear the full context</li>
           </ul>
         </div>
       </div>
@@ -93,6 +105,29 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 
 <style>
 /* Enhanced Styles for the Sermon Search Interface */
+
+/* Language selector */
+.language-selector {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.language-selector select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
+}
 
 /* Chat container improvements */
 .chat-container {
@@ -177,6 +212,17 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   margin-right: auto;
   border-bottom-left-radius: 0.3rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Followed-up messages have a visual connection */
+.message.followed-up::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: rgba(0,0,0,0.1);
+  top: 100%;
+  height: 10px;
+  left: 20px;
 }
 
 /* Welcome message special styling */
@@ -269,11 +315,14 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 }
 
 /* Enhanced input area */
-.chat-form {
-  display: flex;
-  padding: 1rem;
+.chat-controls {
   border-top: 1px solid var(--color-border);
   background-color: white;
+  padding: 0.75rem;
+}
+
+.chat-form {
+  display: flex;
   align-items: center;
   transition: all 0.3s ease;
 }
@@ -309,6 +358,29 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 .chat-button:hover {
   opacity: 0.9;
   transform: translateY(-2px);
+}
+
+/* Conversation controls */
+.conversation-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
+.control-button {
+  background-color: transparent;
+  color: #777;
+  border: 1px solid #ddd;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-button:hover {
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 /* Sources display improvements */
@@ -460,7 +532,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   margin-bottom: 0.75rem;
 }
 
-.watch-video-btn, .open-youtube-btn {
+.watch-video-btn, .open-youtube-btn, .view-transcript-btn {
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   font-size: 0.9rem;
@@ -482,16 +554,17 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   transform: translateY(-2px);
 }
 
-.open-youtube-btn {
+.open-youtube-btn, .view-transcript-btn {
   background-color: rgba(46, 163, 242, 0.1);
   color: var(--color-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(46, 163, 242, 0.2);
 }
 
-.open-youtube-btn:hover {
+.open-youtube-btn:hover, .view-transcript-btn:hover {
   background-color: rgba(46, 163, 242, 0.2);
   transform: translateY(-2px);
 }
@@ -523,6 +596,89 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   color: var(--color-primary);
 }
 
+/* Transcript styles */
+.transcript-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.transcript-loading {
+  text-align: center;
+  padding: 1rem;
+  color: #777;
+  font-style: italic;
+}
+
+.transcript-error {
+  padding: 0.75rem;
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #c0392b;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.transcript-search {
+  display: flex;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.transcript-search-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.transcript-search-button {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.transcript-match-count {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.transcript-content {
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.transcript-segment {
+  margin-bottom: 0.75rem;
+  display: flex;
+}
+
+.transcript-timestamp {
+  flex: 0 0 60px;
+  color: #777;
+  font-size: 0.85rem;
+  padding-top: 0.25rem;
+}
+
+.transcript-text {
+  flex: 1;
+}
+
+.transcript-highlight {
+  background-color: rgba(255, 230, 0, 0.4);
+  padding: 2px 0;
+  border-radius: 2px;
+}
+
 /* Error states */
 .error-container, .connection-error {
   background-color: rgba(231, 76, 60, 0.05);
@@ -550,6 +706,35 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 
 .retry-button:hover {
   background-color: #eee;
+  transform: translateY(-2px);
+}
+
+/* API status banner improvements */
+#api-status-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #eee;
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+#retry-connection {
+  background: #b91c1c;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+#retry-connection:hover {
+  opacity: 0.9;
   transform: translateY(-2px);
 }
 
@@ -606,6 +791,26 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   opacity: 1;
 }
 
+/* Right-to-left language support */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .message.user {
+  margin-right: auto;
+  margin-left: 0;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 1.2rem;
+}
+
+.rtl .message.bot {
+  margin-left: auto;
+  margin-right: 0;
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 1.2rem;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .chat-container {
@@ -645,457 +850,19 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   .suggestion-chip {
     max-width: 100%;
   }
+  
+  .chat-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .chat-button {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .language-selector {
+    justify-content: center;
+  }
 }
 </style>
-
-<script>
-// Hard-coded API URL as fallback (replace with your actual API URL)
-const API_URL = '{{ site.api_url }}' || 'https://sermon-search-api-8fok.onrender.com';
-
-// Add a debug console log to check the API URL
-console.log('API URL:', API_URL);
-
-// DOM Elements
-const chatForm = document.getElementById('chatForm');
-const queryInput = document.getElementById('queryInput');
-const messagesContainer = document.getElementById('messages');
-const apiStatusBanner = document.getElementById('api-status-banner');
-const apiStatusMessage = document.getElementById('api-status-message');
-const retryConnectionButton = document.getElementById('retry-connection');
-
-// Bible reference regex for highlighting in responses
-const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi;
-
-// Add debugging log
-console.log('DOM Elements:', {
-  chatForm: !!chatForm,
-  queryInput: !!queryInput,
-  messagesContainer: !!messagesContainer,
-  apiStatusBanner: !!apiStatusBanner
-});
-
-// Event Listeners
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM loaded, initializing chat...');
-  
-  // Check if the form exists on this page before attaching events
-  if (chatForm) {
-    console.log('Chat form found, adding event listeners');
-    
-    chatForm.addEventListener('submit', handleSubmit);
-    
-    if (queryInput) {
-      queryInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          chatForm.dispatchEvent(new Event('submit'));
-        }
-      });
-    }
-    
-    // Add retry connection button handler
-    if (retryConnectionButton) {
-      retryConnectionButton.addEventListener('click', verifyApiConnection);
-    }
-    
-    // Make example questions clickable
-    setupExampleQuestionClicks();
-    
-    // Verify API connection on page load
-    verifyApiConnection();
-  } else {
-    console.error('Chat form not found on this page');
-  }
-});
-
-/**
- * Setup click handlers for example questions in the info section
- */
-function setupExampleQuestionClicks() {
-  const exampleQuestions = document.querySelectorAll('.example-questions li');
-  console.log('Setting up', exampleQuestions.length, 'example questions');
-  
-  exampleQuestions.forEach(item => {
-    item.style.cursor = 'pointer';
-    
-    item.addEventListener('click', function() {
-      const query = this.textContent.trim();
-      console.log('Example question clicked:', query);
-      
-      if (queryInput) {
-        queryInput.value = query;
-        
-        // Smoothly scroll to chat section
-        const chatContainer = document.querySelector('.chat-container');
-        if (chatContainer) {
-          chatContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        
-        // Short delay before submitting to let scroll complete
-        setTimeout(() => {
-          chatForm.dispatchEvent(new Event('submit'));
-        }, 500);
-      }
-    });
-  });
-}
-
-/**
- * Verify API connection
- */
-async function verifyApiConnection() {
-  console.log('Verifying API connection to:', API_URL);
-  
-  if (apiStatusBanner) {
-    apiStatusBanner.style.display = 'block';
-    apiStatusMessage.textContent = 'Checking connection...';
-  }
-  
-  try {
-    // Try the root endpoint first
-    const rootResponse = await fetch(`${API_URL}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Origin': window.location.origin
-      },
-      mode: 'cors'
-    });
-    
-    if (!rootResponse.ok) {
-      throw new Error(`API connection failed with status: ${rootResponse.status}`);
-    }
-    
-    console.log('API connection successful');
-    
-    if (apiStatusBanner) {
-      apiStatusBanner.style.display = 'none';
-    }
-    
-    return true;
-    
-  } catch (error) {
-    console.error('API connection verification failed:', error);
-    
-    if (apiStatusBanner && apiStatusMessage) {
-      apiStatusBanner.style.display = 'block';
-      apiStatusMessage.textContent = `API connection issue: ${error.message}. Check console for details.`;
-    }
-    
-    return false;
-  }
-}
-
-/**
- * Handle form submission
- */
-async function handleSubmit(event) {
-  event.preventDefault();
-  console.log('Form submitted');
-  
-  const query = queryInput.value.trim();
-  if (!query) {
-    console.log('Empty query, ignoring');
-    return;
-  }
-  
-  // Add user message to the chat
-  addMessage(query, 'user');
-  
-  // Clear input field
-  queryInput.value = '';
-  
-  // Add loading message
-  const loadingMessageId = addLoadingMessage();
-  
-  try {
-    // Send request to API
-    const url = `${API_URL}/answer`;
-    console.log('Sending request to:', url);
-    
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': window.location.origin
-      },
-      mode: 'cors',
-      body: JSON.stringify({
-        query: query,
-        top_k: 5,
-        include_sources: true
-      })
-    });
-    
-    if (!response.ok) {
-      console.error('API Error:', response.status, response.statusText);
-      throw new Error(`API request failed with status ${response.status}`);
-    }
-    
-    const data = await response.json();
-    console.log('Received response:', data);
-    
-    // Remove loading message
-    removeMessage(loadingMessageId);
-    
-    // Display AI response
-    displayAnswer(data);
-    
-  } catch (error) {
-    console.error('Error:', error);
-    
-    // Remove loading message
-    removeMessage(loadingMessageId);
-    
-    // Show error message with more details
-    addMessage(`Sorry, there was an error processing your question (${error.message}). Please try again later or check with your administrator.`, 'bot', true);
-  }
-}
-
-/**
- * Add a message to the chat
- */
-function addMessage(text, sender, isError = false) {
-  const messageElement = document.createElement('div');
-  messageElement.className = `message ${sender}`;
-  
-  if (isError) {
-    messageElement.classList.add('error');
-  }
-  
-  // For bot messages, process and render HTML properly
-  if (sender === 'bot') {
-    // First highlight Bible references
-    text = highlightBibleReferences(text);
-    
-    // Set the HTML content directly to properly render HTML tags
-    messageElement.innerHTML = text;
-    
-    // Make all links open in new tab
-    const links = messageElement.querySelectorAll('a');
-    links.forEach(link => {
-      if (!link.hasAttribute('target')) {
-        link.setAttribute('target', '_blank');
-      }
-    });
-  } else {
-    // For user messages, escape HTML
-    messageElement.textContent = text;
-  }
-  
-  messageElement.id = 'msg-' + Date.now();
-  messagesContainer.appendChild(messageElement);
-  
-  // Scroll to the bottom
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  
-  return messageElement.id;
-}
-
-/**
- * Add a loading message
- */
-function addLoadingMessage() {
-  const loadingElement = document.createElement('div');
-  loadingElement.className = 'message bot loading';
-  loadingElement.innerHTML = '<div class="loading-spinner"></div> Searching sermon content...';
-  loadingElement.id = 'loading-' + Date.now();
-  messagesContainer.appendChild(loadingElement);
-  
-  // Scroll to the bottom
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  
-  return loadingElement.id;
-}
-
-/**
- * Remove a message by ID
- */
-function removeMessage(id) {
-  const message = document.getElementById(id);
-  if (message) {
-    message.remove();
-  }
-}
-
-/**
- * Format a date string from various possible formats
- */
-function formatSermonDate(dateStr) {
-  if (!dateStr) return 'Date unknown';
-  
-  try {
-    // Handle YYYYMMDD format (common in the metadata)
-    if (typeof dateStr === 'number' || (typeof dateStr === 'string' && /^\d{8}$/.test(dateStr))) {
-      const yearStr = String(dateStr).substring(0, 4);
-      const monthStr = String(dateStr).substring(4, 6);
-      const dayStr = String(dateStr).substring(6, 8);
-      
-      const year = parseInt(yearStr);
-      const month = parseInt(monthStr) - 1; // JavaScript months are 0-indexed
-      const day = parseInt(dayStr);
-      
-      const date = new Date(year, month, day);
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long', 
-        day: 'numeric'
-      });
-    }
-    
-    // Handle ISO date strings
-    if (typeof dateStr === 'string' && dateStr.includes('-')) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long', 
-        day: 'numeric'
-      });
-    }
-    
-    // Handle timestamp
-    if (typeof dateStr === 'number') {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long', 
-        day: 'numeric'
-      });
-    }
-    
-    // Return as is if we can't parse it
-    return dateStr;
-  } catch (e) {
-    console.error(`Error parsing date: ${dateStr}`, e);
-    return 'Date unknown';
-  }
-}
-
-/**
- * Clean and format sermon title
- */
-function formatSermonTitle(title) {
-  if (!title) return 'Unknown Sermon';
-  
-  // Remove quotes that might be in the title
-  return title.replace(/^["']|["']$/g, '');
-}
-
-/**
- * Display the answer and sources from the API
- */
-function displayAnswer(data) {
-  // Add the answer to the chat - allow HTML rendering
-  addMessage(data.answer, 'bot');
-  
-  // Display sources if available
-  if (data.sources && data.sources.length > 0) {
-    // Sort sources by similarity score
-    const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
-    
-    // Display top sources
-    const sourceLimit = 3; // Limit to top 3 sources
-    const topSources = sortedSources.slice(0, sourceLimit);
-    
-    topSources.forEach((source, index) => {
-      displaySource(source, index);
-    });
-  }
-}
-
-/**
- * Display a source with video embed and enhanced metadata
- */
-function displaySource(source, index) {
-  const sourceElement = document.createElement('div');
-  sourceElement.className = 'source-container';
-  
-  const similarity = Math.round(source.similarity * 100);
-  const videoUrl = `https://www.youtube.com/embed/${source.video_id}?start=${Math.floor(source.start_time)}`;
-  
-  // Format title and date for display
-  const formattedTitle = formatSermonTitle(source.title);
-  const formattedDate = formatSermonDate(source.publish_date);
-  
-  sourceElement.innerHTML = `
-    <div class="source-header">
-      <div class="source-title">${escapeHTML(formattedTitle)}</div>
-      <div class="source-date">${formattedDate}</div>
-    </div>
-    <div class="source-text">"${formatText(source.text.substring(0, 150))}${source.text.length > 150 ? '...' : ''}"</div>
-    <div class="source-meta">
-      <span class="source-time">Timestamp: ${formatTimestamp(source.start_time)}</span>
-      <span class="source-match">${similarity}% match</span>
-    </div>
-    <div class="source-actions">
-      <button class="watch-video-btn" onclick="toggleVideo(this)">Watch Video Clip</button>
-      <a href="https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}" target="_blank" class="open-youtube-btn">
-        Open in YouTube
-      </a>
-    </div>
-    <div class="video-embed" style="display: none;">
-      <iframe src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen height="215"></iframe>
-    </div>
-  `;
-  
-  messagesContainer.appendChild(sourceElement);
-  
-  // Scroll to the bottom
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
-
-/**
- * Toggle video display
- */
-function toggleVideo(button) {
-  const videoEmbed = button.parentElement.nextElementSibling;
-  const isHidden = videoEmbed.style.display === 'none';
-  
-  // Toggle the video display
-  videoEmbed.style.display = isHidden ? 'block' : 'none';
-  
-  // Update the button text
-  button.textContent = isHidden ? 'Hide Video' : 'Watch Video Clip';
-}
-
-/**
- * Escape HTML for safety
- */
-function escapeHTML(str) {
-  if (!str) return '';
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
-
-/**
- * Format text (e.g., highlight Bible references)
- */
-function formatText(text) {
-  if (!text) return '';
-  // First escape HTML
-  text = escapeHTML(text);
-  // Then highlight Bible references
-  return highlightBibleReferences(text);
-}
-
-/**
- * Highlight Bible references in text
- */
-function highlightBibleReferences(text) {
-  return text.replace(bibleRefRegex, '<span class="bible-reference">$&</span>');
-}
-
-/**
- * Format timestamp to MM:SS
- */
-function formatTimestamp(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds % 60);
-  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-}
-</script>
