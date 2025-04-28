@@ -2,15 +2,15 @@
 layout: default
 title: Bible Reference Viewer
 hero: true
-hero_title: Bible Reference Viewer
-hero_description: See all occurrences of a specific Bible reference in the sermon library.
+hero_title: Bible Reference Explorer
+hero_description: Explore all occurrences of Bible references in sermons with direct links to video timestamps.
 custom_js: reference-viewer
 ---
 
 <div class="container">
   <div id="loading-indicator" class="text-center">
     <div class="loading-spinner"></div>
-    <p>Loading reference occurrences...</p>
+    <p>Loading reference data...</p>
   </div>
   
   <div id="error-message" class="error-message" style="display: none;"></div>
@@ -18,12 +18,19 @@ custom_js: reference-viewer
   <div id="reference-details" style="display: none;">
     <div class="reference-header">
       <button id="back-button" class="btn"><span class="back-arrow">←</span> Back to Analytics</button>
-      <h2>References to <span id="reference-title">John 3:16</span></h2>
-      <p>Found <span id="reference-count">0</span> occurrences in the sermon library</p>
+      <h2>
+        <span id="reference-type-label">Reference</span>: 
+        <span id="reference-title" class="reference-title-text">Loading...</span>
+      </h2>
+      <p>Found <span id="reference-count">0</span> occurrences in sermons</p>
     </div>
     
     <div id="occurrences-list" class="occurrences-list">
       <!-- Dynamically populated by JavaScript -->
+    </div>
+    
+    <div id="related-references-list" class="related-references" style="display: none;">
+      <!-- Dynamically populated by JavaScript for related references -->
     </div>
   </div>
 </div>
@@ -37,13 +44,17 @@ custom_js: reference-viewer
     margin: 2rem 0;
   }
   
+  .reference-title-text {
+    color: var(--color-primary);
+  }
+  
   .occurrences-list {
     margin-bottom: 3rem;
   }
   
   .sermon-group {
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -57,10 +68,17 @@ custom_js: reference-viewer
   
   .occurrence-item {
     margin-bottom: 1.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: white;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .occurrence-reference {
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1em;
   }
   
   .occurrence-text {
@@ -121,11 +139,83 @@ custom_js: reference-viewer
     font-style: italic;
   }
   
+  .references-summary {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f0f7ff;
+    border-radius: 8px;
+  }
+  
+  .references-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .reference-link {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+  }
+  
+  .reference-link:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  .related-references {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .related-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .related-verse {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    color: #666;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+  }
+  
+  .related-verse:hover {
+    background-color: #f0f0f0;
+    border-color: #999;
+  }
+  
   @media (max-width: 768px) {
     .occurrence-meta {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
+    }
+    
+    .references-list,
+    .related-list {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    
+    .reference-link,
+    .related-verse {
+      display: block;
+      text-align: center;
     }
   }
 </style>

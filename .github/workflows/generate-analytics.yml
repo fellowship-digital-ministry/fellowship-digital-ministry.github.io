@@ -2,17 +2,25 @@ name: Generate Sermon Analytics
 
 on:
   schedule:
-    # Run once a week on Sunday at 2 AM
-    - cron: '0 2 * * 0'
+    # Run once a day at 2 AM UTC
+    - cron: '0 2 * * *'
   workflow_dispatch:
     # Allow manual trigger from GitHub UI
+    inputs:
+      force_refresh:
+        description: 'Force refresh all analytics data'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   generate-analytics:
     runs-on: ubuntu-latest
     permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
+      # Give the default GITHUB_TOKEN write permission to commit and push
       contents: write
     
     steps:
@@ -35,40 +43,38 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests python-dotenv httpx
-      
-      - name: Run incremental analytics generation
-        env:
-          API_URL: ${{ secrets.API_URL && 'https://' }}${{ secrets.API_URL }}
-          METADATA_DIR: ${{ github.workspace }}/_data/metadata
+          pip install httpx asyncio
+
+      - name: Create output directories
         run: |
-          # Create metadata directory
-          mkdir -p $METADATA_DIR
-          
-          # First, check if we can access the metadata repository
-          if [ -n "${{ secrets.METADATA_REPO }}" ]; then
-            echo "Trying to fetch metadata from external repository"
-            git clone ${{ secrets.METADATA_REPO }} metadata_repo
-            if [ -d "metadata_repo/transcription/metadata" ]; then
-              echo "Copying metadata files"
-              cp -r metadata_repo/transcription/metadata/* $METADATA_DIR/
-            fi
-          else
-            echo "No metadata repository configured. Using API data only."
+          mkdir -p _data/analytics
+          mkdir -p assets/data/analytics
+      
+      - name: Run analytics generator
+        env:
+          API_URL: ${{ secrets.API_URL || 'https://sermon-search-api-8fok.onrender.com' }}
+          FORCE_REFRESH: ${{ github.event.inputs.force_refresh || 'false' }}
+        run: |
+          # If force_refresh is true, delete existing analytics data
+          if [ "$FORCE_REFRESH" = "true" ]; then
+            echo "Forcing full refresh of analytics data"
+            rm -rf _data/analytics/*
+            rm -rf assets/data/analytics/*
+            rm -f _data/analytics/processed_sermons.json
           fi
           
-          # Create sample data to get things started
-          python scripts/copy_analytics_data.py
+          # Run the enhanced analytics generator
+          python scripts/enhanced_incremental_analytics.py
           
-          # Run the incremental analytics script
-          python scripts/incremental_analytics.py
+          # Copy data from _data to assets for web access
+          cp -r _data/analytics/* assets/data/analytics/
           
       - name: Commit and push if changes
         run: |
           # Pull the latest changes from remote
           git pull --rebase origin main
           
-          git add _data/analytics/*.json assets/data/analytics/*.json
+          git add _data/analytics assets/data/analytics
           
           # Check if there are changes to commit
           if git diff --staged --quiet; then
