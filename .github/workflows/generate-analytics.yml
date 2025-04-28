@@ -71,6 +71,9 @@ jobs:
           
       - name: Commit and push if changes
         run: |
+          # Stash any existing changes
+          git stash
+          
           # Pull the latest changes from remote
           git pull --rebase origin main
           
@@ -85,3 +88,6 @@ jobs:
             # Push changes
             git push
           fi
+          
+          # Restore stashed changes if any
+          git stash list | grep -q "stash" && git stash pop || echo "No stashed changes"
