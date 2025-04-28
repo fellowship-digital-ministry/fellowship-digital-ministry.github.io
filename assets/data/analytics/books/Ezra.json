@@ -1,0 +1,31 @@
+{
+  "book": "Ezra",
+  "sermons": [
+    {
+      "sermon_id": "d8tHudo0_3I",
+      "sermon_title": "Sermon d8tHudo0_3I",
+      "url": "https://www.youtube.com/watch?v=d8tHudo0_3I",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "Ezra 7",
+          "sermon_id": "d8tHudo0_3I",
+          "timestamp": 1393.5400390625,
+          "context": "... give to someone when that opportunity presents itself? I'm mindful of Ezra in the Old Testament in Ezra 7 and verse number 10 if you want to jot that reference down but Ezra says in that passage of Scriptu..."
+        },
+        {
+          "reference": "Ezra 7",
+          "sermon_id": "d8tHudo0_3I",
+          "timestamp": 1393.5400390625,
+          "context": "... give to someone when that opportunity presents itself? I'm mindful of Ezra in the Old Testament in Ezra 7 and verse number 10 if you want to jot that reference down but Ezra says in that passage of Scriptu..."
+        },
+        {
+          "reference": "Ezra 7",
+          "sermon_id": "d8tHudo0_3I",
+          "timestamp": 1468.300048828125,
+          "context": "...aration preceded the opportunity that was afforded him. We find that if you were to read throughout Ezra 7 that's verse number 10 if you read the remainder of chapter 7 and really get into chapter number 8 ..."
+        }
+      ]
+    }
+  ]
+}

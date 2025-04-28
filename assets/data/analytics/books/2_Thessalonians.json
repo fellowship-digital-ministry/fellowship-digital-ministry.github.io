@@ -1,0 +1,39 @@
+{
+  "book": "2 Thessalonians",
+  "sermons": [
+    {
+      "sermon_id": "0lpK3XY3NtI",
+      "sermon_title": "Sermon 0lpK3XY3NtI",
+      "url": "https://www.youtube.com/watch?v=0lpK3XY3NtI",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "2 Thessalonians 3",
+          "sermon_id": "0lpK3XY3NtI",
+          "timestamp": 229.17999267578125,
+          "context": "...iven, the encouragement, but ye, brethren, be not weary in well-doing. As we take this thought from 2 Thessalonians 3, and of course, having the whole canon of scripture, I believe that as we look and compare scriptur..."
+        },
+        {
+          "reference": "2 Thessalonians 3",
+          "sermon_id": "0lpK3XY3NtI",
+          "timestamp": 1070.6000061035156,
+          "context": "...ter of the book of Galatians, God gives us a truth that is very similar to the truth that we see in 2 Thessalonians 3 in verse 13. But ye brethren, and he says be not weary in well doing. As we come to Galatians chapt..."
+        }
+      ]
+    },
+    {
+      "sermon_id": "uGo1HL4c1vk",
+      "sermon_title": "Sermon uGo1HL4c1vk",
+      "url": "https://www.youtube.com/watch?v=uGo1HL4c1vk",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "2 Thessalonians 3",
+          "sermon_id": "uGo1HL4c1vk",
+          "timestamp": 410.739990234375,
+          "context": "...Notice what the Bible says over in 2 Thessalonians. Hold your hand here in Colossians 4 and look in 2 Thessalonians 3. I only mention this just to encourage us this morning to understand the importance of why Paul is ..."
+        }
+      ]
+    }
+  ]
+}

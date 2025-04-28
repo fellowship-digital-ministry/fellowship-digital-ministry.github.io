@@ -1,0 +1,45 @@
+{
+  "chapter": "James 1",
+  "sermons": [
+    {
+      "sermon_id": "nS3pAoxKMb4",
+      "sermon_title": "Sermon nS3pAoxKMb4",
+      "url": "https://www.youtube.com/watch?v=nS3pAoxKMb4",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "James 1",
+          "sermon_id": "nS3pAoxKMb4",
+          "timestamp": 534.1799926757812,
+          "context": "...truth is being given to us with regard to temptation to sin or to do evil And in verse number 13 of James 1 the Bible says let no man say when he is tempted I am tempted of God for God cannot be tempted with..."
+        }
+      ]
+    },
+    {
+      "sermon_id": "1_NCe9SHoA0",
+      "sermon_title": "Sermon 1_NCe9SHoA0",
+      "url": "https://www.youtube.com/watch?v=1_NCe9SHoA0",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "James 1",
+          "sermon_id": "1_NCe9SHoA0",
+          "timestamp": 674.7600021362305,
+          "context": "...ith this friendship and we find that the Bible tells us, look back a few passages or a few pages in James 1 and verse number 27, notice what he says here, pure religion and undefiled before God and the Fathe..."
+        },
+        {
+          "reference": "James 1",
+          "sermon_id": "1_NCe9SHoA0",
+          "timestamp": 751.0200042724609,
+          "context": "few passages or a few pages in James 1 and verse number 27, notice what he says here, pure religion and undefiled before God and the Fathe..."
+        },
+        {
+          "reference": "James 1",
+          "sermon_id": "1_NCe9SHoA0",
+          "timestamp": 751.0200042724609,
+          "context": "few passages or a few pages in James 1 and verse number 27, notice what he says here, pure religion and undefiled before God and the Fathe..."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "book": "Deuteronomy",
+  "sermons": [
+    {
+      "sermon_id": "LXUyl5whAVc",
+      "sermon_title": "Sermon LXUyl5whAVc",
+      "url": "https://www.youtube.com/watch?v=LXUyl5whAVc",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "Deuteronomy 6",
+          "sermon_id": "LXUyl5whAVc",
+          "timestamp": 2408.1800389289856,
+          "context": "..., if you don't know it, you can't teach it. So you better have a close walk with God. That's why in Deuteronomy 6, it starts with the individual receiving and doing and having in your heart, because then you can b..."
+        }
+      ]
+    },
+    {
+      "sermon_id": "oOFjt9BwwsE",
+      "sermon_title": "Sermon oOFjt9BwwsE",
+      "url": "https://www.youtube.com/watch?v=oOFjt9BwwsE",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "Deuteronomy 21",
+          "sermon_id": "oOFjt9BwwsE",
+          "timestamp": 952.6599731445312,
+          "context": "...ht. We find that in Deuteronomy chapter 21, turn over there, and I want you to note what happens in Deuteronomy 21 as God is giving instruction to the people of God as they would be preparing to enter into the land..."
+        },
+        {
+          "reference": "Deuteronomy 21",
+          "sermon_id": "oOFjt9BwwsE",
+          "timestamp": 1016.6599731445312,
+          "context": "Deuteronomy chapter 21, turn over there, and I want you to note what happens in Deuteronomy 21 as God is giving instruction to the people of God as they would be preparing to enter into the land..."
+        },
+        {
+          "reference": "Deuteronomy 21",
+          "sermon_id": "oOFjt9BwwsE",
+          "timestamp": 1016.6599731445312,
+          "context": "Deuteronomy chapter 21, turn over there, and I want you to note what happens in Deuteronomy 21 as God is giving instruction to the people of God as they would be preparing to enter into the land..."
+        }
+      ]
+    }
+  ]
+}

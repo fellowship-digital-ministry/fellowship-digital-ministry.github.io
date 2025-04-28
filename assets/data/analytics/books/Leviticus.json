@@ -1,0 +1,19 @@
+{
+  "book": "Leviticus",
+  "sermons": [
+    {
+      "sermon_id": "KVAB3-ajXLM",
+      "sermon_title": "Sermon KVAB3-ajXLM",
+      "url": "https://www.youtube.com/watch?v=KVAB3-ajXLM",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "Leviticus 26",
+          "sermon_id": "KVAB3-ajXLM",
+          "timestamp": 1243.180030822754,
+          "context": "... as you look at the Ten Commandments, thou shalt have no other gods before me. We find that it's in Leviticus 26, in verse number one, that here God says, ye shall make you no idols nor graven image, neither rear..."
+        }
+      ]
+    }
+  ]
+}

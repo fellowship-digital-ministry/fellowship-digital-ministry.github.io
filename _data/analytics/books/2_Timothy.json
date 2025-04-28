@@ -1,0 +1,25 @@
+{
+  "book": "2 Timothy",
+  "sermons": [
+    {
+      "sermon_id": "uGo1HL4c1vk",
+      "sermon_title": "Sermon uGo1HL4c1vk",
+      "url": "https://www.youtube.com/watch?v=uGo1HL4c1vk",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "2 Timothy 4",
+          "sermon_id": "uGo1HL4c1vk",
+          "timestamp": 1706.739990234375,
+          "context": "...t thou fulfill it. We find this example that is given to us, of course, we're familiar with Paul in 2 Timothy 4. We won't take the time to turn there this morning, but in 2 Timothy, it's the last letter that Pau..."
+        },
+        {
+          "reference": "2 Timothy 4",
+          "sermon_id": "uGo1HL4c1vk",
+          "timestamp": 2200.5799560546875,
+          "context": "... I mentioned that it's not going to happen by accident. It's not going to happen by chance. Paul in 2 Timothy 4 gives us that great declaration of finishing, but in Acts 20 before he arrives in Jerusalem when he..."
+        }
+      ]
+    }
+  ]
+}

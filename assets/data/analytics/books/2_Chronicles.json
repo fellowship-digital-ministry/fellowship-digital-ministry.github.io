@@ -1,0 +1,25 @@
+{
+  "book": "2 Chronicles",
+  "sermons": [
+    {
+      "sermon_id": "oGfQDeDvcH0",
+      "sermon_title": "Sermon oGfQDeDvcH0",
+      "url": "https://www.youtube.com/watch?v=oGfQDeDvcH0",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "2 Chronicles 20",
+          "sermon_id": "oGfQDeDvcH0",
+          "timestamp": 2785.9400329589844,
+          "context": "...pen to Jehoshaphat's own figuring it out. And this morning, as we think about this great passage in 2 Chronicles 20, this event in the life of Jehoshaphat, I hope that we leave with more than just a history lesson. ..."
+        },
+        {
+          "reference": "2 Chronicles 20",
+          "sermon_id": "oGfQDeDvcH0",
+          "timestamp": 2928.4200439453125,
+          "context": "... the reign of Jehoshaphat, king of Judah. I believe this morning in my own life that this record of 2 Chronicles 20 is impactful. It's exemplary. The purpose of studying your Word is not to simply have a better gras..."
+        }
+      ]
+    }
+  ]
+}

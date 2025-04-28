@@ -1,0 +1,25 @@
+{
+  "book": "Jeremiah",
+  "sermons": [
+    {
+      "sermon_id": "KVAB3-ajXLM",
+      "sermon_title": "Sermon KVAB3-ajXLM",
+      "url": "https://www.youtube.com/watch?v=KVAB3-ajXLM",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "Jeremiah 42",
+          "sermon_id": "KVAB3-ajXLM",
+          "timestamp": 1938.7000274658203,
+          "context": ".... He understands what's going to happen. But God gives word after word to Jeremiah. And in here, in Jeremiah 42 and v. 11, the Bible says, be not afraid of the King of Babylon, of whom you are afraid. Be not afr..."
+        },
+        {
+          "reference": "Jeremiah 42",
+          "sermon_id": "KVAB3-ajXLM",
+          "timestamp": 1938.7000274658203,
+          "context": ".... He understands what's going to happen. But God gives word after word to Jeremiah. And in here, in Jeremiah 42 and v. 11, the Bible says, be not afraid of the King of Babylon, of whom you are afraid. Be not afr..."
+        }
+      ]
+    }
+  ]
+}

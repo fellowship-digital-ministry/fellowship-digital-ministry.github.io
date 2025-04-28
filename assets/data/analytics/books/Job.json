@@ -1,0 +1,19 @@
+{
+  "book": "Job",
+  "sermons": [
+    {
+      "sermon_id": "qwt_XuUQD9E",
+      "sermon_title": "Sermon qwt_XuUQD9E",
+      "url": "https://www.youtube.com/watch?v=qwt_XuUQD9E",
+      "publish_date": "2025-04-26",
+      "occurrences": [
+        {
+          "reference": "Job 23",
+          "sermon_id": "qwt_XuUQD9E",
+          "timestamp": 2566.979949951172,
+          "context": "...t there will be some trials that are referenced as to how God developed us. Job said it this way in Job 23. Verse number 10, but he knoweth the way that I take. When he hath tried me, I shall come forth as ..."
+        }
+      ]
+    }
+  ]
+}
