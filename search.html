@@ -2949,63 +2949,244 @@ function highlightBibleReferences(text) {
 /**
  * Fetch and display a sermon transcript with translation
  */
- 
-// Global cache for transcript data to prevent duplicate fetches
-const transcriptCache = {};
-
-/**
- * Fetch transcript data from API
- */
-async function fetchTranscript(videoId, startTime = 0) {
-  try {
-    // Get the transcript container (should already exist)
-    const transcriptContainer = document.getElementById(`transcript-${videoId}`);
-    if (!transcriptContainer) {
-      console.error('Transcript container not found for video ID:', videoId);
-      return;
-    }
-    
-    // Show loading state
-    transcriptContainer.innerHTML = '';
-    const loadingElement = document.createElement('div');
-    loadingElement.className = 'transcript-loading';
-    loadingElement.textContent = translate('loading-transcript');
-    transcriptContainer.appendChild(loadingElement);
-    
-    console.log(`Fetching transcript for video ${videoId} with language ${currentLanguage}`);
-    
-    // Fetch the transcript from the API
-    const response = await fetch(`${API_URL}/transcript/${videoId}?language=${currentLanguage}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Origin': window.location.origin,
-        'Accept-Language': currentLanguage
-      },
-      mode: 'cors'
-    });
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch transcript: ${response.status} ${response.statusText}`);
-    }
-    
-    const data = await response.json();
-    console.log('Received transcript data:', data);
-    
-    // Store in cache
-    transcriptCache[videoId] = data;
-    
-    // Render the transcript
-    renderTranscript(videoId, data, startTime);
-  } catch (error) {
-    console.error('Error fetching transcript:', error);
-    
-    // Show error in container
-    const transcriptContainer = document.getElementById(`transcript-${videoId}`);
-    if (transcriptContainer) {
+ async function fetchTranscript(videoId, startTime = 0) {
+    try {
+      // Show loading state
+      const loadingElement = document.createElement('div');
+      loadingElement.className = 'transcript-loading';
+      loadingElement.textContent = translate('loading-transcript');
+      
+      // Find or create the transcript container for this source
+      let transcriptContainer = document.getElementById(`transcript-${videoId}`);
+      
+      if (!transcriptContainer) {
+        // If no container exists yet, create one
+        transcriptContainer = document.createElement('div');
+        transcriptContainer.id = `transcript-${videoId}`;
+        transcriptContainer.className = 'transcript-container';
+        transcriptContainer.style.display = 'block';
+        
+        // Find the source container to append to
+        const sourceContainer = document.querySelector(`.source-container[data-video-id="${videoId}"]`);
+        if (sourceContainer) {
+          sourceContainer.appendChild(transcriptContainer);
+        } else {
+          console.error('Could not find source container for video ID:', videoId);
+          return;
+        }
+      }
+      
+      // Clear and show loading
+      transcriptContainer.innerHTML = '';
+      transcriptContainer.appendChild(loadingElement);
+      
+      console.log(`Fetching transcript for video ${videoId} with language ${currentLanguage}`);
+      
+      // Fetch the transcript from the API
+      const response = await fetch(`${API_URL}/transcript/${videoId}?language=${currentLanguage}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Origin': window.location.origin,
+          'Accept-Language': currentLanguage
+        },
+        mode: 'cors'
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch transcript: ${response.status} ${response.statusText}`);
+      }
+      
+      const data = await response.json();
+      console.log('Received transcript data:', data);
+      
+      // Remove loading element
+      loadingElement.remove();
+      
+      // Create transcript content
+      const transcriptContent = document.createElement('div');
+      transcriptContent.className = 'transcript-content';
+      
+      // If there's a note (like language unavailability), display it
+      if (data.note) {
+        const noteElement = document.createElement('div');
+        noteElement.className = 'transcript-note';
+        noteElement.innerHTML = `<p><em>${data.note}</em></p>`;
+        transcriptContainer.appendChild(noteElement);
+      }
+      
+      // Add search functionality
+      const searchContainer = document.createElement('div');
+      searchContainer.className = 'transcript-search';
+      searchContainer.innerHTML = `
+        <input type="text" placeholder="Search in transcript..." class="transcript-search-input">
+        <button class="transcript-search-button">Search</button>
+      `;
+      
+      // Add event listeners for search
+      const searchInput = searchContainer.querySelector('.transcript-search-input');
+      const searchButton = searchContainer.querySelector('.transcript-search-button');
+      
+      searchButton.addEventListener('click', () => {
+        searchTranscript(searchInput.value, transcriptContent);
+      });
+      
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          searchTranscript(searchInput.value, transcriptContent);
+        }
+      });
+      
+      // Add download transcript option
+      const downloadButton = document.createElement('button');
+      downloadButton.className = 'transcript-download-button';
+      downloadButton.textContent = 'Download Transcript';
+      downloadButton.addEventListener('click', () => {
+        downloadTranscript(videoId, data.segments);
+      });
+      searchContainer.appendChild(downloadButton);
+      
+      // If the API returns segments with timestamps
+      if (data.segments && Array.isArray(data.segments)) {
+        // Add transcript info
+        const infoElement = document.createElement('div');
+        infoElement.className = 'transcript-info';
+        infoElement.innerHTML = `<p>Full transcript (${data.total_segments} segments)</p>`;
+        transcriptContainer.appendChild(infoElement);
+        
+        // Handle segmented transcript with timestamps
+        data.segments.forEach(segment => {
+          const segmentElement = document.createElement('div');
+          
+          // Check if this is a gap segment
+          if (segment.is_gap) {
+            segmentElement.className = 'transcript-gap';
+            segmentElement.innerHTML = '<span class="transcript-gap-indicator">[...]</span>';
+            transcriptContent.appendChild(segmentElement);
+            return;
+          }
+          
+          segmentElement.className = 'transcript-segment';
+          
+          const timestampElement = document.createElement('span');
+          timestampElement.className = 'transcript-timestamp';
+          timestampElement.textContent = formatTimestamp(segment.start_time);
+          
+          const textElement = document.createElement('span');
+          textElement.className = 'transcript-text';
+          textElement.textContent = segment.text;
+          
+          // Apply highlighting to this segment if it contains our search terms
+          segmentElement.setAttribute('data-time', segment.start_time);
+          
+          // Highlight the segment closest to our start time
+          if (Math.abs(segment.start_time - startTime) < 10) {
+            segmentElement.classList.add('transcript-highlight-segment');
+          }
+          
+          segmentElement.appendChild(timestampElement);
+          segmentElement.appendChild(textElement);
+          transcriptContent.appendChild(segmentElement);
+        });
+      } else if (data.transcript) {
+        // Handle plain text transcript (fallback)
+        transcriptContent.innerHTML = data.transcript
+          .split('\n\n') // Split paragraphs
+          .map(para => `<p>${para}</p>`)
+          .join('');
+      } else {
+        // Fallback for unexpected format
+        transcriptContent.innerHTML = '<p>Transcript is available but in an unexpected format. Please try again later.</p>';
+      }
+      
+      // Add timestamp navigation helper
+      const timestampHelper = document.createElement('div');
+      timestampHelper.className = 'transcript-timestamp-helper';
+      timestampHelper.innerHTML = `
+        <small>Click on timestamps to jump to that part of the sermon</small>
+      `;
+      
+      // Add content to container
+      transcriptContainer.appendChild(searchContainer);
+      transcriptContainer.appendChild(timestampHelper);
+      transcriptContainer.appendChild(transcriptContent);
+      
+      // Add timestamp click handling
+      const timestamps = transcriptContainer.querySelectorAll('.transcript-timestamp');
+      timestamps.forEach(timestamp => {
+        timestamp.style.cursor = 'pointer';
+        timestamp.setAttribute('title', 'Click to jump to this part of the sermon');
+        
+        timestamp.addEventListener('click', function() {
+          const segment = this.closest('.transcript-segment');
+          if (segment) {
+            const time = segment.getAttribute('data-time');
+            if (time) {
+              // Find the YouTube embed and update its time
+              const sourceContainer = transcriptContainer.closest('.source-container');
+              if (sourceContainer) {
+                // Make sure video is visible
+                const videoEmbed = sourceContainer.querySelector('.video-embed');
+                const watchButton = sourceContainer.querySelector('.watch-video-btn');
+                
+                if (videoEmbed && videoEmbed.style.display === 'none') {
+                  // Show the video if it's hidden
+                  videoEmbed.style.display = 'block';
+                  if (watchButton) {
+                    watchButton.textContent = translate('hide-video');
+                  }
+                }
+                
+                // Update iframe src to jump to timestamp
+                const iframe = sourceContainer.querySelector('iframe');
+                if (iframe) {
+                  const currentSrc = iframe.src;
+                  const baseUrl = currentSrc.split('?')[0];
+                  iframe.src = `${baseUrl}?start=${Math.floor(time)}`;
+                  
+                  // Scroll to make video visible
+                  videoEmbed.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+              }
+            }
+          }
+        });
+      });
+      
+      // Scroll to highlighted segment if it exists
+      const highlightedSegment = transcriptContainer.querySelector('.transcript-highlight-segment');
+      if (highlightedSegment) {
+        setTimeout(() => {
+          highlightedSegment.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+      
+    } catch (error) {
+      console.error('Error fetching transcript:', error);
+      
+      // Show error in container
       const errorElement = document.createElement('div');
       errorElement.className = 'transcript-error';
       errorElement.textContent = `Could not load transcript: ${error.message}`;
+      
+      // Find the transcript container
+      let transcriptContainer = document.getElementById(`transcript-${videoId}`);
+      
+      if (!transcriptContainer) {
+        // If no container exists yet, create one
+        transcriptContainer = document.createElement('div');
+        transcriptContainer.id = `transcript-${videoId}`;
+        transcriptContainer.className = 'transcript-container';
+        
+        // Find the source container to append to
+        const sourceContainer = document.querySelector(`.source-container[data-video-id="${videoId}"]`);
+        if (sourceContainer) {
+          sourceContainer.appendChild(transcriptContainer);
+        } else {
+          console.error('Could not find source container for video ID:', videoId);
+          return;
+        }
+      }
       
       transcriptContainer.innerHTML = '';
       transcriptContainer.appendChild(errorElement);
@@ -3014,194 +3195,10 @@ async function fetchTranscript(videoId, startTime = 0) {
       const retryButton = document.createElement('button');
       retryButton.className = 'retry-button';
       retryButton.textContent = translate('retry');
-      retryButton.onclick = () => {
-        // Remove from cache if it exists
-        delete transcriptCache[videoId];
-        fetchTranscript(videoId, startTime);
-      };
+      retryButton.onclick = () => fetchTranscript(videoId, startTime);
       transcriptContainer.appendChild(retryButton);
     }
-  }
-}
-
-/**
- * Render transcript from data (either from API or cache)
- */
-function renderTranscript(videoId, data, startTime = 0) {
-  // Get the transcript container
-  const transcriptContainer = document.getElementById(`transcript-${videoId}`);
-  if (!transcriptContainer) return;
-  
-  // Clear the container
-  transcriptContainer.innerHTML = '';
-  
-  // If there's a note (like language unavailability), display it
-  if (data.note) {
-    const noteElement = document.createElement('div');
-    noteElement.className = 'transcript-note';
-    noteElement.innerHTML = `<p><em>${data.note}</em></p>`;
-    transcriptContainer.appendChild(noteElement);
-  }
-  
-  // Create transcript content
-  const transcriptContent = document.createElement('div');
-  transcriptContent.className = 'transcript-content';
-  
-  // Add search functionality
-  const searchContainer = document.createElement('div');
-  searchContainer.className = 'transcript-search';
-  searchContainer.innerHTML = `
-    <input type="text" placeholder="Search in transcript..." class="transcript-search-input">
-    <button class="transcript-search-button">Search</button>
-  `;
-  
-  // Add download transcript option
-  const downloadButton = document.createElement('button');
-  downloadButton.className = 'transcript-download-button';
-  downloadButton.textContent = 'Download Transcript';
-  downloadButton.addEventListener('click', () => {
-    downloadTranscript(videoId, data.segments);
-  });
-  searchContainer.appendChild(downloadButton);
-  
-  // Add event listeners for search
-  const searchInput = searchContainer.querySelector('.transcript-search-input');
-  const searchButton = searchContainer.querySelector('.transcript-search-button');
-  
-  searchButton.addEventListener('click', () => {
-    searchTranscript(searchInput.value, transcriptContent);
-  });
-  
-  searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      searchTranscript(searchInput.value, transcriptContent);
-    }
-  });
-  
-  // If the API returns segments with timestamps
-  if (data.segments && Array.isArray(data.segments)) {
-    // Add transcript info
-    const infoElement = document.createElement('div');
-    infoElement.className = 'transcript-info';
-    infoElement.innerHTML = `<p>Full transcript (${data.total_segments || data.segments.length} segments)</p>`;
-    transcriptContainer.appendChild(infoElement);
-    
-    // Use a fragment for better performance
-    const fragment = document.createDocumentFragment();
-    
-    // Handle segmented transcript with timestamps
-    data.segments.forEach(segment => {
-      const segmentElement = document.createElement('div');
-      
-      // Check if this is a gap segment
-      if (segment.is_gap) {
-        segmentElement.className = 'transcript-gap';
-        segmentElement.innerHTML = '<span class="transcript-gap-indicator">[...]</span>';
-        fragment.appendChild(segmentElement);
-        return;
-      }
-      
-      segmentElement.className = 'transcript-segment';
-      
-      const timestampElement = document.createElement('span');
-      timestampElement.className = 'transcript-timestamp';
-      timestampElement.textContent = formatTimestamp(segment.start_time);
-      
-      const textElement = document.createElement('span');
-      textElement.className = 'transcript-text';
-      textElement.textContent = segment.text;
-      
-      // Apply highlighting to this segment if it contains our search terms
-      segmentElement.setAttribute('data-time', segment.start_time);
-      
-      // Highlight the segment closest to our start time
-      if (Math.abs(segment.start_time - startTime) < 10) {
-        segmentElement.classList.add('transcript-highlight-segment');
-      }
-      
-      segmentElement.appendChild(timestampElement);
-      segmentElement.appendChild(textElement);
-      fragment.appendChild(segmentElement);
-    });
-    
-    // Add all segments at once for better performance
-    transcriptContent.appendChild(fragment);
-    
-  } else if (data.transcript) {
-    // Handle plain text transcript (fallback)
-    transcriptContent.innerHTML = data.transcript
-      .split('\n\n') // Split paragraphs
-      .map(para => `<p>${para}</p>`)
-      .join('');
-  } else {
-    // Fallback for unexpected format
-    transcriptContent.innerHTML = '<p>Transcript is available but in an unexpected format. Please try again later.</p>';
-  }
-  
-  // Add timestamp navigation helper
-  const timestampHelper = document.createElement('div');
-  timestampHelper.className = 'transcript-timestamp-helper';
-  timestampHelper.innerHTML = `
-    <small>Click on timestamps to jump to that part of the sermon</small>
-  `;
-  
-  // Add content to container
-  transcriptContainer.appendChild(searchContainer);
-  transcriptContainer.appendChild(timestampHelper);
-  transcriptContainer.appendChild(transcriptContent);
-  
-  // Add timestamp click handling
-  const timestamps = transcriptContainer.querySelectorAll('.transcript-timestamp');
-  timestamps.forEach(timestamp => {
-    timestamp.style.cursor = 'pointer';
-    timestamp.setAttribute('title', 'Click to jump to this part of the sermon');
-    
-    timestamp.addEventListener('click', function() {
-      const segment = this.closest('.transcript-segment');
-      if (segment) {
-        const time = segment.getAttribute('data-time');
-        if (time) {
-          // Find the YouTube embed and update its time
-          const sourceContainer = transcriptContainer.closest('.source-container');
-          if (sourceContainer) {
-            // Make sure video is visible
-            const videoEmbed = sourceContainer.querySelector('.video-embed');
-            const watchButton = sourceContainer.querySelector('.watch-video-btn');
-            
-            if (videoEmbed && videoEmbed.style.display === 'none') {
-              // Show the video if it's hidden
-              videoEmbed.style.display = 'block';
-              if (watchButton) {
-                watchButton.textContent = translate('hide-video');
-              }
-            }
-            
-            // Update iframe src to jump to timestamp
-            const iframe = sourceContainer.querySelector('iframe');
-            if (iframe) {
-              const currentSrc = iframe.src;
-              const baseUrl = currentSrc.split('?')[0];
-              iframe.src = `${baseUrl}?start=${Math.floor(time)}`;
-              
-              // Scroll to make video visible
-              videoEmbed.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-          }
-        }
-      }
-    });
-  });
-  
-  // Scroll to highlighted segment if it exists
-  const highlightedSegment = transcriptContainer.querySelector('.transcript-highlight-segment');
-  if (highlightedSegment) {
-    setTimeout(() => {
-      highlightedSegment.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 100);
-  }
-}
-
-
+} // <-- This closing brace was missing
 
 /**
  * Download transcript as a text file
@@ -3401,256 +3398,81 @@ function searchTranscript(query, transcriptContent) {
  * Toggle transcript visibility and load if needed
  */
 
- function toggleTranscript(videoId, startTime = 0) {
-    try {
-      if (!videoId) {
-        console.error('Invalid videoId for toggleTranscript');
-        return;
-      }
-      
-      const transcriptContainer = document.getElementById(`transcript-${videoId}`);
-      const button = document.querySelector(`.view-transcript-btn[onclick*="toggleTranscript('${videoId}')"]`);
-      
-      // Handle case where transcript container doesn't exist yet
-      if (!transcriptContainer) {
-        // Create container but don't fetch data yet
-        const newContainer = document.createElement('div');
-        newContainer.id = `transcript-${videoId}`;
-        newContainer.className = 'transcript-container';
-        newContainer.style.display = 'block';
-        
-        // Find the source container to append to
-        const sourceContainer = document.querySelector(`.source-container[data-video-id="${videoId}"]`);
-        if (sourceContainer) {
-          sourceContainer.appendChild(newContainer);
-          
-          // Show loading indicator
-          const loadingElement = document.createElement('div');
-          loadingElement.className = 'transcript-loading';
-          loadingElement.textContent = translate('loading-transcript');
-          newContainer.appendChild(loadingElement);
-          
-          // Update button text
-          if (button) {
-            button.textContent = typeof translate === 'function' ? 
-              translate('hide-transcript') : 'Hide Transcript';
-          }
-          
-          // Check cache first
-          if (transcriptCache[videoId]) {
-            console.log('Using cached transcript for', videoId);
-            // Use cached data
-            setTimeout(() => {
-              renderTranscript(videoId, transcriptCache[videoId], startTime);
-            }, 10);
-          } else {
-            // Fetch the transcript data
-            fetchTranscript(videoId, startTime);
-          }
-        } else {
-          console.error('Could not find source container for video ID:', videoId);
-        }
-        return;
-      }
-      
-      // Toggle visibility of existing container
-      const isHidden = transcriptContainer.style.display === 'none';
-      transcriptContainer.style.display = isHidden ? 'block' : 'none';
-      
-      // Update button text
-      if (button) {
-        const hideText = typeof translate === 'function' ? translate('hide-transcript') : 'Hide Transcript';
-        const showText = typeof translate === 'function' ? translate('view-transcript') : 'View Transcript';
-        button.textContent = isHidden ? hideText : showText;
-      }
-      
-      // Scroll into view if showing
-      if (isHidden) {
-        setTimeout(() => {
-          transcriptContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-      }
-    } catch (error) {
-      console.error('Error in toggleTranscript:', error);
+function toggleTranscript(videoId, startTime = 0) {
+  try {
+    if (!videoId) {
+      console.error('Invalid videoId for toggleTranscript');
+      return;
     }
-  }
-
-/**
- * Render transcript from data (either from API or cache)
- */
- function renderTranscript(videoId, data, startTime = 0) {
-    // Get the transcript container
+    
     const transcriptContainer = document.getElementById(`transcript-${videoId}`);
-    if (!transcriptContainer) return;
+    const button = document.querySelector(`.view-transcript-btn[onclick*="toggleTranscript('${videoId}')"]`);
     
-    // Clear the container
-    transcriptContainer.innerHTML = '';
-    
-    // If there's a note (like language unavailability), display it
-    if (data.note) {
-      const noteElement = document.createElement('div');
-      noteElement.className = 'transcript-note';
-      noteElement.innerHTML = `<p><em>${data.note}</em></p>`;
-      transcriptContainer.appendChild(noteElement);
-    }
-    
-    // Create transcript content
-    const transcriptContent = document.createElement('div');
-    transcriptContent.className = 'transcript-content';
-    
-    // Add search functionality
-    const searchContainer = document.createElement('div');
-    searchContainer.className = 'transcript-search';
-    searchContainer.innerHTML = `
-      <input type="text" placeholder="Search in transcript..." class="transcript-search-input">
-      <button class="transcript-search-button">Search</button>
-    `;
-    
-    // Add download transcript option
-    const downloadButton = document.createElement('button');
-    downloadButton.className = 'transcript-download-button';
-    downloadButton.textContent = 'Download Transcript';
-    downloadButton.addEventListener('click', () => {
-      downloadTranscript(videoId, data.segments);
-    });
-    searchContainer.appendChild(downloadButton);
-    
-    // Add event listeners for search
-    const searchInput = searchContainer.querySelector('.transcript-search-input');
-    const searchButton = searchContainer.querySelector('.transcript-search-button');
-    
-    searchButton.addEventListener('click', () => {
-      searchTranscript(searchInput.value, transcriptContent);
-    });
-    
-    searchInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        searchTranscript(searchInput.value, transcriptContent);
+    // Handle case where transcript container doesn't exist yet
+    if (!transcriptContainer) {
+      // Create container but don't fetch data yet
+      const newContainer = document.createElement('div');
+      newContainer.id = `transcript-${videoId}`;
+      newContainer.className = 'transcript-container';
+      newContainer.style.display = 'block';
+      
+      // Find the source container to append to
+      const sourceContainer = document.querySelector(`.source-container[data-video-id="${videoId}"]`);
+      if (sourceContainer) {
+        sourceContainer.appendChild(newContainer);
+        
+        // Show loading indicator
+        const loadingElement = document.createElement('div');
+        loadingElement.className = 'transcript-loading';
+        loadingElement.textContent = translate('loading-transcript');
+        newContainer.appendChild(loadingElement);
+        
+        // Update button text
+        if (button) {
+          button.textContent = typeof translate === 'function' ? 
+            translate('hide-transcript') : 'Hide Transcript';
+        }
+        
+        // Check cache first
+        if (transcriptCache[videoId]) {
+          console.log('Using cached transcript for', videoId);
+          // Use cached data
+          setTimeout(() => {
+            renderTranscript(videoId, transcriptCache[videoId], startTime);
+          }, 10);
+        } else {
+          // Fetch the transcript data
+          fetchTranscript(videoId, startTime);
+        }
+      } else {
+        console.error('Could not find source container for video ID:', videoId);
       }
-    });
-    
-    // If the API returns segments with timestamps
-    if (data.segments && Array.isArray(data.segments)) {
-      // Add transcript info
-      const infoElement = document.createElement('div');
-      infoElement.className = 'transcript-info';
-      infoElement.innerHTML = `<p>Full transcript (${data.total_segments || data.segments.length} segments)</p>`;
-      transcriptContainer.appendChild(infoElement);
-      
-      // Use a fragment for better performance
-      const fragment = document.createDocumentFragment();
-      
-      // Handle segmented transcript with timestamps
-      data.segments.forEach(segment => {
-        const segmentElement = document.createElement('div');
-        
-        // Check if this is a gap segment
-        if (segment.is_gap) {
-          segmentElement.className = 'transcript-gap';
-          segmentElement.innerHTML = '<span class="transcript-gap-indicator">[...]</span>';
-          fragment.appendChild(segmentElement);
-          return;
-        }
-        
-        segmentElement.className = 'transcript-segment';
-        
-        const timestampElement = document.createElement('span');
-        timestampElement.className = 'transcript-timestamp';
-        timestampElement.textContent = formatTimestamp(segment.start_time);
-        
-        const textElement = document.createElement('span');
-        textElement.className = 'transcript-text';
-        textElement.textContent = segment.text;
-        
-        // Apply highlighting to this segment if it contains our search terms
-        segmentElement.setAttribute('data-time', segment.start_time);
-        
-        // Highlight the segment closest to our start time
-        if (Math.abs(segment.start_time - startTime) < 10) {
-          segmentElement.classList.add('transcript-highlight-segment');
-        }
-        
-        segmentElement.appendChild(timestampElement);
-        segmentElement.appendChild(textElement);
-        fragment.appendChild(segmentElement);
-      });
-      
-      // Add all segments at once
-      transcriptContent.appendChild(fragment);
-      
-    } else if (data.transcript) {
-      // Handle plain text transcript (fallback)
-      transcriptContent.innerHTML = data.transcript
-        .split('\n\n') // Split paragraphs
-        .map(para => `<p>${para}</p>`)
-        .join('');
-    } else {
-      // Fallback for unexpected format
-      transcriptContent.innerHTML = '<p>Transcript is available but in an unexpected format. Please try again later.</p>';
+      return;
     }
     
-    // Add timestamp navigation helper
-    const timestampHelper = document.createElement('div');
-    timestampHelper.className = 'transcript-timestamp-helper';
-    timestampHelper.innerHTML = `
-      <small>Click on timestamps to jump to that part of the sermon</small>
-    `;
+    // Toggle visibility of existing container
+    const isHidden = transcriptContainer.style.display === 'none';
+    transcriptContainer.style.display = isHidden ? 'block' : 'none';
     
-    // Add content to container
-    transcriptContainer.appendChild(searchContainer);
-    transcriptContainer.appendChild(timestampHelper);
-    transcriptContainer.appendChild(transcriptContent);
+    // Update button text
+    if (button) {
+      const hideText = typeof translate === 'function' ? translate('hide-transcript') : 'Hide Transcript';
+      const showText = typeof translate === 'function' ? translate('view-transcript') : 'View Transcript';
+      button.textContent = isHidden ? hideText : showText;
+    }
     
-    // Add timestamp click handling
-    const timestamps = transcriptContainer.querySelectorAll('.transcript-timestamp');
-    timestamps.forEach(timestamp => {
-      timestamp.style.cursor = 'pointer';
-      timestamp.setAttribute('title', 'Click to jump to this part of the sermon');
-      
-      timestamp.addEventListener('click', function() {
-        const segment = this.closest('.transcript-segment');
-        if (segment) {
-          const time = segment.getAttribute('data-time');
-          if (time) {
-            // Find the YouTube embed and update its time
-            const sourceContainer = transcriptContainer.closest('.source-container');
-            if (sourceContainer) {
-              // Make sure video is visible
-              const videoEmbed = sourceContainer.querySelector('.video-embed');
-              const watchButton = sourceContainer.querySelector('.watch-video-btn');
-              
-              if (videoEmbed && videoEmbed.style.display === 'none') {
-                // Show the video if it's hidden
-                videoEmbed.style.display = 'block';
-                if (watchButton) {
-                  watchButton.textContent = translate('hide-video');
-                }
-              }
-              
-              // Update iframe src to jump to timestamp
-              const iframe = sourceContainer.querySelector('iframe');
-              if (iframe) {
-                const currentSrc = iframe.src;
-                const baseUrl = currentSrc.split('?')[0];
-                iframe.src = `${baseUrl}?start=${Math.floor(time)}`;
-                
-                // Scroll to make video visible
-                videoEmbed.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-              }
-            }
-          }
-        }
-      });
-    });
-    
-    // Scroll to highlighted segment if it exists
-    const highlightedSegment = transcriptContainer.querySelector('.transcript-highlight-segment');
-    if (highlightedSegment) {
+    // Scroll into view if showing
+    if (isHidden) {
       setTimeout(() => {
-        highlightedSegment.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        transcriptContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }, 100);
     }
+  } catch (error) {
+    console.error('Error in toggleTranscript:', error);
   }
+}
+
+
 
 // Make global functions available to be called from HTML
 window.toggleVideo = toggleVideo;
