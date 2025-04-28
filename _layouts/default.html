@@ -11,14 +11,43 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   {% endif %}
 </head>
-<body>
-  {% include header.html %}
-  
-  <main class="container">
-    {{ content }}
-  </main>
-  
-  {% include footer.html %}
+<body class="custom-background">
+  <div class="main-container">
+    <div class="logo-container">
+      <img src="{{ '/assets/images/digital-ministry-logo.png' | relative_url }}" alt="Fellowship Digital Ministry" class="digital-ministry-logo">
+      <span class="logo-text">Fellowship Digital Ministry</span>
+    </div>
+    
+    {% include header.html %}
+    
+    {% if page.hero_banner %}
+    <div class="hero" {% if page.hero_image %}style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ page.hero_image | relative_url }}');"{% endif %}>
+      <div class="container">
+        <h1 class="hero-title">{{ page.hero_title | default: page.title }}</h1>
+        {% if page.hero_subtitle %}
+        <div class="hero-subtitle">{{ page.hero_subtitle }}</div>
+        {% endif %}
+        {% if page.hero_description %}
+        <p class="hero-description">{{ page.hero_description }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    
+    {% if page.quote_text %}
+    <div class="quote-banner">
+      <div class="container">
+        <p>{{ page.quote_text }}</p>
+      </div>
+    </div>
+    {% endif %}
+    
+    <main class="container">
+      {{ content }}
+    </main>
+    
+    {% include footer.html %}
+  </div>
 
   {% if page.custom_js %}
     <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}"></script>

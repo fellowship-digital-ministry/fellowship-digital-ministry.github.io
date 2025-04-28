@@ -1,14 +1,16 @@
 ---
 layout: default
 title: Fellowship Digital Ministry
-hero: true
+hero_banner: true
 hero_title: Fellowship Digital Ministry
+hero_subtitle: Exploring God's Word Together
 hero_description: An unofficial resource for exploring sermons through advanced search and analytics.
+quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World"
 ---
 
-<section class="home-section">
+<section class="content-section">
   <div class="container">
-    <h2>Welcome to the Fellowship Digital Ministry</h2>
+    <h2 class="section-header">Welcome to the Fellowship Digital Ministry</h2>
     <p class="lead">Explore sermons and discover Biblical insights through our digital tools.</p>
     
     <div class="home-buttons">
@@ -54,28 +56,47 @@ hero_description: An unofficial resource for exploring sermons through advanced 
       </div>
     </div>
     
-    <div class="info-box">
-      <h3>About This Ministry</h3>
-      <p>Fellowship Digital Ministry is an unofficial resource created to help you explore and study the sermon content from Fellowship Baptist Church. Our tools leverage technology to make sermon content more accessible and searchable.</p>
-      <p>This ministry is not officially affiliated with Fellowship Baptist Church but serves as a complementary resource for the congregation and anyone interested in exploring the sermon content.</p>
-      <a href="{{ site.church_website }}" target="_blank" class="btn">Visit Church Website</a>
+    <div class="schedule-location-section">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="info-box">
+            <h3>Church Schedule</h3>
+            <ul class="schedule-list">
+              <li><strong>Sunday School:</strong> 9:30 a.m.</li>
+              <li><strong>Morning Worship:</strong> 10:30 a.m.</li>
+              <li><strong>Evening Worship:</strong> 6:00 p.m.</li>
+              <li><strong>Wednesday Bible Study:</strong> 7:00 p.m.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="info-box">
+            <h3>About This Ministry</h3>
+            <p>Fellowship Digital Ministry is an unofficial resource created to help you explore and study the sermon content from Fellowship Baptist Church. Our tools leverage technology to make sermon content more accessible and searchable.</p>
+            <a href="{{ site.church_website }}" target="_blank" class="btn">Visit Church Website</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .home-section {
+  .content-section {
     padding: 3rem 0 4rem;
+    background-color: white;
   }
   
   .lead {
     max-width: 700px;
     margin: 0 auto 2rem;
     color: var(--color-text);
+    text-align: center;
   }
   
   .home-buttons {
     margin: 2.5rem 0;
+    text-align: center;
   }
   
   .home-buttons .btn {
@@ -100,6 +121,7 @@ hero_description: An unofficial resource for exploring sermons through advanced 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    border: 1px solid #eeeeee;
   }
   
   .feature-card:hover {
@@ -138,23 +160,43 @@ hero_description: An unofficial resource for exploring sermons through advanced 
     text-decoration: underline;
   }
   
+  .schedule-location-section {
+    margin-top: 4rem;
+  }
+  
   .info-box {
     background-color: #f8f9fa;
     border-radius: 8px;
     padding: 2rem;
-    margin-top: 3rem;
-    text-align: left;
+    margin-bottom: 2rem;
     border-left: 4px solid var(--color-primary);
+    height: 100%;
   }
   
   .info-box h3 {
     color: var(--color-heading);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
   }
   
   .info-box p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     line-height: 1.6;
+  }
+  
+  .schedule-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .schedule-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  .schedule-list li:last-child {
+    border-bottom: none;
   }
   
   @media (max-width: 768px) {
