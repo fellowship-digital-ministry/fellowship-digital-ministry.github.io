@@ -1,7 +1,10 @@
 ---
 ---
 /**
- * Search functionality for the sermon chat interface
+ * Enhanced Search functionality for the sermon chat interface
+ * - Improved HTML rendering
+ * - Better source display
+ * - Enhanced error handling
  */
 
 // Constants
@@ -16,7 +19,7 @@ const apiStatusMessage = document.getElementById('api-status-message');
 const retryConnectionButton = document.getElementById('retry-connection');
 
 // Bible reference regex for highlighting in responses
-const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+:\d+(-\d+)?/g;
+const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi;
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
@@ -135,7 +138,7 @@ async function handleSubmit(event) {
     removeMessage(loadingMessageId);
     
     // Show error message with more details
-    addMessage(`Sorry, there was an error processing your question (${error.message}). This may be a CORS issue or API endpoint problem. Please check the console for details and ensure the API is running properly.`, 'bot', true);
+    addMessage(`Sorry, there was an error processing your question (${error.message}). Please try again later or check with your administrator.`, 'bot', true);
   }
 }
 
@@ -150,12 +153,26 @@ function addMessage(text, sender, isError = false) {
     messageElement.classList.add('error');
   }
   
-  // For bot messages, highlight Bible references
+  // For bot messages, process and render HTML properly
   if (sender === 'bot') {
+    // First highlight Bible references
     text = highlightBibleReferences(text);
+    
+    // Set the HTML content directly to properly render HTML tags
+    messageElement.innerHTML = text;
+    
+    // Make all links open in new tab
+    const links = messageElement.querySelectorAll('a');
+    links.forEach(link => {
+      if (!link.hasAttribute('target')) {
+        link.setAttribute('target', '_blank');
+      }
+    });
+  } else {
+    // For user messages, escape HTML
+    messageElement.textContent = text;
   }
   
-  messageElement.innerHTML = text;
   messageElement.id = 'msg-' + Date.now();
   messagesContainer.appendChild(messageElement);
   
@@ -195,11 +212,8 @@ function removeMessage(id) {
  * Display the answer and sources from the API
  */
 function displayAnswer(data) {
-  // Format the answer
-  let formattedAnswer = data.answer;
-  
-  // Add the answer to the chat
-  addMessage(formattedAnswer, 'bot');
+  // Add the answer to the chat - allow HTML rendering
+  addMessage(data.answer, 'bot');
   
   // Display sources if available
   if (data.sources && data.sources.length > 0) {
@@ -227,7 +241,7 @@ function displaySource(source, index) {
   const videoUrl = `https://www.youtube.com/embed/${source.video_id}?start=${Math.floor(source.start_time)}`;
   
   sourceElement.innerHTML = `
-    <div class="source-title">${source.title}</div>
+    <div class="source-title">${escapeHTML(source.title || 'Sermon excerpt')}</div>
     <div class="source-text">"${formatText(source.text.substring(0, 150))}${source.text.length > 150 ? '...' : ''}"</div>
     <div class="source-meta">
       <span class="source-time">Timestamp: ${formatTimestamp(source.start_time)}</span>
@@ -243,10 +257,26 @@ function displaySource(source, index) {
 }
 
 /**
+ * Escape HTML for safety
+ */
+function escapeHTML(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
  * Format text (e.g., highlight Bible references)
  */
 function formatText(text) {
   if (!text) return '';
+  // First escape HTML
+  text = escapeHTML(text);
+  // Then highlight Bible references
   return highlightBibleReferences(text);
 }
 
