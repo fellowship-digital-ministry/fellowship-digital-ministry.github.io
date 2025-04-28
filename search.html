@@ -865,37 +865,43 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     justify-content: center;
   }
 }
-/* Formatted message styling */
-.message.bot strong {
-    color: #333;
-    display: block;
-    margin: 0.75rem 0 0.5rem;
-  }
-  
-  .message.bot .list-item {
-    margin-bottom: 0.5rem;
-    display: flex;
-  }
-  
-  .message.bot .list-number {
-    color: #2ea3f2;
-    font-weight: bold;
-    margin-right: 0.5rem;
-  }
-  
-  .message.bot .bible-reference {
-    color: #2ea3f2;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0 3px;
-    border-radius: 3px;
-    background-color: rgba(46, 163, 242, 0.05);
-  }
-  
-  .message.bot .bible-reference:hover {
-    background-color: rgba(46, 163, 242, 0.15);
-    text-decoration: underline;
-  }
+    /* Formatted message styling */
+    .message.bot strong {
+        display: block;
+        font-size: 1.1em;
+        color: #333;
+        margin: 0.75rem 0 0.5rem;
+    }
+    
+    .message.bot .list-item {
+        margin-bottom: 0.75rem;
+        display: flex;
+    }
+    
+    .message.bot .list-number {
+        color: #2ea3f2;
+        font-weight: bold;
+        margin-right: 0.5rem;
+        min-width: 1.5em;
+    }
+    
+    .message.bot p {
+        margin-bottom: 0.75rem;
+    }
+
+    .message.bot .bible-reference {
+        color: #2ea3f2;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 0 3px;
+        border-radius: 3px;
+        background-color: rgba(46, 163, 242, 0.05);
+        }
+    
+    .message.bot .bible-reference:hover {
+            background-color: rgba(46, 163, 242, 0.15);
+            text-decoration: underline;
+        }
 </style>
 <script>
     
