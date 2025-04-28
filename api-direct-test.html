@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Direct API Test</title>
+  <title>Pinecone Data Test Tool</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,6 +25,8 @@
       padding: 8px 16px;
       border-radius: 4px;
       cursor: pointer;
+      margin-right: 8px;
+      margin-bottom: 8px;
     }
     input, textarea {
       width: 100%;
@@ -42,11 +44,51 @@
       border: 1px solid #ddd;
       border-radius: 5px;
     }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    .stat-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      min-width: 150px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: #2ea3f2;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
-  <h1>Direct API Testing Tool</h1>
-  <p>This tool makes direct fetch calls to test your Sermon Search API without Jekyll processing.</p>
+  <h1>Pinecone Data Test Tool</h1>
+  <p>This tool helps you view statistics and information about your sermon data in Pinecone.</p>
   
   <div class="section">
     <h2>API Configuration</h2>
@@ -58,39 +100,70 @@
   </div>
   
   <div class="section">
-    <h2>1. Test Root Endpoint</h2>
-    <p>Tests the API root endpoint (/) to check if the API is running.</p>
-    <button id="testRootBtn">Test Root Endpoint</button>
-    <div id="rootResult"></div>
+    <h2>Database Statistics</h2>
+    <p>View basic statistics about your Pinecone vector database.</p>
+    <div class="stats">
+      <div class="stat-card">
+        <div>Total Vectors</div>
+        <div class="stat-value" id="totalVectors">-</div>
+        <div>Total sermon chunks in Pinecone</div>
+      </div>
+      <div class="stat-card">
+        <div>Total Sermons</div>
+        <div class="stat-value" id="totalSermons">-</div>
+        <div>Unique sermon videos</div>
+      </div>
+      <div class="stat-card">
+        <div>Avg. Chunks Per Sermon</div>
+        <div class="stat-value" id="avgChunks">-</div>
+        <div>Average vector chunks per sermon</div>
+      </div>
+    </div>
+    <button id="fetchStatsBtn">Fetch Database Stats</button>
+    <div id="statsResult"></div>
   </div>
   
   <div class="section">
-    <h2>2. Test Sermons Endpoint</h2>
-    <p>Tests the /sermons endpoint to fetch available sermons.</p>
-    <button id="testSermonsBtn">Test Sermons Endpoint</button>
-    <div id="sermonsResult"></div>
+    <h2>Sermons List</h2>
+    <p>View all sermons in the database with their vector counts.</p>
+    <button id="fetchSermonsBtn">Fetch Sermons List</button>
+    <div>
+      <label for="sortBy">Sort by:</label>
+      <select id="sortBy">
+        <option value="date">Date (newest first)</option>
+        <option value="chunks">Vector Chunks (most first)</option>
+        <option value="title">Title (A-Z)</option>
+      </select>
+    </div>
+    <div id="sermonsResult">
+      <div id="sermonsList"></div>
+    </div>
   </div>
   
   <div class="section">
-    <h2>3. Test Search Query</h2>
-    <p>Tests the /answer endpoint with a search query.</p>
+    <h2>Semantic Search Test</h2>
+    <p>Test a semantic search query to verify Pinecone retrieval.</p>
     <div>
       <label for="searchQuery">Search Query:</label>
       <textarea id="searchQuery" rows="3">What does the pastor teach about faith?</textarea>
     </div>
-    <button id="testSearchBtn">Test Search Query</button>
+    <div>
+      <label for="topK">Number of Results:</label>
+      <input type="number" id="topK" value="5" min="1" max="20">
+    </div>
+    <button id="testSearchBtn">Run Semantic Search</button>
     <div id="searchResult"></div>
   </div>
   
   <div class="section">
-    <h2>4. Test Individual Sermon</h2>
-    <p>Tests getting details for an individual sermon.</p>
+    <h2>Vector Metadata Explorer</h2>
+    <p>Explore the metadata for vector chunks from a specific sermon.</p>
     <div>
       <label for="videoId">Video ID:</label>
       <input type="text" id="videoId" placeholder="Enter a video ID">
     </div>
-    <button id="testSermonBtn">Test Sermon Details</button>
-    <div id="sermonResult"></div>
+    <button id="fetchVectorsBtn">Fetch Vector Chunks</button>
+    <div id="vectorsResult"></div>
   </div>
 
   <script>
@@ -98,22 +171,29 @@
     const apiUrlInput = document.getElementById('apiUrl');
     const updateApiUrlBtn = document.getElementById('updateApiUrl');
     
-    const testRootBtn = document.getElementById('testRootBtn');
-    const rootResult = document.getElementById('rootResult');
+    const totalVectorsElement = document.getElementById('totalVectors');
+    const totalSermonsElement = document.getElementById('totalSermons');
+    const avgChunksElement = document.getElementById('avgChunks');
+    const fetchStatsBtn = document.getElementById('fetchStatsBtn');
+    const statsResult = document.getElementById('statsResult');
     
-    const testSermonsBtn = document.getElementById('testSermonsBtn');
+    const fetchSermonsBtn = document.getElementById('fetchSermonsBtn');
     const sermonsResult = document.getElementById('sermonsResult');
+    const sermonsList = document.getElementById('sermonsList');
+    const sortBySelect = document.getElementById('sortBy');
     
     const searchQuery = document.getElementById('searchQuery');
+    const topK = document.getElementById('topK');
     const testSearchBtn = document.getElementById('testSearchBtn');
     const searchResult = document.getElementById('searchResult');
     
     const videoId = document.getElementById('videoId');
-    const testSermonBtn = document.getElementById('testSermonBtn');
-    const sermonResult = document.getElementById('sermonResult');
+    const fetchVectorsBtn = document.getElementById('fetchVectorsBtn');
+    const vectorsResult = document.getElementById('vectorsResult');
     
     // Store API URL
     let apiUrl = apiUrlInput.value;
+    let sermonsData = [];
     
     // Event Listeners
     updateApiUrlBtn.addEventListener('click', () => {
@@ -121,12 +201,18 @@
       alert(`API URL updated to: ${apiUrl}`);
     });
     
-    testRootBtn.addEventListener('click', async () => {
-      await testEndpoint('/', 'GET', null, rootResult);
+    fetchStatsBtn.addEventListener('click', async () => {
+      await fetchDatabaseStats();
     });
     
-    testSermonsBtn.addEventListener('click', async () => {
-      await testEndpoint('/sermons', 'GET', null, sermonsResult);
+    fetchSermonsBtn.addEventListener('click', async () => {
+      await fetchSermonsList();
+    });
+    
+    sortBySelect.addEventListener('change', () => {
+      if (sermonsData.length > 0) {
+        displaySermonsList(sermonsData);
+      }
     });
     
     testSearchBtn.addEventListener('click', async () => {
@@ -136,28 +222,30 @@
         return;
       }
       
+      const k = parseInt(topK.value) || 5;
+      
       const data = {
         query: query,
-        top_k: 5,
+        top_k: k,
         include_sources: true
       };
       
       await testEndpoint('/answer', 'POST', data, searchResult);
     });
     
-    testSermonBtn.addEventListener('click', async () => {
+    fetchVectorsBtn.addEventListener('click', async () => {
       const id = videoId.value.trim();
       if (!id) {
-        sermonResult.innerHTML = '<p class="error">Please enter a video ID.</p>';
+        vectorsResult.innerHTML = '<p class="error">Please enter a video ID.</p>';
         return;
       }
       
-      await testEndpoint(`/sermons/${id}`, 'GET', null, sermonResult);
+      await fetchVectorChunks(id);
     });
     
     // Helper function to test an endpoint
     async function testEndpoint(endpoint, method, data, resultElement) {
-      resultElement.innerHTML = '<p>Testing...</p>';
+      resultElement.innerHTML = '<p>Testing... <span class="loading"></span></p>';
       
       try {
         const url = `${apiUrl}${endpoint}`;
@@ -191,12 +279,16 @@
           // If testing the sermons endpoint, populate the video ID field with the first sermon ID
           if (endpoint === '/sermons' && result.sermons && result.sermons.length > 0) {
             videoId.value = result.sermons[0].video_id;
+            return result.sermons;
           }
+          
+          return result;
         } else {
           resultElement.innerHTML = `
             <p class="error">Error! Status: ${response.status}</p>
             <pre>${JSON.stringify(result, null, 2)}</pre>
           `;
+          return null;
         }
       } catch (error) {
         console.error('Error:', error);
@@ -211,8 +303,271 @@
           </ul>
           <p>Check the browser console for more details.</p>
         `;
+        return null;
       }
     }
+    
+    // Fetch database stats
+    async function fetchDatabaseStats() {
+      statsResult.innerHTML = '<p>Fetching stats... <span class="loading"></span></p>';
+      
+      try {
+        // This assumes you have a /stats endpoint, if not we'll use the sermons endpoint
+        // and calculate stats from there
+        const url = `${apiUrl}/stats`;
+        const options = {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          mode: 'cors'
+        };
+        
+        try {
+          const response = await fetch(url, options);
+          if (response.ok) {
+            const result = await response.json();
+            console.log('Stats:', result);
+            
+            // Update the stats display
+            totalVectorsElement.textContent = result.total_vectors || '-';
+            totalSermonsElement.textContent = result.total_sermons || '-';
+            avgChunksElement.textContent = result.avg_chunks_per_sermon ? 
+              result.avg_chunks_per_sermon.toFixed(1) : '-';
+            
+            statsResult.innerHTML = `
+              <p class="success">Stats fetched successfully!</p>
+              <pre>${JSON.stringify(result, null, 2)}</pre>
+            `;
+          } else {
+            // If the /stats endpoint doesn't exist, fall back to /sermons
+            await calculateStatsFromSermons();
+          }
+        } catch (error) {
+          // If error, try the fallback method
+          await calculateStatsFromSermons();
+        }
+      } catch (error) {
+        console.error('Error fetching stats:', error);
+        statsResult.innerHTML = `
+          <p class="error">Error fetching stats: ${error.message}</p>
+        `;
+      }
+    }
+    
+    // Calculate stats from sermons list
+    async function calculateStatsFromSermons() {
+      try {
+        const sermonsUrl = `${apiUrl}/sermons`;
+        const options = {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          mode: 'cors'
+        };
+        
+        const response = await fetch(sermonsUrl, options);
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Sermons:', result);
+          
+          if (result.sermons && Array.isArray(result.sermons)) {
+            // Calculate stats
+            const totalSermons = result.sermons.length;
+            
+            // If vector_count is available in the response
+            let totalVectors = 0;
+            let hasVectorCounts = false;
+            
+            result.sermons.forEach(sermon => {
+              if (sermon.vector_count !== undefined) {
+                totalVectors += sermon.vector_count;
+                hasVectorCounts = true;
+              }
+            });
+            
+            // Update the stats display
+            totalSermonsElement.textContent = totalSermons;
+            
+            if (hasVectorCounts) {
+              totalVectorsElement.textContent = totalVectors;
+              avgChunksElement.textContent = (totalVectors / totalSermons).toFixed(1);
+            } else {
+              // If vector_count is not available, we'll need to make an educated guess
+              // or make additional API calls to fetch vector counts
+              totalVectorsElement.textContent = "N/A";
+              avgChunksElement.textContent = "N/A";
+            }
+            
+            statsResult.innerHTML = `
+              <p class="success">Stats calculated from sermons list!</p>
+              <p>Note: Vector counts may be estimated if not directly provided by the API.</p>
+            `;
+          } else {
+            statsResult.innerHTML = `
+              <p class="error">Could not calculate stats: Invalid sermon data format.</p>
+            `;
+          }
+        } else {
+          statsResult.innerHTML = `
+            <p class="error">Failed to fetch sermons for stat calculation.</p>
+          `;
+        }
+      } catch (error) {
+        console.error('Error calculating stats:', error);
+        statsResult.innerHTML = `
+          <p class="error">Error calculating stats: ${error.message}</p>
+        `;
+      }
+    }
+    
+    // Fetch sermons list
+    async function fetchSermonsList() {
+      sermonsResult.innerHTML = '<p>Fetching sermons... <span class="loading"></span></p>';
+      
+      try {
+        const sermons = await testEndpoint('/sermons', 'GET', null, sermonsResult);
+        if (sermons && sermons.sermons && Array.isArray(sermons.sermons)) {
+          sermonsData = sermons.sermons;
+          displaySermonsList(sermonsData);
+        }
+      } catch (error) {
+        console.error('Error fetching sermons:', error);
+      }
+    }
+    
+    // Display sermons list
+    function displaySermonsList(sermons) {
+      // Sort sermons based on selected option
+      const sortBy = sortBySelect.value;
+      
+      if (sortBy === 'date') {
+        sermons.sort((a, b) => {
+          // Sort by date if available, otherwise by title
+          if (a.date && b.date) {
+            return new Date(b.date) - new Date(a.date);
+          } else {
+            return a.title.localeCompare(b.title);
+          }
+        });
+      } else if (sortBy === 'chunks') {
+        sermons.sort((a, b) => {
+          // Sort by vector_count if available
+          const countA = a.vector_count || 0;
+          const countB = b.vector_count || 0;
+          return countB - countA;
+        });
+      } else if (sortBy === 'title') {
+        sermons.sort((a, b) => a.title.localeCompare(b.title));
+      }
+      
+      // Generate HTML
+      let html = '';
+      
+      sermons.forEach(sermon => {
+        const date = sermon.date ? new Date(sermon.date).toLocaleDateString() : 'No date';
+        const vectorCount = sermon.vector_count !== undefined ? sermon.vector_count : 'N/A';
+        
+        html += `
+          <div class="card">
+            <h3>${sermon.title || 'Untitled Sermon'}</h3>
+            <p><strong>ID:</strong> ${sermon.video_id || sermon.id || 'N/A'}</p>
+            <p><strong>Date:</strong> ${date}</p>
+            <p><strong>Vector Chunks:</strong> ${vectorCount}</p>
+            <button class="view-vectors-btn" data-id="${sermon.video_id || sermon.id}">View Vector Chunks</button>
+          </div>
+        `;
+      });
+      
+      sermonsList.innerHTML = html;
+      
+      // Add event listeners to the "View Vector Chunks" buttons
+      document.querySelectorAll('.view-vectors-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-id');
+          videoId.value = id;
+          fetchVectorsBtn.click();
+        });
+      });
+    }
+    
+    // Fetch vector chunks for a sermon
+    async function fetchVectorChunks(id) {
+      vectorsResult.innerHTML = '<p>Fetching vector chunks... <span class="loading"></span></p>';
+      
+      try {
+        // Assuming you have an endpoint that returns vector chunks for a sermon
+        // If not, you'll need to adapt this to your API
+        const url = `${apiUrl}/vectors/${id}`;
+        const options = {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          mode: 'cors'
+        };
+        
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+          
+          if (response.ok) {
+            console.log('Vector chunks:', result);
+            
+            vectorsResult.innerHTML = `
+              <p class="success">Vector chunks fetched successfully!</p>
+              <pre>${JSON.stringify(result, null, 2)}</pre>
+            `;
+          } else {
+            // Fallback to sermon details if vector-specific endpoint doesn't exist
+            await fetchSermonDetails(id);
+          }
+        } catch (error) {
+          // If error, try the fallback method
+          await fetchSermonDetails(id);
+        }
+      } catch (error) {
+        console.error('Error fetching vector chunks:', error);
+        vectorsResult.innerHTML = `
+          <p class="error">Error fetching vector chunks: ${error.message}</p>
+        `;
+      }
+    }
+    
+    // Fetch sermon details
+    async function fetchSermonDetails(id) {
+      try {
+        const url = `${apiUrl}/sermons/${id}`;
+        const options = {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          mode: 'cors'
+        };
+        
+        const response = await fetch(url, options);
+        const result = await response.json();
+        
+        if (response.ok) {
+          console.log('Sermon details:', result);
+          
+          vectorsResult.innerHTML = `
+            <p class="success">Sermon details fetched successfully!</p>
+            <p>Note: Vector chunks detail may not be available directly. This shows the sermon metadata instead.</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        } else {
+          vectorsResult.innerHTML = `
+            <p class="error">Failed to fetch sermon details. Status: ${response.status}</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        console.error('Error fetching sermon details:', error);
+        vectorsResult.innerHTML = `
+          <p class="error">Error fetching sermon details: ${error.message}</p>
+        `;
+      }
+    }
+    
+    // Initialize by fetching stats when the page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchDatabaseStats();
+    });
   </script>
 </body>
 </html>

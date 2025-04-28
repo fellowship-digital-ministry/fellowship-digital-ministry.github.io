@@ -5,7 +5,7 @@ hero: true
 hero_title: Sermon Analytics
 hero_description: Explore insights about Bible references and content from the sermon library.
 use_charts: true
-custom_js: analytics
+custom_js: analytics-optimized
 ---
 
 <div class="container">
@@ -15,6 +15,14 @@ custom_js: analytics
   </div>
   
   <div id="analyticsContent" style="display: none;">
+    <div class="filter-controls mb-4">
+      <label for="timeFilterSelect">Filter by time period:</label>
+      <select id="timeFilterSelect" class="form-control">
+        <option value="all">All Time</option>
+        <!-- Dynamically populated by JavaScript -->
+      </select>
+    </div>
+    
     <div class="stats-cards">
       <div class="stat-card">
         <div class="stat-value" id="totalSermonsValue">...</div>
@@ -73,8 +81,98 @@ custom_js: analytics
   <div id="errorSection" style="display: none;">
     <div class="analytics-card text-center">
       <h2>Error Loading Data</h2>
-      <p>Sorry, there was an error loading the analytics data. Please try again later.</p>
+      <p id="errorMessage">Sorry, there was an error loading the analytics data. Please try again later.</p>
       <button id="retryButton" class="btn btn-primary">Retry</button>
     </div>
   </div>
 </div>
+
+<style>
+  .filter-controls {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  #timeFilterSelect {
+    max-width: 250px;
+    display: inline-block;
+  }
+  
+  .chart-instruction {
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+    color: #666;
+  }
+  
+  .reference-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .reference-item:hover {
+    background-color: #f0f7ff;
+  }
+  
+  .reference-count {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .view-link {
+    color: var(--color-primary);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  
+  .reference-item:hover .view-link {
+    opacity: 1;
+  }
+  
+  .sermon-list {
+    display: grid;
+    gap: 15px;
+  }
+  
+  .sermon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .sermon-title {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+  }
+  
+  .sermon-date {
+    color: #666;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .sermon-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .sermon-item .btn {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+</style>
