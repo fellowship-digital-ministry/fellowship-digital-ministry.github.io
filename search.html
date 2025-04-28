@@ -2949,7 +2949,7 @@ function highlightBibleReferences(text) {
 /**
  * Fetch and display a sermon transcript with translation
  */
- async function fetchTranscript(videoId, startTime = 0) {
+async function fetchTranscript(videoId, startTime = 0) {
     try {
       // Show loading state
       const loadingElement = document.createElement('div');
@@ -3397,7 +3397,6 @@ function searchTranscript(query, transcriptContent) {
 /**
  * Toggle transcript visibility and load if needed
  */
-
 function toggleTranscript(videoId, startTime = 0) {
   try {
     if (!videoId) {
@@ -3408,49 +3407,18 @@ function toggleTranscript(videoId, startTime = 0) {
     const transcriptContainer = document.getElementById(`transcript-${videoId}`);
     const button = document.querySelector(`.view-transcript-btn[onclick*="toggleTranscript('${videoId}')"]`);
     
-    // Handle case where transcript container doesn't exist yet
     if (!transcriptContainer) {
-      // Create container but don't fetch data yet
-      const newContainer = document.createElement('div');
-      newContainer.id = `transcript-${videoId}`;
-      newContainer.className = 'transcript-container';
-      newContainer.style.display = 'block';
-      
-      // Find the source container to append to
-      const sourceContainer = document.querySelector(`.source-container[data-video-id="${videoId}"]`);
-      if (sourceContainer) {
-        sourceContainer.appendChild(newContainer);
-        
-        // Show loading indicator
-        const loadingElement = document.createElement('div');
-        loadingElement.className = 'transcript-loading';
-        loadingElement.textContent = translate('loading-transcript');
-        newContainer.appendChild(loadingElement);
-        
-        // Update button text
-        if (button) {
-          button.textContent = typeof translate === 'function' ? 
-            translate('hide-transcript') : 'Hide Transcript';
-        }
-        
-        // Check cache first
-        if (transcriptCache[videoId]) {
-          console.log('Using cached transcript for', videoId);
-          // Use cached data
-          setTimeout(() => {
-            renderTranscript(videoId, transcriptCache[videoId], startTime);
-          }, 10);
-        } else {
-          // Fetch the transcript data
-          fetchTranscript(videoId, startTime);
-        }
-      } else {
-        console.error('Could not find source container for video ID:', videoId);
+      // Transcript hasn't been loaded yet, fetch it
+      fetchTranscript(videoId, startTime);
+      // Update button text if found
+      if (button) {
+        button.textContent = typeof translate === 'function' ? 
+          translate('hide-transcript') : 'Hide Transcript';
       }
       return;
     }
     
-    // Toggle visibility of existing container
+    // Toggle visibility
     const isHidden = transcriptContainer.style.display === 'none';
     transcriptContainer.style.display = isHidden ? 'block' : 'none';
     
@@ -3471,8 +3439,6 @@ function toggleTranscript(videoId, startTime = 0) {
     console.error('Error in toggleTranscript:', error);
   }
 }
-
-
 
 // Make global functions available to be called from HTML
 window.toggleVideo = toggleVideo;
