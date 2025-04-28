@@ -466,10 +466,18 @@ function updateBibleBooksChart(booksData) {
 /**
  * Update testament distribution chart
  */
+// Fix for Testament Distribution Chart
 function updateTestamentChart(testamentData) {
   const canvas = document.getElementById('testamentChart');
   
   if (!canvas || !testamentData) {
+    console.error('Cannot update testament chart: Missing canvas or data');
+    return;
+  }
+  
+  // Ensure we have the correct data structure
+  if (typeof testamentData !== 'object') {
+    console.error('Invalid testament data format:', testamentData);
     return;
   }
   
@@ -477,6 +485,8 @@ function updateTestamentChart(testamentData) {
   if (testamentChart) {
     testamentChart.destroy();
   }
+  
+  console.log('Testament data:', testamentData);
   
   // Get labels and data
   const labels = Object.keys(testamentData);
@@ -491,11 +501,11 @@ function updateTestamentChart(testamentData) {
         data: data,
         backgroundColor: [
           chartColors.oldTestament,
-          chartColors.other
+          chartColors.gospels // Changed from 'other' to ensure correct color
         ],
         borderColor: [
           chartColors.oldTestament.replace('0.7', '1'),
-          chartColors.other.replace('0.7', '1')
+          chartColors.gospels.replace('0.7', '1')  // Changed to match backgroundColor
         ],
         borderWidth: 1
       }]
@@ -504,6 +514,10 @@ function updateTestamentChart(testamentData) {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
+        legend: {
+          display: true,
+          position: 'bottom'
+        },
         tooltip: {
           callbacks: {
             label: function(context) {
@@ -515,14 +529,6 @@ function updateTestamentChart(testamentData) {
             }
           }
         }
-      },
-      onClick: (event, elements) => {
-        if (elements && elements.length > 0) {
-          const index = elements[0].index;
-          const testament = labels[index];
-          // For now, just alert; could be enhanced for filtering
-          alert(`${testament} contains ${data[index]} references`);
-        }
       }
     }
   });
@@ -533,11 +539,11 @@ function updateTestamentChart(testamentData) {
     const instruction = document.createElement('div');
     instruction.id = 'testament-instruction';
     instruction.className = 'chart-instruction';
-    instruction.textContent = 'Click on a section to see details';
+    instruction.textContent = 'Testament distribution of all Bible references';
     container.appendChild(instruction);
   }
 }
-
+  
 /**
  * Update top chapters list
  */
