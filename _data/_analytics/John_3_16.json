@@ -1,0 +1,40 @@
+{
+    "reference": "John 3:16",
+    "occurrences": [
+      {
+        "sermon_id": "ABC123",
+        "sermon_title": "Walking in Faith",
+        "timestamp": 1245.89,
+        "url": "https://www.youtube.com/watch?v=ABC123&t=1245",
+        "text": "As Jesus said in John 3:16, 'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.' This is the foundation of our faith, the ultimate expression of God's love for us."
+      },
+      {
+        "sermon_id": "DEF456",
+        "sermon_title": "The Power of Grace",
+        "timestamp": 876.32,
+        "url": "https://www.youtube.com/watch?v=DEF456&t=876",
+        "text": "When we consider the magnitude of God's grace, we're reminded of John 3:16. Think about it - God loved us so much that He gave His only Son. That's the ultimate sacrifice, the ultimate display of love."
+      },
+      {
+        "sermon_id": "GHI789",
+        "sermon_title": "Understanding God's Love",
+        "timestamp": 532.67,
+        "url": "https://www.youtube.com/watch?v=GHI789&t=532",
+        "text": "The most well-known verse in all of Scripture is probably John 3:16, which tells us that God loved the world so much that He gave His Son. This wasn't just an act of kindness - it was a radical demonstration of a love that transforms everything."
+      },
+      {
+        "sermon_id": "JKL012",
+        "sermon_title": "Finding Peace in Troubled Times",
+        "timestamp": 1423.11,
+        "url": "https://www.youtube.com/watch?v=JKL012&t=1423",
+        "text": "In times of trouble, we can always return to the promises of God. John 3:16 reminds us that God's love isn't conditional. It's not based on our performance or worthiness. It's a gift freely given to all who believe."
+      },
+      {
+        "sermon_id": "MNO345",
+        "sermon_title": "The Purpose of Prayer",
+        "timestamp": 654.29,
+        "url": "https://www.youtube.com/watch?v=MNO345&t=654",
+        "text": "When we pray, we're talking to the God described in John 3:16 - a God who loved us enough to make the ultimate sacrifice. Prayer isn't about manipulating God but about connecting with this loving Father."
+      }
+    ]
+  }
