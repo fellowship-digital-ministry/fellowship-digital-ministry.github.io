@@ -19,7 +19,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   </div>
 
   <!-- Chat wrapper - added for better spacing -->
-  <div class="chat-section-wrapper">
+  <div class="chat-section-wrapper full-height">
     <!-- Claude-Style Interface -->
     <div class="claude-interface">
       <!-- API Status Banner -->
@@ -120,7 +120,48 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 </div>
 
 <style>
-/* Enhanced Chat Interface CSS - Mobile Optimized */
+/* Full-height chat experience solution */
+.full-height {
+  min-height: calc(100vh - 210px); /* Adjust based on your header + hero + quote banner heights */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Make the interface fill the container */
+.full-height .claude-interface {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the chat panel fill available space */
+.claude-chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make messages area fill available space */
+.claude-messages {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Hide the info section completely */
+.info-section {
+  display: none;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .full-height {
+    min-height: calc(100vh - 180px); /* Adjust for smaller mobile header */
+  }
+  
+  /* Ensure footer stays at the bottom */
+  footer {
+    margin-top: auto;
+  }
+}
 
 /* Responsive container improvements */
 .container {
