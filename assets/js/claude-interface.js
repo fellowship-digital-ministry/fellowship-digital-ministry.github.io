@@ -1,218 +1,14 @@
 /**
- * Unified Sermon Search Interface
- * Combines Claude-style interface with enhanced sources panel and fixed positioning
+ * Enhanced Claude-Style Interface for Sermon Search
+ * Improved mobile experience, accessibility, and overall UX
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    initSermonSearchInterface();
+    initClaudeInterface();
   });
   
-  function initSermonSearchInterface() {
-    console.log('Initializing unified sermon search interface');
-    
-    // Create or update app structure for fixed positioning
-    restructureDOM();
-    
-    // Initialize the interface components
-    initInterface();
-    
-    // Setup menu navigation for mobile
-    setupNavigation();
-  }
-  
-  /**
-   * Restructure the DOM to create a fixed position app-like layout
-   */
-  function restructureDOM() {
-    // Get the page's main elements
-    const contentContainer = document.querySelector('.container');
-    if (!contentContainer) return;
-    
-    // Get existing Claude interface or create one if not exists
-    let claudeInterface = document.querySelector('.claude-interface');
-    
-    // Create app container if it doesn't exist
-    let appContainer = document.querySelector('.app-container');
-    if (!appContainer) {
-      appContainer = document.createElement('div');
-      appContainer.className = 'app-container';
-      
-      // Create app header
-      const appHeader = document.createElement('div');
-      appHeader.className = 'app-header';
-      appHeader.innerHTML = `
-        <button class="app-menu-button" aria-label="Open navigation menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-        <h1 class="app-title">Sermon Search</h1>
-        <div style="width: 24px;"></div> <!-- Spacer for alignment -->
-      `;
-      
-      // Create navigation menu
-      const navMenu = document.createElement('div');
-      navMenu.className = 'app-nav-menu';
-      navMenu.innerHTML = `
-        <div class="app-nav-content">
-          <div class="app-nav-header">
-            <h2 class="app-nav-title">Sermon Search</h2>
-            <p class="app-nav-subtitle">Explore Biblical Teachings</p>
-          </div>
-          <ul class="app-nav-links">
-            <li class="app-nav-item">
-              <a href="index.html" class="app-nav-link">
-                <svg class="app-nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-                Home
-              </a>
-            </li>
-            <li class="app-nav-item">
-              <a href="search.html" class="app-nav-link">
-                <svg class="app-nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                Chat Search
-              </a>
-            </li>
-            <li class="app-nav-item">
-              <a href="#" class="app-nav-link">
-                <svg class="app-nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                </svg>
-                Sermon Library
-              </a>
-            </li>
-            <li class="app-nav-item">
-              <a href="#" class="app-nav-link">
-                <svg class="app-nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="16"></line>
-                  <line x1="8" y1="12" x2="16" y2="12"></line>
-                </svg>
-                About
-              </a>
-            </li>
-          </ul>
-        </div>
-      `;
-      
-      // Create menu backdrop
-      const menuBackdrop = document.createElement('div');
-      menuBackdrop.className = 'app-menu-backdrop';
-      
-      // Create sources backdrop
-      const sourcesBackdrop = document.createElement('div');
-      sourcesBackdrop.className = 'claude-sources-backdrop';
-      
-      // Move the Claude interface into the app container
-      if (claudeInterface) {
-        // If it already exists, just move it
-        appContainer.appendChild(appHeader);
-        appContainer.appendChild(claudeInterface);
-      } else {
-        // If it doesn't exist, create a basic structure
-        claudeInterface = document.createElement('div');
-        claudeInterface.className = 'claude-interface';
-        
-        const chatPanel = document.createElement('div');
-        chatPanel.className = 'claude-chat-panel';
-        
-        const messagesContainer = document.createElement('div');
-        messagesContainer.className = 'claude-messages';
-        messagesContainer.id = 'messages';
-        
-        const inputArea = document.createElement('div');
-        inputArea.className = 'claude-input-area';
-        inputArea.innerHTML = `
-          <form id="chatForm">
-            <div class="claude-input-container">
-              <textarea id="queryInput" class="claude-input" placeholder="Ask a question about the sermons..." rows="1"></textarea>
-              <button type="submit" class="claude-submit-button" aria-label="Send message">
-                <svg class="claude-submit-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-                </svg>
-              </button>
-            </div>
-          </form>
-          <div class="conversation-controls">
-            <button id="clearConversation" class="control-button">Clear Conversation</button>
-          </div>
-        `;
-        
-        const sourcesPanel = document.createElement('div');
-        sourcesPanel.className = 'claude-sources-panel';
-        sourcesPanel.id = 'sourcesPanel';
-        
-        const closeButton = document.createElement('button');
-        closeButton.className = 'claude-sources-close';
-        closeButton.id = 'closeSourcesPanel';
-        closeButton.innerHTML = '×';
-        closeButton.setAttribute('aria-label', 'Close sources panel');
-        
-        const sourcesPanelContent = document.createElement('div');
-        sourcesPanelContent.className = 'claude-sources-panel-content';
-        sourcesPanelContent.id = 'sourcesPanelContent';
-        
-        sourcesPanel.appendChild(closeButton);
-        sourcesPanel.appendChild(sourcesPanelContent);
-        
-        chatPanel.appendChild(messagesContainer);
-        chatPanel.appendChild(inputArea);
-        
-        claudeInterface.appendChild(chatPanel);
-        claudeInterface.appendChild(sourcesPanel);
-        
-        appContainer.appendChild(appHeader);
-        appContainer.appendChild(claudeInterface);
-      }
-      
-      // Add API status banner if it doesn't exist
-      if (!document.getElementById('api-status-banner')) {
-        const apiStatusBanner = document.createElement('div');
-        apiStatusBanner.id = 'api-status-banner';
-        apiStatusBanner.className = 'claude-api-status';
-        apiStatusBanner.style.display = 'none';
-        document.body.appendChild(apiStatusBanner);
-      }
-      
-      // Append to document
-      document.body.appendChild(menuBackdrop);
-      document.body.appendChild(sourcesBackdrop);
-      document.body.appendChild(navMenu);
-      document.body.appendChild(appContainer);
-      
-      // Move the language selector to the header
-      const languageSelector = document.querySelector('.language-selector');
-      if (languageSelector) {
-        const spacer = appHeader.querySelector('div');
-        appHeader.replaceChild(languageSelector, spacer);
-        languageSelector.style.position = 'static';
-      }
-      
-      // Preserve existing content by hiding it
-      contentContainer.style.display = 'none';
-    }
-    
-    // Make sure the interface takes up more screen space
-    if (claudeInterface) {
-      claudeInterface.style.maxWidth = '100%';
-      claudeInterface.style.height = '90vh';
-      claudeInterface.style.margin = '1rem auto';
-    }
-  }
-  
-  /**
-   * Initialize the main interface components
-   */
-  function initInterface() {
-    console.log('Initializing enhanced interface components');
+  function initClaudeInterface() {
+    console.log('Initializing enhanced Claude-style interface');
     
     // Elements
     const queryInput = document.getElementById('queryInput');
@@ -222,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeSourcesButton = document.getElementById('closeSourcesPanel');
     const apiStatusBanner = document.getElementById('api-status-banner');
     const chatForm = document.getElementById('chatForm');
-    const sourcesBackdrop = document.querySelector('.claude-sources-backdrop');
     
     // Add a close button to the API status banner
     if (apiStatusBanner) {
@@ -234,44 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         apiStatusBanner.style.display = 'none';
       });
       apiStatusBanner.appendChild(closeButton);
-      
-      // Add swipe to dismiss API status banner
-      let touchStartX = 0;
-      
-      apiStatusBanner.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-      }, {passive: true});
-      
-      apiStatusBanner.addEventListener('touchmove', function(e) {
-        const touchX = e.touches[0].clientX;
-        const deltaX = touchX - touchStartX;
-        
-        if (Math.abs(deltaX) > 30) {
-          this.style.transform = `translateX(${deltaX}px)`;
-          this.style.opacity = 1 - Math.abs(deltaX) / 300;
-        }
-      }, {passive: true});
-      
-      apiStatusBanner.addEventListener('touchend', function(e) {
-        const touchX = e.changedTouches[0].clientX;
-        const deltaX = touchX - touchStartX;
-        
-        if (Math.abs(deltaX) > 100) {
-          // Swipe to dismiss
-          this.style.transform = `translateX(${deltaX > 0 ? 300 : -300}px)`;
-          this.style.opacity = '0';
-          
-          setTimeout(() => {
-            this.style.display = 'none';
-            this.style.transform = '';
-            this.style.opacity = '';
-          }, 300);
-        } else {
-          // Reset position
-          this.style.transform = '';
-          this.style.opacity = '';
-        }
-      }, {passive: true});
     }
     
     // Auto-resize textarea with improved behavior
@@ -307,37 +64,76 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Enhance close sources panel button
-    if (closeSourcesButton && sourcesPanel) {
+    // Close sources panel with improved gestures
+    if (closeSourcesButton) {
       closeSourcesButton.addEventListener('click', function() {
         sourcesPanel.classList.remove('active');
-        
-        if (sourcesBackdrop) {
-          sourcesBackdrop.style.opacity = '0';
-          setTimeout(() => {
-            sourcesBackdrop.style.display = 'none';
-          }, 300);
-        }
         
         // Also update any active source toggle buttons
         const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
         activeToggles.forEach(toggle => {
           toggle.setAttribute('data-active', 'false');
-          toggle.setAttribute('aria-expanded', 'false');
           toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
         });
       });
     }
     
-    // Close panel when backdrop is clicked
-    if (sourcesBackdrop) {
-      sourcesBackdrop.addEventListener('click', function() {
-        if (closeSourcesButton) closeSourcesButton.click();
-      });
-    }
-    
-    // Add swipe handling for mobile sources panel
+    // Add swipe handling for mobile
     if (sourcesPanel) {
+      // Add backdrop for mobile
+      const backdrop = document.createElement('div');
+      backdrop.className = 'claude-sources-backdrop';
+      backdrop.style.display = 'none';
+      backdrop.style.position = 'fixed';
+      backdrop.style.top = '0';
+      backdrop.style.left = '0';
+      backdrop.style.right = '0';
+      backdrop.style.bottom = '0';
+      backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+      backdrop.style.zIndex = '50';
+      backdrop.style.opacity = '0';
+      backdrop.style.transition = 'opacity 0.3s ease';
+      document.body.appendChild(backdrop);
+      
+      // Update backdrop when sources panel is toggled
+      const updateBackdrop = () => {
+        if (sourcesPanel.classList.contains('active')) {
+          backdrop.style.display = 'block';
+          // Trigger reflow to enable transition
+          backdrop.offsetHeight;
+          backdrop.style.opacity = '1';
+        } else {
+          backdrop.style.opacity = '0';
+          setTimeout(() => {
+            backdrop.style.display = 'none';
+          }, 300);
+        }
+      };
+      
+      // Add observer to detect class changes on the sources panel
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class') {
+            updateBackdrop();
+          }
+        });
+      });
+      
+      observer.observe(sourcesPanel, {attributes: true});
+      
+      // Close panel when backdrop is clicked
+      backdrop.addEventListener('click', function() {
+        sourcesPanel.classList.remove('active');
+        
+        // Update any active source toggle buttons
+        const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
+        activeToggles.forEach(toggle => {
+          toggle.setAttribute('data-active', 'false');
+          toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
+        });
+      });
+      
+      // Add touch swipe down to close on mobile
       let touchStartY = 0;
       let touchMoveY = 0;
       
@@ -364,7 +160,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (deltaY > 80 && window.innerWidth <= 768) {
           // Close the panel if swiped down enough
-          closeSourcesButton.click();
+          sourcesPanel.classList.remove('active');
+          
+          // Update any active source toggle buttons
+          const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
+          activeToggles.forEach(toggle => {
+            toggle.setAttribute('data-active', 'false');
+            toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
+          });
         }
         
         // Reset transform
@@ -433,25 +236,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.setAttribute('data-active', 'false');
                 this.setAttribute('aria-expanded', 'false');
                 this.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
-                
-                if (sourcesBackdrop) {
-                  sourcesBackdrop.style.opacity = '0';
-                  setTimeout(() => {
-                    sourcesBackdrop.style.display = 'none';
-                  }, 300);
-                }
               } else {
                 sourcesPanel.classList.add('active');
                 this.setAttribute('data-active', 'true');
                 this.setAttribute('aria-expanded', 'true');
                 this.innerHTML = '<span class="claude-sources-toggle-icon">⬇</span> ' + translate('hide-sources');
-                
-                if (sourcesBackdrop) {
-                  sourcesBackdrop.style.display = 'block';
-                  setTimeout(() => {
-                    sourcesBackdrop.style.opacity = '1';
-                  }, 10);
-                }
               }
             });
             
@@ -552,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const hasSermonContent = data.sources && data.sources.length > 0;
       
       // If no sermon content but we have conversation history, use the fallback logic
-      if (!hasSermonContent && data.answer.includes(translate('no-results')) && window.conversationHistory && window.conversationHistory.length > 0) {
+      if (!hasSermonContent && data.answer.includes(translate('no-results')) && conversationHistory.length > 0) {
         if (window.originalDisplayAnswer) {
           return window.originalDisplayAnswer(data);
         }
@@ -568,57 +357,24 @@ document.addEventListener('DOMContentLoaded', function() {
           // Clear previous sources
           sourcesPanelContent.innerHTML = '';
           
-          // Add title with source count and organization header
+          // Add title with source count
           const sourcesTitle = document.createElement('h3');
-          sourcesTitle.innerHTML = translate('sources-found') + ' <span class="sources-count">' + data.sources.length + '</span>';
+          sourcesTitle.textContent = translate('sources-found') + ' (' + data.sources.length + ')';
           sourcesPanelContent.appendChild(sourcesTitle);
-          
-          // Add source organization info
-          const sourcesInfo = document.createElement('div');
-          sourcesInfo.className = 'claude-sources-info';
-          sourcesInfo.innerHTML = `<p>Sources are organized by relevance. Click on timestamps to jump to video sections.</p>`;
-          sourcesPanelContent.appendChild(sourcesInfo);
           
           // Sort sources by similarity score
           const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
           
-          // Group sources by sermon if possible
-          const sermonGroups = groupSourcesBySermon(sortedSources);
-          
           // Add sources to panel
-          if (Object.keys(sermonGroups).length > 1) {
-            // If we have multiple sermons, group them
-            Object.entries(sermonGroups).forEach(([sermonTitle, sources], index) => {
-              // Add sermon group header
-              const groupHeader = document.createElement('div');
-              groupHeader.className = 'claude-source-group-header';
-              groupHeader.innerHTML = `<h4>${sermonTitle} <span class="sources-count">${sources.length}</span></h4>`;
-              sourcesPanelContent.appendChild(groupHeader);
-              
-              // Add sources in this group
-              sources.forEach((source, sourceIndex) => {
-                const sourceElement = createEnhancedSourceElement(source, sourceIndex);
-                sourcesPanelContent.appendChild(sourceElement);
-              });
-            });
-          } else {
-            // Just add sources normally if no useful grouping
-            sortedSources.forEach((source, index) => {
-              const sourceElement = createEnhancedSourceElement(source, index);
-              sourcesPanelContent.appendChild(sourceElement);
-            });
-          }
+          sortedSources.forEach((source, index) => {
+            const sourceElement = createEnhancedSourceElement(source, index);
+            sourcesPanelContent.appendChild(sourceElement);
+          });
           
           // Auto-open sources panel for first answer
-          if (window.conversationHistory && window.conversationHistory.length <= 2) {
+          if (conversationHistory.length <= 2) {
             setTimeout(() => {
               sourcesPanel.classList.add('active');
-              
-              if (sourcesBackdrop) {
-                sourcesBackdrop.style.display = 'block';
-                setTimeout(() => { sourcesBackdrop.style.opacity = '1'; }, 10);
-              }
-              
               const sourcesToggle = messageElement.querySelector('.claude-sources-toggle');
               if (sourcesToggle) {
                 sourcesToggle.setAttribute('data-active', 'true');
@@ -629,44 +385,23 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           
           // Add to conversation history
-          if (window.conversationHistory) {
-            window.conversationHistory.push({ role: 'assistant', content: data.answer });
-          }
+          conversationHistory.push({ role: 'assistant', content: data.answer });
           
         } catch (error) {
           console.error('Error displaying sources:', error);
           // Continue without displaying sources
           
           // Still add to conversation history
-          if (window.conversationHistory) {
-            window.conversationHistory.push({ role: 'assistant', content: data.answer });
-          }
+          conversationHistory.push({ role: 'assistant', content: data.answer });
         }
       } else {
         // Add to conversation history
-        if (window.conversationHistory) {
-          window.conversationHistory.push({ role: 'assistant', content: data.answer });
-        }
+        conversationHistory.push({ role: 'assistant', content: data.answer });
       }
       
       // Add ripple effect to new message for attention
       addRippleEffect(messageElement);
     };
-    
-    // Group sources by sermon title for better organization
-    function groupSourcesBySermon(sources) {
-      const groups = {};
-      
-      sources.forEach(source => {
-        const title = formatSermonTitle ? formatSermonTitle(source.title) : source.title;
-        if (!groups[title]) {
-          groups[title] = [];
-        }
-        groups[title].push(source);
-      });
-      
-      return groups;
-    }
     
     // Create enhanced Claude-style welcome message
     function createClaudeWelcomeMessage() {
@@ -690,15 +425,7 @@ document.addEventListener('DOMContentLoaded', function() {
       suggestions.setAttribute('role', 'list');
       
       // Add suggestion chips with improved interaction
-      const sampleQueries = window.getTranslatedQueries ? window.getTranslatedQueries() : [
-        'How does a person get to heaven?',
-        'What is the Trinity?',
-        'How should Christians live?',
-        'Why read the King James Bible?',
-        'Who is Melchizedek?'
-      ];
-      
-      sampleQueries.forEach(query => {
+      getTranslatedQueries().forEach(query => {
         const chip = document.createElement('button');
         chip.className = 'claude-suggestion';
         chip.textContent = query;
@@ -747,12 +474,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return welcomeContainer;
     }
     
-    // Create an enhanced source element with Kindle-like reading experience
+    // Create an enhanced source element with better accessibility
     function createEnhancedSourceElement(source, index) {
       const sourceElement = document.createElement('div');
       sourceElement.className = 'claude-source-item';
       sourceElement.setAttribute('data-video-id', source.video_id);
-      sourceElement.setAttribute('data-index', index);
       
       // Add ARIA attributes for accessibility
       sourceElement.setAttribute('role', 'region');
@@ -762,13 +488,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const videoUrl = `https://www.youtube.com/embed/${source.video_id}?start=${Math.floor(source.start_time)}`;
       
       // Format title and date for display
-      const formattedTitle = formatSermonTitle ? formatSermonTitle(source.title) : source.title;
+      const formattedTitle = formatSermonTitle(source.title);
       let formattedDate = 'Date unknown';
       if (source.publish_date) {
-        formattedDate = formatSermonDate ? formatSermonDate(source.publish_date) : source.publish_date;
+        formattedDate = formatSermonDate(source.publish_date);
       }
       
-      // Create source header with improved formatting
+      // Create source header
       const header = document.createElement('div');
       header.className = 'claude-source-header';
       
@@ -783,49 +509,13 @@ document.addEventListener('DOMContentLoaded', function() {
       header.appendChild(title);
       header.appendChild(date);
       
-      // Create source content with better formatting
+      // Create source content
       const content = document.createElement('div');
       content.className = 'claude-source-content';
       
-      // Create quote text with kindle-like reading experience
-      const textContainer = document.createElement('div');
-      textContainer.className = 'claude-source-text-container';
-      
       const text = document.createElement('div');
       text.className = 'claude-source-text';
-      text.innerHTML = `"${formatText ? formatText(source.text) : source.text}"`;
-      
-      // Add font size controls for reading experience
-      const readingControls = document.createElement('div');
-      readingControls.className = 'claude-reading-controls';
-      readingControls.innerHTML = `
-        <button class="claude-font-decrease" aria-label="Decrease font size">A-</button>
-        <button class="claude-font-increase" aria-label="Increase font size">A+</button>
-      `;
-      
-      // Add font size control functionality
-      const fontDecreaseBtn = readingControls.querySelector('.claude-font-decrease');
-      const fontIncreaseBtn = readingControls.querySelector('.claude-font-increase');
-      
-      fontDecreaseBtn.addEventListener('click', function() {
-        const currentSize = parseFloat(window.getComputedStyle(text).fontSize);
-        text.style.fontSize = Math.max(currentSize - 1, 12) + 'px';
-      });
-      
-      fontIncreaseBtn.addEventListener('click', function() {
-        const currentSize = parseFloat(window.getComputedStyle(text).fontSize);
-        text.style.fontSize = Math.min(currentSize + 1, 20) + 'px';
-      });
-      
-      textContainer.appendChild(text);
-      textContainer.appendChild(readingControls);
-      
-      // Check if the text is scrollable and add indicator class
-      setTimeout(() => {
-        if (text.scrollHeight > text.clientHeight) {
-          text.classList.add('scrollable');
-        }
-      }, 100);
+      text.innerHTML = `"${formatText(source.text)}"`;
       
       const meta = document.createElement('div');
       meta.className = 'claude-source-meta';
@@ -835,7 +525,7 @@ document.addEventListener('DOMContentLoaded', function() {
       timestamp.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px">
         <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
         <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg> ${formatTimestamp ? formatTimestamp(source.start_time) : source.start_time}`;
+      </svg> ${formatTimestamp(source.start_time)}`;
       
       const match = document.createElement('div');
       match.className = 'claude-source-match';
@@ -853,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Watch video button
       const watchButton = document.createElement('button');
       watchButton.className = 'claude-source-button claude-source-button-primary';
-      watchButton.textContent = translate('watch-video') || 'Watch Video';
+      watchButton.textContent = translate('watch-video');
       watchButton.setAttribute('aria-expanded', 'false');
       watchButton.onclick = function() {
         const videoContainer = this.parentElement.parentElement.querySelector('.claude-video-container');
@@ -861,19 +551,19 @@ document.addEventListener('DOMContentLoaded', function() {
           // Create video container if it doesn't exist
           const container = document.createElement('div');
           container.className = 'claude-video-container';
-          container.innerHTML = `<iframe src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sermon video at ${formatTimestamp ? formatTimestamp(source.start_time) : source.start_time}"></iframe>`;
-          content.insertBefore(container, content.firstChild);
-          this.textContent = translate('hide-video') || 'Hide Video';
+          container.innerHTML = `<iframe src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sermon video at ${formatTimestamp(source.start_time)}"></iframe>`;
+          content.appendChild(container);
+          this.textContent = translate('hide-video');
           this.setAttribute('aria-expanded', 'true');
         } else {
           // Toggle visibility
           if (videoContainer.style.display === 'none') {
             videoContainer.style.display = 'block';
-            this.textContent = translate('hide-video') || 'Hide Video';
+            this.textContent = translate('hide-video');
             this.setAttribute('aria-expanded', 'true');
           } else {
             videoContainer.style.display = 'none';
-            this.textContent = translate('watch-video') || 'Watch Video';
+            this.textContent = translate('watch-video');
             this.setAttribute('aria-expanded', 'false');
           }
         }
@@ -882,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Transcript button
       const transcriptButton = document.createElement('button');
       transcriptButton.className = 'claude-source-button';
-      transcriptButton.textContent = translate('view-transcript') || 'View Transcript';
+      transcriptButton.textContent = translate('view-transcript');
       transcriptButton.setAttribute('aria-expanded', 'false');
       transcriptButton.onclick = function() {
         // Get video ID from parent element
@@ -897,28 +587,28 @@ document.addEventListener('DOMContentLoaded', function() {
           container.className = 'claude-transcript';
           container.setAttribute('role', 'region');
           container.setAttribute('aria-label', 'Sermon transcript');
-          container.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript') || 'Loading transcript...'}</div>`;
+          container.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript')}</div>`;
           content.appendChild(container);
           
           // Fetch transcript with improved error handling
           fetchTranscript(videoId, startTime).then(transcriptData => {
             // Update container with transcript content
-            updateTranscriptReaderExperience(container, transcriptData, startTime);
+            updateEnhancedTranscript(container, transcriptData, startTime);
           }).catch(error => {
             container.innerHTML = `<div class="claude-transcript-error">Error loading transcript: ${error.message}</div>`;
           });
           
-          this.textContent = translate('hide-transcript') || 'Hide Transcript';
+          this.textContent = translate('hide-transcript');
           this.setAttribute('aria-expanded', 'true');
         } else {
           // Toggle visibility
           if (transcriptContainer.style.display === 'none') {
             transcriptContainer.style.display = 'block';
-            this.textContent = translate('hide-transcript') || 'Hide Transcript';
+            this.textContent = translate('hide-transcript');
             this.setAttribute('aria-expanded', 'true');
           } else {
             transcriptContainer.style.display = 'none';
-            this.textContent = translate('view-transcript') || 'View Transcript';
+            this.textContent = translate('view-transcript');
             this.setAttribute('aria-expanded', 'false');
           }
         }
@@ -927,8 +617,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // YouTube button
       const youtubeButton = document.createElement('button');
       youtubeButton.className = 'claude-source-button';
-      youtubeButton.textContent = translate('open-youtube') || 'Open in YouTube';
-      youtubeButton.setAttribute('aria-label', 'Open video in YouTube at ' + (formatTimestamp ? formatTimestamp(source.start_time) : source.start_time));
+      youtubeButton.textContent = translate('open-youtube');
+      youtubeButton.setAttribute('aria-label', 'Open video in YouTube at ' + formatTimestamp(source.start_time));
       youtubeButton.onclick = function() {
         window.open(`https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}`, '_blank');
       };
@@ -939,7 +629,7 @@ document.addEventListener('DOMContentLoaded', function() {
       actions.appendChild(youtubeButton);
       
       // Assemble all components
-      content.appendChild(textContainer);
+      content.appendChild(text);
       content.appendChild(meta);
       content.appendChild(actions);
       
@@ -949,8 +639,8 @@ document.addEventListener('DOMContentLoaded', function() {
       return sourceElement;
     }
     
-    // Update transcript container with Kindle-like reading experience
-    function updateTranscriptReaderExperience(container, data, startTime) {
+    // Update transcript container with enhanced data presentation
+    function updateEnhancedTranscript(container, data, startTime) {
       container.innerHTML = '';
       
       // Check if transcript data is valid
@@ -959,24 +649,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      // Create reader controls - font size, theme, etc.
-      const readerControls = document.createElement('div');
-      readerControls.className = 'claude-transcript-reader-controls';
-      readerControls.innerHTML = `
-        <div class="claude-transcript-font-controls">
-          <button class="claude-font-decrease" aria-label="Decrease font size">A-</button>
-          <button class="claude-font-reset" aria-label="Reset font size">A</button>
-          <button class="claude-font-increase" aria-label="Increase font size">A+</button>
-        </div>
-        <div class="claude-transcript-theme-controls">
-          <button class="claude-theme-light active" aria-label="Light theme">Light</button>
-          <button class="claude-theme-sepia" aria-label="Sepia theme">Sepia</button>
-          <button class="claude-theme-dark" aria-label="Dark theme">Dark</button>
-        </div>
-      `;
-      
-      container.appendChild(readerControls);
-      
       // If there's a note (like language unavailability), display it
       if (data.note) {
         const noteElement = document.createElement('div');
@@ -984,12 +656,6 @@ document.addEventListener('DOMContentLoaded', function() {
         noteElement.innerHTML = `<p><em>${data.note}</em></p>`;
         container.appendChild(noteElement);
       }
-      
-      // Create progress bar for transcript navigation
-      const progressContainer = document.createElement('div');
-      progressContainer.className = 'claude-transcript-progress';
-      progressContainer.innerHTML = `<div class="claude-transcript-progress-bar"></div>`;
-      container.appendChild(progressContainer);
       
       // Add transcript search capability
       const searchContainer = document.createElement('div');
@@ -1015,14 +681,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
       
-      container.appendChild(searchContainer);
-      
       // Process segmented transcript with timestamps
       if (data.segments && Array.isArray(data.segments)) {
-        // Create reader container
-        const readerContainer = document.createElement('div');
-        readerContainer.className = 'claude-transcript-reader';
-        
         const transcriptContent = document.createElement('div');
         transcriptContent.className = 'claude-transcript-content';
         
@@ -1051,10 +711,10 @@ document.addEventListener('DOMContentLoaded', function() {
           
           const timestampElement = document.createElement('div');
           timestampElement.className = 'claude-transcript-timestamp';
-          timestampElement.textContent = formatTimestamp ? formatTimestamp(segment.start_time) : segment.start_time;
+          timestampElement.textContent = formatTimestamp(segment.start_time);
           timestampElement.setAttribute('role', 'button');
           timestampElement.setAttribute('tabindex', '0');
-          timestampElement.setAttribute('aria-label', `Jump to ${formatTimestamp ? formatTimestamp(segment.start_time) : segment.start_time}`);
+          timestampElement.setAttribute('aria-label', `Jump to ${formatTimestamp(segment.start_time)}`);
           
           // Add click and keyboard handling for timestamps
           timestampElement.addEventListener('click', function() {
@@ -1077,8 +737,9 @@ document.addEventListener('DOMContentLoaded', function() {
           transcriptContent.appendChild(segmentElement);
         });
         
-        readerContainer.appendChild(transcriptContent);
-        container.appendChild(readerContainer);
+        // Add content to container
+        container.appendChild(searchContainer);
+        container.appendChild(transcriptContent);
         
         // Scroll to highlighted segment with delay for rendering
         if (highlightedSegmentId) {
@@ -1089,53 +750,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           }, 300);
         }
-        
-        // Set up reading progress tracking
-        setupTranscriptProgressTracking(readerContainer, progressContainer);
-        
-        // Setup font size controls
-        const fontDecreaseBtn = readerControls.querySelector('.claude-font-decrease');
-        const fontResetBtn = readerControls.querySelector('.claude-font-reset');
-        const fontIncreaseBtn = readerControls.querySelector('.claude-font-increase');
-        
-        // Default font size
-        const defaultFontSize = 16;
-        let currentFontSize = defaultFontSize;
-        
-        fontDecreaseBtn.addEventListener('click', function() {
-          currentFontSize = Math.max(currentFontSize - 1, 12);
-          transcriptContent.style.fontSize = currentFontSize + 'px';
-        });
-        
-        fontResetBtn.addEventListener('click', function() {
-          currentFontSize = defaultFontSize;
-          transcriptContent.style.fontSize = currentFontSize + 'px';
-        });
-        
-        fontIncreaseBtn.addEventListener('click', function() {
-          currentFontSize = Math.min(currentFontSize + 1, 24);
-          transcriptContent.style.fontSize = currentFontSize + 'px';
-        });
-        
-        // Setup theme controls
-        const themeButtons = readerControls.querySelectorAll('.claude-transcript-theme-controls button');
-        
-        themeButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            // Remove active class from all theme buttons
-            themeButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Get theme from class name
-            const theme = this.className.split(' ')[0].replace('claude-theme-', '');
-            
-            // Update class on reader container
-            readerContainer.className = 'claude-transcript-reader';
-            readerContainer.classList.add('claude-theme-' + theme);
-          });
-        });
       } 
       else if (data.transcript) {
         // Handle plain text transcript
@@ -1146,26 +760,21 @@ document.addEventListener('DOMContentLoaded', function() {
           .map(para => `<p>${para}</p>`)
           .join('');
         
+        container.appendChild(searchContainer);
         container.appendChild(textContainer);
       } 
       else {
         container.innerHTML = '<div class="claude-transcript-error">Transcript format unknown</div>';
       }
       
-      // Add download transcript option
+      // Add download transcript button
       const downloadButton = document.createElement('button');
       downloadButton.className = 'claude-transcript-download';
-      downloadButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        ${translate('download-transcript') || 'Download Transcript'}
-      `;
+      downloadButton.textContent = translate('download-transcript') || 'Download Transcript';
+      downloadButton.setAttribute('aria-label', translate('download-transcript') || 'Download Transcript');
       
       downloadButton.addEventListener('click', function() {
-        downloadTranscript(data, container);
+        downloadTranscript(data);
       });
       
       container.appendChild(downloadButton);
@@ -1191,7 +800,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Create a case-insensitive regex
       try {
-        const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+        const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, 'content.appendChild('), 'gi');
         const segments = container.querySelectorAll('.claude-transcript-segment');
         let matchCount = 0;
         let firstMatchElement = null;
@@ -1243,7 +852,7 @@ document.addEventListener('DOMContentLoaded', function() {
           : `${translate('no-matches-found') || 'No matches found'}`;
         
         // Insert count at top
-        container.insertBefore(matchCountElement, container.firstChild.nextSibling);
+        container.insertBefore(matchCountElement, container.firstChild);
         
         // Scroll to first match
         if (firstMatchElement) {
@@ -1252,35 +861,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (error) {
         console.error('Error in search:', error);
       }
-    }
-    
-    // Set up transcript progress tracking
-    function setupTranscriptProgressTracking(readerContainer, progressContainer) {
-      const progressBar = progressContainer.querySelector('.claude-transcript-progress-bar');
-      
-      // Update progress based on scroll position
-      readerContainer.addEventListener('scroll', function() {
-        const scrollPosition = readerContainer.scrollTop;
-        const totalHeight = readerContainer.scrollHeight - readerContainer.clientHeight;
-        const progress = (scrollPosition / totalHeight) * 100;
-        
-        progressBar.style.width = `${progress}%`;
-      });
-      
-      // Make progress bar clickable for navigation
-      progressContainer.addEventListener('click', function(e) {
-        const containerWidth = progressContainer.clientWidth;
-        const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
-        const percentage = clickX / containerWidth;
-        
-        const totalHeight = readerContainer.scrollHeight - readerContainer.clientHeight;
-        const targetScrollPosition = percentage * totalHeight;
-        
-        readerContainer.scrollTo({
-          top: targetScrollPosition,
-          behavior: 'smooth'
-        });
-      });
     }
     
     // Function to jump to timestamp in video
@@ -1299,16 +879,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create video if it doesn't exist
         videoContainer = document.createElement('div');
         videoContainer.className = 'claude-video-container';
-        videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(timestamp)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sermon video at ${formatTimestamp ? formatTimestamp(timestamp) : timestamp}"></iframe>`;
+        videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(timestamp)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sermon video at ${formatTimestamp(timestamp)}"></iframe>`;
         
         const content = sourceItem.querySelector('.claude-source-content');
         if (content) {
-          content.insertBefore(videoContainer, content.firstChild);
+          content.appendChild(videoContainer);
         }
         
         // Update watch button state
         if (watchButton) {
-          watchButton.textContent = translate('hide-video') || 'Hide Video';
+          watchButton.textContent = translate('hide-video');
           watchButton.setAttribute('aria-expanded', 'true');
         }
       } else {
@@ -1323,7 +903,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update watch button state
         if (watchButton) {
-          watchButton.textContent = translate('hide-video') || 'Hide Video';
+          watchButton.textContent = translate('hide-video');
           watchButton.setAttribute('aria-expanded', 'true');
         }
       }
@@ -1333,14 +913,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Function to download transcript
-    function downloadTranscript(data, container) {
+    function downloadTranscript(data) {
       if (!data) return;
       
       let content = '';
       let filename = 'sermon-transcript.txt';
       
       // Try to get sermon title from the page
-      const sourceItem = container.closest('.claude-source-item');
+      const sourceItem = document.querySelector('.claude-source-item');
       if (sourceItem) {
         const titleElement = sourceItem.querySelector('.claude-source-title');
         if (titleElement && titleElement.textContent) {
@@ -1354,7 +934,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Add date if available
-      const dateElement = sourceItem ? sourceItem.querySelector('.claude-source-date') : null;
+      const dateElement = document.querySelector('.claude-source-date');
       if (dateElement && dateElement.textContent) {
         content += `Date: ${dateElement.textContent.trim()}\n\n`;
       }
@@ -1367,7 +947,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (segment.is_gap) {
             content += '[...]\n\n';
           } else {
-            content += `[${formatTimestamp ? formatTimestamp(segment.start_time) : segment.start_time}] ${segment.text}\n\n`;
+            content += `[${formatTimestamp(segment.start_time)}] ${segment.text}\n\n`;
           }
         });
       } else if (data.transcript) {
@@ -1472,9 +1052,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ref.addEventListener('click', function() {
           // Open Bible reference in a Bible website with current language
           const reference = this.textContent.trim();
-          const bibleConfig = window.bibleWebsites && window.bibleWebsites[window.currentLanguage || 'en'] 
-            ? window.bibleWebsites[window.currentLanguage || 'en'] 
-            : { site: 'https://www.biblegateway.com/passage/', version: 'NIV' };
+          const bibleConfig = bibleWebsites[currentLanguage] || bibleWebsites.en;
           
           window.open(`${bibleConfig.site}?search=${encodeURIComponent(reference)}&version=${bibleConfig.version}`, '_blank');
         });
@@ -1491,7 +1069,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Display welcome message in Claude style
     function displayClaudeWelcome() {
-      const messagesContainer = document.getElementById('messages');
       if (!messagesContainer) return;
       
       // Create welcome message element
@@ -1506,12 +1083,100 @@ document.addEventListener('DOMContentLoaded', function() {
       messagesContainer.appendChild(welcomeMessage);
     }
     
+    // Handle window resize for mobile transitions
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        // If transitioning from mobile to desktop, reset transitions
+        if (sourcesPanel && sourcesPanel.classList.contains('active')) {
+          sourcesPanel.style.transform = '';
+        }
+      }
+    });
+    
+    // Observe theme changes for consistent dark mode
+    if (window.matchMedia) {
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      const handleThemeChange = (e) => {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      };
+      
+      // Set initial value
+      handleThemeChange(darkModeMediaQuery);
+      
+      // Listen for changes
+      if (darkModeMediaQuery.addEventListener) {
+        darkModeMediaQuery.addEventListener('change', handleThemeChange);
+      } else if (darkModeMediaQuery.addListener) {
+        // Fallback for older browsers
+        darkModeMediaQuery.addListener(handleThemeChange);
+      }
+    }
+    
+    // Auto-resize input on first load
+    if (queryInput) {
+      setTimeout(() => {
+        adjustTextareaHeight(queryInput);
+        queryInput.focus();
+      }, 500);
+    }
+    
+    // If isFirstLoad is true, show welcome message in Claude style
+    if (window.isFirstLoad) {
+      // Clear existing welcome message if any
+      if (messagesContainer) {
+        messagesContainer.innerHTML = '';
+      }
+      
+      // Display Claude-style welcome
+      displayClaudeWelcome();
+      window.isFirstLoad = false;
+    }
+    
+    // Add swipe to dismiss API status banner
+    if (apiStatusBanner) {
+      let touchStartX = 0;
+      
+      apiStatusBanner.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+      }, {passive: true});
+      
+      apiStatusBanner.addEventListener('touchmove', function(e) {
+        const touchX = e.touches[0].clientX;
+        const deltaX = touchX - touchStartX;
+        
+        if (Math.abs(deltaX) > 30) {
+          this.style.transform = `translateX(${deltaX}px)`;
+          this.style.opacity = 1 - Math.abs(deltaX) / 300;
+        }
+      }, {passive: true});
+      
+      apiStatusBanner.addEventListener('touchend', function(e) {
+        const touchX = e.changedTouches[0].clientX;
+        const deltaX = touchX - touchStartX;
+        
+        if (Math.abs(deltaX) > 100) {
+          // Swipe to dismiss
+          this.style.transform = `translateX(${deltaX > 0 ? 300 : -300}px)`;
+          this.style.opacity = '0';
+          
+          setTimeout(() => {
+            this.style.display = 'none';
+            this.style.transform = '';
+            this.style.opacity = '';
+          }, 300);
+        } else {
+          // Reset position
+          this.style.transform = '';
+          this.style.opacity = '';
+        }
+      }, {passive: true});
+    }
+    
     // Enhanced verifyApiConnection function
     window.originalVerifyApiConnection = window.verifyApiConnection;
     window.verifyApiConnection = function(showFeedback = false) {
       console.log('Verifying API connection with enhanced feedback');
-      
-      const apiStatusBanner = document.getElementById('api-status-banner');
       
       if (apiStatusBanner) {
         if (showFeedback) {
@@ -1616,12 +1281,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     };
     
-    // Enhanced clear conversation handling
+    // Add enhanced clear conversation handling
+    const clearConversationBtn = document.getElementById('clearConversation');
+    if (clearConversationBtn) {
+      clearConversationBtn.addEventListener('click', function() {
+        if (window.conversationHistory && window.conversationHistory.length > 0) {
+          // Ask for confirmation
+          if (confirm(translate('confirm-clear') || 'Are you sure you want to clear the conversation?')) {
+            clearConversation();
+          }
+        } else {
+          clearConversation();
+        }
+      });
+    }
+    
+    // Enhanced clear conversation function
     window.originalClearConversation = window.clearConversation;
     window.clearConversation = function() {
       console.log('Clearing conversation with enhanced animation');
-      
-      const messagesContainer = document.getElementById('messages');
       
       // Clear the conversation history array
       if (window.conversationHistory) {
@@ -1660,154 +1338,31 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Close sources panel if open
-      const sourcesPanel = document.getElementById('sourcesPanel');
       if (sourcesPanel && sourcesPanel.classList.contains('active')) {
         sourcesPanel.classList.remove('active');
-        
-        const sourcesBackdrop = document.querySelector('.claude-sources-backdrop');
-        if (sourcesBackdrop) {
-          sourcesBackdrop.style.opacity = '0';
-          setTimeout(() => {
-            sourcesBackdrop.style.display = 'none';
-          }, 300);
-        }
       }
       
       // Focus the input field
-      const queryInput = document.getElementById('queryInput');
       if (queryInput) {
         queryInput.focus();
       }
     };
     
-    // Add clear conversation button handler
-    const clearConversationBtn = document.getElementById('clearConversation');
-    if (clearConversationBtn) {
-      clearConversationBtn.addEventListener('click', function() {
-        if (window.conversationHistory && window.conversationHistory.length > 0) {
-          // Ask for confirmation
-          if (confirm(translate('confirm-clear') || 'Are you sure you want to clear the conversation?')) {
-            window.clearConversation();
-          }
-        } else {
-          window.clearConversation();
-        }
-      });
-    }
-    
-    // Initialize the interface with welcome message if needed
-    if (window.isFirstLoad) {
-      // Clear existing welcome message if any
-      const messagesContainer = document.getElementById('messages');
-      if (messagesContainer) {
-        messagesContainer.innerHTML = '';
-      }
-      
-      // Display Claude-style welcome
-      displayClaudeWelcome();
-      window.isFirstLoad = false;
-    }
-    
-    console.log('Enhanced interface components initialized');
+    console.log('Enhanced Claude-style interface initialized');
   }
   
-  /**
-   * Setup navigation menu functionality
-   */
-  function setupNavigation() {
-    const menuButton = document.querySelector('.app-menu-button');
-    const navMenu = document.querySelector('.app-nav-menu');
-    const menuBackdrop = document.querySelector('.app-menu-backdrop');
-    
-    if (!menuButton || !navMenu || !menuBackdrop) return;
-    
-    // Toggle menu when button is clicked
-    menuButton.addEventListener('click', function() {
-      navMenu.classList.add('active');
-      menuBackdrop.style.display = 'block';
-      setTimeout(() => {
-        menuBackdrop.style.opacity = '1';
-      }, 10);
-    });
-    
-    // Close menu when backdrop is clicked
-    menuBackdrop.addEventListener('click', function() {
-      navMenu.classList.remove('active');
-      menuBackdrop.style.opacity = '0';
-      setTimeout(() => {
-        menuBackdrop.style.display = 'none';
-      }, 300);
-    });
-    
-    // Handle back gesture (touch swipe from left edge)
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    document.addEventListener('touchstart', function(e) {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-    
-    document.addEventListener('touchmove', function(e) {
-      touchEndX = e.touches[0].clientX;
-    }, { passive: true });
-    
-    document.addEventListener('touchend', function() {
-      // If swipe is from left edge to right, open menu
-      if (touchStartX < 30 && touchEndX - touchStartX > 100) {
-        menuButton.click();
-      }
-      
-      // If swipe is from right to left while menu is open, close menu
-      if (navMenu.classList.contains('active') && touchStartX - touchEndX > 100) {
-        menuBackdrop.click();
-      }
-      
-      // Reset values
-      touchStartX = 0;
-      touchEndX = 0;
-    }, { passive: true });
-    
-    // Observe theme changes for consistent dark mode
-    if (window.matchMedia) {
-      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      const handleThemeChange = (e) => {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-      };
-      
-      // Set initial value
-      handleThemeChange(darkModeMediaQuery);
-      
-      // Listen for changes
-      if (darkModeMediaQuery.addEventListener) {
-        darkModeMediaQuery.addEventListener('change', handleThemeChange);
-      } else if (darkModeMediaQuery.addListener) {
-        // Fallback for older browsers
-        darkModeMediaQuery.addListener(handleThemeChange);
-      }
-    }
-    
-    console.log('Navigation setup complete');
-  }
-  
-  /**
-   * Helper function to fetch transcripts with improved error handling
-   */
+  // Helper function to fetch transcripts with enhanced error handling
   async function fetchTranscript(videoId, startTime = 0) {
     try {
-      console.log(`Fetching transcript for video ${videoId}`);
+      console.log(`Fetching transcript for video ${videoId} with language ${currentLanguage}`);
       
-      // Show loading indicator in all transcript containers for this video
-      const transcriptContainers = document.querySelectorAll(`.claude-source-item[data-video-id="${videoId}"] .claude-transcript`);
-      transcriptContainers.forEach(container => {
-        container.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript') || 'Loading transcript...'}</div>`;
-      });
+      // Show loading indicator
+      const transcriptContainer = document.getElementById(`transcript-${videoId}`);
+      if (transcriptContainer) {
+        transcriptContainer.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript') || 'Loading transcript...'}</div>`;
+      }
       
-      // Use global API_URL if available, otherwise assume a default
-      const apiUrl = window.API_URL || '/api';
-      const currentLanguage = window.currentLanguage || 'en';
-      
-      const response = await fetch(`${apiUrl}/transcript/${videoId}?language=${currentLanguage}`, {
+      const response = await fetch(`${API_URL}/transcript/${videoId}?language=${currentLanguage}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -1828,124 +1383,5 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
       console.error('Error fetching transcript:', error);
       throw error;
-    }
-  }
-  
-  /**
-   * Helper function to translate UI strings
-   */
-  function translate(key) {
-    // Use global translations if available
-    if (window.translations && window.translations[key]) {
-      return window.translations[key];
-    }
-    
-    // Fallback translations
-    const translations = {
-      'welcome-title': 'Welcome to the Sermon Search Tool! 👋',
-      'welcome-intro': 'Ask any question about the pastor\'s sermons, and I\'ll provide answers based on the sermon content with timestamped video links.',
-      'suggestion-heading': 'Try asking about:',
-      'sources-found': 'Sources',
-      'show-sources': 'View Sources',
-      'hide-sources': 'Hide Sources',
-      'watch-video': 'Watch Video',
-      'hide-video': 'Hide Video',
-      'view-transcript': 'View Transcript',
-      'hide-transcript': 'Hide Transcript',
-      'open-youtube': 'Open in YouTube',
-      'loading-transcript': 'Loading transcript...',
-      'download-transcript': 'Download Transcript',
-      'search-in-transcript': 'Search in transcript',
-      'search': 'Search',
-      'matches-found': 'matches found',
-      'no-matches-found': 'No matches found',
-      'no-results': 'No relevant sermon content found',
-      'checking-connection': 'Checking connection...',
-      'connected-successfully': 'Connected successfully!',
-      'api-connection-issue': 'API connection issue detected. Check your internet connection or try again later.',
-      'retry': 'Retry',
-      'confirm-clear': 'Are you sure you want to clear the conversation?',
-      'match': 'match'
-    };
-    
-    return translations[key] || key;
-  }
-  
-  /**
-   * Helper function to format text for display
-   */
-  function formatText(text) {
-    if (!text) return '';
-    
-    // Escape HTML
-    text = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    
-    // Convert URLs to links
-    text = text.replace(
-      /(https?:\/\/[^\s]+)/g, 
-      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
-    );
-    
-    return text;
-  }
-  
-  /**
-   * Helper function to format sermon titles
-   */
-  function formatSermonTitle(title) {
-    if (!title) return 'Untitled Sermon';
-    
-    // Remove any file extensions
-    title = title.replace(/\.(mp4|mov|avi|wmv)$/i, '');
-    
-    // Remove date patterns if they appear at the beginning
-    title = title.replace(/^\d{1,2}[-\.]\d{1,2}[-\.]\d{2,4}\s+/, '');
-    title = title.replace(/^\d{2,4}[-\.]\d{1,2}[-\.]\d{1,2}\s+/, '');
-    
-    // Convert to Title Case
-    title = title.replace(/\w\S*/g, function(txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
-    
-    return title;
-  }
-  
-  /**
-   * Helper function to format sermon dates
-   */
-  function formatSermonDate(dateStr) {
-    if (!dateStr) return '';
-    
-    try {
-      const date = new Date(dateStr);
-      
-      // Check if valid date
-      if (isNaN(date.getTime())) {
-        return dateStr;
-      }
-      
-      // Format as "Month Day, Year"
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return date.toLocaleDateString(window.currentLanguage || 'en-US', options);
-    } catch (e) {
-      console.error('Error formatting date:', e);
-      return dateStr;
-    }
-  }
-  
-  /**
-   * Helper function to format timestamps
-   */
-  function formatTimestamp(seconds) {
-    if (typeof seconds !== 'number') return '0:00';
-    
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-    
-    if (hours > 0) {
-      return `${hours}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    } else {
-      return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
     }
   }
