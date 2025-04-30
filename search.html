@@ -100,49 +100,82 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 </div>
 
 <style>
-/* Full-height chat experience solution */
-.full-height {
-  min-height: calc(100vh - 210px); /* Adjust based on your header + hero + quote banner heights */
-  margin-bottom: 0; /* Remove bottom margin */
-}
-
-/* Make the interface fill the container */
-.full-height .claude-interface {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Make the chat panel fill available space */
-.claude-chat-panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Make messages area fill available space */
-.claude-messages {
-  flex: 1;
-  overflow-y: auto;
-}
-
-/* Hide the info section completely */
-.info-section {
-  display: none;
-}
-
-/* Mobile optimization */
-@media (max-width: 768px) {
-  .full-height {
-    min-height: calc(100vh - 180px); /* Adjust for smaller mobile header */
+  /* Focused chat experience with preserved sidebar functionality */
+  .chat-section-wrapper {
+    position: relative;
+    height: 75vh; /* Fixed height using viewport height */
   }
-  
-  /* Ensure footer stays at the bottom */
-  footer {
-    margin-top: auto;
-  }
-}
 
+  .claude-interface {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .claude-chat-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0; /* Prevent flex items from overflowing */
+  }
+
+  .claude-messages {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .claude-input-area {
+    flex-shrink: 0; /* Prevent input area from shrinking */
+  }
+
+  /* Ensure sources panel maintains its sidebar behavior */
+  .claude-sources-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 100% !important; /* Force full height */
+    transition: width 0.3s ease;
+    overflow: hidden;
+  }
+
+  .claude-sources-panel.active {
+    width: 40%;
+    max-width: 450px;
+  }
+
+  /* Hide the info section */
+  .info-section {
+    display: none;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .chat-section-wrapper {
+      height: 80vh; /* Taller on mobile */
+    }
+    
+    /* For mobile, reset sources panel to bottom sheet style */
+    .claude-sources-panel {
+      position: fixed;
+      top: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100% !important;
+      height: 0 !important;
+      transition: height 0.3s ease;
+    }
+    
+    .claude-sources-panel.active {
+      height: 75vh !important;
+      width: 100% !important;
+      max-width: none;
+    }
+  }
 /* Responsive container improvements */
 .container {
   width: 95%;
