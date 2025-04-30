@@ -18,42 +18,45 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     </select>
   </div>
 
-  <!-- Claude-Style Interface -->
-  <div class="claude-interface">
-    <!-- API Status Banner -->
-    <div id="api-status-banner" class="claude-api-status">
-      <span id="api-status-message" data-i18n="api-connection-issue">API connection issue detected.</span>
-      <button id="retry-connection" class="claude-retry-button" data-i18n="retry">Retry</button>
-    </div>
-    
-    <!-- Chat Panel -->
-    <div class="claude-chat-panel">
-      <div id="messages" class="claude-messages">
-        <!-- Messages will be inserted here by JavaScript -->
+  <!-- Chat wrapper - added for better spacing -->
+  <div class="chat-section-wrapper">
+    <!-- Claude-Style Interface -->
+    <div class="claude-interface">
+      <!-- API Status Banner -->
+      <div id="api-status-banner" class="claude-api-status">
+        <span id="api-status-message" data-i18n="api-connection-issue">API connection issue detected.</span>
+        <button id="retry-connection" class="claude-retry-button" data-i18n="retry">Retry</button>
       </div>
       
-      <div class="claude-input-area">
-        <form id="chatForm">
-          <div class="claude-input-container">
-            <textarea id="queryInput" class="claude-input" placeholder="Ask a question about the sermons..." rows="1"></textarea>
-            <button type="submit" class="claude-submit-button">
-              <svg class="claude-submit-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-              </svg>
-            </button>
+      <!-- Chat Panel -->
+      <div class="claude-chat-panel">
+        <div id="messages" class="claude-messages">
+          <!-- Messages will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="claude-input-area">
+          <form id="chatForm">
+            <div class="claude-input-container">
+              <textarea id="queryInput" class="claude-input" placeholder="Ask a question about the sermons..." rows="1"></textarea>
+              <button type="submit" class="claude-submit-button">
+                <svg class="claude-submit-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+          <div class="conversation-controls" style="text-align: right; margin-top: 10px;">
+            <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear Conversation</button>
           </div>
-        </form>
-        <div class="conversation-controls" style="text-align: right; margin-top: 10px;">
-          <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear Conversation</button>
         </div>
       </div>
-    </div>
-    
-    <!-- Sources Panel -->
-    <div id="sourcesPanel" class="claude-sources-panel">
-      <button class="claude-sources-close" id="closeSourcesPanel">×</button>
-      <div class="claude-sources-panel-content" id="sourcesPanelContent">
-        <!-- Source content will be inserted here -->
+      
+      <!-- Sources Panel -->
+      <div id="sourcesPanel" class="claude-sources-panel">
+        <button class="claude-sources-close" id="closeSourcesPanel">×</button>
+        <div class="claude-sources-panel-content" id="sourcesPanelContent">
+          <!-- Source content will be inserted here -->
+        </div>
       </div>
     </div>
   </div>
