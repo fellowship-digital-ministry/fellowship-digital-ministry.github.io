@@ -259,73 +259,188 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   color: #333;
 }
 
-/* Enhanced source display */
+/* Rethought Source Interaction - Tabbed Interface */
 .sources-container {
-  margin: 1.5rem 0 1.5rem;
+  margin: 1.5rem 0;
   background-color: white;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   border: 1px solid #eee;
   max-width: 95%;
   transition: all 0.3s ease;
 }
 
-.sources-header {
+/* Source tabs for better organization */
+.sources-tabs {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
   background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.source-tab {
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  user-select: none;
+}
+
+.source-tab.active {
+  color: var(--color-primary);
+}
+
+.source-tab.active:after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+.source-tab:hover {
+  background-color: rgba(0,0,0,0.02);
+}
+
+.sources-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(46, 163, 242, 0.1);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  height: 20px;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+/* Content area for each tab */
+.tab-content {
+  display: none;
+  padding: 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Sources overview tab */
+.sources-overview {
+  padding: 1.5rem;
+}
+
+.sources-header {
+  margin-bottom: 1.5rem;
 }
 
 .sources-header h4 {
-  margin: 0;
-  font-size: 1.1rem;
-  color: #555;
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #444;
 }
 
-.sources-toggle {
-  color: var(--color-primary);
-  font-weight: 600;
+.sources-description {
+  color: #666;
   font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Source cards list */
+.source-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.source-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  padding: 1.25rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  user-select: none;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  position: relative;
 }
 
-.sources-toggle:hover {
-  background-color: rgba(46, 163, 242, 0.1);
-}
-
-.sources-content {
-  padding: 1.25rem;
-  max-height: 600px;
-  overflow-y: auto;
-}
-
-/* Improved source cards */
-.source-container {
-  margin-bottom: 1.75rem;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: var(--border-radius-lg);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  border: 1px solid #f0f0f0;
-  transition: all 0.2s ease;
-  border-left: 3px solid var(--color-primary);
-}
-
-.source-container:last-child {
-  margin-bottom: 0;
-}
-
-.source-container:hover {
+.source-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  border-color: rgba(46, 163, 242, 0.3);
+}
+
+.source-card.active {
+  border-color: var(--color-primary);
+  background-color: rgba(46, 163, 242, 0.05);
+}
+
+.source-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  height: 2.5rem;
+}
+
+.source-card-preview {
+  font-size: 0.9rem;
+  color: #666;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  height: 4rem;
+}
+
+.source-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.source-card-match {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Active source detail view */
+.source-detail {
+  padding: 1.5rem;
+}
+
+.source-back-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.source-back-btn:before {
+  content: '←';
+  margin-right: 0.5rem;
+}
+
+.source-back-btn:hover {
+  color: var(--color-primary);
 }
 
 .source-header {
@@ -339,7 +454,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 
 .source-title {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--color-heading);
   margin-right: 1rem;
   flex: 1;
@@ -351,48 +466,125 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   font-style: italic;
 }
 
-.source-text {
+.source-detail-text {
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   line-height: 1.6;
-  font-style: italic;
-  color: var(--color-text);
-  background-color: rgba(0,0,0,0.02);
-  padding: 1rem;
+  color: #333;
+  background-color: #f8f9fa;
+  padding: 1.25rem;
   border-radius: var(--border-radius-md);
+  border-left: 3px solid var(--color-primary);
 }
 
 .source-meta {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  color: #777;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
 }
 
 .source-time {
   display: flex;
   align-items: center;
+  margin-right: 1.5rem;
+  color: #666;
+}
+
+.source-time:before {
+  content: '⏱️';
+  margin-right: 0.5rem;
 }
 
 .source-match {
-  font-weight: 600;
-  color: var(--color-primary);
   display: flex;
   align-items: center;
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
-/* Improved video display */
+.source-match:before {
+  content: '🎯';
+  margin-right: 0.5rem;
+}
+
+/* Action buttons */
+.source-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.watch-video-btn {
+  grid-column: span 2;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-video-btn:before {
+  content: '▶️';
+  margin-right: 0.5rem;
+}
+
+.watch-video-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.open-youtube-btn, 
+.view-transcript-btn {
+  background-color: #f8f9fa;
+  color: #555;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open-youtube-btn:before {
+  content: '📺';
+  margin-right: 0.5rem;
+}
+
+.view-transcript-btn:before {
+  content: '📝';
+  margin-right: 0.5rem;
+}
+
+.open-youtube-btn:hover, 
+.view-transcript-btn:hover {
+  background-color: #eee;
+  transform: translateY(-2px);
+}
+
+/* Video embed with improved controls */
 .video-embed {
   width: 100%;
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  margin: 1rem 0;
+  margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   background-color: #000;
   position: relative;
   padding-top: 56.25%; /* 16:9 aspect ratio */
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
 .video-embed iframe {
@@ -404,114 +596,264 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   border: none;
 }
 
-/* Source action buttons */
-.source-actions {
+.video-embed-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 1rem 0;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
 }
 
-.watch-video-btn, 
-.open-youtube-btn, 
-.view-transcript-btn {
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.watch-video-btn {
-  background-color: var(--color-primary);
-  color: white;
+.video-expand-btn {
+  background-color: transparent;
+  color: #666;
   border: none;
-  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.watch-video-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+.video-expand-btn:before {
+  content: '⤢';
+  margin-right: 0.5rem;
 }
 
-.open-youtube-btn, 
-.view-transcript-btn {
-  background-color: rgba(46, 163, 242, 0.1);
-  color: var(--color-primary);
-  text-decoration: none;
-  border: 1px solid rgba(46, 163, 242, 0.2);
+.video-embed.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  padding-top: 0;
+  z-index: 1000;
 }
 
-.open-youtube-btn:hover, 
-.view-transcript-btn:hover {
-  background-color: rgba(46, 163, 242, 0.2);
-  transform: translateY(-2px);
+.video-embed.expanded iframe {
+  width: 100%;
+  height: 100%;
 }
 
-/* Enhanced transcript styles */
-.transcript-container {
-  margin-top: 1.25rem;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  border: 1px solid #eee;
-  max-height: 450px;
-  overflow-y: auto;
-  padding: 1.25rem;
+/* Transcript tab content with better UX */
+.transcript-content {
+  padding: 1.5rem;
+}
+
+.transcript-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.transcript-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #444;
+  margin: 0;
 }
 
 .transcript-search {
   display: flex;
-  margin-bottom: 1rem;
-  gap: 0.5rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  width: 100%;
 }
 
 .transcript-search-input {
   flex: 1;
-  padding: 0.6rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  border: none;
   font: inherit;
+  outline: none;
 }
 
 .transcript-search-button {
-  padding: 0.6rem 1rem;
+  padding: 0.75rem 1.25rem;
+  background-color: white;
+  color: #555;
+  border: none;
+  border-left: 1px solid #eee;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.transcript-search-button:before {
+  content: '🔍';
+  margin-right: 0.5rem;
+}
+
+.transcript-search-button:hover {
+  background-color: #f5f5f5;
+}
+
+.transcript-player {
+  display: flex;
+  margin-bottom: 1.25rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 1rem;
+  align-items: center;
+}
+
+.transcript-current-time {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #444;
+  margin-right: 1rem;
+  font-family: monospace;
+}
+
+.transcript-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.transcript-control-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.transcript-control-btn:hover {
   background-color: var(--color-primary);
   color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
+}
+
+.transcript-segments {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: white;
 }
 
 .transcript-segment {
-  margin-bottom: 0.75rem;
   display: flex;
-  transition: background-color 0.2s ease;
-  padding: 0.5rem;
-  border-radius: 6px;
+  padding: 0.75rem;
+  border-bottom: 1px solid #f5f5f5;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .transcript-segment:hover {
+  background-color: #f8f9fa;
+}
+
+.transcript-segment.active {
   background-color: rgba(46, 163, 242, 0.05);
+  border-left: 3px solid var(--color-primary);
 }
 
 .transcript-timestamp {
   flex: 0 0 70px;
   color: #777;
   font-size: 0.9rem;
-  padding-top: 0.25rem;
   font-family: monospace;
-  font-weight: bold;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
 .transcript-text {
   flex: 1;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.transcript-highlight {
+  background-color: rgba(255, 230, 0, 0.4);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+/* Custom scrollbar just for transcript */
+.transcript-segments::-webkit-scrollbar {
+  width: 6px;
+}
+
+.transcript-segments::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.transcript-segments::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.transcript-segments::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.transcript-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.transcript-download-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #555;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.transcript-download-btn:before {
+  content: '📥';
+  margin-right: 0.5rem;
+}
+
+.transcript-download-btn:hover {
+  background-color: #eee;
+}
+
+.transcript-view-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.transcript-view-btn {
+  padding: 0.6rem 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #555;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.transcript-view-btn.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.transcript-view-btn:hover:not(.active) {
+  background-color: #eee;
 }
 
 .transcript-highlight {
@@ -767,7 +1109,37 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   }
   
   /* Source improvements for mobile */
-  .source-container {
+  .sources-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+  
+  /* Make tab interface more mobile-friendly */
+  .sources-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px; /* Prevent scrollbar from cutting off content */
+  }
+  
+  .source-tab {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Source card grid for mobile */
+  .source-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .source-card {
+    padding: 1rem;
+  }
+  
+  /* Optimize source detail view */
+  .source-detail {
     padding: 1rem;
   }
   
@@ -790,16 +1162,70 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     gap: 0.5rem;
   }
   
-  /* Optimize buttons on mobile */
+  /* Simplify action buttons on mobile */
   .source-actions {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .watch-video-btn {
+    grid-column: span 1;
+  }
+  
+  /* Transcript optimizations for mobile */
+  .transcript-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .transcript-search {
+    flex-direction: column;
+  }
+  
+  .transcript-search-input {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .transcript-search-button {
+    width: 100%;
+    justify-content: center;
+    border-left: none;
+  }
+  
+  .transcript-player {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .transcript-segments {
+    height: 300px; /* Smaller height on mobile */
+  }
+  
+  .transcript-segment {
+    flex-direction: column;
+  }
+  
+  .transcript-timestamp {
+    margin-bottom: 0.25rem;
+  }
+  
+  .transcript-actions {
     flex-direction: column;
     gap: 0.5rem;
   }
   
-  .watch-video-btn,
-  .open-youtube-btn,
-  .view-transcript-btn {
+  .transcript-download-btn,
+  .transcript-view-options {
     width: 100%;
+  }
+  
+  .transcript-view-btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 0.5rem;
   }
   
   /* Improved welcome message on mobile */
@@ -817,24 +1243,6 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   .suggestion-chip {
     max-width: 100%;
     text-align: center;
-  }
-  
-  /* Optimize transcript for mobile */
-  .transcript-search {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .transcript-search-button {
-    width: 100%;
-  }
-  
-  .transcript-segment {
-    flex-direction: column;
-  }
-  
-  .transcript-timestamp {
-    margin-bottom: 0.25rem;
   }
   
   /* Ensure tables are scrollable on mobile */
@@ -855,6 +1263,12 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   
   .example-questions li {
     padding: 0.75rem 1rem;
+  }
+  
+  /* Fix expanded video on mobile */
+  .video-embed.expanded {
+    width: 100vw;
+    height: 60vh; /* Smaller height on mobile */
   }
 }
 
@@ -2469,84 +2883,92 @@ function displayAnswer(data) {
   // Regular processing for when sermon content is found
   const messageElement = addMessage(data.answer, 'bot');
   
-  // Display sources if available
-  if (hasSermonContent) {
-    try {
-      // Sort sources by similarity score
-      const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
-      
-      // Create a sources container
-      const sourcesContainer = document.createElement('div');
-      sourcesContainer.className = 'sources-container';
-      sourcesContainer.innerHTML = `
-        <div class="sources-header">
-          <h4>${translate('sources-found')} (${sortedSources.length})</h4>
-          <div class="sources-toggle">${translate('show-sources')}</div>
-        </div>
-        <div class="sources-content" style="display: none;"></div>
-      `;
-      
-      // Add sources container after the answer
-      if (messageElement && messageElement.parentNode) {
-        messageElement.parentNode.insertBefore(sourcesContainer, messageElement.nextSibling);
-      } else {
-        console.warn('Could not find messageElement parent for sources, adding to messages container');
-        messagesContainer.appendChild(sourcesContainer);
-      }
-      
-      // Get the sources content container
-      const sourcesContent = sourcesContainer.querySelector('.sources-content');
-      
-      // Add toggle functionality
-      const sourcesToggle = sourcesContainer.querySelector('.sources-toggle');
-      sourcesToggle.addEventListener('click', function() {
-        const isHidden = sourcesContent.style.display === 'none';
-        
-        // Toggle the content display
-        sourcesContent.style.display = isHidden ? 'block' : 'none';
-        
-        // Update the toggle text
-        this.textContent = isHidden ? translate('hide-sources') : translate('show-sources');
-        
-        // Scroll into view if showing
-        if (isHidden) {
-          setTimeout(() => {
-            sourcesContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 100);
-        }
-      });
-      
-      // Display top sources
-      const sourceLimit = Math.min(sortedSources.length, 3); // Limit to top 3 sources
-      const topSources = sortedSources.slice(0, sourceLimit);
-      
-      // Add sources to the content container
-      topSources.forEach((source, index) => {
-        const sourceElement = createSourceElement(source, index);
-        sourcesContent.appendChild(sourceElement);
-      });
-      
-      // If there are more sources, add a "View all sources" button
-      if (sortedSources.length > sourceLimit) {
-        const viewAllButton = document.createElement('button');
-        viewAllButton.className = 'view-all-sources';
-        viewAllButton.textContent = `${translate('view-all-sources')} (${sortedSources.length})`;
-        viewAllButton.addEventListener('click', function() {
-          // Clear existing sources
-          sourcesContent.innerHTML = '';
+      // Display sources if available
+      if (hasSermonContent) {
+        try {
+          // Sort sources by similarity score
+          const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
           
-          // Add all sources
-          sortedSources.forEach((source, index) => {
-            const sourceElement = createSourceElement(source, index);
-            sourcesContent.appendChild(sourceElement);
+          // Create a sources container
+          const sourcesContainer = document.createElement('div');
+          sourcesContainer.className = 'sources-container';
+          
+          // Create tabbed interface structure
+          sourcesContainer.innerHTML = `
+            <div class="sources-tabs">
+              <div class="source-tab active">Overview <span class="sources-count">${sortedSources.length}</span></div>
+              <div class="source-tab">Details</div>
+              <div class="source-tab">Transcript</div>
+            </div>
+            <div class="tab-content sources-overview active">
+              <!-- Source cards go here -->
+            </div>
+            <div class="tab-content source-detail">
+              <!-- Detailed source view -->
+            </div>
+            <div class="tab-content transcript-content">
+              <!-- Transcript view -->
+            </div>
+          `;
+          
+          // Add sources container after the answer
+          if (messageElement && messageElement.parentNode) {
+            messageElement.parentNode.insertBefore(sourcesContainer, messageElement.nextSibling);
+          } else {
+            console.warn('Could not find messageElement parent for sources, adding to messages container');
+            messagesContainer.appendChild(sourcesContainer);
+          }
+          
+          // Get the sources overview tab content
+          const sourcesOverview = sourcesContainer.querySelector('.sources-overview');
+          
+          // Add tab switching functionality
+          const tabs = sourcesContainer.querySelectorAll('.source-tab');
+          const tabContents = sourcesContainer.querySelectorAll('.tab-content');
+          
+          tabs.forEach((tab, index) => {
+            tab.addEventListener('click', function() {
+              // Remove active class from all tabs and contents
+              tabs.forEach(t => t.classList.remove('active'));
+              tabContents.forEach(c => c.classList.remove('active'));
+              
+              // Add active class to clicked tab and corresponding content
+              this.classList.add('active');
+              tabContents[index].classList.add('active');
+            });
           });
           
-          // Remove self
-          this.remove();
-        });
-        
-        sourcesContent.appendChild(viewAllButton);
-      }
+          // Display top sources in the overview tab
+          const sourceLimit = Math.min(sortedSources.length, 3); // Limit to top 3 sources
+          const topSources = sortedSources.slice(0, sourceLimit);
+          
+          // Add sources to the overview tab
+          topSources.forEach((source, index) => {
+            const sourceElement = createSourceElement(source, index);
+            sourcesOverview.appendChild(sourceElement);
+          });
+          
+          // If there are more sources, add a "View all sources" button
+          if (sortedSources.length > sourceLimit) {
+            const viewAllButton = document.createElement('button');
+            viewAllButton.className = 'view-all-sources';
+            viewAllButton.textContent = `${translate('view-all-sources')} (${sortedSources.length})`;
+            viewAllButton.addEventListener('click', function() {
+              // Clear existing sources
+              sourcesOverview.innerHTML = '';
+              
+              // Add all sources
+              sortedSources.forEach((source, index) => {
+                const sourceElement = createSourceElement(source, index);
+                sourcesOverview.appendChild(sourceElement);
+              });
+              
+              // Remove self
+              this.remove();
+            });
+            
+            sourcesOverview.appendChild(viewAllButton);
+          }
       
       // Add a "continue conversation" hint if this is the first answer
       if (conversationHistory.length <= 2) {
@@ -3449,4 +3871,17 @@ function toggleTranscript(videoId, startTime = 0) {
 // Make global functions available to be called from HTML
 window.toggleVideo = toggleVideo;
 window.toggleTranscript = toggleTranscript;
+
+// Tab switching functionality
+document.querySelectorAll('.source-tab').forEach((tab, index) => {
+  tab.addEventListener('click', function() {
+    // Remove active class from all tabs and content
+    document.querySelectorAll('.source-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    
+    // Add active class to clicked tab and corresponding content
+    this.classList.add('active');
+    document.querySelectorAll('.tab-content')[index].classList.add('active');
+  });
+});
 </script>
