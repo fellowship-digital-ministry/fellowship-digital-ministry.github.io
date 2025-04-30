@@ -1,14 +1,14 @@
 /**
- * Enhanced Claude-Style Interface for Sermon Search
- * Improved mobile experience, accessibility, and overall UX
+ * Enhanced Claude-Style Interface with Overlay Modals for Sermon Search
+ * Includes mobile improvements and collapsible source descriptions
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     initClaudeInterface();
-  });
+});
   
-  function initClaudeInterface() {
-    console.log('Initializing enhanced Claude-style interface');
+function initClaudeInterface() {
+    console.log('Initializing enhanced Claude-style interface with overlay modals');
     
     // Elements
     const queryInput = document.getElementById('queryInput');
@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeSourcesButton = document.getElementById('closeSourcesPanel');
     const apiStatusBanner = document.getElementById('api-status-banner');
     const chatForm = document.getElementById('chatForm');
+    
+    // Create overlay container for modals if it doesn't exist
+    if (!document.getElementById('claude-overlay-container')) {
+      const overlayContainer = document.createElement('div');
+      overlayContainer.id = 'claude-overlay-container';
+      document.body.appendChild(overlayContainer);
+    }
     
     // Add a close button to the API status banner
     if (apiStatusBanner) {
@@ -73,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
         activeToggles.forEach(toggle => {
           toggle.setAttribute('data-active', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
           toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
         });
       });
@@ -129,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
         activeToggles.forEach(toggle => {
           toggle.setAttribute('data-active', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
           toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
         });
       });
@@ -166,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
           activeToggles.forEach(toggle => {
             toggle.setAttribute('data-active', 'false');
+            toggle.setAttribute('aria-expanded', 'false');
             toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
           });
         }
@@ -474,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return welcomeContainer;
     }
     
-    // Create an enhanced source element with better accessibility
+    // Create an enhanced source element with better accessibility and modal support
     function createEnhancedSourceElement(source, index) {
       const sourceElement = document.createElement('div');
       sourceElement.className = 'claude-source-item';
@@ -513,9 +523,37 @@ document.addEventListener('DOMContentLoaded', function() {
       const content = document.createElement('div');
       content.className = 'claude-source-content';
       
+      // Create collapsible text container
+      const textWrapper = document.createElement('div');
+      textWrapper.className = 'claude-source-text-wrapper';
+      
       const text = document.createElement('div');
       text.className = 'claude-source-text';
       text.innerHTML = `"${formatText(source.text)}"`;
+      
+      const toggleButton = document.createElement('button');
+      toggleButton.className = 'claude-source-text-toggle';
+      toggleButton.textContent = translate('read-more') || 'Read more';
+      toggleButton.setAttribute('aria-expanded', 'false');
+      toggleButton.setAttribute('aria-controls', 'source-text-' + index);
+      
+      // Add click handler for toggle
+      toggleButton.addEventListener('click', function() {
+        const isExpanded = textWrapper.classList.contains('expanded');
+        
+        if (isExpanded) {
+          textWrapper.classList.remove('expanded');
+          this.textContent = translate('read-more') || 'Read more';
+          this.setAttribute('aria-expanded', 'false');
+        } else {
+          textWrapper.classList.add('expanded');
+          this.textContent = translate('read-less') || 'Show less';
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+      
+      textWrapper.appendChild(text);
+      textWrapper.appendChild(toggleButton);
       
       const meta = document.createElement('div');
       meta.className = 'claude-source-meta';
@@ -536,90 +574,38 @@ document.addEventListener('DOMContentLoaded', function() {
       meta.appendChild(timestamp);
       meta.appendChild(match);
       
-      // Create actions with improved accessibility
+      // Create actions with improved accessibility and modal support
       const actions = document.createElement('div');
       actions.className = 'claude-source-actions';
       
-      // Watch video button
+      // Watch video button - now opens modal overlay
       const watchButton = document.createElement('button');
       watchButton.className = 'claude-source-button claude-source-button-primary';
-      watchButton.textContent = translate('watch-video');
-      watchButton.setAttribute('aria-expanded', 'false');
+      watchButton.textContent = translate('watch-video') || 'Watch Video';
+      watchButton.setAttribute('aria-haspopup', 'dialog');
+      
       watchButton.onclick = function() {
-        const videoContainer = this.parentElement.parentElement.querySelector('.claude-video-container');
-        if (!videoContainer) {
-          // Create video container if it doesn't exist
-          const container = document.createElement('div');
-          container.className = 'claude-video-container';
-          container.innerHTML = `<iframe src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sermon video at ${formatTimestamp(source.start_time)}"></iframe>`;
-          content.appendChild(container);
-          this.textContent = translate('hide-video');
-          this.setAttribute('aria-expanded', 'true');
-        } else {
-          // Toggle visibility
-          if (videoContainer.style.display === 'none') {
-            videoContainer.style.display = 'block';
-            this.textContent = translate('hide-video');
-            this.setAttribute('aria-expanded', 'true');
-          } else {
-            videoContainer.style.display = 'none';
-            this.textContent = translate('watch-video');
-            this.setAttribute('aria-expanded', 'false');
-          }
-        }
+        openVideoOverlay(source.video_id, Math.floor(source.start_time), formattedTitle);
       };
       
-      // Transcript button
+      // Transcript button - now opens modal overlay
       const transcriptButton = document.createElement('button');
       transcriptButton.className = 'claude-source-button';
-      transcriptButton.textContent = translate('view-transcript');
-      transcriptButton.setAttribute('aria-expanded', 'false');
+      transcriptButton.textContent = translate('view-transcript') || 'View Transcript';
+      transcriptButton.setAttribute('aria-haspopup', 'dialog');
+      
       transcriptButton.onclick = function() {
-        // Get video ID from parent element
-        const videoId = this.closest('.claude-source-item').getAttribute('data-video-id');
-        const startTime = source.start_time;
-        
-        // Look for existing transcript
-        const transcriptContainer = this.parentElement.parentElement.querySelector('.claude-transcript');
-        if (!transcriptContainer) {
-          // Create transcript container if it doesn't exist
-          const container = document.createElement('div');
-          container.className = 'claude-transcript';
-          container.setAttribute('role', 'region');
-          container.setAttribute('aria-label', 'Sermon transcript');
-          container.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript')}</div>`;
-          content.appendChild(container);
-          
-          // Fetch transcript with improved error handling
-          fetchTranscript(videoId, startTime).then(transcriptData => {
-            // Update container with transcript content
-            updateEnhancedTranscript(container, transcriptData, startTime);
-          }).catch(error => {
-            container.innerHTML = `<div class="claude-transcript-error">Error loading transcript: ${error.message}</div>`;
-          });
-          
-          this.textContent = translate('hide-transcript');
-          this.setAttribute('aria-expanded', 'true');
-        } else {
-          // Toggle visibility
-          if (transcriptContainer.style.display === 'none') {
-            transcriptContainer.style.display = 'block';
-            this.textContent = translate('hide-transcript');
-            this.setAttribute('aria-expanded', 'true');
-          } else {
-            transcriptContainer.style.display = 'none';
-            this.textContent = translate('view-transcript');
-            this.setAttribute('aria-expanded', 'false');
-          }
-        }
+        openTranscriptOverlay(source.video_id, source.start_time, formattedTitle);
       };
       
-      // YouTube button
+      // YouTube button - now opens modal overlay
       const youtubeButton = document.createElement('button');
       youtubeButton.className = 'claude-source-button';
-      youtubeButton.textContent = translate('open-youtube');
+      youtubeButton.textContent = translate('open-youtube') || 'Open YouTube';
       youtubeButton.setAttribute('aria-label', 'Open video in YouTube at ' + formatTimestamp(source.start_time));
+      
       youtubeButton.onclick = function() {
+        // For YouTube, we'll just open in a new tab since we want to go to youtube.com
         window.open(`https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}`, '_blank');
       };
       
@@ -629,7 +615,7 @@ document.addEventListener('DOMContentLoaded', function() {
       actions.appendChild(youtubeButton);
       
       // Assemble all components
-      content.appendChild(text);
+      content.appendChild(textWrapper);
       content.appendChild(meta);
       content.appendChild(actions);
       
@@ -639,12 +625,217 @@ document.addEventListener('DOMContentLoaded', function() {
       return sourceElement;
     }
     
-    // Update transcript container with enhanced data presentation
-    function updateEnhancedTranscript(container, data, startTime) {
+    // NEW FUNCTION: Open video overlay modal
+    function openVideoOverlay(videoId, startTime, title) {
+      const overlayContainer = document.getElementById('claude-overlay-container');
+      if (!overlayContainer) return;
+      
+      // Create overlay structure
+      const overlay = document.createElement('div');
+      overlay.className = 'claude-overlay claude-video-overlay';
+      overlay.id = 'video-overlay-' + videoId;
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-labelledby', 'overlay-title-' + videoId);
+      
+      const overlayContent = document.createElement('div');
+      overlayContent.className = 'claude-overlay-content';
+      
+      // Create header
+      const header = document.createElement('div');
+      header.className = 'claude-overlay-header';
+      
+      const overlayTitle = document.createElement('h2');
+      overlayTitle.className = 'claude-overlay-title';
+      overlayTitle.id = 'overlay-title-' + videoId;
+      overlayTitle.textContent = title || 'Sermon Video';
+      
+      const closeButton = document.createElement('button');
+      closeButton.className = 'claude-overlay-close';
+      closeButton.innerHTML = '&times;';
+      closeButton.setAttribute('aria-label', 'Close overlay');
+      closeButton.onclick = function() {
+        closeOverlay(overlay);
+      };
+      
+      header.appendChild(overlayTitle);
+      header.appendChild(closeButton);
+      
+      // Create body with video
+      const body = document.createElement('div');
+      body.className = 'claude-overlay-body';
+      
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'claude-video-container';
+      videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?start=${startTime}&autoplay=1" 
+                                  frameborder="0" 
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                  allowfullscreen 
+                                  title="Sermon video at ${formatTimestamp(startTime)}"></iframe>`;
+      
+      body.appendChild(videoContainer);
+      
+      // Assemble overlay
+      overlayContent.appendChild(header);
+      overlayContent.appendChild(body);
+      overlay.appendChild(overlayContent);
+      
+      // Add to container
+      overlayContainer.innerHTML = ''; // Clear any existing overlays
+      overlayContainer.appendChild(overlay);
+      
+      // Add keyboard handling
+      addOverlayKeyboardHandling(overlay);
+      
+      // Activate with animation
+      setTimeout(() => {
+        overlay.classList.add('active');
+      }, 10);
+      
+      // Prevent body scrolling
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // NEW FUNCTION: Open transcript overlay modal
+    function openTranscriptOverlay(videoId, startTime, title) {
+      const overlayContainer = document.getElementById('claude-overlay-container');
+      if (!overlayContainer) return;
+      
+      // Create overlay structure
+      const overlay = document.createElement('div');
+      overlay.className = 'claude-overlay claude-transcript-overlay';
+      overlay.id = 'transcript-overlay-' + videoId;
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-labelledby', 'overlay-title-transcript-' + videoId);
+      
+      const overlayContent = document.createElement('div');
+      overlayContent.className = 'claude-overlay-content';
+      
+      // Create header
+      const header = document.createElement('div');
+      header.className = 'claude-overlay-header';
+      
+      const overlayTitle = document.createElement('h2');
+      overlayTitle.className = 'claude-overlay-title';
+      overlayTitle.id = 'overlay-title-transcript-' + videoId;
+      overlayTitle.textContent = (title ? title + ' - ' : '') + 'Transcript';
+      
+      const closeButton = document.createElement('button');
+      closeButton.className = 'claude-overlay-close';
+      closeButton.innerHTML = '&times;';
+      closeButton.setAttribute('aria-label', 'Close overlay');
+      closeButton.onclick = function() {
+        closeOverlay(overlay);
+      };
+      
+      header.appendChild(overlayTitle);
+      header.appendChild(closeButton);
+      
+      // Create body with loading indicator
+      const body = document.createElement('div');
+      body.className = 'claude-overlay-body';
+      body.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript') || 'Loading transcript...'}</div>`;
+      
+      // Assemble overlay
+      overlayContent.appendChild(header);
+      overlayContent.appendChild(body);
+      overlay.appendChild(overlayContent);
+      
+      // Add to container and show
+      overlayContainer.innerHTML = ''; // Clear any existing overlays
+      overlayContainer.appendChild(overlay);
+      
+      // Add keyboard handling
+      addOverlayKeyboardHandling(overlay);
+      
+      // Activate with animation
+      setTimeout(() => {
+        overlay.classList.add('active');
+      }, 10);
+      
+      // Prevent body scrolling
+      document.body.style.overflow = 'hidden';
+      
+      // Fetch transcript data
+      fetchTranscript(videoId, startTime).then(transcriptData => {
+        // Create transcript display
+        updateEnhancedTranscriptOverlay(body, transcriptData, startTime);
+      }).catch(error => {
+        body.innerHTML = `<div class="claude-transcript-error">Error loading transcript: ${error.message}</div>`;
+      });
+    }
+    
+    // Close overlay function
+    function closeOverlay(overlay) {
+      if (!overlay) return;
+      
+      // Animate closing
+      overlay.classList.remove('active');
+      
+      // Remove after animation
+      setTimeout(() => {
+        if (overlay.parentNode) {
+          overlay.parentNode.removeChild(overlay);
+        }
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+      }, 300);
+    }
+    
+    // Add keyboard handling for overlays
+    function addOverlayKeyboardHandling(overlay) {
+      if (!overlay) return;
+      
+      // Handle ESC key to close
+      overlay.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeOverlay(overlay);
+        }
+      });
+      
+      // Close when clicking outside content
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          closeOverlay(overlay);
+        }
+      });
+      
+      // Focus trap within overlay for accessibility
+      const focusableElements = overlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusableElements.length > 0) {
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        // Focus first element
+        setTimeout(() => {
+          firstElement.focus();
+        }, 100);
+        
+        // Trap focus
+        overlay.addEventListener('keydown', function(e) {
+          if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === firstElement) {
+              e.preventDefault();
+              lastElement.focus();
+            } else if (!e.shiftKey && document.activeElement === lastElement) {
+              e.preventDefault();
+              firstElement.focus();
+            }
+          }
+        });
+      }
+    }
+    
+    // Display transcript in overlay
+    function updateEnhancedTranscriptOverlay(container, data, startTime) {
+      if (!container || !data) return;
+      
       container.innerHTML = '';
       
       // Check if transcript data is valid
-      if (!data || (!data.segments && !data.transcript)) {
+      if (!data.segments && !data.transcript) {
         container.innerHTML = '<div class="claude-transcript-error">Transcript data not available</div>';
         return;
       }
@@ -657,7 +848,11 @@ document.addEventListener('DOMContentLoaded', function() {
         container.appendChild(noteElement);
       }
       
-      // Add transcript search capability
+      // Add transcript content
+      const transcriptElement = document.createElement('div');
+      transcriptElement.className = 'claude-transcript';
+      
+      // Add transcript search
       const searchContainer = document.createElement('div');
       searchContainer.className = 'claude-transcript-search';
       searchContainer.innerHTML = `
@@ -671,21 +866,22 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add event listeners for search
       if (searchInput && searchButton) {
         searchButton.addEventListener('click', function() {
-          searchInTranscript(searchInput.value, container);
+          searchInTranscript(searchInput.value, transcriptElement);
         });
         
         searchInput.addEventListener('keydown', function(e) {
           if (e.key === 'Enter') {
-            searchInTranscript(searchInput.value, container);
+            searchInTranscript(searchInput.value, transcriptElement);
           }
         });
       }
       
+      // Create transcript content area
+      const transcriptContent = document.createElement('div');
+      transcriptContent.className = 'claude-transcript-content';
+      
       // Process segmented transcript with timestamps
       if (data.segments && Array.isArray(data.segments)) {
-        const transcriptContent = document.createElement('div');
-        transcriptContent.className = 'claude-transcript-content';
-        
         let highlightedSegmentId = null;
         
         data.segments.forEach((segment, index) => {
@@ -700,7 +896,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
           const segmentElement = document.createElement('div');
           segmentElement.className = 'claude-transcript-segment';
-          segmentElement.id = `transcript-segment-${index}`;
+          segmentElement.id = `overlay-transcript-segment-${index}`;
           segmentElement.setAttribute('data-time', segment.start_time);
           
           // Highlight segments close to the start time
@@ -716,18 +912,6 @@ document.addEventListener('DOMContentLoaded', function() {
           timestampElement.setAttribute('tabindex', '0');
           timestampElement.setAttribute('aria-label', `Jump to ${formatTimestamp(segment.start_time)}`);
           
-          // Add click and keyboard handling for timestamps
-          timestampElement.addEventListener('click', function() {
-            jumpToTimestamp(segment.start_time, container);
-          });
-          
-          timestampElement.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              jumpToTimestamp(segment.start_time, container);
-            }
-          });
-          
           const textElement = document.createElement('div');
           textElement.className = 'claude-transcript-text';
           textElement.textContent = segment.text;
@@ -737,11 +921,14 @@ document.addEventListener('DOMContentLoaded', function() {
           transcriptContent.appendChild(segmentElement);
         });
         
-        // Add content to container
-        container.appendChild(searchContainer);
-        container.appendChild(transcriptContent);
+        // Add content to transcript element
+        transcriptElement.appendChild(searchContainer);
+        transcriptElement.appendChild(transcriptContent);
         
-        // Scroll to highlighted segment with delay for rendering
+        // Add to container
+        container.appendChild(transcriptElement);
+        
+        // Scroll to highlighted segment
         if (highlightedSegmentId) {
           setTimeout(() => {
             const highlightedElement = document.getElementById(highlightedSegmentId);
@@ -754,14 +941,15 @@ document.addEventListener('DOMContentLoaded', function() {
       else if (data.transcript) {
         // Handle plain text transcript
         const textContainer = document.createElement('div');
-        textContainer.className = 'claude-transcript-plain-text';
+        textContainer.className = 'claude-transcript-content claude-transcript-plain-text';
         textContainer.innerHTML = data.transcript
           .split('\n\n')
           .map(para => `<p>${para}</p>`)
           .join('');
         
-        container.appendChild(searchContainer);
-        container.appendChild(textContainer);
+        transcriptElement.appendChild(searchContainer);
+        transcriptElement.appendChild(textContainer);
+        container.appendChild(transcriptElement);
       } 
       else {
         container.innerHTML = '<div class="claude-transcript-error">Transcript format unknown</div>';
@@ -779,609 +967,446 @@ document.addEventListener('DOMContentLoaded', function() {
       
       container.appendChild(downloadButton);
     }
-    
     // Function to search within transcript
     function searchInTranscript(query, container) {
-      if (!query || !container) return;
-      
-      // Remove existing highlights and match counts
-      const existingHighlights = container.querySelectorAll('.search-highlight');
-      existingHighlights.forEach(highlight => {
-        const textNode = document.createTextNode(highlight.textContent);
-        highlight.parentNode.replaceChild(textNode, highlight);
-      });
-      
-      const existingCount = container.querySelector('.claude-transcript-match-count');
-      if (existingCount) {
-        existingCount.remove();
-      }
-      
-      if (!query.trim()) return;
-      
-      // Create a case-insensitive regex
-      try {
-        const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, 'content.appendChild('), 'gi');
-        const segments = container.querySelectorAll('.claude-transcript-segment');
-        let matchCount = 0;
-        let firstMatchElement = null;
+        if (!query || !container) return;
         
-        segments.forEach(segment => {
-          const textElement = segment.querySelector('.claude-transcript-text');
-          if (!textElement) return;
+        // Remove existing highlights and match counts
+        const existingHighlights = container.querySelectorAll('.search-highlight');
+        existingHighlights.forEach(highlight => {
+          const textNode = document.createTextNode(highlight.textContent);
+          highlight.parentNode.replaceChild(textNode, highlight);
+        });
+        
+        const existingCount = container.querySelector('.claude-transcript-match-count');
+        if (existingCount) {
+          existingCount.remove();
+        }
+        
+        if (!query.trim()) return;
+        
+        // Create a case-insensitive regex
+        try {
+          const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+          const segments = container.querySelectorAll('.claude-transcript-segment');
+          let matchCount = 0;
+          let firstMatchElement = null;
           
-          const originalText = textElement.textContent;
-          let match;
-          let lastIndex = 0;
-          let hasMatches = false;
-          let newHtml = '';
-          
-          while ((match = regex.exec(originalText)) !== null) {
-            hasMatches = true;
-            matchCount++;
+          segments.forEach(segment => {
+            const textElement = segment.querySelector('.claude-transcript-text');
+            if (!textElement) return;
             
-            if (!firstMatchElement) {
-              firstMatchElement = segment;
+            const originalText = textElement.textContent;
+            let match;
+            let lastIndex = 0;
+            let hasMatches = false;
+            let newHtml = '';
+            
+            while ((match = regex.exec(originalText)) !== null) {
+              hasMatches = true;
+              matchCount++;
+              
+              if (!firstMatchElement) {
+                firstMatchElement = segment;
+              }
+              
+              // Add text before match
+              newHtml += originalText.substring(lastIndex, match.index);
+              
+              // Add highlighted match
+              newHtml += `<span class="search-highlight" style="background-color: #ffeb3b; font-weight: bold;">${match[0]}</span>`;
+              
+              // Update lastIndex
+              lastIndex = regex.lastIndex;
             }
             
-            // Add text before match
-            newHtml += originalText.substring(lastIndex, match.index);
+            // Add remaining text
+            if (lastIndex < originalText.length) {
+              newHtml += originalText.substring(lastIndex);
+            }
             
-            // Add highlighted match
-            newHtml += `<span class="search-highlight">${match[0]}</span>`;
+            // Update text element if matches found
+            if (hasMatches) {
+              textElement.innerHTML = newHtml;
+            }
+          });
+          
+          // Add match count
+          const matchCountElement = document.createElement('div');
+          matchCountElement.className = 'claude-transcript-match-count';
+          matchCountElement.style.padding = '8px 16px';
+          matchCountElement.style.backgroundColor = '#f0f0f0';
+          matchCountElement.style.borderRadius = '4px';
+          matchCountElement.style.margin = '0 0 16px 0';
+          matchCountElement.style.fontWeight = '500';
+          
+          matchCountElement.textContent = matchCount > 0 
+            ? `${matchCount} ${translate('matches-found') || 'matches found'}`
+            : `${translate('no-matches-found') || 'No matches found'}`;
+          
+          // Insert count at top
+          container.insertBefore(matchCountElement, container.firstChild);
+          
+          // Scroll to first match
+          if (firstMatchElement) {
+            firstMatchElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } catch (error) {
+          console.error('Error in search:', error);
+        }
+      }
+      
+      // Function to adjust textarea height based on content
+      function adjustTextareaHeight(textarea) {
+        if (!textarea) return;
+        
+        // Reset height to default to correctly calculate scroll height
+        textarea.style.height = 'auto';
+        
+        // Set new height based on content, with max height
+        const maxHeight = window.innerHeight * 0.3; // 30% of viewport height
+        textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px';
+      }
+      
+      // Enhanced Bible reference click setup
+      function setupBibleReferenceClicks(element) {
+        if (!element) return;
+        
+        // Find all Bible references in an element
+        const bibleRefs = element.querySelectorAll('.bible-reference');
+        
+        bibleRefs.forEach(ref => {
+          // Ensure it's accessible
+          ref.setAttribute('role', 'button');
+          ref.setAttribute('tabindex', '0');
+          ref.setAttribute('aria-label', `Open Bible reference: ${ref.textContent.trim()}`);
+          
+          // Add click handler
+          ref.addEventListener('click', function() {
+            // Open Bible reference in a Bible website with current language
+            const reference = this.textContent.trim();
+            const bibleConfig = bibleWebsites[currentLanguage] || bibleWebsites.en;
             
-            // Update lastIndex
-            lastIndex = regex.lastIndex;
+            window.open(`${bibleConfig.site}?search=${encodeURIComponent(reference)}&version=${bibleConfig.version}`, '_blank');
+          });
+          
+          // Add keyboard handler
+          ref.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.click();
+            }
+          });
+        });
+      }
+      
+      // Display welcome message in Claude style
+      function displayClaudeWelcome() {
+        if (!messagesContainer) return;
+        
+        // Create welcome message element
+        const welcomeMessage = document.createElement('div');
+        welcomeMessage.className = 'claude-message claude-message-bot';
+        
+        const welcomeContent = document.createElement('div');
+        welcomeContent.className = 'claude-message-content';
+        welcomeContent.appendChild(createClaudeWelcomeMessage());
+        
+        welcomeMessage.appendChild(welcomeContent);
+        messagesContainer.appendChild(welcomeMessage);
+      }
+      
+      // Function to download transcript
+      function downloadTranscript(data) {
+        if (!data) return;
+        
+        let content = '';
+        let filename = 'sermon-transcript.txt';
+        
+        // Try to get sermon title from the page
+        const sourceItem = document.querySelector('.claude-source-item');
+        if (sourceItem) {
+          const titleElement = sourceItem.querySelector('.claude-source-title');
+          if (titleElement && titleElement.textContent) {
+            filename = titleElement.textContent.trim().replace(/[^\w\s-]/g, '') + '-transcript.txt';
           }
           
-          // Add remaining text
-          if (lastIndex < originalText.length) {
-            newHtml += originalText.substring(lastIndex);
+          const videoId = sourceItem.getAttribute('data-video-id');
+          if (videoId) {
+            content += `Sermon ID: ${videoId}\n\n`;
           }
+        }
+        
+        // Add date if available
+        const dateElement = document.querySelector('.claude-source-date');
+        if (dateElement && dateElement.textContent) {
+          content += `Date: ${dateElement.textContent.trim()}\n\n`;
+        }
+        
+        // Format transcript content
+        if (data.segments && Array.isArray(data.segments)) {
+          content += 'TRANSCRIPT:\n\n';
           
-          // Update text element if matches found
-          if (hasMatches) {
-            textElement.innerHTML = newHtml;
-          }
-        });
-        
-        // Add match count
-        const matchCountElement = document.createElement('div');
-        matchCountElement.className = 'claude-transcript-match-count';
-        matchCountElement.textContent = matchCount > 0 
-          ? `${matchCount} ${translate('matches-found') || 'matches found'}`
-          : `${translate('no-matches-found') || 'No matches found'}`;
-        
-        // Insert count at top
-        container.insertBefore(matchCountElement, container.firstChild);
-        
-        // Scroll to first match
-        if (firstMatchElement) {
-          firstMatchElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      } catch (error) {
-        console.error('Error in search:', error);
-      }
-    }
-    
-    // Function to jump to timestamp in video
-    function jumpToTimestamp(timestamp, container) {
-      const sourceItem = container.closest('.claude-source-item');
-      if (!sourceItem) return;
-      
-      const videoId = sourceItem.getAttribute('data-video-id');
-      if (!videoId) return;
-      
-      // Find or create video container
-      let videoContainer = sourceItem.querySelector('.claude-video-container');
-      const watchButton = sourceItem.querySelector('.claude-source-button-primary');
-      
-      if (!videoContainer) {
-        // Create video if it doesn't exist
-        videoContainer = document.createElement('div');
-        videoContainer.className = 'claude-video-container';
-        videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(timestamp)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sermon video at ${formatTimestamp(timestamp)}"></iframe>`;
-        
-        const content = sourceItem.querySelector('.claude-source-content');
-        if (content) {
-          content.appendChild(videoContainer);
-        }
-        
-        // Update watch button state
-        if (watchButton) {
-          watchButton.textContent = translate('hide-video');
-          watchButton.setAttribute('aria-expanded', 'true');
-        }
-      } else {
-        // Update existing video with new timestamp
-        const iframe = videoContainer.querySelector('iframe');
-        if (iframe) {
-          iframe.src = `https://www.youtube.com/embed/${videoId}?start=${Math.floor(timestamp)}`;
-        }
-        
-        // Make sure video is visible
-        videoContainer.style.display = 'block';
-        
-        // Update watch button state
-        if (watchButton) {
-          watchButton.textContent = translate('hide-video');
-          watchButton.setAttribute('aria-expanded', 'true');
-        }
-      }
-      
-      // Scroll video into view
-      videoContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    
-    // Function to download transcript
-    function downloadTranscript(data) {
-      if (!data) return;
-      
-      let content = '';
-      let filename = 'sermon-transcript.txt';
-      
-      // Try to get sermon title from the page
-      const sourceItem = document.querySelector('.claude-source-item');
-      if (sourceItem) {
-        const titleElement = sourceItem.querySelector('.claude-source-title');
-        if (titleElement && titleElement.textContent) {
-          filename = titleElement.textContent.trim().replace(/[^\w\s-]/g, '') + '-transcript.txt';
-        }
-        
-        const videoId = sourceItem.getAttribute('data-video-id');
-        if (videoId) {
-          content += `Sermon ID: ${videoId}\n\n`;
-        }
-      }
-      
-      // Add date if available
-      const dateElement = document.querySelector('.claude-source-date');
-      if (dateElement && dateElement.textContent) {
-        content += `Date: ${dateElement.textContent.trim()}\n\n`;
-      }
-      
-      // Format transcript content
-      if (data.segments && Array.isArray(data.segments)) {
-        content += 'TRANSCRIPT:\n\n';
-        
-        data.segments.forEach(segment => {
-          if (segment.is_gap) {
-            content += '[...]\n\n';
-          } else {
-            content += `[${formatTimestamp(segment.start_time)}] ${segment.text}\n\n`;
-          }
-        });
-      } else if (data.transcript) {
-        content += data.transcript;
-      } else {
-        content += 'No transcript data available.';
-      }
-      
-      // Create and download file
-      const blob = new Blob([content], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      a.style.display = 'none';
-      
-      document.body.appendChild(a);
-      a.click();
-      
-      setTimeout(() => {
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }, 100);
-    }
-    
-    // Add a ripple effect to a newly added message
-    function addRippleEffect(element) {
-      if (!element) return;
-      
-      // Create ripple element
-      const ripple = document.createElement('div');
-      ripple.className = 'claude-ripple-container';
-      ripple.style.position = 'absolute';
-      ripple.style.top = '0';
-      ripple.style.left = '0';
-      ripple.style.right = '0';
-      ripple.style.bottom = '0';
-      ripple.style.overflow = 'hidden';
-      ripple.style.pointerEvents = 'none';
-      ripple.style.borderRadius = 'inherit';
-      
-      // Add to element
-      element.style.position = 'relative';
-      element.appendChild(ripple);
-      
-      // Create the actual ripple
-      const rippleInner = document.createElement('div');
-      rippleInner.className = 'claude-ripple';
-      rippleInner.style.position = 'absolute';
-      rippleInner.style.borderRadius = '50%';
-      rippleInner.style.backgroundColor = 'rgba(46, 163, 242, 0.15)';
-      rippleInner.style.transformOrigin = 'center';
-      rippleInner.style.transform = 'scale(0)';
-      rippleInner.style.width = '100%';
-      rippleInner.style.height = '100%';
-      rippleInner.style.opacity = '1';
-      rippleInner.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
-      
-      ripple.appendChild(rippleInner);
-      
-      // Trigger animation
-      setTimeout(() => {
-        rippleInner.style.transform = 'scale(2.5)';
-        rippleInner.style.opacity = '0';
-      }, 10);
-      
-      // Clean up
-      setTimeout(() => {
-        if (ripple.parentNode === element) {
-          element.removeChild(ripple);
-        }
-      }, 1000);
-    }
-    
-    // Function to adjust textarea height based on content
-    function adjustTextareaHeight(textarea) {
-      if (!textarea) return;
-      
-      // Reset height to default to correctly calculate scroll height
-      textarea.style.height = 'auto';
-      
-      // Set new height based on content, with max height
-      const maxHeight = window.innerHeight * 0.3; // 30% of viewport height
-      textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px';
-    }
-    
-    // Enhanced Bible reference click setup
-    function setupBibleReferenceClicks(element) {
-      if (!element) return;
-      
-      // Find all Bible references in an element
-      const bibleRefs = element.querySelectorAll('.bible-reference');
-      
-      bibleRefs.forEach(ref => {
-        // Ensure it's accessible
-        ref.setAttribute('role', 'button');
-        ref.setAttribute('tabindex', '0');
-        ref.setAttribute('aria-label', `Open Bible reference: ${ref.textContent.trim()}`);
-        
-        // Add click handler
-        ref.addEventListener('click', function() {
-          // Open Bible reference in a Bible website with current language
-          const reference = this.textContent.trim();
-          const bibleConfig = bibleWebsites[currentLanguage] || bibleWebsites.en;
-          
-          window.open(`${bibleConfig.site}?search=${encodeURIComponent(reference)}&version=${bibleConfig.version}`, '_blank');
-        });
-        
-        // Add keyboard handler
-        ref.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.click();
-          }
-        });
-      });
-    }
-    
-    // Display welcome message in Claude style
-    function displayClaudeWelcome() {
-      if (!messagesContainer) return;
-      
-      // Create welcome message element
-      const welcomeMessage = document.createElement('div');
-      welcomeMessage.className = 'claude-message claude-message-bot';
-      
-      const welcomeContent = document.createElement('div');
-      welcomeContent.className = 'claude-message-content';
-      welcomeContent.appendChild(createClaudeWelcomeMessage());
-      
-      welcomeMessage.appendChild(welcomeContent);
-      messagesContainer.appendChild(welcomeMessage);
-    }
-    
-    // Handle window resize for mobile transitions
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-        // If transitioning from mobile to desktop, reset transitions
-        if (sourcesPanel && sourcesPanel.classList.contains('active')) {
-          sourcesPanel.style.transform = '';
-        }
-      }
-    });
-    
-    // Observe theme changes for consistent dark mode
-    if (window.matchMedia) {
-      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      const handleThemeChange = (e) => {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-      };
-      
-      // Set initial value
-      handleThemeChange(darkModeMediaQuery);
-      
-      // Listen for changes
-      if (darkModeMediaQuery.addEventListener) {
-        darkModeMediaQuery.addEventListener('change', handleThemeChange);
-      } else if (darkModeMediaQuery.addListener) {
-        // Fallback for older browsers
-        darkModeMediaQuery.addListener(handleThemeChange);
-      }
-    }
-    
-    // Auto-resize input on first load
-    if (queryInput) {
-      setTimeout(() => {
-        adjustTextareaHeight(queryInput);
-        queryInput.focus();
-      }, 500);
-    }
-    
-    // If isFirstLoad is true, show welcome message in Claude style
-    if (window.isFirstLoad) {
-      // Clear existing welcome message if any
-      if (messagesContainer) {
-        messagesContainer.innerHTML = '';
-      }
-      
-      // Display Claude-style welcome
-      displayClaudeWelcome();
-      window.isFirstLoad = false;
-    }
-    
-    // Add swipe to dismiss API status banner
-    if (apiStatusBanner) {
-      let touchStartX = 0;
-      
-      apiStatusBanner.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-      }, {passive: true});
-      
-      apiStatusBanner.addEventListener('touchmove', function(e) {
-        const touchX = e.touches[0].clientX;
-        const deltaX = touchX - touchStartX;
-        
-        if (Math.abs(deltaX) > 30) {
-          this.style.transform = `translateX(${deltaX}px)`;
-          this.style.opacity = 1 - Math.abs(deltaX) / 300;
-        }
-      }, {passive: true});
-      
-      apiStatusBanner.addEventListener('touchend', function(e) {
-        const touchX = e.changedTouches[0].clientX;
-        const deltaX = touchX - touchStartX;
-        
-        if (Math.abs(deltaX) > 100) {
-          // Swipe to dismiss
-          this.style.transform = `translateX(${deltaX > 0 ? 300 : -300}px)`;
-          this.style.opacity = '0';
-          
-          setTimeout(() => {
-            this.style.display = 'none';
-            this.style.transform = '';
-            this.style.opacity = '';
-          }, 300);
+          data.segments.forEach(segment => {
+            if (segment.is_gap) {
+              content += '[...]\n\n';
+            } else {
+              content += `[${formatTimestamp(segment.start_time)}] ${segment.text}\n\n`;
+            }
+          });
+        } else if (data.transcript) {
+          content += data.transcript;
         } else {
-          // Reset position
-          this.style.transform = '';
-          this.style.opacity = '';
+          content += 'No transcript data available.';
         }
-      }, {passive: true});
-    }
-    
-    // Enhanced verifyApiConnection function
-    window.originalVerifyApiConnection = window.verifyApiConnection;
-    window.verifyApiConnection = function(showFeedback = false) {
-      console.log('Verifying API connection with enhanced feedback');
+        
+        // Create and download file
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.style.display = 'none';
+        
+        document.body.appendChild(a);
+        a.click();
+        
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 100);
+      }
       
-      if (apiStatusBanner) {
-        if (showFeedback) {
-          // Show checking message with loading spinner
-          apiStatusBanner.innerHTML = `
-            <div class="claude-api-status-spinner"></div>
-            <span id="api-status-message">${translate('checking-connection') || 'Checking connection...'}</span>
-            <button id="retry-connection" class="claude-retry-button" style="display: none;">${translate('retry') || 'Retry'}</button>
-            <button class="claude-api-status-close" aria-label="Close notification">&times;</button>
-          `;
-          apiStatusBanner.className = 'claude-api-status'; // Reset any success/error classes
-          apiStatusBanner.style.display = 'flex';
-          
-          // Add close button handler
-          const closeButton = apiStatusBanner.querySelector('.claude-api-status-close');
-          if (closeButton) {
-            closeButton.addEventListener('click', function() {
-              apiStatusBanner.style.display = 'none';
-            });
+      // Add a ripple effect to a newly added message
+      function addRippleEffect(element) {
+        if (!element) return;
+        
+        // Create ripple element
+        const ripple = document.createElement('div');
+        ripple.className = 'claude-ripple-container';
+        ripple.style.position = 'absolute';
+        ripple.style.top = '0';
+        ripple.style.left = '0';
+        ripple.style.right = '0';
+        ripple.style.bottom = '0';
+        ripple.style.overflow = 'hidden';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.borderRadius = 'inherit';
+        
+        // Add to element
+        element.style.position = 'relative';
+        element.appendChild(ripple);
+        
+        // Create the actual ripple
+        const rippleInner = document.createElement('div');
+        rippleInner.className = 'claude-ripple';
+        rippleInner.style.position = 'absolute';
+        rippleInner.style.borderRadius = '50%';
+        rippleInner.style.backgroundColor = 'rgba(46, 163, 242, 0.15)';
+        rippleInner.style.transformOrigin = 'center';
+        rippleInner.style.transform = 'scale(0)';
+        rippleInner.style.width = '100%';
+        rippleInner.style.height = '100%';
+        rippleInner.style.opacity = '1';
+        rippleInner.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+        
+        ripple.appendChild(rippleInner);
+        
+        // Trigger animation
+        setTimeout(() => {
+          rippleInner.style.transform = 'scale(2.5)';
+          rippleInner.style.opacity = '0';
+        }, 10);
+        
+        // Clean up
+        setTimeout(() => {
+          if (ripple.parentNode === element) {
+            element.removeChild(ripple);
           }
-        } else {
-          // Hide banner initially
-          apiStatusBanner.style.display = 'none';
+        }, 1000);
+      }
+      
+      // Function to initialize collapsible source text for existing and dynamically added elements
+      function initializeCollapsibleSourceText() {
+        // MutationObserver to watch for new source elements being added
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+              // Check each added node
+              mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1) { // Element node
+                  // Look for source items within the added node
+                  const sourceItems = node.querySelectorAll ? node.querySelectorAll('.claude-source-item') : [];
+                  sourceItems.forEach(setupCollapsibleSourceText);
+                  
+                  // Or if the node itself is a source item
+                  if (node.classList && node.classList.contains('claude-source-item')) {
+                    setupCollapsibleSourceText(node);
+                  }
+                }
+              });
+            }
+          });
+        });
+        
+        // Start observing the sources panel content
+        const sourcesPanelContent = document.getElementById('sourcesPanelContent');
+        if (sourcesPanelContent) {
+          observer.observe(sourcesPanelContent, { childList: true, subtree: true });
+          
+          // Also set up existing source items
+          const existingSourceItems = sourcesPanelContent.querySelectorAll('.claude-source-item');
+          existingSourceItems.forEach(setupCollapsibleSourceText);
         }
       }
       
-      // Call original function if it exists
-      if (window.originalVerifyApiConnection) {
-        return window.originalVerifyApiConnection(showFeedback);
-      }
-      
-      // Fallback implementation
-      return fetch(`${API_URL}`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Origin': window.location.origin
-        },
-        mode: 'cors'
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`API connection failed with status: ${response.status}`);
-        }
+      // Function to set up a single collapsible source text element
+      function setupCollapsibleSourceText(sourceItem) {
+        if (!sourceItem) return;
         
-        console.log('API connection successful');
+        const sourceText = sourceItem.querySelector('.claude-source-text');
+        if (!sourceText) return;
         
-        // Show success message if feedback was requested
-        if (showFeedback && apiStatusBanner) {
-          apiStatusBanner.innerHTML = `
-            <span id="api-status-message">${translate('connected-successfully') || 'Connected successfully!'}</span>
-            <button class="claude-api-status-close" aria-label="Close notification">&times;</button>
-          `;
-          apiStatusBanner.className = 'claude-api-status success';
-          
-          // Add close button handler
-          const closeButton = apiStatusBanner.querySelector('.claude-api-status-close');
-          if (closeButton) {
-            closeButton.addEventListener('click', function() {
-              apiStatusBanner.style.display = 'none';
-            });
-          }
-          
-          // Hide after 3 seconds
-          setTimeout(() => {
-            apiStatusBanner.style.display = 'none';
-          }, 3000);
-        }
-        
-        return true;
-      })
-      .catch(error => {
-        console.error('API connection verification failed:', error);
-        
-        if (apiStatusBanner) {
-          apiStatusBanner.innerHTML = `
-            <span id="api-status-message">${translate('api-connection-issue') || 'API connection issue detected. Check your internet connection or try again later.'}</span>
-            <button id="retry-connection" class="claude-retry-button">${translate('retry') || 'Retry'}</button>
-            <button class="claude-api-status-close" aria-label="Close notification">&times;</button>
-          `;
-          apiStatusBanner.className = 'claude-api-status error';
-          apiStatusBanner.style.display = 'flex';
-          
-          // Add retry handler
-          const retryButton = apiStatusBanner.querySelector('#retry-connection');
-          if (retryButton) {
-            retryButton.addEventListener('click', function() {
-              window.verifyApiConnection(true);
-            });
-          }
-          
-          // Add close button handler
-          const closeButton = apiStatusBanner.querySelector('.claude-api-status-close');
-          if (closeButton) {
-            closeButton.addEventListener('click', function() {
-              apiStatusBanner.style.display = 'none';
-            });
-          }
-        }
-        
-        return false;
-      });
-    };
-    
-    // Add enhanced clear conversation handling
-    const clearConversationBtn = document.getElementById('clearConversation');
-    if (clearConversationBtn) {
-      clearConversationBtn.addEventListener('click', function() {
-        if (window.conversationHistory && window.conversationHistory.length > 0) {
-          // Ask for confirmation
-          if (confirm(translate('confirm-clear') || 'Are you sure you want to clear the conversation?')) {
-            clearConversation();
-          }
-        } else {
-          clearConversation();
-        }
-      });
-    }
-    
-    // Enhanced clear conversation function
-    window.originalClearConversation = window.clearConversation;
-    window.clearConversation = function() {
-      console.log('Clearing conversation with enhanced animation');
-      
-      // Clear the conversation history array
-      if (window.conversationHistory) {
-        window.conversationHistory = [];
-      }
-      
-      // Animate clearing messages
-      if (messagesContainer) {
-        const messages = messagesContainer.querySelectorAll('.claude-message');
-        
-        if (messages.length === 0) {
-          // If no messages, just display welcome
-          displayClaudeWelcome();
+        // Check if we already wrapped this element
+        if (sourceText.parentNode.classList && sourceText.parentNode.classList.contains('claude-source-text-wrapper')) {
           return;
         }
         
-        // Create a fade-out animation for all messages
-        messages.forEach((message, index) => {
-          setTimeout(() => {
-            message.style.opacity = '0';
-            message.style.transform = 'translateY(-20px)';
-            message.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-          }, index * 50); // Stagger the animations
+        // Create wrapper if it doesn't exist
+        const wrapper = document.createElement('div');
+        wrapper.className = 'claude-source-text-wrapper';
+        
+        // Move the source text into the wrapper
+        sourceText.parentNode.insertBefore(wrapper, sourceText);
+        wrapper.appendChild(sourceText);
+        
+        // Create toggle button
+        const toggleButton = document.createElement('button');
+        toggleButton.className = 'claude-source-text-toggle';
+        toggleButton.textContent = translate('read-more') || 'Read more';
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.setAttribute('aria-controls', sourceText.id || 'source-text-' + Math.random().toString(36).substr(2, 9));
+        
+        // Add click handler for toggle
+        toggleButton.addEventListener('click', function() {
+          const isExpanded = wrapper.classList.contains('expanded');
+          
+          if (isExpanded) {
+            wrapper.classList.remove('expanded');
+            this.textContent = translate('read-more') || 'Read more';
+            this.setAttribute('aria-expanded', 'false');
+            
+            // Scroll back to top of element
+            sourceItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else {
+            wrapper.classList.add('expanded');
+            this.textContent = translate('read-less') || 'Show less';
+            this.setAttribute('aria-expanded', 'true');
+          }
         });
         
-        // Clear container and show welcome after animations
-        setTimeout(() => {
-          messagesContainer.innerHTML = '';
-          displayClaudeWelcome();
-        }, messages.length * 50 + 300);
-      } else {
-        // Fallback to original function if it exists
-        if (window.originalClearConversation) {
-          window.originalClearConversation();
+        // Add the toggle button
+        wrapper.appendChild(toggleButton);
+      }
+      
+      // Helper function to fetch transcripts with enhanced error handling
+      async function fetchTranscript(videoId, startTime = 0) {
+        try {
+          console.log(`Fetching transcript for video ${videoId} with language ${currentLanguage}`);
+          
+          // Show loading indicator
+          const transcriptContainer = document.getElementById(`transcript-${videoId}`);
+          if (transcriptContainer) {
+            transcriptContainer.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript') || 'Loading transcript...'}</div>`;
+          }
+          
+          const response = await fetch(`${API_URL}/transcript/${videoId}?language=${currentLanguage}`, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Origin': window.location.origin,
+              'Accept-Language': currentLanguage
+            },
+            mode: 'cors'
+          });
+          
+          if (!response.ok) {
+            throw new Error(`Failed to fetch transcript: ${response.status} ${response.statusText}`);
+          }
+          
+          const data = await response.json();
+          console.log('Received transcript data:', data);
+          
+          return data;
+        } catch (error) {
+          console.error('Error fetching transcript:', error);
+          throw error;
         }
       }
       
-      // Close sources panel if open
-      if (sourcesPanel && sourcesPanel.classList.contains('active')) {
-        sourcesPanel.classList.remove('active');
-      }
-      
-      // Focus the input field
-      if (queryInput) {
-        queryInput.focus();
-      }
-    };
-    
-    console.log('Enhanced Claude-style interface initialized');
-  }
-  
-  // Helper function to fetch transcripts with enhanced error handling
-  async function fetchTranscript(videoId, startTime = 0) {
-    try {
-      console.log(`Fetching transcript for video ${videoId} with language ${currentLanguage}`);
-      
-      // Show loading indicator
-      const transcriptContainer = document.getElementById(`transcript-${videoId}`);
-      if (transcriptContainer) {
-        transcriptContainer.innerHTML = `<div class="claude-transcript-loading">${translate('loading-transcript') || 'Loading transcript...'}</div>`;
-      }
-      
-      const response = await fetch(`${API_URL}/transcript/${videoId}?language=${currentLanguage}`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Origin': window.location.origin,
-          'Accept-Language': currentLanguage
-        },
-        mode: 'cors'
+      // Handle window resize for mobile transitions
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          // If transitioning from mobile to desktop, reset transitions
+          if (sourcesPanel && sourcesPanel.classList.contains('active')) {
+            sourcesPanel.style.transform = '';
+          }
+        }
       });
       
-      if (!response.ok) {
-        throw new Error(`Failed to fetch transcript: ${response.status} ${response.statusText}`);
+      // Observe theme changes for consistent dark mode
+      if (window.matchMedia) {
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        const handleThemeChange = (e) => {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        };
+        
+        // Set initial value
+        handleThemeChange(darkModeMediaQuery);
+        
+        // Listen for changes
+        if (darkModeMediaQuery.addEventListener) {
+          darkModeMediaQuery.addEventListener('change', handleThemeChange);
+        } else if (darkModeMediaQuery.addListener) {
+          // Fallback for older browsers
+          darkModeMediaQuery.addListener(handleThemeChange);
+        }
       }
       
-      const data = await response.json();
-      console.log('Received transcript data:', data);
+      // Auto-resize input on first load
+      if (queryInput) {
+        setTimeout(() => {
+          adjustTextareaHeight(queryInput);
+          queryInput.focus();
+        }, 500);
+      }
       
-      return data;
-    } catch (error) {
-      console.error('Error fetching transcript:', error);
-      throw error;
-    }
+      // If isFirstLoad is true, show welcome message in Claude style
+      if (window.isFirstLoad) {
+        // Clear existing welcome message if any
+        if (messagesContainer) {
+          messagesContainer.innerHTML = '';
+        }
+        
+        // Display Claude-style welcome
+        displayClaudeWelcome();
+        window.isFirstLoad = false;
+      }
+      
+      // Setup global event listener for overlay close via escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          const activeOverlay = document.querySelector('.claude-overlay.active');
+          if (activeOverlay) {
+            closeOverlay(activeOverlay);
+          }
+        }
+      });
+      
+      // Initialize source text collapsible behavior for existing elements
+      initializeCollapsibleSourceText();
+      
+      console.log('Enhanced Claude-style interface with overlay modals initialized');
   }
