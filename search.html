@@ -86,80 +86,77 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   </div>
 </div>
 <script>
-  /**
- * Enhanced Mobile Scrolling Fix Script
- * - Improves mobile scrolling for the built-in sources panel
- * - Responsive width adjustments for different screen sizes
- * - Maintains full width for the chat box
+ /**
+ * Enhanced Sermon Search Tool
+ * - Makes sources panel work properly on mobile
+ * - Ensures chat box is ALWAYS full width
+ * - Properly handles responsive layouts
  */
 
 (function() {
   // Create and inject necessary styles
   const styleElement = document.createElement('style');
   styleElement.innerHTML = `
-    /* Full width for chat box always */
-    .claude-conversation-container {
+    /* FORCE full width for chat containers */
+    .claude-conversation-container,
+    .chat-container,
+    .chat-section-wrapper,
+    .container,
+    .claude-interface,
+    .claude-chat-panel,
+    .claude-messages,
+    #messages,
+    .messages,
+    .claude-input-area,
+    .claude-input-container {
       width: 100% !important;
       max-width: 100% !important;
+      flex: 1 1 auto !important;
+      box-sizing: border-box !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
     
-    /* Sources panel styling for different screen sizes */
-    /* Mobile (small screens) */
-    @media (max-width: 768px) {
-      #sourcesPanel, 
-      .claude-sources-panel {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        top: auto !important;
-        height: 75vh !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        border-radius: 12px 12px 0 0 !important;
-        -webkit-overflow-scrolling: touch !important;
-        overscroll-behavior: contain !important;
-        background-color: white !important;
-        z-index: 1000 !important;
-      }
+    /* Ensure container doesn't have fixed width */
+    .container {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 1rem !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
     }
     
-    /* Tablet and small desktop */
-    @media (min-width: 769px) and (max-width: 1199px) {
-      #sourcesPanel, 
-      .claude-sources-panel {
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        height: 80vh !important;
-        width: 80% !important;
-        max-width: 700px !important;
-        border-radius: 12px !important;
-        -webkit-overflow-scrolling: touch !important;
-        overscroll-behavior: contain !important;
-        background-color: white !important;
-        z-index: 1000 !important;
-      }
+    /* Fix overflows that might cause horizontal scrolling */
+    body, html {
+      overflow-x: hidden !important;
+      width: 100% !important;
     }
     
-    /* Large desktop */
-    @media (min-width: 1200px) {
-      #sourcesPanel, 
-      .claude-sources-panel {
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        height: 80vh !important;
-        width: 70% !important;
-        max-width: 900px !important;
-        border-radius: 12px !important;
-        -webkit-overflow-scrolling: touch !important;
-        overscroll-behavior: contain !important;
-        background-color: white !important;
-        z-index: 1000 !important;
-      }
+    /* Make the textarea span full width */
+    #queryInput, 
+    .claude-input {
+      width: 100% !important;
+      flex: 1 1 auto !important;
+    }
+    
+    /* Make the form elements display properly */
+    #chatForm,
+    .claude-input-container {
+      display: flex !important;
+      width: 100% !important;
+    }
+    
+    /* Basic styles for the sources panel regardless of screen size */
+    #sourcesPanel, 
+    .claude-sources-panel {
+      background-color: white !important;
+      z-index: 1000 !important;
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior: contain !important;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15) !important;
+      transition: all 0.3s ease !important;
     }
     
     /* Panel content area - shared across all screen sizes */
@@ -167,35 +164,18 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     .claude-sources-panel-content {
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
-      height: calc(100% - 40px) !important;
       padding: 16px !important;
     }
     
     /* Close button positioning */
-    #closeSourcesPanel {
+    #closeSourcesPanel,
+    .claude-sources-close {
       position: sticky !important;
       top: 0 !important;
-      right: 0 !important;
+      right: 10px !important;
       background-color: white !important;
       z-index: 10 !important;
-    }
-    
-    /* Add scroll indicator handle at top - for mobile view */
-    @media (max-width: 768px) {
-      #sourcesPanel::before,
-      .claude-sources-panel::before {
-        content: "";
-        display: block;
-        width: 40px;
-        height: 4px;
-        background-color: #ddd;
-        border-radius: 2px;
-        margin: 10px auto;
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+      cursor: pointer !important;
     }
     
     /* Improve body scrolling when modal is open */
@@ -205,8 +185,9 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
       width: 100% !important;
     }
     
-    /* Make sure the original toggle button looks good */
-    .claude-sources-toggle {
+    /* Make sure the toggle button looks good */
+    .claude-sources-toggle,
+    .show-sources {
       display: inline-flex !important;
       align-items: center !important;
       background-color: rgba(46, 163, 242, 0.1) !important;
@@ -221,88 +202,261 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
       transition: background-color 0.2s ease !important;
     }
     
-    .claude-sources-toggle:hover {
+    .claude-sources-toggle:hover,
+    .show-sources:hover {
       background-color: rgba(46, 163, 242, 0.2) !important;
+    }
+
+    /* Mobile (small screens) */
+    @media (max-width: 768px) {
+      /* Make container flush on mobile */
+      .container {
+        padding: 0 !important;
+        width: 100vw !important;
+      }
+    
+      /* Chat section should fill available space */
+      .chat-section-wrapper {
+        height: auto !important;
+        min-height: 80vh !important;
+      }
+      
+      #sourcesPanel, 
+      .claude-sources-panel {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 0 !important; /* Start with zero height */
+        border-radius: 12px 12px 0 0 !important;
+        transform: translateY(0) !important;
+        transition: height 0.3s ease !important;
+        display: block !important;
+        overflow: hidden !important;
+      }
+      
+      #sourcesPanel.active,
+      .claude-sources-panel.active {
+        height: 75vh !important;
+        overflow: visible !important;
+      }
+      
+      #sourcesPanelContent, 
+      .claude-sources-panel-content {
+        height: calc(75vh - 40px) !important;
+      }
+      
+      /* Add scroll indicator handle at top - for mobile view */
+      #sourcesPanel::before,
+      .claude-sources-panel::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 4px;
+        background-color: #ddd;
+        border-radius: 2px;
+        margin: 10px auto;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      /* Make close button more tappable on mobile */
+      #closeSourcesPanel,
+      .claude-sources-close {
+        padding: 10px !important;
+        font-size: 24px !important;
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+      }
+      
+      /* Fix message container on mobile */
+      .claude-messages,
+      #messages {
+        padding: 10px !important;
+      }
+    }
+    
+    /* Tablet and small desktop */
+    @media (min-width: 769px) and (max-width: 1199px) {
+      /* Allow some side margins on larger screens */
+      .container {
+        max-width: 100% !important;
+        padding: 0 2rem !important;
+      }
+      
+      #sourcesPanel, 
+      .claude-sources-panel {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        height: 80vh !important;
+        width: 80% !important;
+        max-width: 700px !important;
+        border-radius: 12px !important;
+        display: none !important;
+      }
+      
+      #sourcesPanel.active,
+      .claude-sources-panel.active {
+        display: block !important;
+      }
+      
+      #sourcesPanelContent, 
+      .claude-sources-panel-content {
+        height: calc(80vh - 40px) !important;
+      }
+    }
+    
+    /* Large desktop */
+    @media (min-width: 1200px) {
+      /* Allow breathing room on very large screens */
+      .container {
+        max-width: 100% !important;
+        padding: 0 3rem !important;
+      }
+      
+      #sourcesPanel, 
+      .claude-sources-panel {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        height: 80vh !important;
+        width: 70% !important;
+        max-width: 900px !important;
+        border-radius: 12px !important;
+        display: none !important;
+      }
+      
+      #sourcesPanel.active,
+      .claude-sources-panel.active {
+        display: block !important;
+      }
+      
+      #sourcesPanelContent, 
+      .claude-sources-panel-content {
+        height: calc(80vh - 40px) !important;
+      }
+    }
+    
+    /* Styles for messages and bubbles */
+    .message {
+      max-width: 100% !important; /* Allow messages to be full width */
+      box-sizing: border-box !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    /* Fix any other potential width constraints */
+    .message-container, 
+    .chat-controls,
+    .chat-form {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    
+    /* Source fixes */
+    .sources-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
   `;
   document.head.appendChild(styleElement);
   
-  // Add mobile scrolling enhancements
-  function enhanceMobileScrolling() {
-    // Find the sources panel
-    const sourcesPanel = document.getElementById('sourcesPanel') || 
-                         document.querySelector('.claude-sources-panel');
+  // Function to show/hide the sources panel
+  function toggleSourcesPanel(show) {
+    const panel = document.getElementById('sourcesPanel') || 
+                  document.querySelector('.claude-sources-panel');
     
-    if (!sourcesPanel) {
-      console.log('No sources panel found yet, will check again later');
+    if (!panel) {
+      console.log('Sources panel not found');
+      return;
+    }
+    
+    if (show === undefined) {
+      // Toggle based on current state
+      show = !panel.classList.contains('active');
+    }
+    
+    if (show) {
+      // Show panel and fix body
+      panel.classList.add('active');
+      document.body.classList.add('modal-open');
+      
+      // Store current scroll position
+      document.body.setAttribute('data-scroll-y', window.scrollY);
+    } else {
+      // Hide panel and restore body
+      panel.classList.remove('active');
+      document.body.classList.remove('modal-open');
+      
+      // Restore scroll position
+      const scrollY = document.body.getAttribute('data-scroll-y');
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY));
+        document.body.removeAttribute('data-scroll-y');
+      }
+    }
+  }
+  
+  // Set up mobile swipe-down to close
+  function setupMobileSwipe() {
+    const panel = document.getElementById('sourcesPanel') || 
+                  document.querySelector('.claude-sources-panel');
+    
+    if (!panel) {
       return false;
     }
     
-    console.log('Enhancing mobile scrolling for sources panel');
-    
-    // Add body class toggling for better scroll handling
-    const closeButton = document.getElementById('closeSourcesPanel');
-    if (closeButton) {
-      const originalClick = closeButton.onclick;
-      
-      closeButton.onclick = function(e) {
-        // Remove modal-open class from body
-        document.body.classList.remove('modal-open');
-        
-        // Restore scroll position
-        const scrollY = document.body.getAttribute('data-scroll-y');
-        if (scrollY) {
-          window.scrollTo(0, parseInt(scrollY));
-          document.body.removeAttribute('data-scroll-y');
-        }
-        
-        // Call original handler if it exists
-        if (typeof originalClick === 'function') {
-          originalClick.call(this, e);
-        }
-      };
-    }
-    
-    // Set up swipe-down to close on mobile
     let touchStartY = 0;
     let touchMoveY = 0;
     
-    sourcesPanel.addEventListener('touchstart', function(e) {
+    panel.addEventListener('touchstart', function(e) {
       touchStartY = e.touches[0].clientY;
     }, { passive: true });
     
-    sourcesPanel.addEventListener('touchmove', function(e) {
+    panel.addEventListener('touchmove', function(e) {
       touchMoveY = e.touches[0].clientY;
       
-      // Get the content panel
+      // Get content panel
       const content = document.getElementById('sourcesPanelContent') || 
-                     sourcesPanel.querySelector('.claude-sources-panel-content');
+                      panel.querySelector('.claude-sources-panel-content');
       
-      // Only allow swiping down to close if at the top of the content
+      // Only allow swipe down to close if at the top of content
       if (content && content.scrollTop <= 0 && touchMoveY > touchStartY) {
         const deltaY = touchMoveY - touchStartY;
         
-        // Apply transformation to follow finger but with resistance
+        // Apply transformation to follow finger
         if (deltaY > 0) {
-          sourcesPanel.style.transform = `translateY(${Math.min(deltaY * 0.3, 100)}px)`;
+          panel.style.transform = `translateY(${Math.min(deltaY * 0.4, 150)}px)`;
         }
       }
     }, { passive: true });
     
-    sourcesPanel.addEventListener('touchend', function() {
+    panel.addEventListener('touchend', function() {
       const deltaY = touchMoveY - touchStartY;
       
-      if (deltaY > 80) {
-        // If swiped down enough, close the panel
-        if (closeButton) {
-          closeButton.click();
-        }
+      // If swiped down enough, close the panel
+      if (deltaY > 100) {
+        toggleSourcesPanel(false);
       }
       
-      // Reset transform for mobile
-      if (window.innerWidth <= 768) {
-        sourcesPanel.style.transform = '';
-      }
+      // Reset transform
+      setTimeout(() => {
+        if (window.innerWidth <= 768) {
+          panel.style.transform = '';
+        }
+      }, 50);
       
       touchStartY = 0;
       touchMoveY = 0;
@@ -311,33 +465,96 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     return true;
   }
   
-  // Override the built-in sources toggle buttons to handle scroll properly
-  function enhanceSourcesToggleButtons() {
+  // Set up close button
+  function setupCloseButton() {
+    const panel = document.getElementById('sourcesPanel') || 
+                  document.querySelector('.claude-sources-panel');
+    
+    if (!panel) {
+      return false;
+    }
+    
+    const closeButton = document.getElementById('closeSourcesPanel') || 
+                         panel.querySelector('.claude-sources-close');
+    
+    if (closeButton) {
+      // Replace any existing click handler
+      const originalClick = closeButton.onclick;
+      
+      closeButton.onclick = function(e) {
+        // Close the panel
+        toggleSourcesPanel(false);
+        
+        // Call original handler if it exists
+        if (typeof originalClick === 'function') {
+          originalClick.call(this, e);
+        }
+      };
+    }
+    
+    return true;
+  }
+  
+  // Set up toggle buttons to handle scroll properly
+  function setupToggleButtons() {
     // Find all toggle buttons
     document.addEventListener('click', function(e) {
       // Check if a sources toggle button was clicked
-      const toggleButton = e.target.closest('.claude-sources-toggle');
-      if (!toggleButton) return;
+      const toggleButton = e.target.closest('.claude-sources-toggle') || 
+                          e.target.closest('[data-sources-toggle]') ||
+                          e.target.closest('.show-sources');
       
-      // Only run this code when opening the panel (not when closing)
-      if (toggleButton.getAttribute('data-active') !== 'true') {
-        console.log('Sources toggle button clicked - saving scroll position');
-        
-        // Save current scroll position
-        document.body.setAttribute('data-scroll-y', window.scrollY);
-        
-        // Add modal-open class to body
-        setTimeout(() => {
-          document.body.classList.add('modal-open');
-        }, 100);
+      if (toggleButton) {
+        e.preventDefault();
+        toggleSourcesPanel(true);
       }
     });
   }
   
-  // Set up mutation observer to watch for panel and button additions
+  // Force resizing elements to ensure they take full width
+  function forceFullWidth() {
+    // These are the key elements that need to be full width
+    const fullWidthSelectors = [
+      '.container',
+      '.chat-section-wrapper',
+      '.claude-interface',
+      '.claude-chat-panel',
+      '.claude-messages',
+      '#messages',
+      '#chatForm',
+      '.claude-input-container',
+      '#queryInput'
+    ];
+    
+    fullWidthSelectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        if (el) {
+          el.style.width = '100%';
+          el.style.maxWidth = '100%';
+          
+          // Special handling for flex items
+          if (selector === '.claude-chat-panel' || 
+              selector === '#chatForm' || 
+              selector === '.claude-input-container') {
+            el.style.flex = '1 1 auto';
+          }
+        }
+      });
+    });
+  }
+  
+  // Expose toggleSourcesPanel globally for the rest of the app to use
+  window.toggleSourcesPanel = toggleSourcesPanel;
+  
+  // Watch for DOM changes to detect when the panel is added
   const observer = new MutationObserver(function() {
-    // Try to enhance mobile scrolling
-    enhanceMobileScrolling();
+    // Try to set up panel behaviors
+    setupCloseButton();
+    setupMobileSwipe();
+    
+    // Force elements to be full width when DOM changes
+    forceFullWidth();
   });
   
   // Start observing
@@ -346,17 +563,24 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     subtree: true
   });
   
-  // Run enhancements immediately
-  enhanceMobileScrolling();
-  enhanceSourcesToggleButtons();
+  // Run setup immediately
+  setupCloseButton();
+  setupMobileSwipe();
+  setupToggleButtons();
+  forceFullWidth();
   
   // Also try after a short delay to ensure DOM is fully loaded
   setTimeout(function() {
-    enhanceMobileScrolling();
-    enhanceSourcesToggleButtons();
+    setupCloseButton();
+    setupMobileSwipe();
+    setupToggleButtons();
+    forceFullWidth();
+    
+    // One more full width force after everything is loaded
+    setTimeout(forceFullWidth, 500);
   }, 1000);
   
-  console.log('Enhanced responsive scrolling initialized');
+  console.log('Full width chat with responsive sources panel initialized');
 })();
 </script>
 <style>
