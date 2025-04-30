@@ -85,372 +85,232 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     </div>
   </div>
 </div>
-<script>/**
-  * Improved Sources Overlay System
-  * This script creates a completely standalone sources display system
-  * with no dependencies on existing code
-  * 
-  * Features:
-  * - Wider modal on desktop (100% width with max constraints)
-  * - Fixed mobile modal with proper scrolling
-  * - Better styles matching the site design
-  */
- 
- (function() {
-   // Create and inject necessary styles
-   const styleElement = document.createElement('style');
-   styleElement.innerHTML = `
-     /* Overlay container */
-     #sources-overlay {
-       position: fixed;
-       top: 0;
-       left: 0;
-       right: 0;
-       bottom: 0;
-       background-color: rgba(0, 0, 0, 0.7);
-       z-index: 999999;
-       display: none;
-       align-items: center;
-       justify-content: center;
-       overflow: hidden;
-     }
-     
-     /* Content container */
-     #sources-overlay-content {
-       background-color: #fff;
-       border-radius: 8px;
-       width: 95%;
-       max-width: 1400px; /* Much wider on desktop */
-       max-height: 90vh;
-       display: flex;
-       flex-direction: column;
-       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-       overflow: hidden;
-       position: relative;
-     }
-     
-     /* Mobile adjustments */
-     @media (max-width: 768px) {
-       #sources-overlay {
-         align-items: flex-end;
-         overflow: auto; /* Allow scrolling on mobile container */
-         -webkit-overflow-scrolling: touch;
-       }
-       
-       #sources-overlay-content {
-         width: 100%;
-         height: 75vh;
-         border-radius: 12px 12px 0 0;
-       }
-     }
-     
-     /* Header */
-     #sources-overlay-header {
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       padding: 15px 20px;
-       background-color: #f8f9fa;
-       border-bottom: 1px solid #eee;
-       flex-shrink: 0; /* Prevent header from shrinking */
-     }
-     
-     #sources-overlay-title {
-       font-size: 18px;
-       font-weight: bold;
-       margin: 0;
-       color: #333;
-     }
-     
-     #sources-overlay-close {
-       background: none;
-       border: none;
-       font-size: 24px;
-       cursor: pointer;
-       color: #666;
-       width: 30px;
-       height: 30px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       padding: 0;
-     }
-     
-     /* Body */
-     #sources-overlay-body {
-       padding: 20px;
-       overflow-y: auto;
-       -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-       flex: 1;
-       overscroll-behavior: contain; /* Prevent scroll chaining */
-       height: auto;
-     }
-     
-     /* Toggle button */
-     .sources-toggle-btn {
-       display: inline-flex;
-       align-items: center;
-       background-color: rgba(46, 163, 242, 0.1);
-       color: #2ea3f2;
-       border: none;
-       padding: 8px 16px;
-       border-radius: 20px;
-       font-weight: 500;
-       cursor: pointer;
-       margin-top: 15px;
-       font-size: 14px;
-       transition: background-color 0.2s ease;
-     }
-     
-     .sources-toggle-btn:hover {
-       background-color: rgba(46, 163, 242, 0.2);
-     }
-     
-     .sources-toggle-btn::before {
-       content: "";
-       display: inline-block;
-       width: 14px;
-       height: 14px;
-       margin-right: 8px;
-       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%232EA3F2' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-       background-size: contain;
-       background-repeat: no-repeat;
-       transition: transform 0.2s ease;
-     }
-     
-     .sources-toggle-btn[data-active="true"]::before {
-       transform: rotate(180deg);
-     }
-     
-     /* Handle modal-open body state */
-     body.modal-open {
-       overflow: hidden;
-       position: fixed;
-       width: 100%;
-     }
-     
-     /* Source container styling */
-     #sources-overlay-body .source-container {
-       margin-bottom: 20px;
-       border-bottom: 1px solid #eee;
-       padding-bottom: 20px;
-     }
-     
-     #sources-overlay-body .source-title {
-       font-weight: bold;
-       margin-bottom: 10px;
-       color: #333;
-     }
-     
-     #sources-overlay-body .source-text {
-       background-color: #f8f9fa;
-       padding: 15px;
-       border-radius: 5px;
-       border-left: 3px solid #2ea3f2;
-       margin-bottom: 10px;
-       font-style: italic;
-       color: #666;
-     }
-     
-     /* Mobile scroll position indicator */
-     #scroll-indicator {
-       width: 40px;
-       height: 4px;
-       background-color: #ddd;
-       border-radius: 2px;
-       margin: 10px auto;
-       position: absolute;
-       top: 5px;
-       left: 50%;
-       transform: translateX(-50%);
-       display: none;
-     }
-     
-     @media (max-width: 768px) {
-       #scroll-indicator {
-         display: block;
-       }
-     }
-   `;
-   document.head.appendChild(styleElement);
-   
-   // Create overlay HTML
-   const overlay = document.createElement('div');
-   overlay.id = 'sources-overlay';
-   overlay.innerHTML = `
-     <div id="sources-overlay-content">
-       <div id="scroll-indicator"></div>
-       <div id="sources-overlay-header">
-         <h3 id="sources-overlay-title">Sources</h3>
-         <button id="sources-overlay-close">&times;</button>
-       </div>
-       <div id="sources-overlay-body"></div>
-     </div>
-   `;
-   document.body.appendChild(overlay);
-   
-   // Add close button handler
-   document.getElementById('sources-overlay-close').addEventListener('click', hideSourcesOverlay);
-   
-   // Add click outside to close
-   overlay.addEventListener('click', function(e) {
-     if (e.target === overlay) {
-       hideSourcesOverlay();
-     }
-   });
-   
-   // Add escaped key handler
-   document.addEventListener('keydown', function(e) {
-     if (e.key === 'Escape' && overlay.style.display === 'flex') {
-       hideSourcesOverlay();
-     }
-   });
-   
-   // Touch events for mobile modal
-   let startY = 0;
-   let currentY = 0;
-   const overlayContent = document.getElementById('sources-overlay-content');
-   
-   overlayContent.addEventListener('touchstart', function(e) {
-     const touch = e.touches[0];
-     startY = touch.clientY;
-   }, { passive: true });
-   
-   overlayContent.addEventListener('touchmove', function(e) {
-     const touch = e.touches[0];
-     currentY = touch.clientY;
-     
-     const body = document.getElementById('sources-overlay-body');
-     
-     // Only allow swiping down to close if at the top of the content
-     if (body.scrollTop <= 0 && currentY > startY) {
-       const distance = currentY - startY;
-       if (distance > 50) {
-         // If swiped down enough, close the overlay
-         hideSourcesOverlay();
-       }
-     }
-   }, { passive: true });
-   
-   // Add mutation observer to watch for new messages
-   const observer = new MutationObserver(checkForNewMessages);
-   observer.observe(document.body, { childList: true, subtree: true });
-   
-   // Show overlay function
-   function showSourcesOverlay() {
-     console.log('Showing sources overlay');
-     
-     // Copy content from original sources panel
-     const sourcesPanel = document.getElementById('sourcesPanelContent');
-     if (sourcesPanel) {
-       document.getElementById('sources-overlay-body').innerHTML = sourcesPanel.innerHTML;
-     } else {
-       document.getElementById('sources-overlay-body').innerHTML = '<p>No sources found</p>';
-     }
-     
-     // Show overlay
-     overlay.style.display = 'flex';
-     document.body.classList.add('modal-open');
-     
-     // Save the current scroll position
-     document.body.style.top = `-${window.scrollY}px`;
-     
-     // Reset internal modal scroll to top
-     document.getElementById('sources-overlay-body').scrollTop = 0;
-   }
-   
-   // Hide overlay function
-   function hideSourcesOverlay() {
-     console.log('Hiding sources overlay');
-     
-     // Restore scroll position
-     if (document.body.classList.contains('modal-open')) {
-       const scrollY = document.body.style.top;
-       document.body.style.top = '';
-       window.scrollTo(0, parseInt(scrollY || '0') * -1);
-     }
-     
-     // Hide the overlay
-     overlay.style.display = 'none';
-     document.body.classList.remove('modal-open');
-     
-     // Update all toggle buttons
-     document.querySelectorAll('.sources-toggle-btn').forEach(btn => {
-       btn.textContent = 'Show Sources';
-       btn.setAttribute('data-active', 'false');
-     });
-   }
-   
-   // Add toggle button after messages with sources
-   function checkForNewMessages(mutations) {
-     mutations.forEach(mutation => {
-       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-         // Find new bot messages
-         const messages = document.querySelectorAll('.message.bot:not([data-processed]), .claude-message-bot:not([data-processed])');
-         
-         messages.forEach(message => {
-           message.setAttribute('data-processed', 'true');
-           
-           // Check if message has sources
-           const text = message.textContent || '';
-           const hasSourcesContent = (text.includes('sermon') || text.includes('Source')) && 
-                                    !text.includes('No relevant sermon content found');
-           
-           if (hasSourcesContent && !message.querySelector('.sources-toggle-btn')) {
-             // Add toggle button
-             const btn = document.createElement('button');
-             btn.className = 'sources-toggle-btn';
-             btn.textContent = 'Show Sources';
-             btn.setAttribute('data-active', 'false');
-             
-             // Add click handler
-             btn.addEventListener('click', function() {
-               const isActive = this.getAttribute('data-active') === 'true';
-               
-               if (isActive) {
-                 hideSourcesOverlay();
-                 this.textContent = 'Show Sources';
-                 this.setAttribute('data-active', 'false');
-               } else {
-                 showSourcesOverlay();
-                 this.textContent = 'Hide Sources';
-                 this.setAttribute('data-active', 'true');
-                 
-                 // Update all other toggle buttons
-                 document.querySelectorAll('.sources-toggle-btn').forEach(otherBtn => {
-                   if (otherBtn !== this) {
-                     otherBtn.textContent = 'Show Sources';
-                     otherBtn.setAttribute('data-active', 'false');
-                   }
-                 });
-               }
-             });
-             
-             // Find the right place to add the button
-             if (message.classList.contains('claude-message-bot')) {
-               const content = message.querySelector('.claude-message-content');
-               if (content) {
-                 content.appendChild(btn);
-               } else {
-                 message.appendChild(btn);
-               }
-             } else {
-               message.appendChild(btn);
-             }
-           }
-         });
-       }
-     });
-   }
-   
-   // Initial scan for messages
-   checkForNewMessages([{
-     type: 'childList',
-     addedNodes: [document.body]
-   }]);
-   
-   console.log('Sources overlay system initialized');
- })();</script>
+<script>
+  /**
+ * Mobile Scrolling Fix Script
+ * - Improves mobile scrolling for the built-in sources panel
+ * - Does NOT add any additional buttons
+ * - Makes existing sources panel work better on mobile
+ */
+
+(function() {
+  // Create and inject necessary styles
+  const styleElement = document.createElement('style');
+  styleElement.innerHTML = `
+    /* Better mobile scrolling for built-in sources panel */
+    @media (max-width: 768px) {
+      /* Make sure the panel displays properly */
+      #sourcesPanel, 
+      .claude-sources-panel {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        height: 75vh !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 12px 12px 0 0 !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain !important;
+        background-color: white !important;
+        z-index: 1000 !important;
+      }
+      
+      /* Panel content area */
+      #sourcesPanelContent, 
+      .claude-sources-panel-content {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        height: calc(100% - 40px) !important;
+        padding: 16px !important;
+      }
+      
+      /* Close button positioning */
+      #closeSourcesPanel {
+        position: sticky !important;
+        top: 0 !important;
+        right: 0 !important;
+        background-color: white !important;
+        z-index: 10 !important;
+      }
+      
+      /* Add scroll indicator handle at top */
+      #sourcesPanel::before,
+      .claude-sources-panel::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 4px;
+        background-color: #ddd;
+        border-radius: 2px;
+        margin: 10px auto;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      /* Improve body scrolling when modal is open */
+      body.modal-open {
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+      }
+    }
+    
+    /* Make sure the original toggle button looks good */
+    .claude-sources-toggle {
+      display: inline-flex !important;
+      align-items: center !important;
+      background-color: rgba(46, 163, 242, 0.1) !important;
+      color: #2ea3f2 !important;
+      border: none !important;
+      padding: 8px 16px !important;
+      border-radius: 20px !important;
+      font-weight: 500 !important;
+      cursor: pointer !important;
+      margin-top: 15px !important;
+      font-size: 14px !important;
+      transition: background-color 0.2s ease !important;
+    }
+    
+    .claude-sources-toggle:hover {
+      background-color: rgba(46, 163, 242, 0.2) !important;
+    }
+  `;
+  document.head.appendChild(styleElement);
+  
+  // Add mobile scrolling enhancements
+  function enhanceMobileScrolling() {
+    // Find the sources panel
+    const sourcesPanel = document.getElementById('sourcesPanel') || 
+                         document.querySelector('.claude-sources-panel');
+    
+    if (!sourcesPanel) {
+      console.log('No sources panel found yet, will check again later');
+      return false;
+    }
+    
+    console.log('Enhancing mobile scrolling for sources panel');
+    
+    // Add body class toggling for better scroll handling
+    const closeButton = document.getElementById('closeSourcesPanel');
+    if (closeButton) {
+      const originalClick = closeButton.onclick;
+      
+      closeButton.onclick = function(e) {
+        // Remove modal-open class from body
+        document.body.classList.remove('modal-open');
+        
+        // Restore scroll position
+        const scrollY = document.body.getAttribute('data-scroll-y');
+        if (scrollY) {
+          window.scrollTo(0, parseInt(scrollY));
+          document.body.removeAttribute('data-scroll-y');
+        }
+        
+        // Call original handler if it exists
+        if (typeof originalClick === 'function') {
+          originalClick.call(this, e);
+        }
+      };
+    }
+    
+    // Set up swipe-down to close on mobile
+    let touchStartY = 0;
+    let touchMoveY = 0;
+    
+    sourcesPanel.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    sourcesPanel.addEventListener('touchmove', function(e) {
+      touchMoveY = e.touches[0].clientY;
+      
+      // Get the content panel
+      const content = document.getElementById('sourcesPanelContent') || 
+                     sourcesPanel.querySelector('.claude-sources-panel-content');
+      
+      // Only allow swiping down to close if at the top of the content
+      if (content && content.scrollTop <= 0 && touchMoveY > touchStartY) {
+        const deltaY = touchMoveY - touchStartY;
+        
+        // Apply transformation to follow finger but with resistance
+        if (deltaY > 0) {
+          sourcesPanel.style.transform = `translateY(${Math.min(deltaY * 0.3, 100)}px)`;
+        }
+      }
+    }, { passive: true });
+    
+    sourcesPanel.addEventListener('touchend', function() {
+      const deltaY = touchMoveY - touchStartY;
+      
+      if (deltaY > 80) {
+        // If swiped down enough, close the panel
+        if (closeButton) {
+          closeButton.click();
+        }
+      }
+      
+      // Reset transform
+      sourcesPanel.style.transform = '';
+      touchStartY = 0;
+      touchMoveY = 0;
+    }, { passive: true });
+    
+    return true;
+  }
+  
+  // Override the built-in sources toggle buttons to handle scroll properly
+  function enhanceSourcesToggleButtons() {
+    // Find all toggle buttons
+    document.addEventListener('click', function(e) {
+      // Check if a sources toggle button was clicked
+      const toggleButton = e.target.closest('.claude-sources-toggle');
+      if (!toggleButton) return;
+      
+      // Only run this code when opening the panel (not when closing)
+      if (toggleButton.getAttribute('data-active') !== 'true') {
+        console.log('Sources toggle button clicked - saving scroll position');
+        
+        // Save current scroll position
+        document.body.setAttribute('data-scroll-y', window.scrollY);
+        
+        // Add modal-open class to body
+        setTimeout(() => {
+          document.body.classList.add('modal-open');
+        }, 100);
+      }
+    });
+  }
+  
+  // Set up mutation observer to watch for panel and button additions
+  const observer = new MutationObserver(function() {
+    // Try to enhance mobile scrolling
+    enhanceMobileScrolling();
+  });
+  
+  // Start observing
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+  // Run enhancements immediately
+  enhanceMobileScrolling();
+  enhanceSourcesToggleButtons();
+  
+  // Also try after a short delay to ensure DOM is fully loaded
+  setTimeout(function() {
+    enhanceMobileScrolling();
+    enhanceSourcesToggleButtons();
+  }, 1000);
+  
+  console.log('Mobile scrolling enhancements initialized');
+})();
+
+</script>
 <style>
   /* Focused chat experience with preserved sidebar functionality */
   .chat-section-wrapper {
