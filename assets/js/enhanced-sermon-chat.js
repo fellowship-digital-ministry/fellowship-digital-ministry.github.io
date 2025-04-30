@@ -6,6 +6,8 @@
  * - Fixes mobile color scheme to match web design
  * - Adds proper sources modal for showing source content
  * - Includes Help button with "About This Tool" information
+ * - Fixed mobile scrolling in modal
+ * - Fixed desktop modal display issues
  * 
  * Add this script before the closing </body> tag
  */
@@ -118,88 +120,98 @@
       
       /* ===== SOURCES MODAL ===== */
       .sources-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        z-index: 10000 !important;
+        display: none !important;
+        align-items: center !important;
+        justify-content: center !important;
+        opacity: 0 !important;
+        transition: opacity 0.3s ease !important;
       }
       
       .sources-modal.active {
-        opacity: 1;
-        visibility: visible;
+        opacity: 1 !important;
+        display: flex !important;
       }
       
       .sources-modal-content {
-        background-color: white;
-        width: 95%;
+        background-color: white !important;
+        width: 95% !important;
         max-width: 1200px !important;
-        max-height: 90vh;
-        border-radius: 12px;
-        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
+        max-height: 90vh !important;
+        border-radius: 12px !important;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
       }
       
       /* Adjust modal for mobile */
       @media (max-width: 768px) {
         .sources-modal {
-          align-items: flex-end;
+          align-items: flex-end !important;
         }
         
         .sources-modal-content {
-          border-radius: 12px 12px 0 0;
-          height: 75vh;
-          max-height: 75vh;
-          width: 100%;
+          border-radius: 12px 12px 0 0 !important;
+          height: 75vh !important;
+          max-height: 75vh !important;
+          width: 100% !important;
         }
       }
       
       .sources-modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px 24px;
-        border-bottom: 1px solid #eeeeee;
-        background-color: #f8f9fa;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 16px 24px !important;
+        border-bottom: 1px solid #eeeeee !important;
+        background-color: #f8f9fa !important;
+        flex-shrink: 0 !important;
       }
       
       .sources-modal-title {
-        font-size: 18px;
-        font-weight: 600;
-        color: #333333;
-        margin: 0;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: #333333 !important;
+        margin: 0 !important;
       }
       
       .sources-modal-close {
-        background: none;
-        border: none;
-        font-size: 24px;
-        line-height: 1;
-        color: #888;
-        cursor: pointer;
-        padding: 0;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
+        background: none !important;
+        border: none !important;
+        font-size: 24px !important;
+        line-height: 1 !important;
+        color: #888 !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
       }
       
       .sources-modal-body {
-        padding: 24px;
-        overflow-y: auto;
-        flex: 1;
+        padding: 24px !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        flex: 1 !important; 
+        height: auto !important;
+        overscroll-behavior: contain !important;
+      }
+      
+      /* Fix modal scrolling on mobile */
+      body.modal-open {
+        position: fixed !important;
+        width: 100% !important;
+        overflow: hidden !important;
       }
       
       /* ===== HELP BUTTON & MODAL ===== */
@@ -229,18 +241,17 @@
         right: 0;
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        display: flex;
+        z-index: 10000;
+        display: none;
         align-items: center;
         justify-content: center;
         opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        transition: opacity 0.3s ease;
       }
       
       .help-modal.active {
         opacity: 1;
-        visibility: visible;
+        display: flex;
       }
       
       .help-modal-content {
@@ -290,6 +301,7 @@
       .help-modal-body {
         padding: 24px;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       
       /* ===== SOURCE TOGGLE BUTTON ===== */
@@ -356,6 +368,9 @@
       
       // Add mutation observer to handle dynamically added content
       setupMutationObserver();
+      
+      // Add direct event listener for sources toggle buttons (redundant approach for reliability)
+      setupSourcesToggleHandler();
       
       console.log("✅ Enhancements initialized successfully");
     }
@@ -529,6 +544,8 @@
         if (!toggleButton) return;
         
         console.log("🖱️ Sources toggle button clicked");
+        e.preventDefault();
+        e.stopPropagation();
         
         // Get the sources modal
         const sourcesModal = document.getElementById('sources-modal');
@@ -673,7 +690,10 @@
                     sourcesToggle.setAttribute('aria-expanded', 'false');
                     
                     // Use direct click handler for better compatibility
-                    sourcesToggle.addEventListener('click', function() {
+                    sourcesToggle.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      
                       const isActive = this.getAttribute('data-active') === 'true';
                       
                       if (isActive) {
@@ -726,9 +746,6 @@
         console.log("✅ displayAnswer function overridden");
       } else {
         console.log("ℹ️ displayAnswer function not found, direct handler will be used");
-        
-        // Set up direct handler for sources toggle buttons instead
-        setupSourcesToggleHandler();
       }
     }
     
@@ -802,8 +819,14 @@
     function openModal(modal) {
       if (!modal) return;
       
+      console.log("🔓 Opening modal", modal.id);
+      
       // Show the modal
       modal.style.display = 'flex';
+      
+      // Save current scroll position
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      modal.setAttribute('data-scroll-position', scrollPosition);
       
       // Trigger animation
       setTimeout(() => {
@@ -811,7 +834,16 @@
       }, 10);
       
       // Prevent body scrolling
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
+      
+      // On mobile, make sure inner content is scrollable
+      if (window.innerWidth <= 768) {
+        const modalBody = modal.querySelector('.sources-modal-body, .help-modal-body');
+        if (modalBody) {
+          // Reset scroll position to top when opening
+          modalBody.scrollTop = 0;
+        }
+      }
     }
     
     /**
@@ -820,6 +852,8 @@
     function closeModal(modal) {
       if (!modal) return;
       
+      console.log("🔒 Closing modal", modal.id);
+      
       // Trigger animation
       modal.classList.remove('active');
       
@@ -827,10 +861,14 @@
       setTimeout(() => {
         modal.style.display = 'none';
         
-        // Restore body scrolling if no other modals are active
+        // Only restore body scrolling if no other modals are active
         const activeModals = document.querySelectorAll('.sources-modal.active, .help-modal.active');
         if (activeModals.length === 0) {
-          document.body.style.overflow = '';
+          document.body.classList.remove('modal-open');
+          
+          // Restore scroll position
+          const scrollPosition = parseInt(modal.getAttribute('data-scroll-position') || '0');
+          window.scrollTo(0, scrollPosition);
         }
       }, 300);
     }
