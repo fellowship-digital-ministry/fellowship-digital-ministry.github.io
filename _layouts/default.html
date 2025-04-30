@@ -7,6 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style-additions.css' | relative_url }}">
+  
+  <!-- Add conditional loading for sermon-search.css -->
+  {% if page.url contains 'search.html' %}
+  <link rel="stylesheet" href="{{ '/assets/css/sermon-search.css' | relative_url }}">
+  {% endif %}
+  
   {% if page.use_charts %}
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   {% endif %}
@@ -72,6 +78,11 @@
 
   {% if page.custom_js %}
     <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}"></script>
+  {% endif %}
+  
+  <!-- Add conditional loading for sermon-search.js -->
+  {% if page.url contains 'search.html' %}
+  <script src="{{ '/assets/js/sermon-search.js' | relative_url }}"></script>
   {% endif %}
   
   <!-- Bible reference linking script - makes Bible references clickable -->
