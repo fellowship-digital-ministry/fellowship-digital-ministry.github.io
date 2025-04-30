@@ -4,103 +4,165 @@
  */
 
  :root {
-    /* Website-consistent colors */
-    --color-primary: #2ea3f2;
-    --color-bg-maroon: #641c14;
-    --color-bg: #ffffff;
-    --color-bg-light: #f8f9fa;
-    --color-text: #666666;
-    --color-heading: #333333;
-    --color-border: #eeeeee;
-    --color-shadow: rgba(0, 0, 0, 0.08);
-    
-    /* Better mobile colors - matching website palette */
-    --color-mobile-bg: #f8f9fa;
-    --color-mobile-message-bg: #ffffff;
-    --color-mobile-user-bubble: #2ea3f2;
-    --color-mobile-bot-bubble: #f8f9fa;
-    --color-mobile-text: #666666;
-    --color-mobile-text-light: #888888;
+  /* Website-consistent colors */
+  --color-primary: #2ea3f2;
+  --color-bg-maroon: #641c14;
+  --color-bg: #ffffff;
+  --color-bg-light: #f8f9fa;
+  --color-text: #666666;
+  --color-heading: #333333;
+  --color-border: #eeeeee;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  
+  /* Mobile colors - consistently light scheme */
+  --color-mobile-bg: #f8f9fa;
+  --color-mobile-message-bg: #ffffff;
+  --color-mobile-user-bubble: #2ea3f2;
+  --color-mobile-bot-bubble: #f8f9fa;
+  --color-mobile-text: #666666;
+  --color-mobile-text-light: #888888;
+  
+  /* Override any conflicting variables from claude-style.css */
+  --color-mobile-chat-bg: #f8f9fa !important;     /* Override dark blue (#1a2433) */
+  --color-background-alt: #f8f9fa !important;     /* For consistency */
+  --color-background: #ffffff !important;         /* For consistency */
+}
+
+/* These styles should always apply regardless of media queries */
+body .claude-interface,
+body .claude-messages,
+body .claude-input-area {
+  background-color: var(--color-mobile-bg) !important;
+}
+
+#messages,
+.claude-messages {
+  background-color: var(--color-mobile-bg) !important;
+}
+
+body .claude-api-status {
+  background-color: var(--color-mobile-bg) !important;
+}
+
+/* Fix mobile background colors */
+@media (max-width: 768px) {
+  .claude-interface {
+    background-color: var(--color-mobile-bg);
   }
   
-  /* ========== MOBILE COLOR SCHEME FIXES ========== */
-  
-  /* Fix mobile background colors */
-  @media (max-width: 768px) {
-    .claude-interface {
-      background-color: var(--color-mobile-bg);
-    }
-    
-    .claude-messages {
-      background-color: var(--color-mobile-bg);
-    }
-    
-    .claude-message-bot .claude-message-content {
-      background-color: var(--color-mobile-bot-bubble);
-      color: var(--color-mobile-text);
-      border: 1px solid #e0e5eb;
-    }
-    
-    .claude-message-user .claude-message-content {
-      background-color: var(--color-mobile-user-bubble);
-      color: white;
-    }
-    
-    .claude-input-area {
-      background-color: var(--color-mobile-bg);
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    .claude-input-container {
-      background-color: white;
-      border: 1px solid #e0e5eb;
-    }
-    
-    .claude-input {
-      color: var(--color-mobile-text);
-    }
-    
-    .claude-input::placeholder {
-      color: var(--color-mobile-text-light);
-    }
-    
-    .bible-reference {
-      background-color: rgba(46, 163, 242, 0.1);
-      color: var(--color-primary);
-    }
-    
-    .claude-welcome {
-      background-color: #f8f9fa;
-      color: var(--color-text);
-      border-left: 3px solid var(--color-primary);
-    }
-    
-    .claude-welcome h4 {
-      color: var(--color-primary);
-    }
-    
-    .claude-welcome p {
-      color: var(--color-text);
-      opacity: 1;
-    }
-    
-    .claude-suggestion {
-      background-color: white;
-      color: var(--color-primary);
-      border: 1px solid rgba(46, 163, 242, 0.2);
-    }
-    
-    .claude-sources-toggle {
-      background-color: #f5f5f5;
-      color: var(--color-text);
-    }
-    
-    .control-button {
-      background-color: #f5f5f5;
-      color: var(--color-text);
-      border: 1px solid #e0e5eb;
-    }
+  .claude-messages {
+    background-color: var(--color-mobile-bg);
   }
+  
+  .claude-message-bot .claude-message-content {
+    background-color: var(--color-mobile-bot-bubble);
+    color: var(--color-mobile-text);
+    border: 1px solid #e0e5eb;
+  }
+  
+  .claude-message-user .claude-message-content {
+    background-color: var(--color-mobile-user-bubble);
+    color: white;
+  }
+  
+  .claude-input-area {
+    background-color: var(--color-mobile-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .claude-input-container {
+    background-color: white;
+    border: 1px solid #e0e5eb;
+  }
+  
+  .claude-input {
+    color: var(--color-mobile-text);
+  }
+  
+  .claude-input::placeholder {
+    color: var(--color-mobile-text-light);
+  }
+  
+  .bible-reference {
+    background-color: rgba(46, 163, 242, 0.1);
+    color: var(--color-primary);
+  }
+  
+  .claude-welcome {
+    background-color: #f8f9fa;
+    color: var(--color-text);
+    border-left: 3px solid var(--color-primary);
+  }
+  
+  .claude-welcome h4 {
+    color: var(--color-primary);
+  }
+  
+  .claude-welcome p {
+    color: var(--color-text);
+    opacity: 1;
+  }
+  
+  .claude-suggestion {
+    background-color: white;
+    color: var(--color-primary);
+    border: 1px solid rgba(46, 163, 242, 0.2);
+  }
+  
+  .claude-sources-toggle {
+    background-color: #f5f5f5;
+    color: var(--color-text);
+  }
+  
+  .control-button {
+    background-color: #f5f5f5;
+    color: var(--color-text);
+    border: 1px solid #e0e5eb;
+  }
+}
+
+/* Force the light theme to remain even when DOM changes */
+:root body .claude-typing {
+  background-color: transparent !important;
+}
+
+.chat-section-wrapper,
+.chat-section-wrapper .claude-interface,
+.chat-section-wrapper .claude-messages,
+.chat-section-wrapper .claude-input-area {
+  background-color: var(--color-mobile-bg) !important;
+}
+
+/* Force the bot message styling to remain consistent */
+.claude-message.claude-message-bot .claude-message-content {
+  background-color: var(--color-mobile-message-bg) !important;
+  color: var(--color-mobile-text) !important;
+  border: 1px solid #e0e5eb !important;
+}
+
+/* Force the user message styling to remain consistent */
+.claude-message.claude-message-user .claude-message-content {
+  background-color: var(--color-mobile-user-bubble) !important;
+  color: white !important;
+}
+
+/* ========== MODAL SOURCES PANEL ========== */
+/* Rest of the CSS remains unchanged */
+.sources-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
   
   /* ========== MODAL SOURCES PANEL ========== */
   
