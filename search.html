@@ -86,18 +86,42 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   </div>
 </div>
 <script>
-  /**
- * Mobile Scrolling Fix Script
- * - Improves mobile scrolling for the built-in sources panel
- * - Does NOT add any additional buttons
- * - Makes existing sources panel work better on mobile
+  
+/**
+ * Wide Sources Panel with Mobile Fix
+ * - Widens the sources panel on desktop
+ * - Keeps the original button
+ * - Improves mobile scrolling experience
  */
 
-(function() {
-  // Create and inject necessary styles
+ (function() {
+  // Create and inject styles
   const styleElement = document.createElement('style');
   styleElement.innerHTML = `
-    /* Better mobile scrolling for built-in sources panel */
+    /* WIDER SOURCES PANEL ON DESKTOP */
+    @media (min-width: 769px) {
+      /* Make the sources panel wider when active */
+      #sourcesPanel.active, 
+      .claude-sources-panel.active {
+        width: 90% !important;
+        max-width: 1400px !important;
+      }
+      
+      /* Make panel content wider */
+      #sourcesPanelContent, 
+      .claude-sources-panel-content {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      
+      /* Make source containers wider */
+      .source-container {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+    }
+    
+    /* BETTER MOBILE EXPERIENCE */
     @media (max-width: 768px) {
       /* Make sure the panel displays properly */
       #sourcesPanel, 
@@ -307,9 +331,8 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     enhanceSourcesToggleButtons();
   }, 1000);
   
-  console.log('Mobile scrolling enhancements initialized');
+  console.log('Wide sources panel with mobile fix initialized');
 })();
-
 </script>
 <style>
   /* Focused chat experience with preserved sidebar functionality */
