@@ -814,3 +814,187 @@ function fixSourcesPanel() {
     fixSourcesPanel();
     matchMobileColors();
   }
+  /**
+ * Minimal Sources Panel Fix
+ * This script focuses only on making the sources panel toggle work correctly
+ */
+
+// Wait for any existing scripts to run first
+setTimeout(function() {
+    console.log("🔧 APPLYING MINIMAL SOURCES PANEL FIX");
+    
+    // Direct override that hooks directly to sourcesPanel
+    function makeSourcesPanelWork() {
+      // Get references to the key elements
+      const sourcesPanel = document.getElementById('sourcesPanel');
+      
+      if (!sourcesPanel) {
+        console.error("❌ Sources panel not found in DOM");
+        return false;
+      }
+      
+      console.log("✅ Found sources panel:", sourcesPanel);
+      
+      // Force show the sources panel (remove display:none if present)
+      if (sourcesPanel.style.display === 'none') {
+        sourcesPanel.style.display = '';
+        console.log("🔄 Removed display:none from sources panel");
+      }
+      
+      // Add direct click handlers to ALL sources toggle buttons
+      const allToggleButtons = document.querySelectorAll('.claude-sources-toggle');
+      console.log(`📋 Found ${allToggleButtons.length} source toggle buttons`);
+      
+      allToggleButtons.forEach((button, index) => {
+        // Remove existing listeners by cloning and replacing
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        // Add fresh click handler
+        newButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation(); // Stop event bubbling
+          
+          console.log(`🖱️ Source toggle button ${index} clicked`);
+          
+          // Check current state
+          const isActive = sourcesPanel.classList.contains('active');
+          console.log(`ℹ️ Panel active state before toggle: ${isActive}`);
+          
+          // Toggle panel
+          if (isActive) {
+            sourcesPanel.classList.remove('active');
+            this.setAttribute('data-active', 'false');
+            this.setAttribute('aria-expanded', 'false');
+            this.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> Show Sources';
+            console.log("📉 Closing sources panel");
+          } else {
+            sourcesPanel.classList.add('active');
+            this.setAttribute('data-active', 'true');
+            this.setAttribute('aria-expanded', 'true');
+            this.innerHTML = '<span class="claude-sources-toggle-icon">⬇</span> Hide Sources';
+            console.log("📈 Opening sources panel");
+          }
+        });
+        
+        console.log(`✅ Added new click handler to button ${index}`);
+      });
+      
+      // Also override the close button for sources panel
+      const closeButton = document.getElementById('closeSourcesPanel');
+      if (closeButton) {
+        // Remove existing listeners by cloning and replacing
+        const newCloseButton = closeButton.cloneNode(true);
+        closeButton.parentNode.replaceChild(newCloseButton, closeButton);
+        
+        // Add fresh click handler
+        newCloseButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation(); // Stop event bubbling
+          
+          console.log("🖱️ Close sources panel button clicked");
+          sourcesPanel.classList.remove('active');
+          
+          // Update all toggle buttons
+          document.querySelectorAll('.claude-sources-toggle').forEach(toggle => {
+            toggle.setAttribute('data-active', 'false');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> Show Sources';
+          });
+          
+          console.log("📉 Sources panel closed via close button");
+        });
+        
+        console.log("✅ Added new click handler to close button");
+      }
+      
+      return true;
+    }
+    
+    // Add mutation observer to catch dynamically added buttons
+    function watchForNewButtons() {
+      console.log("👀 Setting up mutation observer for new toggle buttons");
+      
+      // Create observer
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList' && mutation.addedNodes.length) {
+            // Check if any new toggle buttons were added
+            const newButtons = document.querySelectorAll('.claude-sources-toggle:not([data-fixed])');
+            
+            if (newButtons.length > 0) {
+              console.log(`🆕 Found ${newButtons.length} new toggle buttons`);
+              
+              // Try to fix sources panel again to handle new buttons
+              makeSourcesPanelWork();
+              
+              // Mark buttons as fixed
+              newButtons.forEach(button => {
+                button.setAttribute('data-fixed', 'true');
+              });
+            }
+          }
+        });
+      });
+      
+      // Start observing
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+      
+      console.log("✅ Mutation observer started");
+    }
+    
+    // Force panel to appear with debugging info
+    function forcePanelVisible() {
+      const sourcesPanel = document.getElementById('sourcesPanel');
+      if (!sourcesPanel) return;
+      
+      console.log("🔍 SOURCES PANEL DEBUG INFO:");
+      console.log("- Display:", sourcesPanel.style.display);
+      console.log("- Visibility:", getComputedStyle(sourcesPanel).visibility);
+      console.log("- Opacity:", getComputedStyle(sourcesPanel).opacity);
+      console.log("- Height:", getComputedStyle(sourcesPanel).height);
+      console.log("- Width:", getComputedStyle(sourcesPanel).width);
+      console.log("- Z-index:", getComputedStyle(sourcesPanel).zIndex);
+      console.log("- Position:", getComputedStyle(sourcesPanel).position);
+      
+      // Force inline styles to make panel visible for testing
+      sourcesPanel.style.display = '';
+      sourcesPanel.style.visibility = 'visible';
+      sourcesPanel.style.opacity = '1';
+      
+      console.log("⚠️ Forced panel visibility for testing");
+    }
+    
+    // Add keyboard trigger for easy testing (press Alt+S to toggle panel)
+    function addKeyboardTrigger() {
+      document.addEventListener('keydown', function(e) {
+        // Alt+S key combination
+        if (e.altKey && e.key === 's') {
+          console.log("⌨️ Alt+S keyboard shortcut detected");
+          
+          const sourcesPanel = document.getElementById('sourcesPanel');
+          if (sourcesPanel) {
+            sourcesPanel.classList.toggle('active');
+            console.log(`🔄 Toggled sources panel via keyboard. Active: ${sourcesPanel.classList.contains('active')}`);
+          }
+        }
+      });
+      
+      console.log("⌨️ Added Alt+S keyboard shortcut to toggle panel");
+    }
+    
+    // Run all fixes
+    makeSourcesPanelWork();
+    watchForNewButtons();
+    addKeyboardTrigger();
+    
+    // Also log helpful message for user
+    console.log("%c SOURCES PANEL FIX APPLIED ", 
+      "background: #2ea3f2; color: white; padding: 5px; border-radius: 3px;");
+    console.log("%c Press Alt+S to toggle the sources panel for testing ", 
+      "background: #333; color: white; padding: 3px; border-radius: 3px;");
+    
+  }, 1000); // Wait 1 second for other scripts to initialize
