@@ -86,9 +86,14 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   </div>
 </div>
 <script>/**
-  * Minimal Sources Overlay System
+  * Improved Sources Overlay System
   * This script creates a completely standalone sources display system
   * with no dependencies on existing code
+  * 
+  * Features:
+  * - Wider modal on desktop (100% width with max constraints)
+  * - Fixed mobile modal with proper scrolling
+  * - Better styles matching the site design
   */
  
  (function() {
@@ -107,14 +112,15 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
        display: none;
        align-items: center;
        justify-content: center;
+       overflow: hidden;
      }
      
      /* Content container */
      #sources-overlay-content {
        background-color: #fff;
        border-radius: 8px;
-       width: 90%;
-       max-width: 1000px;
+       width: 95%;
+       max-width: 1400px; /* Much wider on desktop */
        max-height: 90vh;
        display: flex;
        flex-direction: column;
@@ -127,11 +133,13 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
      @media (max-width: 768px) {
        #sources-overlay {
          align-items: flex-end;
+         overflow: auto; /* Allow scrolling on mobile container */
+         -webkit-overflow-scrolling: touch;
        }
        
        #sources-overlay-content {
          width: 100%;
-         height: 80vh;
+         height: 75vh;
          border-radius: 12px 12px 0 0;
        }
      }
@@ -144,12 +152,14 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
        padding: 15px 20px;
        background-color: #f8f9fa;
        border-bottom: 1px solid #eee;
+       flex-shrink: 0; /* Prevent header from shrinking */
      }
      
      #sources-overlay-title {
        font-size: 18px;
        font-weight: bold;
        margin: 0;
+       color: #333;
      }
      
      #sources-overlay-close {
@@ -170,13 +180,16 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
      #sources-overlay-body {
        padding: 20px;
        overflow-y: auto;
-       -webkit-overflow-scrolling: touch;
+       -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
        flex: 1;
+       overscroll-behavior: contain; /* Prevent scroll chaining */
+       height: auto;
      }
      
      /* Toggle button */
      .sources-toggle-btn {
-       display: inline-block;
+       display: inline-flex;
+       align-items: center;
        background-color: rgba(46, 163, 242, 0.1);
        color: #2ea3f2;
        border: none;
@@ -186,10 +199,77 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
        cursor: pointer;
        margin-top: 15px;
        font-size: 14px;
+       transition: background-color 0.2s ease;
      }
      
      .sources-toggle-btn:hover {
        background-color: rgba(46, 163, 242, 0.2);
+     }
+     
+     .sources-toggle-btn::before {
+       content: "";
+       display: inline-block;
+       width: 14px;
+       height: 14px;
+       margin-right: 8px;
+       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%232EA3F2' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+       background-size: contain;
+       background-repeat: no-repeat;
+       transition: transform 0.2s ease;
+     }
+     
+     .sources-toggle-btn[data-active="true"]::before {
+       transform: rotate(180deg);
+     }
+     
+     /* Handle modal-open body state */
+     body.modal-open {
+       overflow: hidden;
+       position: fixed;
+       width: 100%;
+     }
+     
+     /* Source container styling */
+     #sources-overlay-body .source-container {
+       margin-bottom: 20px;
+       border-bottom: 1px solid #eee;
+       padding-bottom: 20px;
+     }
+     
+     #sources-overlay-body .source-title {
+       font-weight: bold;
+       margin-bottom: 10px;
+       color: #333;
+     }
+     
+     #sources-overlay-body .source-text {
+       background-color: #f8f9fa;
+       padding: 15px;
+       border-radius: 5px;
+       border-left: 3px solid #2ea3f2;
+       margin-bottom: 10px;
+       font-style: italic;
+       color: #666;
+     }
+     
+     /* Mobile scroll position indicator */
+     #scroll-indicator {
+       width: 40px;
+       height: 4px;
+       background-color: #ddd;
+       border-radius: 2px;
+       margin: 10px auto;
+       position: absolute;
+       top: 5px;
+       left: 50%;
+       transform: translateX(-50%);
+       display: none;
+     }
+     
+     @media (max-width: 768px) {
+       #scroll-indicator {
+         display: block;
+       }
      }
    `;
    document.head.appendChild(styleElement);
@@ -199,6 +279,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
    overlay.id = 'sources-overlay';
    overlay.innerHTML = `
      <div id="sources-overlay-content">
+       <div id="scroll-indicator"></div>
        <div id="sources-overlay-header">
          <h3 id="sources-overlay-title">Sources</h3>
          <button id="sources-overlay-close">&times;</button>
@@ -225,6 +306,32 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
      }
    });
    
+   // Touch events for mobile modal
+   let startY = 0;
+   let currentY = 0;
+   const overlayContent = document.getElementById('sources-overlay-content');
+   
+   overlayContent.addEventListener('touchstart', function(e) {
+     const touch = e.touches[0];
+     startY = touch.clientY;
+   }, { passive: true });
+   
+   overlayContent.addEventListener('touchmove', function(e) {
+     const touch = e.touches[0];
+     currentY = touch.clientY;
+     
+     const body = document.getElementById('sources-overlay-body');
+     
+     // Only allow swiping down to close if at the top of the content
+     if (body.scrollTop <= 0 && currentY > startY) {
+       const distance = currentY - startY;
+       if (distance > 50) {
+         // If swiped down enough, close the overlay
+         hideSourcesOverlay();
+       }
+     }
+   }, { passive: true });
+   
    // Add mutation observer to watch for new messages
    const observer = new MutationObserver(checkForNewMessages);
    observer.observe(document.body, { childList: true, subtree: true });
@@ -243,14 +350,29 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
      
      // Show overlay
      overlay.style.display = 'flex';
-     document.body.style.overflow = 'hidden';
+     document.body.classList.add('modal-open');
+     
+     // Save the current scroll position
+     document.body.style.top = `-${window.scrollY}px`;
+     
+     // Reset internal modal scroll to top
+     document.getElementById('sources-overlay-body').scrollTop = 0;
    }
    
    // Hide overlay function
    function hideSourcesOverlay() {
      console.log('Hiding sources overlay');
+     
+     // Restore scroll position
+     if (document.body.classList.contains('modal-open')) {
+       const scrollY = document.body.style.top;
+       document.body.style.top = '';
+       window.scrollTo(0, parseInt(scrollY || '0') * -1);
+     }
+     
+     // Hide the overlay
      overlay.style.display = 'none';
-     document.body.style.overflow = '';
+     document.body.classList.remove('modal-open');
      
      // Update all toggle buttons
      document.querySelectorAll('.sources-toggle-btn').forEach(btn => {
