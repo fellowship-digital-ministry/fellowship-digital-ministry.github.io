@@ -582,3 +582,235 @@
     
     return defaultText;
   }
+  /**
+ * Sermon Chat Interface Fix
+ * This script fixes sources panel toggling and matches mobile colors with web
+ */
+
+// Fix for the sources panel toggling issues
+function fixSourcesPanel() {
+    console.log("Initializing sources panel fix...");
+    
+    // Direct fix for sources toggle buttons
+    document.addEventListener('click', function(event) {
+      const toggleButton = event.target.closest('.claude-sources-toggle');
+      if (!toggleButton) return;
+      
+      console.log("Sources toggle button clicked");
+      
+      const sourcesPanel = document.getElementById('sourcesPanel');
+      if (!sourcesPanel) {
+        console.error("Sources panel element not found");
+        return;
+      }
+      
+      // Toggle the active class directly
+      sourcesPanel.classList.toggle('active');
+      
+      // Update the button state
+      const isActive = sourcesPanel.classList.contains('active');
+      toggleButton.setAttribute('data-active', isActive ? 'true' : 'false');
+      toggleButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      
+      // Get translation function if available
+      let showText = 'Show Sources';
+      let hideText = 'Hide Sources';
+      if (window.translate && typeof window.translate === 'function') {
+        showText = window.translate('show-sources') || 'Show Sources';
+        hideText = window.translate('hide-sources') || 'Hide Sources';
+      }
+      
+      toggleButton.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + 
+        (isActive ? hideText : showText);
+      
+      // Show/hide backdrop on mobile
+      const backdrop = document.querySelector('.claude-sources-backdrop');
+      if (backdrop) {
+        if (isActive) {
+          backdrop.style.display = 'block';
+          setTimeout(() => { backdrop.style.opacity = '1'; }, 10);
+        } else {
+          backdrop.style.opacity = '0';
+          setTimeout(() => { backdrop.style.display = 'none'; }, 300);
+        }
+      }
+    });
+    
+    // Make sure we have a backdrop for mobile
+    const createBackdropIfNeeded = () => {
+      if (!document.querySelector('.claude-sources-backdrop')) {
+        const backdrop = document.createElement('div');
+        backdrop.className = 'claude-sources-backdrop';
+        backdrop.style.position = 'fixed';
+        backdrop.style.top = '0';
+        backdrop.style.left = '0';
+        backdrop.style.right = '0';
+        backdrop.style.bottom = '0';
+        backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        backdrop.style.zIndex = '50';
+        backdrop.style.opacity = '0';
+        backdrop.style.transition = 'opacity 0.3s ease';
+        backdrop.style.display = 'none';
+        
+        // Close panel when backdrop is clicked
+        backdrop.addEventListener('click', function() {
+          const sourcesPanel = document.getElementById('sourcesPanel');
+          if (sourcesPanel) {
+            sourcesPanel.classList.remove('active');
+            
+            // Update any active source toggle buttons
+            const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
+            activeToggles.forEach(toggle => {
+              toggle.setAttribute('data-active', 'false');
+              toggle.setAttribute('aria-expanded', 'false');
+              toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + 
+                (window.translate ? window.translate('show-sources') : 'Show Sources');
+            });
+          }
+        });
+        
+        document.body.appendChild(backdrop);
+      }
+    };
+    
+    createBackdropIfNeeded();
+    
+    // Fix for close button
+    const closeButton = document.getElementById('closeSourcesPanel');
+    if (closeButton) {
+      closeButton.addEventListener('click', function() {
+        const sourcesPanel = document.getElementById('sourcesPanel');
+        if (sourcesPanel) {
+          sourcesPanel.classList.remove('active');
+          
+          // Update any active source toggle buttons
+          const activeToggles = document.querySelectorAll('.claude-sources-toggle[data-active="true"]');
+          activeToggles.forEach(toggle => {
+            toggle.setAttribute('data-active', 'false');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + 
+              (window.translate ? window.translate('show-sources') : 'Show Sources');
+          });
+        }
+      });
+    }
+  }
+  
+  // Match mobile colors to website
+  function matchMobileColors() {
+    console.log("Applying consistent color scheme for mobile...");
+    
+    const style = document.createElement('style');
+    style.textContent = `
+      /* CONSISTENT COLOR SCHEME FOR MOBILE */
+      @media (max-width: 768px) {
+        :root {
+          --color-mobile-chat-bg: #f8f9fa !important;
+          --color-mobile-message-bg: #ffffff !important;
+        }
+        
+        .claude-interface, 
+        .claude-messages,
+        .app-container,
+        .app-header {
+          background-color: #f8f9fa !important;
+        }
+        
+        .app-header {
+          color: #333333 !important;
+          border-bottom: 1px solid #e0e5eb !important;
+        }
+        
+        .app-menu-button {
+          color: #333333 !important;
+        }
+        
+        .claude-message-bot .claude-message-content {
+          background-color: #ffffff !important;
+          color: #666666 !important;
+          border: 1px solid #e0e5eb !important;
+        }
+        
+        .claude-message-bot {
+          border-bottom: 1px solid #f0f0f0 !important;
+        }
+        
+        .claude-input-container, 
+        .claude-input-area {
+          background-color: #f8f9fa !important;
+          border-color: #e0e5eb !important;
+        }
+        
+        .claude-input {
+          color: #666666 !important;
+        }
+        
+        .claude-input::placeholder {
+          color: #999999 !important;
+        }
+        
+        .claude-welcome {
+          background-color: rgba(46, 163, 242, 0.05) !important;
+          color: #666666 !important;
+        }
+        
+        .claude-welcome h4 {
+          color: #2ea3f2 !important;
+        }
+        
+        .claude-welcome p,
+        .claude-suggestion-label {
+          color: #666666 !important;
+        }
+        
+        .claude-suggestion {
+          background-color: rgba(46, 163, 242, 0.1) !important;
+          color: #2ea3f2 !important;
+          border: 1px solid rgba(46, 163, 242, 0.1) !important;
+        }
+        
+        .claude-sources-toggle {
+          background-color: rgba(46, 163, 242, 0.1) !important;
+          color: #2ea3f2 !important;
+        }
+        
+        .claude-sources-panel {
+          background-color: #ffffff !important;
+        }
+        
+        .bible-reference {
+          background-color: rgba(46, 163, 242, 0.05) !important;
+          color: #2ea3f2 !important;
+        }
+        
+        .control-button {
+          background-color: rgba(46, 163, 242, 0.05) !important;
+          color: #2ea3f2 !important;
+          border: 1px solid rgba(46, 163, 242, 0.1) !important;
+        }
+        
+        /* Fix the typing indicator for light theme */
+        .claude-typing-bubble {
+          background-color: rgba(46, 163, 242, 0.5) !important;
+        }
+      }
+    `;
+    
+    document.head.appendChild(style);
+  }
+  
+  // Initialize both fixes
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log("Initializing Sermon Chat Interface Fix");
+    
+    // Apply fixes
+    fixSourcesPanel();
+    matchMobileColors();
+  });
+  
+  // If DOM is already loaded, apply fixes immediately
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log("DOM already loaded, applying fixes immediately");
+    fixSourcesPanel();
+    matchMobileColors();
+  }
