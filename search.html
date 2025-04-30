@@ -1,15 +1,12 @@
+```html
 ---
 layout: default
 title: Chat about Sermons
-hero_banner: true
-hero_title: CHAT ABOUT SERMONS
-hero_subtitle: EXPLORE BIBLICAL TEACHINGS
-hero_description: Ask questions about sermon content and get AI-generated answers based on the sermon library.
-quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World"
+class: sermon-search-page
 ---
 
-<div class="container">
-  <!-- Language Selector -->
+<div class="sermon-search-container">
+  <!-- Language Selector (now floating in the corner) -->
   <div class="language-selector">
     <select id="languageSelect" aria-label="Select language">
       <option value="en" selected>English</option>
@@ -18,13 +15,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     </select>
   </div>
 
-  <!-- Page Introduction -->
-  <div class="page-intro">
-    <h2 class="content-section-header" data-i18n="sermon-search-tool">Sermon Search Tool</h2>
-    <p data-i18n="tool-description">This interactive tool uses AI to search through sermon transcripts and provide relevant answers to your questions about the pastor's teachings.</p>
-  </div>
-
-  <!-- Claude-Style Interface -->
+  <!-- Claude-Style Interface (now full-width) -->
   <div class="claude-interface">
     <!-- API Status Banner -->
     <div id="api-status-banner" class="claude-api-status">
@@ -55,32 +46,31 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
       </div>
     </div>
     
-    <!-- Sources Panel -->
+    <!-- Enhanced Sources Panel -->
     <div id="sourcesPanel" class="claude-sources-panel">
-      <button class="claude-sources-close" id="closeSourcesPanel">×</button>
+      <button class="claude-sources-close" id="closeSourcesPanel" aria-label="Close sources panel">×</button>
       <div class="claude-sources-panel-content" id="sourcesPanelContent">
-        <!-- Source content will be inserted here -->
+        <!-- Enhanced source content will be inserted here -->
       </div>
     </div>
   </div>
 
-  <!-- Help Section -->
-  <div class="info-section">
+  <!-- Help Section (hidden on mobile when in chat) -->
+  <div class="info-section container">
     <h2 class="content-section-header" data-i18n="how-to-use">How to Use This Tool</h2>
     
     <div class="row">
-        <div class="col-md-6">
-          <div class="content-card">
-            <h3 data-i18n="sample-questions">Sample Questions</h3>
-            <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
-            <ul class="example-questions">
-              <li data-i18n="example-1">"How does a person get to heaven?"</li>
-              <li data-i18n="example-2">"What is the Trinity?"</li>
-              <li data-i18n="example-3">"How should Christians live?"</li>
-              <li data-i18n="example-4">"Why read the King James Bible?"</li>
-              <li data-i18n="example-5">"Who is Melchizedek?"</li>
-            </ul>
-          </div>
+      <div class="col-md-6">
+        <div class="content-card">
+          <h3 data-i18n="sample-questions">Sample Questions</h3>
+          <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
+          <ul class="example-questions">
+            <li data-i18n="example-1">"How does a person get to heaven?"</li>
+            <li data-i18n="example-2">"What is the Trinity?"</li>
+            <li data-i18n="example-3">"How should Christians live?"</li>
+            <li data-i18n="example-4">"Why read the King James Bible?"</li>
+            <li data-i18n="example-5">"Who is Melchizedek?"</li>
+          </ul>
         </div>
       </div>
       
@@ -121,7 +111,6 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     </div>
   </div>
 </div>
-
 <style>
 /* Enhanced Chat Interface CSS - Mobile Optimized */
 
@@ -1363,6 +1352,17 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
  * Enhanced Multilingual Sermon Search with Conversation Memory
  * Supports English, Spanish, and Chinese
  */
+
+  // Add viewport meta tag if it doesn't exist
+  let viewportMeta = document.querySelector('meta[name="viewport"]');
+  if (!viewportMeta) {
+    viewportMeta = document.createElement('meta');
+    viewportMeta.name = 'viewport';
+    document.head.appendChild(viewportMeta);
+  }
+  
+  // Set viewport for proper mobile rendering
+  viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover';
 
 // API Configuration
 const API_URL = '{{ site.api_url }}' || 'https://sermon-search-api-8fok.onrender.com';
