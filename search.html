@@ -87,19 +87,25 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 </div>
 <script>
   /**
- * Mobile Scrolling Fix Script
+ * Enhanced Mobile Scrolling Fix Script
  * - Improves mobile scrolling for the built-in sources panel
- * - Does NOT add any additional buttons
- * - Makes existing sources panel work better on mobile
+ * - Responsive width adjustments for different screen sizes
+ * - Maintains full width for the chat box
  */
 
 (function() {
   // Create and inject necessary styles
   const styleElement = document.createElement('style');
   styleElement.innerHTML = `
-    /* Better mobile scrolling for built-in sources panel */
+    /* Full width for chat box always */
+    .claude-conversation-container {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    
+    /* Sources panel styling for different screen sizes */
+    /* Mobile (small screens) */
     @media (max-width: 768px) {
-      /* Make sure the panel displays properly */
       #sourcesPanel, 
       .claude-sources-panel {
         position: fixed !important;
@@ -116,26 +122,66 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         background-color: white !important;
         z-index: 1000 !important;
       }
-      
-      /* Panel content area */
-      #sourcesPanelContent, 
-      .claude-sources-panel-content {
-        overflow-y: auto !important;
+    }
+    
+    /* Tablet and small desktop */
+    @media (min-width: 769px) and (max-width: 1199px) {
+      #sourcesPanel, 
+      .claude-sources-panel {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        height: 80vh !important;
+        width: 80% !important;
+        max-width: 700px !important;
+        border-radius: 12px !important;
         -webkit-overflow-scrolling: touch !important;
-        height: calc(100% - 40px) !important;
-        padding: 16px !important;
-      }
-      
-      /* Close button positioning */
-      #closeSourcesPanel {
-        position: sticky !important;
-        top: 0 !important;
-        right: 0 !important;
+        overscroll-behavior: contain !important;
         background-color: white !important;
-        z-index: 10 !important;
+        z-index: 1000 !important;
       }
-      
-      /* Add scroll indicator handle at top */
+    }
+    
+    /* Large desktop */
+    @media (min-width: 1200px) {
+      #sourcesPanel, 
+      .claude-sources-panel {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        height: 80vh !important;
+        width: 70% !important;
+        max-width: 900px !important;
+        border-radius: 12px !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain !important;
+        background-color: white !important;
+        z-index: 1000 !important;
+      }
+    }
+    
+    /* Panel content area - shared across all screen sizes */
+    #sourcesPanelContent, 
+    .claude-sources-panel-content {
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      height: calc(100% - 40px) !important;
+      padding: 16px !important;
+    }
+    
+    /* Close button positioning */
+    #closeSourcesPanel {
+      position: sticky !important;
+      top: 0 !important;
+      right: 0 !important;
+      background-color: white !important;
+      z-index: 10 !important;
+    }
+    
+    /* Add scroll indicator handle at top - for mobile view */
+    @media (max-width: 768px) {
       #sourcesPanel::before,
       .claude-sources-panel::before {
         content: "";
@@ -150,13 +196,13 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         left: 50%;
         transform: translateX(-50%);
       }
-      
-      /* Improve body scrolling when modal is open */
-      body.modal-open {
-        overflow: hidden !important;
-        position: fixed !important;
-        width: 100% !important;
-      }
+    }
+    
+    /* Improve body scrolling when modal is open */
+    body.modal-open {
+      overflow: hidden !important;
+      position: fixed !important;
+      width: 100% !important;
     }
     
     /* Make sure the original toggle button looks good */
@@ -253,8 +299,11 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         }
       }
       
-      // Reset transform
-      sourcesPanel.style.transform = '';
+      // Reset transform for mobile
+      if (window.innerWidth <= 768) {
+        sourcesPanel.style.transform = '';
+      }
+      
       touchStartY = 0;
       touchMoveY = 0;
     }, { passive: true });
@@ -307,7 +356,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     enhanceSourcesToggleButtons();
   }, 1000);
   
-  console.log('Mobile scrolling enhancements initialized');
+  console.log('Enhanced responsive scrolling initialized');
 })();
 </script>
 <style>
