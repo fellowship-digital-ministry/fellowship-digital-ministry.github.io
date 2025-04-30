@@ -87,9 +87,10 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 </div>
 <script>
  /**
- * Full Width Chat with Mobile Sources Fix
+ * Layered Interface with Full Width Chat
+ * - Places sources panel behind content
  * - Preserves full width of chat box
- * - Fixes sources panel behavior on mobile
+ * - Creates intuitive layering for better UX
  */
 
 (function() {
@@ -117,7 +118,38 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
       flex: 1 !important;
     }
     
-    /* Sources panel on mobile */
+    /* Base sources panel styling */
+    #sourcesPanel, 
+    .claude-sources-panel {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
+      z-index: 900 !important; /* Lower z-index to be behind content */
+      display: none !important;
+      overflow: auto !important;
+    }
+    
+    #sourcesPanel.active, 
+    .claude-sources-panel.active {
+      display: block !important;
+    }
+    
+    /* Content that should appear above the sources panel */
+    .video-embed,
+    .transcript-container,
+    .iframe-container,
+    [id^="transcript-"] {
+      position: relative !important;
+      z-index: 1000 !important; /* Higher z-index to be above sources panel */
+      background-color: white !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+      margin: 1rem auto !important;
+      max-width: 95% !important;
+      border: 1px solid #eee !important;
+      overflow: hidden !important;
+    }
+    
+    /* Mobile sources panel styling */
     @media (max-width: 768px) {
       #sourcesPanel, 
       .claude-sources-panel {
@@ -128,17 +160,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         width: 100% !important;
         max-width: 100% !important;
         border-radius: 12px 12px 0 0 !important;
-        background-color: white !important;
-        z-index: 1000 !important;
-        display: none !important;
         max-height: 75vh !important;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1) !important;
-        overflow: hidden !important;
-      }
-      
-      #sourcesPanel.active, 
-      .claude-sources-panel.active {
-        display: block !important;
       }
       
       /* Add scroll indicator handle at top for mobile */
@@ -155,29 +177,19 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         top: 5px;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 1001 !important;
+      }
+      
+      #sourcesPanelContent, 
+      .claude-sources-panel-content {
+        max-height: calc(75vh - 40px) !important;
+        overflow-y: auto !important;
+        padding: 20px !important;
+        padding-top: 30px !important;
       }
     }
     
-    /* Sources panel content area */
-    #sourcesPanelContent, 
-    .claude-sources-panel-content {
-      overflow-y: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-      max-height: calc(75vh - 40px) !important;
-    }
-    
-    /* Close button styling */
-    #closeSourcesPanel,
-    .claude-sources-close {
-      position: sticky !important;
-      top: 0 !important;
-      right: 10px !important;
-      background-color: white !important;
-      z-index: 10 !important;
-      cursor: pointer !important;
-    }
-    
-    /* Desktop sources panel */
+    /* Desktop sources panel styling */
     @media (min-width: 769px) {
       #sourcesPanel, 
       .claude-sources-panel {
@@ -186,19 +198,9 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
         width: 80% !important;
-        max-width: 800px !important;
-        max-height: 80vh !important;
+        max-width: 900px !important;
         border-radius: 12px !important;
-        background-color: white !important;
-        z-index: 1000 !important;
-        display: none !important;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
-        overflow: hidden !important;
-      }
-      
-      #sourcesPanel.active,
-      .claude-sources-panel.active {
-        display: block !important;
+        max-height: 80vh !important;
       }
       
       #sourcesPanelContent, 
@@ -207,6 +209,63 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         overflow-y: auto !important;
         padding: 20px !important;
       }
+    }
+    
+    /* Make the close button float above content */
+    #closeSourcesPanel,
+    .claude-sources-close {
+      position: fixed !important;
+      top: 20px !important;
+      right: 20px !important;
+      background-color: white !important;
+      color: #333 !important;
+      border-radius: 50% !important;
+      width: 36px !important;
+      height: 36px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+      cursor: pointer !important;
+      font-size: 20px !important;
+      z-index: 1001 !important; /* Above everything */
+      border: none !important;
+      outline: none !important;
+    }
+    
+    /* Style source containers to be more visible against the background */
+    .source-container {
+      background-color: white !important;
+      border-radius: 8px !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1) !important;
+      padding: 15px !important;
+      margin-bottom: 15px !important;
+      border: 1px solid #eee !important;
+    }
+    
+    /* Focus effect when interacting with a source */
+    .source-container:focus-within {
+      box-shadow: 0 1px 8px rgba(46, 163, 242, 0.4) !important;
+      border-color: rgba(46, 163, 242, 0.3) !important;
+    }
+    
+    /* Improve button visibility */
+    .watch-video-btn,
+    .view-transcript-btn,
+    .open-youtube-btn {
+      z-index: 1001 !important;
+      position: relative !important;
+      background-color: #f8f9fa !important;
+      border: 1px solid #ddd !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+      transition: all 0.2s ease !important;
+    }
+    
+    /* Make sure transcript is properly displayed */
+    .transcript-container {
+      padding: 20px !important;
+      max-height: 60vh !important;
+      overflow-y: auto !important;
     }
   `;
   document.head.appendChild(styleElement);
@@ -258,6 +317,87 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     });
   }
   
+  // Override the global toggleVideo function to handle layering
+  window.toggleVideo = function(button) {
+    try {
+      if (!button || !button.parentElement) {
+        console.error('Invalid button element for toggleVideo');
+        return;
+      }
+      
+      const videoEmbed = button.parentElement.nextElementSibling;
+      if (!videoEmbed || !videoEmbed.classList.contains('video-embed')) {
+        console.error('Could not find video embed element');
+        return;
+      }
+      
+      const isHidden = videoEmbed.style.display === 'none';
+      
+      // Toggle the video display
+      videoEmbed.style.display = isHidden ? 'block' : 'none';
+      
+      // Update the button text safely
+      const hideText = typeof translate === 'function' ? translate('hide-video') : 'Hide Video';
+      const showText = typeof translate === 'function' ? translate('watch-video') : 'Watch Video';
+      button.textContent = isHidden ? hideText : showText;
+      
+      // Scroll to make video visible if showing
+      if (isHidden) {
+        setTimeout(() => {
+          videoEmbed.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    } catch (error) {
+      console.error('Error in toggleVideo:', error);
+    }
+  };
+  
+  // Override the global toggleTranscript function to handle layering
+  window.toggleTranscript = function(videoId, startTime = 0) {
+    try {
+      if (!videoId) {
+        console.error('Invalid videoId for toggleTranscript');
+        return;
+      }
+      
+      const transcriptContainer = document.getElementById(`transcript-${videoId}`);
+      const button = document.querySelector(`.view-transcript-btn[onclick*="toggleTranscript('${videoId}')"]`);
+      
+      if (!transcriptContainer) {
+        // Transcript hasn't been loaded yet, fetch it
+        fetchTranscript(videoId, startTime);
+        
+        // Update button text if found
+        if (button) {
+          button.textContent = typeof translate === 'function' ? 
+            translate('hide-transcript') : 'Hide Transcript';
+        }
+        
+        return;
+      }
+      
+      // Toggle visibility
+      const isHidden = transcriptContainer.style.display === 'none';
+      transcriptContainer.style.display = isHidden ? 'block' : 'none';
+      
+      // Update button text
+      if (button) {
+        const hideText = typeof translate === 'function' ? translate('hide-transcript') : 'Hide Transcript';
+        const showText = typeof translate === 'function' ? translate('view-transcript') : 'View Transcript';
+        button.textContent = isHidden ? hideText : showText;
+      }
+      
+      // Scroll to make transcript visible if showing
+      if (isHidden) {
+        setTimeout(() => {
+          transcriptContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    } catch (error) {
+      console.error('Error in toggleTranscript:', error);
+    }
+  };
+  
   // Make sure the global function is available
   window.toggleSourcesPanel = toggleSourcesPanel;
   
@@ -279,6 +419,8 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   setTimeout(function() {
     setupCloseButton();
   }, 1000);
+  
+  console.log('Layered interface with full width chat initialized');
 })();
 </script>
 <style>
