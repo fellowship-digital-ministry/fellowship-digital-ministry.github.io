@@ -85,7 +85,250 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     </div>
   </div>
 </div>
-
+<script>/**
+  * Minimal Sources Overlay System
+  * This script creates a completely standalone sources display system
+  * with no dependencies on existing code
+  */
+ 
+ (function() {
+   // Create and inject necessary styles
+   const styleElement = document.createElement('style');
+   styleElement.innerHTML = `
+     /* Overlay container */
+     #sources-overlay {
+       position: fixed;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background-color: rgba(0, 0, 0, 0.7);
+       z-index: 999999;
+       display: none;
+       align-items: center;
+       justify-content: center;
+     }
+     
+     /* Content container */
+     #sources-overlay-content {
+       background-color: #fff;
+       border-radius: 8px;
+       width: 90%;
+       max-width: 1000px;
+       max-height: 90vh;
+       display: flex;
+       flex-direction: column;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+       overflow: hidden;
+       position: relative;
+     }
+     
+     /* Mobile adjustments */
+     @media (max-width: 768px) {
+       #sources-overlay {
+         align-items: flex-end;
+       }
+       
+       #sources-overlay-content {
+         width: 100%;
+         height: 80vh;
+         border-radius: 12px 12px 0 0;
+       }
+     }
+     
+     /* Header */
+     #sources-overlay-header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 15px 20px;
+       background-color: #f8f9fa;
+       border-bottom: 1px solid #eee;
+     }
+     
+     #sources-overlay-title {
+       font-size: 18px;
+       font-weight: bold;
+       margin: 0;
+     }
+     
+     #sources-overlay-close {
+       background: none;
+       border: none;
+       font-size: 24px;
+       cursor: pointer;
+       color: #666;
+       width: 30px;
+       height: 30px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 0;
+     }
+     
+     /* Body */
+     #sources-overlay-body {
+       padding: 20px;
+       overflow-y: auto;
+       -webkit-overflow-scrolling: touch;
+       flex: 1;
+     }
+     
+     /* Toggle button */
+     .sources-toggle-btn {
+       display: inline-block;
+       background-color: rgba(46, 163, 242, 0.1);
+       color: #2ea3f2;
+       border: none;
+       padding: 8px 16px;
+       border-radius: 20px;
+       font-weight: 500;
+       cursor: pointer;
+       margin-top: 15px;
+       font-size: 14px;
+     }
+     
+     .sources-toggle-btn:hover {
+       background-color: rgba(46, 163, 242, 0.2);
+     }
+   `;
+   document.head.appendChild(styleElement);
+   
+   // Create overlay HTML
+   const overlay = document.createElement('div');
+   overlay.id = 'sources-overlay';
+   overlay.innerHTML = `
+     <div id="sources-overlay-content">
+       <div id="sources-overlay-header">
+         <h3 id="sources-overlay-title">Sources</h3>
+         <button id="sources-overlay-close">&times;</button>
+       </div>
+       <div id="sources-overlay-body"></div>
+     </div>
+   `;
+   document.body.appendChild(overlay);
+   
+   // Add close button handler
+   document.getElementById('sources-overlay-close').addEventListener('click', hideSourcesOverlay);
+   
+   // Add click outside to close
+   overlay.addEventListener('click', function(e) {
+     if (e.target === overlay) {
+       hideSourcesOverlay();
+     }
+   });
+   
+   // Add escaped key handler
+   document.addEventListener('keydown', function(e) {
+     if (e.key === 'Escape' && overlay.style.display === 'flex') {
+       hideSourcesOverlay();
+     }
+   });
+   
+   // Add mutation observer to watch for new messages
+   const observer = new MutationObserver(checkForNewMessages);
+   observer.observe(document.body, { childList: true, subtree: true });
+   
+   // Show overlay function
+   function showSourcesOverlay() {
+     console.log('Showing sources overlay');
+     
+     // Copy content from original sources panel
+     const sourcesPanel = document.getElementById('sourcesPanelContent');
+     if (sourcesPanel) {
+       document.getElementById('sources-overlay-body').innerHTML = sourcesPanel.innerHTML;
+     } else {
+       document.getElementById('sources-overlay-body').innerHTML = '<p>No sources found</p>';
+     }
+     
+     // Show overlay
+     overlay.style.display = 'flex';
+     document.body.style.overflow = 'hidden';
+   }
+   
+   // Hide overlay function
+   function hideSourcesOverlay() {
+     console.log('Hiding sources overlay');
+     overlay.style.display = 'none';
+     document.body.style.overflow = '';
+     
+     // Update all toggle buttons
+     document.querySelectorAll('.sources-toggle-btn').forEach(btn => {
+       btn.textContent = 'Show Sources';
+       btn.setAttribute('data-active', 'false');
+     });
+   }
+   
+   // Add toggle button after messages with sources
+   function checkForNewMessages(mutations) {
+     mutations.forEach(mutation => {
+       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+         // Find new bot messages
+         const messages = document.querySelectorAll('.message.bot:not([data-processed]), .claude-message-bot:not([data-processed])');
+         
+         messages.forEach(message => {
+           message.setAttribute('data-processed', 'true');
+           
+           // Check if message has sources
+           const text = message.textContent || '';
+           const hasSourcesContent = (text.includes('sermon') || text.includes('Source')) && 
+                                    !text.includes('No relevant sermon content found');
+           
+           if (hasSourcesContent && !message.querySelector('.sources-toggle-btn')) {
+             // Add toggle button
+             const btn = document.createElement('button');
+             btn.className = 'sources-toggle-btn';
+             btn.textContent = 'Show Sources';
+             btn.setAttribute('data-active', 'false');
+             
+             // Add click handler
+             btn.addEventListener('click', function() {
+               const isActive = this.getAttribute('data-active') === 'true';
+               
+               if (isActive) {
+                 hideSourcesOverlay();
+                 this.textContent = 'Show Sources';
+                 this.setAttribute('data-active', 'false');
+               } else {
+                 showSourcesOverlay();
+                 this.textContent = 'Hide Sources';
+                 this.setAttribute('data-active', 'true');
+                 
+                 // Update all other toggle buttons
+                 document.querySelectorAll('.sources-toggle-btn').forEach(otherBtn => {
+                   if (otherBtn !== this) {
+                     otherBtn.textContent = 'Show Sources';
+                     otherBtn.setAttribute('data-active', 'false');
+                   }
+                 });
+               }
+             });
+             
+             // Find the right place to add the button
+             if (message.classList.contains('claude-message-bot')) {
+               const content = message.querySelector('.claude-message-content');
+               if (content) {
+                 content.appendChild(btn);
+               } else {
+                 message.appendChild(btn);
+               }
+             } else {
+               message.appendChild(btn);
+             }
+           }
+         });
+       }
+     });
+   }
+   
+   // Initial scan for messages
+   checkForNewMessages([{
+     type: 'childList',
+     addedNodes: [document.body]
+   }]);
+   
+   console.log('Sources overlay system initialized');
+ })();</script>
 <style>
   /* Focused chat experience with preserved sidebar functionality */
   .chat-section-wrapper {
