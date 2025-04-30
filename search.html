@@ -151,54 +151,63 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   </div>
 </div>
 
+<!-- IMPORTANT: Load main scripts that handle core functionality -->
 <script>
-  // Show keyboard shortcuts dialog
-  document.addEventListener('DOMContentLoaded', function() {
-    // Create keyboard shortcuts button
-    const keyboardButton = document.createElement('button');
-    keyboardButton.className = 'keyboard-shortcuts-button';
-    keyboardButton.setAttribute('aria-label', 'Show keyboard shortcuts');
-    keyboardButton.innerHTML = '⌨️';
-    
-    // Add to language selector container
-    const languageSelector = document.querySelector('.language-selector');
-    if (languageSelector) {
-      languageSelector.appendChild(keyboardButton);
-    }
-    
-    // Set up dialog
-    const dialog = document.getElementById('keyboardShortcutsDialog');
-    const closeButton = dialog.querySelector('.keyboard-shortcuts-close');
-    
-    // Show dialog on button click
-    keyboardButton.addEventListener('click', function() {
-      dialog.style.display = 'flex';
-      dialog.setAttribute('aria-hidden', 'false');
-      dialog.focus();
-    });
-    
-    // Close dialog
-    closeButton.addEventListener('click', function() {
+/**
+ * Global variables and configurations
+ */
+let isFirstLoad = true;
+const API_URL = '{{ site.api_url }}' || 'https://sermon-search-api-8fok.onrender.com';
+let conversationHistory = [];
+let currentLanguage = 'en';
+
+// Show keyboard shortcuts dialog
+document.addEventListener('DOMContentLoaded', function() {
+  // Create keyboard shortcuts button
+  const keyboardButton = document.createElement('button');
+  keyboardButton.className = 'keyboard-shortcuts-button';
+  keyboardButton.setAttribute('aria-label', 'Show keyboard shortcuts');
+  keyboardButton.innerHTML = '⌨️';
+  
+  // Add to language selector container
+  const languageSelector = document.querySelector('.language-selector');
+  if (languageSelector) {
+    languageSelector.appendChild(keyboardButton);
+  }
+  
+  // Set up dialog
+  const dialog = document.getElementById('keyboardShortcutsDialog');
+  const closeButton = dialog.querySelector('.keyboard-shortcuts-close');
+  
+  // Show dialog on button click
+  keyboardButton.addEventListener('click', function() {
+    dialog.style.display = 'flex';
+    dialog.setAttribute('aria-hidden', 'false');
+    dialog.focus();
+  });
+  
+  // Close dialog
+  closeButton.addEventListener('click', function() {
+    dialog.style.display = 'none';
+    dialog.setAttribute('aria-hidden', 'true');
+  });
+  
+  // Close on click outside
+  dialog.addEventListener('click', function(e) {
+    if (e.target === dialog) {
       dialog.style.display = 'none';
       dialog.setAttribute('aria-hidden', 'true');
-    });
-    
-    // Close on click outside
-    dialog.addEventListener('click', function(e) {
-      if (e.target === dialog) {
-        dialog.style.display = 'none';
-        dialog.setAttribute('aria-hidden', 'true');
-      }
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && dialog.style.display === 'flex') {
-        dialog.style.display = 'none';
-        dialog.setAttribute('aria-hidden', 'true');
-      }
-    });
+    }
   });
+  
+  // Close on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && dialog.style.display === 'flex') {
+      dialog.style.display = 'none';
+      dialog.setAttribute('aria-hidden', 'true');
+    }
+  });
+});
 </script>
 
 <style>
