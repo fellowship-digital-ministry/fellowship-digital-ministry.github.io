@@ -421,6 +421,1518 @@ title: Chat about Sermons
   
   console.log('Layered interface with full width chat initialized');
 })();
+/**
+ * Sermon Sources Modal Fix
+ * 
+ * This script consolidates the modal functionality from the three existing JS files
+ * and creates a clean implementation that works reliably without disrupting the UI.
+ * 
+ * How to use:
+ * 1. Add this script at the end of your HTML file
+ * 2. Optionally disable conflicting parts of the other JS files if needed
+ */
+
+ document.addEventListener('DOMContentLoaded', function() {
+  console.log('Initializing sermon sources modal fix');
+  
+  // DOM selectors for elements we need to work with
+  const selectors = {
+    // Main containers
+    sourcesPanel: '#sourcesPanel, .claude-sources-panel',
+    sourcesPanelContent: '#sourcesPanelContent, .claude-sources-panel-content',
+    overlayContainer: '#claude-overlay-container',
+    
+    // Toggle buttons
+    sourcesToggle: '.claude-sources-toggle, .show-sources',
+    closeButton: '#closeSourcesPanel, .claude-sources-close',
+    
+    // Source elements
+    sourceItem: '.claude-source-item, .source-container',
+    sourceViewFullText: '.claude-source-text-view-button, .view-full-text',
+    watchButton: '.claude-source-button-primary, .watch-video-btn',
+    transcriptButton: '.view-transcript-btn',
+    youtubeButton: '.open-youtube-btn',
+    
+    // Backdrop
+    backdrop: '.claude-sources-backdrop'
+  };
+  
+  // Elements cache
+  const elements = {};
+  
+  // Initialize element cache
+  function cacheElements() {
+    for (const [key, selector] of Object.entries(selectors)) {
+      elements[key] = document.querySelectorAll(selector);
+    }
+  }
+  
+  // Create overlay container if it doesn't exist
+  function ensureOverlayContainer() {
+    if (!document.getElementById('claude-overlay-container')) {
+      const overlayContainer = document.createElement('div');
+      overlayContainer.id = 'claude-overlay-container';
+      overlayContainer.style.position = 'fixed';
+      overlayContainer.style.top = '0';
+      overlayContainer.style.left = '0';
+      overlayContainer.style.width = '100%';
+      overlayContainer.style.height = '100%';
+      overlayContainer.style.zIndex = '2000';
+      overlayContainer.style.display = 'none';
+      document.body.appendChild(overlayContainer);
+    }
+    
+    return document.getElementById('claude-overlay-container');
+  }
+  
+  // Create backdrop if it doesn't exist
+  function ensureBackdrop() {
+    if (!document.querySelector('.claude-sources-backdrop')) {
+      const backdrop = document.createElement('div');
+      backdrop.className = 'claude-sources-backdrop';
+      backdrop.style.position = 'fixed';
+      backdrop.style.top = '0';
+      backdrop.style.left = '0';
+      backdrop.style.right = '0';
+      backdrop.style.bottom = '0';
+      backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+      backdrop.style.zIndex = '900';
+      backdrop.style.opacity = '0';
+      backdrop.style.transition = 'opacity 0.3s ease';
+      backdrop.style.display = 'none';
+      document.body.appendChild(backdrop);
+      
+      // Add click handler to backdrop
+      backdrop.addEventListener('click', function() {
+        toggleSourcesPanel(false);
+      });
+    }
+    
+    return document.querySelector('.claude-sources-backdrop');
+  }
+  
+  // Toggle sources panel
+  function toggleSourcesPanel(show) {
+    const sourcesPanel = document.querySelector(selectors.sourcesPanel);
+    const backdrop = document.querySelector('.claude-sources-backdrop');
+    
+    if (!sourcesPanel) {
+      console.error('Sources panel not found');
+      return;
+    }
+    
+    if (show === undefined) {
+      // Toggle based on current state
+      show = !sourcesPanel.classList.contains('active');
+    }
+    
+    if (show) {
+      // Show panel
+      sourcesPanel.classList.add('active');
+      
+      // Show backdrop
+      if (backdrop) {
+        backdrop.style.display = 'block';
+        // Trigger reflow to enable transition
+        backdrop.offsetHeight;
+        backdrop.style.opacity = '1';
+      }
+      
+      // Update toggle buttons
+      document.querySelectorAll(selectors.sourcesToggle).forEach(toggle => {
+        toggle.setAttribute('data-active', 'true');
+        if (toggle.hasAttribute('aria-expanded')) {
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+        
+        // Update text if needed
+        if (toggle.textContent.includes('Show') || toggle.textContent.includes('show')) {
+          const hideText = translate('hide-sources') || 'Hide Sources';
+          const iconSpan = toggle.querySelector('.claude-sources-toggle-icon');
+          if (iconSpan) {
+            toggle.innerHTML = `<span class="claude-sources-toggle-icon">⬇</span> ${hideText}`;
+          } else {
+            toggle.textContent = hideText;
+          }
+        }
+      });
+    } else {
+      // Hide panel
+      sourcesPanel.classList.remove('active');
+      
+      // Hide backdrop
+      if (backdrop) {
+        backdrop.style.opacity = '0';
+        setTimeout(() => {
+          backdrop.style.display = 'none';
+        }, 300);
+      }
+      
+      // Update toggle buttons
+      document.querySelectorAll(selectors.sourcesToggle).forEach(toggle => {
+        toggle.setAttribute('data-active', 'false');
+        if (toggle.hasAttribute('aria-expanded')) {
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+        
+        // Update text if needed
+        if (toggle.textContent.includes('Hide') || toggle.textContent.includes('hide')) {
+          const showText = translate('show-sources') || 'Show Sources';
+          const iconSpan = toggle.querySelector('.claude-sources-toggle-icon');
+          if (iconSpan) {
+            toggle.innerHTML = `<span class="claude-sources-toggle-icon">⬆</span> ${showText}`;
+          } else {
+            toggle.textContent = showText;
+          }
+        }
+      });
+      
+      // Close any open overlays
+      closeAllOverlays();
+    }
+  }
+  
+  // Open video overlay
+  function openVideoOverlay(videoId, startTime, title) {
+    const overlayContainer = ensureOverlayContainer();
+    
+    // Create overlay structure
+    const overlay = document.createElement('div');
+    overlay.className = 'claude-overlay claude-video-overlay active';
+    overlay.id = 'video-overlay-' + Date.now();
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', 'overlay-title-' + Date.now());
+    
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+    overlay.style.zIndex = '2001';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    
+    const overlayContent = document.createElement('div');
+    overlayContent.className = 'claude-overlay-content';
+    overlayContent.style.backgroundColor = 'white';
+    overlayContent.style.borderRadius = '8px';
+    overlayContent.style.maxWidth = '90%';
+    overlayContent.style.width = '800px';
+    overlayContent.style.maxHeight = '90vh';
+    overlayContent.style.display = 'flex';
+    overlayContent.style.flexDirection = 'column';
+    overlayContent.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+    overlayContent.style.overflow = 'hidden';
+    
+    // Create header
+    const header = document.createElement('div');
+    header.className = 'claude-overlay-header';
+    header.style.padding = '16px';
+    header.style.borderBottom = '1px solid #eee';
+    header.style.display = 'flex';
+    header.style.justifyContent = 'space-between';
+    header.style.alignItems = 'center';
+    
+    const overlayTitle = document.createElement('h2');
+    overlayTitle.className = 'claude-overlay-title';
+    overlayTitle.id = 'overlay-title-' + Date.now();
+    overlayTitle.textContent = title || 'Video';
+    overlayTitle.style.margin = '0';
+    overlayTitle.style.fontSize = '1.25rem';
+    
+    const closeButton = document.createElement('button');
+    closeButton.className = 'claude-overlay-close';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close overlay');
+    closeButton.style.background = 'none';
+    closeButton.style.border = 'none';
+    closeButton.style.fontSize = '24px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.padding = '4px 8px';
+    
+    closeButton.onclick = function() {
+      closeOverlay(overlay);
+    };
+    
+    header.appendChild(overlayTitle);
+    header.appendChild(closeButton);
+    
+    // Create body with video
+    const body = document.createElement('div');
+    body.className = 'claude-overlay-body';
+    body.style.padding = '0';
+    body.style.flex = '1';
+    body.style.overflowY = 'auto';
+    
+    const videoContainer = document.createElement('div');
+    videoContainer.className = 'claude-video-container';
+    videoContainer.style.position = 'relative';
+    videoContainer.style.paddingTop = '56.25%'; // 16:9 aspect ratio
+    videoContainer.style.width = '100%';
+    videoContainer.style.backgroundColor = '#000';
+    
+    videoContainer.innerHTML = `
+      <iframe 
+        src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(startTime)}&autoplay=1" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen 
+        title="${title || 'Video'}"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+      ></iframe>
+    `;
+    
+    body.appendChild(videoContainer);
+    
+    // Assemble overlay
+    overlayContent.appendChild(header);
+    overlayContent.appendChild(body);
+    overlay.appendChild(overlayContent);
+    
+    // Add to container
+    overlayContainer.innerHTML = ''; // Clear any existing overlays
+    overlayContainer.style.display = 'block';
+    overlayContainer.appendChild(overlay);
+    
+    // Add keyboard/click handlers
+    addOverlayKeyboardHandling(overlay);
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+    
+    return overlay;
+  }
+  
+  // Open transcript overlay
+  function openTranscriptOverlay(videoId, startTime, title) {
+    const overlayContainer = ensureOverlayContainer();
+    
+    // Create overlay structure
+    const overlay = document.createElement('div');
+    overlay.className = 'claude-overlay claude-transcript-overlay active';
+    overlay.id = 'transcript-overlay-' + Date.now();
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', 'overlay-title-transcript-' + Date.now());
+    
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+    overlay.style.zIndex = '2001';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    
+    const overlayContent = document.createElement('div');
+    overlayContent.className = 'claude-overlay-content';
+    overlayContent.style.backgroundColor = 'white';
+    overlayContent.style.borderRadius = '8px';
+    overlayContent.style.maxWidth = '90%';
+    overlayContent.style.width = '800px';
+    overlayContent.style.maxHeight = '90vh';
+    overlayContent.style.display = 'flex';
+    overlayContent.style.flexDirection = 'column';
+    overlayContent.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+    overlayContent.style.overflow = 'hidden';
+    
+    // Create header
+    const header = document.createElement('div');
+    header.className = 'claude-overlay-header';
+    header.style.padding = '16px';
+    header.style.borderBottom = '1px solid #eee';
+    header.style.display = 'flex';
+    header.style.justifyContent = 'space-between';
+    header.style.alignItems = 'center';
+    
+    const overlayTitle = document.createElement('h2');
+    overlayTitle.className = 'claude-overlay-title';
+    overlayTitle.id = 'overlay-title-transcript-' + Date.now();
+    overlayTitle.textContent = (title ? title + ' - ' : '') + 'Transcript';
+    overlayTitle.style.margin = '0';
+    overlayTitle.style.fontSize = '1.25rem';
+    
+    const closeButton = document.createElement('button');
+    closeButton.className = 'claude-overlay-close';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close overlay');
+    closeButton.style.background = 'none';
+    closeButton.style.border = 'none';
+    closeButton.style.fontSize = '24px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.padding = '4px 8px';
+    
+    closeButton.onclick = function() {
+      closeOverlay(overlay);
+    };
+    
+    header.appendChild(overlayTitle);
+    header.appendChild(closeButton);
+    
+    // Create body with loading indicator
+    const body = document.createElement('div');
+    body.className = 'claude-overlay-body';
+    body.style.padding = '20px';
+    body.style.flex = '1';
+    body.style.overflowY = 'auto';
+    
+    body.innerHTML = `
+      <div class="claude-transcript-loading" style="text-align: center; padding: 40px;">
+        ${translate ? translate('loading-transcript') : 'Loading transcript...'}
+      </div>
+    `;
+    
+    // Assemble overlay
+    overlayContent.appendChild(header);
+    overlayContent.appendChild(body);
+    overlay.appendChild(overlayContent);
+    
+    // Add to container
+    overlayContainer.innerHTML = ''; // Clear any existing overlays
+    overlayContainer.style.display = 'block';
+    overlayContainer.appendChild(overlay);
+    
+    // Add keyboard/click handlers
+    addOverlayKeyboardHandling(overlay);
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+    
+    // Fetch transcript and update overlay
+    fetchTranscript(videoId, startTime).then(data => {
+      updateTranscriptOverlay(body, data, startTime, videoId);
+    }).catch(error => {
+      body.innerHTML = `
+        <div class="claude-transcript-error" style="color: #e74c3c; padding: 20px; background-color: #fff3f3; border-radius: 4px;">
+          Error loading transcript: ${error.message}
+        </div>
+        <button class="retry-button" style="margin: 20px auto; display: block; padding: 8px 16px; background-color: #f1f1f1; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">
+          Try Again
+        </button>
+      `;
+      
+      const retryButton = body.querySelector('.retry-button');
+      if (retryButton) {
+        retryButton.addEventListener('click', function() {
+          body.innerHTML = `<div class="claude-transcript-loading" style="text-align: center; padding: 40px;">Loading transcript...</div>`;
+          fetchTranscript(videoId, startTime).then(data => {
+            updateTranscriptOverlay(body, data, startTime, videoId);
+          }).catch(error => {
+            body.innerHTML = `<div class="claude-transcript-error" style="color: #e74c3c; padding: 20px;">Error loading transcript: ${error.message}</div>`;
+          });
+        });
+      }
+    });
+    
+    return overlay;
+  }
+  
+  // Open text overlay
+  function openSourceTextOverlay(text, title) {
+    const overlayContainer = ensureOverlayContainer();
+    
+    // Create overlay structure
+    const overlay = document.createElement('div');
+    overlay.className = 'claude-overlay claude-text-overlay active';
+    overlay.id = 'text-overlay-' + Date.now();
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', 'overlay-title-text-' + Date.now());
+    
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+    overlay.style.zIndex = '2001';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    
+    const overlayContent = document.createElement('div');
+    overlayContent.className = 'claude-overlay-content';
+    overlayContent.style.backgroundColor = 'white';
+    overlayContent.style.borderRadius = '8px';
+    overlayContent.style.maxWidth = '90%';
+    overlayContent.style.width = '800px';
+    overlayContent.style.maxHeight = '90vh';
+    overlayContent.style.display = 'flex';
+    overlayContent.style.flexDirection = 'column';
+    overlayContent.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+    overlayContent.style.overflow = 'hidden';
+    
+    // Create header
+    const header = document.createElement('div');
+    header.className = 'claude-overlay-header';
+    header.style.padding = '16px';
+    header.style.borderBottom = '1px solid #eee';
+    header.style.display = 'flex';
+    header.style.justifyContent = 'space-between';
+    header.style.alignItems = 'center';
+    
+    const overlayTitle = document.createElement('h2');
+    overlayTitle.className = 'claude-overlay-title';
+    overlayTitle.id = 'overlay-title-text-' + Date.now();
+    overlayTitle.textContent = (title || 'Sermon Text');
+    overlayTitle.style.margin = '0';
+    overlayTitle.style.fontSize = '1.25rem';
+    
+    const closeButton = document.createElement('button');
+    closeButton.className = 'claude-overlay-close';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close overlay');
+    closeButton.style.background = 'none';
+    closeButton.style.border = 'none';
+    closeButton.style.fontSize = '24px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.padding = '4px 8px';
+    
+    closeButton.onclick = function() {
+      closeOverlay(overlay);
+    };
+    
+    header.appendChild(overlayTitle);
+    header.appendChild(closeButton);
+    
+    // Create body with text
+    const body = document.createElement('div');
+    body.className = 'claude-overlay-body';
+    body.style.padding = '20px';
+    body.style.flex = '1';
+    body.style.overflowY = 'auto';
+    
+    const textContainer = document.createElement('div');
+    textContainer.className = 'claude-source-text claude-text-overlay-content';
+    textContainer.style.fontSize = '1rem';
+    textContainer.style.lineHeight = '1.6';
+    textContainer.style.color = '#333';
+    textContainer.style.whiteSpace = 'pre-wrap';
+    textContainer.innerHTML = `"${formatText(text)}"`;
+    
+    body.appendChild(textContainer);
+    
+    // Assemble overlay
+    overlayContent.appendChild(header);
+    overlayContent.appendChild(body);
+    overlay.appendChild(overlayContent);
+    
+    // Add to container
+    overlayContainer.innerHTML = ''; // Clear any existing overlays
+    overlayContainer.style.display = 'block';
+    overlayContainer.appendChild(overlay);
+    
+    // Add keyboard/click handlers
+    addOverlayKeyboardHandling(overlay);
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+    
+    return overlay;
+  }
+  
+  // Close overlay
+  function closeOverlay(overlay) {
+    if (!overlay) return;
+    
+    overlay.classList.remove('active');
+    
+    // Remove after animation
+    setTimeout(() => {
+      if (overlay.parentNode) {
+        overlay.parentNode.removeChild(overlay);
+      }
+      
+      // Check if there are any other active overlays
+      const activeOverlays = document.querySelectorAll('.claude-overlay.active');
+      if (activeOverlays.length === 0) {
+        // Restore body scrolling only if no other overlays are active
+        document.body.style.overflow = '';
+        
+        // Hide overlay container
+        const overlayContainer = document.getElementById('claude-overlay-container');
+        if (overlayContainer) {
+          overlayContainer.style.display = 'none';
+        }
+      }
+    }, 300);
+  }
+  
+  // Close all overlays
+  function closeAllOverlays() {
+    const overlays = document.querySelectorAll('.claude-overlay');
+    overlays.forEach(overlay => {
+      closeOverlay(overlay);
+    });
+    
+    // Restore body scrolling
+    document.body.style.overflow = '';
+    
+    // Hide overlay container
+    const overlayContainer = document.getElementById('claude-overlay-container');
+    if (overlayContainer) {
+      overlayContainer.style.display = 'none';
+    }
+  }
+  
+  // Add keyboard navigation for overlays
+  function addOverlayKeyboardHandling(overlay) {
+    if (!overlay) return;
+    
+    // Close on ESC key
+    overlay.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeOverlay(overlay);
+      }
+    });
+    
+    // Close when clicking outside the content
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeOverlay(overlay);
+      }
+    });
+    
+    // Find all focusable elements
+    const focusableElements = overlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    
+    if (focusableElements.length > 0) {
+      // Focus first element after a short delay (for animation)
+      setTimeout(() => {
+        focusableElements[0].focus();
+      }, 100);
+      
+      // Trap focus within overlay for accessibility
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      
+      overlay.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+          // Shift+Tab pressed and first element is focused
+          if (e.shiftKey && document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          } 
+          // Tab pressed and last element is focused
+          else if (!e.shiftKey && document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      });
+    }
+  }
+  
+  // Update transcript overlay with fetched data
+  function updateTranscriptOverlay(container, data, startTime, videoId) {
+    if (!container || !data) return;
+    
+    container.innerHTML = '';
+    
+    // Check if transcript data is valid
+    if (!data.segments && !data.transcript) {
+      container.innerHTML = '<div class="claude-transcript-error" style="color: #e74c3c; padding: 20px;">Transcript data not available</div>';
+      return;
+    }
+    
+    // If there's a note (like language unavailability), display it
+    if (data.note) {
+      const noteElement = document.createElement('div');
+      noteElement.className = 'claude-transcript-note';
+      noteElement.style.padding = '10px';
+      noteElement.style.backgroundColor = '#fff9e6';
+      noteElement.style.borderLeft = '3px solid #f1c40f';
+      noteElement.style.marginBottom = '15px';
+      noteElement.innerHTML = `<p><em>${data.note}</em></p>`;
+      container.appendChild(noteElement);
+    }
+    
+    // Create overall container with flex layout
+    const transcriptContainer = document.createElement('div');
+    transcriptContainer.className = 'claude-transcript-container';
+    
+    // Add transcript search
+    const searchContainer = document.createElement('div');
+    searchContainer.className = 'claude-transcript-search-sticky';
+    searchContainer.style.position = 'sticky';
+    searchContainer.style.top = '0';
+    searchContainer.style.zIndex = '10';
+    searchContainer.style.backgroundColor = 'white';
+    searchContainer.style.padding = '10px 0';
+    searchContainer.style.marginBottom = '15px';
+    
+    searchContainer.innerHTML = `
+      <div class="claude-transcript-search" style="display: flex; gap: 10px;">
+        <input type="text" class="claude-transcript-search-input" placeholder="${translate ? translate('search-in-transcript') : 'Search in transcript'}..." 
+               style="flex: 1; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px;">
+        <button class="claude-transcript-search-button" 
+                style="padding: 8px 16px; background-color: #2ea3f2; color: white; border: none; border-radius: 4px; cursor: pointer;">
+          ${translate ? translate('search') : 'Search'}
+        </button>
+      </div>
+    `;
+    
+    // Create transcript content area
+    const transcriptElement = document.createElement('div');
+    transcriptElement.className = 'claude-transcript';
+    
+    const transcriptContent = document.createElement('div');
+    transcriptContent.className = 'claude-transcript-content';
+    
+    // Process segmented transcript with timestamps
+    if (data.segments && Array.isArray(data.segments)) {
+      let highlightedSegmentId = null;
+      
+      data.segments.forEach((segment, index) => {
+        // Skip gap segments
+        if (segment.is_gap) {
+          const gapElement = document.createElement('div');
+          gapElement.className = 'claude-transcript-gap';
+          gapElement.style.padding = '5px 0';
+          gapElement.style.color = '#888';
+          gapElement.style.textAlign = 'center';
+          gapElement.innerHTML = '[...]';
+          transcriptContent.appendChild(gapElement);
+          return;
+        }
+        
+        const segmentElement = document.createElement('div');
+        segmentElement.className = 'claude-transcript-segment';
+        segmentElement.id = `overlay-transcript-segment-${index}`;
+        segmentElement.setAttribute('data-time', segment.start_time);
+        segmentElement.style.display = 'flex';
+        segmentElement.style.margin = '8px 0';
+        segmentElement.style.padding = '4px';
+        segmentElement.style.borderRadius = '4px';
+        segmentElement.style.transition = 'background-color 0.2s ease';
+        
+        // Highlight segments close to the start time
+        if (Math.abs(segment.start_time - startTime) < 10) {
+          segmentElement.classList.add('claude-transcript-highlight');
+          segmentElement.style.backgroundColor = 'rgba(46, 163, 242, 0.1)';
+          segmentElement.style.borderLeft = '3px solid #2ea3f2';
+          segmentElement.style.paddingLeft = '8px';
+          highlightedSegmentId = segmentElement.id;
+        }
+        
+        // Make timestamps clickable and linked to video
+        const timestampElement = document.createElement('div');
+        timestampElement.className = 'claude-transcript-timestamp';
+        timestampElement.textContent = formatTimestamp(segment.start_time);
+        timestampElement.setAttribute('role', 'button');
+        timestampElement.setAttribute('tabindex', '0');
+        timestampElement.setAttribute('aria-label', `Jump to ${formatTimestamp(segment.start_time)}`);
+        timestampElement.setAttribute('data-time', segment.start_time);
+        timestampElement.setAttribute('data-video-id', videoId);
+        timestampElement.style.flex = '0 0 60px';
+        timestampElement.style.color = '#777';
+        timestampElement.style.fontSize = '0.9rem';
+        timestampElement.style.fontFamily = 'monospace';
+        timestampElement.style.fontWeight = 'bold';
+        timestampElement.style.cursor = 'pointer';
+        
+        // Add click handler for timestamp
+        timestampElement.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const vidId = this.getAttribute('data-video-id');
+          if (vidId && time) {
+            const currentOverlay = document.querySelector('.claude-overlay.active');
+            closeOverlay(currentOverlay);
+            openVideoOverlay(vidId, Math.floor(time), 'Video at ' + formatTimestamp(time));
+          }
+        });
+        
+        // Add keyboard handler
+        timestampElement.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+        
+        const textElement = document.createElement('div');
+        textElement.className = 'claude-transcript-text';
+        textElement.textContent = segment.text;
+        textElement.style.flex = '1';
+        textElement.style.lineHeight = '1.5';
+        
+        segmentElement.appendChild(timestampElement);
+        segmentElement.appendChild(textElement);
+        transcriptContent.appendChild(segmentElement);
+      });
+      
+      // Add content to transcript element
+      transcriptElement.appendChild(transcriptContent);
+      
+      // Add search and transcript to container
+      transcriptContainer.appendChild(searchContainer);
+      transcriptContainer.appendChild(transcriptElement);
+      container.appendChild(transcriptContainer);
+      
+      // Set up search functionality
+      const searchInput = searchContainer.querySelector('.claude-transcript-search-input');
+      const searchButton = searchContainer.querySelector('.claude-transcript-search-button');
+      
+      // Add event listeners for search
+      if (searchInput && searchButton) {
+        searchButton.addEventListener('click', function() {
+          searchTranscript(searchInput.value, transcriptContent);
+        });
+        
+        searchInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            searchTranscript(searchInput.value, transcriptContent);
+          }
+        });
+      }
+      
+      // Scroll to highlighted segment
+      if (highlightedSegmentId) {
+        setTimeout(() => {
+          const highlightedElement = document.getElementById(highlightedSegmentId);
+          if (highlightedElement) {
+            highlightedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 300);
+      }
+    } 
+    else if (data.transcript) {
+      // Handle plain text transcript
+      const textContainer = document.createElement('div');
+      textContainer.className = 'claude-transcript-content claude-transcript-plain-text';
+      textContainer.style.lineHeight = '1.6';
+      textContainer.style.color = '#333';
+      
+      textContainer.innerHTML = data.transcript
+        .split('\n\n')
+        .map(para => `<p>${para}</p>`)
+        .join('');
+      
+      transcriptElement.appendChild(textContainer);
+      transcriptContainer.appendChild(searchContainer);
+      transcriptContainer.appendChild(transcriptElement);
+      container.appendChild(transcriptContainer);
+      
+      // Set up search functionality
+      const searchInput = searchContainer.querySelector('.claude-transcript-search-input');
+      const searchButton = searchContainer.querySelector('.claude-transcript-search-button');
+      
+      // Add event listeners for search
+      if (searchInput && searchButton) {
+        searchButton.addEventListener('click', function() {
+          searchTranscript(searchInput.value, textContainer);
+        });
+        
+        searchInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            searchTranscript(searchInput.value, textContainer);
+          }
+        });
+      }
+    } 
+    else {
+      container.innerHTML = '<div class="claude-transcript-error" style="color: #e74c3c; padding: 20px;">Transcript format unknown</div>';
+    }
+    
+    // Add download transcript button
+    const downloadButton = document.createElement('button');
+    downloadButton.className = 'claude-transcript-download';
+    downloadButton.textContent = translate ? translate('download-transcript') : 'Download Transcript';
+    downloadButton.setAttribute('aria-label', translate ? translate('download-transcript') : 'Download Transcript');
+    downloadButton.style.marginTop = '20px';
+    downloadButton.style.padding = '8px 16px';
+    downloadButton.style.backgroundColor = '#f8f9fa';
+    downloadButton.style.border = '1px solid #ddd';
+    downloadButton.style.borderRadius = '4px';
+    downloadButton.style.cursor = 'pointer';
+    downloadButton.style.display = 'block';
+    
+    downloadButton.addEventListener('click', function() {
+      downloadTranscript(data, videoId);
+    });
+    
+    container.appendChild(downloadButton);
+  }
+  
+  // Search transcript for matching text
+  function searchTranscript(query, container) {
+    if (!query || !container) return;
+    
+    // Remove existing highlights and match counts
+    const existingHighlights = container.querySelectorAll('.search-highlight');
+    existingHighlights.forEach(highlight => {
+      const textNode = document.createTextNode(highlight.textContent);
+      highlight.parentNode.replaceChild(textNode, highlight);
+    });
+    
+    const existingCount = container.querySelector('.claude-transcript-match-count');
+    if (existingCount) {
+      existingCount.remove();
+    }
+    
+    if (!query.trim()) return;
+    
+    // Create a case-insensitive regex
+    try {
+      const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+      const segments = container.querySelectorAll('.claude-transcript-segment');
+      let matchCount = 0;
+      let firstMatchElement = null;
+      
+      segments.forEach(segment => {
+        const textElement = segment.querySelector('.claude-transcript-text');
+        if (!textElement) return;
+        
+        const originalText = textElement.textContent;
+        let match;
+        let lastIndex = 0;
+        let hasMatches = false;
+        let newHtml = '';
+        
+        while ((match = regex.exec(originalText)) !== null) {
+          hasMatches = true;
+          matchCount++;
+          
+          if (!firstMatchElement) {
+            firstMatchElement = segment;
+          }
+          
+          // Add text before match
+          newHtml += originalText.substring(lastIndex, match.index);
+          
+          // Add highlighted match
+          newHtml += `<span class="search-highlight" style="background-color: #ffeb3b; font-weight: bold;">${match[0]}</span>`;
+          
+          // Update lastIndex
+          lastIndex = regex.lastIndex;
+        }
+        
+        // Add remaining text
+        if (lastIndex < originalText.length) {
+          newHtml += originalText.substring(lastIndex);
+        }
+        
+        // Update text element if matches found
+        if (hasMatches) {
+          textElement.innerHTML = newHtml;
+        }
+      });
+      
+      // Add match count
+      const matchCountElement = document.createElement('div');
+      matchCountElement.className = 'claude-transcript-match-count';
+      matchCountElement.style.padding = '8px 16px';
+      matchCountElement.style.backgroundColor = '#f0f0f0';
+      matchCountElement.style.borderRadius = '4px';
+      matchCountElement.style.margin = '0 0 16px 0';
+      matchCountElement.style.fontWeight = '500';
+      
+      matchCountElement.textContent = matchCount > 0 
+        ? `${matchCount} ${translate ? translate('matches-found') : 'matches found'}`
+        : `${translate ? translate('no-matches-found') : 'No matches found'}`;
+      
+      // Insert count at top
+      container.insertBefore(matchCountElement, container.firstChild);
+      
+      // Scroll to first match
+      if (firstMatchElement) {
+        firstMatchElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } catch (error) {
+      console.error('Error in search:', error);
+    }
+  }
+  
+  // Format timestamp to MM:SS
+  function formatTimestamp(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+  
+  // Fetch transcript data
+  async function fetchTranscript(videoId, startTime = 0) {
+    try {
+      console.log(`Fetching transcript for video ${videoId}`);
+      
+      // Get current language - default to 'en' if not available
+      const currentLanguage = window.currentLanguage || 'en';
+      
+      // Get API URL - default if not available
+      const API_URL = window.API_URL || 'https://sermon-search-api-8fok.onrender.com';
+      
+      const response = await fetch(`${API_URL}/transcript/${videoId}?language=${currentLanguage}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Origin': window.location.origin,
+          'Accept-Language': currentLanguage
+        },
+        mode: 'cors'
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch transcript: ${response.status} ${response.statusText}`);
+      }
+      
+      const data = await response.json();
+      console.log('Received transcript data:', data);
+      
+      return data;
+    } catch (error) {
+      console.error('Error fetching transcript:', error);
+      throw error;
+    }
+  }
+  
+  // Format text (escape HTML and highlight Bible references)
+  function formatText(text) {
+    if (!text) return '';
+    
+    // Get current language - default to 'en' if not available
+    const currentLanguage = window.currentLanguage || 'en';
+    
+    // First escape HTML
+    text = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+    
+    // Then highlight Bible references based on language
+    const bibleRefRegexByLanguage = {
+      en: /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi,
+      
+      es: /\b(Génesis|Éxodo|Levítico|Números|Deuteronomio|Josué|Jueces|Rut|1 Samuel|2 Samuel|1 Reyes|2 Reyes|1 Crónicas|2 Crónicas|Esdras|Nehemías|Ester|Job|Salmos|Salmo|Proverbios|Eclesiastés|Cantares|Cantar de los Cantares|Isaías|Jeremías|Lamentaciones|Ezequiel|Daniel|Oseas|Joel|Amós|Abdías|Jonás|Miqueas|Nahúm|Habacuc|Sofonías|Hageo|Zacarías|Malaquías|Mateo|Marcos|Lucas|Juan|Hechos|Romanos|1 Corintios|2 Corintios|Gálatas|Efesios|Filipenses|Colosenses|1 Tesalonicenses|2 Tesalonicenses|1 Timoteo|2 Timoteo|Tito|Filemón|Hebreos|Santiago|1 Pedro|2 Pedro|1 Juan|2 Juan|3 Juan|Judas|Apocalipsis)\s+\d+(?::\d+(?:-\d+)?)?/gi,
+      
+      zh: /\b(创世记|出埃及记|利未记|民数记|申命记|约书亚记|士师记|路得记|撒母耳记上|撒母耳记下|列王纪上|列王纪下|历代志上|历代志下|以斯拉记|尼希米记|以斯帖记|约伯记|诗篇|箴言|传道书|雅歌|以赛亚书|耶利米书|耶利米哀歌|以西结书|但以理书|何西阿书|约珥书|阿摩司书|俄巴底亚书|约拿书|弥迦书|那鸿书|哈巴谷书|西番雅书|哈该书|撒迦利亚书|玛拉基书|马太福音|马可福音|路加福音|约翰福音|使徒行传|罗马书|哥林多前书|哥林多后书|加拉太书|以弗所书|腓立比书|歌罗西书|帖撒罗尼迦前书|帖撒罗尼迦后书|提摩太前书|提摩太后书|提多书|腓利门书|希伯来书|雅各书|彼得前书|彼得后书|约翰一书|约翰二书|约翰三书|犹大书|启示录)\s*\d+(?::\d+(?:-\d+)?)?/gi
+    };
+    
+    const regex = bibleRefRegexByLanguage[currentLanguage] || bibleRefRegexByLanguage.en;
+    
+    return text.replace(regex, '<span class="bible-reference" style="color: #2ea3f2; font-weight: 600; cursor: pointer; background-color: rgba(46, 163, 242, 0.05);">$&</span>');
+  }
+  
+  // Download transcript as text file
+  function downloadTranscript(data, videoId) {
+    if (!data) return;
+    
+    let content = '';
+    let filename = 'sermon-transcript.txt';
+    
+    // Try to get sermon title for filename
+    const sourceElements = document.querySelectorAll('.claude-source-item, .source-container');
+    for (const sourceElement of sourceElements) {
+      if (sourceElement.getAttribute('data-video-id') === videoId) {
+        const titleElement = sourceElement.querySelector('.claude-source-title, .source-title');
+        if (titleElement && titleElement.textContent) {
+          filename = titleElement.textContent.trim().replace(/[^\w\s-]/g, '') + '-transcript.txt';
+          content += `Sermon: ${titleElement.textContent.trim()}\n`;
+          content += `Video ID: ${videoId}\n\n`;
+          break;
+        }
+      }
+    }
+    
+    // Add date if available
+    const dateElement = document.querySelector('.claude-source-date, .source-date');
+    if (dateElement && dateElement.textContent) {
+      content += `Date: ${dateElement.textContent.trim()}\n\n`;
+    }
+    
+    // Format transcript content
+    if (data.segments && Array.isArray(data.segments)) {
+      content += 'TRANSCRIPT:\n\n';
+      
+      data.segments.forEach(segment => {
+        if (segment.is_gap) {
+          content += '[...]\n\n';
+        } else {
+          content += `[${formatTimestamp(segment.start_time)}] ${segment.text}\n\n`;
+        }
+      });
+    } else if (data.transcript) {
+      content += data.transcript;
+    } else {
+      content += 'No transcript data available.';
+    }
+    
+    // Create and download file
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    
+    document.body.appendChild(a);
+    a.click();
+    
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+  
+  // Add CSS for modal functionality
+  function addModalStyles() {
+    const styleElement = document.createElement('style');
+    styleElement.id = 'sermon-sources-modal-styles';
+    
+    styleElement.textContent = `
+      /* Overlay styles */
+      .claude-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 2001;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .claude-overlay.active {
+        opacity: 1;
+      }
+      
+      .claude-overlay-content {
+        background-color: white;
+        border-radius: 8px;
+        max-width: 90%;
+        width: 800px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+      }
+      
+      .claude-overlay.active .claude-overlay-content {
+        transform: translateY(0);
+      }
+      
+      .claude-overlay-header {
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .claude-overlay-title {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      
+      .claude-overlay-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 4px 8px;
+      }
+      
+      .claude-overlay-body {
+        padding: 20px;
+        flex: 1;
+        overflow-y: auto;
+      }
+      
+      .claude-video-container {
+        position: relative;
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+        width: 100%;
+        background-color: #000;
+      }
+      
+      .claude-video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      
+      /* Transcript styles */
+      .claude-transcript-segment {
+        display: flex;
+        margin: 8px 0;
+        padding: 4px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+      
+      .claude-transcript-segment:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      
+      .claude-transcript-highlight {
+        background-color: rgba(46, 163, 242, 0.1);
+        border-left: 3px solid #2ea3f2;
+        padding-left: 8px;
+      }
+      
+      .claude-transcript-timestamp {
+        flex: 0 0 60px;
+        color: #777;
+        font-size: 0.9rem;
+        font-family: monospace;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .claude-transcript-text {
+        flex: 1;
+        line-height: 1.5;
+      }
+      
+      .claude-transcript-search {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      
+      .claude-transcript-search-input {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      
+      .claude-transcript-search-button {
+        padding: 8px 16px;
+        background-color: #2ea3f2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .claude-transcript-match-count {
+        padding: 8px 16px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+      
+      .search-highlight {
+        background-color: #ffeb3b;
+        font-weight: bold;
+      }
+      
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .claude-overlay-content {
+          width: 95%;
+          max-height: 80vh;
+        }
+        
+        .claude-transcript-search {
+          flex-direction: column;
+        }
+        
+        .claude-transcript-segment {
+          flex-direction: column;
+        }
+        
+        .claude-transcript-timestamp {
+          margin-bottom: 4px;
+        }
+      }
+    `;
+    
+    document.head.appendChild(styleElement);
+  }
+  
+  // Initialize modal functionality
+  function init() {
+    // Initialize elements
+    cacheElements();
+    
+    // Ensure required containers exist
+    ensureOverlayContainer();
+    ensureBackdrop();
+    
+    // Add modal styles
+    addModalStyles();
+    
+    // Setup sources panel toggle
+    document.addEventListener('click', function(e) {
+      const toggleButton = e.target.closest(selectors.sourcesToggle);
+      if (toggleButton) {
+        toggleSourcesPanel();
+      }
+    });
+    
+    // Setup source view full text buttons
+    document.addEventListener('click', function(e) {
+      const viewFullButton = e.target.closest(selectors.sourceViewFullText);
+      if (viewFullButton) {
+        e.preventDefault();
+        const sourceItem = viewFullButton.closest(selectors.sourceItem);
+        if (sourceItem) {
+          const textElement = sourceItem.querySelector('.claude-source-text, .source-text');
+          const titleElement = sourceItem.querySelector('.claude-source-title, .source-title');
+          
+          if (textElement) {
+            const text = textElement.textContent.trim();
+            const title = titleElement ? titleElement.textContent.trim() : '';
+            openSourceTextOverlay(text, title);
+          }
+        }
+      }
+    });
+    
+    // Setup watch video buttons
+    document.addEventListener('click', function(e) {
+      const watchButton = e.target.closest(selectors.watchButton);
+      if (watchButton && watchButton.tagName === 'BUTTON' && !watchButton.getAttribute('onclick')) {
+        e.preventDefault();
+        const sourceItem = watchButton.closest(selectors.sourceItem);
+        if (sourceItem) {
+          const videoId = sourceItem.getAttribute('data-video-id');
+          const titleElement = sourceItem.querySelector('.claude-source-title, .source-title');
+          const startTimeElement = sourceItem.querySelector('[data-time]');
+          
+          if (videoId) {
+            const title = titleElement ? titleElement.textContent.trim() : '';
+            const startTime = startTimeElement ? parseInt(startTimeElement.getAttribute('data-time')) : 0;
+            openVideoOverlay(videoId, startTime, title);
+          }
+        }
+      }
+    });
+    
+    // Setup transcript buttons
+    document.addEventListener('click', function(e) {
+      const transcriptButton = e.target.closest(selectors.transcriptButton);
+      if (transcriptButton && transcriptButton.tagName === 'BUTTON' && !transcriptButton.getAttribute('onclick')) {
+        e.preventDefault();
+        const sourceItem = transcriptButton.closest(selectors.sourceItem);
+        if (sourceItem) {
+          const videoId = sourceItem.getAttribute('data-video-id');
+          const titleElement = sourceItem.querySelector('.claude-source-title, .source-title');
+          const startTimeElement = sourceItem.querySelector('[data-time]');
+          
+          if (videoId) {
+            const title = titleElement ? titleElement.textContent.trim() : '';
+            const startTime = startTimeElement ? parseInt(startTimeElement.getAttribute('data-time')) : 0;
+            openTranscriptOverlay(videoId, startTime, title);
+          }
+        }
+      }
+    });
+    
+    // Setup close button
+    document.addEventListener('click', function(e) {
+      const closeButton = e.target.closest(selectors.closeButton);
+      if (closeButton) {
+        e.preventDefault();
+        toggleSourcesPanel(false);
+      }
+    });
+    
+    // Setup global ESC key handler
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        // Check if any overlay is active
+        const activeOverlay = document.querySelector('.claude-overlay.active');
+        if (activeOverlay) {
+          closeOverlay(activeOverlay);
+        } else {
+          // Otherwise close sources panel
+          toggleSourcesPanel(false);
+        }
+      }
+    });
+    
+    // Override existing functions if present to use our implementation
+    if (window.toggleVideo) {
+      window.originalToggleVideo = window.toggleVideo;
+    }
+    
+    window.toggleVideo = function(button) {
+      try {
+        if (!button || !button.parentElement) {
+          console.error('Invalid button element for toggleVideo');
+          return;
+        }
+        
+        const videoEmbed = button.parentElement.nextElementSibling;
+        if (!videoEmbed || !videoEmbed.classList.contains('video-embed')) {
+          console.error('Could not find video embed element');
+          return;
+        }
+        
+        const isHidden = videoEmbed.style.display === 'none';
+        
+        if (isHidden) {
+          // Instead of showing inline, open in overlay
+          const sourceItem = button.closest(selectors.sourceItem);
+          if (sourceItem) {
+            const videoId = sourceItem.getAttribute('data-video-id');
+            const titleElement = sourceItem.querySelector('.claude-source-title, .source-title');
+            const startTimeElement = sourceItem.querySelector('[data-time]');
+            
+            if (videoId) {
+              const title = titleElement ? titleElement.textContent.trim() : '';
+              const startTime = startTimeElement ? parseInt(startTimeElement.getAttribute('data-time')) : 0;
+              
+              // Extract start time from iframe if not found elsewhere
+              if (!startTime && videoEmbed) {
+                const iframe = videoEmbed.querySelector('iframe');
+                if (iframe && iframe.src) {
+                  const urlParams = new URLSearchParams(iframe.src.split('?')[1]);
+                  const start = urlParams.get('start');
+                  if (start) {
+                    openVideoOverlay(videoId, parseInt(start), title);
+                    return;
+                  }
+                }
+              }
+              
+              openVideoOverlay(videoId, startTime, title);
+            }
+          }
+        } else {
+          // Just hide the inline video
+          videoEmbed.style.display = 'none';
+          
+          // Update button text
+          const showText = typeof translate === 'function' ? translate('watch-video') : 'Watch Video';
+          button.textContent = showText;
+        }
+      } catch (error) {
+        console.error('Error in toggleVideo:', error);
+      }
+    };
+    
+    if (window.toggleTranscript) {
+      window.originalToggleTranscript = window.toggleTranscript;
+    }
+    
+    window.toggleTranscript = function(videoId, startTime = 0) {
+      try {
+        if (!videoId) {
+          console.error('Invalid videoId for toggleTranscript');
+          return;
+        }
+        
+        // Find the button
+        const button = document.querySelector(`.view-transcript-btn[onclick*="toggleTranscript('${videoId}')"]`);
+        
+        // Find the transcript container
+        const transcriptContainer = document.getElementById(`transcript-${videoId}`);
+        
+        if (!transcriptContainer) {
+          // Instead of loading inline, open in overlay
+          openTranscriptOverlay(videoId, startTime, '');
+          
+          // Update button text if found
+          if (button) {
+            const hideText = typeof translate === 'function' ? translate('hide-transcript') : 'Hide Transcript';
+            button.textContent = hideText;
+          }
+        } else {
+          // Toggle existing container
+          const isHidden = transcriptContainer.style.display === 'none';
+          
+          if (isHidden) {
+            // Instead of showing inline, open in overlay
+            openTranscriptOverlay(videoId, startTime, '');
+          } else {
+            // Just hide the inline transcript
+            transcriptContainer.style.display = 'none';
+            
+            // Update button text
+            if (button) {
+              const showText = typeof translate === 'function' ? translate('view-transcript') : 'View Transcript';
+              button.textContent = showText;
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Error in toggleTranscript:', error);
+      }
+    };
+    
+    // Make helper function available globally
+    window.toggleSourcesPanel = toggleSourcesPanel;
+    window.openVideoOverlay = openVideoOverlay;
+    window.openTranscriptOverlay = openTranscriptOverlay;
+    window.openSourceTextOverlay = openSourceTextOverlay;
+    window.closeOverlay = closeOverlay;
+  }
+  
+  // Helper function for translation if available
+  function translate(key) {
+    if (window.translate && typeof window.translate === 'function') {
+      return window.translate(key);
+    }
+    
+    // Fallback translations for common keys
+    const fallbackTranslations = {
+      'watch-video': 'Watch Video',
+      'hide-video': 'Hide Video',
+      'view-transcript': 'View Transcript',
+      'hide-transcript': 'Hide Transcript',
+      'open-youtube': 'Open in YouTube',
+      'show-sources': 'Show Sources',
+      'hide-sources': 'Hide Sources',
+      'loading-transcript': 'Loading transcript...',
+      'download-transcript': 'Download Transcript',
+      'search': 'Search',
+      'search-in-transcript': 'Search in transcript',
+      'matches-found': 'matches found',
+      'no-matches-found': 'No matches found'
+    };
+    
+    return fallbackTranslations[key] || key;
+  }
+  
+  // Initialize on page load
+  init();
+  
+  // Watch for DOM changes to setup handlers for dynamically added elements
+  const observer = new MutationObserver(function(mutations) {
+    let needsRefresh = false;
+    
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList' && mutation.addedNodes.length) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            // Check if this node or its children have any relevant elements
+            if (node.matches(Object.values(selectors).join(',')) || 
+                node.querySelector(Object.values(selectors).join(','))) {
+              needsRefresh = true;
+            }
+          }
+        });
+      }
+    });
+    
+    if (needsRefresh) {
+      // Refresh our element references
+      cacheElements();
+    }
+  });
 </script>
 <style>
   /* Focused chat experience with preserved sidebar functionality */
