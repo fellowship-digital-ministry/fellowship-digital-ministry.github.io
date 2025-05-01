@@ -3,11 +3,199 @@
  * Fellowship Digital Ministry
  */
 
+/**
+ * API Connection Module
+ * This handles all API connections with proper error handling
+ */
+const SermonAPI = {
+  // Base URL from Jekyll config with fallback
+  baseUrl: '{{ site.api_url }}' || 'https://sermon-search-api-8fok.onrender.com',
+  
+  /**
+   * Verify API connection
+   * @param {boolean} showFeedback - Whether to show feedback to the user
+   * @returns {Promise<boolean>} - Whether the connection was successful
+   */
+  async verifyConnection(showFeedback = false) {
+    console.log('Verifying API connection to:', this.baseUrl);
+    
+    // Show checking message if feedback is requested
+    if (showFeedback) {
+      const apiStatusBanner = document.getElementById('api-status-banner');
+      const apiStatusMessage = document.getElementById('api-status-message');
+      
+      if (apiStatusBanner && apiStatusMessage) {
+        apiStatusBanner.style.display = 'block';
+        apiStatusBanner.style.backgroundColor = '#f0f9ff';
+        apiStatusBanner.style.color = '#2ea3f2';
+        apiStatusMessage.textContent = 'Checking connection...';
+      }
+    }
+    
+    try {
+      // The original code was using a root endpoint without any path
+      // Let's ensure we're accessing the correct endpoint
+      const url = this.baseUrl.endsWith('/') ? this.baseUrl : `${this.baseUrl}/`;
+      
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Origin': window.location.origin
+        },
+        mode: 'cors'
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API connection failed with status: ${response.status}`);
+      }
+      
+      console.log('API connection successful');
+      
+      // Show success message if feedback was requested
+      if (showFeedback) {
+        const apiStatusBanner = document.getElementById('api-status-banner');
+        const apiStatusMessage = document.getElementById('api-status-message');
+        
+        if (apiStatusBanner && apiStatusMessage) {
+          apiStatusBanner.style.backgroundColor = '#f0fff4';
+          apiStatusBanner.style.color = '#2ecc71';
+          apiStatusMessage.textContent = 'Connected successfully!';
+          
+          // Hide after 3 seconds
+          setTimeout(() => {
+            apiStatusBanner.style.display = 'none';
+          }, 3000);
+        }
+      }
+      
+      return true;
+    } catch (error) {
+      console.error('API connection verification failed:', error);
+      
+      // Show error message if feedback was requested
+      if (showFeedback) {
+        const apiStatusBanner = document.getElementById('api-status-banner');
+        const apiStatusMessage = document.getElementById('api-status-message');
+        
+        if (apiStatusBanner && apiStatusMessage) {
+          apiStatusBanner.style.display = 'block';
+          apiStatusBanner.style.backgroundColor = '#fef2f2';
+          apiStatusBanner.style.color = '#b91c1c';
+          apiStatusMessage.textContent = 'API connection issue detected. Check your internet connection or try again later.';
+        }
+      } else {
+        // Display the error in the messages area if we're not already showing feedback
+        const messagesContainer = document.getElementById('messages');
+        if (messagesContainer) {
+          const errorElement = document.createElement('div');
+          errorElement.className = 'message bot error';
+          errorElement.innerHTML = `
+            <div class="connection-error">
+              <p>Sorry, I can't reach the sermon database right now. Please check your internet connection.</p>
+              <button class="retry-button">Try Again</button>
+            </div>
+          `;
+          messagesContainer.appendChild(errorElement);
+          
+          // Add click handler for retry button
+          const retryButton = errorElement.querySelector('.retry-button');
+          if (retryButton) {
+            retryButton.addEventListener('click', () => this.verifyConnection(true));
+          }
+        }
+      }
+      
+      return false;
+    }
+  },
+  
+  /**
+   * Send a query to the API
+   * @param {Object} queryData - The data to send
+   * @returns {Promise<Object>} - The API response
+   */
+  async sendQuery(queryData) {
+    // First check connection
+    const isConnected = await this.verifyConnection();
+    if (!isConnected) {
+      throw new Error('API connection failed');
+    }
+    
+    try {
+      // Create the URL without any trailing slashes
+      const url = this.baseUrl.endsWith('/') 
+        ? `${this.baseUrl.slice(0, -1)}/answer` 
+        : `${this.baseUrl}/answer`;
+      
+      console.log('Sending query to:', url);
+      
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Origin': window.location.origin,
+          'Accept-Language': queryData.language || 'en'
+        },
+        mode: 'cors',
+        body: JSON.stringify(queryData)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Query error:', error);
+      throw error;
+    }
+  },
+  
+  /**
+   * Fetch transcript for a video
+   * @param {string} videoId - The video ID
+   * @param {number} startTime - The start time
+   * @param {string} language - The language
+   * @returns {Promise<Object>} - The transcript data
+   */
+  async fetchTranscript(videoId, startTime = 0, language = 'en') {
+    try {
+      console.log(`Fetching transcript for video ${videoId} with language ${language}`);
+      
+      // Create the URL
+      const url = this.baseUrl.endsWith('/')
+        ? `${this.baseUrl.slice(0, -1)}/transcript/${videoId}?language=${language}`
+        : `${this.baseUrl}/transcript/${videoId}?language=${language}`;
+      
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Origin': window.location.origin,
+          'Accept-Language': language
+        },
+        mode: 'cors'
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch transcript: ${response.status} ${response.statusText}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching transcript:', error);
+      throw error;
+    }
+  }
+};
+
 // Create a namespace to avoid global pollution
 const SermonSearch = (function() {
     // Configuration
     const config = {
-      apiUrl: '{{ site.api_url }}' || 'https://sermon-search-api-8fok.onrender.com',
+      apiUrl: SermonAPI.baseUrl, // Use the API module's baseUrl
       maxMemoryLength: 10,
       defaultLanguage: 'en'
     };
