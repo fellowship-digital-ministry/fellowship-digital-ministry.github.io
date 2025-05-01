@@ -27,16 +27,20 @@ function initClaudeInterface() {
     }
     
     // Add a close button to the API status banner
-    if (apiStatusBanner) {
-      const closeButton = document.createElement('button');
-      closeButton.className = 'claude-api-status-close';
-      closeButton.innerHTML = '&times;';
-      closeButton.setAttribute('aria-label', 'Close notification');
-      closeButton.addEventListener('click', function() {
-        apiStatusBanner.style.display = 'none';
-      });
-      apiStatusBanner.appendChild(closeButton);
-    }
+  // Add a close button to the API status banner
+  if (apiStatusBanner) {
+    // Add this line to hide the banner by default
+    apiStatusBanner.style.display = 'none';
+    
+    const closeButton = document.createElement('button');
+    closeButton.className = 'claude-api-status-close';
+    closeButton.innerHTML = '&times;';
+    closeButton.setAttribute('aria-label', 'Close notification');
+    closeButton.addEventListener('click', function() {
+      apiStatusBanner.style.display = 'none';
+    });
+    apiStatusBanner.appendChild(closeButton);
+  }
     
     // Auto-resize textarea with improved behavior
     if (queryInput) {
