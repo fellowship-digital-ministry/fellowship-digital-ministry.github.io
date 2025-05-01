@@ -125,8 +125,8 @@ const SermonAPI = {
     try {
       // Create the URL without any trailing slashes
       const url = this.baseUrl.endsWith('/') 
-        ? `${this.baseUrl.slice(0, -1)}/answer` 
-        : `${this.baseUrl}/answer`;
+        ? `${this.baseUrl.slice(0, -1)}/search` 
+        : `${this.baseUrl}/search`;
       
       console.log('Sending query to:', url);
       
@@ -1632,95 +1632,18 @@ const SermonSearch = (function() {
      * Verify API connection
      */
     async function verifyApiConnection(showFeedback = false) {
-      console.log('Verifying API connection to:', config.apiUrl);
-      
-      if (showFeedback && elements.apiStatusBanner && elements.apiStatusMessage) {
-        // Show checking message
-        elements.apiStatusBanner.style.display = 'block';
-        elements.apiStatusBanner.style.backgroundColor = '#f0f9ff';
-        elements.apiStatusBanner.style.color = '#2ea3f2';
-        elements.apiStatusMessage.textContent = 'Checking connection...';
-      } else if (elements.apiStatusBanner) {
-        // Hide banner initially
-        elements.apiStatusBanner.style.display = 'none';
-      }
-      
-      try {
-        // Try the root endpoint
-        const rootResponse = await fetch(`${config.apiUrl}`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Origin': window.location.origin
-          },
-          mode: 'cors'
-        });
-        
-        if (!rootResponse.ok) {
-          throw new Error(`API connection failed with status: ${rootResponse.status}`);
-        }
-        
-        console.log('API connection successful');
-        state.isApiConnected = true;
-        
-        // Show success message if feedback was requested
-        if (showFeedback && elements.apiStatusBanner && elements.apiStatusMessage) {
-          elements.apiStatusBanner.style.backgroundColor = '#f0fff4';
-          elements.apiStatusBanner.style.color = '#2ecc71';
-          elements.apiStatusMessage.textContent = 'Connected successfully!';
-          
-          // Hide after 3 seconds
-          setTimeout(() => {
-            elements.apiStatusBanner.style.display = 'none';
-          }, 3000);
-        }
-        
-        return true;
-        
-      } catch (error) {
-        console.error('API connection verification failed:', error);
-        state.isApiConnected = false;
-        
-        if (elements.apiStatusBanner && elements.apiStatusMessage) {
-          elements.apiStatusBanner.style.display = 'block';
-          elements.apiStatusBanner.style.backgroundColor = '#fef2f2';
-          elements.apiStatusBanner.style.color = '#b91c1c';
-          elements.apiStatusMessage.textContent = translate('api-connection-issue');
-        }
-        
-        return false;
-      }
+      // Use the SermonAPI module's verifyConnection method
+      const isConnected = await SermonAPI.verifyConnection(showFeedback);
+      state.isApiConnected = isConnected;
+      return isConnected;
     }
   
     /**
      * Fetch transcript
      */
     async function fetchTranscript(videoId, startTime = 0) {
-      try {
-        console.log(`Fetching transcript for video ${videoId} with language ${state.currentLanguage}`);
-        
-        const response = await fetch(`${config.apiUrl}/transcript/${videoId}?language=${state.currentLanguage}`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Origin': window.location.origin,
-            'Accept-Language': state.currentLanguage
-          },
-          mode: 'cors'
-        });
-        
-        if (!response.ok) {
-          throw new Error(`Failed to fetch transcript: ${response.status} ${response.statusText}`);
-        }
-        
-        const data = await response.json();
-        console.log('Received transcript data:', data);
-        
-        return data;
-      } catch (error) {
-        console.error('Error fetching transcript:', error);
-        throw error;
-      }
+      // Use the SermonAPI module's fetchTranscript method
+      return await SermonAPI.fetchTranscript(videoId, startTime, state.currentLanguage);
     }
   
     // ======= EVENT HANDLERS =======
@@ -1796,27 +1719,12 @@ const SermonSearch = (function() {
           language: state.currentLanguage
         };
         
-        // Send request to API
-        const response = await fetch(`${config.apiUrl}/search`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Origin': window.location.origin,
-            'Accept-Language': state.currentLanguage
-          },
-          body: JSON.stringify(requestData),
-          mode: 'cors'
-        });
+        // Use SermonAPI to send the query
+        const data = await SermonAPI.sendQuery(requestData);
         
         // Remove typing indicator
         removeMessage(typingId);
         
-        if (!response.ok) {
-          throw new Error(`API request failed with status: ${response.status}`);
-        }
-        
-        const data = await response.json();
         console.log('Received API response:', data);
         
         // Display the answer
