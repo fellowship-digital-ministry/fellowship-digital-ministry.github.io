@@ -3,13 +3,18 @@
  * Fellowship Digital Ministry
  */
 
+// Global API configuration that Jekyll can write to directly
+const API_CONFIG = {
+  baseUrl: '{% if site.api_url %}{{ site.api_url }}{% else %}https://sermon-search-api-8fok.onrender.com{% endif %}'
+};
+
 /**
  * API Connection Module
  * This handles all API connections with proper error handling
  */
 const SermonAPI = {
   // Base URL from Jekyll config with fallback
-  baseUrl: '{{ site.api_url }}' || 'https://sermon-search-api-8fok.onrender.com',
+  baseUrl: API_CONFIG.baseUrl || 'https://sermon-search-api-8fok.onrender.com',
   
   /**
    * Verify API connection
