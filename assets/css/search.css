@@ -1,91 +1,125 @@
-/* 
- * Sermon Chat Interface - Optimized CSS
- * Focuses on mobile compatibility, reduced header size, and UI stability
- * With improved text contrast on mobile
- */
-
-/* Variables matching church style */
+/* Base styles */
 :root {
-    /* Colors from your style.css */
-    --color-primary: #2ea3f2;
-    --color-bg-maroon: #641c14;
-    --color-bg: #ffffff;
-    --color-bg-light: #f8f9fa;
-    --color-bg-dark: #222222;
-    --color-text: #666666;
-    --color-text-dark: #444444;   /* Darker text for better contrast */
-    --color-heading: #333333;
-    --color-border: #eeeeee;
-    --color-light-accent: rgba(0,0,0,0.05);
-    --color-error: #e74c3c;
-    --color-success: #2ecc71;
-    
-    /* Typography */
-    --font-sans: 'Open Sans', Arial, sans-serif;
-    --font-serif: 'PT Serif', serif;
-    
-    /* Sizes */
-    --header-height: 50px;      /* Reduced header height */
-    --header-height-mobile: 40px;  /* Even smaller on mobile */
-    --sources-panel-width: 350px;
-    --border-radius: 4px;
-    
-    /* Transitions */
+    --primary-color: #2ea3f2;
+    --primary-dark: #247ab5;
+    --primary-light: #a8dcff;
+    --secondary-color: #f2f5f7;
+    --text-color: #333;
+    --text-light: #666;
+    --error-color: #b91c1c;
+    --success-color: #2ecc71;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
     --transition-speed: 0.3s;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --content-max-width: 1200px;
+    --header-height: 4rem;
+    --header-height-mobile: 3rem;
+    --border-radius: 8px;
   }
   
-  /* Base reset */
+  /* Dark mode variables */
+  [data-theme="dark"] {
+    --primary-color: #4aa3e2;
+    --primary-dark: #3180b8;
+    --primary-light: #6ab8f5;
+    --secondary-color: #202326;
+    --text-color: #e5e7eb;
+    --text-light: #9ca3af;
+    --border-color: #374151;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+  
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
-  /* Main container - full height, no scroll */
-  .sermon-chat-container {
+  body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: #f9f9f9;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  [data-theme="dark"] body {
+    background-color: #121212;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+  
+  /* Container */
+  .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    background-color: var(--color-bg);
+    min-height: 100vh;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0;
     position: relative;
   }
   
-  /* Slim header */
-  .sermon-chat-header {
+  /* Header */
+  .app-header {
+    background-color: white;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    width: 100%;
     height: var(--header-height);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0 1rem;
-    background-color: white;
-    border-bottom: 1px solid var(--color-border);
-    z-index: 10;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: height 0.3s ease;
+  }
+  
+  [data-theme="dark"] .app-header {
+    background-color: #1f2937;
   }
   
   /* Language selector */
   .language-selector {
     position: relative;
+    margin-left: auto;
   }
   
   .language-selector select {
     appearance: none;
     background-color: transparent;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 0.4rem 1.75rem 0.4rem 0.75rem;
+    padding: 0.5rem 2rem 0.5rem 1rem;
     font-size: 0.875rem;
-    color: var(--color-text);
+    color: var(--text-color);
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.5rem center;
     background-size: 1em;
   }
   
-  /* Chat wrapper - fills available space */
-  .sermon-chat-wrapper {
+  [data-theme="dark"] .language-selector select {
+    color: var(--text-light);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e5e7eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  }
+  
+  /* Chat section */
+  .chat-section-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -93,10 +127,18 @@
     position: relative;
   }
   
+  /* Claude interface */
+  .claude-interface {
+    display: flex;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
   /* API status banner */
   #api-status-banner {
     display: none;
-    padding: 0.5rem;
+    padding: 0.75rem 1rem;
     text-align: center;
     width: 100%;
     position: absolute;
@@ -104,15 +146,15 @@
     left: 0;
     z-index: 20;
     background-color: #fef2f2;
-    color: var(--color-error);
+    color: var(--error-color);
     font-size: 0.875rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px var(--shadow-color);
   }
   
-  .retry-button {
+  .claude-retry-button {
     margin-left: 0.5rem;
     padding: 0.25rem 0.75rem;
-    background-color: var(--color-primary);
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: var(--border-radius);
@@ -120,19 +162,34 @@
     cursor: pointer;
   }
   
-  /* Messages container with stable scroll behavior */
-  .sermon-messages {
+  /* Chat panel */
+  .claude-chat-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transition: width var(--transition-speed) ease;
+    background-color: white;
+    position: relative;
+  }
+  
+  [data-theme="dark"] .claude-chat-panel {
+    background-color: #1f2937;
+  }
+  
+  /* Messages container */
+  .claude-messages {
     flex: 1;
     overflow-y: auto;
     padding: 1rem;
     scroll-behavior: smooth;
-    background-color: var(--color-bg-light);
   }
   
-  /* Message styling with better animation */
+  /* Message styling */
   .claude-message {
-    margin-bottom: 1rem;
-    max-width: 85%;
+    margin-bottom: 1.5rem;
+    max-width: 90%;
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -152,7 +209,7 @@
   .claude-message-content {
     display: inline-block;
     padding: 0.75rem 1rem;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     line-height: 1.5;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -160,16 +217,15 @@
   }
   
   .claude-message-bot .claude-message-content {
-    background-color: white;
-    color: var(--color-text-dark);  /* Using darker text color for better readability */
-    border-radius: 16px 16px 16px 4px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
   }
   
   .claude-message-user .claude-message-content {
-    background-color: var(--color-primary);
+    background-color: var(--primary-color);
     color: white;
-    border-radius: 16px 16px 4px 16px;
+    border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
   }
   
   /* Typing indicator */
@@ -177,18 +233,13 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: white;
-    border-radius: 16px 16px 16px 4px;
-    width: fit-content;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
   
   .claude-typing-bubble {
     width: 8px;
     height: 8px;
     margin: 0 2px;
-    background-color: var(--color-primary);
+    background-color: var(--primary-color);
     border-radius: 50%;
     opacity: 0.6;
     animation: bubble-pulse 1s infinite;
@@ -199,50 +250,66 @@
     50% { transform: scale(1.2); opacity: 1; }
   }
   
-  /* Fixed input area */
-  .sermon-input-area {
-    border-top: 1px solid var(--color-border);
-    padding: 0.75rem;
+  /* Input area */
+  .claude-input-area {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem;
     background-color: white;
-    z-index: 10;
+    position: relative;
   }
   
-  .sermon-input-container {
+  [data-theme="dark"] .claude-input-area {
+    background-color: #1f2937;
+    border-top-color: #374151;
+  }
+  
+  .claude-input-container {
     position: relative;
     display: flex;
     align-items: flex-end;
   }
   
-  .sermon-input {
+  .claude-input {
     flex: 1;
     resize: none;
-    min-height: 44px;
-    max-height: 120px;
-    padding: 0.625rem 2.5rem 0.625rem 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: 22px;
-    background-color: var(--color-bg-light);
-    color: var(--color-text-dark);  /* Darker text for better readability */
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
+    min-height: 48px;
+    max-height: 150px;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 1rem;
     line-height: 1.5;
     overflow-y: auto;
     transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
   }
   
-  .sermon-input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
+  [data-theme="dark"] .claude-input {
+    background-color: #374151;
+    color: var(--text-light);
+    border-color: #4b5563;
   }
   
-  .sermon-submit-button {
+  .claude-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-light);
+  }
+  
+  .claude-input-container.focused .claude-input {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-light);
+  }
+  
+  .claude-submit-button {
     position: absolute;
-    right: 4px;
-    bottom: 4px;
-    width: 36px;
-    height: 36px;
-    background-color: var(--color-primary);
+    right: 0.5rem;
+    bottom: 0.5rem;
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-color);
     border: none;
     border-radius: 50%;
     color: white;
@@ -253,11 +320,11 @@
     transition: background-color var(--transition-speed) ease;
   }
   
-  .sermon-submit-button:hover {
-    background-color: #247ab5;
+  .claude-submit-button:hover {
+    background-color: var(--primary-dark);
   }
   
-  .sermon-submit-icon {
+  .claude-submit-icon {
     width: 18px;
     height: 18px;
     fill: white;
@@ -267,85 +334,61 @@
   .conversation-controls {
     display: flex;
     justify-content: center;
-    margin-top: 0.75rem;
+    margin-top: 1rem;
   }
   
   .control-button {
     background-color: transparent;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 0.4rem 0.75rem;
+    padding: 0.5rem 1rem;
     font-size: 0.875rem;
-    color: var(--color-text-dark);  /* Darker text for better readability */
+    color: var(--text-light);
     cursor: pointer;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-    font-weight: 500;  /* Slightly bolder for better visibility */
   }
   
   .control-button:hover {
-    background-color: var(--color-bg-light);
-    color: var(--color-heading);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
   }
   
-  /* Sources panel - modal style for better mobile experience */
-  .sermon-sources-panel {
+  /* Sources panel */
+  .claude-sources-panel {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s var(--transition-speed), opacity var(--transition-speed) ease;
-  }
-  
-  .sermon-sources-panel.active {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity var(--transition-speed) ease;
-  }
-  
-  .sermon-sources-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .sermon-sources-content {
-    position: relative;
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
+    top: var(--header-height);
+    right: 0;
+    width: 350px;
+    height: calc(100vh - var(--header-height));
     background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(20px);
+    border-left: 1px solid var(--border-color);
+    overflow-y: auto;
+    transform: translateX(100%);
     transition: transform var(--transition-speed) ease;
+    z-index: 50;
+    padding: 1rem;
   }
   
-  .sermon-sources-panel.active .sermon-sources-content {
-    transform: translateY(0);
+  [data-theme="dark"] .claude-sources-panel {
+    background-color: #1f2937;
+    border-left-color: #374151;
   }
   
-  .sermon-sources-close {
+  .claude-sources-panel.active {
+    transform: translateX(0);
+    box-shadow: -5px 0 15px var(--shadow-color);
+  }
+  
+  .claude-sources-close {
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
     width: 28px;
     height: 28px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: transparent;
     border: none;
-    border-radius: 50%;
     font-size: 1.5rem;
-    color: var(--color-heading);
+    color: var(--text-light);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -353,53 +396,50 @@
     z-index: 2;
   }
   
-  .sermon-sources-panel-content {
-    max-height: calc(90vh - 60px);
-    overflow-y: auto;
-    padding: 1.5rem;
+  .claude-sources-panel-content {
+    margin-top: 0.5rem;
   }
   
-  /* Source styling */
-  .sermon-source-item {
+  .claude-source-item {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--border-color);
     animation: fade-in 0.3s ease;
   }
   
-  .sermon-source-item:last-child {
+  .claude-source-item:last-child {
     border-bottom: none;
   }
   
-  .sermon-source-header {
+  .claude-source-header {
     margin-bottom: 0.75rem;
   }
   
-  .sermon-source-title {
+  .claude-source-title {
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 0.25rem;
-    color: var(--color-heading);
+    color: var(--text-color);
   }
   
-  .sermon-source-date {
+  .claude-source-date {
     font-size: 0.875rem;
-    color: var(--color-text-dark);  /* Darker for better readability */
+    color: var(--text-light);
   }
   
-  .sermon-source-content {
+  .claude-source-content {
     font-size: 0.9375rem;
   }
   
-  .sermon-source-text-preview {
+  .claude-source-text-preview {
     margin-bottom: 0.75rem;
-    color: var(--color-text-dark);  /* Darker for better readability */
+    color: var(--text-color);
     font-style: italic;
   }
   
-  .sermon-source-text-view-button {
+  .claude-source-text-view-button {
     background-color: transparent;
-    color: var(--color-primary);
+    color: var(--primary-color);
     border: none;
     padding: 0;
     font-size: 0.875rem;
@@ -409,246 +449,442 @@
     display: inline-block;
   }
   
-  .sermon-source-meta {
+  .claude-source-meta {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 1rem;
     font-size: 0.8125rem;
-    color: var(--color-text-dark);  /* Darker for better readability */
+    color: var(--text-light);
   }
   
-  .sermon-source-actions {
+  .claude-source-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
   
-  .sermon-source-button {
+  .claude-source-button {
     flex: 1;
     min-width: fit-content;
     background-color: white;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 0.5rem 0.75rem;
     font-size: 0.8125rem;
-    color: var(--color-text-dark);  /* Darker for better readability */
+    color: var(--text-color);
     cursor: pointer;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-    font-weight: 500;  /* Slightly bolder for better visibility */
   }
   
-  .sermon-source-button:hover {
-    background-color: var(--color-bg-light);
+  [data-theme="dark"] .claude-source-button {
+    background-color: #374151;
+    color: var(--text-light);
+    border-color: #4b5563;
   }
   
-  .sermon-source-button-primary {
-    background-color: var(--color-primary);
+  .claude-source-button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .claude-source-button-primary {
+    background-color: var(--primary-color);
     color: white;
-    border-color: var(--color-primary);
+    border-color: var(--primary-color);
   }
   
-  .sermon-source-button-primary:hover {
-    background-color: #247ab5;
+  .claude-source-button-primary:hover {
+    background-color: var(--primary-dark);
     color: white;
   }
   
-  /* Help button */
-  .sermon-info-toggle {
+  /* Welcome message */
+  .claude-welcome {
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    animation: fade-in 0.3s ease;
+  }
+  
+  .claude-welcome h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+  }
+  
+  .claude-welcome p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+  
+  .claude-suggestion-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: 0.9375rem;
+  }
+  
+  .claude-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .claude-suggestion {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-color);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  }
+  
+  [data-theme="dark"] .claude-suggestion {
+    background-color: #374151;
+    color: var(--text-light);
+    border-color: #4b5563;
+  }
+  
+  .claude-suggestion:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+  }
+  
+  /* Bible references */
+  .bible-reference {
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .bible-reference::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .bible-reference:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Overlay styles */
+  .claude-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+  }
+  
+  .claude-overlay.active {
+    opacity: 1;
+  }
+  
+  .claude-overlay-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: transform var(--transition-speed) ease;
+  }
+  
+  [data-theme="dark"] .claude-overlay-content {
+    background-color: #1f2937;
+  }
+  
+  .claude-overlay.active .claude-overlay-content {
+    transform: translateY(0);
+  }
+  
+  .claude-overlay-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .claude-overlay-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-color);
+  }
+  
+  .claude-overlay-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .claude-overlay-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+  }
+  
+  /* Video container in overlay */
+  .claude-video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .claude-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* Transcript styles */
+  .claude-transcript-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .claude-transcript {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 1rem;
+  }
+  
+  .claude-transcript-search-sticky {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 0.5rem 0;
+    z-index: 5;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  [data-theme="dark"] .claude-transcript-search-sticky {
+    background-color: #1f2937;
+  }
+  
+  .claude-transcript-search {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .claude-transcript-search-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+  }
+  
+  .claude-transcript-search-button {
+    padding: 0.5rem 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  
+  .claude-transcript-segment {
+    display: flex;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease;
+  }
+  
+  .claude-transcript-highlight {
+    background-color: rgba(46, 163, 242, 0.1);
+  }
+  
+  .claude-transcript-timestamp {
+    min-width: 60px;
+    padding-right: 1rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  
+  .claude-transcript-text {
+    flex: 1;
+    font-size: 0.9375rem;
+  }
+  
+  .claude-transcript-gap {
+    text-align: center;
+    color: var(--text-light);
+    font-style: italic;
+    padding: 0.5rem 0;
+  }
+  
+  .claude-transcript-download {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+  }
+  
+  .claude-transcript-match-count {
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .claude-source-text {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-size: 0.9375rem;
+  }
+  
+  /* Loading and error states */
+  .claude-transcript-loading,
+  .claude-transcript-error {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-light);
+  }
+  
+  .claude-transcript-error {
+    color: var(--error-color);
+  }
+  
+  /* Info section and toggle */
+  .info-section {
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
+  }
+  
+  [data-theme="dark"] .info-section {
+    background-color: #1f2937;
+    border-top-color: #374151;
+  }
+  
+  .info-toggle {
+    display: none;
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background-color: var(--color-primary);
+    background-color: var(--primary-color);
     color: white;
     border: none;
     font-size: 1.25rem;
     font-weight: bold;
     cursor: pointer;
     z-index: 40;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 2px 10px var(--shadow-color);
   }
   
-  /* Help panel */
-  .sermon-info-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 40;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s var(--transition-speed), opacity var(--transition-speed) ease;
-  }
-  
-  .sermon-info-section.active {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity var(--transition-speed) ease;
-  }
-  
-  .sermon-info-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .sermon-info-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
-    width: 90%;
-    max-width: 500px;
-    max-height: 90vh;
-    background-color: white;
-    border-radius: 12px;
-    overflow: auto;
-    padding: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: transform var(--transition-speed) ease;
-  }
-  
-  .sermon-info-section.active .sermon-info-content {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  
-  .sermon-info-close {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    width: 28px;
-    height: 28px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: none;
-    border-radius: 50%;
+  .content-section-header {
     font-size: 1.5rem;
-    color: var(--color-heading);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .sermon-section-header {
-    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-heading);
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
   }
   
-  .sermon-info-card {
-    background-color: var(--color-bg-light);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+  .content-card {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   
-  .sermon-info-card h3 {
+  .content-card h3 {
     font-size: 1.125rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: var(--color-heading);
+    margin-bottom: 1rem;
+    color: var(--text-color);
   }
   
-  /* Example questions */
   .example-questions {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    list-style-type: none;
+    margin-left: 0;
   }
   
   .example-questions li {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    background-color: white;
-    border-radius: 6px;
-    border-left: 3px solid var(--color-primary);
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    color: var(--color-text-dark);  /* Darker text for better readability */
-    font-weight: 500;  /* Slightly bolder for better visibility */
-  }
-  
-  .example-questions li:hover {
-    transform: translateX(5px);
-    background-color: rgba(46, 163, 242, 0.05);
-  }
-  
-  /* Welcome message */
-  .sermon-welcome {
-    padding: 1rem;
-    background-color: white;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    animation: fade-in 0.3s ease;
-  }
-  
-  .sermon-welcome h4 {
-    font-size: 1.125rem;
-    font-weight: 600;
     margin-bottom: 0.75rem;
-    color: var(--color-heading);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease;
   }
   
-  .sermon-welcome p {
-    margin-bottom: 1rem;
-    color: var(--color-text-dark);  /* Darker for better readability */
-  }
-  
-  .sermon-suggestion-label {
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: var(--color-heading);
-    font-size: 0.9375rem;
-  }
-  
-  .sermon-suggestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .sermon-suggestion {
-    background-color: var(--color-bg-light);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    padding: 0.375rem 0.75rem;
-    font-size: 0.875rem;
-    color: var(--color-text-dark);  /* Darker for better readability */
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-    font-weight: 500;  /* Slightly bolder for better visibility */
-  }
-  
-  .sermon-suggestion:hover {
+  .example-questions li.hover {
     background-color: rgba(46, 163, 242, 0.1);
-    color: var(--color-primary);
   }
   
-  /* Bible references */
-  .bible-reference {
-    color: var(--color-primary);
-    font-weight: 500;
+  /* Error states */
+  .connection-error {
+    background-color: rgb(254, 242, 242);
+    border: 1px solid rgb(252, 165, 165);
+    color: rgb(185, 28, 28);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+  
+  .retry-button {
+    background-color: rgb(185, 28, 28);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    margin-top: 0.75rem;
     cursor: pointer;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
+    font-size: 0.875rem;
   }
   
   /* Animation keyframes */
@@ -670,24 +906,75 @@
     to { opacity: 0; transform: translateY(10px); }
   }
   
-  /* Mobile optimizations */
+  /* Mobile styles */
   @media (max-width: 768px) {
-    .sermon-chat-header {
+    .app-header {
       height: var(--header-height-mobile);
+      padding: 0 1rem;
+    }
+    
+    .app-title {
+      font-size: 1.25rem;
     }
     
     .language-selector select {
-      padding: 0.3rem 1.5rem 0.3rem 0.6rem;
+      padding: 0.4rem 1.75rem 0.4rem 0.75rem;
       font-size: 0.8125rem;
     }
     
-    .sermon-messages {
+    .claude-chat-panel {
+      width: 100%;
+    }
+    
+    .claude-sources-panel {
+      top: var(--header-height-mobile);
+      width: 100%;
+      height: calc(100vh - var(--header-height-mobile));
+      border-left: none;
+      box-shadow: 0 -5px 15px var(--shadow-color);
+      border-top: 1px solid var(--border-color);
+      transform: translateY(100%);
+    }
+    
+    .claude-sources-panel.active {
+      transform: translateY(0);
+    }
+    
+    .claude-sources-backdrop {
+      top: var(--header-height-mobile);
+    }
+    
+    .claude-input-area {
       padding: 0.75rem;
     }
     
+    .claude-input {
+      padding: 0.625rem 2.5rem 0.625rem 0.75rem;
+      font-size: 0.9375rem;
+    }
+    
+    .claude-submit-button {
+      right: 0.375rem;
+      bottom: 0.375rem;
+      width: 30px;
+      height: 30px;
+    }
+    
+    .claude-welcome {
+      padding: 0.75rem;
+    }
+    
+    .claude-welcome h4 {
+      font-size: 1rem;
+    }
+    
+    .claude-suggestion {
+      padding: 0.4rem 0.625rem;
+      font-size: 0.8125rem;
+    }
+    
     .claude-message {
-      max-width: 90%;
-      margin-bottom: 0.75rem;
+      max-width: 85%;
     }
     
     .claude-message-content {
@@ -695,68 +982,77 @@
       font-size: 0.9375rem;
     }
     
-    .sermon-input-area {
-      padding: 0.625rem;
+    /* Show info toggle on mobile */
+    .info-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
-    .sermon-input {
-      padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-      font-size: 0.875rem;
+    /* Hide info section by default on mobile */
+    .info-section {
+      display: none;
+      padding: 1rem;
     }
     
-    .sermon-info-content {
-      padding: 1.25rem;
+    .info-section.active {
+      display: block;
+      position: fixed;
+      top: var(--header-height-mobile);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 30;
+      overflow-y: auto;
     }
     
-    .sermon-section-header {
-      font-size: 1.125rem;
+    .content-section-header {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
     }
     
-    .sermon-info-card {
-      padding: 0.875rem;
+    .content-card {
+      padding: 1rem;
     }
     
-    .sermon-info-card h3 {
+    .content-card h3 {
       font-size: 1rem;
     }
     
-    /* Enhanced mobile text contrast */
-    .example-questions li,
-    .sermon-welcome p,
-    .sermon-suggestion,
-    .control-button,
-    .sermon-source-button,
-    .sermon-source-date,
-    .sermon-source-text-preview,
-    .sermon-source-meta,
-    .claude-message-bot .claude-message-content {
-      color: var(--color-text-dark); /* Ensuring all text is darker on mobile */
-      font-weight: 500; /* Slightly bolder font weight for better visibility */
+    /* Improve overlay for mobile */
+    .claude-overlay-content {
+      width: 95%;
+      max-height: 80vh;
     }
     
-    /* Add a subtle contrast background to improve readability */
-    .example-questions li {
-      background-color: #ffffff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    .claude-overlay-header {
+      padding: 0.75rem 1rem;
+    }
+    
+    .claude-overlay-title {
+      font-size: 1rem;
+    }
+    
+    .claude-overlay-body {
+      padding: 1rem;
     }
   }
   
   /* Print styles */
   @media print {
-    .sermon-chat-header,
-    .sermon-input-area,
-    .sermon-info-toggle,
-    .sermon-sources-panel,
-    .sermon-info-section {
+    .app-header,
+    .claude-input-area,
+    .claude-sources-panel,
+    .info-section,
+    .info-toggle {
       display: none !important;
     }
     
-    .sermon-chat-wrapper {
-      height: auto !important;
-      overflow: visible !important;
+    .claude-chat-panel {
+      width: 100% !important;
     }
     
-    .sermon-messages {
+    .claude-messages {
       height: auto !important;
       overflow: visible !important;
     }
@@ -768,66 +1064,4 @@
     body {
       background-color: white !important;
     }
-  }
-  
-  /* Compatibility classes to bridge with the original JS code */
-  /* These ensure the JavaScript functions correctly with the new class names */
-  .app-header {
-    height: var(--header-height);
-  }
-  
-  #messages, .claude-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1rem;
-    scroll-behavior: smooth;
-  }
-  
-  .claude-input-container {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-  }
-  
-  #queryInput, .claude-input {
-    flex: 1;
-    resize: none;
-    min-height: 44px;
-    color: var(--color-text-dark);
-  }
-  
-  .claude-sources-panel {
-    z-index: 50;
-  }
-  
-  .claude-sources-panel.active {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .claude-sources-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Ensure compatibility with original source items styling */
-  .claude-source-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-text-dark);
-  }
-  
-  /* Compatibility for info toggle */
-  #infoToggle {
-    z-index: 40;
-  }
-  
-  #infoSection.active {
-    visibility: visible;
-    opacity: 1;
   }

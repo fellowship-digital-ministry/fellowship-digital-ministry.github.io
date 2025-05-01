@@ -2936,9 +2936,32 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add responsive class to body based on screen size
   function updateResponsiveClass() {
     if (window.innerWidth <= 768) {
-      document.body.classList.add('sermon-mobile');
+  // ======= PUBLIC API =======
+  
+  // Return the public API
+  return {
+    init: init,
+    changeLanguage: changeLanguage,
+    clearConversation: clearConversation,
+    toggleSourcesPanel: toggleSourcesPanel,
+    handleSubmit: handleSubmit,
+    
+    // Add some additional utility methods for potential public usage
+    verifyApiConnection: verifyApiConnection,
+    addMessage: addMessage
+  };
+})();
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  SermonSearch.init();
+  
+  // Add responsive CSS class to body based on screen size
+  function updateResponsiveClass() {
+    if (window.innerWidth <= 768) {
+      document.body.classList.add('claude-mobile');
     } else {
-      document.body.classList.remove('sermon-mobile');
+      document.body.classList.remove('claude-mobile');
     }
   }
   
@@ -2946,7 +2969,5 @@ document.addEventListener('DOMContentLoaded', function() {
   updateResponsiveClass();
   
   // Update on resize
-  window.addEventListener('resize', function() {
-    updateResponsiveClass();
-  });
+  window.addEventListener('resize', updateResponsiveClass);
 });
