@@ -766,8 +766,9 @@ document.addEventListener('DOMContentLoaded', function() {
           transition: transform 0.3s ease;
         }
         
-        .claude-overlay.active .claude-overlay-content {
-          transform: scale(1);
+        .claude-overlay-content {
+        width: 90% !important; 
+        max-width: 800px !important;
         }
         
         /* Better scrollbar styling */
