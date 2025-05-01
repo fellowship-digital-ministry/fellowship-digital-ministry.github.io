@@ -3,22 +3,26 @@ layout: default
 title: Chat about Sermons
 ---
 
+<!-- App Container -->
 <div class="container">
-  <!-- Language Selector -->
-  <div class="language-selector">
-    <select id="languageSelect" aria-label="Select language">
-      <option value="en" selected>English</option>
-      <option value="es">Español</option>
-      <option value="zh">中文</option>
-    </select>
-  </div>
+  <!-- App Header (collapsed on mobile) -->
+  <header class="app-header">
+    <!-- Language Selector -->
+    <div class="language-selector">
+      <select id="languageSelect" aria-label="Select language">
+        <option value="en" selected>English</option>
+        <option value="es">Español</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+  </header>
 
-  <!-- Chat wrapper - added for better spacing -->
-  <div class="chat-section-wrapper full-height">
+  <!-- Chat wrapper - full height -->
+  <div class="chat-section-wrapper">
     <!-- Claude-Style Interface -->
     <div class="claude-interface">
       <!-- API Status Banner -->
-      <div id="api-status-banner" class="claude-api-status">
+      <div id="api-status-banner">
         <span id="api-status-message" data-i18n="api-connection-issue">API connection issue detected.</span>
         <button id="retry-connection" class="claude-retry-button" data-i18n="retry">Retry</button>
       </div>
@@ -40,7 +44,7 @@ title: Chat about Sermons
               </button>
             </div>
           </form>
-          <div class="conversation-controls" style="text-align: right; margin-top: 10px;">
+          <div class="conversation-controls">
             <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear Conversation</button>
           </div>
         </div>
@@ -56,27 +60,27 @@ title: Chat about Sermons
     </div>
   </div>
 
-  <!-- Help Section -->
-  <div class="info-section">
+  <!-- Info button for mobile (toggles sample questions) -->
+  <button class="info-toggle" id="infoToggle">?</button>
+
+  <!-- Help Section (hidden on mobile by default) -->
+  <div class="info-section" id="infoSection">
     <h2 class="content-section-header" data-i18n="how-to-use">How to Use This Tool</h2>
     
     <div class="row">
-        <div class="col-md-6">
-          <div class="content-card">
-            <h3 data-i18n="sample-questions">Sample Questions</h3>
-            <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
-            <ul class="example-questions">
-              <li data-i18n="example-1">"How does a person get to heaven?"</li>
-              <li data-i18n="example-2">"What is the Trinity?"</li>
-              <li data-i18n="example-3">"How should Christians live?"</li>
-              <li data-i18n="example-4">"Why read the King James Bible?"</li>
-              <li data-i18n="example-5">"Who is Melchizedek?"</li>
-            </ul>
-          </div>
+      <div class="col-md-6">
+        <div class="content-card">
+          <h3 data-i18n="sample-questions">Sample Questions</h3>
+          <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
+          <ul class="example-questions">
+            <li data-i18n="example-1">"How does a person get to heaven?"</li>
+            <li data-i18n="example-2">"What is the Trinity?"</li>
+            <li data-i18n="example-3">"How should Christians live?"</li>
+            <li data-i18n="example-4">"Why read the King James Bible?"</li>
+            <li data-i18n="example-5">"Who is Melchizedek?"</li>
+          </ul>
         </div>
       </div>
-      
-
     </div>
   </div>
 </div>
