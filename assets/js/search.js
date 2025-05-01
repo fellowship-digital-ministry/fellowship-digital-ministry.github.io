@@ -5,7 +5,7 @@
 
 // Global API configuration that Jekyll can write to directly
 const API_CONFIG = {
-  baseUrl: '{% if site.api_url %}{{ site.api_url }}{% else %}https://sermon-search-api-8fok.onrender.com{% endif %}'
+  baseUrl: 'https://sermon-search-api-8fok.onrender.com'
 };
 
 /**
