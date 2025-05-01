@@ -2110,16 +2110,20 @@ const SermonSearch = (function() {
   }
 
   /**
-   * Clear the conversation history
+   * Modified clearConversation function to ensure proper clearing
+   * This fixes the issue with the Clear Conversation button not working
    */
   function clearConversation() {
     // Clear the conversation history array
     state.conversationHistory = [];
     
-    // Show clearing animation
+    // Get all message elements
     const messages = document.querySelectorAll('.claude-message');
     
-    // Animate out all messages sequentially
+    // If no messages, just return
+    if (messages.length === 0) return;
+    
+    // Add animation class to all messages
     messages.forEach((message, index) => {
       setTimeout(() => {
         message.classList.add('animating-out');
@@ -2141,6 +2145,32 @@ const SermonSearch = (function() {
         }
       }
     }, (messages.length * 50) + 300);
+  }
+
+  /**
+   * Update event listener setup for Clear Conversation button
+   */
+  function setupClearConversationButton() {
+    const clearButton = document.getElementById('clearConversation');
+    if (clearButton) {
+      // Remove any existing event listeners (important!)
+      clearButton.replaceWith(clearButton.cloneNode(true));
+      
+      // Get the fresh button reference
+      const freshClearButton = document.getElementById('clearConversation');
+      
+      // Add the event listener
+      freshClearButton.addEventListener('click', function() {
+        // Add confirmation for non-empty conversations
+        if (state.conversationHistory.length > 1) {
+          if (confirm("Are you sure you want to clear the conversation?")) {
+            clearConversation();
+          }
+        } else {
+          clearConversation();
+        }
+      });
+    }
   }
 
   // ======= CONVERSATION FALLBACK FUNCTIONS =======
@@ -2593,7 +2623,8 @@ Would you like me to search for sermon content on any of these topics instead?`;
   // ======= INITIALIZATION =======
 
   /**
-   * Initialize the application
+   * Initialize the application with proper button setup
+   * This modification ensures all event listeners are properly attached
    */
   function init() {
     // Get DOM elements
@@ -2617,18 +2648,7 @@ Would you like me to search for sermon content on any of these topics instead?`;
     if (elements.sourcesPanel) {
       const backdrop = document.createElement('div');
       backdrop.className = 'claude-sources-backdrop';
-      backdrop.style.display = 'none';
-      backdrop.style.position = 'fixed';
-      backdrop.style.top = '0';
-      backdrop.style.left = '0';
-      backdrop.style.right = '0';
-      backdrop.style.bottom = '0';
-      backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-      backdrop.style.zIndex = '50';
-      backdrop.style.opacity = '0';
-      backdrop.style.transition = 'opacity 0.3s ease';
       document.body.appendChild(backdrop);
-      
       elements.sourcesBackdrop = backdrop;
       
       // Close panel when backdrop is clicked
@@ -2639,6 +2659,9 @@ Would you like me to search for sermon content on any of these topics instead?`;
     
     // Setup event listeners
     setupEventListeners();
+    
+    // Specifically setup the clear conversation button with the fixed functionality
+    setupClearConversationButton();
     
     // Make sure overlay container exists
     ensureOverlayContainer();
@@ -2734,55 +2757,8 @@ Would you like me to search for sermon content on any of these topics instead?`;
       });
     }
     
-    // Clear conversation button
-    if (elements.clearConversationBtn) {
-      elements.clearConversationBtn.addEventListener('click', function() {
-        // Add confirmation dialog
-        if (state.conversationHistory.length > 1) {
-          const overlay = document.createElement('div');
-          overlay.className = 'claude-confirmation-overlay';
-          overlay.innerHTML = `
-            <div class="claude-confirmation-dialog">
-              <h3>Clear Conversation</h3>
-              <p>Are you sure you want to clear the entire conversation history?</p>
-              <div class="claude-confirmation-buttons">
-                <button class="claude-cancel-button">Cancel</button>
-                <button class="claude-confirm-button">Clear</button>
-              </div>
-            </div>
-          `;
-          
-          document.body.appendChild(overlay);
-          
-          // Fade in animation
-          setTimeout(() => {
-            overlay.style.opacity = '1';
-          }, 10);
-          
-          // Add event listeners
-          const cancelButton = overlay.querySelector('.claude-cancel-button');
-          const confirmButton = overlay.querySelector('.claude-confirm-button');
-          
-          cancelButton.addEventListener('click', function() {
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-              document.body.removeChild(overlay);
-            }, 300);
-          });
-          
-          confirmButton.addEventListener('click', function() {
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-              document.body.removeChild(overlay);
-              clearConversation();
-            }, 300);
-          });
-        } else {
-          // If conversation is very short, just clear without confirmation
-          clearConversation();
-        }
-      });
-    }
+    // We're removing the clear conversation button setup from here
+    // as it's now handled by the dedicated setupClearConversationButton function
     
     // Retry connection button
     if (elements.retryConnectionButton) {
@@ -2954,14 +2930,15 @@ Would you like me to search for sermon content on any of these topics instead?`;
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize the application
   SermonSearch.init();
   
-  // Add responsive CSS class to body based on screen size
+  // Add responsive class to body based on screen size
   function updateResponsiveClass() {
     if (window.innerWidth <= 768) {
-      document.body.classList.add('claude-mobile');
+      document.body.classList.add('sermon-mobile');
     } else {
-      document.body.classList.remove('claude-mobile');
+      document.body.classList.remove('sermon-mobile');
     }
   }
   
@@ -2969,5 +2946,7 @@ document.addEventListener('DOMContentLoaded', function() {
   updateResponsiveClass();
   
   // Update on resize
-  window.addEventListener('resize', updateResponsiveClass);
+  window.addEventListener('resize', function() {
+    updateResponsiveClass();
+  });
 });
