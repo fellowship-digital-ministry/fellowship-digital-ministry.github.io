@@ -1523,3 +1523,30 @@ function initClaudeInterface() {
       
       console.log('Enhanced Claude-style interface with overlay modals initialized');
   }
+  // Add this function to claude-interface.js
+function fixModalAppearance() {
+  const styleElement = document.createElement('style');
+  styleElement.id = 'modal-appearance-fix';
+  styleElement.textContent = `
+    /* Fix for modal width and background */
+    .claude-overlay {
+      background-color: rgba(0, 0, 0, 0.6) !important;
+    }
+    
+    .claude-overlay-content {
+      width: 90% !important;
+      max-width: 800px !important;
+      background-color: white !important;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2) !important;
+    }
+  `;
+  document.head.appendChild(styleElement);
+}
+
+// Add this line in the DOMContentLoaded event handler
+document.addEventListener('DOMContentLoaded', function() {
+  // Add this line along with your other initializations
+  fixModalAppearance();
+  
+  // Your existing initialization code...
+});
