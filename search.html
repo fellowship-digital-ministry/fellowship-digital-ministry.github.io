@@ -5,7 +5,7 @@ title: Chat about Sermons
 
 <!-- App Container -->
 <div class="container">
-  <!-- App Header (collapsed on mobile) -->
+  <!-- App Header (optimized height on mobile) -->
   <header class="app-header">
     <!-- Language Selector -->
     <div class="language-selector">
@@ -17,28 +17,34 @@ title: Chat about Sermons
     </div>
   </header>
 
-  <!-- Chat wrapper - full height -->
+  <!-- Chat Interface -->
   <div class="chat-section-wrapper">
-    <!-- Claude-Style Interface -->
     <div class="claude-interface">
       <!-- API Status Banner -->
-      <div id="api-status-banner">
+      <div id="api-status-banner" role="alert">
         <span id="api-status-message" data-i18n="api-connection-issue">API connection issue detected.</span>
         <button id="retry-connection" class="claude-retry-button" data-i18n="retry">Retry</button>
       </div>
       
       <!-- Chat Panel -->
       <div class="claude-chat-panel">
-        <div id="messages" class="claude-messages">
-          <!-- Messages will be inserted here by JavaScript -->
+        <!-- Messages Container -->
+        <div id="messages" class="claude-messages" aria-live="polite">
+          <!-- Messages will be added by JavaScript -->
         </div>
         
+        <!-- Input Area -->
         <div class="claude-input-area">
           <form id="chatForm">
             <div class="claude-input-container">
-              <textarea id="queryInput" class="claude-input" placeholder="Ask a question about the sermons..." rows="1"></textarea>
-              <button type="submit" class="claude-submit-button">
-                <svg class="claude-submit-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <textarea 
+                id="queryInput" 
+                class="claude-input" 
+                placeholder="Ask a question about the sermons..." 
+                rows="1"
+                aria-label="Type your question here"></textarea>
+              <button type="submit" class="claude-submit-button" aria-label="Send message">
+                <svg class="claude-submit-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
                 </svg>
               </button>
@@ -50,37 +56,36 @@ title: Chat about Sermons
         </div>
       </div>
       
-      <!-- Sources Panel -->
-      <div id="sourcesPanel" class="claude-sources-panel">
-        <button class="claude-sources-close" id="closeSourcesPanel">×</button>
-        <div class="claude-sources-panel-content" id="sourcesPanelContent">
-          <!-- Source content will be inserted here -->
+      <!-- Sources Panel (slides in from bottom on mobile) -->
+      <div id="sourcesPanel" class="claude-sources-panel" aria-hidden="true">
+        <button id="closeSourcesPanel" class="claude-sources-close" aria-label="Close sources panel">×</button>
+        <div id="sourcesPanelContent" class="claude-sources-panel-content">
+          <!-- Sources will be added by JavaScript -->
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Info button for mobile (toggles sample questions) -->
-  <button class="info-toggle" id="infoToggle">?</button>
+  <!-- Mobile Help Toggle -->
+  <button id="infoToggle" class="info-toggle" aria-expanded="false" aria-controls="infoSection">?</button>
 
   <!-- Help Section (hidden on mobile by default) -->
-  <div class="info-section" id="infoSection">
+  <div id="infoSection" class="info-section">
     <h2 class="content-section-header" data-i18n="how-to-use">How to Use This Tool</h2>
     
-    <div class="row">
-      <div class="col-md-6">
-        <div class="content-card">
-          <h3 data-i18n="sample-questions">Sample Questions</h3>
-          <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
-          <ul class="example-questions">
-            <li data-i18n="example-1">"How does a person get to heaven?"</li>
-            <li data-i18n="example-2">"What is the Trinity?"</li>
-            <li data-i18n="example-3">"How should Christians live?"</li>
-            <li data-i18n="example-4">"Why read the King James Bible?"</li>
-            <li data-i18n="example-5">"Who is Melchizedek?"</li>
-          </ul>
-        </div>
-      </div>
+    <div class="content-card">
+      <h3 data-i18n="sample-questions">Sample Questions</h3>
+      <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
+      <ul class="example-questions">
+        <li data-i18n="example-1">"How does a person get to heaven?"</li>
+        <li data-i18n="example-2">"What is the Trinity?"</li>
+        <li data-i18n="example-3">"How should Christians live?"</li>
+        <li data-i18n="example-4">"Why read the King James Bible?"</li>
+        <li data-i18n="example-5">"Who is Melchizedek?"</li>
+      </ul>
     </div>
   </div>
 </div>
+
+<!-- Overlay Container for Modals -->
+<div id="claude-overlay-container"></div>
