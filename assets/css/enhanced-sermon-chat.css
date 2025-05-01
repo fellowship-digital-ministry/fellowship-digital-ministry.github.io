@@ -951,3 +951,239 @@ body .claude-api-status {
       font-size: 18px;
     }
   }
+  /**
+ * Enhanced Sermon Modal Interaction Styles
+ * 
+ * This CSS fixes interaction issues between the sources panel and content elements
+ * like videos and transcripts, ensuring proper layering and responsive behavior.
+ */
+
+/* Fix modal stacking and z-index */
+.claude-sources-panel,
+.sources-modal,
+#sourcesPanel {
+  z-index: 900 !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+/* Ensure videos and transcripts display above the sources panel */
+.video-embed,
+.transcript-container,
+[id^="transcript-"] {
+  position: relative !important;
+  z-index: 1000 !important;
+  background-color: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+  margin: 1rem auto !important;
+  width: 100% !important;
+  border: 1px solid #eee !important;
+  overflow: hidden !important;
+}
+
+/* Properly style the close button */
+#closeSourcesPanel,
+.claude-sources-close {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 1001 !important;
+  background-color: white !important;
+  color: #333 !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+  cursor: pointer !important;
+  font-size: 20px !important;
+  border: none !important;
+  outline: none !important;
+}
+
+#closeSourcesPanel:hover,
+.claude-sources-close:hover {
+  background-color: #f5f5f5 !important;
+}
+
+/* Ensure source panel content is scrollable */
+#sourcesPanelContent,
+.claude-sources-panel-content {
+  max-height: calc(100% - 40px) !important;
+  overflow-y: auto !important;
+  padding: 20px !important;
+  padding-top: 40px !important; /* Make room for close button */
+}
+
+/* Improve source item styling */
+.source-container,
+.claude-source-item {
+  background-color: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1) !important;
+  padding: 15px !important;
+  margin-bottom: 15px !important;
+  border: 1px solid #eee !important;
+  position: relative !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.source-container:hover,
+.claude-source-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* Enhance video display */
+.video-embed iframe {
+  width: 100% !important;
+  min-height: 320px !important;
+  border: none !important;
+}
+
+/* Enhance transcript container */
+.transcript-container {
+  max-height: 60vh !important;
+  overflow-y: auto !important;
+  padding: 15px !important;
+}
+
+/* Fix source toggle button */
+.claude-sources-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 16px !important;
+  background-color: rgba(46, 163, 242, 0.1) !important;
+  color: #2ea3f2 !important;
+  border-radius: 20px !important;
+  margin-top: 15px !important;
+  cursor: pointer !important;
+  border: none !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.claude-sources-toggle:hover {
+  background-color: rgba(46, 163, 242, 0.2) !important;
+}
+
+/* Fix backdrop */
+.claude-sources-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  z-index: 800 !important; /* Below panel but above content */
+  display: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Bottom sheet style for mobile */
+  .claude-sources-panel.active,
+  .sources-modal.active,
+  #sourcesPanel.active {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 75vh !important;
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 12px 12px 0 0 !important;
+    overflow: hidden !important;
+  }
+  
+  /* Add drag handle at top for mobile */
+  .claude-sources-panel::before,
+  .sources-modal::before,
+  #sourcesPanel::before {
+    content: "" !important;
+    display: block !important;
+    width: 40px !important;
+    height: 4px !important;
+    background-color: #ddd !important;
+    border-radius: 2px !important;
+    margin: 10px auto !important;
+    position: absolute !important;
+    top: 5px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1001 !important;
+  }
+  
+  /* Smaller video for mobile */
+  .video-embed iframe {
+    min-height: 240px !important;
+  }
+  
+  /* Better padding for source panel content on mobile */
+  #sourcesPanelContent,
+  .claude-sources-panel-content {
+    padding: 20px !important;
+    padding-top: 30px !important;
+  }
+}
+
+/* Fix for transcript segments */
+.transcript-segment {
+  display: flex !important;
+  padding: 8px 0 !important;
+  border-bottom: 1px solid #f5f5f5 !important;
+}
+
+.transcript-timestamp {
+  flex: 0 0 60px !important;
+  color: #2ea3f2 !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+.transcript-text {
+  flex: 1 !important;
+  line-height: 1.6 !important;
+}
+
+/* Better search functionality */
+.transcript-search {
+  display: flex !important;
+  margin-bottom: 15px !important;
+  gap: 10px !important;
+}
+
+.transcript-search-input {
+  flex: 1 !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+}
+
+.transcript-search-button {
+  padding: 8px 16px !important;
+  background-color: #2ea3f2 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+
+/* Improved source panel animations */
+.claude-sources-panel,
+.sources-modal,
+#sourcesPanel {
+  transition: all 0.3s ease !important;
+}
+
+/* Fix for source panel appearing over clicked resources */
+body.showing-resource .claude-sources-panel,
+body.showing-resource .sources-modal,
+body.showing-resource #sourcesPanel {
+  display: none !important;
+}
