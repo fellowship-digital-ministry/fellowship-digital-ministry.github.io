@@ -27,20 +27,16 @@ function initClaudeInterface() {
     }
     
     // Add a close button to the API status banner
-  // Add a close button to the API status banner
-  if (apiStatusBanner) {
-    // Add this line to hide the banner by default
-    apiStatusBanner.style.display = 'none';
-    
-    const closeButton = document.createElement('button');
-    closeButton.className = 'claude-api-status-close';
-    closeButton.innerHTML = '&times;';
-    closeButton.setAttribute('aria-label', 'Close notification');
-    closeButton.addEventListener('click', function() {
-      apiStatusBanner.style.display = 'none';
-    });
-    apiStatusBanner.appendChild(closeButton);
-  }
+    if (apiStatusBanner) {
+      const closeButton = document.createElement('button');
+      closeButton.className = 'claude-api-status-close';
+      closeButton.innerHTML = '&times;';
+      closeButton.setAttribute('aria-label', 'Close notification');
+      closeButton.addEventListener('click', function() {
+        apiStatusBanner.style.display = 'none';
+      });
+      apiStatusBanner.appendChild(closeButton);
+    }
     
     // Auto-resize textarea with improved behavior
     if (queryInput) {
@@ -1527,30 +1523,3 @@ function initClaudeInterface() {
       
       console.log('Enhanced Claude-style interface with overlay modals initialized');
   }
-  // Add this function to claude-interface.js
-function fixModalAppearance() {
-  const styleElement = document.createElement('style');
-  styleElement.id = 'modal-appearance-fix';
-  styleElement.textContent = `
-    /* Fix for modal width and background */
-    .claude-overlay {
-      background-color: rgba(0, 0, 0, 0.6) !important;
-    }
-    
-    .claude-overlay-content {
-      width: 90% !important;
-      max-width: 800px !important;
-      background-color: white !important;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2) !important;
-    }
-  `;
-  document.head.appendChild(styleElement);
-}
-
-// Add this line in the DOMContentLoaded event handler
-document.addEventListener('DOMContentLoaded', function() {
-  // Add this line along with your other initializations
-  fixModalAppearance();
-  
-  // Your existing initialization code...
-});
