@@ -1,6 +1,4 @@
-document.head.appendChild(styleElement);
-  
-  // Function to toggle sources panel
+// Function to toggle sources panel
   function toggleSourcesPanel(show) {
     const panel = document.getElementById('sourcesPanel') || 
                   document.querySelector('.claude-sources-panel');
