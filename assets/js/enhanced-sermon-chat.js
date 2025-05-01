@@ -797,3 +797,35 @@ document.addEventListener('DOMContentLoaded', function() {
       document.head.appendChild(styleElement);
     }
   });
+  // Add this function to enhanced-sermon-chat.js
+function fixTranscriptDisplay() {
+    const styleElement = document.createElement('style');
+    styleElement.id = 'transcript-display-fix';
+    styleElement.textContent = `
+      /* Fix for transcript positioning and appearance */
+      .transcript-container,
+      [id^="transcript-"] {
+        position: relative !important;
+        z-index: 1000 !important;
+        background-color: white !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        margin: 1rem auto !important;
+        width: 100% !important;
+        max-width: 95% !important;
+        border: 1px solid #eee !important;
+        max-height: 400px !important;
+        overflow-y: auto !important;
+        padding: 15px !important;
+      }
+    `;
+    document.head.appendChild(styleElement);
+  }
+  
+  // Add this line to your initialization code
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add this line to your initialization
+    fixTranscriptDisplay();
+    
+    // Your existing initialization code...
+  });
