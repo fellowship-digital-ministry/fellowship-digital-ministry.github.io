@@ -1,0 +1,163 @@
+/* 
+ * theme.css
+ * Theme-specific styling, dark mode support, etc.
+ */
+
+/* Default light theme */
+:root {
+    /* Theme-specific colors */
+    --theme-bg: #f5f7fa;
+    --theme-panel-bg: white;
+    --theme-message-bg: white;
+    --theme-input-bg: white;
+    --theme-border: #eee;
+    --theme-text: #333;
+    --theme-text-light: #777;
+    --theme-secondary-bg: #f8f9fa;
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Dark theme colors */
+      --theme-bg: #1f2937;
+      --theme-panel-bg: #1f2937;
+      --theme-message-bg: #2d3748;
+      --theme-input-bg: #374151;
+      --theme-border: #374151;
+      --theme-text: #e2e8f0;
+      --theme-text-light: #9ca3af;
+      --theme-secondary-bg: #111827;
+      
+      /* Override base vars with dark theme */
+      --color-text: var(--theme-text);
+      --color-text-light: var(--theme-text-light);
+      --color-heading: #e2e8f0;
+      --color-border: var(--theme-border);
+    }
+    
+    body {
+      background-color: var(--theme-bg);
+      color: var(--theme-text);
+    }
+    
+    /* Chat interface dark mode */
+    .claude-chat-panel {
+      background-color: var(--theme-panel-bg);
+      border-color: var(--theme-border);
+    }
+    
+    .claude-messages {
+      background-color: var(--theme-secondary-bg);
+    }
+    
+    .claude-input-area {
+      background-color: var(--theme-panel-bg);
+      border-color: var(--theme-border);
+    }
+    
+    .claude-input-container {
+      background-color: var(--theme-input-bg);
+      border-color: #4b5563;
+    }
+    
+    .claude-input {
+      color: var(--theme-text);
+    }
+    
+    /* Messages dark mode */
+    .message.bot {
+      background-color: var(--theme-message-bg);
+      color: var(--theme-text);
+    }
+    
+    /* Sources panel dark mode */
+    .claude-sources-panel {
+      background-color: var(--theme-panel-bg);
+      border-color: var(--theme-border);
+    }
+    
+    .claude-sources-close {
+      background-color: #374151;
+      color: var(--theme-text);
+    }
+    
+    .sources-container {
+      background-color: var(--theme-panel-bg);
+      border-color: var(--theme-border);
+    }
+    
+    .sources-tabs {
+      background-color: var(--theme-secondary-bg);
+      border-color: var(--theme-border);
+    }
+    
+    .source-container {
+      background-color: var(--theme-message-bg);
+      border-color: #4b5563;
+    }
+    
+    .source-text {
+      background-color: rgba(255,255,255,0.05);
+      color: var(--theme-text);
+    }
+    
+    .welcome-message {
+      background-color: rgba(46, 163, 242, 0.1);
+    }
+    
+    .example-questions li {
+      background-color: var(--theme-message-bg);
+    }
+    
+    .message.bot .bible-reference {
+      background-color: rgba(46, 163, 242, 0.15);
+    }
+    
+    /* Transcript dark mode */
+    .transcript-container {
+      background-color: var(--theme-secondary-bg);
+      border-color: var(--theme-border);
+    }
+    
+    .transcript-segment:hover {
+      background-color: rgba(46, 163, 242, 0.1);
+    }
+    
+    .transcript-search-input {
+      background-color: var(--theme-input-bg);
+      color: var(--theme-text);
+      border-color: #4b5563;
+    }
+    
+    /* Form controls */
+    select, button, input, textarea {
+      background-color: var(--theme-input-bg);
+      color: var(--theme-text);
+      border-color: #4b5563;
+    }
+    
+    .control-button:hover {
+      background-color: #374151;
+    }
+    
+    .language-selector select {
+      background-color: var(--theme-input-bg);
+      color: var(--theme-text);
+    }
+    
+    /* Content cards */
+    .content-card {
+      background-color: var(--theme-message-bg);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+  
+  /* Optional theme classes for manual toggling */
+  .theme-light {
+    /* Light theme colors and overrides */
+  }
+  
+  .theme-dark {
+    /* Same overrides as prefers-color-scheme: dark media query */
+  }
