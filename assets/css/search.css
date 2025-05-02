@@ -286,6 +286,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   position: relative;
   display: flex;
   align-items: flex-end;
+  padding-right: 10px; /* Add padding to prevent overlap with scrollbar */
 }
 
 .claude-input {
@@ -343,7 +344,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 
 .claude-submit-button {
   position: absolute;
-  right: 0.5rem;
+  right: 0.75rem; /* Increased from 0.5rem to move button further from scrollbar */
   bottom: 0.5rem;
   width: 36px;
   height: 36px;
@@ -356,6 +357,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   justify-content: center;
   cursor: pointer;
   transition: background-color var(--transition-speed) ease;
+  z-index: 5; /* Ensure button stays above scrollbar */
 }
 
 .claude-submit-button:hover {
