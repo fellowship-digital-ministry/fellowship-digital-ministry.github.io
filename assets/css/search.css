@@ -292,9 +292,9 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 .claude-input {
   flex: 1;
   resize: none;
-  min-height: 48px;
-  max-height: 150px;
-  padding: 0.75rem 3rem 0.75rem 1rem;
+  min-height: 42px; /* Reduced from 48px */
+  max-height: 120px; /* Reduced from 150px */
+  padding: 0.6rem 3rem 0.6rem 1rem; /* Reduced from 0.75rem */
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: white;
@@ -1029,7 +1029,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   background-color: white;
   z-index: 10;
   border-top: 1px solid #eee;
-  padding: 10px 16px;
+  padding: 8px 16px; /* Reduced from 10px 16px */
 }
 
 /* Ensure language selector container takes minimal space */
