@@ -1019,94 +1019,74 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   flex-shrink: 0;
 }
 /* 
- * Fixed header and chat input modifications
- * Only affects search.html (chat) page
+ * ========================================
+ * FIXED HEADER AND INPUT OVERRIDES - CORRECTED
+ * These styles maintain the proper width and appearance of the header
+ * while fixing the mobile scrolling issues
+ * ========================================
  */
 
-/* Ensure the header stays fixed at the top */
-body.search-page .mobile-friendly-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+/* Keep body from scrolling on search page */
+body.search-page {
+  overflow-y: hidden;
 }
 
-/* Adjust the container to account for the fixed header */
+/* Ensure header maintains its proper width and centered appearance */
+body.search-page .mobile-friendly-header {
+  position: fixed;
+  width: 100%;
+  max-width: 1080px; /* Match your main container width */
+  left: 50%;
+  transform: translateX(-50%);
+  /* This keeps it centered and the same width as other pages */
+}
+
+/* Adjust chat container for fixed header */
 body.search-page .chat-section-wrapper {
-  height: calc(100vh - 50px); /* Mobile height by default */
-  margin-top: 50px; /* Same as header height */
-  display: flex;
-  flex-direction: column;
+  height: calc(100vh - 50px);
+  margin-top: 50px;
   overflow: hidden;
 }
 
-/* Make the input area fixed at the bottom */
-body.search-page .claude-input-area {
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  z-index: 100;
-  border-top: 1px solid #eee;
-  padding: 10px 16px;
-}
-
-/* Make the messages container scrollable */
+/* Scrollable messages area */
 body.search-page .claude-messages {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 10px; /* Add some padding at the bottom */
 }
 
-/* Adjust for desktop sizes */
+/* Fixed input at bottom */
+body.search-page .claude-input-area {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  z-index: 20;
+}
+
+/* Desktop adjustments */
 @media (min-width: 769px) {
   body.search-page .chat-section-wrapper {
-    height: calc(100vh - 60px); /* Desktop header height */
-    margin-top: 60px; /* Same as header height */
+    height: calc(100vh - 60px);
+    margin-top: 60px;
   }
 }
 
-/* Ensure sources panel appears correctly with fixed header */
+/* Panel positioning */
 body.search-page .claude-sources-panel {
-  top: 50px; /* Mobile header height */
+  top: 50px;
   height: calc(100vh - 50px);
+}
+
+body.search-page .info-section.active {
+  top: 50px;
 }
 
 @media (min-width: 769px) {
   body.search-page .claude-sources-panel {
-    top: 60px; /* Desktop header height */
+    top: 60px;
     height: calc(100vh - 60px);
   }
-}
-
-/* Info section positioning */
-body.search-page .info-section.active {
-  top: 50px; /* Mobile header height */
-}
-
-@media (min-width: 769px) {
+  
   body.search-page .info-section.active {
-    top: 60px; /* Desktop header height */
+    top: 60px;
   }
-}
-
-/* Prevent horizontal scrolling */
-body.search-page {
-  overflow-x: hidden;
-}
-
-/* Ensure the chat interface takes the full height */
-body.search-page .claude-interface {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Make language selector container fixed under header if needed */
-body.search-page .language-selector-container {
-  position: sticky;
-  top: 0;
-  z-index: 90;
 }
