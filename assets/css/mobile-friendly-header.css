@@ -101,13 +101,7 @@ body {
 }
 
 .nav-desktop a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; /* Moved down from 0 to -3px to create more space */
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #2ea3f2;
+  content: none; /* Removed the underline */
 }
 
 .nav-desktop a:hover {
@@ -278,9 +272,20 @@ body.search-page .mobile-friendly-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-body.search-page .header-title,
+body.search-page .header-title {
+  color: #666; /* Changed to match other pages */
+  font-size: 18px; /* Match the desktop size for consistency */
+}
+
 body.search-page .nav-desktop a {
   color: #666; /* Changed to match other pages */
+  font-size: 16px; /* Match the desktop size for consistency */
+}
+
+@media (min-width: 769px) {
+  body.search-page .header-title {
+    font-size: 18px; /* Match the desktop size */
+  }
 }
 
 body.search-page .nav-desktop a.active,
