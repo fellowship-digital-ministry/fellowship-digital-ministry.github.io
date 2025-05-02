@@ -2724,49 +2724,78 @@ Would you like me to search for sermon content on any of these topics instead?`;
       });
     }
     
-    // Clear conversation button
-    if (elements.clearConversationBtn) {
-      elements.clearConversationBtn.addEventListener('click', function() {
-        // Add confirmation dialog
-        if (state.conversationHistory.length > 1) {
-          const overlay = document.createElement('div');
-          overlay.className = 'claude-confirmation-overlay';
-          overlay.innerHTML = `
-            <div class="claude-confirmation-dialog">
-              <h3>Clear Conversation</h3>
-              <p>Are you sure you want to clear the entire conversation history?</p>
-              <div class="claude-confirmation-buttons">
-                <button class="claude-cancel-button">Cancel</button>
-                <button class="claude-confirm-button">Clear</button>
-              </div>
+  // Clear conversation button
+  if (elements.clearConversationBtn) {
+    elements.clearConversationBtn.addEventListener('click', function() {
+      // Add confirmation dialog as an alert popup
+      if (state.conversationHistory.length > 1) {
+        // Create alert overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'claude-overlay';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-labelledby', 'clear-conversation-title');
+        
+        // Create alert content
+        const overlayContent = document.createElement('div');
+        overlayContent.className = 'claude-overlay-content';
+        
+        // Add alert header and body
+        overlayContent.innerHTML = `
+          <div class="claude-overlay-header">
+            <h2 id="clear-conversation-title" class="claude-overlay-title">Clear Conversation</h2>
+          </div>
+          <div class="claude-overlay-body">
+            <p>Are you sure you want to clear the entire conversation history?</p>
+            <div class="claude-confirmation-buttons" style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+              <button class="claude-cancel-button control-button">Cancel</button>
+              <button class="claude-confirm-button control-button" style="background-color: var(--primary-color); color: white;">Clear</button>
             </div>
-          `;
-          
-          document.body.appendChild(overlay);
-          
-          // Fade in animation
-          setTimeout(() => {
-            overlay.style.opacity = '1';
-          }, 10);
-          
-          // Add event listeners
-          const cancelButton = overlay.querySelector('.claude-cancel-button');
-          const confirmButton = overlay.querySelector('.claude-confirm-button');
-          
-          cancelButton.addEventListener('click', function() {
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-              document.body.removeChild(overlay);
-            }, 300);
-          });
-          
-          confirmButton.addEventListener('click', function() {
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-              document.body.removeChild(overlay);
-              clearConversation();
-            }, 300);
-          });
+          </div>
+        `;
+        
+        overlay.appendChild(overlayContent);
+        document.body.appendChild(overlay);
+        
+        // Activate with animation
+        setTimeout(() => {
+          overlay.classList.add('active');
+        }, 10);
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+        
+        // Add event listeners
+        const cancelButton = overlay.querySelector('.claude-cancel-button');
+        const confirmButton = overlay.querySelector('.claude-confirm-button');
+        
+        // Close when clicking outside content
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeOverlay(overlay);
+          }
+        });
+        
+        // Close on ESC key
+        overlay.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            closeOverlay(overlay);
+          }
+        });
+        
+        cancelButton.addEventListener('click', function() {
+          closeOverlay(overlay);
+        });
+        
+        confirmButton.addEventListener('click', function() {
+          closeOverlay(overlay);
+          clearConversation();
+        });
+        
+        // Focus the cancel button for accessibility
+        setTimeout(() => {
+          cancelButton.focus();
+        }, 100);
         } else {
           // If conversation is very short, just clear without confirmation
           clearConversation();
