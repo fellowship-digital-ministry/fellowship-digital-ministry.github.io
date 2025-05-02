@@ -1,6 +1,6 @@
 /**
  * Improved Mobile-friendly header functionality
- * Fixed toggle behavior and scroll issues
+ * Fixed toggle behavior, scroll issues, and hamburger menu functionality
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,16 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // Toggle active class on the mobile navigation panel
         navMobile.classList.toggle('active');
         
-        // Prevent body scrolling when menu is open
+        // Fix for search page - ensure mobile nav is visible when active
         if (navMobile.classList.contains('active')) {
+          navMobile.style.transform = 'translateX(0)';
+          navMobile.style.display = 'block';
           body.style.overflow = 'hidden';
         } else {
+          navMobile.style.transform = 'translateX(100%)';
           body.style.overflow = '';
+          // Don't hide immediately to allow for transition
+          setTimeout(() => {
+            if (!navMobile.classList.contains('active')) {
+              navMobile.style.display = '';
+            }
+          }, 300);
         }
         
         // Update aria-expanded attribute for accessibility
         const isExpanded = navMobile.classList.contains('active');
         this.setAttribute('aria-expanded', isExpanded);
+        navMobile.setAttribute('aria-hidden', !isExpanded);
       });
     }
     
@@ -41,8 +51,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!navMobile.contains(event.target) && !navToggle.contains(event.target)) {
           navMobile.classList.remove('active');
           navToggle.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', false);
+          navToggle.setAttribute('aria-expanded', 'false');
+          navMobile.setAttribute('aria-hidden', 'true');
+          navMobile.style.transform = 'translateX(100%)';
           body.style.overflow = '';
+          
+          // Don't hide immediately to allow for transition
+          setTimeout(() => {
+            if (!navMobile.classList.contains('active')) {
+              navMobile.style.display = '';
+            }
+          }, 300);
         }
       }
     });
@@ -54,8 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
           navMobile.classList.remove('active');
           navToggle.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', false);
+          navToggle.setAttribute('aria-expanded', 'false');
+          navMobile.setAttribute('aria-hidden', 'true');
+          navMobile.style.transform = 'translateX(100%)';
           body.style.overflow = '';
+          
+          // Don't hide immediately to allow for transition
+          setTimeout(() => {
+            if (!navMobile.classList.contains('active')) {
+              navMobile.style.display = '';
+            }
+          }, 300);
         });
       });
     }
@@ -65,8 +93,17 @@ document.addEventListener('DOMContentLoaded', function() {
       if (window.innerWidth > 768 && navMobile && navMobile.classList.contains('active')) {
         navMobile.classList.remove('active');
         navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', false);
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMobile.setAttribute('aria-hidden', 'true');
+        navMobile.style.transform = 'translateX(100%)';
         body.style.overflow = '';
+        
+        // Don't hide immediately to allow for transition
+        setTimeout(() => {
+          if (!navMobile.classList.contains('active')) {
+            navMobile.style.display = '';
+          }
+        }, 300);
       }
       
       // Special handling for search page height calculations
@@ -104,5 +141,18 @@ document.addEventListener('DOMContentLoaded', function() {
       if (messagesContainer) {
         messagesContainer.style.maxHeight = `calc(100vh - 140px)`;
       }
+    }
+    
+    // Ensure mobile nav is properly configured on page load
+    if (navMobile) {
+      // Set initial aria state
+      navMobile.setAttribute('aria-hidden', 'true');
+      
+      // Ensure proper z-index and initial styling
+      navMobile.style.zIndex = '1000';
+      
+      // Fix height and positioning
+      const headerHeight = document.querySelector('.mobile-friendly-header')?.offsetHeight || 60;
+      navMobile.style.paddingTop = `${headerHeight + 20}px`;
     }
   });

@@ -1,6 +1,6 @@
 /* 
- * mobile-friendly-header.css - Unified mobile-friendly responsive header
- * Works consistently across all pages with no exceptions
+ * mobile-friendly-header.css - Complete solution for responsive header
+ * Fixed for better positioning, navigation, and mobile menu functionality
  */
 
 /* Header container - unified positioning for all pages */
@@ -16,7 +16,6 @@
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 16px;
   transition: height 0.3s ease;
   box-sizing: border-box;
@@ -33,6 +32,7 @@ html, body {
   display: flex;
   align-items: center;
   height: 100%;
+  margin-right: 20px;
 }
 
 .header-logo {
@@ -47,17 +47,20 @@ html, body {
   color: var(--color-heading, #333);
 }
 
-/* Navigation */
+/* Navigation container */
 .header-nav {
   display: flex;
+  align-items: center;
   height: 100%;
-  margin-left: auto; /* Push to right if language selector is not present */
+  flex-grow: 1; /* Take up remaining space */
 }
 
+/* Desktop navigation styles */
 .nav-desktop {
   height: 100%;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .nav-desktop ul {
@@ -109,30 +112,28 @@ html, body {
 }
 
 /* External link styling */
-.nav-desktop .external-link,
-.nav-mobile .external-link {
+.external-link {
   display: flex;
   align-items: center;
 }
 
-.nav-desktop .external-link svg,
-.nav-mobile .external-link svg {
+.external-link svg {
   margin-left: 4px;
   width: 14px;
   height: 14px;
 }
 
-/* Hamburger menu toggle */
+/* Hamburger menu toggle - only visible on mobile */
 .nav-toggle {
   display: none;
   background: transparent;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 40px;  /* Increased width for better tap target */
+  height: 40px; /* Increased height for better tap target */
   cursor: pointer;
   padding: 0;
   position: relative;
-  z-index: 1001; /* Higher z-index to stay above nav-mobile */
+  z-index: 1001;
   margin-left: auto;
 }
 
@@ -153,19 +154,24 @@ html, body {
   right: 0;
   bottom: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   background-color: white;
   z-index: 1000;
-  padding: 70px 20px 20px 20px; /* Extra top padding for header */
+  padding: 70px 20px 20px 20px;
   transform: translateX(100%);
   transition: transform 0.3s ease;
   overflow-y: auto;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* When mobile navigation is active, display it properly */
 .nav-mobile.active {
+  display: block;
   transform: translateX(0);
 }
 
+/* Mobile navigation styling */
 .nav-mobile ul {
   list-style: none;
   margin: 0;
@@ -178,22 +184,31 @@ html, body {
 
 .nav-mobile a {
   display: block;
-  padding: 12px 0;
+  padding: 15px;
   color: #333;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
   border-bottom: 1px solid #eee;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  border-radius: 4px;
 }
 
 .nav-mobile a.active {
   color: var(--color-primary, #2ea3f2);
+  background-color: rgba(46, 163, 242, 0.05);
 }
 
 .nav-mobile a:hover {
   color: var(--color-primary, #2ea3f2);
+  background-color: rgba(46, 163, 242, 0.1);
   opacity: 1;
+}
+
+/* Visual feedback for tapped links */
+.nav-mobile a:active {
+  transform: scale(0.98);
+  background-color: rgba(46, 163, 242, 0.15);
 }
 
 /* Language selector - ONLY DISPLAY ON SEARCH PAGE */
@@ -253,7 +268,15 @@ body.search-page .language-selector {
     display: block;
   }
   
-  /* Hamburger animation when active */
+  /* Force navigation to be visible on small screens when active */
+  .nav-mobile.active {
+    display: block !important;
+    transform: translateX(0) !important;
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+  }
+  
+  /* Improved hamburger menu animation when active */
   .nav-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -317,8 +340,13 @@ body.search-page .nav-mobile a {
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
-body.search-page .nav-mobile a:hover {
-  color: rgba(255, 255, 255, 0.8);
+body.search-page .nav-mobile a:hover,
+body.search-page .nav-mobile a:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.search-page .nav-mobile a.active {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Fix for content spacing - remove margin gaps */
@@ -330,33 +358,19 @@ main {
   padding-top: 0;
 }
 
-/* Unified fixes for all pages */
-.main-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Special case fixes for the search page */
+/* Search page specific styles */
 body.search-page {
   background-color: var(--color-bg-maroon, #641c14);
 }
 
 body.search-page .chat-section-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  margin-top: 0;
   padding-top: 0;
+  margin-top: 0;
 }
 
 /* Fix for claude interface on search page */
 body.search-page .claude-interface {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  overflow: hidden;
+  height: 100%;
 }
 
 body.search-page .claude-messages {
@@ -367,22 +381,6 @@ body.search-page .claude-messages {
 body.search-page .claude-input-area {
   background-color: white;
   border-top: 1px solid var(--color-border, #eee);
-}
-
-/* Fix for info section on search page */
-body.search-page .info-section.active {
-  top: 50px;
-  z-index: 100;
-}
-
-/* Better scrolling for the claude sources panel */
-body.search-page .claude-sources-panel {
-  z-index: 500;
-}
-
-/* Fix for the home page - remove unwanted margins */
-body.home .hero {
-  margin-top: 0;
 }
 
 /* Fix for modal elements */
@@ -396,9 +394,42 @@ body.home .hero {
   z-index: 100;
 }
 
-/* Ensure chat container uses all available space */
+/* Fix for info section on search page */
+body.search-page .info-section.active {
+  top: 50px;
+}
+
+/* Fix for the sources panel */
+body.search-page .claude-sources-panel {
+  z-index: 500; 
+}
+
+/* Make sure container doesn't cause scrolling */
 .container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent body scrolling when mobile nav is open */
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fix for mobile display - prevent menu extending beyond viewport */
+@media (max-width: 768px) {
+  body.search-page {
+    overflow-y: hidden;
+  }
+  
+  body.search-page .chat-section-wrapper {
+    height: calc(100vh - 50px);
+    padding-top: 0;
+  }
+  
+  body.search-page .claude-messages {
+    max-height: calc(100vh - 160px);
+  }
 }
