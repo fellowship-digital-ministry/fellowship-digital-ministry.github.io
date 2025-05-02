@@ -88,16 +88,16 @@ body {
   align-items: center;
   height: 100%;
   padding: 0 16px;
-  color: #666;
+  color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px; /* Increased from 14px */
+  font-size: 15px;
   transition: color 0.2s ease, background-color 0.2s ease;
   position: relative;
 }
 
 .nav-desktop a.active {
-  color: #2ea3f2;
+  color: #641c14;
 }
 
 .nav-desktop a.active::after {
@@ -105,13 +105,13 @@ body {
 }
 
 .nav-desktop a:hover {
-  color: #2ea3f2;
+  color: #641c14;
   text-decoration: none;
 }
 
 /* Improved focus states for accessibility */
 .nav-desktop a:focus {
-  outline: 2px solid #2ea3f2;
+  outline: 2px solid #641c14;
   outline-offset: -2px;
 }
 
@@ -146,7 +146,7 @@ body {
 }
 
 .nav-toggle:focus {
-  outline: 2px solid #2ea3f2;
+  outline: 2px solid #641c14;
   border-radius: 4px;
 }
 
@@ -198,34 +198,34 @@ body {
 .nav-mobile a {
   display: block;
   padding: 15px;
-  color: #333;
+  color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   border-bottom: 1px solid #eee;
   transition: all 0.2s ease;
   border-radius: 4px;
 }
 
 .nav-mobile a.active {
-  color: #2ea3f2;
-  background-color: rgba(46, 163, 242, 0.05);
+  color: #641c14;
+  background-color: rgba(100, 28, 20, 0.05);
 }
 
 .nav-mobile a:hover {
-  color: #2ea3f2;
-  background-color: rgba(46, 163, 242, 0.1);
+  color: #641c14;
+  background-color: rgba(100, 28, 20, 0.1);
 }
 
 .nav-mobile a:focus {
-  outline: 2px solid #2ea3f2;
+  outline: 2px solid #641c14;
   outline-offset: -2px;
 }
 
 /* Visual feedback for tapped links */
 .nav-mobile a:active {
   transform: scale(0.98);
-  background-color: rgba(46, 163, 242, 0.15);
+  background-color: rgba(100, 28, 20, 0.15);
 }
 
 /* Improved hamburger menu animation when active */
@@ -278,8 +278,8 @@ body.search-page .header-title {
 }
 
 body.search-page .nav-desktop a {
-  color: #666; /* Changed to match other pages */
-  font-size: 16px; /* Match the desktop size for consistency */
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
 }
 
 @media (min-width: 769px) {
@@ -290,7 +290,7 @@ body.search-page .nav-desktop a {
 
 body.search-page .nav-desktop a.active,
 body.search-page .nav-desktop a:hover {
-  color: #2ea3f2;
+  color: #641c14;
 }
 
 body.search-page .nav-toggle span {
@@ -303,18 +303,18 @@ body.search-page .nav-mobile {
 }
 
 body.search-page .nav-mobile a {
-  color: #333;
+  color: rgba(0, 0, 0, 0.6);
   border-bottom-color: #eee;
 }
 
 body.search-page .nav-mobile a:hover,
 body.search-page .nav-mobile a:active {
-  background-color: rgba(46, 163, 242, 0.1);
+  background-color: rgba(100, 28, 20, 0.1);
 }
 
 body.search-page .nav-mobile a.active {
-  color: #2ea3f2;
-  background-color: rgba(46, 163, 242, 0.05);
+  color: #641c14;
+  background-color: rgba(100, 28, 20, 0.05);
 }
 
 /* Fix for content spacing */
