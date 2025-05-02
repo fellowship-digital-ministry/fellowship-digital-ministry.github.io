@@ -272,42 +272,44 @@ body {
 }
 
 /* Search page specific styling */
+/* Search page specific styling - Removed maroon color for header */
 body.search-page .mobile-friendly-header {
-  background-color: #641c14; /* Maroon color */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: white; /* Changed to white for consistency */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 body.search-page .header-title,
 body.search-page .nav-desktop a {
-  color: rgba(255, 255, 255, 0.8);
+  color: #666; /* Changed to match other pages */
 }
 
 body.search-page .nav-desktop a.active,
 body.search-page .nav-desktop a:hover {
-  color: white;
+  color: #2ea3f2;
 }
 
 body.search-page .nav-toggle span {
-  background-color: white;
+  background-color: #333;
 }
 
 /* Mobile nav styling for search page */
 body.search-page .nav-mobile {
-  background-color: #641c14;
+  background-color: white;
 }
 
 body.search-page .nav-mobile a {
-  color: white;
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  color: #333;
+  border-bottom-color: #eee;
 }
 
 body.search-page .nav-mobile a:hover,
 body.search-page .nav-mobile a:active {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(46, 163, 242, 0.1);
 }
 
 body.search-page .nav-mobile a.active {
-  background-color: rgba(255, 255, 255, 0.15);
+  color: #2ea3f2;
+  background-color: rgba(46, 163, 242, 0.05);
 }
 
 /* Fix for content spacing */
