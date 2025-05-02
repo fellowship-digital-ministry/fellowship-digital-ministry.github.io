@@ -16,8 +16,9 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   {% endif %}
 </head>
-<body class="{% if page.url == '/' %}home{% endif %} {{ page.custom_class }}">
+<body class="{% if page.url == '/' %}home{% endif %} {{ page.custom_class }}" {% if page.custom_class == 'search-page' %}style="background-color: var(--color-bg-maroon);"{% endif %}>
   <div class="main-container">
+    {% unless page.custom_class == 'search-page' %}
     <div class="logo-container">
       <img src="{{ '/assets/images/digital-ministry-logo.svg' | relative_url }}" alt="Fellowship Digital Ministry" class="digital-ministry-logo">
       <span class="logo-text">Fellowship Digital Ministry</span>
@@ -33,6 +34,7 @@
         </ul>
       </div>
     </nav>
+    {% endunless %}
     
     {% if page.hero_banner %}
     <div class="hero" {% if page.hero_image %}style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ page.hero_image | relative_url }}');"{% endif %}>
