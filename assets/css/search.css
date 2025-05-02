@@ -1031,14 +1031,23 @@ body.search-page {
   overflow-y: hidden;
 }
 
-/* Ensure header maintains its proper width and centered appearance */
+/* Ensure header maintains its proper width and appearance */
 body.search-page .mobile-friendly-header {
   position: fixed;
   width: 100%;
-  max-width: 1080px; /* Match your main container width */
-  left: 50%;
-  transform: translateX(-50%);
-  /* This keeps it centered and the same width as other pages */
+  max-width: 100%; /* Full width on mobile */
+  left: 0;
+  transform: none; /* Remove transform that could cause positioning issues */
+  z-index: 1000; /* Ensure header is above other elements */
+}
+
+/* For larger screens, center the header with max-width */
+@media (min-width: 1080px) {
+  body.search-page .mobile-friendly-header {
+    max-width: 1080px; /* Match your main container width */
+    left: 50%;
+    transform: translateX(-50%); /* Center on desktop */
+  }
 }
 
 /* Adjust chat container for fixed header */
