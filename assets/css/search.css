@@ -801,6 +801,7 @@
   
   /* Info section and toggle */
   .info-section {
+    display: none;
     background-color: white;
     border-top: 1px solid var(--border-color);
     padding: 2rem 1.5rem;
@@ -811,8 +812,21 @@
     border-top-color: #374151;
   }
   
+  .info-section.active {
+    display: block;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    overflow-y: auto;
+  }
+  
   .info-toggle {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     bottom: 1rem;
     right: 1rem;
@@ -855,12 +869,13 @@
     margin-left: 0;
   }
   
-  .example-questions li {
-    margin-bottom: 0.75rem;
-    padding: 0.5rem;
-    border-radius: var(--border-radius);
-    transition: background-color var(--transition-speed) ease;
-  }
+.example-questions li {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed) ease;
+  color: var(--text-color); /* Ensure text is dark enough to read */
+}
   
   .example-questions li.hover {
     background-color: rgba(46, 163, 242, 0.1);
@@ -982,28 +997,13 @@
       font-size: 0.9375rem;
     }
     
-    /* Show info toggle on mobile */
-    .info-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* Hide info section by default on mobile */
+    /* Mobile-specific info section styles */
     .info-section {
-      display: none;
       padding: 1rem;
     }
     
     .info-section.active {
-      display: block;
-      position: fixed;
       top: var(--header-height-mobile);
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 30;
-      overflow-y: auto;
     }
     
     .content-section-header {
@@ -1065,3 +1065,81 @@
       background-color: white !important;
     }
   }
+  
+  /* Special header handling for search page */
+  .search-page .logo-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .search-page .logo-container .digital-ministry-logo {
+    height: 40px;
+  }
+  
+  .search-page .logo-container .logo-text {
+    font-size: 18px;
+  }
+  
+  .search-page nav {
+    display: none; /* Hide navigation on search page */
+  }
+  
+  /* Show minimal header on larger screens */
+  @media (min-width: 769px) {
+    .search-page .logo-container {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      padding: 0.25rem 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+  }
+  
+/* Fix for chat container sizing */
+.chat-section-wrapper,
+.claude-interface,
+.claude-chat-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+  width: 100%;
+}
+
+.claude-messages {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 180px); /* Adjust based on your input area height */
+}
+
+.claude-input-area {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+body.search-page {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Fix for mobile */
+@media (max-width: 768px) {
+  .search-page .chat-section-wrapper {
+    height: calc(100vh - 50px);
+    margin-top: 50px;
+  }
+  
+  .claude-messages {
+    max-height: calc(100vh - 150px);
+  }
+}

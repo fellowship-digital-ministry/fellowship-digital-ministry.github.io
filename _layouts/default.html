@@ -8,13 +8,15 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style-additions.css' | relative_url }}">
   <!-- <link rel="stylesheet" href="{{ '/assets/css/claude-style.css' | relative_url }}"> -->
+  {% if page.custom_class == 'search-page' %}
   <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
+  {% endif %}
   <!-- <link rel="stylesheet" href="{{ '/assets/css/enhanced-sermon-chat.css' | relative_url }}"> -->
   {% if page.use_charts %}
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   {% endif %}
 </head>
-<body class="{% if page.url == '/' %}home{% endif %}">
+<body class="{% if page.url == '/' %}home{% endif %} {{ page.custom_class }}">
   <div class="main-container">
     <div class="logo-container">
       <img src="{{ '/assets/images/digital-ministry-logo.svg' | relative_url }}" alt="Fellowship Digital Ministry" class="digital-ministry-logo">
