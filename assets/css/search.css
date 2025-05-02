@@ -43,9 +43,9 @@ body.search-page {
     line-height: 1.5;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    height: 100vh;
-    position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
     width: 100%;
   }
   
@@ -68,7 +68,7 @@ body.search-page {
   .container.search-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: calc(100vh - 60px);
     max-width: var(--content-max-width);
     margin: 0 auto;
     padding: 0;
@@ -342,10 +342,10 @@ body.search-page {
   /* Sources panel */
   .claude-sources-panel {
     position: fixed;
-    top: var(--header-height);
+    top: 60px;
     right: 0;
     width: 350px;
-    height: calc(100vh - var(--header-height));
+    height: calc(100vh - 60px);
     background-color: white;
     border-left: 1px solid var(--border-color);
     overflow-y: auto;
@@ -801,7 +801,7 @@ body.search-page {
   .info-section.active {
     display: block;
     position: fixed;
-    top: var(--header-height);
+    top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -928,9 +928,9 @@ body.search-page {
     }
     
     .claude-sources-panel {
-      top: var(--header-height-mobile);
+      top: 50px;
       width: 100%;
-      height: calc(100vh - var(--header-height-mobile));
+      height: calc(100vh - 50px);
       border-left: none;
       box-shadow: 0 -5px 15px var(--shadow-color);
       border-top: 1px solid var(--border-color);
@@ -989,7 +989,7 @@ body.search-page {
     }
     
     .info-section.active {
-      top: var(--header-height-mobile);
+      top: 50px;
     }
     
     .content-section-header {
@@ -1069,7 +1069,7 @@ body.search-page {
 .claude-messages {
   flex: 1;
   overflow-y: auto;
-  max-height: calc(100vh - 150px);
+  max-height: calc(100vh - 210px); /* Account for header (60px) + input area (150px) */
 }
 
 .claude-input-area {
@@ -1087,13 +1087,17 @@ body.search-page {
   }
   
   .container.search-container {
-    height: 100vh;
+    height: calc(100vh - 50px);
   }
   
   .claude-chat-panel {
     background-color: white;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
+  }
+  
+  .claude-messages {
+    max-height: calc(100vh - 200px); /* Account for mobile header (50px) + input area (150px) */
   }
   
   .info-toggle {
