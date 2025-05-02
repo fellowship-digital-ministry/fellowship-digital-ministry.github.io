@@ -2013,18 +2013,8 @@ const SermonSearch = (function() {
           }, 500 + (index * 50));
         });
         
-        // Auto-open sources panel for first answer
-        if (state.conversationHistory.length <= 2) {
-          setTimeout(() => {
-            toggleSourcesPanel(true);
-            const sourcesToggle = messageElement.querySelector('.claude-sources-toggle');
-            if (sourcesToggle) {
-              sourcesToggle.setAttribute('data-active', 'true');
-              sourcesToggle.setAttribute('aria-expanded', 'true');
-              sourcesToggle.innerHTML = '<span class="claude-sources-toggle-icon">⬇</span> ' + translate('hide-sources');
-            }
-          }, 500);
-        }
+        // Sources panel will only open when the user clicks the toggle button
+        // (Auto-opening code removed as per user request)
         
         // Add to conversation history
         state.conversationHistory.push({ role: 'assistant', content: data.answer });
