@@ -107,12 +107,12 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 .language-selector select {
   appearance: none;
   background-color: rgba(240, 240, 240, 0.9);
-  color: var(--text-color);
+  color: #222; /* Darker text color for better visibility on mobile */
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   padding: 6px 24px 6px 12px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600; /* Increased from 500 for better visibility */
   cursor: pointer;
   transition: all 0.2s ease;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23333333' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
