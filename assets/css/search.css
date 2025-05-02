@@ -305,6 +305,25 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
+/* Hide scrollbar buttons (up/down arrows) across browsers */
+.claude-input::-webkit-scrollbar-button {
+  display: none; /* Hide in WebKit browsers (Chrome, Safari, newer Edge) */
+}
+
+.claude-input {
+  /* Firefox */
+  scrollbar-width: thin;
+  /* Hide arrows in IE and Edge */
+  -ms-overflow-style: none;
+}
+
+/* Alternative approach: make them white instead of hiding */
+/*
+.claude-input::-webkit-scrollbar-button {
+  background-color: white;
+}
+*/
+
 [data-theme="dark"] .claude-input {
   background-color: #374151;
   color: var(--text-light);
