@@ -1,9 +1,9 @@
 /* 
- * mobile-friendly-header.css - Complete solution for responsive header
- * Fixed for better positioning, navigation, and mobile menu functionality
+ * mobile-friendly-header.css - Streamlined responsive header
+ * Consistent styling across all pages with special handling for search page
  */
 
-/* Header container - unified positioning for all pages */
+/* Base header container - unified positioning for all pages */
 .mobile-friendly-header {
   position: sticky;
   top: 0;
@@ -11,13 +11,13 @@
   right: 0;
   z-index: 1000;
   background-color: white;
-  box-shadow: 0 2px 8px var(--color-shadow, rgba(0,0,0,0.1));
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 16px;
-  transition: height 0.3s ease;
   box-sizing: border-box;
 }
 
@@ -32,7 +32,6 @@ html, body {
   display: flex;
   align-items: center;
   height: 100%;
-  margin-right: 20px;
 }
 
 .header-logo {
@@ -44,7 +43,7 @@ html, body {
 .header-title {
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-heading, #333);
+  color: #333;
 }
 
 /* Navigation container */
@@ -52,7 +51,8 @@ html, body {
   display: flex;
   align-items: center;
   height: 100%;
-  flex-grow: 1; /* Take up remaining space */
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 /* Desktop navigation styles */
@@ -60,7 +60,6 @@ html, body {
   height: 100%;
   display: flex;
   align-items: center;
-  width: 100%;
 }
 
 .nav-desktop ul {
@@ -92,7 +91,7 @@ html, body {
 }
 
 .nav-desktop a.active {
-  color: var(--color-primary, #2ea3f2);
+  color: #2ea3f2;
 }
 
 .nav-desktop a.active::after {
@@ -102,13 +101,12 @@ html, body {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: var(--color-primary, #2ea3f2);
+  background-color: #2ea3f2;
 }
 
 .nav-desktop a:hover {
-  color: var(--color-primary, #2ea3f2);
+  color: #2ea3f2;
   text-decoration: none;
-  opacity: 1;
 }
 
 /* External link styling */
@@ -123,18 +121,50 @@ html, body {
   height: 14px;
 }
 
+/* Language selector */
+.language-selector {
+  margin-left: 16px;
+  display: none; /* Hidden by default, shown only on search page */
+}
+
+.language-selector select {
+  appearance: none;
+  padding: 6px 24px 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  background-color: #f5f5f5;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23666' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  min-width: 110px;
+}
+
+.language-selector select:hover {
+  background-color: #eee;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: #2ea3f2;
+  box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
+}
+
 /* Hamburger menu toggle - only visible on mobile */
 .nav-toggle {
   display: none;
   background: transparent;
   border: none;
-  width: 40px;  /* Increased width for better tap target */
-  height: 40px; /* Increased height for better tap target */
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   padding: 0;
   position: relative;
   z-index: 1001;
-  margin-left: auto;
 }
 
 .nav-toggle span {
@@ -195,59 +225,19 @@ html, body {
 }
 
 .nav-mobile a.active {
-  color: var(--color-primary, #2ea3f2);
+  color: #2ea3f2;
   background-color: rgba(46, 163, 242, 0.05);
 }
 
 .nav-mobile a:hover {
-  color: var(--color-primary, #2ea3f2);
+  color: #2ea3f2;
   background-color: rgba(46, 163, 242, 0.1);
-  opacity: 1;
 }
 
 /* Visual feedback for tapped links */
 .nav-mobile a:active {
   transform: scale(0.98);
   background-color: rgba(46, 163, 242, 0.15);
-}
-
-/* Language selector - ONLY DISPLAY ON SEARCH PAGE */
-.language-selector {
-  display: none; /* Hide by default */
-  margin-left: 16px;
-  position: relative;
-}
-
-/* Only show language selector on search page */
-body.search-page .language-selector {
-  display: block;
-}
-
-.language-selector select {
-  appearance: none;
-  padding: 6px 24px 6px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #666;
-  background-color: #f5f5f5;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23666' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  min-width: 110px;
-}
-
-.language-selector select:hover {
-  background-color: #eee;
-}
-
-.language-selector select:focus {
-  outline: none;
-  border-color: var(--color-primary, #2ea3f2);
-  box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
 }
 
 /* Mobile adjustments */
@@ -266,14 +256,6 @@ body.search-page .language-selector {
   
   .nav-toggle {
     display: block;
-  }
-  
-  /* Force navigation to be visible on small screens when active */
-  .nav-mobile.active {
-    display: block !important;
-    transform: translateX(0) !important;
-    width: 100vw;  /* Full viewport width */
-    height: 100vh; /* Full viewport height */
   }
   
   /* Improved hamburger menu animation when active */
@@ -297,16 +279,13 @@ body.search-page .language-selector {
   }
 }
 
-/* Special improvements for the search page */
+/* Search page specific styling */
 body.search-page .mobile-friendly-header {
-  background-color: var(--color-bg-maroon, #641c14);
+  background-color: #641c14; /* Maroon color */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body.search-page .header-title {
-  color: white;
-}
-
+body.search-page .header-title,
 body.search-page .nav-desktop a {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -320,10 +299,15 @@ body.search-page .nav-toggle span {
   background-color: white;
 }
 
+body.search-page .language-selector {
+  display: block; /* Show language selector only on search page */
+}
+
 body.search-page .language-selector select {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border-color: rgba(255, 255, 255, 0.2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23ffffff' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
 }
 
 body.search-page .language-selector select:hover {
@@ -332,7 +316,7 @@ body.search-page .language-selector select:hover {
 
 /* Mobile nav styling for search page */
 body.search-page .nav-mobile {
-  background-color: var(--color-bg-maroon, #641c14);
+  background-color: #641c14;
 }
 
 body.search-page .nav-mobile a {
@@ -349,7 +333,7 @@ body.search-page .nav-mobile a.active {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Fix for content spacing - remove margin gaps */
+/* Fix for content spacing */
 .hero {
   margin-top: 0;
 }
@@ -358,19 +342,24 @@ main {
   padding-top: 0;
 }
 
-/* Search page specific styles */
+/* Search page specific layout fixes */
 body.search-page {
-  background-color: var(--color-bg-maroon, #641c14);
+  background-color: #641c14;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 body.search-page .chat-section-wrapper {
-  padding-top: 0;
-  margin-top: 0;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  position: relative;
 }
 
-/* Fix for claude interface on search page */
 body.search-page .claude-interface {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 body.search-page .claude-messages {
@@ -380,13 +369,15 @@ body.search-page .claude-messages {
 
 body.search-page .claude-input-area {
   background-color: white;
-  border-top: 1px solid var(--color-border, #eee);
+  border-top: 1px solid #eee;
+  position: relative;
+  z-index: 10;
 }
 
 /* Fix for modal elements */
 .claude-overlay {
   position: fixed;
-  z-index: 2000; /* Ensure above everything else */
+  z-index: 2000;
 }
 
 /* Fix for info toggle positioning */
@@ -401,35 +392,31 @@ body.search-page .info-section.active {
 
 /* Fix for the sources panel */
 body.search-page .claude-sources-panel {
-  z-index: 500; 
+  z-index: 500;
+  top: 60px;
+  height: calc(100vh - 60px);
 }
 
-/* Make sure container doesn't cause scrolling */
-.container {
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Prevent body scrolling when mobile nav is open */
-body.nav-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-/* Fix for mobile display - prevent menu extending beyond viewport */
 @media (max-width: 768px) {
-  body.search-page {
-    overflow-y: hidden;
-  }
-  
   body.search-page .chat-section-wrapper {
     height: calc(100vh - 50px);
-    padding-top: 0;
+    top: 50px;
   }
   
-  body.search-page .claude-messages {
-    max-height: calc(100vh - 160px);
+  body.search-page .claude-sources-panel {
+    top: 50px;
+    height: calc(100vh - 50px);
+  }
+  
+  body.search-page .info-section.active {
+    top: 50px;
+  }
+  
+  /* Prevent body scrolling when mobile nav is open */
+  body.nav-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
   }
 }
