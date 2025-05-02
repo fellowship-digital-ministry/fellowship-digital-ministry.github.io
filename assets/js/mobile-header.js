@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.body.classList.contains('search-page')) {
       const chatSectionWrapper = document.querySelector('.chat-section-wrapper');
       if (chatSectionWrapper) {
-        const headerHeight = window.innerWidth <= 768 ? 50 : 60;
+        const headerHeight = window.innerWidth <= 768 ? 56 : 64; // Updated to match new header heights
         chatSectionWrapper.style.height = `calc(100vh - ${headerHeight}px)`;
         
         // Update messages container height
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fix chat section wrapper height
     const chatSectionWrapper = document.querySelector('.chat-section-wrapper');
     if (chatSectionWrapper) {
-      const headerHeight = window.innerWidth <= 768 ? 50 : 60;
+      const headerHeight = window.innerWidth <= 768 ? 56 : 64; // Updated to match new header heights
       chatSectionWrapper.style.height = `calc(100vh - ${headerHeight}px)`;
       
       // Fix messages container height
@@ -155,14 +155,14 @@ document.addEventListener('DOMContentLoaded', function() {
     navMobile.setAttribute('aria-hidden', 'true');
     
     // Fix height and positioning
-    const headerHeight = document.querySelector('.mobile-friendly-header')?.offsetHeight || 60;
+    const headerHeight = document.querySelector('.mobile-friendly-header')?.offsetHeight || 64; // Updated from 60 to 64
     navMobile.style.paddingTop = `${headerHeight + 20}px`;
   }
   
   // Fix for info section positioning
   const infoSection = document.querySelector('.info-section');
   if (infoSection && document.body.classList.contains('search-page')) {
-    const headerHeight = window.innerWidth <= 768 ? 50 : 60;
+    const headerHeight = window.innerWidth <= 768 ? 56 : 64; // Updated to match new header heights
     infoSection.style.top = `${headerHeight}px`;
   }
 });
