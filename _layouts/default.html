@@ -8,16 +8,14 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style-additions.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/mobile-friendly-header.css' | relative_url }}">
-  <!-- <link rel="stylesheet" href="{{ '/assets/css/claude-style.css' | relative_url }}"> -->
   {% if page.custom_class == 'search-page' %}
   <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
   {% endif %}
-  <!-- <link rel="stylesheet" href="{{ '/assets/css/enhanced-sermon-chat.css' | relative_url }}"> -->
   {% if page.use_charts %}
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   {% endif %}
 </head>
-<body class="{% if page.url == '/' %}home{% endif %} {{ page.custom_class }}" {% if page.custom_class == 'search-page' %}style="background-color: var(--color-bg-maroon);"{% endif %}>
+<body class="{% if page.url == '/' %}home{% endif %} {{ page.custom_class }}">
   <div class="main-container">
     {% include header.html %}
     
@@ -47,7 +45,7 @@
       {{ content }}
     </main>
     
-  <!-- Add this conditional footer just before the closing div for "main-container" -->
+  <!-- Add footer for all pages except search.html -->
   {% unless page.url == '/search.html' %}
   <footer>
     <div class="container">
@@ -72,9 +70,7 @@
   <!-- Bible reference linking script - makes Bible references clickable -->
   <script src="{{ '/assets/js/bible-references.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/mobile-header.js' | relative_url }}"></script>
-  <!-- <script src="{{ '/assets/js/claude-interface.js' | relative_url }}"></script> -->
   <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
-  <!-- <script src="{{ '/assets/js/enhanced-sermon-chat.js' | relative_url }}"></script> -->
 
 </body>
 </html>

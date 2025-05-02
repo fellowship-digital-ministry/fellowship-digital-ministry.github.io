@@ -1,9 +1,9 @@
 /* 
- * mobile-friendly-header.css - Improved mobile-friendly responsive header
- * Fixed for better positioning and no scrolling issues
+ * mobile-friendly-header.css - Unified mobile-friendly responsive header
+ * Works consistently across all pages with no exceptions
  */
 
-/* Header container - fixed positioning for search page */
+/* Header container - unified positioning for all pages */
 .mobile-friendly-header {
   position: sticky;
   top: 0;
@@ -51,6 +51,7 @@ html, body {
 .header-nav {
   display: flex;
   height: 100%;
+  margin-left: auto; /* Push to right if language selector is not present */
 }
 
 .nav-desktop {
@@ -195,10 +196,16 @@ html, body {
   opacity: 1;
 }
 
-/* Language selector */
+/* Language selector - ONLY DISPLAY ON SEARCH PAGE */
 .language-selector {
+  display: none; /* Hide by default */
   margin-left: 16px;
   position: relative;
+}
+
+/* Only show language selector on search page */
+body.search-page .language-selector {
+  display: block;
 }
 
 .language-selector select {
@@ -323,69 +330,59 @@ main {
   padding-top: 0;
 }
 
+/* Unified fixes for all pages */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* Special case fixes for the search page */
 body.search-page {
   background-color: var(--color-bg-maroon, #641c14);
-  overflow-y: hidden; /* Prevent vertical scroll on search page */
-}
-
-body.search-page .main-container {
-  overflow-y: hidden;
-  max-height: 100vh;
 }
 
 body.search-page .chat-section-wrapper {
-  position: absolute;
-  top: 50px; /* Match the mobile header height */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  height: calc(100vh - 50px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* Fix for claude interface on search page */
 body.search-page .claude-interface {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   overflow: hidden;
 }
 
 body.search-page .claude-messages {
+  flex: 1;
   overflow-y: auto;
-  max-height: calc(100vh - 140px); /* Adjust for header and input area */
 }
 
 body.search-page .claude-input-area {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background-color: white;
-  z-index: 10;
+  border-top: 1px solid var(--color-border, #eee);
 }
 
 /* Fix for info section on search page */
 body.search-page .info-section.active {
   top: 50px;
-  height: calc(100vh - 50px);
+  z-index: 100;
 }
 
 /* Better scrolling for the claude sources panel */
 body.search-page .claude-sources-panel {
-  top: 50px;
-  height: calc(100vh - 50px);
-  max-height: calc(100vh - 50px);
-  overflow-y: auto;
+  z-index: 500;
 }
 
 /* Fix for the home page - remove unwanted margins */
 body.home .hero {
   margin-top: 0;
-}
-
-body.home .main-container {
-  padding-top: 0;
 }
 
 /* Fix for modal elements */
@@ -394,19 +391,14 @@ body.home .main-container {
   z-index: 2000; /* Ensure above everything else */
 }
 
-/* Ensure full height of site container with no overflow */
-body.home {
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Fixed positioning for home page to prevent scroll glitches */
-body.home .main-container {
-  display: flex;
-  flex-direction: column;
-}
-
 /* Fix for info toggle positioning */
 .info-toggle {
   z-index: 100;
+}
+
+/* Ensure chat container uses all available space */
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
