@@ -133,37 +133,9 @@ body {
   height: 14px;
 }
 
-/* Language selector */
+/* Language selector - MOVED OUT OF HEADER */
 .language-selector {
-  margin-left: 16px;
-  display: none; /* Hidden by default, shown only on search page */
-}
-
-.language-selector select {
-  appearance: none;
-  padding: 6px 24px 6px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #666;
-  background-color: #f5f5f5;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23666' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  min-width: 90px; /* Starting smaller for mobile */
-}
-
-.language-selector select:hover {
-  background-color: #eee;
-}
-
-.language-selector select:focus {
-  outline: none;
-  border-color: #2ea3f2;
-  box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
+  display: none; /* Hidden by default - moved to search interface */
 }
 
 /* Hamburger menu toggle - visible by default on mobile */
@@ -297,13 +269,6 @@ body {
   .nav-toggle {
     display: none; /* Hide mobile toggle */
   }
-  
-  /* Expanded language selector */
-  .language-selector select {
-    padding: 6px 24px 6px 12px;
-    font-size: 14px;
-    min-width: 110px;
-  }
 }
 
 /* Search page specific styling */
@@ -324,26 +289,6 @@ body.search-page .nav-desktop a:hover {
 
 body.search-page .nav-toggle span {
   background-color: white;
-}
-
-body.search-page .language-selector {
-  display: block; /* Show language selector only on search page */
-}
-
-body.search-page .language-selector select {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  border-color: rgba(255, 255, 255, 0.2);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23ffffff' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
-}
-
-body.search-page .language-selector select:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-body.search-page .language-selector select:focus {
-  border-color: white;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 /* Mobile nav styling for search page */
@@ -382,8 +327,11 @@ body.search-page {
   overflow: hidden;
 }
 
+/* New layout for fixed header with non-scrolling chat interface */
 body.search-page .chat-section-wrapper {
   height: calc(100vh - 50px); /* Mobile height by default */
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   position: relative;
 }
@@ -404,6 +352,7 @@ body.search-page .claude-input-area {
   border-top: 1px solid #eee;
   position: relative;
   z-index: 10;
+  padding: 10px 16px;
 }
 
 /* Fix for modal elements */

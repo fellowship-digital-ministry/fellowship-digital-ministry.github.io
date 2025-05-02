@@ -18,6 +18,17 @@ custom_class: search-page
       
       <!-- Chat Panel -->
       <div class="claude-chat-panel">
+        <!-- Language Selector - Moved from header to top of chat panel -->
+        <div class="language-selector-container">
+          <div class="language-selector">
+            <select id="languageSelect" aria-label="Select language">
+              <option value="en" selected>English</option>
+              <option value="es">Español</option>
+              <option value="zh">中文</option>
+            </select>
+          </div>
+        </div>
+        
         <!-- Messages Container -->
         <div id="messages" class="claude-messages" aria-live="polite">
           <!-- Messages will be added by JavaScript -->

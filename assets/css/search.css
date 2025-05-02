@@ -52,7 +52,7 @@ body.search-page {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden; /* Prevent vertical scrolling on body */
   min-height: 100vh;
   width: 100%;
 }
@@ -89,33 +89,49 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   overflow: hidden;
 }
 
-/* Language selector */
+/* Language selector container - repositioned */
+.language-selector-container {
+  display: flex;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Language selector - now visible in chat panel */
 .language-selector {
-  position: relative;
   margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 .language-selector select {
   appearance: none;
-  background-color: transparent;
-  border: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
-  padding: 0.5rem 2rem 0.5rem 1rem;
-  font-size: 0.875rem;
-  color: var(--text-color);
+  padding: 6px 24px 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  transition: all 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23ffffff' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.5rem center;
-  background-size: 1em;
+  background-position: right 8px center;
+  min-width: 90px; /* Starting smaller for mobile */
 }
 
-[data-theme="dark"] .language-selector select {
-  color: var(--text-light);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e5e7eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+.language-selector select:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Chat section */
+.language-selector select:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Chat section - fixed layout */
 .chat-section-wrapper {
   flex: 1;
   display: flex;
@@ -124,10 +140,11 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   position: relative;
 }
 
-/* Claude interface */
+/* Claude interface - fixed layout */
 .claude-interface {
   display: flex;
   height: 100%;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
 }
@@ -163,7 +180,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   background-color: var(--primary-dark);
 }
 
-/* Chat panel */
+/* Chat panel - fixed layout */
 .claude-chat-panel {
   flex: 1;
   display: flex;
@@ -251,12 +268,13 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   50% { transform: scale(1.2); opacity: 1; }
 }
 
-/* Input area */
+/* Input area - fixed layout */
 .claude-input-area {
   border-top: 1px solid var(--border-color);
-  padding: 1rem;
+  padding: 0.75rem;
   background-color: white;
   position: relative;
+  z-index: 10;
 }
 
 [data-theme="dark"] .claude-input-area {
@@ -335,7 +353,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 .conversation-controls {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .control-button {
@@ -951,6 +969,13 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     height: calc(100vh - 60px); /* Desktop header height */
   }
   
+  /* Language selector improvements for desktop */
+  .language-selector select {
+    min-width: 120px;
+    padding: 8px 28px 8px 16px;
+    font-size: 15px;
+  }
+  
   /* Sources panel becomes side panel on desktop */
   .claude-sources-panel {
     top: 60px;
@@ -963,7 +988,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   }
 }
 
-/* Fix for chat container sizing */
+/* Fix for chat container sizing to prevent scrolling */
 .chat-section-wrapper,
 .claude-interface,
 .claude-chat-panel {
@@ -978,7 +1003,6 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 .claude-messages {
   flex: 1;
   overflow-y: auto;
-  max-height: calc(100vh - 200px); /* Account for header (50px) + input area (150px) */
 }
 
 .claude-input-area {
@@ -987,23 +1011,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   background-color: white;
   z-index: 10;
   border-top: 1px solid #eee;
+  padding: 10px 16px;
 }
 
-/* Desktop responsive adjustments */
-@media (min-width: 769px) {
-  :root {
-    --header-height: 4rem;
-  }
-  
-  .claude-messages {
-    max-height: calc(100vh - 210px); /* Account for header (60px) + input area (150px) */
-  }
-  
-  .app-header {
-    height: var(--header-height);
-  }
-  
-  .app-title {
-    font-size: 1.5rem;
-  }
+/* Ensure language selector container takes minimal space */
+.language-selector-container {
+  flex-shrink: 0;
 }
