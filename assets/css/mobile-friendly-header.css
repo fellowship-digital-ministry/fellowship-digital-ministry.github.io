@@ -13,18 +13,26 @@
   background-color: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   width: 100%;
-  height: 60px;
+  height: 50px; /* Start with mobile height as default */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
   box-sizing: border-box;
+  transition: height 0.3s ease;
 }
 
 /* Prevent horizontal scroll */
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+/* Improve text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Logo and branding */
@@ -35,13 +43,13 @@ html, body {
 }
 
 .header-logo {
-  height: 32px;
+  height: 28px; /* Smaller for mobile by default */
   width: auto;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .header-title {
-  font-size: 16px;
+  font-size: 14px; /* Smaller for mobile by default */
   font-weight: 600;
   color: #333;
 }
@@ -55,11 +63,9 @@ html, body {
   justify-content: flex-end;
 }
 
-/* Desktop navigation styles */
+/* Desktop navigation styles - hidden on mobile by default */
 .nav-desktop {
-  height: 100%;
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 .nav-desktop ul {
@@ -86,7 +92,7 @@ html, body {
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
   position: relative;
 }
 
@@ -107,6 +113,12 @@ html, body {
 .nav-desktop a:hover {
   color: #2ea3f2;
   text-decoration: none;
+}
+
+/* Improved focus states for accessibility */
+.nav-desktop a:focus {
+  outline: 2px solid #2ea3f2;
+  outline-offset: -2px;
 }
 
 /* External link styling */
@@ -141,7 +153,7 @@ html, body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23666' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 8px center;
-  min-width: 110px;
+  min-width: 90px; /* Starting smaller for mobile */
 }
 
 .language-selector select:hover {
@@ -154,9 +166,9 @@ html, body {
   box-shadow: 0 0 0 2px rgba(46, 163, 242, 0.2);
 }
 
-/* Hamburger menu toggle - only visible on mobile */
+/* Hamburger menu toggle - visible by default on mobile */
 .nav-toggle {
-  display: none;
+  display: block;
   background: transparent;
   border: none;
   width: 40px;
@@ -165,6 +177,11 @@ html, body {
   padding: 0;
   position: relative;
   z-index: 1001;
+}
+
+.nav-toggle:focus {
+  outline: 2px solid #2ea3f2;
+  border-radius: 4px;
 }
 
 .nav-toggle span {
@@ -234,48 +251,58 @@ html, body {
   background-color: rgba(46, 163, 242, 0.1);
 }
 
+.nav-mobile a:focus {
+  outline: 2px solid #2ea3f2;
+  outline-offset: -2px;
+}
+
 /* Visual feedback for tapped links */
 .nav-mobile a:active {
   transform: scale(0.98);
   background-color: rgba(46, 163, 242, 0.15);
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
+/* Improved hamburger menu animation when active */
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
   .mobile-friendly-header {
-    height: 50px;
+    height: 60px; /* Taller on desktop */
+  }
+  
+  .header-logo {
+    height: 32px; /* Larger on desktop */
+    margin-right: 10px;
   }
   
   .header-title {
-    font-size: 14px;
+    font-size: 16px; /* Larger on desktop */
   }
   
   .nav-desktop {
-    display: none;
+    display: flex; /* Show desktop nav */
   }
   
   .nav-toggle {
-    display: block;
+    display: none; /* Hide mobile toggle */
   }
   
-  /* Improved hamburger menu animation when active */
-  .nav-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  
-  .nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .nav-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-  
-  /* Compact language selector */
+  /* Expanded language selector */
   .language-selector select {
-    padding: 6px 20px 6px 8px;
-    font-size: 13px;
-    min-width: 90px;
+    padding: 6px 24px 6px 12px;
+    font-size: 14px;
+    min-width: 110px;
   }
 }
 
@@ -312,6 +339,11 @@ body.search-page .language-selector select {
 
 body.search-page .language-selector select:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.search-page .language-selector select:focus {
+  border-color: white;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 /* Mobile nav styling for search page */
@@ -351,7 +383,7 @@ body.search-page {
 }
 
 body.search-page .chat-section-wrapper {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 50px); /* Mobile height by default */
   overflow: hidden;
   position: relative;
 }
@@ -387,36 +419,36 @@ body.search-page .claude-input-area {
 
 /* Fix for info section on search page */
 body.search-page .info-section.active {
-  top: 50px;
+  top: 50px; /* Mobile height by default */
 }
 
 /* Fix for the sources panel */
 body.search-page .claude-sources-panel {
   z-index: 500;
-  top: 60px;
-  height: calc(100vh - 60px);
+  top: 50px; /* Mobile height by default */
+  height: calc(100vh - 50px);
 }
 
-@media (max-width: 768px) {
+/* Desktop adjustments */
+@media (min-width: 769px) {
   body.search-page .chat-section-wrapper {
-    height: calc(100vh - 50px);
-    top: 50px;
+    height: calc(100vh - 60px); /* Desktop header height */
   }
   
   body.search-page .claude-sources-panel {
-    top: 50px;
-    height: calc(100vh - 50px);
+    top: 60px;
+    height: calc(100vh - 60px);
   }
   
   body.search-page .info-section.active {
-    top: 50px;
+    top: 60px;
   }
-  
-  /* Prevent body scrolling when mobile nav is open */
-  body.nav-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
+}
+
+/* Prevent body scrolling when mobile nav is open */
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
