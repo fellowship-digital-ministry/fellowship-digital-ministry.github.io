@@ -6,32 +6,8 @@ custom_class: search-page
 
 <!-- App Container -->
 <div class="container">
-  <!-- App Header (optimized for both desktop and mobile) -->
-  <header class="app-header">
-    <!-- Logo (hidden on mobile) -->
-    <div class="header-logo">
-      <img src="{{ '/assets/images/digital-ministry-logo.svg' | relative_url }}" alt="Fellowship Digital Ministry" class="digital-ministry-logo">
-      <span class="logo-text">Fellowship Digital Ministry</span>
-    </div>
-    
-    <!-- Navigation (simplified on mobile) -->
-    <div class="header-nav">
-      <ul>
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/search.html' | relative_url }}" class="active">Chat</a></li>
-        <li><a href="{{ '/analytics.html' | relative_url }}">Analytics</a></li>
-      </ul>
-    </div>
-    
-    <!-- Language Selector (positioned differently on mobile) -->
-    <div class="language-selector">
-      <select id="languageSelect" aria-label="Select language">
-        <option value="en" selected>English</option>
-        <option value="es">Español</option>
-        <option value="zh">中文</option>
-      </select>
-    </div>
-  </header>
+<!-- Mobile-friendly header -->
+  {% include header.html %}
 
   <!-- Chat Interface -->
   <div class="chat-section-wrapper">

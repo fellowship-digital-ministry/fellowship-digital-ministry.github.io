@@ -73,25 +73,7 @@ body.search-page {
     position: relative;
   }
   
-  /* Header */
-  .app-header {
-    background-color: white;
-    box-shadow: 0 2px 5px var(--shadow-color);
-    width: 100%;
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1.5rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    transition: height 0.3s ease;
-  }
-  
-  [data-theme="dark"] .app-header {
-    background-color: #1f2937;
-  }
+/* Header styles moved to mobile-friendly-header.css */
   
   /* Language selector */
   .language-selector {
