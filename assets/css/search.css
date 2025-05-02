@@ -1049,73 +1049,7 @@ body.search-page {
     }
   }
   
-/* Header styling for search page */
-.search-page .app-header {
-    display: flex;
-    align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background-color: white;
-  box-shadow: 0 2px 5px var(--shadow-color);
-  height: auto;
-  min-height: 60px;
-}
-
-/* Logo styling */
-.header-logo {
-  display: flex;
-  align-items: center;
-  }
-  
-.header-logo .digital-ministry-logo {
-  height: 32px;
-  margin-right: 8px;
-  }
-  
-.header-logo .logo-text {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-heading);
-  white-space: nowrap;
-}
-
-/* Navigation styling */
-.header-nav {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.header-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header-nav li {
-  margin: 0 10px;
-}
-
-.header-nav a {
-  display: block;
-  padding: 5px 10px;
-  color: var(--color-nav-text);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.header-nav a:hover,
-.header-nav a.active {
-  color: var(--primary-color);
-}
-
-/* Language selector positioning */
-.language-selector {
-  margin-left: 10px;
-  }
+/* Header styling moved to mobile-friendly-header.css */
   
 /* Fix for chat container sizing */
 .chat-section-wrapper,

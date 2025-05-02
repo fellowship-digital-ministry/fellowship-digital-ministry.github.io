@@ -354,3 +354,23 @@ main {
     padding-top: 0.5rem;
   }
 }
+
+/* Specific fixes for search page */
+body.search-page .chat-section-wrapper {
+  margin-top: 60px; /* Match the header height */
+}
+
+@media (max-width: 768px) {
+  body.search-page .chat-section-wrapper {
+    margin-top: 50px; /* Match the mobile header height */
+  }
+  
+  body.search-page .info-section.active {
+    top: 50px; /* Match the mobile header height */
+  }
+  
+  body.search-page .claude-sources-panel {
+    top: 50px; /* Match the mobile header height */
+    height: calc(100vh - 50px);
+  }
+}
