@@ -73,164 +73,40 @@ custom_class: search-page
   <!-- Help Section (hidden on mobile by default) -->
 <!-- Help Section - Updated About Content -->
 <div id="infoSection" class="info-section">
-  <h2 class="content-section-header" data-i18n="about-tool">About This Sermon Search Tool</h2>
-  
-  <div class="info-section-card">
-    <h3 data-i18n="what-is-this">What Is This Tool?</h3>
-    <p data-i18n="tool-explanation">This tool enables you to explore and learn from the Pastor's biblical teachings through a simple conversation interface. By asking questions about scripture, doctrine, or Christian living, you'll receive responses drawn directly from sermon content with references to the exact sermon moments where topics are discussed.</p>
-    <p data-i18n="scripture-based">All answers come directly from Pastor's own words with Scripture references from the King James Bible.</p>
-    <p class="scripture-quote" data-i18n="bible-verse-1">"Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth." — 2 Timothy 2:15 (KJV)</p>
-  </div>
-  
-  <div class="info-section-card">
-    <h3 data-i18n="how-to-use">How To Use This Tool</h3>
-    <p data-i18n="usage-intro">Follow these simple steps:</p>
-    <ul class="info-section-list">
-      <li data-i18n="tip-1">Type your Bible question in the chat box below</li>
-      <li data-i18n="tip-2">Receive answers with direct quotes from sermons</li>
-      <li data-i18n="tip-3">Click "Show Sources" to see which sermons address your question</li>
-      <li data-i18n="tip-4">Watch video clips or full sermons with the "Watch Video" button</li>
-      <li data-i18n="tip-5">Ask follow-up questions to explore topics in greater depth</li>
-    </ul>
-    <p class="scripture-quote" data-i18n="tip-6">"Prove all things; hold fast that which is good." — 1 Thessalonians 5:21 (KJV)</p>
-  </div>
-  
-  <div class="info-section-card">
-    <h3 data-i18n="search-tips">Tips For Better Results</h3>
-    <p data-i18n="tips-intro">For the most helpful responses:</p>
-    <ul class="info-section-list">
-      <li data-i18n="tip-specific">Be specific in your questions</li>
-      <li data-i18n="tip-scripture">Include Scripture references when possible</li>
-      <li data-i18n="tip-kjv">The Pastor uses the King James Version for Bible verses</li>
-      <li data-i18n="tip-click">Click on Bible references to read the full passages</li>
-      <li data-i18n="tip-language">You can select your preferred language from the dropdown menu</li>
-    </ul>
-  </div>
-  
-  <div class="info-section-card">
+  <div class="about-container">
+    <h2 class="content-section-header" data-i18n="about-tool">About This Tool</h2>
+    
+    <p data-i18n="tool-description">
+      This search tool provides access to sermon content from Fellowship Baptist Church in Oakton, VA dating back to April 2020 through the present. The collection includes Pastor Mann's sermons as well as messages from guest preachers and missionaries.
+    </p>
+    
+    <p data-i18n="biblical-basis">
+      "Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth." — 2 Timothy 2:15 (KJV)
+    </p>
+    
+    <p data-i18n="how-it-works">
+      <strong>How This Works:</strong> This independent project has transcribed publicly available sermon videos into searchable text. When you ask a question, the system uses artificial intelligence to search these transcriptions and locate relevant passages that address your query. The responses are based solely on the actual words spoken in these publicly available sermons.
+    </p>
+    
+    <p data-i18n="source-info">
+      Each response includes links to the corresponding sermon videos with timestamps, allowing you to watch the original content in its full context. This tool is provided for personal study purposes only.
+    </p>
+    
+    <p data-i18n="disclaimer">
+      <em>Note: This is an independent project created to facilitate sermon research and is not officially affiliated with or endorsed by Fellowship Baptist Church. All sermon content remains the intellectual property of the respective speakers.</em>
+    </p>
+    
     <h3 data-i18n="sample-questions">Sample Questions</h3>
     <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
-    <ul class="info-section-list">
-      <li data-i18n="example-1">How does a person get to heaven?</li>
-      <li data-i18n="example-2">What is the Trinity?</li>
-      <li data-i18n="example-3">How should Christians live in today's world?</li>
-      <li data-i18n="example-4">Why read the King James Bible?</li>
-      <li data-i18n="example-5">What does Romans 8 teach about predestination?</li>
+    <ul class="example-questions">
+      <li data-i18n="example-1">"How does a person get to heaven?"</li>
+      <li data-i18n="example-2">"What is the Trinity?"</li>
+      <li data-i18n="example-3">"How should Christians live?"</li>
+      <li data-i18n="example-4">"Why read the King James Bible?"</li>
+      <li data-i18n="example-5">"Who is Melchizedek?"</li>
     </ul>
   </div>
 </div>
 <!-- Overlay Container for Modals -->
 <div id="claude-overlay-container"></div>
 <!-- Add the enhanced CSS to the head section with proper scoping -->
-<style>
-/* Enhanced About Section Styling - Scoped to info section only */
-.info-section .content-section-header {
-  color: #333;
-  margin-bottom: 1.5rem;
-  font-size: 1.7rem;
-  text-align: center;
-}
-
-.info-section-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.info-section-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.info-section-card h3 {
-  color: #2ea3f2;
-  margin-top: 0;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  font-size: 1.35rem;
-}
-
-.info-section-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.info-section-list li {
-  margin-bottom: 10px;
-  padding: 8px 12px;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-  border-left: 3px solid #2ea3f2;
-  transition: background-color 0.2s ease;
-}
-
-.info-section-list li:hover {
-  background-color: #f0f7fd;
-  cursor: pointer;
-}
-
-.info-section p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* Scripture quote styling */
-.info-section .scripture-quote {
-  font-style: italic;
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-}
-
-/* Dark mode adjustments - still scoped to info section */
-@media (prefers-color-scheme: dark) {
-  .info-section .content-section-header {
-    color: #e0e0e0;
-  }
-  
-  .info-section-card {
-    background-color: #2d2d2d;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .info-section-card h3 {
-    color: #4db1ff;
-    border-bottom-color: #444;
-  }
-  
-  .info-section-list li {
-    background-color: #333;
-    border-left-color: #4db1ff;
-  }
-  
-  .info-section-list li:hover {
-    background-color: #3d3d3d;
-  }
-  
-  .info-section .scripture-quote {
-    background-color: #333;
-  }
-}
-
-/* Responsive adjustments - still scoped to info section */
-@media (max-width: 768px) {
-  .info-section-card {
-    padding: 15px;
-  }
-  
-  .info-section .content-section-header {
-    font-size: 1.5rem;
-  }
-  
-  .info-section-card h3 {
-    font-size: 1.25rem;
-  }
-}
-</style>
-
