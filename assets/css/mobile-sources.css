@@ -2,7 +2,7 @@
 @media (max-width: 768px) {
   /* Improve source text visibility on mobile */
   .claude-source-title {
-    color: #000000; /* Darker black for better contrast */
+    color: #000000; /* Darkest black */
     font-weight: 700; /* Bolder font weight */
   }
   
@@ -11,8 +11,9 @@
     font-weight: 500; /* Medium font weight for better readability */
   }
   
+  /* Critically improve the quote preview text which appears very light */
   .claude-source-text-preview {
-    color: #000000; /* Darker text for better readability */
+    color: #000000; /* Darkest black */
     font-weight: 500; /* Medium font weight */
     font-size: 1rem; /* Slightly larger font size */
   }
@@ -21,20 +22,40 @@
     color: #333333; /* Darker color for better visibility */
   }
   
+  /* Fix the timestamp and match indicators which appear faint */
   .claude-source-timestamp {
-    color: #0052a3; /* Change from #0066cc to an even darker blue */
-    font-weight: 600; /* Bolder for better readability */
+    color: #004080; /* Much darker blue */
+    font-weight: 700; /* Heavier weight */
   }
   
   .claude-source-match {
-    color: #0052a3; /* Change from #0066cc to an even darker blue */
-    font-weight: 600; /* Bolder for better readability */
+    color: #004080; /* Much darker blue */
+    font-weight: 700; /* Heavier weight */
   }
   
-  .claude-source-text-view-button {
-    color: #0052a3; /* Change from #0066cc to an even darker blue */
-    font-weight: 600; /* Bolder for better readability */
+  /* Fix the "View full text" link which is hard to see */
+  .claude-source-text-view-button, .view-full-text {
+    color: #004080; /* Much darker blue */
+    font-weight: 700; /* Heavier weight */
     text-decoration: underline; /* Ensure underline is visible */
+  }
+  
+  /* Increase contrast for the quote text itself */
+  .source-text, .occurrence-text {
+    color: #000000; /* Darkest black */
+    font-weight: 500; /* Medium weight for better readability */
+  }
+  
+  /* Ensure bible references and links stand out */
+  .bible-reference, .psalm-link {
+    color: #004080; /* Darker blue */
+    font-weight: 700; /* Bold */
+  }
+  
+  /* Fix light gray text in the source metadata (timestamps, match percentage) */
+  .source-meta, .timestamp, .match-percentage {
+    color: #333333; /* Darker gray */
+    font-weight: 500; /* Medium weight */
   }
   
   /* Improve button text visibility */
