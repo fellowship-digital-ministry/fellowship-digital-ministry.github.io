@@ -180,6 +180,13 @@
     box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
   }
   
+  /* Dark theme input area */
+  [data-theme="dark"] .claude-input-area {
+    background-color: #1f2937;
+    border-top-color: #374151;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+  }
+  
   /* Form width */
   #chatForm {
     width: 100%;
@@ -199,11 +206,24 @@
     background-color: white;
   }
   
+  /* Dark theme conversation controls */
+  [data-theme="dark"] .conversation-controls {
+    background-color: #1f2937;
+  }
+  
   /* Control button visibility */
   .control-button {
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     border: 1px solid #dddddd;
+  }
+  
+  /* Dark theme control button */
+  [data-theme="dark"] .control-button {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #e5e7eb !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
   
   /* Messages Container Scrolling */
@@ -214,6 +234,17 @@
     padding-bottom: 100px; /* Reduced space for input + button */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Dark theme messages */
+  [data-theme="dark"] .claude-messages {
+    color: #e5e7eb;
+  }
+  
+  /* Dark theme message content */
+  [data-theme="dark"] .claude-message-content,
+  [data-theme="dark"] .claude-message-bot .claude-message-content {
+    color: #e5e7eb !important;
   }
 
   .chat-section-wrapper {
@@ -255,5 +286,41 @@
   /* Welcome message */
   .claude-welcome h4, .claude-welcome p {
     color: #222222 !important;
+  }
+  
+  /* Dark theme welcome message */
+  [data-theme="dark"] .claude-welcome h4, 
+  [data-theme="dark"] .claude-welcome p,
+  [data-theme="dark"] .claude-suggestion-label,
+  [data-theme="dark"] .example-questions li, 
+  [data-theme="dark"] .claude-suggestion {
+    color: #e5e7eb !important;
+  }
+  
+  /* Dark theme source elements */
+  [data-theme="dark"] .claude-source-title {
+    color: #e5e7eb !important;
+  }
+  
+  [data-theme="dark"] .claude-source-text-preview,
+  [data-theme="dark"] .claude-source-text,
+  [data-theme="dark"] .source-text, 
+  [data-theme="dark"] .context-quote, 
+  [data-theme="dark"] .occurrence-text {
+    color: #e5e7eb !important;
+  }
+  
+  [data-theme="dark"] .claude-source-meta,
+  [data-theme="dark"] .claude-source-date {
+    color: #9ca3af !important;
+  }
+  
+  [data-theme="dark"] .claude-source-timestamp,
+  [data-theme="dark"] .claude-source-match,
+  [data-theme="dark"] .claude-source-text-view-button, 
+  [data-theme="dark"] .view-full-text,
+  [data-theme="dark"] .bible-reference, 
+  [data-theme="dark"] .psalm-link {
+    color: #4aa3e2 !important;
   }
 }
