@@ -2916,58 +2916,43 @@ Would you like me to search for sermon content on any of these topics instead?`;
     });
   }
 
-  /**
-   * Setup click handlers for example questions
-   */
-  /**
- * Setup click handlers for example questions that respect the current language
- */
-function setupExampleQuestionClicks() {
-  const exampleQuestions = document.querySelectorAll('.example-questions li');
-  
-  exampleQuestions.forEach((item, index) => {
-    item.style.cursor = 'pointer';
+  function setupExampleQuestionClicks() {
+    // Target both info section examples and welcome message examples
+    const allExampleQuestions = document.querySelectorAll('.info-section-list li, .claude-suggestions .claude-suggestion');
     
-    item.addEventListener('click', function() {
-      // Instead of using the text content directly, use the data-i18n attribute 
-      // to get the translation key, then look up the current translation
-      const translationKey = this.getAttribute('data-i18n');
-      let query;
+    allExampleQuestions.forEach(item => {
+      item.style.cursor = 'pointer';
       
-      if (translationKey) {
-        // Get the translated text based on the current language
-        query = translate(translationKey);
-      } else {
-        // Fallback to using text content if no data-i18n attribute
-        query = this.textContent.trim();
-      }
-      
-      if (elements.queryInput) {
-        elements.queryInput.value = query;
+      item.addEventListener('click', function() {
+        // Just use the current text content which is already in the correct language
+        const query = this.textContent.trim();
         
-        // Smoothly scroll to chat section
-        const chatSection = document.querySelector('.chat-section-wrapper');
-        if (chatSection) {
-          chatSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (elements.queryInput) {
+          elements.queryInput.value = query;
+          
+          // Smoothly scroll to chat section if needed
+          const chatSection = document.querySelector('.chat-section-wrapper');
+          if (chatSection && window.innerWidth <= 768) {
+            chatSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          
+          // Short delay before submitting
+          setTimeout(() => {
+            elements.chatForm.dispatchEvent(new Event('submit'));
+          }, 300);
         }
-        
-        // Short delay before submitting to let scroll complete
-        setTimeout(() => {
-          elements.chatForm.dispatchEvent(new Event('submit'));
-        }, 500);
-      }
+      });
+      
+      // Add hover effects for better UX
+      item.addEventListener('mouseenter', function() {
+        this.classList.add('hover');
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.classList.remove('hover');
+      });
     });
-    
-    // Add ripple effect on hover
-    item.addEventListener('mouseenter', function() {
-      this.classList.add('hover');
-    });
-    
-    item.addEventListener('mouseleave', function() {
-      this.classList.remove('hover');
-    });
-  });
-}
+  }
 
   // ======= PUBLIC API =======
   
