@@ -1,0 +1,46 @@
+/* Mobile styles for sources - improved contrast and readability */
+@media (max-width: 768px) {
+  /* Improve source text visibility on mobile */
+  .claude-source-title {
+    color: #000000; /* Darker black for better contrast */
+    font-weight: 700; /* Bolder font weight */
+  }
+  
+  .claude-source-date {
+    color: #333333; /* Darker color for better visibility */
+    font-weight: 500; /* Medium font weight for better readability */
+  }
+  
+  .claude-source-text-preview {
+    color: #000000; /* Darker text for better readability */
+    font-weight: 500; /* Medium font weight */
+    font-size: 1rem; /* Slightly larger font size */
+  }
+  
+  .claude-source-meta {
+    color: #333333; /* Darker color for better visibility */
+  }
+  
+  .claude-source-timestamp {
+    color: #0052a3; /* Change from #0066cc to an even darker blue */
+    font-weight: 600; /* Bolder for better readability */
+  }
+  
+  .claude-source-match {
+    color: #0052a3; /* Change from #0066cc to an even darker blue */
+    font-weight: 600; /* Bolder for better readability */
+  }
+  
+  .claude-source-text-view-button {
+    color: #0052a3; /* Change from #0066cc to an even darker blue */
+    font-weight: 600; /* Bolder for better readability */
+    text-decoration: underline; /* Ensure underline is visible */
+  }
+  
+  /* Improve button text visibility */
+  .claude-source-button {
+    color: #000000; /* Darker text for better readability */
+    font-weight: 600; /* Bolder for better readability */
+    border-color: #777777; /* Change from #999999 to an even darker border */
+  }
+}
