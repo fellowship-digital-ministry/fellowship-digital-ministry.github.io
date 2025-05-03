@@ -58,7 +58,14 @@ body.search-page {
 }
 
 [data-theme="dark"] body.search-page {
-  background-color: #121212;
+  background-color: #641c14; /* Keep your maroon background */
+}
+
+[data-theme="dark"] .chat-section-wrapper,
+[data-theme="dark"] .claude-chat-panel,
+[data-theme="dark"] .claude-messages,
+[data-theme="dark"] .claude-interface {
+  background-color: white;
 }
 
 a {
@@ -1253,16 +1260,24 @@ body.keyboard-open .claude-input-container {
   box-shadow: 0 0 0 2px var(--primary-light);
 }
 
-/* Ensure conversation controls don't interfere with keyboard */
+/* Ensure conversation controls are positioned within the input area when keyboard is open */
 body.keyboard-open .conversation-controls {
+  position: relative;
   padding-bottom: env(safe-area-inset-bottom, 10px);
   margin-top: 8px;
+  background-color: white;
+  z-index: 99;
 }
 
 /* Ensure the input is visible and properly sized */
 body.keyboard-open .claude-input {
   min-height: 42px;
   max-height: 80px; /* Smaller max height when keyboard is open */
+}
+
+/* Adjust messages container when keyboard is open to ensure content scrolls properly */
+body.keyboard-open .claude-messages {
+  padding-bottom: 80px; /* Reduced padding when keyboard is open */
 }
 
 /* Dark mode adjustments */

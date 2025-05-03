@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
         queryInput.value = savedInputValue;
       }
       
+      // Adjust the sources panel if it's open
+      const sourcesPanel = document.getElementById('sourcesPanel');
+      if (sourcesPanel && sourcesPanel.classList.contains('active')) {
+        // Ensure the sources panel is properly positioned
+        sourcesPanel.style.height = '100%';
+      }
+      
       // Scroll to make input visible with better positioning
       setTimeout(() => {
         if (queryInput) {
@@ -54,6 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
     } else {
       document.body.classList.remove('keyboard-open');
+      
+      // Reset sources panel height if it exists
+      const sourcesPanel = document.getElementById('sourcesPanel');
+      if (sourcesPanel) {
+        sourcesPanel.style.height = '';
+      }
     }
   });
   
