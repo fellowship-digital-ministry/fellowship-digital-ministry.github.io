@@ -1,0 +1,124 @@
+/* 
+ * Mobile Font Colors - Improved Contrast and Readability
+ * This file enhances text contrast and readability on mobile devices
+ * across the entire site, making all text darker and more professional.
+ */
+
+@media (max-width: 768px) {
+  /* Base text colors - make all text darker for better readability */
+  body {
+    color: #222222; /* Much darker than the default #444444 */
+  }
+  
+  /* Headings - improve contrast */
+  h1, h2, h3, h4, h5, h6 {
+    color: #111111; /* Almost black for headings */
+  }
+  
+  /* Paragraph text */
+  p, li, td, th, blockquote, label, .lead {
+    color: #222222; /* Darker text */
+  }
+  
+  /* Links - ensure they're visible but distinct */
+  a {
+    color: #0056b3; /* Darker blue for links */
+    font-weight: 500; /* Slightly bolder */
+  }
+  
+  /* Navigation elements */
+  nav a, .nav-mobile a, .header-title {
+    color: #222222 !important; /* Force darker color */
+    font-weight: 600; /* Bolder for better visibility */
+  }
+  
+  /* Secondary text that's often lighter */
+  .text-light, .text-muted, .source-date, .timestamp, 
+  .sermon-date, .source-meta, .footer-info p {
+    color: #444444 !important; /* Darker than default light text */
+  }
+  
+  /* Bible references and special links */
+  .bible-reference, .view-link, .source-link, .timestamp-link {
+    color: #0056b3 !important; /* Darker blue */
+    font-weight: 600; /* Bolder */
+  }
+  
+  /* Search page specific improvements */
+  body.search-page {
+    color: #222222;
+  }
+  
+  .claude-message-content {
+    color: #222222 !important;
+  }
+  
+  .claude-message-bot .claude-message-content {
+    color: #222222 !important;
+  }
+  
+  .claude-source-text-preview, 
+  .claude-source-text, 
+  .claude-source-title,
+  .claude-source-meta,
+  .claude-source-match,
+  .claude-source-timestamp {
+    color: #222222 !important;
+    font-weight: 500;
+  }
+  
+  /* Buttons and interactive elements */
+  button, .btn, .control-button, .claude-source-button {
+    color: #222222 !important;
+    font-weight: 600;
+  }
+  
+  /* Primary buttons should have white text */
+  .btn-primary, .claude-source-button-primary, .claude-submit-button {
+    color: #ffffff !important;
+    font-weight: 600;
+  }
+  
+  /* Input text */
+  input, textarea, select, .claude-input {
+    color: #222222 !important;
+  }
+  
+  /* Footer text */
+  footer, footer a, .footer-bottom {
+    color: #ffffff !important; /* White text on dark background */
+    font-weight: 500;
+  }
+  
+  /* Example questions and suggestions */
+  .example-questions li, .claude-suggestion {
+    color: #222222 !important;
+  }
+  
+  /* Content cards and info boxes */
+  .content-card, .info-box, .page-intro {
+    color: #222222 !important;
+  }
+  
+  /* Source text and quotes */
+  .source-text, .context-quote, .occurrence-text {
+    color: #222222 !important;
+    font-weight: 500;
+  }
+  
+  /* Stats and analytics text */
+  .stat-label, .stat-value, .analytics-description {
+    color: #222222 !important;
+  }
+  
+  /* Welcome message */
+  .claude-welcome h4, .claude-welcome p {
+    color: #222222 !important;
+  }
+  
+  /* Ensure all section headers are dark */
+  .section-header, .content-section-header {
+    color: #111111 !important;
+    font-weight: 600;
+  }
+}
