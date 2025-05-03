@@ -65,10 +65,12 @@
     border-color: #777777; /* Change from #999999 to an even darker border */
   }
   
-  /* Fix the Input Area Positioning */
+  /* Fix the Input Area Positioning - always fixed at bottom */
   .claude-input-area {
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     background-color: white;
     padding: 10px 16px;
@@ -84,36 +86,18 @@
     flex-direction: column;
   }
   
-  /* Mobile keyboard handling */
-  body.keyboard-open .claude-input-area {
+  /* Reposition the "Clear Conversation" Button - always fixed above input */
+  .conversation-controls {
     position: fixed;
-    bottom: 0;
+    bottom: 60px; /* Position above input area */
     left: 0;
     right: 0;
-    width: 100%;
-  }
-  
-  /* Ensure content doesn't get hidden behind fixed input */
-  body.keyboard-open .claude-messages {
-    margin-bottom: 70px;
-  }
-  
-  /* Reposition the "Clear Conversation" Button */
-  .conversation-controls {
-    position: sticky;
-    bottom: 60px; /* Position above input area */
     z-index: 99;
     display: flex;
     justify-content: center;
     width: 100%;
     padding: 10px 0;
-    background-color: transparent;
-  }
-  
-  /* Create more space when keyboard is open */
-  body.keyboard-open .conversation-controls {
-    position: static;
-    margin-top: 8px;
+    background-color: white;
   }
   
   /* Make button more visible against varying backgrounds */
@@ -128,6 +112,7 @@
     flex: 1;
     overflow-y: auto;
     padding: 1rem;
+    padding-bottom: 130px; /* Enough space for input + button */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
@@ -136,10 +121,5 @@
     height: calc(100vh - 56px); /* Height minus header */
     display: flex;
     flex-direction: column;
-  }
-  
-  /* When keyboard is open */
-  body.keyboard-open .chat-section-wrapper {
-    height: calc(100vh - 56px);
   }
 }
