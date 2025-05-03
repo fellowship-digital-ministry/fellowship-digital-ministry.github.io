@@ -979,7 +979,7 @@ const SermonSearch = (function() {
   /**
    * Toggle sources panel visibility
    */
-  function toggleSourcesPanel(show) {
+  function toggleSourcesPanel(show, fromPopstate = false) {
     if (!elements.sourcesPanel) return;
     
     if (show === undefined) {
@@ -998,6 +998,11 @@ const SermonSearch = (function() {
         elements.sourcesBackdrop.offsetHeight;
         elements.sourcesBackdrop.style.opacity = '1';
       }
+      
+      // ⬇ NEW: create a dummy history entry **once** per opening
+      if (!fromPopstate) {
+        history.pushState({ sourcesOpen: true }, '', '#sources');   // the hash is optional
+      }
     } else {
       // Hide panel
       elements.sourcesPanel.classList.remove('active');
@@ -1008,6 +1013,13 @@ const SermonSearch = (function() {
         setTimeout(() => {
           elements.sourcesBackdrop.style.display = 'none';
         }, config.transitionDuration);
+      }
+      
+      // ⬇ NEW: if we're closing by any means other than Back,
+      //        quietly go one step back so the dummy entry disappears
+      if (!fromPopstate && history.state?.sourcesOpen) {
+        history.back();          // will trigger the popstate listener above
+        return;                  // prevent double‑running close logic
       }
       
       // Update any active source toggle buttons
@@ -2988,4 +3000,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Update on resize
   window.addEventListener('resize', updateResponsiveClass);
+  
+  // Add popstate listener for handling browser Back button with Sources panel
+  window.addEventListener('popstate', () => {
+    // If the Sources panel is showing, close it instead of leaving the page
+    if (SermonSearch.toggleSourcesPanel && document.getElementById('sourcesPanel')?.classList.contains('active')) {
+      // Close without pushing a *new* history entry
+      SermonSearch.toggleSourcesPanel(false, /*fromPopstate=*/true);
+    }
+  });
 });
