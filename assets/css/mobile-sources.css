@@ -327,4 +327,18 @@
     color: #63b3ed !important;
     font-weight: 600;
   }
+  
+  /* Dark theme source panel background */
+  [data-theme="dark"] .claude-sources-panel {
+    background-color: #1f2937 !important;
+  }
+  
+  /* Dark theme source item background */
+  [data-theme="dark"] .claude-source-item {
+    background-color: #374151 !important;
+    border-color: #4b5563 !important;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
 }

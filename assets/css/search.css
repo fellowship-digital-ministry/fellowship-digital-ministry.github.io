@@ -363,7 +363,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 
 [data-theme="dark"] .claude-input {
   background-color: #374151;
-  color: var(--text-light);
+  color: #ffffff !important;
   border-color: #4b5563;
 }
 
@@ -801,6 +801,18 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   background-color: #1f2937;
 }
 
+[data-theme="dark"] .claude-overlay-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .claude-overlay-close {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .claude-overlay-body {
+  color: #ffffff;
+}
+
 .claude-overlay.active .claude-overlay-content {
   transform: translateY(0);
 }
@@ -898,6 +910,12 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   font-size: 0.875rem;
+}
+
+[data-theme="dark"] .claude-transcript-search-input {
+  background-color: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
 }
 
 .claude-transcript-search-button {
@@ -1097,6 +1115,12 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   text-align: center;
 }
 
+[data-theme="dark"] .connection-error {
+  background-color: rgba(185, 28, 28, 0.2);
+  border-color: rgba(185, 28, 28, 0.5);
+  color: rgb(252, 165, 165);
+}
+
 .retry-button {
   background-color: rgb(185, 28, 28);
   color: white;
@@ -1106,6 +1130,11 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   margin-top: 0.75rem;
   cursor: pointer;
   font-size: 0.875rem;
+}
+
+[data-theme="dark"] .retry-button {
+  background-color: rgb(220, 38, 38);
+  color: white;
 }
 
 /* Animation keyframes */
