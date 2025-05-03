@@ -70,13 +70,45 @@ custom_class: search-page
   <!-- Mobile Help Toggle -->
   <button id="infoToggle" class="info-toggle" aria-expanded="false" aria-controls="infoSection">?</button>
 
-  <!-- Help Section (hidden on mobile by default) -->
-  <div id="infoSection" class="info-section">
-    <h2 class="content-section-header" data-i18n="how-to-use">How to Use This Tool</h2>
+  <div class="info-section-content">
+    <h2 class="content-section-header" data-i18n="about-tool">About This Tool</h2>
     
     <div class="content-card">
-      <h3 data-i18n="sample-questions">Sample Questions</h3>
-      <p data-i18n="examples-intro">Here are some examples of questions you can ask:</p>
+      <h3 data-i18n="what-is-this">What Is This?</h3>
+      <p data-i18n="simple-explanation">This is a simple way to find answers from Pastor's sermons. It searches through all the sermon videos our church has recorded and finds exactly where the Pastor has spoken about your question.</p>
+      <p data-i18n="tool-purpose">Think of it as having all of Pastor's sermons in one place where you can ask questions and get answers in his own words.</p>
+      <p class="bible-verse" data-i18n="bible-verse-1">"Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth." — 2 Timothy 2:15 (KJV)</p>
+    </div>
+    
+    <div class="content-card">
+      <h3 data-i18n="how-it-works">How It Works</h3>
+      <p data-i18n="how-it-works-simple">When you type a question:</p>
+      <ol class="feature-list">
+        <li data-i18n="feature-1">The tool searches through all of Pastor's sermon videos</li>
+        <li data-i18n="feature-2">It finds the parts where he talks about your question</li>
+        <li data-i18n="feature-3">It gives you an answer based only on what Pastor has actually said</li>
+        <li data-i18n="feature-4">It shows you links to watch those exact moments in his sermons</li>
+      </ol>
+      <p data-i18n="source-clarity"><strong>Important:</strong> All answers come directly from Pastor's own sermons. This isn't someone else's interpretation - it's what Pastor himself has taught.</p>
+      <p class="bible-verse" data-i18n="bible-verse-2">"Prove all things; hold fast that which is good." — 1 Thessalonians 5:21 (KJV)</p>
+    </div>
+    
+    <div class="content-card">
+      <h3 data-i18n="how-to-use">How To Use This Tool</h3>
+      <p data-i18n="usage-tips">Here are some helpful tips:</p>
+      <ul class="tips-list">
+        <li data-i18n="tip-1">Ask specific questions, like "What does Pastor teach about prayer?"</li>
+        <li data-i18n="tip-2">Include Bible verses if you want to know about a specific passage</li>
+        <li data-i18n="tip-3">Click on "Watch Video" to see Pastor teaching about your question</li>
+        <li data-i18n="tip-4">If you don't get a helpful answer, try asking in a different way</li>
+        <li data-i18n="tip-5">You can ask follow-up questions to learn more</li>
+      </ul>
+      <p class="bible-verse" data-i18n="bible-verse-3">"The heart of the prudent getteth knowledge; and the ear of the wise seeketh knowledge." — Proverbs 18:15 (KJV)</p>
+    </div>
+    
+    <div class="content-card">
+      <h3 data-i18n="sample-questions">Questions You Can Ask</h3>
+      <p data-i18n="examples-intro">Here are some examples to get you started:</p>
       <ul class="example-questions">
         <li data-i18n="example-1">"How does a person get to heaven?"</li>
         <li data-i18n="example-2">"What is the Trinity?"</li>
@@ -85,8 +117,72 @@ custom_class: search-page
         <li data-i18n="example-5">"Who is Melchizedek?"</li>
       </ul>
     </div>
+    
+    <div class="content-card">
+      <h3 data-i18n="getting-help">Need Help?</h3>
+      <p data-i18n="help-message">If you have any questions about using this tool or run into problems, please speak with someone from our church tech team who will be happy to assist you.</p>
+    </div>
   </div>
-</div>
-
+  
 <!-- Overlay Container for Modals -->
 <div id="claude-overlay-container"></div>
+<style>
+  /* Friendly, approachable styling for the About section */
+  .info-section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    font-size: 1.05rem; /* Slightly larger text for readability */
+  }
+  
+  .feature-list, .tips-list {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-list li, .tips-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+  
+  .content-card {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--primary-color);
+  }
+  
+  .content-section-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Bible verse styling */
+  .bible-verse {
+    font-style: italic;
+    color: #641c14;
+    border-left: 2px solid #641c14;
+    padding-left: 1rem;
+    margin: 1.25rem 0 0.5rem 0;
+    line-height: 1.6;
+  }
+  
+  [data-theme="dark"] .bible-verse {
+    color: #e9c496;
+    border-left-color: #e9c496;
+  }
+  
+  [data-theme="dark"] .content-section-header {
+    border-bottom-color: var(--primary-light);
+  }
+  
+  [data-theme="dark"] .content-card {
+    border-left-color: var(--primary-light);
+  }
+  
+  @media (min-width: 769px) {
+    .content-card {
+      padding: 1.75rem;
+    }
+  }
+  </style>
