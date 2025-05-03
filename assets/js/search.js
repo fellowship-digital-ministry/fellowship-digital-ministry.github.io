@@ -2847,42 +2847,46 @@ Would you like me to search for sermon content on any of these topics instead?`;
       }
     });
     
-    // Add touch swipe down to close sources panel on mobile
+    // Add touch swipe‑down to close Sources panel on mobile
     if (elements.sourcesPanel) {
+      const scrollable = elements.sourcesPanelContent || elements.sourcesPanel;
+
       let touchStartY = 0;
-      let touchMoveY = 0;
-      
-      elements.sourcesPanel.addEventListener('touchstart', function(e) {
+      let touchMoveY  = 0;
+      let atTop       = false;          // NEW
+
+      elements.sourcesPanel.addEventListener('touchstart', e => {
         touchStartY = e.touches[0].clientY;
-      }, {passive: true});
-      
-      elements.sourcesPanel.addEventListener('touchmove', function(e) {
+        atTop       = (scrollable.scrollTop === 0);   // remember if we were at top
+      }, { passive: true });
+
+      elements.sourcesPanel.addEventListener('touchmove', e => {
         touchMoveY = e.touches[0].clientY;
         const deltaY = touchMoveY - touchStartY;
-        
-        // Only allow swiping down to close
-        if (deltaY > 0 && window.innerWidth <= 768) {
+
+        // Intercept **only** when:
+        //  – pulling down (deltaY > 0)
+        //  – panel is already scrolled to top
+        if (deltaY > 0 && atTop && window.innerWidth <= 768) {
           e.preventDefault();
-          
-          // Apply a transform to follow finger but with resistance
           const translateY = Math.min(deltaY * 0.5, 100);
           elements.sourcesPanel.style.transform = `translateY(${translateY}px)`;
         }
-      }, {passive: false});
-      
-      elements.sourcesPanel.addEventListener('touchend', function() {
+      }, { passive: false });
+
+      elements.sourcesPanel.addEventListener('touchend', () => {
         const deltaY = touchMoveY - touchStartY;
-        
-        if (deltaY > 80 && window.innerWidth <= 768) {
-          // Close the panel if swiped down enough
+
+        // Close only if we started at the top **and** pulled far enough
+        if (atTop && deltaY > 80 && window.innerWidth <= 768) {
           toggleSourcesPanel(false);
         }
-        
-        // Reset transform
+
+        // Reset
         elements.sourcesPanel.style.transform = '';
-        touchStartY = 0;
-        touchMoveY = 0;
-      }, {passive: true});
+        touchStartY = touchMoveY = 0;
+        atTop = false;
+      }, { passive: true });
     }
     
     // Handle window resize for mobile transitions
