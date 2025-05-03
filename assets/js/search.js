@@ -227,8 +227,8 @@ const SermonSearch = (function() {
   // Translations
   const translations = {
     en: {
-      "welcome-title": "Welcome to the Sermon Search Tool! 👋",
-      "welcome-intro": "Ask any question about the pastor's sermons, and I'll provide answers based on the sermon content with timestamped video links.",
+      "welcome-title": "Welcome to the Sermon Search Tool",
+      "welcome-intro": "Ask any question about the sermons and receive answers based on sermon content with timestamped video links.",
       "suggestion-heading": "Try asking about:",
       "example-1": "How does a person get to heaven?",
       "example-2": "What is the Trinity?",
@@ -260,8 +260,8 @@ const SermonSearch = (function() {
       "no-matches-found": "No matches found"
     },
     es: {
-      "welcome-title": "¡Bienvenido a la Herramienta de Búsqueda de Sermones! 👋",
-      "welcome-intro": "Haz cualquier pregunta sobre los sermones del pastor, y proporcionaré respuestas basadas en el contenido del sermón con enlaces de video cronometrados.",
+      "welcome-title": "Bienvenido a la Herramienta de Búsqueda de Sermones",
+      "welcome-intro": "Haz cualquier pregunta sobre los sermones y recibirás respuestas basadas en el contenido con enlaces de video cronometrados.",
       "suggestion-heading": "Intenta preguntar sobre:",
       "example-1": "¿Cómo llega una persona al cielo?",
       "example-2": "¿Qué es la Trinidad?",
@@ -293,8 +293,8 @@ const SermonSearch = (function() {
       "no-matches-found": "No se encontraron coincidencias"
     },
     zh: {
-      "welcome-title": "欢迎使用讲道搜索工具！👋",
-      "welcome-intro": "询问任何关于牧师讲道的问题，我将根据讲道内容提供带有时间戳视频链接的答案。",
+      "welcome-title": "欢迎使用讲道搜索工具",
+      "welcome-intro": "询问任何关于讲道的问题，您将获得基于讲道内容的答案，包含带有时间戳的视频链接。",
       "suggestion-heading": "尝试询问：",
       "example-1": "一个人如何上天堂？",
       "example-2": "三位一体是什么？",

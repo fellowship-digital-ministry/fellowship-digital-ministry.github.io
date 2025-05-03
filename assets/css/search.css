@@ -59,6 +59,7 @@ body.search-page {
 
 [data-theme="dark"] body.search-page {
   background-color: #641c14; /* Keep your maroon background */
+  overflow-y: hidden; /* Ensure no vertical scrolling in dark mode */
 }
 
 [data-theme="dark"] .chat-section-wrapper,
@@ -66,7 +67,19 @@ body.search-page {
 [data-theme="dark"] .claude-messages,
 [data-theme="dark"] .claude-interface {
   background-color: #1f2937;
-  color: #e5e7eb;
+  color: #ffffff;
+}
+
+/* Ensure message content has good contrast in dark mode */
+[data-theme="dark"] .claude-message-bot .claude-message-content {
+  background-color: #374151;
+  color: #ffffff;
+  overflow-y: hidden; /* Prevent scrolling in message content */
+}
+
+[data-theme="dark"] .claude-message-user .claude-message-content {
+  background-color: #4aa3e2;
+  color: #ffffff;
 }
 
 a {
@@ -137,6 +150,13 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   background-repeat: no-repeat;
   background-position: right 8px center;
   min-width: 90px; /* Starting smaller for mobile */
+}
+
+[data-theme="dark"] .language-selector select {
+  background-color: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23ffffff' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
 }
 
 .language-selector select:hover {
@@ -663,6 +683,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   animation: fade-in 0.3s ease;
 }
 
+[data-theme="dark"] .claude-welcome {
+  background-color: #374151;
+}
+
 .claude-welcome h4 {
   font-size: 1.125rem;
   font-weight: 600;
@@ -912,11 +936,19 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   font-size: 0.9375rem;
 }
 
+[data-theme="dark"] .claude-transcript-text {
+  color: #ffffff;
+}
+
 .claude-transcript-gap {
   text-align: center;
   color: var(--text-light);
   font-style: italic;
   padding: 0.5rem 0;
+}
+
+[data-theme="dark"] .claude-transcript-gap {
+  color: #9ca3af;
 }
 
 .claude-transcript-download {
@@ -946,6 +978,11 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   background-color: var(--secondary-color);
   border-radius: var(--border-radius);
   font-size: 0.9375rem;
+}
+
+[data-theme="dark"] .claude-source-text {
+  background-color: #374151;
+  color: #ffffff;
 }
 
 /* Loading and error states */
@@ -1020,6 +1057,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   border-radius: var(--border-radius);
   padding: 1.25rem; /* Smaller on mobile by default */
   margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .content-card {
+  background-color: #374151;
 }
 
 .content-card h3 {

@@ -299,7 +299,8 @@
   
   /* Dark theme source elements */
   [data-theme="dark"] .claude-source-title {
-    color: #e5e7eb !important;
+    color: #ffffff !important;
+    font-weight: 700;
   }
   
   [data-theme="dark"] .claude-source-text-preview,
@@ -307,12 +308,14 @@
   [data-theme="dark"] .source-text, 
   [data-theme="dark"] .context-quote, 
   [data-theme="dark"] .occurrence-text {
-    color: #e5e7eb !important;
+    color: #ffffff !important;
+    font-weight: 500;
   }
   
   [data-theme="dark"] .claude-source-meta,
   [data-theme="dark"] .claude-source-date {
-    color: #9ca3af !important;
+    color: #e5e7eb !important;
+    font-weight: 500;
   }
   
   [data-theme="dark"] .claude-source-timestamp,
@@ -321,6 +324,7 @@
   [data-theme="dark"] .view-full-text,
   [data-theme="dark"] .bible-reference, 
   [data-theme="dark"] .psalm-link {
-    color: #4aa3e2 !important;
+    color: #63b3ed !important;
+    font-weight: 600;
   }
 }
