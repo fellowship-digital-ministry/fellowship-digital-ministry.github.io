@@ -90,45 +90,6 @@
   <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/mobile-keyboard.js' | relative_url }}"></script>
 
-  <!-- Accessibility improvement script -->
-  <script>
-    // Basic accessibility enhancements
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add role="main" to main element for screen readers
-      const mainElement = document.querySelector('main');
-      if (mainElement) {
-        mainElement.setAttribute('role', 'main');
-      }
-      
-      // Ensure all images have alt text
-      document.querySelectorAll('img:not([alt])').forEach(img => {
-        img.setAttribute('alt', '');
-      });
-      
-      // Make skip link for keyboard navigation
-      if (!document.querySelector('.skip-link')) {
-        const skipLink = document.createElement('a');
-        skipLink.href = '#main';
-        skipLink.className = 'skip-link';
-        skipLink.textContent = 'Skip to main content';
-        document.body.insertBefore(skipLink, document.body.firstChild);
-      }
-      
-      // Fix any console errors by checking for required elements
-      // This helps prevent JS errors when expected elements aren't found
-      function safeQuerySelector(selector, fallbackFunc) {
-        const element = document.querySelector(selector);
-        if (element) {
-          return element;
-        } else if (typeof fallbackFunc === 'function') {
-          fallbackFunc();
-        }
-        return null;
-      }
-      
-      // Make global safeQuerySelector available to other scripts
-      window.safeQuerySelector = safeQuerySelector;
-    });
-  </script>
+
 </body>
 </html>
