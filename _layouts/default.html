@@ -12,9 +12,21 @@
   {% if page.custom_class == 'search-page' %}
   <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
   {% endif %}
-  {% if page.use_charts %}
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  {% if page.custom_css %}
+  <link rel="stylesheet" href="{{ '/assets/css/' | append: page.custom_css | append: '.css' | relative_url }}">
   {% endif %}
+  
+  {% if page.use_charts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  {% endif %}
+  
+  <!-- Meta tags for better SEO and social sharing -->
+  <meta name="description" content="{{ page.hero_description | default: 'A digital resource for exploring Bible references in sermons' }}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.hero_description | default: 'A digital resource for exploring Bible references in sermons' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 </head>
 <body class="{% if page.url == '/' %}home{% endif %} {{ page.custom_class }}">
   <div class="main-container">
@@ -64,6 +76,10 @@
   {% endunless %}
   </div>
 
+  <!-- Core libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+  
+  <!-- Load page-specific JavaScript -->
   {% if page.custom_js %}
     <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}"></script>
   {% endif %}
@@ -74,5 +90,45 @@
   <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/mobile-keyboard.js' | relative_url }}"></script>
 
+  <!-- Accessibility improvement script -->
+  <script>
+    // Basic accessibility enhancements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add role="main" to main element for screen readers
+      const mainElement = document.querySelector('main');
+      if (mainElement) {
+        mainElement.setAttribute('role', 'main');
+      }
+      
+      // Ensure all images have alt text
+      document.querySelectorAll('img:not([alt])').forEach(img => {
+        img.setAttribute('alt', '');
+      });
+      
+      // Make skip link for keyboard navigation
+      if (!document.querySelector('.skip-link')) {
+        const skipLink = document.createElement('a');
+        skipLink.href = '#main';
+        skipLink.className = 'skip-link';
+        skipLink.textContent = 'Skip to main content';
+        document.body.insertBefore(skipLink, document.body.firstChild);
+      }
+      
+      // Fix any console errors by checking for required elements
+      // This helps prevent JS errors when expected elements aren't found
+      function safeQuerySelector(selector, fallbackFunc) {
+        const element = document.querySelector(selector);
+        if (element) {
+          return element;
+        } else if (typeof fallbackFunc === 'function') {
+          fallbackFunc();
+        }
+        return null;
+      }
+      
+      // Make global safeQuerySelector available to other scripts
+      window.safeQuerySelector = safeQuerySelector;
+    });
+  </script>
 </body>
 </html>
