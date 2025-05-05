@@ -5,7 +5,7 @@
 
 // Global configuration
 const API_BASE_URL = window.location.hostname === 'fellowship-digital-ministry.github.io' 
-  ? 'https://your-api-domain.com' // Replace with your production API domain
+  ? 'https://sermon-search-api-8fok.onrender.com' // Use your actual API endpoint
   : 'http://localhost:8000';
 
 // Chart color scheme - matches Fellowship branding
@@ -45,9 +45,13 @@ let charts = {}; // Store chart instances for potential updates
 async function initializeAnalytics() {
   try {
     // Show loading state
-    document.getElementById('loadingSection').style.display = 'block';
-    document.getElementById('analyticsContent').style.display = 'none';
-    document.getElementById('errorSection').style.display = 'none';
+    const loadingSection = document.getElementById('loadingSection');
+    const analyticsContent = document.getElementById('analyticsContent');
+    const errorSection = document.getElementById('errorSection');
+    
+    if (loadingSection) loadingSection.style.display = 'block';
+    if (analyticsContent) analyticsContent.style.display = 'none';
+    if (errorSection) errorSection.style.display = 'none';
     
     // Fetch Bible reference statistics
     bibleData = await fetchBibleStats();
@@ -65,21 +69,38 @@ async function initializeAnalytics() {
     loadRecentSermons();
     
     // Hide loading state, show content
-    document.getElementById('loadingSection').style.display = 'none';
-    document.getElementById('analyticsContent').style.display = 'block';
+    if (loadingSection) loadingSection.style.display = 'none';
+    if (analyticsContent) analyticsContent.style.display = 'block';
   } catch (error) {
     console.error('Error initializing analytics:', error);
-    document.getElementById('loadingSection').style.display = 'none';
-    document.getElementById('errorSection').style.display = 'block';
-    document.getElementById('errorMessage').textContent = `Error loading analytics data: ${error.message}`;
+    
+    // Still hide loading indicator
+    if (document.getElementById('loadingSection')) {
+      document.getElementById('loadingSection').style.display = 'none';
+    }
+    
+    // Show error section if it exists
+    if (document.getElementById('errorSection')) {
+      document.getElementById('errorSection').style.display = 'block';
+      
+      // Update error message if the element exists
+      const errorMessage = document.getElementById('errorMessage');
+      if (errorMessage) {
+        errorMessage.textContent = `Error loading analytics data: ${error.message}`;
+      }
+      
+      // Update error stack if the element exists
+      const errorStack = document.getElementById('errorStack');
+      if (errorStack) {
+        errorStack.textContent = error.stack || 'No stack trace available';
+      }
+    }
   }
 }
 
 /**
- * Fetch Bible reference statistics from the API
+ * Fetch Bible reference statistics from the API, with demonstration data fallback
  */
-// Enhanced fetch function with fallback
-// Enhanced fetch function with clearly marked fallback data
 async function fetchBibleStats() {
   try {
     console.log(`Fetching Bible stats from ${API_BASE_URL}/bible/stats`);
@@ -88,7 +109,6 @@ async function fetchBibleStats() {
     
     if (response.ok) {
       console.log('Successfully fetched Bible stats:', data);
-      // Mark real data
       return {
         ...data,
         isReal: true
@@ -99,7 +119,8 @@ async function fetchBibleStats() {
     }
   } catch (error) {
     console.error('Using demonstration data due to API error:', error);
-    // Return clearly marked demo data
+    
+    // Return clearly marked demonstration data
     return {
       total_references: 1823,
       old_testament_count: 743,
@@ -120,11 +141,16 @@ async function fetchBibleStats() {
     };
   }
 }
+
 /**
  * Initialize time filter dropdown
  */
 function initializeTimeFilters() {
   const timeFilterSelect = document.getElementById('timeFilterSelect');
+  if (!timeFilterSelect) {
+    console.warn('Time filter select element not found');
+    return;
+  }
   
   // Add default all time option (already in HTML)
   
@@ -161,9 +187,6 @@ function initializeTimeFilters() {
 function handleTimeFilterChange(event) {
   timeFilter = event.target.value;
   
-  // In a real implementation, this would fetch filtered data
-  // For now, we'll just refresh with the same data
-  
   // Update all visualizations with the new filter
   updateKeyStatistics();
   updateCharts();
@@ -198,15 +221,24 @@ function updateKeyStatistics() {
   }
   
   // Update statistics with animation
-  animateCounter('totalSermonsValue', 0, 429); // Placeholder sermon count
-  animateCounter('totalReferencesValue', 0, bibleData.total_references);
+  const totalSermonsElement = document.getElementById('totalSermonsValue');
+  const totalReferencesElement = document.getElementById('totalReferencesValue');
+  const topBookElement = document.getElementById('topBookValue');
+  
+  if (totalSermonsElement) {
+    animateCounter(totalSermonsElement, 0, 429); // Placeholder sermon count
+  }
+  
+  if (totalReferencesElement) {
+    animateCounter(totalReferencesElement, 0, bibleData.total_references);
+  }
   
   // Find top book
-  if (bibleData.top_books && bibleData.top_books.length > 0) {
+  if (topBookElement && bibleData.top_books && bibleData.top_books.length > 0) {
     const topBook = bibleData.top_books[0];
-    document.getElementById('topBookValue').textContent = formatBookName(topBook.book);
-  } else {
-    document.getElementById('topBookValue').textContent = 'N/A';
+    topBookElement.textContent = formatBookName(topBook.book);
+  } else if (topBookElement) {
+    topBookElement.textContent = 'N/A';
   }
 }
 
@@ -214,9 +246,22 @@ function updateKeyStatistics() {
  * Create the Bible Books chart visualization
  */
 function createBibleBooksChart() {
-  if (!bibleData || !bibleData.top_books) return;
+  if (!bibleData || !bibleData.top_books) {
+    console.error('No Bible data available for chart');
+    return;
+  }
   
-  const ctx = document.getElementById('bibleReferencesChart').getContext('2d');
+  const chartCanvas = document.getElementById('bibleReferencesChart');
+  if (!chartCanvas) {
+    console.error('Chart canvas element not found');
+    return;
+  }
+  
+  const ctx = chartCanvas.getContext('2d');
+  if (!ctx) {
+    console.error('Unable to get canvas context');
+    return;
+  }
   
   // Prepare data for the chart - using top 15 books for readability
   const topBooks = bibleData.top_books.slice(0, 15);
@@ -233,6 +278,9 @@ function createBibleBooksChart() {
       maxBarThickness: 50
     }]
   };
+  
+  // Also update the data table if it exists
+  updateDataTable(topBooks);
   
   const options = {
     responsive: true,
@@ -289,12 +337,44 @@ function createBibleBooksChart() {
 }
 
 /**
+ * Update the data table with book references
+ */
+function updateDataTable(topBooks) {
+  const tableBodyElement = document.getElementById('bookDataTableBody');
+  if (!tableBodyElement) return;
+  
+  let tableHtml = '';
+  
+  topBooks.forEach(book => {
+    const formattedBook = formatBookName(book.book);
+    tableHtml += `
+      <tr>
+        <td>${formattedBook}</td>
+        <td>${book.count}</td>
+        <td>
+          <a href="reference-viewer.html?ref=${book.book}" class="btn btn-sm">View References</a>
+        </td>
+      </tr>
+    `;
+  });
+  
+  tableBodyElement.innerHTML = tableHtml;
+}
+
+/**
  * Create the Testament distribution pie chart
  */
 function createTestamentChart() {
-  if (!bibleData) return;
+  if (!bibleData) {
+    console.error('No Bible data available for testament chart');
+    return;
+  }
   
-  const ctx = document.getElementById('testamentChart').getContext('2d');
+  const ctx = document.getElementById('testamentChart');
+  if (!ctx) {
+    console.error('Testament chart canvas not found');
+    return;
+  }
   
   const chartData = {
     labels: ['Old Testament', 'New Testament'],
@@ -342,21 +422,49 @@ function createTestamentChart() {
     data: chartData,
     options: options
   });
+  
+  // Update the text summary
+  updateTestamentSummary(bibleData.old_testament_count, bibleData.new_testament_count, bibleData.total_references);
+}
+
+/**
+ * Update testament percentages summary text
+ */
+function updateTestamentSummary(oldCount, newCount, total) {
+  const summaryElement = document.getElementById('testamentPercentages');
+  if (!summaryElement) return;
+  
+  const oldPct = ((oldCount / total) * 100).toFixed(1);
+  const newPct = ((newCount / total) * 100).toFixed(1);
+  
+  summaryElement.innerHTML = `
+    <strong>Old Testament:</strong> ${oldCount} references (${oldPct}%) | 
+    <strong>New Testament:</strong> ${newCount} references (${newPct}%)
+  `;
 }
 
 /**
  * Display top chapters in a list format
  */
 function displayTopChapters() {
-  if (!bibleData || !bibleData.top_chapters) return;
+  if (!bibleData || !bibleData.top_chapters) {
+    console.warn('No top chapters data available');
+    return;
+  }
   
   const container = document.getElementById('topChaptersList');
+  if (!container) {
+    console.warn('Top chapters list container not found');
+    return;
+  }
+  
   container.innerHTML = ''; // Clear existing content
   
   // Create items for each top chapter
   bibleData.top_chapters.forEach(item => {
     const referenceItem = document.createElement('div');
     referenceItem.className = 'reference-item';
+    referenceItem.setAttribute('tabindex', '0'); // Make focusable for keyboard navigation
     
     const formattedReference = `${formatBookName(item.book)} ${item.chapter}`;
     
@@ -375,6 +483,14 @@ function displayTopChapters() {
       }
     });
     
+    // Add keyboard handler for accessibility
+    referenceItem.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = `reference-viewer.html?ref=${item.book}_${item.chapter}`;
+      }
+    });
+    
     container.appendChild(referenceItem);
   });
 }
@@ -384,8 +500,6 @@ function displayTopChapters() {
  */
 function updateCharts() {
   if (charts.bibleBooks) {
-    // In a real implementation, this would update with filtered data
-    // For this demo, we're just animating the existing data
     charts.bibleBooks.update();
   }
   
@@ -404,8 +518,9 @@ function formatBookName(bookName) {
 /**
  * Animate a counter for better visual engagement
  */
-function animateCounter(elementId, start, end) {
-  const element = document.getElementById(elementId);
+function animateCounter(element, start, end) {
+  if (!element) return;
+  
   const duration = 1000; // Animation duration in milliseconds
   const frameDuration = 1000 / 60; // 60fps
   const totalFrames = Math.round(duration / frameDuration);
@@ -434,6 +549,10 @@ function animateCounter(elementId, start, end) {
  */
 function loadRecentSermons() {
   const container = document.getElementById('recentSermonsContainer');
+  if (!container) {
+    console.warn('Recent sermons container not found');
+    return;
+  }
   
   fetch(`${API_BASE_URL}/sermons?limit=5`)
     .then(response => {
@@ -487,11 +606,112 @@ function loadRecentSermons() {
 }
 
 /**
+ * Initialize print functionality
+ */
+function initializePrintFunctionality() {
+  const printButton = document.getElementById('printAnalytics');
+  
+  if (printButton) {
+    printButton.addEventListener('click', function() {
+      // Before printing, expand data tables for better print view
+      const chartDataTable = document.getElementById('chartDataTable');
+      if (chartDataTable) {
+        chartDataTable.hidden = false;
+      }
+      
+      // Add print class to body
+      document.body.classList.add('printing');
+      
+      // Print the page
+      window.print();
+      
+      // After printing, restore the state
+      setTimeout(() => {
+        document.body.classList.remove('printing');
+        
+        // Restore state of data table based on button text
+        const showTableButton = document.getElementById('showChartDataTable');
+        if (showTableButton && showTableButton.textContent.includes('View as')) {
+          chartDataTable.hidden = true;
+        }
+      }, 1000);
+    });
+  }
+}
+
+/**
+ * Initialize CSV download
+ */
+function initializeCSVDownload() {
+  const downloadButton = document.getElementById('downloadCSV');
+  
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      if (!bibleData || !bibleData.top_books) {
+        console.error('No Bible data available for CSV export');
+        return;
+      }
+      
+      // Create CSV content
+      let csvContent = "Book,References\n";
+      
+      bibleData.top_books.forEach(book => {
+        csvContent += `"${formatBookName(book.book)}",${book.count}\n`;
+      });
+      
+      // Create a Blob and download
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'bible_references.csv');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+}
+
+/**
  * Handle retry button click
  */
-document.getElementById('retryButton').addEventListener('click', function() {
+document.getElementById('retryButton')?.addEventListener('click', function() {
   initializeAnalytics();
 });
 
-// Initialize the analytics dashboard when the document is ready
-document.addEventListener('DOMContentLoaded', initializeAnalytics);
+/**
+ * Toggle data table visibility
+ */
+document.getElementById('showChartDataTable')?.addEventListener('click', function() {
+  const chartDataTable = document.getElementById('chartDataTable');
+  if (!chartDataTable) return;
+  
+  const isHidden = chartDataTable.hidden;
+  chartDataTable.hidden = !isHidden;
+  this.textContent = isHidden ? 'Hide Data Table' : 'View as Data Table';
+});
+
+/**
+ * Initialize error details toggle
+ */
+function initializeErrorDetails() {
+  const showErrorDetails = document.getElementById('showErrorDetails');
+  const errorDetailsContent = document.getElementById('errorDetailsContent');
+  
+  if (showErrorDetails && errorDetailsContent) {
+    showErrorDetails.addEventListener('click', function() {
+      const isHidden = errorDetailsContent.hidden;
+      errorDetailsContent.hidden = !isHidden;
+      this.textContent = isHidden ? 'Hide Technical Details' : 'Show Technical Details';
+    });
+  }
+}
+
+// When the document is ready, run initialization functions
+document.addEventListener('DOMContentLoaded', function() {
+  initializeAnalytics();
+  initializePrintFunctionality();
+  initializeCSVDownload();
+  initializeErrorDetails();
+});

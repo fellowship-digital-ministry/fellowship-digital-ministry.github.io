@@ -5,7 +5,7 @@
 
 // Global configuration
 const API_BASE_URL = window.location.hostname === 'fellowship-digital-ministry.github.io' 
-  ? 'https://your-api-domain.com' // Replace with your production API domain
+  ? 'https://sermon-search-api-8fok.onrender.com' // Production API domain
   : 'http://localhost:8000';
 
 /**
