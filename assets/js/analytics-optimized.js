@@ -78,16 +78,48 @@ async function initializeAnalytics() {
 /**
  * Fetch Bible reference statistics from the API
  */
+// Enhanced fetch function with fallback
+// Enhanced fetch function with clearly marked fallback data
 async function fetchBibleStats() {
-  const response = await fetch(`${API_BASE_URL}/bible/stats`);
-  
-  if (!response.ok) {
-    throw new Error(`Failed to fetch Bible stats (${response.status}: ${response.statusText})`);
+  try {
+    console.log(`Fetching Bible stats from ${API_BASE_URL}/bible/stats`);
+    const response = await fetch(`${API_BASE_URL}/bible/stats`);
+    const data = await response.json();
+    
+    if (response.ok) {
+      console.log('Successfully fetched Bible stats:', data);
+      // Mark real data
+      return {
+        ...data,
+        isReal: true
+      };
+    } else {
+      console.warn(`API error: ${data.detail || 'Unknown error'}`);
+      throw new Error(data.detail || 'Failed to fetch Bible stats');
+    }
+  } catch (error) {
+    console.error('Using demonstration data due to API error:', error);
+    // Return clearly marked demo data
+    return {
+      total_references: 1823,
+      old_testament_count: 743,
+      new_testament_count: 1080,
+      top_books: [
+        { book: "Matthew", count: 257 },
+        { book: "John", count: 189 },
+        { book: "Romans", count: 165 },
+        { book: "Psalms", count: 143 },
+        { book: "Genesis", count: 102 }
+      ],
+      top_chapters: [
+        { book: "John", chapter: "3", count: 45 },
+        { book: "Romans", chapter: "8", count: 32 },
+        { book: "Genesis", chapter: "1", count: 28 }
+      ],
+      isDemo: true  // Flag to indicate this is demonstration data
+    };
   }
-  
-  return await response.json();
 }
-
 /**
  * Initialize time filter dropdown
  */
@@ -143,6 +175,27 @@ function handleTimeFilterChange(event) {
  */
 function updateKeyStatistics() {
   if (!bibleData) return;
+  
+  // Check if using demo data
+  if (bibleData.isDemo) {
+    // Add a demo data notice to the page
+    const analyticsContent = document.getElementById('analyticsContent');
+    if (analyticsContent) {
+      // Only add the notice if it doesn't already exist
+      if (!document.getElementById('demoDataNotice')) {
+        const notice = document.createElement('div');
+        notice.id = 'demoDataNotice';
+        notice.className = 'demo-data-notice';
+        notice.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span>Displaying demonstration data. The API endpoint <code>/bible/stats</code> is not working correctly. Check your server logs for errors.</span>
+        `;
+        analyticsContent.insertBefore(notice, analyticsContent.firstChild);
+      }
+    }
+  }
   
   // Update statistics with animation
   animateCounter('totalSermonsValue', 0, 429); // Placeholder sermon count
