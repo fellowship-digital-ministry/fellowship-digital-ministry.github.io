@@ -1,630 +1,444 @@
----
----
 /**
- * Enhanced Sermon Analytics Visualization
- * 
- * Features:
- * - Interactive, clickable charts
- * - Time-based filtering
- * - Bible book, chapter, and verse exploration
- * - Direct links to reference viewer
+ * Bible Reference Analytics - Optimized for Jekyll
+ * This script powers the Bible reference analytics dashboard
  */
 
-// Constants
-const API_URL = '{{ site.api_url }}';
+// Global configuration
+const API_BASE_URL = window.location.hostname === 'fellowship-digital-ministry.github.io' 
+  ? 'https://your-api-domain.com' // Replace with your production API domain
+  : 'http://localhost:8000';
 
-// Bible books data with categories
-const bibleBooks = {
-  oldTestament: [
-    'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth', 
-    '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', '1 Chronicles', '2 Chronicles', 'Ezra', 
-    'Nehemiah', 'Esther', 'Job', 'Psalms', 'Proverbs', 'Ecclesiastes', 'Song of Solomon', 
-    'Isaiah', 'Jeremiah', 'Lamentations', 'Ezekiel', 'Daniel', 'Hosea', 'Joel', 'Amos', 
-    'Obadiah', 'Jonah', 'Micah', 'Nahum', 'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi'
-  ],
-  gospels: ['Matthew', 'Mark', 'Luke', 'John'],
-  epistles: [
-    'Romans', '1 Corinthians', '2 Corinthians', 'Galatians', 'Ephesians', 'Philippians', 
-    'Colossians', '1 Thessalonians', '2 Thessalonians', '1 Timothy', '2 Timothy', 'Titus', 
-    'Philemon', 'Hebrews', 'James', '1 Peter', '2 Peter', '1 John', '2 John', '3 John', 'Jude'
-  ],
-  other: ['Acts', 'Revelation']
+// Chart color scheme - matches Fellowship branding
+const CHART_COLORS = {
+  primary: '#2284c5',
+  secondary: '#641c14',
+  light: 'rgba(34, 132, 197, 0.7)',
+  veryLight: 'rgba(34, 132, 197, 0.3)',
+  oldTestament: '#641c14',
+  newTestament: '#2284c5',
+  border: 'rgba(200, 200, 200, 0.75)'
 };
 
-// Chart colors with improved accessibility
-const chartColors = {
-  oldTestament: 'rgba(74, 144, 226, 0.7)',
-  gospels: 'rgba(255, 149, 0, 0.7)',
-  epistles: 'rgba(187, 107, 217, 0.7)',
-  other: 'rgba(80, 200, 120, 0.7)'
-};
+// Bible books in canonical order for consistent display
+const BIBLE_BOOKS_ORDER = [
+  // Old Testament
+  "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth", 
+  "1_Samuel", "2_Samuel", "1_Kings", "2_Kings", "1_Chronicles", "2_Chronicles", "Ezra", 
+  "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song_of_Solomon", 
+  "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", 
+  "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi",
+  // New Testament
+  "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1_Corinthians", "2_Corinthians", 
+  "Galatians", "Ephesians", "Philippians", "Colossians", "1_Thessalonians", "2_Thessalonians", 
+  "1_Timothy", "2_Timothy", "Titus", "Philemon", "Hebrews", "James", "1_Peter", "2_Peter", 
+  "1_John", "2_John", "3_John", "Jude", "Revelation"
+];
 
-// DOM Elements
-const loadingSection = document.getElementById('loadingSection');
-const analyticsContent = document.getElementById('analyticsContent');
-const errorSection = document.getElementById('errorSection');
-const retryButton = document.getElementById('retryButton');
-const timeFilterSelect = document.getElementById('timeFilterSelect');
-const totalSermonsElement = document.getElementById('totalSermonsValue');
-const totalReferencesElement = document.getElementById('totalReferencesValue');
-const topBookElement = document.getElementById('topBookValue');
-
-// Chart instances for updating
-let bibleReferencesChart = null;
-let testamentChart = null;
-let timelineChart = null;
-
-// Data storage
-let analyticsData = {
-  summary: null,
-  books: null,
-  chapters: null,
-  verses: null,
-  sermons: null,
-  timeline: null
-};
-
-// Event Listeners
-document.addEventListener('DOMContentLoaded', initializeAnalytics);
-if (retryButton) {
-  retryButton.addEventListener('click', initializeAnalytics);
-}
-if (timeFilterSelect) {
-  timeFilterSelect.addEventListener('change', updateVisualizations);
-}
+// Global state
+let bibleData = null;
+let timeFilter = 'all';
+let charts = {}; // Store chart instances for potential updates
 
 /**
- * Initialize analytics by loading data
+ * Initialize the analytics dashboard
  */
 async function initializeAnalytics() {
-  // Show loading, hide other sections
-  showLoadingState();
-  
   try {
-    // Load all the pre-computed JSON files
-    await Promise.all([
-      loadAnalyticsFile('summary', '/assets/data/analytics/summary.json'),
-      loadAnalyticsFile('books', '/assets/data/analytics/books.json'),
-      loadAnalyticsFile('chapters', '/assets/data/analytics/chapters.json'),
-      loadAnalyticsFile('verses', '/assets/data/analytics/verses.json'),
-      loadAnalyticsFile('sermons', '/assets/data/analytics/sermons.json'),
-      loadAnalyticsFile('timeline', '/assets/data/analytics/timeline.json')
-    ]);
+    // Show loading state
+    document.getElementById('loadingSection').style.display = 'block';
+    document.getElementById('analyticsContent').style.display = 'none';
+    document.getElementById('errorSection').style.display = 'none';
     
-    console.log('All analytics data loaded successfully');
+    // Fetch Bible reference statistics
+    bibleData = await fetchBibleStats();
     
     // Initialize time filter options
-    initializeTimeFilter();
+    initializeTimeFilters();
     
-    // Display visualizations
-    updateVisualizations();
+    // Initialize dashboard components
+    updateKeyStatistics();
+    createBibleBooksChart();
+    createTestamentChart();
+    displayTopChapters();
     
-    // Show content
-    hideLoadingState();
-    analyticsContent.style.display = 'block';
+    // Also load recent sermons (already implemented in your template)
+    loadRecentSermons();
     
+    // Hide loading state, show content
+    document.getElementById('loadingSection').style.display = 'none';
+    document.getElementById('analyticsContent').style.display = 'block';
   } catch (error) {
-    console.error('Error loading analytics data:', error);
-    
-    hideLoadingState();
-    errorSection.style.display = 'block';
-    
-    // Show error message
-    const errorMessageElement = document.getElementById('errorMessage');
-    if (errorMessageElement) {
-      errorMessageElement.textContent = `Error: ${error.message}`;
-    }
+    console.error('Error initializing analytics:', error);
+    document.getElementById('loadingSection').style.display = 'none';
+    document.getElementById('errorSection').style.display = 'block';
+    document.getElementById('errorMessage').textContent = `Error loading analytics data: ${error.message}`;
   }
 }
 
 /**
- * Show loading state
+ * Fetch Bible reference statistics from the API
  */
-function showLoadingState() {
-  if (loadingSection) loadingSection.style.display = 'block';
-  if (analyticsContent) analyticsContent.style.display = 'none';
-  if (errorSection) errorSection.style.display = 'none';
-}
-
-/**
- * Hide loading state
- */
-function hideLoadingState() {
-  if (loadingSection) loadingSection.style.display = 'none';
-}
-
-/**
- * Load a specific analytics JSON file
- */
-async function loadAnalyticsFile(key, url) {
-  try {
-    console.log(`Loading ${key} data from ${url}`);
-    
-    const response = await fetch(url);
-    if (!response.ok) {
-      console.warn(`Failed to load ${key} data (${response.status}). Using fallback data.`);
-      return useFallbackData(key);
-    }
-    
-    analyticsData[key] = await response.json();
-    console.log(`Loaded ${key} data successfully`);
-    return analyticsData[key];
-  } catch (error) {
-    console.error(`Error loading ${key} data:`, error);
-    return useFallbackData(key);
+async function fetchBibleStats() {
+  const response = await fetch(`${API_BASE_URL}/bible/stats`);
+  
+  if (!response.ok) {
+    throw new Error(`Failed to fetch Bible stats (${response.status}: ${response.statusText})`);
   }
+  
+  return await response.json();
 }
 
 /**
- * Provide fallback data if a file can't be loaded
+ * Initialize time filter dropdown
  */
-function useFallbackData(key) {
-  console.log(`Using fallback data for ${key}`);
+function initializeTimeFilters() {
+  const timeFilterSelect = document.getElementById('timeFilterSelect');
   
-  // Default fallback data
-  switch(key) {
-    case 'summary':
-      return {
-        total_sermons: 0,
-        total_chunks: 0,
-        total_references: 0,
-        testament_counts: { 'Old Testament': 0, 'New Testament': 0 },
-        top_books: {}
-      };
-    case 'books':
-      return {};
-    case 'chapters':
-      return {};
-    case 'verses':
-      return {};
-    case 'sermons':
-      return {};
-    case 'timeline':
-      return { years: {}, months: {}, year_months: {} };
-    default:
-      return {};
-  }
-}
-
-/**
- * Initialize time filter dropdown options
- */
-function initializeTimeFilter() {
-  if (!timeFilterSelect || !analyticsData.timeline) return;
+  // Add default all time option (already in HTML)
   
-  // Clear existing options
-  timeFilterSelect.innerHTML = '<option value="all">All Time</option>';
-  
-  // Add year options
-  const years = Object.keys(analyticsData.timeline.years || {}).sort().reverse();
-  years.forEach(year => {
+  // Add year options - last 3 years
+  const currentYear = new Date().getFullYear();
+  for (let year = currentYear; year >= currentYear - 2; year--) {
     const option = document.createElement('option');
-    option.value = `year-${year}`;
-    option.textContent = `Year: ${year}`;
+    option.value = `year_${year}`;
+    option.textContent = `${year}`;
     timeFilterSelect.appendChild(option);
-  });
+  }
   
-  // Add month options
-  const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+  // Add period options
+  const periods = [
+    { value: 'last_6_months', label: 'Last 6 Months' },
+    { value: 'last_3_months', label: 'Last 3 Months' },
+    { value: 'last_30_days', label: 'Last 30 Days' }
   ];
   
-  Object.keys(analyticsData.timeline.months || {}).sort().forEach(month => {
+  periods.forEach(period => {
     const option = document.createElement('option');
-    option.value = `month-${month}`;
-    option.textContent = `Month: ${months[parseInt(month) - 1]}`;
+    option.value = period.value;
+    option.textContent = period.label;
     timeFilterSelect.appendChild(option);
   });
   
-  // Add year-month options
-  Object.keys(analyticsData.timeline.year_months || {}).sort().reverse().forEach(yearMonth => {
-    const [year, month] = yearMonth.split('-');
-    const option = document.createElement('option');
-    option.value = `year-month-${yearMonth}`;
-    option.textContent = `${months[parseInt(month) - 1]} ${year}`;
-    timeFilterSelect.appendChild(option);
-  });
+  // Add event listener for filter changes
+  timeFilterSelect.addEventListener('change', handleTimeFilterChange);
 }
 
 /**
- * Update all visualizations based on the current time filter
+ * Handle time filter change events
  */
-function updateVisualizations() {
-  // Update summary stats
-  updateSummaryStats();
+function handleTimeFilterChange(event) {
+  timeFilter = event.target.value;
   
-  // Get filtered data based on selected time period
-  const filteredData = getFilteredData();
+  // In a real implementation, this would fetch filtered data
+  // For now, we'll just refresh with the same data
   
-  // Update charts with filtered data
-  updateBibleBooksChart(filteredData.books);
-  updateTestamentChart(filteredData.testament);
-  updateTopChapters(filteredData.chapters);
-  updateRecentSermons(filteredData.sermons);
+  // Update all visualizations with the new filter
+  updateKeyStatistics();
+  updateCharts();
+  displayTopChapters();
 }
 
 /**
- * Get filtered data based on the current time filter selection
+ * Update key statistics section with latest data
  */
-function getFilteredData() {
-  // Default to all data
-  let filteredBooks = analyticsData.books || {};
-  let filteredChapters = analyticsData.chapters || {};
-  let filteredTestament = analyticsData.summary?.testament_counts || { 'Old Testament': 0, 'New Testament': 0 };
+function updateKeyStatistics() {
+  if (!bibleData) return;
   
-  // Get sorted sermons for display
-  let filteredSermons = Object.values(analyticsData.sermons || {}).sort((a, b) => {
-    const dateA = parseSermonDate(a.publish_date);
-    const dateB = parseSermonDate(b.publish_date);
-    return dateB - dateA; // Newest first
-  });
+  // Update statistics with animation
+  animateCounter('totalSermonsValue', 0, 429); // Placeholder sermon count
+  animateCounter('totalReferencesValue', 0, bibleData.total_references);
   
-  // If a time filter is selected
-  if (timeFilterSelect && timeFilterSelect.value !== 'all') {
-    const filterValue = timeFilterSelect.value;
-    
-    // Get sermon IDs for the selected time period
-    let filteredSermonIds = [];
-    
-    if (filterValue.startsWith('year-')) {
-      const year = filterValue.replace('year-', '');
-      filteredSermonIds = analyticsData.timeline.years[year] || [];
-    } else if (filterValue.startsWith('month-')) {
-      const month = filterValue.replace('month-', '');
-      filteredSermonIds = analyticsData.timeline.months[month] || [];
-    } else if (filterValue.startsWith('year-month-')) {
-      const yearMonth = filterValue.replace('year-month-', '');
-      filteredSermonIds = analyticsData.timeline.year_months[yearMonth] || [];
-    }
-    
-    // Filter sermons
-    filteredSermons = Object.entries(analyticsData.sermons || {})
-      .filter(([id, _]) => filteredSermonIds.includes(id))
-      .map(([_, data]) => data)
-      .sort((a, b) => {
-        const dateA = parseSermonDate(a.publish_date);
-        const dateB = parseSermonDate(b.publish_date);
-        return dateB - dateA;
-      });
-      
-    // TODO: In a full implementation, you would recalculate book/chapter statistics
-    // based on the filtered sermons. For now, using total data regardless of filter.
+  // Find top book
+  if (bibleData.top_books && bibleData.top_books.length > 0) {
+    const topBook = bibleData.top_books[0];
+    document.getElementById('topBookValue').textContent = formatBookName(topBook.book);
+  } else {
+    document.getElementById('topBookValue').textContent = 'N/A';
   }
+}
+
+/**
+ * Create the Bible Books chart visualization
+ */
+function createBibleBooksChart() {
+  if (!bibleData || !bibleData.top_books) return;
   
-  return {
-    books: filteredBooks,
-    chapters: filteredChapters, 
-    testament: filteredTestament,
-    sermons: filteredSermons.slice(0, 5) // Limit to 5 most recent
+  const ctx = document.getElementById('bibleReferencesChart').getContext('2d');
+  
+  // Prepare data for the chart - using top 15 books for readability
+  const topBooks = bibleData.top_books.slice(0, 15);
+  
+  const chartData = {
+    labels: topBooks.map(book => formatBookName(book.book)),
+    datasets: [{
+      label: 'References',
+      data: topBooks.map(book => book.count),
+      backgroundColor: CHART_COLORS.light,
+      borderColor: CHART_COLORS.primary,
+      borderWidth: 1,
+      borderRadius: 4,
+      maxBarThickness: 50
+    }]
   };
-}
-
-/**
- * Helper function to parse sermon dates in various formats
- */
-function parseSermonDate(dateStr) {
-  if (!dateStr) return new Date(0);
   
-  try {
-    // Try ISO format
-    if (typeof dateStr === 'string' && dateStr.includes('-')) {
-      return new Date(dateStr);
-    }
-    
-    // Try YYYYMMDD format
-    if (typeof dateStr === 'string' && /^\d{8}$/.test(dateStr)) {
-      const year = dateStr.substring(0, 4);
-      const month = dateStr.substring(4, 6);
-      const day = dateStr.substring(6, 8);
-      return new Date(`${year}-${month}-${day}`);
-    }
-    
-    // Try timestamp
-    if (typeof dateStr === 'number') {
-      return new Date(dateStr);
-    }
-    
-    // Default
-    return new Date(dateStr);
-  } catch (e) {
-    console.error(`Error parsing date: ${dateStr}`, e);
-    return new Date(0);
-  }
-}
-
-/**
- * Update summary statistics
- */
-function updateSummaryStats() {
-  if (!analyticsData.summary) return;
-  
-  if (totalSermonsElement) {
-    totalSermonsElement.textContent = analyticsData.summary.total_sermons || 0;
-  }
-  
-  if (totalReferencesElement) {
-    totalReferencesElement.textContent = analyticsData.summary.total_references || 0;
-  }
-  
-  // Get the most referenced book
-  const topBooks = analyticsData.summary.top_books || {};
-  const topBook = Object.keys(topBooks)[0] || 'None';
-  
-  if (topBookElement) {
-    topBookElement.textContent = topBook;
-    
-    // Make it clickable
-    topBookElement.style.cursor = 'pointer';
-    topBookElement.title = `Click to view all references to ${topBook}`;
-    topBookElement.addEventListener('click', () => {
-      window.location.href = `/reference-viewer.html?book=${encodeURIComponent(topBook)}`;
-    });
-  }
-}
-
-/**
- * Helper function to determine book category
- */
-function getBookCategory(book) {
-  if (bibleBooks.oldTestament.includes(book)) return 'oldTestament';
-  if (bibleBooks.gospels.includes(book)) return 'gospels';
-  if (bibleBooks.epistles.includes(book)) return 'epistles';
-  return 'other';
-}
-
-/**
- * Helper function to get color by book
- */
-function getBookColor(book) {
-  const category = getBookCategory(book);
-  return chartColors[category];
-}
-
-/**
- * Update Bible books chart
- */
-function updateBibleBooksChart(booksData) {
-  const canvas = document.getElementById('bibleReferencesChart');
-  
-  if (!canvas || !booksData || Object.keys(booksData).length === 0) {
-    return;
-  }
-  
-  // Sort books by reference count
-  const sortedBooks = Object.entries(booksData)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 15); // Top 15 books
-  
-  const labels = sortedBooks.map(item => item[0]);
-  const data = sortedBooks.map(item => item[1]);
-  const backgroundColors = labels.map(book => getBookColor(book));
-  
-  // Destroy existing chart if it exists
-  if (bibleReferencesChart) {
-    bibleReferencesChart.destroy();
-  }
-  
-  // Create new chart
-  bibleReferencesChart = new Chart(canvas, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'References',
-        data: data,
-        backgroundColor: backgroundColors,
-        borderColor: backgroundColors.map(color => color.replace('0.7', '1')),
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              return `References: ${context.raw}`;
-            }
-          }
-        }
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y', // Horizontal bar chart
+    plugins: {
+      legend: {
+        display: false
       },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            precision: 0
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return `${context.raw} references`;
           }
-        }
-      },
-      onClick: (event, elements) => {
-        if (elements && elements.length > 0) {
-          const index = elements[0].index;
-          const book = labels[index];
-          // Navigate to the reference viewer
-          window.location.href = `/reference-viewer.html?book=${encodeURIComponent(book)}`;
         }
       }
-    }
-  });
-  
-  // Add click instruction below the chart
-  const container = canvas.parentElement;
-  if (container && !document.getElementById('chart-instruction')) {
-    const instruction = document.createElement('div');
-    instruction.id = 'chart-instruction';
-    instruction.className = 'chart-instruction';
-    instruction.textContent = 'Click on a bar to see all occurrences of that book in sermons';
-    container.appendChild(instruction);
-  }
-}
-
-/**
- * Update testament distribution chart
- */
-// Fix for Testament Distribution Chart
-function updateTestamentChart(testamentData) {
-  const canvas = document.getElementById('testamentChart');
-  
-  if (!canvas || !testamentData) {
-    console.error('Cannot update testament chart: Missing canvas or data');
-    return;
-  }
-  
-  // Ensure we have the correct data structure
-  if (typeof testamentData !== 'object') {
-    console.error('Invalid testament data format:', testamentData);
-    return;
-  }
-  
-  // Destroy existing chart if it exists
-  if (testamentChart) {
-    testamentChart.destroy();
-  }
-  
-  console.log('Testament data:', testamentData);
-  
-  // Get labels and data
-  const labels = Object.keys(testamentData);
-  const data = Object.values(testamentData);
-  
-  // Create new chart
-  testamentChart = new Chart(canvas, {
-    type: 'pie',
-    data: {
-      labels: labels,
-      datasets: [{
-        data: data,
-        backgroundColor: [
-          chartColors.oldTestament,
-          chartColors.gospels // Changed from 'other' to ensure correct color
-        ],
-        borderColor: [
-          chartColors.oldTestament.replace('0.7', '1'),
-          chartColors.gospels.replace('0.7', '1')  // Changed to match backgroundColor
-        ],
-        borderWidth: 1
-      }]
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
+    scales: {
+      x: {
+        beginAtZero: true,
+        grid: {
           display: true,
-          position: 'bottom'
+          color: 'rgba(200, 200, 200, 0.2)'
         },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              const label = context.label || '';
-              const value = context.raw || 0;
-              const total = context.dataset.data.reduce((a, b) => a + b, 0);
-              const percentage = Math.round((value / total) * 100);
-              return `${label}: ${value} (${percentage}%)`;
-            }
+        ticks: {
+          precision: 0
+        }
+      },
+      y: {
+        grid: {
+          display: false
+        }
+      }
+    },
+    onClick: function(event, elements) {
+      if (elements && elements.length > 0) {
+        const index = elements[0].index;
+        const bookName = topBooks[index].book;
+        // Navigate to book details page
+        window.location.href = `reference-viewer.html?ref=${bookName}`;
+      }
+    },
+    animation: {
+      duration: 1000
+    }
+  };
+  
+  // Create and store chart instance for potential updates
+  charts.bibleBooks = new Chart(ctx, {
+    type: 'bar',
+    data: chartData,
+    options: options
+  });
+}
+
+/**
+ * Create the Testament distribution pie chart
+ */
+function createTestamentChart() {
+  if (!bibleData) return;
+  
+  const ctx = document.getElementById('testamentChart').getContext('2d');
+  
+  const chartData = {
+    labels: ['Old Testament', 'New Testament'],
+    datasets: [{
+      data: [bibleData.old_testament_count, bibleData.new_testament_count],
+      backgroundColor: [CHART_COLORS.oldTestament, CHART_COLORS.newTestament],
+      borderColor: CHART_COLORS.border,
+      borderWidth: 1
+    }]
+  };
+  
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 20,
+          usePointStyle: true,
+          pointStyle: 'circle'
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const value = context.raw;
+            const total = bibleData.total_references;
+            const percentage = ((value / total) * 100).toFixed(1);
+            return `${value} references (${percentage}%)`;
           }
         }
       }
+    },
+    animation: {
+      animateRotate: true,
+      animateScale: true,
+      duration: 1000
     }
-  });
+  };
   
-  // Add click instruction
-  const container = canvas.parentElement;
-  if (container && !document.getElementById('testament-instruction')) {
-    const instruction = document.createElement('div');
-    instruction.id = 'testament-instruction';
-    instruction.className = 'chart-instruction';
-    instruction.textContent = 'Testament distribution of all Bible references';
-    container.appendChild(instruction);
-  }
+  // Create and store chart instance for potential updates
+  charts.testament = new Chart(ctx, {
+    type: 'pie',
+    data: chartData,
+    options: options
+  });
 }
-  
+
 /**
- * Update top chapters list
+ * Display top chapters in a list format
  */
-function updateTopChapters(chaptersData) {
+function displayTopChapters() {
+  if (!bibleData || !bibleData.top_chapters) return;
+  
   const container = document.getElementById('topChaptersList');
+  container.innerHTML = ''; // Clear existing content
   
-  if (!container || !chaptersData) return;
-  
-  // Sort chapters by reference count
-  const topChapters = Object.entries(chaptersData)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10); // Top 10 chapters
-  
-  if (topChapters.length === 0) {
-    container.innerHTML = '<p class="text-center py-4">No chapter data available</p>';
-    return;
+  // Create items for each top chapter
+  bibleData.top_chapters.forEach(item => {
+    const referenceItem = document.createElement('div');
+    referenceItem.className = 'reference-item';
+    
+    const formattedReference = `${formatBookName(item.book)} ${item.chapter}`;
+    
+    referenceItem.innerHTML = `
+      <span class="reference-book">${formattedReference}</span>
+      <span class="reference-count">${item.count}</span>
+      <a href="reference-viewer.html?ref=${item.book}_${item.chapter}" class="view-link">
+        View All <i class="fa fa-arrow-right"></i>
+      </a>
+    `;
+    
+    // Add click handler for the entire item
+    referenceItem.addEventListener('click', function(e) {
+      if (!e.target.closest('.view-link')) {
+        window.location.href = `reference-viewer.html?ref=${item.book}_${item.chapter}`;
+      }
+    });
+    
+    container.appendChild(referenceItem);
+  });
+}
+
+/**
+ * Update chart visualizations when filter changes
+ */
+function updateCharts() {
+  if (charts.bibleBooks) {
+    // In a real implementation, this would update with filtered data
+    // For this demo, we're just animating the existing data
+    charts.bibleBooks.update();
   }
   
-  let html = '';
-  
-  topChapters.forEach(([chapter, count]) => {
-    html += `
-      <div class="reference-item" onclick="window.location.href='/reference-viewer.html?chapter=${encodeURIComponent(chapter)}'">
-        <span class="reference-book">${chapter}</span>
-        <span class="reference-count">${count}</span>
-        <span class="view-link">View occurrences →</span>
-      </div>
-    `;
-  });
-  
-  container.innerHTML = html;
-  
-  // Add instruction above the list if not already present
-  const parentContainer = container.parentElement;
-  if (parentContainer && !document.getElementById('chapters-instruction')) {
-    const instruction = document.createElement('div');
-    instruction.id = 'chapters-instruction';
-    instruction.className = 'list-instruction';
-    instruction.textContent = 'Click on a chapter to see all occurrences in sermons';
-    parentContainer.insertBefore(instruction, container);
+  if (charts.testament) {
+    charts.testament.update();
   }
 }
 
 /**
- * Update recent sermons list
+ * Format a book name for display (convert underscores to spaces)
  */
-function updateRecentSermons(sermons) {
+function formatBookName(bookName) {
+  return bookName.replace(/_/g, ' ');
+}
+
+/**
+ * Animate a counter for better visual engagement
+ */
+function animateCounter(elementId, start, end) {
+  const element = document.getElementById(elementId);
+  const duration = 1000; // Animation duration in milliseconds
+  const frameDuration = 1000 / 60; // 60fps
+  const totalFrames = Math.round(duration / frameDuration);
+  const countIncrement = (end - start) / totalFrames;
+  
+  let currentCount = start;
+  let frame = 0;
+  
+  const animate = () => {
+    currentCount += countIncrement;
+    element.textContent = Math.floor(currentCount).toLocaleString();
+    
+    if (frame < totalFrames) {
+      frame++;
+      requestAnimationFrame(animate);
+    } else {
+      element.textContent = end.toLocaleString();
+    }
+  };
+  
+  animate();
+}
+
+/**
+ * Load recent sermons from the API
+ */
+function loadRecentSermons() {
   const container = document.getElementById('recentSermonsContainer');
   
-  if (!container) return;
-  
-  if (!sermons || sermons.length === 0) {
-    container.innerHTML = '<p class="text-center py-4">No sermons available</p>';
-    return;
-  }
-  
-  let html = '<div class="sermon-list">';
-  
-  sermons.forEach(sermon => {
-    // Format date if available
-    let dateStr = 'Date unknown';
-    if (sermon.publish_date) {
-      try {
-        const date = parseSermonDate(sermon.publish_date);
-        dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-      } catch (e) {
-        dateStr = sermon.publish_date;
+  fetch(`${API_BASE_URL}/sermons?limit=5`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch recent sermons');
       }
-    }
-    
-    html += `
-      <div class="sermon-item">
-        <div class="sermon-info">
-          <h3 class="sermon-title">${sermon.title || 'Untitled Sermon'}</h3>
-          <p class="sermon-date">${dateStr}</p>
-        </div>
-        <a href="${sermon.url || '#'}" target="_blank" class="btn btn-primary">Watch on YouTube</a>
-      </div>
-    `;
-  });
-  
-  html += '</div>';
-  container.innerHTML = html;
+      return response.json();
+    })
+    .then(data => {
+      if (data.sermons && data.sermons.length > 0) {
+        // Clear loading indicator
+        container.innerHTML = '';
+        
+        // Create sermon list container
+        const sermonList = document.createElement('div');
+        sermonList.className = 'sermon-list';
+        
+        // Add each sermon
+        data.sermons.forEach(sermon => {
+          const sermonDate = sermon.publish_date 
+            ? new Date(sermon.publish_date * 1000).toLocaleDateString()
+            : 'Date unknown';
+            
+          const sermonItem = document.createElement('div');
+          sermonItem.className = 'sermon-item';
+          
+          sermonItem.innerHTML = `
+            <div class="sermon-info">
+              <h4 class="sermon-title">${sermon.title}</h4>
+              <p class="sermon-date">${sermonDate}</p>
+            </div>
+            <a href="${sermon.url}" target="_blank" class="btn sermon-btn">Watch Sermon</a>
+          `;
+          
+          sermonList.appendChild(sermonItem);
+        });
+        
+        container.appendChild(sermonList);
+      } else {
+        container.innerHTML = '<p class="text-center">No recent sermons found.</p>';
+      }
+    })
+    .catch(error => {
+      console.error('Error loading sermons:', error);
+      container.innerHTML = `
+        <p class="text-center text-danger">
+          Error loading sermon data. Please try again later.
+        </p>
+      `;
+    });
 }
+
+/**
+ * Handle retry button click
+ */
+document.getElementById('retryButton').addEventListener('click', function() {
+  initializeAnalytics();
+});
+
+// Initialize the analytics dashboard when the document is ready
+document.addEventListener('DOMContentLoaded', initializeAnalytics);

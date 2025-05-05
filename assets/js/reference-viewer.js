@@ -1,664 +1,368 @@
----
----
 /**
- * Enhanced Reference Viewer - Shows sermon clips where specific Bible references appear
- * 
- * Features:
- * - View references by book, chapter, or specific verse
- * - Interactive timeline visualization
- * - Direct links to YouTube timestamps
- * - Context highlighting
- * - Related references
+ * Bible Reference Viewer
+ * This script powers the Bible reference viewer interface for Jekyll
  */
 
-// Constants
-const API_URL = '{{ site.api_url }}';
+// Global configuration
+const API_BASE_URL = window.location.hostname === 'fellowship-digital-ministry.github.io' 
+  ? 'https://your-api-domain.com' // Replace with your production API domain
+  : 'http://localhost:8000';
 
-// DOM Elements
-const referenceDetails = document.getElementById('reference-details');
-const referenceTitle = document.getElementById('reference-title');
-const referenceCount = document.getElementById('reference-count');
-const occurrencesList = document.getElementById('occurrences-list');
-const relatedReferencesList = document.getElementById('related-references-list');
-const loadingIndicator = document.getElementById('loading-indicator');
-const errorMessage = document.getElementById('error-message');
-const backButton = document.getElementById('back-button');
-const referenceTypeLabel = document.getElementById('reference-type-label');
-
-// Get parameters from URL
-const urlParams = new URLSearchParams(window.location.search);
-const referenceParam = urlParams.get('reference');
-const bookParam = urlParams.get('book');
-const chapterParam = urlParams.get('chapter');
-const typeParam = urlParams.get('type') || 'reference'; // Default to reference
-
-// Event Listeners
+/**
+ * Initialize the reference viewer
+ */
 document.addEventListener('DOMContentLoaded', function() {
-  // Show loading state
-  showLoading();
-  
-  // Initialize viewer based on parameters
-  if (referenceParam) {
-    // Specific reference (e.g., John 3:16)
-    fetchReferenceData(referenceParam);
-  } else if (chapterParam) {
-    // Chapter reference (e.g., John 3)
-    fetchChapterData(chapterParam);
-  } else if (bookParam) {
-    // Book reference (e.g., John)
-    fetchBookData(bookParam);
-  } else {
-    // No reference specified
-    showError('No Bible reference specified. Please provide a reference, book, or chapter parameter.');
-  }
-  
-  // Set up back button
-  if (backButton) {
-    backButton.addEventListener('click', function() {
-      window.history.back();
-    });
-  }
+  initializeReferenceViewer();
 });
 
 /**
- * Show loading indicator
+ * Main initialization function
  */
-function showLoading() {
-  if (loadingIndicator) loadingIndicator.style.display = 'block';
-  if (errorMessage) errorMessage.style.display = 'none';
-  if (referenceDetails) referenceDetails.style.display = 'none';
-}
-
-/**
- * Show error message
- */
-function showError(message) {
-  if (loadingIndicator) loadingIndicator.style.display = 'none';
-  if (referenceDetails) referenceDetails.style.display = 'none';
-  
-  if (errorMessage) {
-    errorMessage.textContent = message;
-    errorMessage.style.display = 'block';
-  } else {
-    console.error(message);
+async function initializeReferenceViewer() {
+  try {
+    // Show loading state
+    document.getElementById('loading-indicator').style.display = 'block';
+    document.getElementById('reference-details').style.display = 'none';
+    document.getElementById('error-message').style.display = 'none';
+    
+    // Get reference ID from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const referenceId = urlParams.get('ref');
+    
+    if (!referenceId) {
+      throw new Error('No reference specified. Use ?ref=book_chapter_verse format.');
+    }
+    
+    // Fetch reference data
+    const referenceData = await fetchReferenceData(referenceId);
+    
+    // Display the reference details
+    displayReferenceDetails(referenceData);
+    
+    // Initialize back button
+    initializeBackButton();
+    
+    // Add accessibility enhancements
+    enhanceAccessibility();
+    
+    // Hide loading state, show content
+    document.getElementById('loading-indicator').style.display = 'none';
+    document.getElementById('reference-details').style.display = 'block';
+  } catch (error) {
+    console.error('Error initializing reference viewer:', error);
+    document.getElementById('loading-indicator').style.display = 'none';
+    document.getElementById('error-message').textContent = error.message;
+    document.getElementById('error-message').style.display = 'block';
   }
 }
 
 /**
- * Fetch specific reference data
+ * Fetch reference data from the API
  */
-async function fetchReferenceData(reference) {
+async function fetchReferenceData(referenceId) {
   try {
-    console.log(`Fetching data for reference: ${reference}`);
-    
-    // Update reference type label if available
-    if (referenceTypeLabel) {
-      referenceTypeLabel.textContent = 'Reference';
-    }
-    
-    // Get pre-computed data for this reference
-    const safeReference = reference.replace(/[:\s]/g, '_').replace(/-/g, '_to_');
-    const response = await fetch(`/assets/data/analytics/references/${safeReference}.json`);
+    const response = await fetch(`${API_BASE_URL}/bible/references/${referenceId}`);
     
     if (!response.ok) {
-      // Try direct API query if pre-computed data doesn't exist
-      await searchReferenceInAPI(reference);
-      return;
+      const errorData = await response.json();
+      throw new Error(errorData.detail || `Error ${response.status}: ${response.statusText}`);
     }
     
-    const data = await response.json();
-    
-    // Display occurrences
-    displayReferenceOccurrences(reference, data);
-    
-    // Find related references if this is a verse reference
-    if (reference.includes(':')) {
-      await findRelatedReferences(reference);
-    }
-    
+    return await response.json();
   } catch (error) {
     console.error('Error fetching reference data:', error);
-    showError(`Error fetching data for ${reference}. ${error.message}`);
+    throw new Error(`Failed to fetch reference data: ${error.message}`);
   }
 }
 
 /**
- * Fetch chapter data
+ * Display reference details in the UI
  */
-async function fetchChapterData(chapter) {
-  try {
-    console.log(`Fetching data for chapter: ${chapter}`);
-    
-    // Update reference type label if available
-    if (referenceTypeLabel) {
-      referenceTypeLabel.textContent = 'Chapter';
-    }
-    
-    // Get pre-computed data for this chapter
-    const safeChapter = chapter.replace(/[:\s]/g, '_');
-    const response = await fetch(`/assets/data/analytics/chapters/${safeChapter}.json`);
-    
-    if (!response.ok) {
-      showError(`No data found for chapter ${chapter}. It may not be referenced in any sermons.`);
-      return;
-    }
-    
-    const data = await response.json();
-    
-    // Display chapter occurrences
-    displayChapterOccurrences(chapter, data);
-    
-  } catch (error) {
-    console.error('Error fetching chapter data:', error);
-    showError(`Error fetching data for chapter ${chapter}. ${error.message}`);
+function displayReferenceDetails(data) {
+  // Set reference title and metadata
+  document.getElementById('reference-title').textContent = data.display_text;
+  document.getElementById('reference-count').textContent = data.total_occurrences;
+  
+  // Determine reference type label (Book, Chapter, or Verse)
+  let referenceType = 'Book';
+  if (data.verse !== null) {
+    referenceType = 'Verse';
+  } else if (data.chapter !== null) {
+    referenceType = 'Chapter';
   }
+  document.getElementById('reference-type-label').textContent = referenceType;
+  
+  // Display occurrences
+  displayOccurrences(data);
+  
+  // Display related references if available
+  if (data.related_references && data.related_references.length > 0) {
+    displayRelatedReferences(data.related_references);
+  }
+  
+  // Set page title
+  document.title = `${data.display_text} - Bible Reference Viewer`;
 }
 
 /**
- * Fetch book data
+ * Display occurrences grouped by sermon
  */
-async function fetchBookData(book) {
-  try {
-    console.log(`Fetching data for book: ${book}`);
-    
-    // Update reference type label if available
-    if (referenceTypeLabel) {
-      referenceTypeLabel.textContent = 'Book';
-    }
-    
-    // Get pre-computed data for this book
-    const safeBook = book.replace(/\s/g, '_');
-    const response = await fetch(`/assets/data/analytics/books/${safeBook}.json`);
-    
-    if (!response.ok) {
-      showError(`No data found for book ${book}. It may not be referenced in any sermons.`);
-      return;
-    }
-    
-    const data = await response.json();
-    
-    // Display book occurrences
-    displayBookOccurrences(book, data);
-    
-  } catch (error) {
-    console.error('Error fetching book data:', error);
-    showError(`Error fetching data for book ${book}. ${error.message}`);
-  }
-}
-
-/**
- * Find related references for a verse
- */
-async function findRelatedReferences(reference) {
-  try {
-    if (!relatedReferencesList) return;
-    
-    // Extract book and chapter from the reference
-    const parts = reference.split(':');
-    if (parts.length < 2) return;
-    
-    const chapterParts = parts[0].trim();
-    const chapter = chapterParts;
-    
-    // Get chapter data to find related verses
-    const safeChapter = chapter.replace(/[:\s]/g, '_');
-    const response = await fetch(`/assets/data/analytics/chapters/${safeChapter}.json`);
-    
-    if (!response.ok) return;
-    
-    const data = await response.json();
-    
-    // Find related verses (from the same chapter)
-    const relatedVerses = new Set();
-    
-    // Collect all verse references from this chapter
-    data.sermons.forEach(sermon => {
-      sermon.occurrences.forEach(occurrence => {
-        const occRef = occurrence.reference;
-        if (occRef.includes(':') && occRef !== reference && occRef.startsWith(chapter)) {
-          relatedVerses.add(occRef);
-        }
-      });
-    });
-    
-    // Display related verses if we found any
-    if (relatedVerses.size > 0) {
-      relatedReferencesList.innerHTML = '<h3>Related Verses in This Chapter</h3><div class="related-list"></div>';
-      const listElement = relatedReferencesList.querySelector('.related-list');
-      
-      Array.from(relatedVerses).sort().forEach(verse => {
-        const item = document.createElement('a');
-        item.className = 'related-verse';
-        item.href = `/reference-viewer.html?reference=${encodeURIComponent(verse)}`;
-        item.textContent = verse;
-        listElement.appendChild(item);
-      });
-      
-      relatedReferencesList.style.display = 'block';
-    }
-    
-  } catch (error) {
-    console.error('Error finding related references:', error);
-    // Don't show an error for this optional feature
-  }
-}
-
-/**
- * Search for a reference directly in the API if pre-computed data isn't available
- */
-async function searchReferenceInAPI(reference) {
-  try {
-    console.log(`Searching API for ${reference}...`);
-    
-    // Use the search endpoint to find occurrences
-    const response = await fetch(`${API_URL}/search`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': window.location.origin
-      },
-      mode: 'cors',
-      body: JSON.stringify({
-        query: reference,
-        top_k: 10,
-        include_sources: true
-      })
-    });
-    
-    if (!response.ok) {
-      throw new Error(`API returned error ${response.status}`);
-    }
-    
-    const data = await response.json();
-    
-    // Check if we got any results
-    if (!data.sources || data.sources.length === 0) {
-      showError(`No occurrences found for ${reference}.`);
-      return;
-    }
-    
-    // Format the results
-    const occurrences = data.sources.map(source => ({
-      sermon_id: source.video_id,
-      sermon_title: source.title || `Sermon ${source.video_id}`,
-      timestamp: source.start_time,
-      url: `https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}`,
-      text: source.text,
-      context: source.text,
-      publish_date: source.publish_date || ""
-    }));
-    
-    displayReferenceOccurrences(reference, { reference, occurrences });
-    
-  } catch (error) {
-    console.error('Error searching API for reference:', error);
-    showError(`Error searching for ${reference}. ${error.message}`);
-  }
-}
-
-/**
- * Display occurrences of a specific Bible reference
- */
-function displayReferenceOccurrences(reference, data) {
-  if (!referenceDetails || !referenceTitle || !referenceCount || !occurrencesList) {
-    console.error('Required DOM elements not found');
-    return;
-  }
+function displayOccurrences(data) {
+  const container = document.getElementById('occurrences-list');
+  container.innerHTML = ''; // Clear existing content
   
-  // Update reference details
-  referenceTitle.textContent = reference;
-  referenceCount.textContent = data.occurrences.length;
-  
-  // Clear previous list
-  occurrencesList.innerHTML = '';
-  
-  // Generate occurrences list
-  if (data.occurrences.length === 0) {
-    occurrencesList.innerHTML = '<p class="empty-message">No occurrences found for this reference.</p>';
-  } else {
-    // Group occurrences by sermon
-    const sermonGroups = {};
-    data.occurrences.forEach(occurrence => {
-      if (!sermonGroups[occurrence.sermon_id]) {
-        sermonGroups[occurrence.sermon_id] = {
-          title: occurrence.sermon_title,
-          publish_date: occurrence.publish_date,
-          occurrences: []
-        };
-      }
-      sermonGroups[occurrence.sermon_id].occurrences.push(occurrence);
-    });
-    
-    // Create HTML for each sermon group
-    Object.entries(sermonGroups).forEach(([sermonId, sermon]) => {
-      const sermonElement = document.createElement('div');
-      sermonElement.className = 'sermon-group';
-      
-      // Format publish date if available
-      let dateDisplay = '';
-      if (sermon.publish_date) {
-        try {
-          const date = new Date(sermon.publish_date);
-          dateDisplay = ` (${date.toLocaleDateString()})`;
-        } catch (e) {
-          dateDisplay = ` (${sermon.publish_date})`;
-        }
-      }
-      
-      sermonElement.innerHTML = `
-        <h3 class="sermon-title">${sermon.title}${dateDisplay}</h3>
-        <div class="occurrence-items">
-          ${sermon.occurrences.map(occurrence => `
-            <div class="occurrence-item">
-              <div class="occurrence-text">${highlightReference(occurrence.context || occurrence.text, reference)}</div>
-              <div class="occurrence-meta">
-                <span class="timestamp">Timestamp: ${formatTimestamp(occurrence.timestamp)}</span>
-                <a href="${occurrence.url}" target="_blank" class="video-link">Watch Video</a>
-              </div>
-              <div class="video-container">
-                <iframe 
-                  src="https://www.youtube.com/embed/${sermonId}?start=${Math.floor(occurrence.timestamp)}" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      `;
-      
-      occurrencesList.appendChild(sermonElement);
-    });
-  }
-  
-  // Hide loading, show content
-  if (loadingIndicator) loadingIndicator.style.display = 'none';
-  if (referenceDetails) referenceDetails.style.display = 'block';
-}
-
-/**
- * Display occurrences for a book
- */
-function displayBookOccurrences(book, data) {
-  if (!referenceDetails || !referenceTitle || !referenceCount || !occurrencesList) {
-    console.error('Required DOM elements not found');
-    return;
-  }
-  
-  // Update reference details
-  referenceTitle.textContent = book;
-  
-  // Count total occurrences across all sermons
-  let totalOccurrences = 0;
-  data.sermons.forEach(sermon => {
-    totalOccurrences += sermon.occurrences.length;
-  });
-  
-  referenceCount.textContent = totalOccurrences;
-  
-  // Clear previous list
-  occurrencesList.innerHTML = '';
-  
-  // Group and sort sermons by publish date if available
-  const sortedSermons = [...data.sermons].sort((a, b) => {
-    // Sort by publish date if available, newest first
-    if (a.publish_date && b.publish_date) {
-      return new Date(b.publish_date) - new Date(a.publish_date);
-    }
-    return 0; // Keep original order if dates not available
-  });
-  
-  // Generate occurrences list
-  if (sortedSermons.length === 0) {
-    occurrencesList.innerHTML = '<p class="empty-message">No occurrences found for this book.</p>';
-  } else {
-    // Add references summary
-    const referencesSet = new Set();
-    sortedSermons.forEach(sermon => {
-      sermon.occurrences.forEach(occurrence => {
-        referencesSet.add(occurrence.reference);
-      });
-    });
-    
-    // Create references summary
-    const referencesList = Array.from(referencesSet).sort();
-    
-    const summaryElement = document.createElement('div');
-    summaryElement.className = 'references-summary';
-    summaryElement.innerHTML = `
-      <h3>References to ${book}</h3>
-      <div class="references-list">
-        ${referencesList.map(ref => `
-          <a href="/reference-viewer.html?reference=${encodeURIComponent(ref)}" class="reference-link">${ref}</a>
-        `).join('')}
+  // Check if we have occurrences to display
+  if (Object.keys(data.occurrences_by_sermon).length === 0) {
+    container.innerHTML = `
+      <div class="empty-message">
+        No occurrences found for this reference.
       </div>
     `;
-    
-    occurrencesList.appendChild(summaryElement);
-    
-    // Create HTML for each sermon
-    sortedSermons.forEach(sermon => {
-      const sermonElement = document.createElement('div');
-      sermonElement.className = 'sermon-group';
-      
-      // Format publish date if available
-      let dateDisplay = '';
-      if (sermon.publish_date) {
-        try {
-          const date = new Date(sermon.publish_date);
-          dateDisplay = ` (${date.toLocaleDateString()})`;
-        } catch (e) {
-          dateDisplay = ` (${sermon.publish_date})`;
-        }
-      }
-      
-      // Group occurrences by reference
-      const referenceGroups = {};
-      sermon.occurrences.forEach(occurrence => {
-        const ref = occurrence.reference;
-        if (!referenceGroups[ref]) {
-          referenceGroups[ref] = [];
-        }
-        referenceGroups[ref].push(occurrence);
-      });
-      
-      // Sort references
-      const sortedReferences = Object.keys(referenceGroups).sort();
-      
-      sermonElement.innerHTML = `
-        <h3 class="sermon-title">${sermon.sermon_title}${dateDisplay}</h3>
-        <div class="occurrence-items">
-          ${sortedReferences.map(ref => {
-            // Use first occurrence for each reference
-            const occurrence = referenceGroups[ref][0];
-            return `
-              <div class="occurrence-item">
-                <div class="occurrence-reference">${ref} (${referenceGroups[ref].length} occurrence${referenceGroups[ref].length !== 1 ? 's' : ''})</div>
-                <div class="occurrence-text">${highlightReference(occurrence.context || occurrence.text, ref)}</div>
-                <div class="occurrence-meta">
-                  <span class="timestamp">Timestamp: ${formatTimestamp(occurrence.timestamp)}</span>
-                  <a href="${sermon.url}&t=${Math.floor(occurrence.timestamp)}" target="_blank" class="video-link">Watch Video</a>
-                </div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      `;
-      
-      occurrencesList.appendChild(sermonElement);
-    });
-  }
-  
-  // Hide loading, show content
-  if (loadingIndicator) loadingIndicator.style.display = 'none';
-  if (referenceDetails) referenceDetails.style.display = 'block';
-}
-
-/**
- * Display occurrences for a chapter
- */
-function displayChapterOccurrences(chapter, data) {
-  if (!referenceDetails || !referenceTitle || !referenceCount || !occurrencesList) {
-    console.error('Required DOM elements not found');
     return;
   }
   
-  // Update reference details
-  referenceTitle.textContent = chapter;
-  
-  // Count total occurrences across all sermons
-  let totalOccurrences = 0;
-  data.sermons.forEach(sermon => {
-    totalOccurrences += sermon.occurrences.length;
+  // Sort sermons by date if available
+  const sermonEntries = Object.entries(data.occurrences_by_sermon).map(([videoId, occurrences]) => {
+    // Find the sermon date from the first occurrence
+    const sermonDate = occurrences[0].sermon_date;
+    return {
+      videoId,
+      occurrences,
+      date: sermonDate ? new Date(sermonDate * 1000) : new Date(0) // Default to epoch if no date
+    };
   });
   
-  referenceCount.textContent = totalOccurrences;
+  // Sort by date, most recent first
+  sermonEntries.sort((a, b) => b.date - a.date);
   
-  // Clear previous list
-  occurrencesList.innerHTML = '';
-  
-  // Group and sort sermons by publish date if available
-  const sortedSermons = [...data.sermons].sort((a, b) => {
-    // Sort by publish date if available, newest first
-    if (a.publish_date && b.publish_date) {
-      return new Date(b.publish_date) - new Date(a.publish_date);
-    }
-    return 0; // Keep original order if dates not available
-  });
-  
-  // Generate occurrences list
-  if (sortedSermons.length === 0) {
-    occurrencesList.innerHTML = '<p class="empty-message">No occurrences found for this chapter.</p>';
-  } else {
-    // Add references summary (verses in this chapter)
-    const versesSet = new Set();
-    sortedSermons.forEach(sermon => {
-      sermon.occurrences.forEach(occurrence => {
-        // Only include verse references (skip chapter-only refs)
-        if (occurrence.reference.includes(':')) {
-          versesSet.add(occurrence.reference);
-        }
-      });
-    });
+  // Create a group for each sermon
+  sermonEntries.forEach(entry => {
+    const { videoId, occurrences } = entry;
     
-    // Create verses summary if we have verse references
-    if (versesSet.size > 0) {
-      const versesList = Array.from(versesSet).sort((a, b) => {
-        // Sort by verse number
-        const verseA = parseInt(a.split(':')[1]);
-        const verseB = parseInt(b.split(':')[1]);
-        return verseA - verseB;
-      });
+    // Get sermon title from the first occurrence
+    const sermonTitle = occurrences[0].sermon_title || `Sermon (${videoId})`;
+    const sermonDate = occurrences[0].sermon_date 
+      ? new Date(occurrences[0].sermon_date * 1000).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long', 
+          day: 'numeric'
+        })
+      : 'Date unknown';
+    
+    // Create sermon group container
+    const sermonGroup = document.createElement('div');
+    sermonGroup.className = 'sermon-group';
+    
+    // Create sermon title header
+    const titleElement = document.createElement('h3');
+    titleElement.className = 'sermon-title';
+    titleElement.innerHTML = `${sermonTitle} <small>(${sermonDate})</small>`;
+    sermonGroup.appendChild(titleElement);
+    
+    // Create container for occurrence items
+    const occurrenceItems = document.createElement('div');
+    occurrenceItems.className = 'occurrence-items';
+    
+    // Add each occurrence
+    occurrences.forEach(occurrence => {
+      // Format the timestamp for display
+      const minutes = Math.floor(occurrence.start_time / 60);
+      const seconds = Math.floor(occurrence.start_time % 60);
+      const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
       
-      const summaryElement = document.createElement('div');
-      summaryElement.className = 'references-summary';
-      summaryElement.innerHTML = `
-        <h3>Verses Referenced in ${chapter}</h3>
-        <div class="references-list">
-          ${versesList.map(ref => `
-            <a href="/reference-viewer.html?reference=${encodeURIComponent(ref)}" class="reference-link">${ref}</a>
-          `).join('')}
+      // Create occurrence item
+      const occurrenceItem = document.createElement('div');
+      occurrenceItem.className = 'occurrence-item';
+      
+      // Format the reference text
+      const referenceText = occurrence.reference_text;
+      
+      // Highlight the reference in the context
+      const context = highlightReference(occurrence.context, referenceText);
+      
+      // Build the occurrence item content
+      occurrenceItem.innerHTML = `
+        <div class="occurrence-reference">${referenceText}</div>
+        <div class="occurrence-text">${context}</div>
+        <div class="occurrence-meta">
+          <span class="timestamp">Timestamp: ${formattedTime}</span>
+          <a href="${occurrence.url}" target="_blank" class="video-link" aria-label="Watch video segment at ${formattedTime}">
+            Watch Video Segment
+          </a>
         </div>
       `;
       
-      occurrencesList.appendChild(summaryElement);
+      occurrenceItems.appendChild(occurrenceItem);
+    });
+    
+    sermonGroup.appendChild(occurrenceItems);
+    container.appendChild(sermonGroup);
+  });
+}
+
+/**
+ * Display related references section
+ */
+function displayRelatedReferences(relatedReferences) {
+  const container = document.getElementById('related-references-list');
+  container.style.display = 'block';
+  container.innerHTML = ''; // Clear existing content
+  
+  // Create heading
+  const heading = document.createElement('h3');
+  heading.textContent = 'Related Verses';
+  container.appendChild(heading);
+  
+  // Create description
+  const description = document.createElement('p');
+  description.textContent = 'Other verses from the same chapter that are referenced in sermons:';
+  container.appendChild(description);
+  
+  // Create related list
+  const relatedList = document.createElement('div');
+  relatedList.className = 'related-list';
+  
+  // Add each related reference
+  relatedReferences.forEach(related => {
+    const relatedItem = document.createElement('a');
+    relatedItem.className = 'related-verse';
+    relatedItem.href = `reference-viewer.html?ref=${related.book}_${related.chapter}_${related.verse}`;
+    relatedItem.textContent = `${related.reference_text} (${related.count})`;
+    relatedItem.setAttribute('aria-label', `View ${related.count} occurrences of ${related.reference_text}`);
+    
+    relatedList.appendChild(relatedItem);
+  });
+  
+  container.appendChild(relatedList);
+}
+
+/**
+ * Highlight reference text within context
+ */
+function highlightReference(context, reference) {
+  if (!context) return '';
+  
+  // Clean the reference text to create a safe regex pattern
+  // Convert potential book_chapter:verse format to readable form
+  const cleanRef = reference.replace(/_/g, ' ').replace(/(\d+):(\d+)/, '$1:$2');
+  
+  // Try to find exact reference in context
+  let highlightedText = context;
+  
+  try {
+    // Create a pattern that handles variations in reference citation
+    // This handles 1 John 3:16, I John 3:16, First John 3:16, etc.
+    const refParts = cleanRef.split(' ');
+    let patternParts = [];
+    
+    // Handle book name variations
+    if (refParts[0].match(/^[123]$/)) {
+      // For books like 1 John, 2 Peter, 3 John
+      patternParts.push(`(${refParts[0]}|I|II|III|First|Second|Third)`);
+      patternParts.push(refParts[1]);
+      
+      // Add chapter and verse if present
+      if (refParts.length > 2) {
+        patternParts = patternParts.concat(refParts.slice(2));
+      }
+    } else {
+      // Regular book names
+      patternParts = refParts;
     }
     
-    // Create HTML for each sermon
-    sortedSermons.forEach(sermon => {
-      const sermonElement = document.createElement('div');
-      sermonElement.className = 'sermon-group';
-      
-      // Format publish date if available
-      let dateDisplay = '';
-      if (sermon.publish_date) {
-        try {
-          const date = new Date(sermon.publish_date);
-          dateDisplay = ` (${date.toLocaleDateString()})`;
-        } catch (e) {
-          dateDisplay = ` (${sermon.publish_date})`;
-        }
+    // Create the final pattern
+    const pattern = patternParts.join('\\s+');
+    const regex = new RegExp(`(${pattern})`, 'gi');
+    
+    // Apply highlighting
+    highlightedText = context.replace(regex, '<span class="highlight">$1</span>');
+    
+    // If no highlight was applied, try a more generic approach for implicit references
+    if (highlightedText === context) {
+      // Try chapter:verse format
+      const chapterVerseMatch = cleanRef.match(/(\d+):(\d+)/);
+      if (chapterVerseMatch) {
+        const chapterVerse = chapterVerseMatch[0];
+        highlightedText = context.replace(
+          new RegExp(`(${chapterVerse})`, 'g'), 
+          '<span class="highlight">$1</span>'
+        );
       }
       
-      // Group occurrences by reference
-      const referenceGroups = {};
-      sermon.occurrences.forEach(occurrence => {
-        const ref = occurrence.reference;
-        if (!referenceGroups[ref]) {
-          referenceGroups[ref] = [];
-        }
-        referenceGroups[ref].push(occurrence);
-      });
-      
-      // Sort references
-      const sortedReferences = Object.keys(referenceGroups).sort((a, b) => {
-        // Put chapter references first, then sort verses by number
-        const isVerseA = a.includes(':');
-        const isVerseB = b.includes(':');
-        
-        if (!isVerseA && isVerseB) return -1;
-        if (isVerseA && !isVerseB) return 1;
-        
-        if (isVerseA && isVerseB) {
-          const verseA = parseInt(a.split(':')[1]);
-          const verseB = parseInt(b.split(':')[1]);
-          return verseA - verseB;
-        }
-        
-        return 0;
-      });
-      
-      sermonElement.innerHTML = `
-        <h3 class="sermon-title">${sermon.sermon_title}${dateDisplay}</h3>
-        <div class="occurrence-items">
-          ${sortedReferences.map(ref => {
-            // Use first occurrence for each reference
-            const occurrence = referenceGroups[ref][0];
-            return `
-              <div class="occurrence-item">
-                <div class="occurrence-reference">${ref} (${referenceGroups[ref].length} occurrence${referenceGroups[ref].length !== 1 ? 's' : ''})</div>
-                <div class="occurrence-text">${highlightReference(occurrence.context || occurrence.text, ref)}</div>
-                <div class="occurrence-meta">
-                  <span class="timestamp">Timestamp: ${formatTimestamp(occurrence.timestamp)}</span>
-                  <a href="${sermon.url}&t=${Math.floor(occurrence.timestamp)}" target="_blank" class="video-link">Watch Video</a>
-                </div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      `;
-      
-      occurrencesList.appendChild(sermonElement);
-    });
+      // If still no highlight and we have a book and chapter
+      if (highlightedText === context && refParts.length >= 2) {
+        // Try just highlighting the chapter number
+        const chapterPattern = `\\b${refParts[refParts.length - 1]}\\b`;
+        highlightedText = context.replace(
+          new RegExp(chapterPattern, 'g'),
+          '<span class="highlight">$&</span>'
+        );
+      }
+    }
+  } catch (e) {
+    console.error('Error applying highlight:', e);
+    // Return unhighlighted text if regex fails
+    return context;
   }
   
-  // Hide loading, show content
-  if (loadingIndicator) loadingIndicator.style.display = 'none';
-  if (referenceDetails) referenceDetails.style.display = 'block';
+  return highlightedText;
 }
 
 /**
- * Highlight the reference in the text
+ * Initialize back button behavior
  */
-function highlightReference(text, reference) {
-  if (!text) return '';
+function initializeBackButton() {
+  const backButton = document.getElementById('back-button');
   
-  // Escape special regex characters in the reference
-  const escapedRef = reference.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  
-  // Create regex with word boundaries
-  const regex = new RegExp(`\\b${escapedRef}\\b`, 'gi');
-  
-  return text.replace(regex, match => `<span class="highlight">${match}</span>`);
+  backButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Check if we have a referrer from the same site
+    if (document.referrer && document.referrer.includes(window.location.hostname)) {
+      window.history.back();
+    } else {
+      // Default to analytics page if no referrer
+      window.location.href = 'analytics.html';
+    }
+  });
 }
 
 /**
- * Format timestamp to MM:SS
+ * Enhance accessibility features
  */
-function formatTimestamp(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds % 60);
-  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+function enhanceAccessibility() {
+  // Add keyboard navigation for occurrence items
+  const occurrenceItems = document.querySelectorAll('.occurrence-item');
+  occurrenceItems.forEach(item => {
+    // Make items focusable
+    item.setAttribute('tabindex', '0');
+    
+    // Add keyboard event listener
+    item.addEventListener('keydown', function(e) {
+      // If Enter or Space is pressed, trigger the video link
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const videoLink = this.querySelector('.video-link');
+        if (videoLink) {
+          videoLink.click();
+        }
+      }
+    });
+  });
+  
+  // Add ARIA roles for better screen reader support
+  document.getElementById('occurrences-list').setAttribute('role', 'region');
+  document.getElementById('occurrences-list').setAttribute('aria-label', 'Scripture references in sermons');
+  
+  if (document.getElementById('related-references-list').style.display !== 'none') {
+    document.getElementById('related-references-list').setAttribute('role', 'navigation');
+    document.getElementById('related-references-list').setAttribute('aria-label', 'Related Bible references');
+  }
+}
+
+/**
+ * Format a book name for display (convert underscores to spaces)
+ */
+function formatBookName(bookName) {
+  return bookName.replace(/_/g, ' ');
 }

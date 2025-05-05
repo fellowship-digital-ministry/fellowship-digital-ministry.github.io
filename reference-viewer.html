@@ -1,19 +1,26 @@
----
+\---
 layout: default
 title: Bible Reference Viewer
 hero: true
 hero_title: Bible Reference Explorer
 hero_description: Explore all occurrences of Bible references in sermons with direct links to video timestamps.
 custom_js: reference-viewer
+custom_css: reference-viewer-hci
 ---
 
+<!-- Skip link for keyboard accessibility -->
+<a href="#reference-details" class="skip-link">Skip to reference content</a>
+
 <div class="container">
-  <div id="loading-indicator" class="text-center">
-    <div class="loading-spinner"></div>
+  <div id="loading-indicator" class="text-center" aria-live="polite">
+    <div class="loading-spinner" role="progressbar" aria-label="Loading reference data"></div>
     <p class="loading-text">Loading reference data...</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="loadingProgress"></div>
+    </div>
   </div>
   
-  <div id="error-message" class="error-message" style="display: none;"></div>
+  <div id="error-message" class="error-message" style="display: none;" aria-live="assertive"></div>
   
   <div id="reference-details" style="display: none;">
     <div class="reference-header">
@@ -25,9 +32,37 @@ custom_js: reference-viewer
         Back to Analytics
       </button>
       
+      <!-- Accessibility Controls -->
+      <div class="accessibility-controls">
+        <button id="highContrastToggle" class="accessibility-button" aria-pressed="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 22c5.5 0 10-4.5 10-10h-10v10z"></path><path d="M12 2C6.5 2 2 6.5 2 12h10V2z"></path></svg>
+          High Contrast
+        </button>
+        <button id="largeFontToggle" class="accessibility-button" aria-pressed="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+          Larger Text
+        </button>
+      </div>
+      
       <div class="reference-title-container">
-        <div class="reference-label">
-          <span id="reference-type-label">Reference</span>
+        <div class="reference-meta">
+          <div class="reference-label">
+            <span id="reference-type-label">Reference</span>
+          </div>
+          <div class="reference-tools">
+            <button id="copyReferenceBtn" class="tool-button" aria-label="Copy reference text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy
+            </button>
+            <button id="printReferenceBtn" class="tool-button" aria-label="Print reference occurrences">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+              Print
+            </button>
+            <button id="shareReferenceBtn" class="tool-button" aria-label="Share this reference">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share
+            </button>
+          </div>
         </div>
         <h2>
           <span id="reference-title" class="reference-title-text">Loading...</span>
@@ -38,32 +73,222 @@ custom_js: reference-viewer
       </div>
     </div>
     
-    <div id="occurrences-list" class="occurrences-list">
-      <!-- Dynamically populated by JavaScript -->
+    <!-- Reference navigation and filter -->
+    <div class="reference-controls">
+      <div class="filter-section">
+        <label for="sermonFilter" class="filter-label">Filter by sermon:</label>
+        <select id="sermonFilter" class="filter-select">
+          <option value="all">All Sermons</option>
+          <!-- Dynamically populated by JavaScript -->
+        </select>
+        
+        <label for="sortOption" class="filter-label">Sort by:</label>
+        <select id="sortOption" class="filter-select">
+          <option value="date-desc">Most Recent First</option>
+          <option value="date-asc">Oldest First</option>
+          <option value="relevance">Relevance</option>
+        </select>
+      </div>
+      
+      <div class="view-toggle">
+        <span class="toggle-label">View mode:</span>
+        <div class="toggle-buttons" role="radiogroup" aria-label="View mode options">
+          <button id="viewList" class="toggle-button active" role="radio" aria-checked="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            List
+          </button>
+          <button id="viewGrid" class="toggle-button" role="radio" aria-checked="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Grid
+          </button>
+          <button id="viewCompact" class="toggle-button" role="radio" aria-checked="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            Compact
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main content with search box added -->
+    <div class="content-wrapper">
+      <div class="search-box">
+        <input type="text" id="contextSearch" placeholder="Search within reference contexts..." aria-label="Search within references">
+        <button id="clearSearch" class="clear-search" aria-label="Clear search">×</button>
+      </div>
+      
+      <div id="occurrences-list" class="occurrences-list" role="region" aria-live="polite">
+        <!-- Loading state for occurrences -->
+        <div class="loading-inline">
+          <div class="loading-spinner small"></div>
+          <p>Loading reference occurrences...</p>
+        </div>
+        <!-- Dynamically populated by JavaScript -->
+      </div>
+      
+      <div id="no-results" class="no-results" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <h3>No occurrences found</h3>
+        <p>There are no sermon references matching your current filters.</p>
+        <button id="resetFilters" class="btn">Reset Filters</button>
+      </div>
     </div>
     
     <div id="related-references-list" class="related-references" style="display: none;">
       <!-- Dynamically populated by JavaScript for related references -->
     </div>
   </div>
+  
+  <!-- Share Modal (hidden by default) -->
+  <div id="shareModal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Share Bible Reference</h3>
+        <button class="close-modal" aria-label="Close share modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Share this Bible reference with others:</p>
+        <div class="share-url-container">
+          <input type="text" id="shareUrl" readonly>
+          <button id="copyShareUrl" class="btn">Copy</button>
+        </div>
+        <div class="share-options">
+          <button class="share-button" id="shareEmail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email
+          </button>
+          <button class="share-button" id="shareFacebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            Facebook
+          </button>
+          <button class="share-button" id="shareTwitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            Twitter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Player Modal (hidden by default) -->
+  <div id="videoModal" class="modal" hidden>
+    <div class="modal-content video-modal-content">
+      <div class="modal-header">
+        <h3 id="videoModalTitle">Video Segment</h3>
+        <button class="close-modal" aria-label="Close video modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="videoContainer" class="video-container">
+          <!-- YouTube iframe will be inserted here -->
+        </div>
+        <div class="video-controls">
+          <button id="playPauseBtn" class="video-control-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Play
+          </button>
+          <button id="muteBtn" class="video-control-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            Mute
+          </button>
+          <a id="openYoutubeBtn" class="video-control-btn" href="#" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Open in YouTube
+          </a>
+        </div>
+        <div class="reference-context">
+          <h4>Reference Context:</h4>
+          <div id="videoReferenceContext" class="context-text"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Keyboard Shortcuts Helper (hidden by default) -->
+  <div id="keyboardShortcutsPanel" class="keyboard-shortcuts-panel" hidden>
+    <div class="panel-header">
+      <h3>Keyboard Shortcuts</h3>
+      <button class="close-panel" aria-label="Close keyboard shortcuts panel">&times;</button>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <li><kbd>?</kbd> - Show/hide keyboard shortcuts</li>
+        <li><kbd>Esc</kbd> - Close modal dialogs</li>
+        <li><kbd>←</kbd> - Go back to analytics</li>
+        <li><kbd>Tab</kbd> - Navigate through references</li>
+        <li><kbd>Enter</kbd> - View selected reference</li>
+        <li><kbd>Ctrl</kbd> + <kbd>F</kbd> - Focus search box</li>
+        <li><kbd>Alt</kbd> + <kbd>P</kbd> - Print references</li>
+        <li><kbd>Alt</kbd> + <kbd>S</kbd> - Share reference</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- First-time visitor guide overlay (hidden by default) -->
+  <div id="firstTimeGuide" class="guide-overlay" hidden>
+    <div class="guide-content">
+      <div class="guide-header">
+        <h3>Welcome to Bible Reference Explorer</h3>
+        <button class="close-guide" aria-label="Close guide">&times;</button>
+      </div>
+      <div class="guide-body">
+        <div class="guide-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Explore References</h4>
+            <p>Browse all occurrences of this Bible reference throughout our sermon library.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Watch Video Segments</h4>
+            <p>Click on any reference to watch the exact video segment where the verse is mentioned.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Filter & Search</h4>
+            <p>Use the controls to filter by sermon or search within reference contexts.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Explore Related Verses</h4>
+            <p>Check out related references from the same chapter at the bottom of the page.</p>
+          </div>
+        </div>
+        <button id="startExploring" class="btn btn-primary">Start Exploring</button>
+        <div class="guide-footer">
+          <label class="checkbox-container">
+            <input type="checkbox" id="dontShowAgain">
+            <span class="checkbox-label">Don't show this again</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- HCI-enhanced CSS -->
 <style>
-  .loading-spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top: 4px solid var(--color-primary);
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto 1rem;
+  /* Skip link for keyboard accessibility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: white;
+    z-index: 1000;
+    transition: top 0.3s;
   }
   
-  .loading-text {
-    color: var(--color-text);
-    font-size: 1rem;
+  .skip-link:focus {
+    top: 0;
   }
   
+  /* Enhanced reference header */
   .reference-header {
     margin: 2rem 0;
     display: flex;
@@ -76,6 +301,12 @@ custom_js: reference-viewer
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  #back-button:hover {
+    transform: translateX(-3px);
+    background-color: #f0f0f0;
   }
   
   #back-button svg {
@@ -86,31 +317,94 @@ custom_js: reference-viewer
     transform: translateX(-3px);
   }
   
-  .reference-title-container {
+  /* Accessibility controls */
+  .accessibility-controls {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
   }
   
-  .reference-label {
-    display: inline-block;
-    background-color: rgba(46, 163, 242, 0.1);
-    color: var(--color-primary);
-    padding: 0.3rem 0.8rem;
-    border-radius: 16px;
-    font-weight: 600;
-    font-size: 0.85rem;
+  .accessibility-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .accessibility-button[aria-pressed="true"] {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+  
+  /* Reference meta */
+  .reference-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-bottom: 0.5rem;
+  }
+  
+  .reference-tools {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .tool-button {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.6rem;
+    background-color: #f8f9fa;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tool-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .tool-button svg {
+    color: var(--color-primary);
+  }
+  
+  .reference-title-container {
+    flex: 1;
   }
   
   .reference-title-text {
     color: var(--color-primary);
     margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+  }
+  
+  .reference-label {
+    display: inline-block;
+    background-color: rgba(34, 132, 197, 0.1);
+    color: var(--color-primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
   }
   
   .reference-count-display {
     font-size: 1rem;
     color: var(--color-text);
+    margin-top: 0.5rem;
   }
   
   .reference-count-number {
@@ -118,16 +412,201 @@ custom_js: reference-viewer
     color: var(--color-primary);
   }
   
+  /* Reference controls */
+  .reference-controls {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .reference-controls {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  .filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .filter-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+  
+  .filter-select {
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 0.9rem;
+    min-width: 150px;
+  }
+  
+  .view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .toggle-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+  
+  .toggle-buttons {
+    display: flex;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .toggle-button {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    border: none;
+    border-right: 1px solid var(--color-border);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .toggle-button:last-child {
+    border-right: none;
+  }
+  
+  .toggle-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .toggle-button.active {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  .toggle-button.active svg {
+    color: white;
+  }
+  
+  /* Content wrapper and search */
+  .content-wrapper {
+    position: relative;
+  }
+  
+  .search-box {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 0.75rem center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .search-box input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(34, 132, 197, 0.2);
+    outline: none;
+  }
+  
+  .clear-search {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .clear-search.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Occurrences list */
   .occurrences-list {
     margin-bottom: 3rem;
   }
   
+  /* Loading indicator */
+  .loading-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    color: var(--color-text);
+  }
+  
+  .loading-spinner.small {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* No results */
+  .no-results {
+    text-align: center;
+    padding: 3rem 0;
+    color: #666;
+  }
+  
+  .no-results svg {
+    color: #999;
+    margin-bottom: 1rem;
+  }
+  
+  .no-results h3 {
+    margin-bottom: 0.75rem;
+    color: #444;
+  }
+  
+  .no-results p {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Sermon group with enhanced styling */
   .sermon-group {
     margin-bottom: 2rem;
     padding: 1.5rem;
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 3px solid var(--color-primary);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .sermon-group:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
   
   .sermon-title {
@@ -136,6 +615,17 @@ custom_js: reference-viewer
     border-bottom: 1px solid var(--color-border);
     color: var(--color-heading);
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .sermon-date {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: normal;
   }
   
   .occurrence-items {
@@ -144,11 +634,31 @@ custom_js: reference-viewer
     gap: 1rem;
   }
   
+  /* Grid view */
+  .view-grid .occurrence-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  
+  /* Occurrence item with enhanced interactions */
   .occurrence-item {
     padding: 1.25rem;
     background-color: #f9f9f9;
     border-radius: 8px;
     border-left: 3px solid var(--color-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .occurrence-item:hover {
+    background-color: #f0f7ff;
+    transform: translateX(5px);
+  }
+  
+  .occurrence-item:focus-visible {
+    outline: 3px solid rgba(34, 132, 197, 0.5);
+    outline-offset: 3px;
   }
   
   .occurrence-reference {
@@ -157,7 +667,7 @@ custom_js: reference-viewer
     color: var(--color-primary);
     margin-bottom: 0.75rem;
     font-size: 1.1em;
-    background-color: rgba(46, 163, 242, 0.1);
+    background-color: rgba(34, 132, 197, 0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
   }
@@ -170,20 +680,49 @@ custom_js: reference-viewer
   }
   
   .highlight {
-    background-color: rgba(46, 163, 242, 0.15);
+    background-color: rgba(34, 132, 197, 0.15);
     font-weight: 600;
     padding: 0 3px;
     border-radius: 3px;
     color: var(--color-heading);
   }
   
+  /* Compact view */
+  .view-compact .occurrence-item {
+    padding: 0.75rem;
+  }
+  
+  .view-compact .occurrence-text {
+    font-size: 0.95em;
+    margin-bottom: 0.75rem;
+    max-height: 4.8em; /* Limit to 3 lines */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .view-compact .occurrence-text::after {
+    content: "...";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #f9f9f9;
+    padding-left: 0.25rem;
+  }
+  
+  .view-compact .occurrence-meta {
+    font-size: 0.85em;
+  }
+  
+  /* Occurrence meta */
   .occurrence-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-size: 0.9em;
     color: #777;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   
   .timestamp {
@@ -222,143 +761,914 @@ custom_js: reference-viewer
     height: 14px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232ea3f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 16l6-8'%3E%3C/path%3E%3Cpath d='M15 8h1v1'%3E%3C/path%3E%3Crect x='3' y='3' width='18' height='18' rx='2'%3E%3C/rect%3E%3C/svg%3E");
     background-size: contain;
+    background-repeat: no-repeat;
   }
   
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 6px;
-  }
-  
-  .video-container iframe {
-    position: absolute;
+  /* Modal styling */
+  .modal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
   }
   
-  .error-message {
-    margin: 2rem 0;
-    padding: 1.25rem;
-    background-color: #fef2f2;
-    color: #b91c1c;
-    border-radius: 6px;
-    border-left: 4px solid #b91c1c;
+  .modal-content {
+    background-color: white;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  
+  .video-modal-content {
+    width: 800px;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  /* Share modal styling */
+  .share-url-container {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+  
+  .share-url-container input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+  }
+  
+  .share-url-container button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .share-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .share-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100px;
+  }
+  
+  .share-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Video controls styling */
+  .video-controls {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .video-control-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #f8f9fa;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .video-control-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .reference-context {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .context-text {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
     line-height: 1.6;
   }
   
-  .empty-message {
-    text-align: center;
-    padding: 2rem;
-    color: #666;
-    font-style: italic;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-  }
-  
-  .references-summary {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: #f0f7ff;
-    border-radius: 8px;
-  }
-  
-  .references-summary h3 {
-    color: var(--color-heading);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  .references-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  
-  .reference-link {
-    display: inline-block;
-    padding: 0.4rem 0.8rem;
+  /* Keyboard shortcuts panel */
+  .keyboard-shortcuts-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
-    border-radius: 20px;
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
-    font-size: 0.9em;
-    transition: all 0.2s ease;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    z-index: 1001;
+    width: 350px;
+    max-width: 90%;
   }
   
-  .reference-link:hover {
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .close-panel {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .panel-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .panel-body li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .panel-body li:last-child {
+    border-bottom: none;
+  }
+  
+  kbd {
+    display: inline-block;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.85rem;
+    font-family: monospace;
+    color: #333;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  }
+  
+  /* First-time visitor guide */
+  .guide-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+  }
+  
+  .guide-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 600px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  
+  .guide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
     background-color: var(--color-primary);
     color: white;
-    transform: translateY(-2px);
+    border-radius: 8px 8px 0 0;
   }
   
-  .related-references {
-    margin-top: 2rem;
+  .guide-header h3 {
+    margin: 0;
+    color: white;
+  }
+  
+  .close-guide {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .guide-body {
     padding: 1.5rem;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
   }
   
-  .related-references h3 {
-    color: var(--color-heading);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  .related-list {
+  .guide-step {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
   }
   
-  .related-verse {
-    display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background-color: white;
-    border-radius: 20px;
-    border: 1px solid #ddd;
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+  
+  .step-content {
+    flex: 1;
+  }
+  
+  .step-content h4 {
+    margin: 0 0 0.5rem;
+    color: var(--color-heading);
+  }
+  
+  .step-content p {
+    margin: 0;
     color: var(--color-text);
-    font-size: 0.9em;
-    transition: all 0.2s ease;
+    line-height: 1.5;
   }
   
-  .related-verse:hover {
-    background-color: #f0f0f0;
-    border-color: #999;
-    transform: translateY(-2px);
+  .guide-footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
   }
   
-  @media (max-width: 768px) {
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .checkbox-label {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  #startExploring {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  #startExploring:hover {
+    background-color: #1c74b3;
+  }
+  
+  /* High contrast mode */
+  body.high-contrast {
+    --color-primary: #0057b7;
+    --color-text: #000000;
+    --color-heading: #000000;
+    --color-border: #000000;
+  }
+  
+  body.high-contrast .sermon-group,
+  body.high-contrast .occurrence-item {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: none;
+  }
+  
+  body.high-contrast .highlight {
+    background-color: #ffff00;
+    color: #000000;
+  }
+  
+  body.high-contrast .reference-label {
+    background-color: #0057b7;
+    color: #ffffff;
+  }
+  
+  /* Large text mode */
+  body.large-text {
+    font-size: 120%;
+    line-height: 1.6;
+  }
+  
+  body.large-text h1 { font-size: 2.1rem; }
+  body.large-text h2 { font-size: 1.8rem; }
+  body.large-text h3 { font-size: 1.5rem; }
+  
+  /* Focus styles */
+  a:focus, button:focus, input:focus, select:focus {
+    outline: 3px solid rgba(34, 132, 197, 0.5);
+    outline-offset: 2px;
+  }
+  
+  /* Print styles */
+  @media print {
+    .reference-controls,
+    .search-box,
+    .accessibility-controls,
+    .reference-tools,
+    .video-link {
+      display: none !important;
+    }
+    
+    .sermon-group,
+    .occurrence-item {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 1px solid #ddd !important;
+      box-shadow: none !important;
+      background-color: white !important;
+    }
+    
+    .reference-count-display::after {
+      content: " (Printed on " attr(data-print-date) ")";
+    }
+    
+    .occurrence-meta {
+      color: #000 !important;
+    }
+    
+    .timestamp::after {
+      content: " (" attr(data-url) ")";
+      font-size: 0.8em;
+      color: #666;
+    }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767px) {
+    .reference-meta,
     .occurrence-meta {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.75rem;
     }
     
-    .references-list,
-    .related-list {
+    .reference-tools {
+      margin-bottom: 0.5rem;
+    }
+    
+    .filter-section {
       flex-direction: column;
-      gap: 0.5rem;
+      align-items: flex-start;
     }
     
-    .reference-link,
-    .related-verse {
-      display: block;
-      text-align: center;
+    .filter-select {
+      width: 100%;
     }
     
-    .sermon-group {
-      padding: 1rem;
+    .sermon-title {
+      flex-direction: column;
+      align-items: flex-start;
     }
     
-    .occurrence-item {
-      padding: 1rem;
+    .sermon-date {
+      margin-top: 0.5rem;
+    }
+    
+    .view-grid .occurrence-items {
+      grid-template-columns: 1fr;
     }
   }
+</style>
+
+<!-- Additional JavaScript for HCI enhancements -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize accessibility controls
+    initializeAccessibilityControls();
+    
+    // Initialize keyboard shortcuts
+    initializeKeyboardShortcuts();
+    
+    // Initialize modal functionality
+    initializeModals();
+    
+    // Initialize view toggle
+    initializeViewToggle();
+    
+    // Initialize search functionality
+    initializeSearch();
+    
+    // Check for first-time visitor
+    checkFirstTimeVisitor();
+    
+    // Add copy functionality
+    initializeCopyButtons();
+  });
+  
+  // Initialize accessibility controls
+  function initializeAccessibilityControls() {
+    const highContrastToggle = document.getElementById('highContrastToggle');
+    const largeFontToggle = document.getElementById('largeFontToggle');
+    
+    // Check saved preferences
+    if (localStorage.getItem('highContrast') === 'true') {
+      document.body.classList.add('high-contrast');
+      highContrastToggle.setAttribute('aria-pressed', 'true');
+    }
+    
+    if (localStorage.getItem('largeFont') === 'true') {
+      document.body.classList.add('large-text');
+      largeFontToggle.setAttribute('aria-pressed', 'true');
+    }
+    
+    // Add event listeners
+    highContrastToggle.addEventListener('click', function() {
+      const isActive = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', !isActive);
+      document.body.classList.toggle('high-contrast');
+      localStorage.setItem('highContrast', !isActive);
+    });
+    
+    largeFontToggle.addEventListener('click', function() {
+      const isActive = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', !isActive);
+      document.body.classList.toggle('large-text');
+      localStorage.setItem('largeFont', !isActive);
+    });
+  }
+  
+  // Initialize keyboard shortcuts
+  function initializeKeyboardShortcuts() {
+    const keyboardShortcutsPanel = document.getElementById('keyboardShortcutsPanel');
+    const closePanel = keyboardShortcutsPanel.querySelector('.close-panel');
+    
+    // Toggle panel with ? key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === '?') {
+        toggleKeyboardShortcutsPanel();
+      }
+      
+      // Left arrow to go back
+      if (e.key === 'ArrowLeft') {
+        if (!isModalOpen()) {
+          document.getElementById('back-button').click();
+        }
+      }
+      
+      // Ctrl + F to focus search
+      if (e.ctrlKey && e.key === 'f') {
+        e.preventDefault();
+        document.getElementById('contextSearch').focus();
+      }
+      
+      // Alt + P to print
+      if (e.altKey && e.key === 'p') {
+        e.preventDefault();
+        printReferences();
+      }
+      
+      // Alt + S to share
+      if (e.altKey && e.key === 's') {
+        e.preventDefault();
+        openShareModal();
+      }
+      
+      // Escape to close modals
+      if (e.key === 'Escape') {
+        closeAllModals();
+      }
+    });
+    
+    // Close button functionality
+    closePanel.addEventListener('click', function() {
+      keyboardShortcutsPanel.hidden = true;
+    });
+  }
+  
+  // Toggle keyboard shortcuts panel
+  function toggleKeyboardShortcutsPanel() {
+    const panel = document.getElementById('keyboardShortcutsPanel');
+    panel.hidden = !panel.hidden;
+  }
+  
+  // Initialize modal functionality
+  function initializeModals() {
+    // Share modal
+    const shareButton = document.getElementById('shareReferenceBtn');
+    const shareModal = document.getElementById('shareModal');
+    const closeShareModal = shareModal.querySelector('.close-modal');
+    
+    shareButton.addEventListener('click', function() {
+      openShareModal();
+    });
+    
+    closeShareModal.addEventListener('click', function() {
+      shareModal.hidden = true;
+    });
+    
+    // Video modal
+    const videoModal = document.getElementById('videoModal');
+    const closeVideoModal = videoModal.querySelector('.close-modal');
+    
+    closeVideoModal.addEventListener('click', function() {
+      videoModal.hidden = true;
+      // Stop video playback
+      document.getElementById('videoContainer').innerHTML = '';
+    });
+    
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        closeAllModals();
+      }
+    });
+    
+    // Initialize share options
+    document.getElementById('shareEmail').addEventListener('click', function() {
+      const url = document.getElementById('shareUrl').value;
+      const title = document.getElementById('reference-title').textContent;
+      window.location.href = `mailto:?subject=Bible Reference: ${title}&body=Check out this Bible reference: ${url}`;
+    });
+    
+    document.getElementById('shareFacebook').addEventListener('click', function() {
+      const url = encodeURIComponent(document.getElementById('shareUrl').value);
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, 'facebook-share', 'width=580,height=520');
+    });
+    
+    document.getElementById('shareTwitter').addEventListener('click', function() {
+      const url = encodeURIComponent(document.getElementById('shareUrl').value);
+      const title = encodeURIComponent(document.getElementById('reference-title').textContent);
+      window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, 'twitter-share', 'width=550,height=420');
+    });
+    
+    // Copy share URL functionality
+    document.getElementById('copyShareUrl').addEventListener('click', function() {
+      const shareUrl = document.getElementById('shareUrl');
+      shareUrl.select();
+      document.execCommand('copy');
+      
+      // Show success state
+      this.textContent = 'Copied!';
+      setTimeout(() => {
+        this.textContent = 'Copy';
+      }, 2000);
+    });
+  }
+  
+  // Open share modal
+  function openShareModal() {
+    const shareModal = document.getElementById('shareModal');
+    const shareUrl = document.getElementById('shareUrl');
+    
+    // Set current URL
+    shareUrl.value = window.location.href;
+    
+    // Show modal
+    shareModal.hidden = false;
+    
+    // Select URL for easy copying
+    setTimeout(() => {
+      shareUrl.select();
+    }, 100);
+  }
+  
+  // Check if any modal is open
+  function isModalOpen() {
+    const modals = document.querySelectorAll('.modal');
+    for (const modal of modals) {
+      if (!modal.hidden) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  // Close all modals
+  function closeAllModals() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      modal.hidden = true;
+    });
+    
+    document.getElementById('keyboardShortcutsPanel').hidden = true;
+    
+    // Stop video playback if video modal is closed
+    if (document.getElementById('videoModal').hidden) {
+      document.getElementById('videoContainer').innerHTML = '';
+    }
+  }
+  
+  // Initialize view toggle
+  function initializeViewToggle() {
+    const viewList = document.getElementById('viewList');
+    const viewGrid = document.getElementById('viewGrid');
+    const viewCompact = document.getElementById('viewCompact');
+    const occurrencesList = document.getElementById('occurrences-list');
+    
+    // Load saved view preference
+    const savedView = localStorage.getItem('referenceView') || 'list';
+    setActiveView(savedView);
+    
+    // View buttons event listeners
+    viewList.addEventListener('click', function() {
+      setActiveView('list');
+    });
+    
+    viewGrid.addEventListener('click', function() {
+      setActiveView('grid');
+    });
+    
+    viewCompact.addEventListener('click', function() {
+      setActiveView('compact');
+    });
+    
+    // Helper function to set active view
+    function setActiveView(view) {
+      // Update buttons
+      [viewList, viewGrid, viewCompact].forEach(button => {
+        button.classList.remove('active');
+        button.setAttribute('aria-checked', 'false');
+      });
+      
+      // Update occurrences list class
+      occurrencesList.classList.remove('view-list', 'view-grid', 'view-compact');
+      
+      // Set active view
+      if (view === 'grid') {
+        viewGrid.classList.add('active');
+        viewGrid.setAttribute('aria-checked', 'true');
+        occurrencesList.classList.add('view-grid');
+      } else if (view === 'compact') {
+        viewCompact.classList.add('active');
+        viewCompact.setAttribute('aria-checked', 'true');
+        occurrencesList.classList.add('view-compact');
+      } else {
+        viewList.classList.add('active');
+        viewList.setAttribute('aria-checked', 'true');
+        occurrencesList.classList.add('view-list');
+      }
+      
+      // Save preference
+      localStorage.setItem('referenceView', view);
+    }
+  }
+  
+  // Initialize search functionality
+  function initializeSearch() {
+    const searchInput = document.getElementById('contextSearch');
+    const clearButton = document.getElementById('clearSearch');
+    
+    // Show clear button when search has input
+    searchInput.addEventListener('input', function() {
+      if (this.value.length > 0) {
+        clearButton.classList.add('visible');
+      } else {
+        clearButton.classList.remove('visible');
+        // Clear search results highlighting
+        clearSearchHighlighting();
+      }
+      
+      // Perform search as user types
+      performSearch(this.value);
+    });
+    
+    // Clear search
+    clearButton.addEventListener('click', function() {
+      searchInput.value = '';
+      this.classList.remove('visible');
+      clearSearchHighlighting();
+      searchInput.focus();
+    });
+  }
+  
+  // Perform search in reference contexts
+  function performSearch(query) {
+    if (!query) {
+      clearSearchHighlighting();
+      return;
+    }
+    
+    query = query.toLowerCase();
+    let foundAny = false;
+    
+    // Search in all occurrence items
+    const occurrenceItems = document.querySelectorAll('.occurrence-item');
+    
+    occurrenceItems.forEach(item => {
+      const textElement = item.querySelector('.occurrence-text');
+      const text = textElement.textContent.toLowerCase();
+      
+      if (text.includes(query)) {
+        // Show this item
+        item.style.display = '';
+        foundAny = true;
+        
+        // Highlight the matching text
+        const originalText = textElement.innerHTML;
+        const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+        const printButtonHTML = `
+          <button id="printReferenceBtn" class="tool-button" aria-label="Print reference occurrences">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9V2h12v7"></path>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <path d="M6 14h12v8H6z"></path>
+            </svg>
+            Print
+          </button>
+        `;
+        
+        const regex = new RegExp(`(${escapedQuery})`, 'gi');
+        textElement.innerHTML = originalText.replace(regex, '<mark>$1</mark>');
+      } else {
+        // Hide this item if not in compact view
+        const isCompactView = document.getElementById('occurrences-list').classList.contains('view-compact');
+        
+        if (isCompactView) {
+          // In compact view, hide the parent sermon group if all its children are hidden
+          const sermonGroup = item.closest('.sermon-group');
+          const siblingItems = sermonGroup.querySelectorAll('.occurrence-item');
+          let allHidden = true;
+          
+          siblingItems.forEach(sibling => {
+            if (sibling !== item && sibling.style.display !== 'none') {
+              allHidden = false;
+            }
+          });
+          
+          if (allHidden) {
+            sermonGroup.style.display = 'none';
+          }
+          
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'none';
+        }
+      }
+    });
+    
+    // Show/hide no results message
+    const noResultsElement = document.getElementById('no-results');
+    noResultsElement.hidden = foundAny;
+  }
+  
+  // Clear search highlighting
+  function clearSearchHighlighting() {
+    // Show all occurrence items
+    const occurrenceItems = document.querySelectorAll('.occurrence-item');
+    occurrenceItems.forEach(item => {
+      item.style.display = '';
+    });
+    
+    // Show all sermon groups
+    const sermonGroups = document.querySelectorAll('.sermon-group');
+    sermonGroups.forEach(group => {
+      group.style.display = '';
+    });
+    
+    // Remove highlighting
+    const textElements = document.querySelectorAll('.occurrence-text');
+    textElements.forEach(element => {
+      element.innerHTML = element.innerHTML.replace(/<mark>(.*?)<\/mark>/g, '$1');
+    });
+    
+    // Hide no results message
+    document.getElementById('no-results').hidden = true;
+  }
+  
+  // Check for first-time visitor
+  function checkFirstTimeVisitor() {
+    if (localStorage.getItem('hasSeenReferenceViewer') !== 'true') {
+      setTimeout(() => {
+        document.getElementById('firstTimeGuide').hidden = false;
+      }, 1000);
+      
+      // Add event listeners
+      const closeGuide = document.querySelector('.close-guide');
+      const startExploringBtn = document.getElementById('startExploring');
+      const dontShowAgainCheckbox = document.getElementById('dontShowAgain');
+      
+      [closeGuide, startExploringBtn].forEach(element => {
+        element.addEventListener('click', function() {
+          document.getElementById('firstTimeGuide').hidden = true;
+          
+          if (dontShowAgainCheckbox.checked) {
+            localStorage.setItem('hasSeenReferenceViewer', 'true');
+          }
+        });
+      });
+    }
+  }
+  
+  // Initialize copy buttons
+  function initializeCopyButtons() {
+    const copyReferenceBtn = document.getElementById('copyReferenceBtn');
+    
+    copyReferenceBtn.addEventListener('click', function() {
+      const referenceTitle = document.getElementById('reference-title').textContent;
+      
+      // Copy to clipboard
+      const textarea = document.createElement('textarea');
+      textarea.value = referenceTitle;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      
+      // Show success state
+      this.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Copied
+      `;
+      
+      // Reset after 2 seconds
+      setTimeout(() => {
+        this.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copy
+        `;
+      }, 2000);
+    });
+  }
+  
+  // Print references
+  function printReferences() {
+    // Add current date to reference count for print
+    document.querySelector('.reference-count-display').setAttribute(
+      'data-print-date', 
+      new Date().toLocaleDateString()
+    );
+    
+    // Add URLs to timestamps for print
+    document.querySelectorAll('.timestamp').forEach(timestamp => {
+      const videoLink = timestamp.nextElementSibling;
+      if (videoLink && videoLink.href) {
+        timestamp.setAttribute('data-url', videoLink.href);
+      }
+    });
+    
+    // Print
+    window.print();
+  }
+</script>

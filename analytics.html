@@ -2,58 +2,84 @@
 layout: default
 title: Sermon Analytics
 hero_banner: true
-hero_title: SERMON ANALYTICS
-hero_subtitle: EXPLORING BIBLICAL INSIGHTS
-hero_description: Discover patterns and insights from the sermon library.
+hero_title: BIBLE REFERENCE ANALYTICS
+hero_subtitle: EXPLORING SCRIPTURE IN SERMONS
+hero_description: Discover how Bible passages are referenced throughout our sermon library.
 quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World"
 use_charts: true
 custom_js: analytics-optimized
+custom_css: analytics-hci
 ---
 
+<!-- Skip link for keyboard accessibility -->
+<a href="#analyticsContent" class="skip-link">Skip to analytics content</a>
+
 <div class="container">
-  <div id="loadingSection" class="text-center">
-    <div class="loading-spinner"></div>
+  <div id="loadingSection" class="text-center" aria-live="polite">
+    <div class="loading-spinner" role="progressbar" aria-label="Loading analytics data"></div>
     <p class="loading-text">Loading analytics data...</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="loadingProgress"></div>
+    </div>
   </div>
   
   <div id="analyticsContent" style="display: none;">
     <!-- Page Introduction -->
     <div class="page-intro">
-      <h2 class="content-section-header">Biblical Insights Dashboard</h2>
-      <p>This dashboard provides visualization of Bible references throughout the sermon library. Explore which books, chapters, and verses are most frequently referenced in the pastor's teachings.</p>
+      <h2 class="content-section-header">Bible Reference Analytics</h2>
+      <p>This dashboard visualizes Bible references across our sermon library. Explore which books, chapters, and verses are most frequently referenced in our pastor's teachings.</p>
     </div>
     
-    <!-- Time Filter -->
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls" aria-label="Accessibility options">
+      <button id="highContrastToggle" class="accessibility-button" aria-pressed="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 22c5.5 0 10-4.5 10-10h-10v10z"></path><path d="M12 2C6.5 2 2 6.5 2 12h10V2z"></path></svg>
+        High Contrast
+      </button>
+      <button id="largeFontToggle" class="accessibility-button" aria-pressed="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+        Larger Text
+      </button>
+      <button id="reduceMotionToggle" class="accessibility-button" aria-pressed="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.7 21a2 2 0 0 1-3.4 0"></path><path d="M19.6 10l-1.2-3.8A8 8 0 0 0 6.3 7.1L4 12H2a2 2 0 0 0 0 4h2.3l2.7-5m5 11l3.7-9h4.3a2 2 0 0 0 0-4h-3.9l1.3-4"></path></svg>
+        Reduce Motion
+      </button>
+    </div>
+    
+    <!-- Time Filter with improved labeling -->
     <div class="filter-controls">
       <div class="content-card">
         <h3>Filter Analytics by Time Period</h3>
-        <p>Select a specific timeframe to focus your analysis.</p>
-        <select id="timeFilterSelect" class="form-control">
-          <option value="all">All Time</option>
-          <!-- Dynamically populated by JavaScript -->
-        </select>
+        <p>Select a specific timeframe to focus your analysis on sermon data from that period.</p>
+        <div class="filter-form-group">
+          <label for="timeFilterSelect" class="filter-label">Time period:</label>
+          <select id="timeFilterSelect" class="form-control" aria-label="Select time period">
+            <option value="all">All Time</option>
+            <!-- Dynamically populated by JavaScript -->
+          </select>
+        </div>
       </div>
     </div>
     
     <!-- Key Statistics -->
-    <h2 class="content-section-header">Key Statistics</h2>
-    <div class="stats-cards">
-      <div class="stat-card">
-        <div class="stat-icon">
+    <h2 class="content-section-header" id="keyStatsHeading">Key Statistics</h2>
+    <div class="stats-cards" aria-labelledby="keyStatsHeading">
+      <div class="stat-card" tabindex="0">
+        <div class="stat-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
         </div>
         <div class="stat-value" id="totalSermonsValue">...</div>
         <div class="stat-label">Total Sermons</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">
+      <div class="stat-card" tabindex="0">
+        <div class="stat-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"></path><path d="M8 7h6"></path><path d="M8 11h8"></path><path d="M8 15h6"></path></svg>
         </div>
         <div class="stat-value" id="totalReferencesValue">...</div>
         <div class="stat-label">Bible References</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">
+      <div class="stat-card" tabindex="0">
+        <div class="stat-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8l5 5 5-5"></path><path d="M12 16l5-5 5 5"></path><path d="M2 12h20"></path></svg>
         </div>
         <div class="stat-value" id="topBookValue">...</div>
@@ -61,36 +87,84 @@ custom_js: analytics-optimized
       </div>
     </div>
     
-    <!-- Bible Books Chart -->
-    <h2 class="content-section-header">Bible Book References</h2>
+    <!-- Bible Books Chart with Accessibility Enhancements -->
+    <h2 class="content-section-header" id="booksChartHeading">Bible Book References</h2>
     <div class="analytics-card">
       <h3>Frequency of Bible Book Citations</h3>
-      <p class="analytics-description">Explore which books of the Bible are most frequently referenced across all sermons.</p>
-      <div class="chart-container">
+      <p class="analytics-description">Explore which books of the Bible are most frequently referenced across all sermons. Click on any bar to see detailed references for that book.</p>
+      <div class="chart-container" role="img" aria-labelledby="booksChartHeading">
         <canvas id="bibleReferencesChart"></canvas>
+      </div>
+      <p class="chart-instruction">Click on any book bar to view detailed references.</p>
+      <div class="chart-data-table-toggle">
+        <button id="showChartDataTable" class="btn btn-sm">View as Data Table</button>
+      </div>
+      <div id="chartDataTable" class="chart-data-table" hidden>
+        <h4>Bible Books by Reference Count</h4>
+        <table class="data-table">
+          <caption>Frequency of Bible book citations in sermons</caption>
+          <thead>
+            <tr>
+              <th>Book</th>
+              <th>References</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookDataTableBody">
+            <!-- Populated by JavaScript -->
+          </tbody>
+        </table>
       </div>
     </div>
     
-    <!-- Testament & Chapters Section -->
-    <h2 class="content-section-header">Detailed Reference Analysis</h2>
+    <!-- Testament & Chapters Section with improved layout -->
+    <h2 class="content-section-header" id="detailedAnalysisHeading">Detailed Reference Analysis</h2>
     <div class="row">
       <div class="col-md-6">
         <div class="analytics-card">
           <h3>Testament Distribution</h3>
-          <p class="analytics-description">Proportion of Old vs. New Testament references in the sermon library.</p>
-          <div class="chart-container" style="height: 300px;">
+          <p class="analytics-description">Proportion of Old vs. New Testament references in the sermon library. The chart shows the percentage breakdown of references by testament.</p>
+          <div class="chart-container" role="img" aria-label="Pie chart showing the distribution of references between Old Testament and New Testament">
             <canvas id="testamentChart"></canvas>
+          </div>
+          <div id="testamentPercentages" class="chart-summary" aria-live="polite">
+            <!-- Populated by JavaScript -->
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="analytics-card">
           <h3>Top Chapters Referenced</h3>
-          <p class="analytics-description">Most frequently cited Bible chapters across the sermon library.</p>
+          <p class="analytics-description">Most frequently cited Bible chapters across the sermon library. Click on any chapter to see all occurrences.</p>
           <div id="topChaptersContainer">
-            <div class="reference-list" id="topChaptersList"></div>
+            <div class="reference-list" id="topChaptersList" tabindex="0" role="list" aria-label="Top referenced Bible chapters">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+          <div class="keyboard-hint">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><path d="M6 8h4"></path><path d="M10 8v8"></path><path d="M14 8h4"></path><path d="M16 12h-2.5"></path></svg>
+            <span>Press Tab to navigate references, Enter to select</span>
           </div>
         </div>
+      </div>
+    </div>
+    
+    <!-- Actions Section -->
+    <div class="actions-section">
+      <h3>Additional Actions</h3>
+      <div class="action-buttons">
+        <a href="reference-viewer.html" class="action-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          Browse All References
+        </a>
+        <button id="printAnalytics" class="action-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+          Print Analytics Report
+        </button>
+        <button id="downloadCSV" class="action-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download CSV Data
+        </button>
       </div>
     </div>
     
@@ -99,19 +173,91 @@ custom_js: analytics-optimized
     <div class="analytics-card">
       <h3>Latest Messages from Fellowship Baptist Church</h3>
       <p class="analytics-description">Browse the most recent sermons from our church library.</p>
-      <div id="recentSermonsContainer">
+      <div id="recentSermonsContainer" aria-live="polite">
         <div class="loading-spinner"></div>
         <p class="text-center">Loading sermon data...</p>
       </div>
     </div>
+    
+    <!-- User Feedback Section -->
+    <div class="feedback-section">
+      <h3>Help Us Improve</h3>
+      <p>We value your feedback on this analytics tool. Let us know what additional insights would help you study God's Word.</p>
+      <button id="openFeedbackForm" class="btn btn-primary">Provide Feedback</button>
+    </div>
+    
+    <!-- Feedback Form Modal (hidden by default) -->
+    <div id="feedbackModal" class="modal" hidden>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Feedback Form</h3>
+          <button class="close-modal" aria-label="Close feedback form">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="feedbackForm">
+            <div class="form-group">
+              <label for="feedbackType">Type of Feedback</label>
+              <select id="feedbackType" required>
+                <option value="">Select feedback type</option>
+                <option value="feature">Feature Request</option>
+                <option value="bug">Bug Report</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="praise">Praise</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="feedbackMessage">Your Feedback</label>
+              <textarea id="feedbackMessage" rows="4" required placeholder="Please share your thoughts..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="feedbackEmail">Email (optional)</label>
+              <input type="email" id="feedbackEmail" placeholder="your@email.com">
+              <small>We'll only use this to follow up if needed.</small>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Submit Feedback</button>
+              <button type="button" class="btn" id="cancelFeedback">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   
-  <!-- Error Section -->
-  <div id="errorSection" style="display: none;">
+  <!-- Error Section with improved error handling -->
+  <div id="errorSection" style="display: none;" aria-live="assertive">
     <div class="analytics-card text-center">
+      <div class="error-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      </div>
       <h2>Error Loading Data</h2>
       <p id="errorMessage">Sorry, there was an error loading the analytics data. Please try again later.</p>
       <button id="retryButton" class="btn btn-primary">Retry</button>
+      <div class="error-details">
+        <button id="showErrorDetails" class="btn btn-sm">Show Technical Details</button>
+        <div id="errorDetailsContent" hidden>
+          <pre id="errorStack"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Keyboard Shortcuts Helper (hidden by default) -->
+  <div id="keyboardShortcutsPanel" class="keyboard-shortcuts-panel" hidden>
+    <div class="panel-header">
+      <h3>Keyboard Shortcuts</h3>
+      <button class="close-panel" aria-label="Close keyboard shortcuts panel">&times;</button>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <li><kbd>?</kbd> - Show/hide keyboard shortcuts</li>
+        <li><kbd>Tab</kbd> - Navigate through interactive elements</li>
+        <li><kbd>Enter</kbd> or <kbd>Space</kbd> - Activate the selected element</li>
+        <li><kbd>Alt</kbd> + <kbd>P</kbd> - Print analytics report</li>
+        <li><kbd>Alt</kbd> + <kbd>D</kbd> - Download CSV data</li>
+        <li><kbd>Alt</kbd> + <kbd>B</kbd> - Browse all references</li>
+        <li><kbd>Esc</kbd> - Close modal dialogs</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -119,248 +265,767 @@ custom_js: analytics-optimized
 <!-- Include the simplified recent sermons script -->
 <script src="{{ '/assets/js/simplified-recent-sermons.js' | relative_url }}"></script>
 
+<!-- HCI-enhanced CSS -->
 <style>
+  /* Skip link for keyboard accessibility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px 16px;
+    background: var(--color-primary);
+    color: white;
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+  }
+  
+  /* Enhanced filter controls */
   .filter-controls {
     margin-bottom: 2rem;
   }
   
-  .filter-card {
-    background-color: white;
-    padding: 1.25rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .filter-card label {
-    font-weight: 600;
-    color: var(--color-heading);
-    margin-right: 0.5rem;
-  }
-  
-  #timeFilterSelect {
-    min-width: 200px;
-    padding: 0.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    background-color: white;
-    color: var(--color-text);
-    font: inherit;
-  }
-  
-  .stats-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .stat-card {
-    background: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+  .filter-form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 0.5rem;
   }
   
-  .stat-card:hover {
-    transform: translateY(-5px);
+  @media (min-width: 768px) {
+    .filter-form-group {
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    .filter-label {
+      min-width: 100px;
+    }
   }
   
-  .stat-icon {
-    color: var(--color-primary);
-    margin-bottom: 0.5rem;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .stat-value {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin: 0.5rem 0;
-    line-height: 1;
-  }
-  
-  .stat-label {
-    font-size: 1rem;
-    color: var(--color-text);
-    font-weight: 500;
-  }
-  
-  .analytics-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .analytics-card h2 {
-    margin-bottom: 0.5rem;
-    color: var(--color-heading);
-    font-weight: 600;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-  
-  .analytics-description {
-    color: var(--color-text);
+  /* Accessibility controls */
+  .accessibility-controls {
+    display: flex;
+    gap: 0.75rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .accessibility-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .accessibility-button[aria-pressed="true"] {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+  
+  /* Chart data table */
+  .chart-data-table-toggle {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .chart-data-table {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .data-table th, 
+  .data-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+  
+  .data-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Chart summary */
+  .chart-summary {
+    margin-top: 1rem;
+    text-align: center;
     font-size: 0.95rem;
   }
   
-  .chart-container {
-    position: relative;
-    height: 400px;
-    max-width: 100%;
-  }
-  
-  .chart-instruction {
-    text-align: center;
-    margin-top: 10px;
-    font-style: italic;
+  /* Keyboard hint */
+  .keyboard-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
     color: #666;
-    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    justify-content: center;
   }
   
-  .reference-list {
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
+  /* Improved actions section */
+  .actions-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
     background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-weight: 500;
   }
   
-  .reference-item {
+  .action-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  }
+  
+  .action-button svg {
+    color: var(--color-primary);
+  }
+  
+  /* Feedback section */
+  .feedback-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f0f7ff;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  
+  .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--color-border);
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-    position: relative;
   }
   
-  .reference-item:last-child {
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  /* Form styles */
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+  }
+  
+  .form-group small {
+    display: block;
+    margin-top: 0.25rem;
+    color: #666;
+    font-size: 0.85rem;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+  }
+  
+  /* Enhanced error section */
+  #errorSection .analytics-card {
+    border-left: 4px solid #d32f2f;
+  }
+  
+  .error-icon {
+    margin-bottom: 1rem;
+    color: #d32f2f;
+  }
+  
+  .error-details {
+    margin-top: 1.5rem;
+  }
+  
+  #errorStack {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  /* Keyboard shortcuts panel */
+  .keyboard-shortcuts-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    z-index: 1001;
+    width: 350px;
+    max-width: 90%;
+  }
+  
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .close-panel {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .panel-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .panel-body li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .panel-body li:last-child {
     border-bottom: none;
   }
   
-  .reference-item:hover {
-    background-color: rgba(46, 163, 242, 0.05);
-    transform: translateX(3px);
+  kbd {
+    display: inline-block;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.85rem;
+    font-family: monospace;
+    color: #333;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
   }
   
-  .reference-book {
-    font-weight: 600;
-    color: var(--color-heading);
+  /* Progress indicator */
+  .progress-container {
+    height: 6px;
+    width: 80%;
+    max-width: 400px;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    margin: 1rem auto;
+    overflow: hidden;
   }
   
-  .reference-count {
+  .progress-bar {
+    height: 100%;
+    width: 0;
     background-color: var(--color-primary);
-    color: white;
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    transition: width 0.4s ease;
   }
   
-  .view-link {
-    position: absolute;
-    right: 16px;
-    color: var(--color-primary);
-    font-size: 0.9rem;
-    opacity: 0;
-    transition: opacity 0.2s;
+  /* High contrast mode */
+  body.high-contrast {
+    --color-primary: #0057b7;
+    --color-text: #000000;
+    --color-heading: #000000;
+    --color-border: #000000;
+    --color-bg-light: #ffffff;
   }
   
-  .reference-item:hover .view-link {
-    opacity: 1;
+  body.high-contrast .stat-card,
+  body.high-contrast .analytics-card,
+  body.high-contrast .content-card {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: none;
   }
   
-  .sermon-list {
-    display: grid;
-    gap: 1rem;
+  body.high-contrast .reference-item {
+    border-bottom: 2px solid #000000;
   }
   
-  .sermon-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    transition: transform 0.2s;
+  body.high-contrast .reference-count {
+    background-color: #0057b7;
+    color: #ffffff;
   }
   
-  .sermon-item:hover {
-    transform: translateY(-3px);
+  /* Large text mode */
+  body.large-text {
+    font-size: 120%;
+    line-height: 1.6;
   }
   
-  .sermon-info {
-    flex: 1;
+  body.large-text h1 { font-size: 2.1rem; }
+  body.large-text h2 { font-size: 1.8rem; }
+  body.large-text h3 { font-size: 1.5rem; }
+  body.large-text .stat-value { font-size: 3rem; }
+  
+  /* Reduced motion mode */
+  body.reduced-motion .stat-card:hover,
+  body.reduced-motion .analytics-card:hover,
+  body.reduced-motion .action-button:hover,
+  body.reduced-motion .reference-item:hover {
+    transform: none;
   }
   
-  .sermon-title {
-    margin: 0 0 0.5rem;
-    font-size: 1.1rem;
-    color: var(--color-heading);
+  body.reduced-motion *,
+  body.reduced-motion *::before,
+  body.reduced-motion *::after {
+    animation-duration: 0.001s !important;
+    animation-delay: 0.001s !important;
+    transition-duration: 0.001s !important;
+    transition-delay: 0.001s !important;
   }
   
-  .sermon-date {
-    color: var(--color-text);
-    margin: 0;
-    font-size: 0.9rem;
-  }
-  
-  .loading-spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top: 4px solid var(--color-primary);
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  @media (max-width: 768px) {
-    .sermon-item {
-      flex-direction: column;
-      align-items: flex-start;
+  /* Print styles */
+  @media print {
+    .accessibility-controls,
+    .filter-controls,
+    .action-buttons,
+    .feedback-section,
+    .chart-data-table-toggle,
+    .keyboard-hint {
+      display: none !important;
     }
     
-    .sermon-item .btn {
-      margin-top: 1rem;
+    .analytics-card {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 1px solid #ddd !important;
+      box-shadow: none !important;
+    }
+    
+    .stat-card {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    
+    .chart-container {
+      height: 350px !important;
+    }
+    
+    .chart-data-table {
+      display: block !important;
+    }
+    
+    body {
+      font-size: 12pt;
+    }
+    
+    .container {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+  
+  /* Focus styles */
+  a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid rgba(34, 132, 197, 0.5);
+    outline-offset: 2px;
+  }
+  
+  /* Mobile responsiveness for controls */
+  @media (max-width: 767px) {
+    .action-buttons {
+      flex-direction: column;
+    }
+    
+    .action-button {
       width: 100%;
     }
     
-    .filter-card {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    
-    #timeFilterSelect {
-      width: 100%;
-    }
-    
-    .view-link {
-      opacity: 1;
-      position: static;
-      display: block;
-      margin-top: 0.5rem;
+    .accessibility-controls {
+      justify-content: center;
     }
   }
 </style>
+
+<!-- Additional JavaScript for HCI enhancements -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize accessibility controls
+    initializeAccessibilityControls();
+    
+    // Initialize keyboard shortcuts
+    initializeKeyboardShortcuts();
+    
+    // Initialize modal functionality
+    initializeModals();
+    
+    // Initialize error details toggle
+    initializeErrorDetails();
+    
+    // Initialize data table functionality
+    initializeDataTable();
+    
+    // Initialize print functionality
+    initializePrintFunctionality();
+    
+    // Initialize CSV download
+    initializeCSVDownload();
+  });
+  
+  // Initialize accessibility controls
+  function initializeAccessibilityControls() {
+    const highContrastToggle = document.getElementById('highContrastToggle');
+    const largeFontToggle = document.getElementById('largeFontToggle');
+    const reduceMotionToggle = document.getElementById('reduceMotionToggle');
+    
+    // Check saved preferences
+    if (localStorage.getItem('highContrast') === 'true') {
+      document.body.classList.add('high-contrast');
+      highContrastToggle.setAttribute('aria-pressed', 'true');
+    }
+    
+    if (localStorage.getItem('largeFont') === 'true') {
+      document.body.classList.add('large-text');
+      largeFontToggle.setAttribute('aria-pressed', 'true');
+    }
+    
+    if (localStorage.getItem('reduceMotion') === 'true') {
+      document.body.classList.add('reduced-motion');
+      reduceMotionToggle.setAttribute('aria-pressed', 'true');
+    }
+    
+    // Add event listeners
+    highContrastToggle.addEventListener('click', function() {
+      const isActive = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', !isActive);
+      document.body.classList.toggle('high-contrast');
+      localStorage.setItem('highContrast', !isActive);
+    });
+    
+    largeFontToggle.addEventListener('click', function() {
+      const isActive = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', !isActive);
+      document.body.classList.toggle('large-text');
+      localStorage.setItem('largeFont', !isActive);
+    });
+    
+    reduceMotionToggle.addEventListener('click', function() {
+      const isActive = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', !isActive);
+      document.body.classList.toggle('reduced-motion');
+      localStorage.setItem('reduceMotion', !isActive);
+    });
+    
+    // Check system preference for reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.body.classList.add('reduced-motion');
+      reduceMotionToggle.setAttribute('aria-pressed', 'true');
+    }
+  }
+  
+  // Initialize keyboard shortcuts
+  function initializeKeyboardShortcuts() {
+    const keyboardShortcutsPanel = document.getElementById('keyboardShortcutsPanel');
+    const closePanel = keyboardShortcutsPanel.querySelector('.close-panel');
+    
+    // Toggle panel with ? key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === '?') {
+        toggleKeyboardShortcutsPanel();
+      }
+      
+      // Alt + P to print
+      if (e.altKey && e.key === 'p') {
+        e.preventDefault();
+        printAnalyticsReport();
+      }
+      
+      // Alt + D to download CSV
+      if (e.altKey && e.key === 'd') {
+        e.preventDefault();
+        downloadCSVData();
+      }
+      
+      // Alt + B to browse all references
+      if (e.altKey && e.key === 'b') {
+        e.preventDefault();
+        window.location.href = 'reference-viewer.html';
+      }
+      
+      // Escape to close modals
+      if (e.key === 'Escape') {
+        closeAllModals();
+      }
+    });
+    
+    // Close button functionality
+    closePanel.addEventListener('click', function() {
+      keyboardShortcutsPanel.hidden = true;
+    });
+  }
+  
+  // Toggle keyboard shortcuts panel
+  function toggleKeyboardShortcutsPanel() {
+    const panel = document.getElementById('keyboardShortcutsPanel');
+    panel.hidden = !panel.hidden;
+  }
+  
+  // Initialize modal functionality
+  function initializeModals() {
+    const openFeedbackButton = document.getElementById('openFeedbackForm');
+    const feedbackModal = document.getElementById('feedbackModal');
+    const closeModal = feedbackModal.querySelector('.close-modal');
+    const cancelButton = document.getElementById('cancelFeedback');
+    const feedbackForm = document.getElementById('feedbackForm');
+    
+    // Open modal
+    openFeedbackButton.addEventListener('click', function() {
+      feedbackModal.hidden = false;
+    });
+    
+    // Close modal
+    [closeModal, cancelButton].forEach(button => {
+      button.addEventListener('click', function() {
+        feedbackModal.hidden = true;
+      });
+    });
+    
+    // Close when clicking outside modal content
+    feedbackModal.addEventListener('click', function(e) {
+      if (e.target === feedbackModal) {
+        feedbackModal.hidden = true;
+      }
+    });
+    
+    // Handle form submission
+    feedbackForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simulate form submission
+      const submitButton = this.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      
+      // Simulate sending data
+      setTimeout(() => {
+        // Show success message
+        feedbackModal.querySelector('.modal-body').innerHTML = `
+          <div class="success-message">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h4>Thank you for your feedback!</h4>
+            <p>We appreciate your input and will use it to improve the Bible Analytics tool.</p>
+            <button class="btn btn-primary close-success">Close</button>
+          </div>
+        `;
+        
+        // Add event listener to close button
+        document.querySelector('.close-success').addEventListener('click', function() {
+          feedbackModal.hidden = true;
+          // Reset form after closing
+          setTimeout(() => {
+            feedbackForm.reset();
+            feedbackModal.querySelector('.modal-body').innerHTML = '';
+            feedbackModal.querySelector('.modal-body').appendChild(feedbackForm);
+          }, 300);
+        });
+      }, 1500);
+    });
+  }
+  
+  // Close all modals
+  function closeAllModals() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      modal.hidden = true;
+    });
+    
+    document.getElementById('keyboardShortcutsPanel').hidden = true;
+  }
+  
+  // Initialize error details toggle
+  function initializeErrorDetails() {
+    const showErrorDetails = document.getElementById('showErrorDetails');
+    const errorDetailsContent = document.getElementById('errorDetailsContent');
+    
+    if (showErrorDetails) {
+      showErrorDetails.addEventListener('click', function() {
+        const isHidden = errorDetailsContent.hidden;
+        errorDetailsContent.hidden = !isHidden;
+        this.textContent = isHidden ? 'Hide Technical Details' : 'Show Technical Details';
+      });
+    }
+  }
+  
+  // Initialize data table functionality
+  function initializeDataTable() {
+    const showTableButton = document.getElementById('showChartDataTable');
+    const chartDataTable = document.getElementById('chartDataTable');
+    
+    if (showTableButton) {
+      showTableButton.addEventListener('click', function() {
+        const isHidden = chartDataTable.hidden;
+        chartDataTable.hidden = !isHidden;
+        this.textContent = isHidden ? 'Hide Data Table' : 'View as Data Table';
+      });
+    }
+  }
+  
+  // Initialize print functionality
+  function initializePrintFunctionality() {
+    const printButton = document.getElementById('printAnalytics');
+    
+    if (printButton) {
+      printButton.addEventListener('click', printAnalyticsReport);
+    }
+  }
+  
+  // Print analytics report
+  function printAnalyticsReport() {
+    // Before printing, expand data tables for better print view
+    document.getElementById('chartDataTable').hidden = false;
+    
+    // Add print class to body
+    document.body.classList.add('printing');
+    
+    // Print the page
+    window.print();
+    
+    // After printing, restore the state
+    setTimeout(() => {
+      document.body.classList.remove('printing');
+      
+      // Restore state of data table based on button text
+      const showTableButton = document.getElementById('showChartDataTable');
+      if (showTableButton.textContent.includes('View as')) {
+        document.getElementById('chartDataTable').hidden = true;
+      }
+    }, 1000);
+  }
+  
+  // Initialize CSV download
+  function initializeCSVDownload() {
+    const downloadButton = document.getElementById('downloadCSV');
+    
+    if (downloadButton) {
+      downloadButton.addEventListener('click', downloadCSVData);
+    }
+  }
+  
+  // Download CSV data
+  function downloadCSVData() {
+    // This function would be implemented to generate and download CSV data
+    // from the charts and references
+    
+    // For demonstration, create a simple CSV
+    const csv = 'Book,References\nMatthew,257\nJohn,189\nRomans,165\nPsalms,143\nGenesis,102';
+    
+    // Create blob and download
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'bible_references.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
