@@ -30,7 +30,9 @@ async function initializeReferenceViewer() {
     const referenceId = urlParams.get('ref');
     
     if (!referenceId) {
-      throw new Error('No reference specified. Use ?ref=book_chapter_verse format.');
+      // Instead of throwing an error, show a helpful guide
+      showReferenceGuide();
+      return;
     }
     
     // Fetch reference data
@@ -48,12 +50,172 @@ async function initializeReferenceViewer() {
     // Hide loading state, show content
     document.getElementById('loading-indicator').style.display = 'none';
     document.getElementById('reference-details').style.display = 'block';
+    
+    // Dispatch event that reference is loaded (for HCI enhancements)
+    document.dispatchEvent(new Event('referenceLoaded'));
   } catch (error) {
     console.error('Error initializing reference viewer:', error);
     document.getElementById('loading-indicator').style.display = 'none';
     document.getElementById('error-message').textContent = error.message;
     document.getElementById('error-message').style.display = 'block';
   }
+}
+
+/**
+ * Show a helpful guide when no reference is specified
+ */
+function showReferenceGuide() {
+  // Hide loading indicator
+  document.getElementById('loading-indicator').style.display = 'none';
+  
+  // Create guide content
+  const guideHTML = `
+    <div class="reference-guide">
+      <h2>Bible Reference Viewer</h2>
+      <p class="guide-intro">This tool allows you to explore Bible references mentioned in sermons.</p>
+      
+      <div class="guide-section">
+        <h3>How to Use This Page</h3>
+        <p>Add a <code>?ref=</code> parameter to the URL in one of these formats:</p>
+        <ul>
+          <li><strong>Book only:</strong> <code>?ref=John</code> - Shows all references to the book of John</li>
+          <li><strong>Book and chapter:</strong> <code>?ref=John_3</code> - Shows all references to John chapter 3</li>
+          <li><strong>Specific verse:</strong> <code>?ref=John_3_16</code> - Shows all references to John 3:16</li>
+        </ul>
+        <p>Note: Use underscores (_) to separate book, chapter, and verse.</p>
+      </div>
+      
+      <div class="guide-section">
+        <h3>Example References</h3>
+        <div class="example-links">
+          <a href="?ref=John_3_16" class="example-link">John 3:16</a>
+          <a href="?ref=Romans_8" class="example-link">Romans 8</a>
+          <a href="?ref=Psalms_23" class="example-link">Psalms 23</a>
+          <a href="?ref=Genesis_1_1" class="example-link">Genesis 1:1</a>
+          <a href="?ref=Matthew_5" class="example-link">Matthew 5</a>
+        </div>
+      </div>
+      
+      <div class="guide-section">
+        <h3>Popular Books</h3>
+        <div class="example-links">
+          <a href="?ref=Genesis" class="example-link">Genesis</a>
+          <a href="?ref=Exodus" class="example-link">Exodus</a>
+          <a href="?ref=Psalms" class="example-link">Psalms</a>
+          <a href="?ref=Proverbs" class="example-link">Proverbs</a>
+          <a href="?ref=Isaiah" class="example-link">Isaiah</a>
+          <a href="?ref=Matthew" class="example-link">Matthew</a>
+          <a href="?ref=John" class="example-link">John</a>
+          <a href="?ref=Romans" class="example-link">Romans</a>
+          <a href="?ref=Revelation" class="example-link">Revelation</a>
+        </div>
+      </div>
+      
+      <div class="guide-footer">
+        <a href="analytics.html" class="back-to-analytics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"></path>
+            <path d="M12 19l-7-7 7-7"></path>
+          </svg>
+          Back to Analytics
+        </a>
+      </div>
+    </div>
+  `;
+  
+  // Display the guide
+  const errorMessage = document.getElementById('error-message');
+  errorMessage.innerHTML = guideHTML;
+  errorMessage.style.display = 'block';
+  
+  // Add styles for the guide
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    .reference-guide {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .guide-intro {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    
+    .guide-section {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .guide-section:last-child {
+      border-bottom: none;
+    }
+    
+    .guide-section h3 {
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+    
+    .guide-section code {
+      background-color: #f5f5f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    
+    .example-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    
+    .example-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #f0f7ff;
+      border: 1px solid #d0e3ff;
+      border-radius: 4px;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .example-link:hover {
+      background-color: #e0f0ff;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .guide-footer {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    
+    .back-to-analytics {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .back-to-analytics:hover {
+      background-color: #e5e5e5;
+    }
+  `;
+  document.head.appendChild(styleElement);
 }
 
 /**
