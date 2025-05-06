@@ -4,6 +4,7 @@ title: Bible Reference Viewer
 hero: true
 hero_title: Bible Reference Explorer
 hero_description: Explore all occurrences of Bible references in sermons with direct links to video timestamps.
+custom_js: reference-viewer-simplified
 ---
 
 <div class="container reference-container">
@@ -170,520 +171,6 @@ hero_description: Explore all occurrences of Bible references in sermons with di
     margin: 0 auto;
     padding: 2rem 1rem;
   }
-</style>
-<script>
-// Helper functions for modals
-function closeModal(modal) {
-  if (!modal) return;
-  
-  modal.hidden = true;
-  
-  // If it's the video modal, clear the video to stop playback
-  if (modal.id === 'videoModal') {
-    const videoContainer = document.getElementById('videoContainer');
-    if (videoContainer) {
-      videoContainer.innerHTML = '';
-    }
-  }
-}
-
-function openModal(modal) {
-  if (!modal) return;
-  modal.hidden = false;
-}
-
-function openShareModal() {
-  const shareModal = document.getElementById('shareModal');
-  const shareUrl = document.getElementById('shareUrl');
-  
-  if (shareModal && shareUrl) {
-    // Set the current URL as the share URL
-    shareUrl.value = window.location.href;
-    
-    // Open the modal
-    openModal(shareModal);
-    
-    // Select the URL text
-    setTimeout(() => {
-      shareUrl.select();
-    }, 100);
-  }
-}
-
-function copyReferenceToClipboard() {
-  const referenceTitle = document.getElementById('reference-title');
-  
-  if (referenceTitle) {
-    // Create a temporary textarea to copy from
-    const textarea = document.createElement('textarea');
-    textarea.value = referenceTitle.textContent;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    
-    // Change button text to show success
-    const copyButton = document.getElementById('copyReferenceBtn');
-    if (copyButton) {
-      const originalHTML = copyButton.innerHTML;
-      copyButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied
-      `;
-      
-      // Reset after 2 seconds
-      setTimeout(() => {
-        copyButton.innerHTML = originalHTML;
-      }, 2000);
-    }
-  }
-}
-
-// Mock data functions
-function initializeReferenceData() {
-  // Parse URL parameters
-  const urlParams = new URLSearchParams(window.location.search);
-  const reference = urlParams.get('reference') || 'John 3:16';
-  
-  // Update page title
-  document.title = `${reference} - Bible Reference Viewer`;
-  
-  // Update reference title and count
-  document.getElementById('reference-title').textContent = reference;
-  document.getElementById('reference-count').textContent = '12';
-  
-  // Generate sample data (in a real app, this would come from an API)
-  const sermons = [
-    {
-      id: 1,
-      title: 'The Gospel Message',
-      date: 'May 2, 2025',
-      occurrences: [
-        {
-          text: "And here we see in <span class='highlight'>John 3:16</span>, \"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.\" This is the essence of the gospel message, the heart of our faith.",
-          timestamp: '14:23',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "Later in the sermon, we return to <span class='highlight'>John 3:16</span> to understand the depth of God's love. This verse shows us that God's love is universal - 'the world' - and also deeply personal.",
-          timestamp: '32:45',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: 'Understanding God\'s Love',
-      date: 'April 23, 2025',
-      occurrences: [
-        {
-          text: "There is no greater verse to understand the love of God than <span class='highlight'>John 3:16</span>. This verse encapsulates the entirety of the gospel in a single sentence.",
-          timestamp: '8:17',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: 'Salvation by Faith Alone',
-      date: 'April 15, 2025',
-      occurrences: [
-        {
-          text: "We see in <span class='highlight'>John 3:16</span> that salvation comes through belief - 'whoever believes in him shall not perish but have eternal life.' This aligns perfectly with our understanding of salvation by faith alone.",
-          timestamp: '19:52',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "When we compare <span class='highlight'>John 3:16</span> with Ephesians 2:8-9, we see the consistent message that salvation is a gift received through faith, not earned through works.",
-          timestamp: '27:31',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "The universal offer in <span class='highlight'>John 3:16</span> - 'whoever believes' - shows that salvation is available to all who put their faith in Christ, regardless of background, past sins, or present circumstances.",
-          timestamp: '42:05',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: 'The Trinity in Scripture',
-      date: 'March 28, 2025',
-      occurrences: [
-        {
-          text: "In <span class='highlight'>John 3:16</span>, we see two persons of the Trinity explicitly mentioned - God the Father who loved and gave, and God the Son who was given for our salvation.",
-          timestamp: '23:14',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: 'Eternal Life: Understanding Heaven',
-      date: 'March 15, 2025',
-      occurrences: [
-        {
-          text: "<span class='highlight'>John 3:16</span> promises 'eternal life' to believers. This is not just about duration of life, but a quality of life - God's own life shared with us forever.",
-          timestamp: '11:38',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "The contrast in <span class='highlight'>John 3:16</span> between 'perish' and 'eternal life' helps us understand the stakes of faith. These are the two ultimate destinations of humanity.",
-          timestamp: '29:54',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    }
-  ];
-  
-  // Populate sermon filter
-  populateSermonFilter(sermons);
-  
-  // Render occurrences
-  renderOccurrences(sermons);
-  
-  // Generate related references
-  generateRelatedReferences(reference);
-}
-
-function populateSermonFilter(sermons) {
-  const sermonFilter = document.getElementById('sermonFilter');
-  
-  if (sermonFilter) {
-    // Clear existing options except "All Sermons"
-    while (sermonFilter.options.length > 1) {
-      sermonFilter.remove(1);
-    }
-    
-    // Add sermon options
-    sermons.forEach(sermon => {
-      const option = document.createElement('option');
-      option.value = sermon.id;
-      option.textContent = sermon.title;
-      sermonFilter.appendChild(option);
-    });
-  }
-}
-
-function renderOccurrences(sermons) {
-  const occurrencesList = document.getElementById('occurrences-list');
-  
-  if (occurrencesList) {
-    // Clear loading state
-    occurrencesList.innerHTML = '';
-    
-    // Add sermon groups
-    sermons.forEach(sermon => {
-      const sermonGroup = document.createElement('div');
-      sermonGroup.className = 'sermon-group';
-      sermonGroup.setAttribute('data-sermon-id', sermon.id);
-      
-      // Add sermon title
-      const titleElement = document.createElement('h3');
-      titleElement.className = 'sermon-title';
-      titleElement.innerHTML = `${sermon.title} <span class="sermon-date">${sermon.date}</span>`;
-      
-      // Add occurrences
-      const occurrencesContainer = document.createElement('div');
-      occurrencesContainer.className = 'occurrence-items';
-      
-      sermon.occurrences.forEach(occurrence => {
-        const occurrenceItem = document.createElement('div');
-        occurrenceItem.className = 'occurrence-item';
-        occurrenceItem.setAttribute('data-video-id', occurrence.videoId);
-        occurrenceItem.setAttribute('data-timestamp', occurrence.timestamp);
-        
-        occurrenceItem.innerHTML = `
-          <div class="occurrence-text">${occurrence.text}</div>
-          <div class="occurrence-meta">
-            <div class="timestamp">Timestamp: ${occurrence.timestamp}</div>
-            <div class="video-link">Watch Video</div>
-          </div>
-        `;
-        
-        // Add click event to play video
-        occurrenceItem.addEventListener('click', function() {
-          openVideoModal(this.getAttribute('data-video-id'), this.getAttribute('data-timestamp'), sermon.title, occurrence.text);
-        });
-        
-        occurrencesContainer.appendChild(occurrenceItem);
-      });
-      
-      sermonGroup.appendChild(titleElement);
-      sermonGroup.appendChild(occurrencesContainer);
-      occurrencesList.appendChild(sermonGroup);
-    });
-  }
-}
-
-function openVideoModal(videoId, timestamp, sermonTitle, context) {
-  const videoModal = document.getElementById('videoModal');
-  const videoContainer = document.getElementById('videoContainer');
-  const videoModalTitle = document.getElementById('videoModalTitle');
-  const videoReferenceContext = document.getElementById('videoReferenceContext');
-  const openYoutubeBtn = document.getElementById('openYoutubeBtn');
-  
-  if (videoModal && videoContainer && videoModalTitle && videoReferenceContext && openYoutubeBtn) {
-    // Convert timestamp (MM:SS) to seconds
-    let startSeconds = 0;
-    if (timestamp.includes(':')) {
-      const parts = timestamp.split(':');
-      startSeconds = parseInt(parts[0]) * 60 + parseInt(parts[1]);
-    } else {
-      startSeconds = parseInt(timestamp);
-    }
-    
-    // Update modal title
-    videoModalTitle.textContent = `${sermonTitle} - ${timestamp}`;
-    
-    // Update context
-    videoReferenceContext.innerHTML = context;
-    
-    // Update YouTube button link
-    openYoutubeBtn.href = `https://www.youtube.com/watch?v=${videoId}&t=${startSeconds}`;
-    
-    // Create YouTube embed
-    videoContainer.innerHTML = `
-      <iframe 
-        src="https://www.youtube.com/embed/${videoId}?start=${startSeconds}&autoplay=1" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-        title="Sermon video at timestamp ${timestamp}">
-      </iframe>
-    `;
-    
-    // Open modal
-    openModal(videoModal);
-  }
-}
-
-function generateRelatedReferences(reference) {
-  // Extract book and chapter from the reference
-  let book = '';
-  let chapter = '';
-  
-  // Simple regex to extract book and chapter (e.g., "John 3:16" -> book="John", chapter="3")
-  const match = reference.match(/^(\d*\s*[A-Za-z]+)\s*(\d+)(?::\d+(?:-\d+)?)?$/);
-  
-  if (match) {
-    book = match[1];
-    chapter = match[2];
-    
-    // Generate related references based on same chapter
-    const relatedReferences = [
-      { reference: `${book} ${chapter}:1-5`, count: 8 },
-      { reference: `${book} ${chapter}:14-17`, count: 15 },
-      { reference: `${book} ${chapter}:36`, count: 6 },
-      { reference: `${book} ${chapter}`, count: 24 },
-      { reference: `${book} ${parseInt(chapter) + 1}:1-3`, count: 5 }
-    ];
-    
-    // Display related references
-    const relatedReferencesContainer = document.getElementById('related-references-list');
-    
-    if (relatedReferencesContainer) {
-      relatedReferencesContainer.innerHTML = `
-        <h3 class="section-header">Related References</h3>
-        <div class="reference-list">
-          ${relatedReferences.map(ref => `
-            <div class="reference-item" onclick="window.location.href='reference-viewer.html?reference=${encodeURIComponent(ref.reference)}'">
-              <span class="reference-name">${ref.reference}</span>
-              <span class="reference-count">${ref.count}</span>
-            </div>
-          `).join('')}
-        </div>
-      `;
-      
-      relatedReferencesContainer.style.display = 'block';
-    }
-  }
-}
-
-function filterOccurrences() {
-  const sermonFilter = document.getElementById('sermonFilter');
-  const sermonGroups = document.querySelectorAll('.sermon-group');
-  
-  if (sermonFilter && sermonGroups.length > 0) {
-    const selectedSermonId = sermonFilter.value;
-    
-    if (selectedSermonId === 'all') {
-      // Show all sermon groups
-      sermonGroups.forEach(group => {
-        group.style.display = '';
-      });
-    } else {
-      // Show only the selected sermon group
-      sermonGroups.forEach(group => {
-        if (group.getAttribute('data-sermon-id') === selectedSermonId) {
-          group.style.display = '';
-        } else {
-          group.style.display = 'none';
-        }
-      });
-    }
-    
-    // Check if any groups are visible
-    let visibleGroups = 0;
-    sermonGroups.forEach(group => {
-      if (group.style.display !== 'none') {
-        visibleGroups++;
-      }
-    });
-    
-    // Show/hide "no results" message
-    const noResultsElement = document.getElementById('no-results');
-    if (noResultsElement) {
-      noResultsElement.hidden = visibleGroups > 0;
-    }
-  }
-}
-
-function sortOccurrences(sortValue) {
-  const occurrencesList = document.getElementById('occurrences-list');
-  const sermonGroups = Array.from(document.querySelectorAll('.sermon-group'));
-  
-  if (occurrencesList && sermonGroups.length > 0) {
-    // Sort based on the selected option
-    switch (sortValue) {
-      case 'date-desc': // Most recent first
-        sermonGroups.sort((a, b) => {
-          const dateA = a.querySelector('.sermon-date').textContent;
-          const dateB = b.querySelector('.sermon-date').textContent;
-          return new Date(dateB) - new Date(dateA);
-        });
-        break;
-        
-      case 'date-asc': // Oldest first
-        sermonGroups.sort((a, b) => {
-          const dateA = a.querySelector('.sermon-date').textContent;
-          const dateB = b.querySelector('.sermon-date').textContent;
-          return new Date(dateA) - new Date(dateB);
-        });
-        break;
-        
-      case 'relevance': // Sort by number of occurrences
-        sermonGroups.sort((a, b) => {
-          const countA = a.querySelectorAll('.occurrence-item').length;
-          const countB = b.querySelectorAll('.occurrence-item').length;
-          return countB - countA;
-        });
-        break;
-    }
-    
-    // Re-append in the new order
-    sermonGroups.forEach(group => {
-      occurrencesList.appendChild(group);
-    });
-  }
-}
-
-function searchInOccurrences(query) {
-  if (!query) {
-    resetSearch();
-    return;
-  }
-  
-  query = query.toLowerCase();
-  
-  const occurrenceItems = document.querySelectorAll('.occurrence-item');
-  const sermonGroups = document.querySelectorAll('.sermon-group');
-  
-  let foundAny = false;
-  
-  // Search in each occurrence item
-  occurrenceItems.forEach(item => {
-    const textElement = item.querySelector('.occurrence-text');
-    if (textElement) {
-      const text = textElement.textContent.toLowerCase();
-      
-      if (text.includes(query)) {
-        // Show this item
-        item.style.display = '';
-        foundAny = true;
-        
-        // Highlight the matching text
-        const originalText = textElement.innerHTML;
-        const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\}')})`, 'gi');
-        textElement.innerHTML = originalText.replace(regex, '<mark>$1</mark>');
-      } else {
-        // Hide this item
-        item.style.display = 'none';
-      }
-    }
-  });
-  
-  // Show/hide sermon groups based on visible items
-  sermonGroups.forEach(group => {
-    const visibleItems = Array.from(group.querySelectorAll('.occurrence-item')).filter(item => {
-      return item.style.display !== 'none';
-    });
-    
-    group.style.display = visibleItems.length > 0 ? '' : 'none';
-  });
-  
-  // Show/hide "no results" message
-  const noResultsElement = document.getElementById('no-results');
-  if (noResultsElement) {
-    noResultsElement.hidden = foundAny;
-  }
-}
-
-function resetSearch() {
-  const occurrenceItems = document.querySelectorAll('.occurrence-item');
-  const sermonGroups = document.querySelectorAll('.sermon-group');
-  const noResultsElement = document.getElementById('no-results');
-  
-  // Show all items
-  occurrenceItems.forEach(item => {
-    item.style.display = '';
-    
-    // Remove highlights
-    const textElement = item.querySelector('.occurrence-text');
-    if (textElement) {
-      textElement.innerHTML = textElement.innerHTML.replace(/<mark>(.*?)<\/mark>/g, '$1');
-    }
-  });
-  
-  // Show all groups
-  sermonGroups.forEach(group => {
-    group.style.display = '';
-  });
-  
-  // Hide "no results" message
-  if (noResultsElement) {
-    noResultsElement.hidden = true;
-  }
-}
-
-function resetAllFilters() {
-  // Reset sermon filter
-  const sermonFilter = document.getElementById('sermonFilter');
-  if (sermonFilter) {
-    sermonFilter.value = 'all';
-  }
-  
-  // Reset sort option
-  const sortOption = document.getElementById('sortOption');
-  if (sortOption) {
-    sortOption.value = 'date-desc';
-  }
-  
-  // Reset search
-  const searchInput = document.getElementById('contextSearch');
-  const clearSearch = document.getElementById('clearSearch');
-  if (searchInput) {
-    searchInput.value = '';
-  }
-  if (clearSearch) {
-    clearSearch.classList.remove('visible');
-  }
-  
-  // Apply reset
-  resetSearch();
-  filterOccurrences();
-  sortOccurrences('date-desc');
-}
   
   /* Reference header */
   .reference-header {
@@ -1250,6 +737,520 @@ function resetAllFilters() {
 </style>
 
 <script>
+// Helper functions for modals
+function closeModal(modal) {
+  if (!modal) return;
+  
+  modal.hidden = true;
+  
+  // If it's the video modal, clear the video to stop playback
+  if (modal.id === 'videoModal') {
+    const videoContainer = document.getElementById('videoContainer');
+    if (videoContainer) {
+      videoContainer.innerHTML = '';
+    }
+  }
+}
+
+function openModal(modal) {
+  if (!modal) return;
+  modal.hidden = false;
+}
+
+function openShareModal() {
+  const shareModal = document.getElementById('shareModal');
+  const shareUrl = document.getElementById('shareUrl');
+  
+  if (shareModal && shareUrl) {
+    // Set the current URL as the share URL
+    shareUrl.value = window.location.href;
+    
+    // Open the modal
+    openModal(shareModal);
+    
+    // Select the URL text
+    setTimeout(() => {
+      shareUrl.select();
+    }, 100);
+  }
+}
+
+function copyReferenceToClipboard() {
+  const referenceTitle = document.getElementById('reference-title');
+  
+  if (referenceTitle) {
+    // Create a temporary textarea to copy from
+    const textarea = document.createElement('textarea');
+    textarea.value = referenceTitle.textContent;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    
+    // Change button text to show success
+    const copyButton = document.getElementById('copyReferenceBtn');
+    if (copyButton) {
+      const originalHTML = copyButton.innerHTML;
+      copyButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Copied
+      `;
+      
+      // Reset after 2 seconds
+      setTimeout(() => {
+        copyButton.innerHTML = originalHTML;
+      }, 2000);
+    }
+  }
+}
+
+// Mock data functions
+function initializeReferenceData() {
+  // Parse URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const reference = urlParams.get('reference') || 'John 3:16';
+  
+  // Update page title
+  document.title = `${reference} - Bible Reference Viewer`;
+  
+  // Update reference title and count
+  document.getElementById('reference-title').textContent = reference;
+  document.getElementById('reference-count').textContent = '12';
+  
+  // Generate sample data (in a real app, this would come from an API)
+  const sermons = [
+    {
+      id: 1,
+      title: 'The Gospel Message',
+      date: 'May 2, 2025',
+      occurrences: [
+        {
+          text: "And here we see in <span class='highlight'>John 3:16</span>, \"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.\" This is the essence of the gospel message, the heart of our faith.",
+          timestamp: '14:23',
+          videoId: 'dQw4w9WgXcQ'
+        },
+        {
+          text: "Later in the sermon, we return to <span class='highlight'>John 3:16</span> to understand the depth of God's love. This verse shows us that God's love is universal - 'the world' - and also deeply personal.",
+          timestamp: '32:45',
+          videoId: 'dQw4w9WgXcQ'
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: 'Understanding God\'s Love',
+      date: 'April 23, 2025',
+      occurrences: [
+        {
+          text: "There is no greater verse to understand the love of God than <span class='highlight'>John 3:16</span>. This verse encapsulates the entirety of the gospel in a single sentence.",
+          timestamp: '8:17',
+          videoId: 'dQw4w9WgXcQ'
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: 'Salvation by Faith Alone',
+      date: 'April 15, 2025',
+      occurrences: [
+        {
+          text: "We see in <span class='highlight'>John 3:16</span> that salvation comes through belief - 'whoever believes in him shall not perish but have eternal life.' This aligns perfectly with our understanding of salvation by faith alone.",
+          timestamp: '19:52',
+          videoId: 'dQw4w9WgXcQ'
+        },
+        {
+          text: "When we compare <span class='highlight'>John 3:16</span> with Ephesians 2:8-9, we see the consistent message that salvation is a gift received through faith, not earned through works.",
+          timestamp: '27:31',
+          videoId: 'dQw4w9WgXcQ'
+        },
+        {
+          text: "The universal offer in <span class='highlight'>John 3:16</span> - 'whoever believes' - shows that salvation is available to all who put their faith in Christ, regardless of background, past sins, or present circumstances.",
+          timestamp: '42:05',
+          videoId: 'dQw4w9WgXcQ'
+        }
+      ]
+    },
+    {
+      id: 4,
+      title: 'The Trinity in Scripture',
+      date: 'March 28, 2025',
+      occurrences: [
+        {
+          text: "In <span class='highlight'>John 3:16</span>, we see two persons of the Trinity explicitly mentioned - God the Father who loved and gave, and God the Son who was given for our salvation.",
+          timestamp: '23:14',
+          videoId: 'dQw4w9WgXcQ'
+        }
+      ]
+    },
+    {
+      id: 5,
+      title: 'Eternal Life: Understanding Heaven',
+      date: 'March 15, 2025',
+      occurrences: [
+        {
+          text: "<span class='highlight'>John 3:16</span> promises 'eternal life' to believers. This is not just about duration of life, but a quality of life - God's own life shared with us forever.",
+          timestamp: '11:38',
+          videoId: 'dQw4w9WgXcQ'
+        },
+        {
+          text: "The contrast in <span class='highlight'>John 3:16</span> between 'perish' and 'eternal life' helps us understand the stakes of faith. These are the two ultimate destinations of humanity.",
+          timestamp: '29:54',
+          videoId: 'dQw4w9WgXcQ'
+        }
+      ]
+    }
+  ];
+  
+  // Populate sermon filter
+  populateSermonFilter(sermons);
+  
+  // Render occurrences
+  renderOccurrences(sermons);
+  
+  // Generate related references
+  generateRelatedReferences(reference);
+}
+
+function populateSermonFilter(sermons) {
+  const sermonFilter = document.getElementById('sermonFilter');
+  
+  if (sermonFilter) {
+    // Clear existing options except "All Sermons"
+    while (sermonFilter.options.length > 1) {
+      sermonFilter.remove(1);
+    }
+    
+    // Add sermon options
+    sermons.forEach(sermon => {
+      const option = document.createElement('option');
+      option.value = sermon.id;
+      option.textContent = sermon.title;
+      sermonFilter.appendChild(option);
+    });
+  }
+}
+
+function renderOccurrences(sermons) {
+  const occurrencesList = document.getElementById('occurrences-list');
+  
+  if (occurrencesList) {
+    // Clear loading state
+    occurrencesList.innerHTML = '';
+    
+    // Add sermon groups
+    sermons.forEach(sermon => {
+      const sermonGroup = document.createElement('div');
+      sermonGroup.className = 'sermon-group';
+      sermonGroup.setAttribute('data-sermon-id', sermon.id);
+      
+      // Add sermon title
+      const titleElement = document.createElement('h3');
+      titleElement.className = 'sermon-title';
+      titleElement.innerHTML = `${sermon.title} <span class="sermon-date">${sermon.date}</span>`;
+      
+      // Add occurrences
+      const occurrencesContainer = document.createElement('div');
+      occurrencesContainer.className = 'occurrence-items';
+      
+      sermon.occurrences.forEach(occurrence => {
+        const occurrenceItem = document.createElement('div');
+        occurrenceItem.className = 'occurrence-item';
+        occurrenceItem.setAttribute('data-video-id', occurrence.videoId);
+        occurrenceItem.setAttribute('data-timestamp', occurrence.timestamp);
+        
+        occurrenceItem.innerHTML = `
+          <div class="occurrence-text">${occurrence.text}</div>
+          <div class="occurrence-meta">
+            <div class="timestamp">Timestamp: ${occurrence.timestamp}</div>
+            <div class="video-link">Watch Video</div>
+          </div>
+        `;
+        
+        // Add click event to play video
+        occurrenceItem.addEventListener('click', function() {
+          openVideoModal(this.getAttribute('data-video-id'), this.getAttribute('data-timestamp'), sermon.title, occurrence.text);
+        });
+        
+        occurrencesContainer.appendChild(occurrenceItem);
+      });
+      
+      sermonGroup.appendChild(titleElement);
+      sermonGroup.appendChild(occurrencesContainer);
+      occurrencesList.appendChild(sermonGroup);
+    });
+  }
+}
+
+function openVideoModal(videoId, timestamp, sermonTitle, context) {
+  const videoModal = document.getElementById('videoModal');
+  const videoContainer = document.getElementById('videoContainer');
+  const videoModalTitle = document.getElementById('videoModalTitle');
+  const videoReferenceContext = document.getElementById('videoReferenceContext');
+  const openYoutubeBtn = document.getElementById('openYoutubeBtn');
+  
+  if (videoModal && videoContainer && videoModalTitle && videoReferenceContext && openYoutubeBtn) {
+    // Convert timestamp (MM:SS) to seconds
+    let startSeconds = 0;
+    if (timestamp.includes(':')) {
+      const parts = timestamp.split(':');
+      startSeconds = parseInt(parts[0]) * 60 + parseInt(parts[1]);
+    } else {
+      startSeconds = parseInt(timestamp);
+    }
+    
+    // Update modal title
+    videoModalTitle.textContent = `${sermonTitle} - ${timestamp}`;
+    
+    // Update context
+    videoReferenceContext.innerHTML = context;
+    
+    // Update YouTube button link
+    openYoutubeBtn.href = `https://www.youtube.com/watch?v=${videoId}&t=${startSeconds}`;
+    
+    // Create YouTube embed
+    videoContainer.innerHTML = `
+      <iframe 
+        src="https://www.youtube.com/embed/${videoId}?start=${startSeconds}&autoplay=1" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        title="Sermon video at timestamp ${timestamp}">
+      </iframe>
+    `;
+    
+    // Open modal
+    openModal(videoModal);
+  }
+}
+
+function generateRelatedReferences(reference) {
+  // Extract book and chapter from the reference
+  let book = '';
+  let chapter = '';
+  
+  // Simple regex to extract book and chapter (e.g., "John 3:16" -> book="John", chapter="3")
+  const match = reference.match(/^(\d*\s*[A-Za-z]+)\s*(\d+)(?::\d+(?:-\d+)?)?$/);
+  
+  if (match) {
+    book = match[1];
+    chapter = match[2];
+    
+    // Generate related references based on same chapter
+    const relatedReferences = [
+      { reference: `${book} ${chapter}:1-5`, count: 8 },
+      { reference: `${book} ${chapter}:14-17`, count: 15 },
+      { reference: `${book} ${chapter}:36`, count: 6 },
+      { reference: `${book} ${chapter}`, count: 24 },
+      { reference: `${book} ${parseInt(chapter) + 1}:1-3`, count: 5 }
+    ];
+    
+    // Display related references
+    const relatedReferencesContainer = document.getElementById('related-references-list');
+    
+    if (relatedReferencesContainer) {
+      relatedReferencesContainer.innerHTML = `
+        <h3 class="section-header">Related References</h3>
+        <div class="reference-list">
+          ${relatedReferences.map(ref => `
+            <div class="reference-item" onclick="window.location.href='reference-viewer.html?reference=${encodeURIComponent(ref.reference)}'">
+              <span class="reference-name">${ref.reference}</span>
+              <span class="reference-count">${ref.count}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      
+      relatedReferencesContainer.style.display = 'block';
+    }
+  }
+}
+
+function filterOccurrences() {
+  const sermonFilter = document.getElementById('sermonFilter');
+  const sermonGroups = document.querySelectorAll('.sermon-group');
+  
+  if (sermonFilter && sermonGroups.length > 0) {
+    const selectedSermonId = sermonFilter.value;
+    
+    if (selectedSermonId === 'all') {
+      // Show all sermon groups
+      sermonGroups.forEach(group => {
+        group.style.display = '';
+      });
+    } else {
+      // Show only the selected sermon group
+      sermonGroups.forEach(group => {
+        if (group.getAttribute('data-sermon-id') === selectedSermonId) {
+          group.style.display = '';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+    }
+    
+    // Check if any groups are visible
+    let visibleGroups = 0;
+    sermonGroups.forEach(group => {
+      if (group.style.display !== 'none') {
+        visibleGroups++;
+      }
+    });
+    
+    // Show/hide "no results" message
+    const noResultsElement = document.getElementById('no-results');
+    if (noResultsElement) {
+      noResultsElement.hidden = visibleGroups > 0;
+    }
+  }
+}
+
+function sortOccurrences(sortValue) {
+  const occurrencesList = document.getElementById('occurrences-list');
+  const sermonGroups = Array.from(document.querySelectorAll('.sermon-group'));
+  
+  if (occurrencesList && sermonGroups.length > 0) {
+    // Sort based on the selected option
+    switch (sortValue) {
+      case 'date-desc': // Most recent first
+        sermonGroups.sort((a, b) => {
+          const dateA = a.querySelector('.sermon-date').textContent;
+          const dateB = b.querySelector('.sermon-date').textContent;
+          return new Date(dateB) - new Date(dateA);
+        });
+        break;
+        
+      case 'date-asc': // Oldest first
+        sermonGroups.sort((a, b) => {
+          const dateA = a.querySelector('.sermon-date').textContent;
+          const dateB = b.querySelector('.sermon-date').textContent;
+          return new Date(dateA) - new Date(dateB);
+        });
+        break;
+        
+      case 'relevance': // Sort by number of occurrences
+        sermonGroups.sort((a, b) => {
+          const countA = a.querySelectorAll('.occurrence-item').length;
+          const countB = b.querySelectorAll('.occurrence-item').length;
+          return countB - countA;
+        });
+        break;
+    }
+    
+    // Re-append in the new order
+    sermonGroups.forEach(group => {
+      occurrencesList.appendChild(group);
+    });
+  }
+}
+
+function searchInOccurrences(query) {
+  if (!query) {
+    resetSearch();
+    return;
+  }
+  
+  query = query.toLowerCase();
+  
+  const occurrenceItems = document.querySelectorAll('.occurrence-item');
+  const sermonGroups = document.querySelectorAll('.sermon-group');
+  
+  let foundAny = false;
+  
+  // Search in each occurrence item
+  occurrenceItems.forEach(item => {
+    const textElement = item.querySelector('.occurrence-text');
+    if (textElement) {
+      const text = textElement.textContent.toLowerCase();
+      
+      if (text.includes(query)) {
+        // Show this item
+        item.style.display = '';
+        foundAny = true;
+        
+        // Highlight the matching text
+        const originalText = textElement.innerHTML;
+        const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        textElement.innerHTML = originalText.replace(regex, '<mark>$1</mark>');
+      } else {
+        // Hide this item
+        item.style.display = 'none';
+      }
+    }
+  });
+  
+  // Show/hide sermon groups based on visible items
+  sermonGroups.forEach(group => {
+    const visibleItems = Array.from(group.querySelectorAll('.occurrence-item')).filter(item => {
+      return item.style.display !== 'none';
+    });
+    
+    group.style.display = visibleItems.length > 0 ? '' : 'none';
+  });
+  
+  // Show/hide "no results" message
+  const noResultsElement = document.getElementById('no-results');
+  if (noResultsElement) {
+    noResultsElement.hidden = foundAny;
+  }
+}
+
+function resetSearch() {
+  const occurrenceItems = document.querySelectorAll('.occurrence-item');
+  const sermonGroups = document.querySelectorAll('.sermon-group');
+  const noResultsElement = document.getElementById('no-results');
+  
+  // Show all items
+  occurrenceItems.forEach(item => {
+    item.style.display = '';
+    
+    // Remove highlights
+    const textElement = item.querySelector('.occurrence-text');
+    if (textElement) {
+      textElement.innerHTML = textElement.innerHTML.replace(/<mark>(.*?)<\/mark>/g, '$1');
+    }
+  });
+  
+  // Show all groups
+  sermonGroups.forEach(group => {
+    group.style.display = '';
+  });
+  
+  // Hide "no results" message
+  if (noResultsElement) {
+    noResultsElement.hidden = true;
+  }
+}
+
+function resetAllFilters() {
+  // Reset sermon filter
+  const sermonFilter = document.getElementById('sermonFilter');
+  if (sermonFilter) {
+    sermonFilter.value = 'all';
+  }
+  
+  // Reset sort option
+  const sortOption = document.getElementById('sortOption');
+  if (sortOption) {
+    sortOption.value = 'date-desc';
+  }
+  
+  // Reset search
+  const searchInput = document.getElementById('contextSearch');
+  const clearSearch = document.getElementById('clearSearch');
+  if (searchInput) {
+    searchInput.value = '';
+  }
+  if (clearSearch) {
+    clearSearch.classList.remove('visible');
+  }
+  
+  // Apply reset
+  resetSearch();
+  filterOccurrences();
+  sortOccurrences('date-desc');
+}
+
+// Initialize event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Simulate loading progress
   const progressBar = document.getElementById('loadingProgress');
