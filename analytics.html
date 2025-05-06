@@ -7,16 +7,12 @@ hero_subtitle: EXPLORING SCRIPTURE IN SERMONS
 hero_description: Discover how Bible passages are referenced throughout our sermon library.
 quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the World"
 use_charts: true
-custom_js: analytics-optimized
-custom_css: analytics-hci
+custom_js: analytics-simplified
 ---
 
-<!-- Skip link for keyboard accessibility -->
-<a href="#analyticsContent" class="skip-link">Skip to analytics content</a>
-
-<div class="container">
-  <div id="loadingSection" class="text-center" aria-live="polite">
-    <div class="loading-spinner" role="progressbar" aria-label="Loading analytics data"></div>
+<div class="container analytics-container">
+  <div id="loadingSection" class="text-center">
+    <div class="loading-spinner"></div>
     <p class="loading-text">Loading analytics data...</p>
     <div class="progress-container">
       <div class="progress-bar" id="loadingProgress"></div>
@@ -26,34 +22,17 @@ custom_css: analytics-hci
   <div id="analyticsContent" style="display: none;">
     <!-- Page Introduction -->
     <div class="page-intro">
-      <h2 class="content-section-header">Bible Reference Analytics</h2>
+      <h2 class="section-header">Bible Reference Analytics</h2>
       <p>This dashboard visualizes Bible references across our sermon library. Explore which books, chapters, and verses are most frequently referenced in our pastor's teachings.</p>
     </div>
     
-    <!-- Accessibility Controls -->
-    <div class="accessibility-controls" aria-label="Accessibility options">
-      <button id="highContrastToggle" class="accessibility-button" aria-pressed="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 22c5.5 0 10-4.5 10-10h-10v10z"></path><path d="M12 2C6.5 2 2 6.5 2 12h10V2z"></path></svg>
-        High Contrast
-      </button>
-      <button id="largeFontToggle" class="accessibility-button" aria-pressed="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
-        Larger Text
-      </button>
-      <button id="reduceMotionToggle" class="accessibility-button" aria-pressed="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.7 21a2 2 0 0 1-3.4 0"></path><path d="M19.6 10l-1.2-3.8A8 8 0 0 0 6.3 7.1L4 12H2a2 2 0 0 0 0 4h2.3l2.7-5m5 11l3.7-9h4.3a2 2 0 0 0 0-4h-3.9l1.3-4"></path></svg>
-        Reduce Motion
-      </button>
-    </div>
-    
-    <!-- Time Filter with improved labeling -->
+    <!-- Time Filter -->
     <div class="filter-controls">
       <div class="content-card">
-        <h3>Filter Analytics by Time Period</h3>
-        <p>Select a specific timeframe to focus your analysis on sermon data from that period.</p>
+        <h3>Filter by Time Period</h3>
         <div class="filter-form-group">
-          <label for="timeFilterSelect" class="filter-label">Time period:</label>
-          <select id="timeFilterSelect" class="form-control" aria-label="Select time period">
+          <label for="timeFilterSelect">Time period:</label>
+          <select id="timeFilterSelect" class="form-control">
             <option value="all">All Time</option>
             <!-- Dynamically populated by JavaScript -->
           </select>
@@ -62,24 +41,24 @@ custom_css: analytics-hci
     </div>
     
     <!-- Key Statistics -->
-    <h2 class="content-section-header" id="keyStatsHeading">Key Statistics</h2>
-    <div class="stats-cards" aria-labelledby="keyStatsHeading">
+    <h2 class="section-header" id="keyStatsHeading">Key Statistics</h2>
+    <div class="stats-cards">
       <div class="stat-card" tabindex="0">
-        <div class="stat-icon" aria-hidden="true">
+        <div class="stat-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
         </div>
         <div class="stat-value" id="totalSermonsValue">...</div>
         <div class="stat-label">Total Sermons</div>
       </div>
       <div class="stat-card" tabindex="0">
-        <div class="stat-icon" aria-hidden="true">
+        <div class="stat-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"></path><path d="M8 7h6"></path><path d="M8 11h8"></path><path d="M8 15h6"></path></svg>
         </div>
         <div class="stat-value" id="totalReferencesValue">...</div>
         <div class="stat-label">Bible References</div>
       </div>
       <div class="stat-card" tabindex="0">
-        <div class="stat-icon" aria-hidden="true">
+        <div class="stat-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8l5 5 5-5"></path><path d="M12 16l5-5 5 5"></path><path d="M2 12h20"></path></svg>
         </div>
         <div class="stat-value" id="topBookValue">...</div>
@@ -87,12 +66,12 @@ custom_css: analytics-hci
       </div>
     </div>
     
-    <!-- Bible Books Chart with Accessibility Enhancements -->
-    <h2 class="content-section-header" id="booksChartHeading">Bible Book References</h2>
+    <!-- Bible Books Chart -->
+    <h2 class="section-header" id="booksChartHeading">Bible Book References</h2>
     <div class="analytics-card">
       <h3>Frequency of Bible Book Citations</h3>
       <p class="analytics-description">Explore which books of the Bible are most frequently referenced across all sermons. Click on any bar to see detailed references for that book.</p>
-      <div class="chart-container" role="img" aria-labelledby="booksChartHeading">
+      <div class="chart-container">
         <canvas id="bibleReferencesChart"></canvas>
       </div>
       <p class="chart-instruction">Click on any book bar to view detailed references.</p>
@@ -117,72 +96,50 @@ custom_css: analytics-hci
       </div>
     </div>
     
-    <!-- Testament & Chapters Section with improved layout -->
-    <h2 class="content-section-header" id="detailedAnalysisHeading">Detailed Reference Analysis</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="analytics-card">
-          <h3>Testament Distribution</h3>
-          <p class="analytics-description">Proportion of Old vs. New Testament references in the sermon library. The chart shows the percentage breakdown of references by testament.</p>
-          <div class="chart-container" role="img" aria-label="Pie chart showing the distribution of references between Old Testament and New Testament">
-            <canvas id="testamentChart"></canvas>
-          </div>
-          <div id="testamentPercentages" class="chart-summary" aria-live="polite">
-            <!-- Populated by JavaScript -->
-          </div>
+    <!-- Testament & Chapters Section -->
+    <h2 class="section-header" id="detailedAnalysisHeading">Detailed Reference Analysis</h2>
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <h3>Testament Distribution</h3>
+        <p class="analytics-description">Proportion of Old vs. New Testament references in the sermon library.</p>
+        <div class="chart-container">
+          <canvas id="testamentChart"></canvas>
         </div>
+        <div id="testamentPercentages" class="chart-summary"></div>
       </div>
-      <div class="col-md-6">
-        <div class="analytics-card">
-          <h3>Top Chapters Referenced</h3>
-          <p class="analytics-description">Most frequently cited Bible chapters across the sermon library. Click on any chapter to see all occurrences.</p>
-          <div id="topChaptersContainer">
-            <div class="reference-list" id="topChaptersList" tabindex="0" role="list" aria-label="Top referenced Bible chapters">
-              <!-- Populated by JavaScript -->
-            </div>
-          </div>
-          <div class="keyboard-hint">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><path d="M6 8h4"></path><path d="M10 8v8"></path><path d="M14 8h4"></path><path d="M16 12h-2.5"></path></svg>
-            <span>Press Tab to navigate references, Enter to select</span>
+      <div class="analytics-card">
+        <h3>Top Chapters Referenced</h3>
+        <p class="analytics-description">Most frequently cited Bible chapters across the sermon library. Click on any chapter to see all occurrences.</p>
+        <div id="topChaptersContainer">
+          <div class="reference-list" id="topChaptersList">
+            <!-- Populated by JavaScript -->
           </div>
         </div>
       </div>
     </div>
     
-    <!-- Actions Section -->
+    <!-- Actions & YouTube Link Section -->
     <div class="actions-section">
-      <h3>Additional Actions</h3>
+      <h3>Additional Resources</h3>
       <div class="action-buttons">
         <a href="reference-viewer.html" class="action-button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
           Browse All References
         </a>
-        <button id="printAnalytics" class="action-button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
-          Print Analytics Report
-        </button>
         <button id="downloadCSV" class="action-button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           Download CSV Data
         </button>
+        <a href="https://www.youtube.com/c/FellowshipBaptistChurch" target="_blank" class="action-button youtube-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          Visit YouTube Channel
+        </a>
       </div>
     </div>
-    
-    <!-- Recent Sermons Section -->
-    <h2 class="content-section-header">Recent Sermons</h2>
-    <div class="analytics-card">
-      <h3>Latest Messages from Fellowship Baptist Church</h3>
-      <p class="analytics-description">Browse the most recent sermons from our church library.</p>
-      <div id="recentSermonsContainer" aria-live="polite">
-        <div class="loading-spinner"></div>
-        <p class="text-center">Loading sermon data...</p>
-      </div>
-    </div>
-    
   </div>
   
-  <!-- Error Section with improved error handling -->
-  <div id="errorSection" style="display: none;" aria-live="assertive">
+  <!-- Error Section -->
+  <div id="errorSection" style="display: none;">
     <div class="analytics-card text-center">
       <div class="error-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -190,103 +147,166 @@ custom_css: analytics-hci
       <h2>Error Loading Data</h2>
       <p id="errorMessage">Sorry, there was an error loading the analytics data. Please try again later.</p>
       <button id="retryButton" class="btn btn-primary">Retry</button>
-      <div class="error-details">
-        <button id="showErrorDetails" class="btn btn-sm">Show Technical Details</button>
-        <div id="errorDetailsContent" hidden>
-          <pre id="errorStack"></pre>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Keyboard Shortcuts Helper (hidden by default) -->
-  <div id="keyboardShortcutsPanel" class="keyboard-shortcuts-panel" hidden>
-    <div class="panel-header">
-      <h3>Keyboard Shortcuts</h3>
-      <button class="close-panel" aria-label="Close keyboard shortcuts panel">&times;</button>
-    </div>
-    <div class="panel-body">
-      <ul>
-        <li><kbd>?</kbd> - Show/hide keyboard shortcuts</li>
-        <li><kbd>Tab</kbd> - Navigate through interactive elements</li>
-        <li><kbd>Enter</kbd> or <kbd>Space</kbd> - Activate the selected element</li>
-        <li><kbd>Alt</kbd> + <kbd>P</kbd> - Print analytics report</li>
-        <li><kbd>Alt</kbd> + <kbd>D</kbd> - Download CSV data</li>
-        <li><kbd>Alt</kbd> + <kbd>B</kbd> - Browse all references</li>
-        <li><kbd>Esc</kbd> - Close modal dialogs</li>
-      </ul>
     </div>
   </div>
 </div>
 
-<!-- Include the simplified recent sermons script -->
-<script src="{{ '/assets/js/simplified-recent-sermons.js' | relative_url }}"></script>
-
-<!-- HCI-enhanced CSS -->
 <style>
-  /* Skip link for keyboard accessibility */
-  .skip-link {
+  /* Core styles for the analytics page */
+  .analytics-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .section-header {
+    margin: 2rem 0 1rem;
+    color: var(--color-primary, #2ea3f2);
+    font-size: 1.75rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .section-header::after {
+    content: '';
     position: absolute;
-    top: -40px;
+    bottom: 0;
     left: 0;
-    padding: 8px 16px;
-    background: var(--color-primary);
-    color: white;
-    z-index: 1000;
-    transition: top 0.3s;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-primary, #2ea3f2);
   }
   
-  .skip-link:focus {
-    top: 0;
-  }
-  
-  /* Enhanced filter controls */
-  .filter-controls {
+  .page-intro {
     margin-bottom: 2rem;
   }
   
-  .filter-form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  /* Stats cards */
+  .stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
   
-  @media (min-width: 768px) {
-    .filter-form-group {
-      flex-direction: row;
-      align-items: center;
-    }
-    
-    .filter-label {
-      min-width: 100px;
-    }
+  .stat-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
-  /* Accessibility controls */
-  .accessibility-controls {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.09);
   }
   
-  .accessibility-button {
-    display: flex;
+  .stat-icon {
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    background-color: rgba(46, 163, 242, 0.1);
+    color: var(--color-primary, #2ea3f2);
   }
   
-  .accessibility-button[aria-pressed="true"] {
-    background-color: var(--color-primary);
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-heading, #333);
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Analytics cards */
+  .analytics-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+  }
+  
+  .analytics-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--color-heading, #333);
+  }
+  
+  .analytics-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    height: 400px;
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .chart-instruction {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 1rem;
+  }
+  
+  /* Grid layout for detailed analysis */
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Reference list styling */
+  .reference-list {
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+  }
+  
+  .reference-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+  }
+  
+  .reference-item:last-child {
+    border-bottom: none;
+  }
+  
+  .reference-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .reference-name {
+    font-weight: 500;
+    color: var(--color-heading, #333);
+  }
+  
+  .reference-count {
+    background-color: var(--color-primary, #2ea3f2);
     color: white;
-    border-color: var(--color-primary);
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
   
   /* Chart data table */
@@ -295,22 +315,16 @@ custom_css: analytics-hci
     margin-top: 1rem;
   }
   
-  .chart-data-table {
-    margin-top: 1.5rem;
-    overflow-x: auto;
-  }
-  
   .data-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
+    margin-top: 1rem;
   }
   
   .data-table th, 
   .data-table td {
     padding: 0.75rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid #eee;
     text-align: left;
   }
   
@@ -323,38 +337,19 @@ custom_css: analytics-hci
     background-color: #f9f9f9;
   }
   
-  /* Chart summary */
-  .chart-summary {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.95rem;
-  }
-  
-  /* Keyboard hint */
-  .keyboard-hint {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 0.75rem;
-    justify-content: center;
-  }
-  
-  /* Improved actions section */
+  /* Actions section */
   .actions-section {
-    margin: 2rem 0;
-    padding: 1.5rem;
     background-color: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid var(--color-primary);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
   }
   
   .action-buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
-    flex-wrap: wrap;
   }
   
   .action-button {
@@ -363,9 +358,9 @@ custom_css: analytics-hci
     gap: 0.75rem;
     padding: 0.75rem 1.25rem;
     background-color: white;
-    border: 1px solid var(--color-border);
+    border: 1px solid #eee;
     border-radius: 8px;
-    color: var(--color-text);
+    color: var(--color-text, #333);
     text-decoration: none;
     transition: all 0.2s ease;
     cursor: pointer;
@@ -373,318 +368,75 @@ custom_css: analytics-hci
   }
   
   .action-button:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
   
   .action-button svg {
-    color: var(--color-primary);
+    color: var(--color-primary, #2ea3f2);
   }
   
-  /* Feedback section */
-  .feedback-section {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background-color: #f0f7ff;
-    border-radius: 8px;
-    text-align: center;
+  .youtube-link {
+    background-color: #f9f9f9;
   }
   
-  /* Modal */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+  .youtube-link svg {
+    color: #ff0000;
   }
   
-  .modal-content {
-    background-color: white;
-    border-radius: 8px;
-    max-width: 90%;
-    width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  /* Loading spinner and error section */
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-primary, #2ea3f2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
   }
   
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--color-border);
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
   
-  .modal-body {
-    padding: 1.5rem;
-  }
-  
-  .close-modal {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-  }
-  
-  /* Form styles */
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: inherit;
-  }
-  
-  .form-group textarea {
-    resize: vertical;
-  }
-  
-  .form-group small {
-    display: block;
-    margin-top: 0.25rem;
-    color: #666;
-    font-size: 0.85rem;
-  }
-  
-  .form-actions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: flex-end;
-    margin-top: 1.5rem;
-  }
-  
-  /* Enhanced error section */
-  #errorSection .analytics-card {
-    border-left: 4px solid #d32f2f;
-  }
-  
-  .error-icon {
+  .loading-text {
     margin-bottom: 1rem;
-    color: #d32f2f;
-  }
-  
-  .error-details {
-    margin-top: 1.5rem;
-  }
-  
-  #errorStack {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    font-family: monospace;
-    white-space: pre-wrap;
-    word-break: break-all;
-    max-height: 200px;
-    overflow-y: auto;
-  }
-  
-  /* Keyboard shortcuts panel */
-  .keyboard-shortcuts-panel {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    z-index: 1001;
-    width: 350px;
-    max-width: 90%;
-  }
-  
-  .panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-  
-  .close-panel {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
     color: #666;
   }
   
-  .panel-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .panel-body li {
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .panel-body li:last-child {
-    border-bottom: none;
-  }
-  
-  kbd {
-    display: inline-block;
-    padding: 0.15rem 0.4rem;
-    font-size: 0.85rem;
-    font-family: monospace;
-    color: #333;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
-  }
-  
-  /* Progress indicator */
   .progress-container {
-    height: 6px;
+    height: 4px;
     width: 80%;
-    max-width: 400px;
+    max-width: 300px;
     background-color: #f0f0f0;
-    border-radius: 3px;
-    margin: 1rem auto;
+    border-radius: 2px;
+    margin: 0 auto 2rem;
     overflow: hidden;
   }
   
   .progress-bar {
     height: 100%;
     width: 0;
-    background-color: var(--color-primary);
+    background-color: var(--color-primary, #2ea3f2);
     transition: width 0.4s ease;
   }
   
-  /* High contrast mode */
-  body.high-contrast {
-    --color-primary: #0057b7;
-    --color-text: #000000;
-    --color-heading: #000000;
-    --color-border: #000000;
-    --color-bg-light: #ffffff;
+  .error-icon {
+    color: #d32f2f;
+    margin-bottom: 1rem;
   }
   
-  body.high-contrast .stat-card,
-  body.high-contrast .analytics-card,
-  body.high-contrast .content-card {
-    background-color: #ffffff;
-    border: 2px solid #000000;
-    box-shadow: none;
-  }
-  
-  body.high-contrast .reference-item {
-    border-bottom: 2px solid #000000;
-  }
-  
-  body.high-contrast .reference-count {
-    background-color: #0057b7;
-    color: #ffffff;
-  }
-  
-  /* Large text mode */
-  body.large-text {
-    font-size: 120%;
-    line-height: 1.6;
-  }
-  
-  body.large-text h1 { font-size: 2.1rem; }
-  body.large-text h2 { font-size: 1.8rem; }
-  body.large-text h3 { font-size: 1.5rem; }
-  body.large-text .stat-value { font-size: 3rem; }
-  
-  /* Reduced motion mode */
-  body.reduced-motion .stat-card:hover,
-  body.reduced-motion .analytics-card:hover,
-  body.reduced-motion .action-button:hover,
-  body.reduced-motion .reference-item:hover {
-    transform: none;
-  }
-  
-  body.reduced-motion *,
-  body.reduced-motion *::before,
-  body.reduced-motion *::after {
-    animation-duration: 0.001s !important;
-    animation-delay: 0.001s !important;
-    transition-duration: 0.001s !important;
-    transition-delay: 0.001s !important;
-  }
-  
-  /* Print styles */
-  @media print {
-    .accessibility-controls,
-    .filter-controls,
-    .action-buttons,
-    .feedback-section,
-    .chart-data-table-toggle,
-    .keyboard-hint {
-      display: none !important;
-    }
-    
-    .analytics-card {
-      break-inside: avoid;
-      page-break-inside: avoid;
-      border: 1px solid #ddd !important;
-      box-shadow: none !important;
-    }
-    
-    .stat-card {
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-    
-    .chart-container {
-      height: 350px !important;
-    }
-    
-    .chart-data-table {
-      display: block !important;
-    }
-    
-    body {
-      font-size: 12pt;
-    }
-    
-    .container {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-  }
-  
-  /* Focus styles */
-  a:focus, button:focus, input:focus, select:focus, textarea:focus {
-    outline: 3px solid rgba(34, 132, 197, 0.5);
-    outline-offset: 2px;
-  }
-  
-  /* Mobile responsiveness for controls */
+  /* Responsive adjustments */
   @media (max-width: 767px) {
+    .stats-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .analytics-grid {
+      grid-template-columns: 1fr;
+    }
+    
     .action-buttons {
       flex-direction: column;
     }
@@ -693,236 +445,264 @@ custom_css: analytics-hci
       width: 100%;
     }
     
-    .accessibility-controls {
-      justify-content: center;
+    .chart-container {
+      height: 300px;
     }
   }
 </style>
 
-<!-- Additional JavaScript for HCI enhancements -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize accessibility controls
-    initializeAccessibilityControls();
-    
-    // Initialize keyboard shortcuts
-    initializeKeyboardShortcuts();
-    
-    // Initialize modal functionality
-    initializeModals();
-    
-    // Initialize error details toggle
-    initializeErrorDetails();
-    
-    // Initialize data table functionality
-    initializeDataTable();
-    
-    // Initialize print functionality
-    initializePrintFunctionality();
-    
-    // Initialize CSV download
-    initializeCSVDownload();
-  });
-  
-  // Initialize accessibility controls
-  function initializeAccessibilityControls() {
-    const highContrastToggle = document.getElementById('highContrastToggle');
-    const largeFontToggle = document.getElementById('largeFontToggle');
-    const reduceMotionToggle = document.getElementById('reduceMotionToggle');
-    
-    // Check saved preferences
-    if (localStorage.getItem('highContrast') === 'true') {
-      document.body.classList.add('high-contrast');
-      highContrastToggle.setAttribute('aria-pressed', 'true');
+document.addEventListener('DOMContentLoaded', function() {
+  // Simulate loading progress
+  const progressBar = document.getElementById('loadingProgress');
+  let progress = 0;
+  const progressInterval = setInterval(() => {
+    progress += 5;
+    if (progressBar) progressBar.style.width = `${progress}%`;
+    if (progress >= 100) {
+      clearInterval(progressInterval);
+      // Hide loading, show content
+      document.getElementById('loadingSection').style.display = 'none';
+      document.getElementById('analyticsContent').style.display = 'block';
+      // Initialize charts
+      initCharts();
     }
-    
-    if (localStorage.getItem('largeFont') === 'true') {
-      document.body.classList.add('large-text');
-      largeFontToggle.setAttribute('aria-pressed', 'true');
-    }
-    
-    if (localStorage.getItem('reduceMotion') === 'true') {
-      document.body.classList.add('reduced-motion');
-      reduceMotionToggle.setAttribute('aria-pressed', 'true');
-    }
-    
-    // Add event listeners
-    highContrastToggle.addEventListener('click', function() {
-      const isActive = this.getAttribute('aria-pressed') === 'true';
-      this.setAttribute('aria-pressed', !isActive);
-      document.body.classList.toggle('high-contrast');
-      localStorage.setItem('highContrast', !isActive);
+  }, 100);
+  
+  // Initialize data table toggle
+  const showTableButton = document.getElementById('showChartDataTable');
+  const chartDataTable = document.getElementById('chartDataTable');
+  
+  if (showTableButton && chartDataTable) {
+    showTableButton.addEventListener('click', function() {
+      const isHidden = chartDataTable.hidden;
+      chartDataTable.hidden = !isHidden;
+      this.textContent = isHidden ? 'Hide Data Table' : 'View as Data Table';
     });
-    
-    largeFontToggle.addEventListener('click', function() {
-      const isActive = this.getAttribute('aria-pressed') === 'true';
-      this.setAttribute('aria-pressed', !isActive);
-      document.body.classList.toggle('large-text');
-      localStorage.setItem('largeFont', !isActive);
-    });
-    
-    reduceMotionToggle.addEventListener('click', function() {
-      const isActive = this.getAttribute('aria-pressed') === 'true';
-      this.setAttribute('aria-pressed', !isActive);
-      document.body.classList.toggle('reduced-motion');
-      localStorage.setItem('reduceMotion', !isActive);
-    });
-    
-    // Check system preference for reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.body.classList.add('reduced-motion');
-      reduceMotionToggle.setAttribute('aria-pressed', 'true');
-    }
   }
   
-  // Initialize keyboard shortcuts
-  function initializeKeyboardShortcuts() {
-    const keyboardShortcutsPanel = document.getElementById('keyboardShortcutsPanel');
-    const closePanel = keyboardShortcutsPanel.querySelector('.close-panel');
-    
-    // Toggle panel with ? key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === '?') {
-        toggleKeyboardShortcutsPanel();
-      }
+  // Initialize retry button
+  const retryButton = document.getElementById('retryButton');
+  if (retryButton) {
+    retryButton.addEventListener('click', function() {
+      document.getElementById('errorSection').style.display = 'none';
+      document.getElementById('loadingSection').style.display = 'block';
+      progress = 0;
+      // Restart loading process
+      progressInterval = setInterval(() => {
+        progress += 5;
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (progress >= 100) {
+          clearInterval(progressInterval);
+          document.getElementById('loadingSection').style.display = 'none';
+          document.getElementById('analyticsContent').style.display = 'block';
+          initCharts();
+        }
+      }, 100);
+    });
+  }
+  
+  // Initialize download CSV
+  const downloadButton = document.getElementById('downloadCSV');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      // Sample data for demonstration
+      const csv = 'Book,References\nMatthew,257\nJohn,189\nRomans,165\nPsalms,143\nGenesis,102';
       
-      // Alt + P to print
-      if (e.altKey && e.key === 'p') {
-        e.preventDefault();
-        printAnalyticsReport();
-      }
-      
-      // Alt + D to download CSV
-      if (e.altKey && e.key === 'd') {
-        e.preventDefault();
-        downloadCSVData();
-      }
-      
-      // Alt + B to browse all references
-      if (e.altKey && e.key === 'b') {
-        e.preventDefault();
-        window.location.href = 'reference-viewer.html';
-      }
-      
-      // Escape to close modals
-      if (e.key === 'Escape') {
-        closeAllModals();
-      }
-    });
-    
-    // Close button functionality
-    closePanel.addEventListener('click', function() {
-      keyboardShortcutsPanel.hidden = true;
+      // Create blob and download
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'bible_references.csv');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   }
+});
+
+function initCharts() {
+  // Sample data - would be replaced with real data in production
+  const booksData = {
+    labels: ['Matthew', 'John', 'Romans', 'Psalms', 'Genesis', 'Revelation', 'Acts', 'Isaiah', 'Luke', 'Ephesians'],
+    values: [257, 189, 165, 143, 102, 98, 87, 76, 72, 68]
+  };
   
-  // Toggle keyboard shortcuts panel
-  function toggleKeyboardShortcutsPanel() {
-    const panel = document.getElementById('keyboardShortcutsPanel');
-    panel.hidden = !panel.hidden;
-  }
+  const testamentData = {
+    labels: ['New Testament', 'Old Testament'],
+    values: [65, 35]
+  };
   
-  // Initialize modal functionality
-  function initializeModals() {
-    // Modal functionality removed
-  }
+  const topChapters = [
+    { name: 'John 3', count: 42 },
+    { name: 'Romans 8', count: 38 },
+    { name: 'Matthew 5', count: 34 },
+    { name: 'Ephesians 2', count: 29 },
+    { name: 'Psalms 23', count: 27 },
+    { name: 'Genesis 1', count: 25 },
+    { name: 'Revelation 21', count: 23 },
+    { name: 'John 1', count: 21 },
+    { name: 'Romans 12', count: 19 },
+    { name: 'Hebrews 11', count: 17 }
+  ];
   
-  // Close all modals
-  function closeAllModals() {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-      modal.hidden = true;
-    });
-    
-    document.getElementById('keyboardShortcutsPanel').hidden = true;
-  }
+  // Update statistics
+  document.getElementById('totalSermonsValue').textContent = '523';
+  document.getElementById('totalReferencesValue').textContent = '3,841';
+  document.getElementById('topBookValue').textContent = 'Matthew';
   
-  // Initialize error details toggle
-  function initializeErrorDetails() {
-    const showErrorDetails = document.getElementById('showErrorDetails');
-    const errorDetailsContent = document.getElementById('errorDetailsContent');
-    
-    if (showErrorDetails) {
-      showErrorDetails.addEventListener('click', function() {
-        const isHidden = errorDetailsContent.hidden;
-        errorDetailsContent.hidden = !isHidden;
-        this.textContent = isHidden ? 'Hide Technical Details' : 'Show Technical Details';
+  // Testament percentages
+  document.getElementById('testamentPercentages').innerHTML = `
+    <div><span style="color: #4e73df; font-weight: 600;">New Testament:</span> 65%</div>
+    <div><span style="color: #1cc88a; font-weight: 600;">Old Testament:</span> 35%</div>
+  `;
+  
+  // Populate top chapters
+  const topChaptersList = document.getElementById('topChaptersList');
+  if (topChaptersList) {
+    topChaptersList.innerHTML = '';
+    topChapters.forEach(chapter => {
+      const item = document.createElement('div');
+      item.className = 'reference-item';
+      item.innerHTML = `
+        <span class="reference-name">${chapter.name}</span>
+        <span class="reference-count">${chapter.count}</span>
+      `;
+      
+      // Add click event to view details
+      item.addEventListener('click', () => {
+        window.location.href = `reference-viewer.html?reference=${encodeURIComponent(chapter.name)}`;
       });
-    }
-  }
-  
-  // Initialize data table functionality
-  function initializeDataTable() {
-    const showTableButton = document.getElementById('showChartDataTable');
-    const chartDataTable = document.getElementById('chartDataTable');
-    
-    if (showTableButton) {
-      showTableButton.addEventListener('click', function() {
-        const isHidden = chartDataTable.hidden;
-        chartDataTable.hidden = !isHidden;
-        this.textContent = isHidden ? 'Hide Data Table' : 'View as Data Table';
-      });
-    }
-  }
-  
-  // Initialize print functionality
-  function initializePrintFunctionality() {
-    const printButton = document.getElementById('printAnalytics');
-    
-    if (printButton) {
-      printButton.addEventListener('click', printAnalyticsReport);
-    }
-  }
-  
-  // Print analytics report
-  function printAnalyticsReport() {
-    // Before printing, expand data tables for better print view
-    document.getElementById('chartDataTable').hidden = false;
-    
-    // Add print class to body
-    document.body.classList.add('printing');
-    
-    // Print the page
-    window.print();
-    
-    // After printing, restore the state
-    setTimeout(() => {
-      document.body.classList.remove('printing');
       
-      // Restore state of data table based on button text
-      const showTableButton = document.getElementById('showChartDataTable');
-      if (showTableButton.textContent.includes('View as')) {
-        document.getElementById('chartDataTable').hidden = true;
+      topChaptersList.appendChild(item);
+    });
+  }
+  
+  // Populate data table
+  const bookDataTableBody = document.getElementById('bookDataTableBody');
+  if (bookDataTableBody) {
+    bookDataTableBody.innerHTML = '';
+    booksData.labels.forEach((book, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${book}</td>
+        <td>${booksData.values[index]}</td>
+        <td><a href="reference-viewer.html?book=${encodeURIComponent(book)}" class="table-action">View Details</a></td>
+      `;
+      bookDataTableBody.appendChild(row);
+    });
+  }
+  
+  // Create Bible References Chart
+  const bibleReferencesChart = document.getElementById('bibleReferencesChart');
+  if (bibleReferencesChart) {
+    new Chart(bibleReferencesChart, {
+      type: 'bar',
+      data: {
+        labels: booksData.labels,
+        datasets: [{
+          label: 'References',
+          data: booksData.values,
+          backgroundColor: 'rgba(46, 163, 242, 0.7)',
+          borderColor: 'rgba(46, 163, 242, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleFont: {
+              size: 14,
+              weight: 'bold'
+            },
+            bodyFont: {
+              size: 13
+            },
+            padding: 10,
+            cornerRadius: 4
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(0, 0, 0, 0.05)'
+            }
+          }
+        },
+        onClick: (event, elements) => {
+          if (elements.length > 0) {
+            const index = elements[0].index;
+            const book = booksData.labels[index];
+            window.location.href = `reference-viewer.html?book=${encodeURIComponent(book)}`;
+          }
+        }
       }
-    }, 1000);
+    });
   }
   
-  // Initialize CSV download
-  function initializeCSVDownload() {
-    const downloadButton = document.getElementById('downloadCSV');
-    
-    if (downloadButton) {
-      downloadButton.addEventListener('click', downloadCSVData);
-    }
+  // Create Testament Chart
+  const testamentChart = document.getElementById('testamentChart');
+  if (testamentChart) {
+    new Chart(testamentChart, {
+      type: 'doughnut',
+      data: {
+        labels: testamentData.labels,
+        datasets: [{
+          data: testamentData.values,
+          backgroundColor: [
+            'rgba(78, 115, 223, 0.8)',
+            'rgba(28, 200, 138, 0.8)'
+          ],
+          borderColor: [
+            'rgba(78, 115, 223, 1)',
+            'rgba(28, 200, 138, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              padding: 20,
+              font: {
+                size: 12
+              }
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleFont: {
+              size: 14,
+              weight: 'bold'
+            },
+            bodyFont: {
+              size: 13
+            },
+            padding: 10,
+            cornerRadius: 4
+          }
+        },
+        cutout: '70%'
+      }
+    });
   }
-  
-  // Download CSV data
-  function downloadCSVData() {
-    // This function would be implemented to generate and download CSV data
-    // from the charts and references
-    
-    // For demonstration, create a simple CSV
-    const csv = 'Book,References\nMatthew,257\nJohn,189\nRomans,165\nPsalms,143\nGenesis,102';
-    
-    // Create blob and download
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.setAttribute('href', url);
-    link.setAttribute('download', 'bible_references.csv');
-    link.style.visibility = 'hidden';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
+}
 </script>
