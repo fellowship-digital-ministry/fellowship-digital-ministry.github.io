@@ -1609,14 +1609,40 @@ custom_css: reference-viewer-hci
       const startExploringBtn = document.getElementById('startExploring');
       const dontShowAgainCheckbox = document.getElementById('dontShowAgain');
       
-      [closeGuide, startExploringBtn].forEach(element => {
-        element.addEventListener('click', function() {
+      // Ensure event listeners are properly attached
+      if (closeGuide) {
+        closeGuide.addEventListener('click', function() {
           document.getElementById('firstTimeGuide').hidden = true;
           
-          if (dontShowAgainCheckbox.checked) {
+          if (dontShowAgainCheckbox && dontShowAgainCheckbox.checked) {
             localStorage.setItem('hasSeenReferenceViewer', 'true');
           }
         });
+      }
+      
+      if (startExploringBtn) {
+        startExploringBtn.addEventListener('click', function() {
+          document.getElementById('firstTimeGuide').hidden = true;
+          
+          if (dontShowAgainCheckbox && dontShowAgainCheckbox.checked) {
+            localStorage.setItem('hasSeenReferenceViewer', 'true');
+          }
+        });
+      }
+      
+      // Add escape key functionality to close the guide
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('firstTimeGuide') && 
+            !document.getElementById('firstTimeGuide').hidden) {
+          document.getElementById('firstTimeGuide').hidden = true;
+        }
+      });
+      
+      // Also allow clicking outside the guide to close it
+      document.getElementById('firstTimeGuide').addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.hidden = true;
+        }
       });
     }
   }

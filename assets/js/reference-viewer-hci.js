@@ -150,6 +150,12 @@ document.addEventListener('DOMContentLoaded', function() {
       toggleButton.setAttribute('aria-expanded', 'false');
       shortcutsPanel.hidden = true;
     }
+    
+    // Close the first-time visitor guide if it's open
+    const firstTimeGuide = document.getElementById('firstTimeGuide');
+    if (firstTimeGuide && !firstTimeGuide.hidden) {
+      firstTimeGuide.hidden = true;
+    }
   }
   
   /**
@@ -512,64 +518,20 @@ document.addEventListener('DOMContentLoaded', function() {
    * and tailor the experience accordingly
    */
   function checkFirstTimeVisitor() {
-    const hasVisitedBefore = localStorage.getItem('referenceViewerVisited');
+    // We'll use the main welcome guide in reference-viewer.html instead
+    // This prevents conflicts between the two welcome implementations
     
-    if (!hasVisitedBefore) {
-      // First-time visitor - show additional guidance
-      showFirstTimeVisitorGuide();
-      
-      // Mark as visited
-      localStorage.setItem('referenceViewerVisited', 'true');
-    }
+    // If we need to show additional tooltips later, we can add them here
+    // after the main welcome guide has been closed
   }
   
   /**
    * Show first-time visitor guide with helpful tooltips
+   * This function is kept for reference but not used
    */
   function showFirstTimeVisitorGuide() {
-    // Create a welcome tooltip that introduces the page
-    const welcomeTip = document.createElement('div');
-    welcomeTip.className = 'welcome-tooltip';
-    welcomeTip.innerHTML = `
-      <div class="tooltip-header">
-        <span>Welcome to Bible Reference Explorer</span>
-        <button class="close-tooltip" aria-label="Close welcome message">×</button>
-      </div>
-      <div class="tooltip-content">
-        <p>This page shows all occurrences of a Bible reference across sermons.</p>
-        <p>You can:</p>
-        <ul>
-          <li>Click on any reference to see the context</li>
-          <li>Watch video segments at specific timestamps</li>
-          <li>Explore related verses from the same chapter</li>
-        </ul>
-        <button class="got-it-button">Got it!</button>
-      </div>
-    `;
-    
-    // Add to the page after content loads
-    document.addEventListener('referenceLoaded', function() {
-      document.body.appendChild(welcomeTip);
-      
-      // Handle close button clicks
-      const closeButton = welcomeTip.querySelector('.close-tooltip');
-      const gotItButton = welcomeTip.querySelector('.got-it-button');
-      
-      [closeButton, gotItButton].forEach(button => {
-        button.addEventListener('click', function() {
-          welcomeTip.classList.add('fade-out');
-          setTimeout(() => welcomeTip.remove(), 500);
-        });
-      });
-      
-      // Auto-remove after 20 seconds
-      setTimeout(() => {
-        if (document.contains(welcomeTip)) {
-          welcomeTip.classList.add('fade-out');
-          setTimeout(() => welcomeTip.remove(), 500);
-        }
-      }, 20000);
-    });
+    // This functionality has been moved to reference-viewer.html
+    // to avoid conflicts between multiple welcome popups
   }
   
   // Initialize HCI enhancements when the reference data is loaded
