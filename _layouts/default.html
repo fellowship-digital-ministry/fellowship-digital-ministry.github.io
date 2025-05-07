@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
   {% endif %}
   
+  {% if page.custom_class == 'reference-viewer-page' %}
+  <link rel="stylesheet" href="{{ '/assets/css/reference-viewer.css' | relative_url }}">
+  {% endif %}
+  
   {% if page.custom_css %}
   <link rel="stylesheet" href="{{ '/assets/css/' | append: page.custom_css | append: '.css' | relative_url }}">
   {% endif %}
