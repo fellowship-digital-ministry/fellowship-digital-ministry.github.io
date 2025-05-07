@@ -1156,19 +1156,12 @@ const BibleSourcesPanel = (function() {
               
               // Add click handler
               sourcesToggle.addEventListener('click', function() {
-                const isActive = this.getAttribute('data-active') === 'true';
+                // Always display sources in the panel, regardless of current state
+                BibleSourcesPanel.displaySources(occurrences, reference);
                 
-                if (!isActive) {
-                  // Display sources in the panel
-                  BibleSourcesPanel.displaySources(occurrences, reference);
-                } else {
-                  // Close the panel
-                  BibleSourcesPanel.toggleSourcesPanel(false);
-                }
-                
-                // Update toggle state
-                this.setAttribute('data-active', !isActive);
-                this.setAttribute('aria-expanded', !isActive);
+                // Update toggle state to active
+                this.setAttribute('data-active', 'true');
+                this.setAttribute('aria-expanded', 'true');
                 this.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> Show Sources';
               });
               

@@ -639,11 +639,12 @@ const SermonSearch = (function() {
           sourcesToggle.setAttribute('aria-controls', 'sourcesPanel');
           
           sourcesToggle.addEventListener('click', function() {
-            const isActive = this.getAttribute('data-active') === 'true';
-            toggleSourcesPanel(!isActive);
+            // Always show the sources panel, regardless of current state
+            toggleSourcesPanel(true);
             
-            this.setAttribute('data-active', !isActive);
-            this.setAttribute('aria-expanded', !isActive);
+            // Update toggle state to active
+            this.setAttribute('data-active', 'true');
+            this.setAttribute('aria-expanded', 'true');
             this.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
           });
           
