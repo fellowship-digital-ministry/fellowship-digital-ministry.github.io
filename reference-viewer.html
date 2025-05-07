@@ -1248,73 +1248,85 @@ function filterValidBibleBooks(books) {
   /**
    * Load occurrences for a verse
    */
-  function loadVerseOccurrences(book, chapter, verse) {
-    if (!book || !chapter || !verse) return;
+/**
+ * This function needs to be updated in your reference-viewer.html file
+ * Find the loadVerseOccurrences function and update it to use the correct API format
+ */
+
+/**
+ * Load occurrences for a verse
+ */
+ function loadVerseOccurrences(book, chapter, verse) {
+  if (!book || !chapter) return;
+  
+  // Show loading state
+  elements.verseOccurrences.innerHTML = '<div class="occurrences-loading">Loading references...</div>';
+  
+  // Build reference ID for the API - IMPORTANT: Use only book_chapter format 
+  // This is the key fix - the API expects referenceId to be in book_chapter format
+  const referenceId = `${book}_${chapter}`;
+  
+  // Get cached chapter data
+  const cachedVerses = getVersesFromCache(book, chapter);
+  
+  if (cachedVerses && cachedVerses.all_occurrences) {
+    // Filter occurrences by verse
+    const occurrences = cachedVerses.all_occurrences.filter(ref => {
+      const refVerse = ref.verse !== null ? ref.verse : 'unknown';
+      return refVerse == verse; // Use == to handle string/number comparison
+    });
     
-    // Show loading state
-    elements.verseOccurrences.innerHTML = '<div class="occurrences-loading">Loading references...</div>';
+    // Update count
+    elements.verseCount.textContent = occurrences.length;
     
-    // Get cached chapter data
-    const cachedVerses = getVersesFromCache(book, chapter);
+    // Display occurrences
+    displayOccurrences(occurrences);
+  } else {
+    // Need to load chapter data first
+    const referenceId = `${book}_${chapter}`; // Correct format for API
     
-    if (cachedVerses && cachedVerses.all_occurrences) {
-      // Filter occurrences by verse
-      const occurrences = cachedVerses.all_occurrences.filter(ref => {
-        const refVerse = ref.verse !== null ? ref.verse : 'unknown';
-        return refVerse === verse;
-      });
-      
-      // Update count
-      elements.verseCount.textContent = occurrences.length;
-      
-      // Display occurrences
-      displayOccurrences(occurrences);
-    } else {
-      // Need to load chapter data first
-      const referenceId = `${book}_${chapter}`;
-      
-      fetch(`${config.apiBaseUrl}/bible/references/${referenceId}`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`Failed to load references for ${referenceId}: ${response.status} ${response.statusText}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          // Save to cache
-          saveVersesToCache(book, chapter, data);
-          
-          // Filter occurrences by verse
-          const occurrences = data.all_occurrences.filter(ref => {
-            const refVerse = ref.verse !== null ? ref.verse : 'unknown';
-            return refVerse === verse;
-          });
-          
-          // Update count
-          elements.verseCount.textContent = occurrences.length;
-          
-          // Display occurrences
-          displayOccurrences(occurrences);
-        })
-        .catch(error => {
-          console.error(`Error loading references for ${referenceId}:`, error);
-          elements.verseOccurrences.innerHTML = `
-            <div class="error-message">
-              Failed to load references for ${formatBookName(book)} ${chapter}:${verse}. 
-              <button class="retry-button" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">Try Again</button>
-            </div>
-          `;
-          
-          // Add retry functionality
-          const retryButton = elements.verseOccurrences.querySelector('.retry-button');
-          if (retryButton) {
-            retryButton.addEventListener('click', function() {
-              loadVerseOccurrences(book, chapter, verse);
-            });
-          }
+    fetch(`${config.apiBaseUrl}/bible/references/${referenceId}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load references for ${referenceId}: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Save to cache
+        saveVersesToCache(book, chapter, data);
+        
+        // Filter occurrences by verse
+        const occurrences = data.all_occurrences.filter(ref => {
+          const refVerse = ref.verse !== null ? ref.verse : 'unknown';
+          return refVerse == verse; // Use == to handle string/number comparison
         });
-    }
+        
+        // Update count
+        elements.verseCount.textContent = occurrences.length;
+        
+        // Display occurrences
+        displayOccurrences(occurrences);
+      })
+      .catch(error => {
+        console.error(`Error loading references for ${referenceId}:`, error);
+        elements.verseOccurrences.innerHTML = `
+          <div class="error-message">
+            Failed to load references for ${formatBookName(book)} ${chapter}:${verse}. 
+            <button class="retry-button" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">Try Again</button>
+          </div>
+        `;
+        
+        // Add retry functionality
+        const retryButton = elements.verseOccurrences.querySelector('.retry-button');
+        if (retryButton) {
+          retryButton.addEventListener('click', function() {
+            loadVerseOccurrences(book, chapter, verse);
+          });
+        }
+      });
   }
+}
   
   /**
    * Display occurrences of a verse
