@@ -1348,7 +1348,7 @@ function filterValidBibleBooks(books) {
       
       // Format sermon information
       const sermonTitle = occurrence.sermon_title || 'Unknown Sermon';
-      const sermonDate = formatDate(occurrence.publish_date);
+      const sermonDate = formatDate(occurrence.publish_date || occurrence.sermon_date);
       const videoId = occurrence.video_id;
       const timestamp = occurrence.start_time;
       
@@ -1970,6 +1970,9 @@ function filterValidBibleBooks(books) {
         const month = dateStr.substring(4, 6);
         const day = dateStr.substring(6, 8);
         
+        const date = new Date(year, month - 1, day);
+        if (isNaN(date.getTime())) return 'Date unknown';
+        
         return new Date(year, month - 1, day).toLocaleDateString(undefined, {
           year: 'numeric',
           month: 'long',
@@ -1977,13 +1980,41 @@ function filterValidBibleBooks(books) {
         });
       }
       
+      // Handle ISO date strings (YYYY-MM-DD)
+      if (typeof dateValue === 'string' && dateValue.includes('-')) {
+        const date = new Date(dateValue);
+        if (isNaN(date.getTime())) return 'Date unknown';
+        
+        return date.toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+      
+      // Handle timestamp (seconds since epoch)
+      if (typeof dateValue === 'number') {
+        const date = new Date(dateValue * 1000);
+        if (isNaN(date.getTime())) return 'Date unknown';
+        
+        return date.toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+      
       // Try to parse as date string
-      return new Date(dateValue).toLocaleDateString(undefined, {
+      const date = new Date(dateValue);
+      if (isNaN(date.getTime())) return 'Date unknown';
+      
+      return date.toLocaleDateString(undefined, {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
       });
     } catch (e) {
+      console.error(`Error parsing date: ${dateValue}`, e);
       return 'Date unknown';
     }
   }
