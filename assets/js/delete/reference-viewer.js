@@ -303,13 +303,7 @@ function displayOccurrences(data) {
     
     // Get sermon title from the first occurrence
     const sermonTitle = occurrences[0].sermon_title || `Sermon (${videoId})`;
-    const sermonDate = occurrences[0].sermon_date 
-      ? new Date(occurrences[0].sermon_date * 1000).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long', 
-          day: 'numeric'
-        })
-      : 'Date unknown';
+    const sermonDate = formatSermonDate(occurrences[0].publish_date || occurrences[0].sermon_date);
     
     // Create sermon group container
     const sermonGroup = document.createElement('div');
@@ -527,4 +521,62 @@ function enhanceAccessibility() {
  */
 function formatBookName(bookName) {
   return bookName.replace(/_/g, ' ');
+}
+
+/**
+ * Format sermon date from various formats
+ */
+function formatSermonDate(dateStr) {
+  if (!dateStr) return 'Date unknown';
+  
+  try {
+    // Handle YYYYMMDD format
+    if (typeof dateStr === 'number' || (typeof dateStr === 'string' && /^\d{8}$/.test(dateStr))) {
+      const yearStr = String(dateStr).substring(0, 4);
+      const monthStr = String(dateStr).substring(4, 6);
+      const dayStr = String(dateStr).substring(6, 8);
+      
+      const year = parseInt(yearStr);
+      const month = parseInt(monthStr) - 1;
+      const day = parseInt(dayStr);
+      
+      const date = new Date(year, month, day);
+      if (isNaN(date.getTime())) return 'Date unknown';
+      
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      }).format(date);
+    }
+    
+    // Handle ISO date strings (YYYY-MM-DD)
+    if (typeof dateStr === 'string' && dateStr.includes('-')) {
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return 'Date unknown';
+      
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      }).format(date);
+    }
+    
+    // Handle timestamp (seconds since epoch)
+    if (typeof dateStr === 'number') {
+      const date = new Date(dateStr * 1000);
+      if (isNaN(date.getTime())) return 'Date unknown';
+      
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'
+      }).format(date);
+    }
+    
+    return typeof dateStr === 'string' ? dateStr : 'Date unknown';
+  } catch (e) {
+    console.error(`Error parsing date: ${dateStr}`, e);
+    return 'Date unknown';
+  }
 }
