@@ -20,8 +20,9 @@ body {
   padding: var(--space-md);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--text-color);
-  height: calc(100vh - 56px); /* Adjust for header height */
+  height: calc(100vh - 56px - 20px); /* Adjust for header height and bottom margin */
   margin-top: 56px; /* Match header height */
+  margin-bottom: 20px; /* Add bottom margin to prevent cramping */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -181,8 +182,9 @@ body {
 /* Desktop adjustments */
 @media (min-width: 769px) {
   .bible-explorer-container {
-    height: calc(100vh - 64px); /* Adjust for desktop header */
+    height: calc(100vh - 64px - 30px); /* Adjust for desktop header and bottom margin */
     margin-top: 64px; /* Match desktop header height */
+    margin-bottom: 30px; /* Add more bottom margin on larger screens */
   }
 }
 
