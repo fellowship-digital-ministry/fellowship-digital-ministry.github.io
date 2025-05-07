@@ -651,7 +651,7 @@ const BibleExplorer = (function() {
   /**
    * Load Bible books list from API
    */
-  function loadBibleBooks() {
+   function loadBibleBooks() {
     if (state.isLoadingBooks || state.booksLoaded) return;
     
     state.isLoadingBooks = true;
@@ -664,6 +664,11 @@ const BibleExplorer = (function() {
         return response.json();
       })
       .then(data => {
+        // Filter out any non-Bible books like "processed_files"
+        if (data.books && Array.isArray(data.books)) {
+          data.books = filterValidBibleBooks(data.books);
+        }
+        
         // Populate book lists
         populateBooksList(data.books || []);
         
@@ -679,7 +684,20 @@ const BibleExplorer = (function() {
         state.isLoadingBooks = false;
       });
   }
+  /**
+ * Filter out non-Bible books from API response
+ */
+function filterValidBibleBooks(books) {
+  if (!books || !Array.isArray(books)) return [];
   
+  // Only keep books that are in our bibleBookOrder array (known Bible books)
+  return books.filter(bookData => 
+    bibleBookOrder.includes(bookData.book) || 
+    // Include some alternates that might be in the data but not in our order array
+    bookData.book === 'Psalms' || 
+    bookData.book === 'Song of Songs'
+  );
+}
   /**
    * Update statistics display
    */
