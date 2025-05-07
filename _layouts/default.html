@@ -62,8 +62,8 @@
       {{ content }}
     </main>
     
-  <!-- Add footer for all pages except search.html -->
-  {% unless page.url == '/search.html' %}
+  <!-- Add footer only for the index page -->
+  {% if page.url == '/' %}
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -77,7 +77,7 @@
       </div>
     </div>
   </footer>
-  {% endunless %}
+  {% endif %}
   </div>
 
   <!-- Core libraries -->
