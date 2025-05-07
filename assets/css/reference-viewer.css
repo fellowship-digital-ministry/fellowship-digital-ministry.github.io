@@ -1,10 +1,16 @@
 /* Bible Reference Viewer Styles - Fixed Layout Version */
 
-/* Base styles to prevent body scrolling */
+/* Base styles */
 body {
-  overflow-y: hidden; /* Prevent vertical scrolling on body */
   min-height: 100vh;
   width: 100%;
+}
+
+/* Only hide body overflow on desktop */
+@media (min-width: 769px) {
+  body {
+    overflow-y: hidden; /* Prevent vertical scrolling on body for desktop */
+  }
 }
 
 /* Main Container - Fixed height with internal scrolling */
@@ -141,13 +147,16 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .bible-explorer-container {
-    height: calc(100vh - 56px); /* Adjust for mobile header */
+    height: auto; /* Allow container to expand with content */
+    min-height: calc(100vh - 56px); /* Minimum height for mobile */
+    overflow-y: visible; /* Let content flow naturally */
   }
   
   .bible-explorer-main {
     flex-direction: column;
-    height: 0; /* Reset height */
+    min-height: 0; /* Allow content to determine height */
     flex: 1; /* Take remaining space */
+    overflow: visible; /* Allow content to flow naturally */
   }
   
   .bible-sidebar {
@@ -155,6 +164,17 @@ body {
     max-height: 300px;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
+  }
+  
+  /* Ensure content areas can scroll properly on mobile */
+  .bible-content {
+    overflow-y: visible;
+    height: auto;
+  }
+  
+  .book-view, .chapter-view, .verse-view {
+    height: auto;
+    overflow-y: visible;
   }
 }
 
