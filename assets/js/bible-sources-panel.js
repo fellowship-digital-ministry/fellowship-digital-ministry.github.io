@@ -1169,9 +1169,7 @@ const BibleSourcesPanel = (function() {
                 // Update toggle state
                 this.setAttribute('data-active', !isActive);
                 this.setAttribute('aria-expanded', !isActive);
-                this.innerHTML = !isActive ? 
-                  '<span class="claude-sources-toggle-icon">⬇</span> Hide Sources' :
-                  '<span class="claude-sources-toggle-icon">⬆</span> Show Sources';
+                this.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> Show Sources';
               });
               
               // Add button before the occurrences list

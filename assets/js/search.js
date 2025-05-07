@@ -644,9 +644,7 @@ const SermonSearch = (function() {
             
             this.setAttribute('data-active', !isActive);
             this.setAttribute('aria-expanded', !isActive);
-            this.innerHTML = !isActive ? 
-              '<span class="claude-sources-toggle-icon">⬇</span> ' + translate('hide-sources') :
-              '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
+            this.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
           });
           
           messageContent.appendChild(sourcesToggle);
