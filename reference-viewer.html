@@ -2,1373 +2,2256 @@
 layout: default
 title: Bible Reference Viewer
 ---
-
-<div class="container reference-container">
-  <div id="loading-indicator" class="text-center">
-    <div class="loading-spinner"></div>
-    <p class="loading-text">Loading reference data...</p>
-    <div class="progress-container">
-      <div class="progress-bar" id="loadingProgress"></div>
+---
+<div class="bible-explorer-container">
+  <div class="bible-explorer-header">
+    <h1>Bible Reference Explorer</h1>
+    <p class="bible-explorer-intro">
+      Explore Bible references from our pastor's sermons. Search by keyword, browse by book, 
+      or discover the most-referenced passages.
+    </p>
+  </div>
+  
+  <div class="bible-explorer-stats">
+    <div class="stats-loading" id="stats-loading">Loading statistics...</div>
+    <div class="stats-container" id="stats-container" style="display: none;">
+      <div class="stats-card">
+        <h3>Total References</h3>
+        <div class="stats-number" id="total-references">0</div>
+      </div>
+      <div class="stats-card">
+        <h3>Most Referenced Book</h3>
+        <div class="stats-book" id="top-book">-</div>
+        <div class="stats-number" id="top-book-count">0</div>
+      </div>
+      <div class="stats-card">
+        <h3>Most Referenced Chapter</h3>
+        <div class="stats-book" id="top-chapter">-</div>
+        <div class="stats-number" id="top-chapter-count">0</div>
+      </div>
     </div>
   </div>
   
-  <div id="error-message" class="error-message" style="display: none;"></div>
-  
-  <div id="reference-details" style="display: none;">
-    <div class="reference-header">
-      <a href="analytics.html" id="back-button" class="btn btn-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5"></path>
-          <path d="M12 19l-7-7 7-7"></path>
-        </svg>
-        Back to Analytics
-      </a>
-      
-      <div class="reference-title-container">
-        <h2 id="reference-title" class="reference-title">Loading...</h2>
-        <p class="reference-count">
-          Found <span id="reference-count" class="reference-count-number">0</span> occurrences in sermons
-        </p>
-      </div>
-      
-      <div class="reference-tools">
-        <button id="copyReferenceBtn" class="tool-button" aria-label="Copy reference text">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          Copy
-        </button>
-        <button id="shareReferenceBtn" class="tool-button" aria-label="Share this reference">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-          Share
+  <div class="bible-explorer-search-section">
+    <div class="search-controls">
+      <div class="search-input-container">
+        <input type="text" id="reference-search" class="reference-search-input" 
+               placeholder="Search for references, keywords, or context..." 
+               aria-label="Search for Bible references">
+        <button id="search-button" class="search-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
         </button>
       </div>
-    </div>
-    
-    <!-- Reference navigation and filter -->
-    <div class="reference-controls">
-      <div class="filter-section">
-        <label for="sermonFilter" class="filter-label">Filter by sermon:</label>
-        <select id="sermonFilter" class="filter-select">
-          <option value="all">All Sermons</option>
-          <!-- Dynamically populated by JavaScript -->
+      
+      <div class="filter-container">
+        <select id="book-filter" class="filter-select">
+          <option value="">All Books</option>
+          <!-- Books will be dynamically populated -->
         </select>
         
-        <label for="sortOption" class="filter-label">Sort by:</label>
-        <select id="sortOption" class="filter-select">
-          <option value="date-desc">Most Recent First</option>
-          <option value="date-asc">Oldest First</option>
-          <option value="relevance">Relevance</option>
+        <select id="chapter-filter" class="filter-select" disabled>
+          <option value="">All Chapters</option>
+          <!-- Chapters will be dynamically populated -->
+        </select>
+        
+        <select id="verse-filter" class="filter-select" disabled>
+          <option value="">All Verses</option>
+          <!-- Verses will be dynamically populated -->
         </select>
       </div>
-      
-      <div class="view-toggle">
-        <span class="toggle-label">View:</span>
-        <div class="toggle-buttons">
-          <button id="viewList" class="toggle-button active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-            List
-          </button>
-          <button id="viewGrid" class="toggle-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-            Grid
-          </button>
-        </div>
-      </div>
     </div>
     
-    <!-- Main content with search box -->
-    <div class="content-wrapper">
-      <div class="search-box">
-        <input type="text" id="contextSearch" placeholder="Search within reference contexts..." aria-label="Search within references">
-        <button id="clearSearch" class="clear-search" aria-label="Clear search">×</button>
+    <div class="top-references">
+      <h3>Most Referenced Passages</h3>
+      <div class="top-references-list" id="top-references-list">
+        <!-- Will be populated dynamically -->
+        <div class="reference-loading">Loading most referenced passages...</div>
       </div>
-      
-      <div id="occurrences-list" class="occurrences-list view-list">
-        <!-- Loading state for occurrences -->
-        <div class="loading-inline">
-          <div class="loading-spinner small"></div>
-          <p>Loading reference occurrences...</p>
-        </div>
-        <!-- Dynamically populated by JavaScript -->
-      </div>
-      
-      <div id="no-results" class="no-results" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-        <h3>No occurrences found</h3>
-        <p>There are no sermon references matching your current filters.</p>
-        <button id="resetFilters" class="btn">Reset Filters</button>
-      </div>
-    </div>
-    
-    <div id="related-references-list" class="related-references" style="display: none;">
-      <!-- Dynamically populated by JavaScript for related references -->
     </div>
   </div>
   
+  <div class="bible-explorer-results-section">
+    <h2>Search Results</h2>
+    <div class="results-info">
+      <span id="results-count">0</span> references found
+      <div class="results-sorting">
+        <label for="sort-results">Sort by:</label>
+        <select id="sort-results" class="sort-select">
+          <option value="reference">Biblical Order</option>
+          <option value="date-new">Newest Sermons</option>
+          <option value="date-old">Oldest Sermons</option>
+        </select>
+      </div>
+    </div>
+    
+    <div id="search-loading" class="search-loading" style="display: none;">
+      <div class="loading-spinner"></div>
+      <p>Searching references...</p>
+    </div>
+    
+    <div id="initial-state" class="initial-state">
+      <p>Enter a search term, select a book, or browse the most referenced passages above to begin exploring.</p>
+    </div>
+    
+    <div id="no-results" class="no-results" style="display: none;">
+      <p>No Bible references found matching your search criteria.</p>
+      <p>Try broadening your search or selecting different filters.</p>
+    </div>
+    
+    <div id="results-container" class="results-container" style="display: none;">
+      <!-- Search results will appear here -->
+    </div>
+    
+    <div id="pagination" class="pagination" style="display: none;">
+      <button id="prev-page" class="page-button" disabled>Previous</button>
+      <span id="page-info">Page 1 of 1</span>
+      <button id="next-page" class="page-button" disabled>Next</button>
+    </div>
+  </div>
+  
+  <!-- Reference Modal -->
+  <div id="reference-modal" class="reference-modal">
+    <div class="reference-modal-content">
+      <div class="reference-modal-header">
+        <h2 id="modal-title">Bible Reference</h2>
+        <button id="close-modal" class="close-modal">&times;</button>
+      </div>
+      <div id="modal-content" class="reference-modal-body">
+        <!-- Modal content will be dynamically populated -->
+      </div>
+    </div>
+  </div>
+</div>
 
-<style>
-  /* Main container */
-  .reference-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-  
-  /* Reference header */
-  .reference-header {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  @media (min-width: 768px) {
-    .reference-header {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-  }
-  
-  #back-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #f8f9fa;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    color: var(--color-text, #333);
-    text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    align-self: flex-start;
-  }
-  
-  #back-button:hover {
-    transform: translateX(-3px);
-    background-color: #f0f0f0;
-  }
-  
-  .reference-title-container {
-    flex: 1;
-  }
-  
-  .reference-title {
-    color: var(--color-primary, #2ea3f2);
-    margin: 0 0 0.5rem;
-    font-size: 2rem;
-    font-weight: 700;
-  }
-  
-  .reference-count {
-    font-size: 1.1rem;
-    color: #666;
-    margin: 0;
-  }
-  
-  .reference-count-number {
-    font-weight: 600;
-    color: var(--color-primary, #2ea3f2);
-  }
-  
-  .reference-tools {
-    display: flex;
-    gap: 0.75rem;
-    align-self: flex-start;
-  }
-  
-  .tool-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #f8f9fa;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    color: var(--color-text, #333);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .tool-button:hover {
-    background-color: #f0f0f0;
-  }
-  
-  /* Reference controls */
-  .reference-controls {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    padding: 1.25rem;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .reference-controls {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-  
-  .filter-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-  }
-  
-  .filter-label {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--color-text, #333);
-    white-space: nowrap;
-  }
-  
-  .filter-select {
-    padding: 0.5rem;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    min-width: 150px;
-  }
-  
-  .view-toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  
-  .toggle-label {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--color-text, #333);
-  }
-  
-  .toggle-buttons {
-    display: flex;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  
-  .toggle-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    background-color: white;
-    border: none;
-    border-right: 1px solid #eee;
-    color: var(--color-text, #333);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .toggle-button:last-child {
-    border-right: none;
-  }
-  
-  .toggle-button.active {
-    background-color: var(--color-primary, #2ea3f2);
-    color: white;
-  }
-  
-  .toggle-button.active svg {
-    color: white;
-  }
-  
-  /* Search box */
-  .search-box {
-    position: relative;
-    margin-bottom: 1.5rem;
-  }
-  
-  .search-box input {
-    width: 100%;
-    padding: 0.75rem 1rem 0.75rem 2.5rem;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: 0.75rem center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-  
-  .search-box input:focus {
-    outline: none;
-    border-color: var(--color-primary, #2ea3f2);
-    box-shadow: 0 0 0 3px rgba(46, 163, 242, 0.15);
-  }
-  
-  .clear-search {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #666;
-    cursor: pointer;
-    padding: 0.25rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-  }
-  
-  .clear-search.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  /* Occurrences list */
-  .occurrences-list {
-    margin-bottom: 3rem;
-  }
-  
-  /* Sermon group */
-  .sermon-group {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-    border-left: 4px solid var(--color-primary, #2ea3f2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .sermon-group:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  }
-  
-  .sermon-title {
-    padding: 1.25rem;
-    margin: 0;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-heading, #333);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .sermon-date {
-    font-size: 0.9rem;
-    font-weight: normal;
-    color: #666;
-  }
-  
-  /* View styles */
-  .view-list .occurrence-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  
-  .view-grid .occurrence-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  /* Occurrence item */
-  .occurrence-item {
-    padding: 1.25rem;
-    background-color: #fff;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-  }
-  
-  .occurrence-item:last-child {
-    border-bottom: none;
-  }
-  
-  .occurrence-item:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .view-grid .occurrence-item {
-    border: 1px solid #f0f0f0;
-    border-radius: 6px;
-    border-left: 3px solid var(--color-primary, #2ea3f2);
-  }
-  
-  .occurrence-text {
-    margin: 0.75rem 0 1.25rem;
-    line-height: 1.6;
-    color: var(--color-text, #333);
-  }
-  
-  .occurrence-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #777;
-  }
-  
-  .highlight {
-    background-color: rgba(46, 163, 242, 0.15);
-    font-weight: 600;
-    padding: 0 3px;
-    border-radius: 3px;
-    color: var(--color-heading, #333);
-  }
-  
-  /* No results */
-  .no-results {
-    text-align: center;
-    padding: 3rem 0;
-    color: #666;
-  }
-  
-  .no-results h3 {
-    margin: 1rem 0 0.5rem;
-    color: #444;
-  }
-  
-  /* Loading spinner */
-  .loading-spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: var(--color-primary, #2ea3f2);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto;
-  }
-  
-  .loading-spinner.small {
-    width: 24px;
-    height: 24px;
-    border-width: 3px;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .loading-text {
-    margin-bottom: 1rem;
-    color: #666;
-  }
-  
-  .progress-container {
-    height: 4px;
-    width: 80%;
-    max-width: 300px;
-    background-color: #f0f0f0;
-    border-radius: 2px;
-    margin: 0 auto 2rem;
-    overflow: hidden;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    width: 0;
-    background-color: var(--color-primary, #2ea3f2);
-    transition: width 0.4s ease;
-  }
-  
-  /* Modal styles */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background-color: white;
-    border-radius: 10px;
-    max-width: 90%;
-    width: 700px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .modal-header h3 {
-    margin: 0;
-    color: var(--color-heading, #333);
-  }
-  
-  .close-modal {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-  }
-  
-  .modal-body {
-    padding: 1.5rem;
-  }
-  
-  /* Video container */
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-  }
-  
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 6px;
-  }
-  
-  .reference-context {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #f0f0f0;
-  }
-  
-  .reference-context h4 {
-    margin-top: 0;
-    margin-bottom: 0.75rem;
-    color: var(--color-heading, #333);
-  }
-  
-  .context-text {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-radius: 6px;
-    line-height: 1.6;
-    color: var(--color-text, #333);
-  }
-  
-  /* Modal actions */
-  .modal-actions {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  /* Share modal */
-  .share-url-container {
-    display: flex;
-    margin-bottom: 1.5rem;
-  }
-  
-  .share-url-container input {
-    flex: 1;
-    padding: 0.75rem;
-    border: 1px solid #eee;
-    border-right: none;
-    border-radius: 4px 0 0 4px;
-    font-size: 1rem;
-    background-color: #f8f9fa;
-  }
-  
-  .share-url-container button {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--color-primary, #2ea3f2);
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  .share-options {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .share-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    width: 90px;
-  }
-  
-  .share-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  }
-  
-  /* Button styles */
-  .btn {
-    padding: 0.5rem 1rem;
-    background-color: var(--color-primary, #2ea3f2);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-  }
-  
-  .btn:hover {
-    background-color: #2179c3;
-  }
-  
-  .btn-sm {
-    padding: 0.35rem 0.75rem;
-    font-size: 0.9rem;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 767px) {
-    .reference-tools {
-      margin-top: 1rem;
-    }
-    
-    .filter-section {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    
-    .filter-select {
-      width: 100%;
-    }
-    
-    .sermon-title {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    
-    .sermon-date {
-      margin-top: 0.5rem;
-    }
-    
-    .view-grid .occurrence-items {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
+<!-- Load Bible Reference Explorer Script -->
 <script>
-// Helper functions for modals
-function closeModal(modal) {
-  if (!modal) return;
-  
-  modal.hidden = true;
-  
-  // If it's the video modal, clear the video to stop playback
-  if (modal.id === 'videoModal') {
-    const videoContainer = document.getElementById('videoContainer');
-    if (videoContainer) {
-      videoContainer.innerHTML = '';
-    }
-  }
-}
 
-function openModal(modal) {
-  if (!modal) return;
-  modal.hidden = false;
-}
+  /**
+ * Bible Reference Explorer
+ * A tool for exploring Bible references from sermon transcripts
+ * 
+ * This script connects to the existing API to fetch and display Bible references.
+ */
 
-function openShareModal() {
-  const shareModal = document.getElementById('shareModal');
-  const shareUrl = document.getElementById('shareUrl');
+const BibleExplorer = (function() {
+  // Configuration
+  const config = {
+    apiBaseUrl: 'https://sermon-search-api-8fok.onrender.com', // Update with your API URL
+    resultsPerPage: 10,
+    debounceTime: 300, // ms
+    youtubeBaseUrl: 'https://www.youtube.com/watch?v=',
+    bibleGatewayBaseUrl: 'https://www.biblegateway.com/passage/?search=',
+    bibleVersion: 'KJV',
+    cacheExpiration: 60 * 60 * 1000, // 1 hour in milliseconds
+    useCaching: true // Enable/disable local storage caching
+  };
   
-  if (shareModal && shareUrl) {
-    // Set the current URL as the share URL
-    shareUrl.value = window.location.href;
-    
-    // Open the modal
-    openModal(shareModal);
-    
-    // Select the URL text
-    setTimeout(() => {
-      shareUrl.select();
-    }, 100);
-  }
-}
-
-function copyReferenceToClipboard() {
-  const referenceTitle = document.getElementById('reference-title');
+  // State
+  const state = {
+    statsLoaded: false,
+    booksLoaded: false,
+    searchTerm: '',
+    currentBook: '',
+    currentChapter: '',
+    currentVerse: '',
+    currentPage: 1,
+    totalPages: 1,
+    sortOrder: 'reference',
+    searchResults: [],
+    isLoadingStats: false,
+    isLoadingBooks: false,
+    isSearching: false
+  };
   
-  if (referenceTitle) {
-    // Create a temporary textarea to copy from
-    const textarea = document.createElement('textarea');
-    textarea.value = referenceTitle.textContent;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    
-    // Change button text to show success
-    const copyButton = document.getElementById('copyReferenceBtn');
-    if (copyButton) {
-      const originalHTML = copyButton.innerHTML;
-      copyButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied
-      `;
-      
-      // Reset after 2 seconds
-      setTimeout(() => {
-        copyButton.innerHTML = originalHTML;
-      }, 2000);
-    }
-  }
-}
-
-// Mock data functions
-function initializeReferenceData() {
-  // Parse URL parameters
-  const urlParams = new URLSearchParams(window.location.search);
-  const reference = urlParams.get('reference') || 'John 3:16';
-  
-  // Update page title
-  document.title = `${reference} - Bible Reference Viewer`;
-  
-  // Update reference title and count
-  document.getElementById('reference-title').textContent = reference;
-  document.getElementById('reference-count').textContent = '12';
-  
-  // Generate sample data (in a real app, this would come from an API)
-  const sermons = [
-    {
-      id: 1,
-      title: 'The Gospel Message',
-      date: 'May 2, 2025',
-      occurrences: [
-        {
-          text: "And here we see in <span class='highlight'>John 3:16</span>, \"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.\" This is the essence of the gospel message, the heart of our faith.",
-          timestamp: '14:23',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "Later in the sermon, we return to <span class='highlight'>John 3:16</span> to understand the depth of God's love. This verse shows us that God's love is universal - 'the world' - and also deeply personal.",
-          timestamp: '32:45',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: 'Understanding God\'s Love',
-      date: 'April 23, 2025',
-      occurrences: [
-        {
-          text: "There is no greater verse to understand the love of God than <span class='highlight'>John 3:16</span>. This verse encapsulates the entirety of the gospel in a single sentence.",
-          timestamp: '8:17',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: 'Salvation by Faith Alone',
-      date: 'April 15, 2025',
-      occurrences: [
-        {
-          text: "We see in <span class='highlight'>John 3:16</span> that salvation comes through belief - 'whoever believes in him shall not perish but have eternal life.' This aligns perfectly with our understanding of salvation by faith alone.",
-          timestamp: '19:52',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "When we compare <span class='highlight'>John 3:16</span> with Ephesians 2:8-9, we see the consistent message that salvation is a gift received through faith, not earned through works.",
-          timestamp: '27:31',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "The universal offer in <span class='highlight'>John 3:16</span> - 'whoever believes' - shows that salvation is available to all who put their faith in Christ, regardless of background, past sins, or present circumstances.",
-          timestamp: '42:05',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: 'The Trinity in Scripture',
-      date: 'March 28, 2025',
-      occurrences: [
-        {
-          text: "In <span class='highlight'>John 3:16</span>, we see two persons of the Trinity explicitly mentioned - God the Father who loved and gave, and God the Son who was given for our salvation.",
-          timestamp: '23:14',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: 'Eternal Life: Understanding Heaven',
-      date: 'March 15, 2025',
-      occurrences: [
-        {
-          text: "<span class='highlight'>John 3:16</span> promises 'eternal life' to believers. This is not just about duration of life, but a quality of life - God's own life shared with us forever.",
-          timestamp: '11:38',
-          videoId: 'dQw4w9WgXcQ'
-        },
-        {
-          text: "The contrast in <span class='highlight'>John 3:16</span> between 'perish' and 'eternal life' helps us understand the stakes of faith. These are the two ultimate destinations of humanity.",
-          timestamp: '29:54',
-          videoId: 'dQw4w9WgXcQ'
-        }
-      ]
-    }
+  // Bible book order for sorting
+  const bibleBookOrder = [
+    // Old Testament
+    "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+    "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+    "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+    "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+    "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah",
+    "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+    "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah",
+    "Haggai", "Zechariah", "Malachi",
+    // New Testament
+    "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+    "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+    "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
+    "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews",
+    "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John",
+    "Jude", "Revelation"
   ];
   
-  // Populate sermon filter
-  populateSermonFilter(sermons);
+  // Cached data
+  const cache = {
+    stats: null,
+    books: null,
+    searchResults: {},
+    timestamp: {}
+  };
   
-  // Render occurrences
-  renderOccurrences(sermons);
+  // DOM Elements - initialize in the init function
+  let elements = {};
   
-  // Generate related references
-  generateRelatedReferences(reference);
-}
-
-function populateSermonFilter(sermons) {
-  const sermonFilter = document.getElementById('sermonFilter');
-  
-  if (sermonFilter) {
-    // Clear existing options except "All Sermons"
-    while (sermonFilter.options.length > 1) {
-      sermonFilter.remove(1);
+  /**
+   * Initialize the Bible Explorer
+   */
+  function init() {
+    // Get DOM elements
+    elements = {
+      // Statistics elements
+      statsLoading: document.getElementById('stats-loading'),
+      statsContainer: document.getElementById('stats-container'),
+      totalReferences: document.getElementById('total-references'),
+      topBook: document.getElementById('top-book'),
+      topBookCount: document.getElementById('top-book-count'),
+      topChapter: document.getElementById('top-chapter'),
+      topChapterCount: document.getElementById('top-chapter-count'),
+      topReferencesList: document.getElementById('top-references-list'),
+      
+      // Search and filter elements
+      searchInput: document.getElementById('reference-search'),
+      searchButton: document.getElementById('search-button'),
+      bookFilter: document.getElementById('book-filter'),
+      chapterFilter: document.getElementById('chapter-filter'),
+      verseFilter: document.getElementById('verse-filter'),
+      sortSelect: document.getElementById('sort-results'),
+      
+      // Results elements
+      resultsCount: document.getElementById('results-count'),
+      searchLoading: document.getElementById('search-loading'),
+      initialState: document.getElementById('initial-state'),
+      noResults: document.getElementById('no-results'),
+      resultsContainer: document.getElementById('results-container'),
+      pagination: document.getElementById('pagination'),
+      prevPage: document.getElementById('prev-page'),
+      nextPage: document.getElementById('next-page'),
+      pageInfo: document.getElementById('page-info'),
+      
+      // Modal elements
+      referenceModal: document.getElementById('reference-modal'),
+      modalTitle: document.getElementById('modal-title'),
+      modalContent: document.getElementById('modal-content'),
+      closeModal: document.getElementById('close-modal')
+    };
+    
+    if (!checkElements()) {
+      console.error('Bible Explorer: Required DOM elements not found');
+      return;
     }
     
-    // Add sermon options
-    sermons.forEach(sermon => {
-      const option = document.createElement('option');
-      option.value = sermon.id;
-      option.textContent = sermon.title;
-      sermonFilter.appendChild(option);
+    // Setup event listeners
+    setupEventListeners();
+    
+    // Load initial data
+    loadInitialData();
+    
+    // Try to restore cached data
+    if (config.useCaching) {
+      restoreFromCache();
+    }
+  }
+  
+  /**
+   * Check if all required DOM elements exist
+   */
+  function checkElements() {
+    // Check if critical elements exist
+    return elements.searchInput && 
+           elements.bookFilter && 
+           elements.resultsContainer;
+  }
+  
+  /**
+   * Setup event listeners
+   */
+  function setupEventListeners() {
+    // Search
+    elements.searchInput.addEventListener('input', debounce(handleSearch, config.debounceTime));
+    elements.searchButton.addEventListener('click', () => handleSearch());
+    
+    // Filters
+    elements.bookFilter.addEventListener('change', handleBookChange);
+    elements.chapterFilter.addEventListener('change', handleChapterChange);
+    elements.verseFilter.addEventListener('change', handleVerseChange);
+    
+    // Sorting
+    elements.sortSelect.addEventListener('change', handleSortChange);
+    
+    // Pagination
+    elements.prevPage.addEventListener('click', () => navigateToPage(state.currentPage - 1));
+    elements.nextPage.addEventListener('click', () => navigateToPage(state.currentPage + 1));
+    
+    // Modal
+    elements.closeModal.addEventListener('click', closeModal);
+    window.addEventListener('click', (event) => {
+      if (event.target === elements.referenceModal) {
+        closeModal();
+      }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isModalOpen()) {
+        closeModal();
+      }
     });
   }
-}
-
-function renderOccurrences(sermons) {
-  const occurrencesList = document.getElementById('occurrences-list');
   
-  if (occurrencesList) {
-    // Clear loading state
-    occurrencesList.innerHTML = '';
+  /**
+   * Load initial data (statistics and books)
+   */
+  function loadInitialData() {
+    // Load statistics
+    loadBibleStats();
     
-    // Add sermon groups
-    sermons.forEach(sermon => {
-      const sermonGroup = document.createElement('div');
-      sermonGroup.className = 'sermon-group';
-      sermonGroup.setAttribute('data-sermon-id', sermon.id);
-      
-      // Add sermon title
-      const titleElement = document.createElement('h3');
-      titleElement.className = 'sermon-title';
-      titleElement.innerHTML = `${sermon.title} <span class="sermon-date">${sermon.date}</span>`;
-      
-      // Add occurrences
-      const occurrencesContainer = document.createElement('div');
-      occurrencesContainer.className = 'occurrence-items';
-      
-      sermon.occurrences.forEach(occurrence => {
-        const occurrenceItem = document.createElement('div');
-        occurrenceItem.className = 'occurrence-item';
-        occurrenceItem.setAttribute('data-video-id', occurrence.videoId);
-        occurrenceItem.setAttribute('data-timestamp', occurrence.timestamp);
+    // Load books list
+    loadBibleBooks();
+  }
+  
+  /**
+   * Restore data from local storage cache
+   */
+  function restoreFromCache() {
+    try {
+      // Check if we have cached stats
+      const cachedStats = localStorage.getItem('bible_explorer_stats');
+      if (cachedStats) {
+        const statsData = JSON.parse(cachedStats);
+        const timestamp = parseInt(localStorage.getItem('bible_explorer_stats_timestamp') || '0');
         
-        occurrenceItem.innerHTML = `
-          <div class="occurrence-text">${occurrence.text}</div>
-          <div class="occurrence-meta">
-            <div class="timestamp">Timestamp: ${occurrence.timestamp}</div>
-            <div class="video-link">Watch Video</div>
-          </div>
-        `;
+        // Check if cache is still valid
+        if (Date.now() - timestamp < config.cacheExpiration) {
+          cache.stats = statsData;
+          cache.timestamp.stats = timestamp;
+          
+          // Update UI with cached stats
+          updateStatistics(statsData);
+        }
+      }
+      
+      // Check if we have cached books
+      const cachedBooks = localStorage.getItem('bible_explorer_books');
+      if (cachedBooks) {
+        const booksData = JSON.parse(cachedBooks);
+        const timestamp = parseInt(localStorage.getItem('bible_explorer_books_timestamp') || '0');
         
-        // Add click event to play video
-        occurrenceItem.addEventListener('click', function() {
-          openVideoModal(this.getAttribute('data-video-id'), this.getAttribute('data-timestamp'), sermon.title, occurrence.text);
-        });
-        
-        occurrencesContainer.appendChild(occurrenceItem);
+        // Check if cache is still valid
+        if (Date.now() - timestamp < config.cacheExpiration) {
+          cache.books = booksData;
+          cache.timestamp.books = timestamp;
+          
+          // Update UI with cached books
+          populateBookFilter(booksData);
+        }
+      }
+    } catch (error) {
+      console.error('Error restoring from cache:', error);
+      // Clear potentially corrupted cache
+      clearCache();
+    }
+  }
+  
+  /**
+   * Save data to local storage cache
+   */
+  function saveToCache(key, data) {
+    if (!config.useCaching) return;
+    
+    try {
+      localStorage.setItem(`bible_explorer_${key}`, JSON.stringify(data));
+      localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+      
+      cache[key] = data;
+      cache.timestamp[key] = Date.now();
+    } catch (error) {
+      console.error(`Error saving ${key} to cache:`, error);
+    }
+  }
+  
+  /**
+   * Clear cache
+   */
+  function clearCache() {
+    try {
+      localStorage.removeItem('bible_explorer_stats');
+      localStorage.removeItem('bible_explorer_stats_timestamp');
+      localStorage.removeItem('bible_explorer_books');
+      localStorage.removeItem('bible_explorer_books_timestamp');
+      
+      // Clear search results cache
+      Object.keys(cache.searchResults).forEach(key => {
+        localStorage.removeItem(`bible_explorer_search_${key}`);
+        localStorage.removeItem(`bible_explorer_search_${key}_timestamp`);
       });
       
-      sermonGroup.appendChild(titleElement);
-      sermonGroup.appendChild(occurrencesContainer);
-      occurrencesList.appendChild(sermonGroup);
-    });
+      // Reset cache object
+      cache.stats = null;
+      cache.books = null;
+      cache.searchResults = {};
+      cache.timestamp = {};
+    } catch (error) {
+      console.error('Error clearing cache:', error);
+    }
   }
-}
-
-function openVideoModal(videoId, timestamp, sermonTitle, context) {
-  const videoModal = document.getElementById('videoModal');
-  const videoContainer = document.getElementById('videoContainer');
-  const videoModalTitle = document.getElementById('videoModalTitle');
-  const videoReferenceContext = document.getElementById('videoReferenceContext');
-  const openYoutubeBtn = document.getElementById('openYoutubeBtn');
   
-  if (videoModal && videoContainer && videoModalTitle && videoReferenceContext && openYoutubeBtn) {
-    // Convert timestamp (MM:SS) to seconds
-    let startSeconds = 0;
-    if (timestamp.includes(':')) {
-      const parts = timestamp.split(':');
-      startSeconds = parseInt(parts[0]) * 60 + parseInt(parts[1]);
-    } else {
-      startSeconds = parseInt(timestamp);
+  /**
+   * Load Bible statistics from API
+   */
+  function loadBibleStats() {
+    if (state.isLoadingStats || state.statsLoaded) return;
+    
+    state.isLoadingStats = true;
+    showStatsLoading(true);
+    
+    fetch(`${config.apiBaseUrl}/bible/stats`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load Bible statistics: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Update statistics UI
+        updateStatistics(data);
+        
+        // Save to cache
+        saveToCache('stats', data);
+        
+        state.statsLoaded = true;
+        state.isLoadingStats = false;
+        showStatsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error loading Bible statistics:', error);
+        showErrorNotification('Failed to load statistics. Please try again later.');
+        state.isLoadingStats = false;
+        showStatsLoading(false);
+      });
+  }
+  
+  /**
+   * Load Bible books list from API
+   */
+  function loadBibleBooks() {
+    if (state.isLoadingBooks || state.booksLoaded) return;
+    
+    state.isLoadingBooks = true;
+    
+    fetch(`${config.apiBaseUrl}/bible/books`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load Bible books: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Populate book filter
+        populateBookFilter(data);
+        
+        // Save to cache
+        saveToCache('books', data);
+        
+        state.booksLoaded = true;
+        state.isLoadingBooks = false;
+        
+        // Populate top references once books are loaded
+        populateTopReferences(data);
+      })
+      .catch(error => {
+        console.error('Error loading Bible books:', error);
+        showErrorNotification('Failed to load Bible books. Please try again later.');
+        state.isLoadingBooks = false;
+      });
+  }
+  
+  /**
+   * Update statistics display
+   */
+  function updateStatistics(data) {
+    if (!data) return;
+    
+    // Update summary statistics
+    elements.totalReferences.textContent = data.total_references.toLocaleString();
+    
+    // Update top book
+    if (data.top_books && data.top_books.length > 0) {
+      const topBook = data.top_books[0];
+      elements.topBook.textContent = formatBookName(topBook.book);
+      elements.topBookCount.textContent = topBook.count.toLocaleString();
     }
     
-    // Update modal title
-    videoModalTitle.textContent = `${sermonTitle} - ${timestamp}`;
+    // Update top chapter
+    if (data.top_chapters && data.top_chapters.length > 0) {
+      const topChapter = data.top_chapters[0];
+      elements.topChapter.textContent = `${formatBookName(topChapter.book)} ${topChapter.chapter}`;
+      elements.topChapterCount.textContent = topChapter.count.toLocaleString();
+    }
     
-    // Update context
-    videoReferenceContext.innerHTML = context;
-    
-    // Update YouTube button link
-    openYoutubeBtn.href = `https://www.youtube.com/watch?v=${videoId}&t=${startSeconds}`;
-    
-    // Create YouTube embed
-    videoContainer.innerHTML = `
-      <iframe 
-        src="https://www.youtube.com/embed/${videoId}?start=${startSeconds}&autoplay=1" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-        title="Sermon video at timestamp ${timestamp}">
-      </iframe>
-    `;
-    
-    // Open modal
-    openModal(videoModal);
+    // Show the statistics container
+    elements.statsLoading.style.display = 'none';
+    elements.statsContainer.style.display = 'flex';
   }
-}
-
-function generateRelatedReferences(reference) {
-  // Extract book and chapter from the reference
-  let book = '';
-  let chapter = '';
   
-  // Simple regex to extract book and chapter (e.g., "John 3:16" -> book="John", chapter="3")
-  const match = reference.match(/^(\d*\s*[A-Za-z]+)\s*(\d+)(?::\d+(?:-\d+)?)?$/);
+  /**
+   * Populate the book filter dropdown
+   */
+  function populateBookFilter(data) {
+    if (!data || !data.books) return;
+    
+    const books = data.books;
+    const bookSelect = elements.bookFilter;
+    
+    // Clear any existing options except the first one
+    while (bookSelect.options.length > 1) {
+      bookSelect.remove(1);
+    }
+    
+    // Sort books according to biblical order
+    books.sort((a, b) => {
+      const bookA = a.book;
+      const bookB = b.book;
+      
+      const indexA = bibleBookOrder.indexOf(bookA);
+      const indexB = bibleBookOrder.indexOf(bookB);
+      
+      // If both books are found in the order array
+      if (indexA !== -1 && indexB !== -1) {
+        return indexA - indexB;
+      }
+      
+      // If only one book is found, prioritize it
+      if (indexA !== -1) return -1;
+      if (indexB !== -1) return 1;
+      
+      // If neither is found, sort alphabetically
+      return bookA.localeCompare(bookB);
+    });
+    
+    // Add options for each book
+    books.forEach(bookData => {
+      const option = document.createElement('option');
+      option.value = bookData.book;
+      option.textContent = `${formatBookName(bookData.book)} (${bookData.count})`;
+      bookSelect.appendChild(option);
+    });
+  }
   
-  if (match) {
-    book = match[1];
-    chapter = match[2];
+  /**
+   * Populate chapter filter based on selected book
+   */
+  function loadChapters(book) {
+    if (!book) {
+      // Clear and disable chapter filter
+      const chapterSelect = elements.chapterFilter;
+      while (chapterSelect.options.length > 1) {
+        chapterSelect.remove(1);
+      }
+      chapterSelect.disabled = true;
+      return;
+    }
     
-    // Generate related references based on same chapter
-    const relatedReferences = [
-      { reference: `${book} ${chapter}:1-5`, count: 8 },
-      { reference: `${book} ${chapter}:14-17`, count: 15 },
-      { reference: `${book} ${chapter}:36`, count: 6 },
-      { reference: `${book} ${chapter}`, count: 24 },
-      { reference: `${book} ${parseInt(chapter) + 1}:1-3`, count: 5 }
-    ];
+    // Fetch chapters for the selected book
+    fetch(`${config.apiBaseUrl}/bible/books/${book}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load chapters: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        populateChapterFilter(data);
+      })
+      .catch(error => {
+        console.error(`Error loading chapters for ${book}:`, error);
+        showErrorNotification('Failed to load chapters. Please try again later.');
+      });
+  }
+  
+  /**
+   * Populate chapter filter with data
+   */
+  function populateChapterFilter(data) {
+    if (!data || !data.chapters) return;
     
-    // Display related references
-    const relatedReferencesContainer = document.getElementById('related-references-list');
+    const chapterSelect = elements.chapterFilter;
     
-    if (relatedReferencesContainer) {
-      relatedReferencesContainer.innerHTML = `
-        <h3 class="section-header">Related References</h3>
-        <div class="reference-list">
-          ${relatedReferences.map(ref => `
-            <div class="reference-item" onclick="window.location.href='reference-viewer.html?reference=${encodeURIComponent(ref.reference)}'">
-              <span class="reference-name">${ref.reference}</span>
-              <span class="reference-count">${ref.count}</span>
-            </div>
-          `).join('')}
-        </div>
+    // Clear any existing options except the first one
+    while (chapterSelect.options.length > 1) {
+      chapterSelect.remove(1);
+    }
+    
+    // Get chapters
+    const chapters = Object.keys(data.chapters);
+    
+    // Sort chapters numerically
+    chapters.sort((a, b) => {
+      // Handle non-numeric chapter keys
+      if (a === 'unknown') return 1;
+      if (b === 'unknown') return -1;
+      return parseInt(a) - parseInt(b);
+    });
+    
+    // Add options for each chapter
+    chapters.forEach(chapter => {
+      const chapterData = data.chapters[chapter];
+      const count = chapterData.length;
+      
+      const option = document.createElement('option');
+      option.value = chapter;
+      option.textContent = `Chapter ${chapter} (${count})`;
+      chapterSelect.appendChild(option);
+    });
+    
+    // Enable the chapter select
+    chapterSelect.disabled = chapters.length === 0;
+  }
+  
+  /**
+   * Load verses for a specific book and chapter
+   */
+  function loadVerses(book, chapter) {
+    if (!book || !chapter) {
+      // Clear and disable verse filter
+      const verseSelect = elements.verseFilter;
+      while (verseSelect.options.length > 1) {
+        verseSelect.remove(1);
+      }
+      verseSelect.disabled = true;
+      return;
+    }
+    
+    // Build reference ID for the API
+    const referenceId = `${book}_${chapter}`;
+    
+    // Fetch verses for the selected book and chapter
+    fetch(`${config.apiBaseUrl}/bible/references/${referenceId}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load verses: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        populateVerseFilter(data);
+      })
+      .catch(error => {
+        console.error(`Error loading verses for ${referenceId}:`, error);
+        showErrorNotification('Failed to load verses. Please try again later.');
+      });
+  }
+  
+  /**
+   * Populate verse filter with data
+   */
+  function populateVerseFilter(data) {
+    if (!data || !data.all_occurrences) return;
+    
+    const verseSelect = elements.verseFilter;
+    
+    // Clear any existing options except the first one
+    while (verseSelect.options.length > 1) {
+      verseSelect.remove(1);
+    }
+    
+    // Group references by verse
+    const verseMap = {};
+    data.all_occurrences.forEach(reference => {
+      const verse = reference.verse;
+      if (verse !== null) {
+        if (!verseMap[verse]) {
+          verseMap[verse] = [];
+        }
+        verseMap[verse].push(reference);
+      }
+    });
+    
+    // Get unique verses
+    const verses = Object.keys(verseMap);
+    
+    // Sort verses numerically
+    verses.sort((a, b) => parseInt(a) - parseInt(b));
+    
+    // Add options for each verse
+    verses.forEach(verse => {
+      const count = verseMap[verse].length;
+      
+      const option = document.createElement('option');
+      option.value = verse;
+      option.textContent = `Verse ${verse} (${count})`;
+      verseSelect.appendChild(option);
+    });
+    
+    // Enable the verse select
+    verseSelect.disabled = verses.length === 0;
+  }
+  
+  /**
+   * Populate top references list
+   */
+  function populateTopReferences(data) {
+    if (!data || !elements.topReferencesList) return;
+    
+    const container = elements.topReferencesList;
+    container.innerHTML = ''; // Clear loading message
+    
+    // Use top books if available in data
+    const topBooks = data.top_books || [];
+    
+    // If we don't have top books specifically, use the first 5 books
+    const booksToShow = topBooks.length > 0 ? topBooks.slice(0, 5) : data.books?.slice(0, 5);
+    
+    if (!booksToShow || booksToShow.length === 0) {
+      container.innerHTML = '<div class="reference-empty">No reference data available</div>';
+      return;
+    }
+    
+    // Create elements for each top book/chapter
+    booksToShow.forEach(bookData => {
+      const item = document.createElement('div');
+      item.className = 'top-reference-item';
+      
+      const book = bookData.book;
+      const formattedReference = formatBookName(book);
+      
+      item.innerHTML = `
+        <div class="reference-text">${formattedReference}</div>
+        <div class="reference-count">${bookData.count} references</div>
       `;
       
-      relatedReferencesContainer.style.display = 'block';
-    }
-  }
-}
-
-function filterOccurrences() {
-  const sermonFilter = document.getElementById('sermonFilter');
-  const sermonGroups = document.querySelectorAll('.sermon-group');
-  
-  if (sermonFilter && sermonGroups.length > 0) {
-    const selectedSermonId = sermonFilter.value;
-    
-    if (selectedSermonId === 'all') {
-      // Show all sermon groups
-      sermonGroups.forEach(group => {
-        group.style.display = '';
-      });
-    } else {
-      // Show only the selected sermon group
-      sermonGroups.forEach(group => {
-        if (group.getAttribute('data-sermon-id') === selectedSermonId) {
-          group.style.display = '';
-        } else {
-          group.style.display = 'none';
-        }
-      });
-    }
-    
-    // Check if any groups are visible
-    let visibleGroups = 0;
-    sermonGroups.forEach(group => {
-      if (group.style.display !== 'none') {
-        visibleGroups++;
-      }
-    });
-    
-    // Show/hide "no results" message
-    const noResultsElement = document.getElementById('no-results');
-    if (noResultsElement) {
-      noResultsElement.hidden = visibleGroups > 0;
-    }
-  }
-}
-
-function sortOccurrences(sortValue) {
-  const occurrencesList = document.getElementById('occurrences-list');
-  const sermonGroups = Array.from(document.querySelectorAll('.sermon-group'));
-  
-  if (occurrencesList && sermonGroups.length > 0) {
-    // Sort based on the selected option
-    switch (sortValue) {
-      case 'date-desc': // Most recent first
-        sermonGroups.sort((a, b) => {
-          const dateA = a.querySelector('.sermon-date').textContent;
-          const dateB = b.querySelector('.sermon-date').textContent;
-          return new Date(dateB) - new Date(dateA);
-        });
-        break;
+      // Add click handler to filter by this book
+      item.addEventListener('click', () => {
+        // Set book filter
+        elements.bookFilter.value = book;
+        state.currentBook = book;
         
-      case 'date-asc': // Oldest first
-        sermonGroups.sort((a, b) => {
-          const dateA = a.querySelector('.sermon-date').textContent;
-          const dateB = b.querySelector('.sermon-date').textContent;
-          return new Date(dateA) - new Date(dateB);
-        });
-        break;
+        // Load chapters for this book
+        loadChapters(book);
         
-      case 'relevance': // Sort by number of occurrences
-        sermonGroups.sort((a, b) => {
-          const countA = a.querySelectorAll('.occurrence-item').length;
-          const countB = b.querySelectorAll('.occurrence-item').length;
-          return countB - countA;
-        });
-        break;
-    }
-    
-    // Re-append in the new order
-    sermonGroups.forEach(group => {
-      occurrencesList.appendChild(group);
-    });
-  }
-}
-
-function searchInOccurrences(query) {
-  if (!query) {
-    resetSearch();
-    return;
-  }
-  
-  query = query.toLowerCase();
-  
-  const occurrenceItems = document.querySelectorAll('.occurrence-item');
-  const sermonGroups = document.querySelectorAll('.sermon-group');
-  
-  let foundAny = false;
-  
-  // Search in each occurrence item
-  occurrenceItems.forEach(item => {
-    const textElement = item.querySelector('.occurrence-text');
-    if (textElement) {
-      const text = textElement.textContent.toLowerCase();
+        // Reset other filters
+        state.currentChapter = '';
+        state.currentVerse = '';
+        
+        // Search with these filters
+        handleSearch();
+      });
       
-      if (text.includes(query)) {
-        // Show this item
-        item.style.display = '';
-        foundAny = true;
-        
-        // Highlight the matching text
-        const originalText = textElement.innerHTML;
-        const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-        textElement.innerHTML = originalText.replace(regex, '<mark>$1</mark>');
+      container.appendChild(item);
+    });
+  }
+  
+  /**
+   * Search for references
+   */
+  function searchReferences() {
+    // Build request parameters
+    const params = new URLSearchParams();
+    
+    // Always add the search term if available
+    if (state.searchTerm) {
+      params.append('query', state.searchTerm);
+    }
+    
+    // Add reference filters if available
+    let endpoint = 'bible/references';
+    let referenceId = '';
+    
+    if (state.currentBook) {
+      if (state.currentChapter) {
+        if (state.currentVerse) {
+          // Book + Chapter + Verse
+          referenceId = `${state.currentBook}_${state.currentChapter}_${state.currentVerse}`;
+        } else {
+          // Book + Chapter
+          referenceId = `${state.currentBook}_${state.currentChapter}`;
+        }
       } else {
-        // Hide this item
-        item.style.display = 'none';
+        // Book only
+        referenceId = state.currentBook;
+      }
+      
+      endpoint = `bible/references/${referenceId}`;
+    } else {
+      // No specific reference, search all
+      endpoint = 'bible/books';
+    }
+    
+    // Show loading state
+    state.isSearching = true;
+    showSearchLoading(true);
+    
+    // Check cache first
+    const cacheKey = `search_${endpoint}_${params.toString()}`;
+    const cachedResults = getCachedSearchResults(cacheKey);
+    
+    if (cachedResults) {
+      // Use cached results
+      state.searchResults = cachedResults;
+      sortResults();
+      displayResults();
+      state.isSearching = false;
+      showSearchLoading(false);
+      return;
+    }
+    
+    // Fetch from API
+    fetch(`${config.apiBaseUrl}/${endpoint}?${params.toString()}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Search failed: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Process search results
+        processSearchResults(data, referenceId);
+        
+        // Cache results
+        cacheSearchResults(cacheKey, state.searchResults);
+        
+        // Sort and display
+        sortResults();
+        displayResults();
+        
+        state.isSearching = false;
+        showSearchLoading(false);
+      })
+      .catch(error => {
+        console.error('Error searching references:', error);
+        showErrorNotification('Search failed. Please try again later.');
+        state.isSearching = false;
+        showSearchLoading(false);
+      });
+  }
+  
+  /**
+   * Get cached search results
+   */
+  function getCachedSearchResults(key) {
+    if (!config.useCaching) return null;
+    
+    // Check memory cache first
+    if (cache.searchResults[key]) {
+      const timestamp = cache.timestamp[`search_${key}`];
+      if (timestamp && Date.now() - timestamp < config.cacheExpiration) {
+        return cache.searchResults[key];
       }
     }
-  });
+    
+    // Try localStorage
+    try {
+      const cachedData = localStorage.getItem(`bible_explorer_${key}`);
+      if (cachedData) {
+        const data = JSON.parse(cachedData);
+        const timestamp = parseInt(localStorage.getItem(`bible_explorer_${key}_timestamp`) || '0');
+        
+        if (Date.now() - timestamp < config.cacheExpiration) {
+          // Update memory cache
+          cache.searchResults[key] = data;
+          cache.timestamp[`search_${key}`] = timestamp;
+          return data;
+        }
+      }
+    } catch (error) {
+      console.error('Error retrieving from cache:', error);
+    }
+    
+    return null;
+  }
   
-  // Show/hide sermon groups based on visible items
-  sermonGroups.forEach(group => {
-    const visibleItems = Array.from(group.querySelectorAll('.occurrence-item')).filter(item => {
-      return item.style.display !== 'none';
+  /**
+   * Cache search results
+   */
+  function cacheSearchResults(key, data) {
+    if (!config.useCaching) return;
+    
+    try {
+      // Save to memory cache
+      cache.searchResults[key] = data;
+      cache.timestamp[`search_${key}`] = Date.now();
+      
+      // Save to localStorage
+      localStorage.setItem(`bible_explorer_${key}`, JSON.stringify(data));
+      localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+    } catch (error) {
+      console.error('Error caching search results:', error);
+    }
+  }
+  
+  /**
+   * Process search results from different API endpoints
+   */
+  function processSearchResults(data, referenceId) {
+    // Clear previous results
+    state.searchResults = [];
+    
+    if (referenceId) {
+      // Results from a specific reference endpoint
+      if (data.all_occurrences && Array.isArray(data.all_occurrences)) {
+        state.searchResults = data.all_occurrences;
+      }
+    } else if (data.books && Array.isArray(data.books)) {
+      // Results from the books endpoint
+      // We need to gather all references from all books
+      // This is a simplified implementation - in practice,
+      // you might want to limit the number of results or paginate
+      
+      // If we have a search term, we'll need to search through each book
+      if (state.searchTerm) {
+        // This would be inefficient in practice
+        // Ideally, your API would have a dedicated search endpoint
+        showErrorNotification('General search without book filter not implemented');
+        state.searchResults = [];
+      } else {
+        // Just display book counts if no search term
+        showErrorNotification('Please select a specific book to see references');
+        state.searchResults = [];
+      }
+    }
+    
+    // Filter results by search term if needed
+    if (state.searchTerm && state.searchResults.length > 0) {
+      const searchTerm = state.searchTerm.toLowerCase();
+      state.searchResults = state.searchResults.filter(reference => {
+        // Search in reference text
+        if (reference.reference_text && reference.reference_text.toLowerCase().includes(searchTerm)) {
+          return true;
+        }
+        
+        // Search in context
+        if (reference.context && reference.context.toLowerCase().includes(searchTerm)) {
+          return true;
+        }
+        
+        return false;
+      });
+    }
+  }
+  
+  /**
+   * Handle search input changes
+   */
+  function handleSearch() {
+    state.searchTerm = elements.searchInput.value.trim();
+    state.currentPage = 1;
+    
+    // Perform search
+    searchReferences();
+  }
+  
+  /**
+   * Handle book filter changes
+   */
+  function handleBookChange() {
+    state.currentBook = elements.bookFilter.value;
+    state.currentChapter = '';
+    state.currentVerse = '';
+    state.currentPage = 1;
+    
+    // Update dependent filters
+    loadChapters(state.currentBook);
+    elements.verseFilter.disabled = true;
+    
+    // Clear chapter and verse filters
+    while (elements.chapterFilter.options.length > 1) {
+      elements.chapterFilter.remove(1);
+    }
+    
+    while (elements.verseFilter.options.length > 1) {
+      elements.verseFilter.remove(1);
+    }
+    
+    // Update results if a book is selected
+    if (state.currentBook) {
+      searchReferences();
+    } else {
+      // Reset results if no book is selected
+      state.searchResults = [];
+      displayResults();
+    }
+  }
+  
+  /**
+   * Handle chapter filter changes
+   */
+  function handleChapterChange() {
+    state.currentChapter = elements.chapterFilter.value;
+    state.currentVerse = '';
+    state.currentPage = 1;
+    
+    // Update verse filter
+    loadVerses(state.currentBook, state.currentChapter);
+    
+    // Clear verse filter
+    while (elements.verseFilter.options.length > 1) {
+      elements.verseFilter.remove(1);
+    }
+    
+    // Update results
+    searchReferences();
+  }
+  
+  /**
+   * Handle verse filter changes
+   */
+  function handleVerseChange() {
+    state.currentVerse = elements.verseFilter.value;
+    state.currentPage = 1;
+    
+    // Update results
+    searchReferences();
+  }
+  
+  /**
+   * Handle sort order changes
+   */
+  function handleSortChange() {
+    state.sortOrder = elements.sortSelect.value;
+    
+    // Re-sort and display results without searching again
+    sortResults();
+    displayResults();
+  }
+  
+  /**
+   * Sort search results based on current sort order
+   */
+  function sortResults() {
+    const sortOrder = state.sortOrder;
+    
+    state.searchResults.sort((a, b) => {
+      switch (sortOrder) {
+        case 'reference':
+          // Sort by biblical order
+          // First compare books
+          const bookA = a.book;
+          const bookB = b.book;
+          
+          const bookOrderA = bibleBookOrder.indexOf(bookA);
+          const bookOrderB = bibleBookOrder.indexOf(bookB);
+          
+          if (bookOrderA !== bookOrderB) {
+            // Different books
+            if (bookOrderA === -1) return 1;
+            if (bookOrderB === -1) return -1;
+            return bookOrderA - bookOrderB;
+          }
+          
+          // Same book, compare chapters
+          const chapterA = a.chapter || 0;
+          const chapterB = b.chapter || 0;
+          
+          if (chapterA !== chapterB) {
+            return chapterA - chapterB;
+          }
+          
+          // Same chapter, compare verses
+          const verseA = a.verse || 0;
+          const verseB = b.verse || 0;
+          return verseA - verseB;
+          
+        case 'date-new':
+          // Sort by sermon date (newest first)
+          const dateA = parseDateValue(a.sermon_date);
+          const dateB = parseDateValue(b.sermon_date);
+          return dateB - dateA;
+          
+        case 'date-old':
+          // Sort by sermon date (oldest first)
+          const dateAOld = parseDateValue(a.sermon_date);
+          const dateBOld = parseDateValue(b.sermon_date);
+          return dateAOld - dateBOld;
+          
+        default:
+          return 0;
+      }
+    });
+  }
+  
+  /**
+   * Display search results and update pagination
+   */
+  function displayResults() {
+    const resultsCount = state.searchResults.length;
+    elements.resultsCount.textContent = resultsCount.toLocaleString();
+    
+    // Calculate pagination
+    const resultsPerPage = config.resultsPerPage;
+    state.totalPages = Math.ceil(resultsCount / resultsPerPage);
+    
+    // Adjust current page if needed
+    if (state.currentPage > state.totalPages) {
+      state.currentPage = Math.max(1, state.totalPages);
+    }
+    
+    // Update page info
+    elements.pageInfo.textContent = `Page ${state.currentPage} of ${state.totalPages || 1}`;
+    
+    // Update pagination buttons
+    elements.prevPage.disabled = state.currentPage <= 1;
+    elements.nextPage.disabled = state.currentPage >= state.totalPages;
+    
+    // Show/hide appropriate containers
+    elements.pagination.style.display = resultsCount > resultsPerPage ? 'flex' : 'none';
+    elements.noResults.style.display = resultsCount === 0 ? 'block' : 'none';
+    elements.initialState.style.display = 
+      (!state.searchTerm && !state.currentBook && resultsCount === 0) ? 'block' : 'none';
+    elements.resultsContainer.style.display = resultsCount > 0 ? 'block' : 'none';
+    
+    // If no results, stop here
+    if (resultsCount === 0) {
+      return;
+    }
+    
+    // Calculate slice for current page
+    const startIndex = (state.currentPage - 1) * resultsPerPage;
+    const endIndex = Math.min(startIndex + resultsPerPage, resultsCount);
+    const pageResults = state.searchResults.slice(startIndex, endIndex);
+    
+    // Clear previous results
+    elements.resultsContainer.innerHTML = '';
+    
+    // Display results for current page
+    pageResults.forEach(reference => {
+      const resultElement = createResultElement(reference);
+      elements.resultsContainer.appendChild(resultElement);
+    });
+  }
+  
+  /**
+   * Create a search result element
+   */
+  function createResultElement(reference) {
+    const resultElement = document.createElement('div');
+    resultElement.className = 'reference-result';
+    
+    // Format reference and context
+    const formattedReference = formatReference(reference);
+    const formattedContext = formatContext(reference.context, state.searchTerm);
+    
+    // Get sermon information
+    const sermonTitle = reference.sermon_title || 'Unknown Sermon';
+    const sermonDate = formatDate(reference.sermon_date);
+    const videoId = reference.video_id;
+    const timestamp = reference.start_time;
+    
+    // Create the result HTML
+    resultElement.innerHTML = `
+      <div class="reference-header">
+        <div class="reference-bible-text">${formattedReference}</div>
+        <button class="reference-bible-link" 
+                aria-label="Open ${formattedReference} in Bible Gateway">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="reference-context">${formattedContext}</div>
+      <div class="reference-sermon">
+        <div class="sermon-info">
+          <div class="sermon-title">${sermonTitle}</div>
+          <div class="sermon-date">${sermonDate}</div>
+        </div>
+        <div class="reference-actions">
+          <button class="reference-view-context" data-reference-id="${reference.video_id}-${reference.start_time}">
+            View Context
+          </button>
+          <a href="${config.youtubeBaseUrl}${videoId}&t=${Math.floor(timestamp)}" 
+             target="_blank" rel="noopener noreferrer" class="reference-watch-video">
+            Watch Video
+          </a>
+        </div>
+      </div>
+    `;
+    
+    // Add event listeners
+    const bibleLink = resultElement.querySelector('.reference-bible-link');
+    bibleLink.addEventListener('click', () => {
+      const url = `${config.bibleGatewayBaseUrl}${encodeURIComponent(reference.reference_text)}&version=${config.bibleVersion}`;
+      window.open(url, '_blank');
     });
     
-    group.style.display = visibleItems.length > 0 ? '' : 'none';
-  });
-  
-  // Show/hide "no results" message
-  const noResultsElement = document.getElementById('no-results');
-  if (noResultsElement) {
-    noResultsElement.hidden = foundAny;
-  }
-}
-
-function resetSearch() {
-  const occurrenceItems = document.querySelectorAll('.occurrence-item');
-  const sermonGroups = document.querySelectorAll('.sermon-group');
-  const noResultsElement = document.getElementById('no-results');
-  
-  // Show all items
-  occurrenceItems.forEach(item => {
-    item.style.display = '';
+    const viewContextButton = resultElement.querySelector('.reference-view-context');
+    viewContextButton.addEventListener('click', () => {
+      openReferenceModal(reference);
+    });
     
-    // Remove highlights
-    const textElement = item.querySelector('.occurrence-text');
-    if (textElement) {
-      textElement.innerHTML = textElement.innerHTML.replace(/<mark>(.*?)<\/mark>/g, '$1');
+    return resultElement;
+  }
+  
+  /**
+   * Open the reference modal with details
+   */
+  function openReferenceModal(reference) {
+    if (!reference) return;
+    
+    // Format reference for title
+    const formattedReference = formatReference(reference);
+    elements.modalTitle.textContent = formattedReference;
+    
+    // Create modal content
+    const videoId = reference.video_id;
+    const timestamp = reference.start_time;
+    const sermonTitle = reference.sermon_title || 'Unknown Sermon';
+    const sermonDate = formatDate(reference.sermon_date);
+    
+    // Calculate start and end times for context
+    const contextStart = Math.max(0, timestamp - 30);
+    const contextEnd = timestamp + 60;
+    
+    elements.modalContent.innerHTML = `
+      <div class="modal-sermon-info">
+        <h3>${sermonTitle}</h3>
+        <p class="modal-sermon-date">${sermonDate}</p>
+      </div>
+      
+      <div class="modal-reference-context">
+        <h4>Context from Sermon:</h4>
+        <blockquote class="modal-context-quote">
+          "${reference.context}"
+        </blockquote>
+      </div>
+      
+      <div class="modal-video-container">
+        <h4>Watch this Reference:</h4>
+        <div class="modal-video">
+          <iframe 
+            src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(timestamp)}&end=${Math.floor(contextEnd)}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      
+      <div class="modal-actions">
+        <a href="${config.bibleGatewayBaseUrl}${encodeURIComponent(reference.reference_text)}&version=${config.bibleVersion}" 
+           target="_blank" rel="noopener noreferrer" class="modal-bible-link">
+          Read in Bible Gateway
+        </a>
+        <a href="${config.youtubeBaseUrl}${videoId}&t=${Math.floor(timestamp)}" 
+           target="_blank" rel="noopener noreferrer" class="modal-youtube-link">
+          Open in YouTube
+        </a>
+      </div>
+    `;
+    
+    // Show modal
+    elements.referenceModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    
+    // Add animation
+    setTimeout(() => {
+      elements.referenceModal.classList.add('active');
+    }, 10);
+  }
+  
+  /**
+   * Close the reference modal
+   */
+  function closeModal() {
+    elements.referenceModal.classList.remove('active');
+    
+    // Wait for animation to complete before hiding
+    setTimeout(() => {
+      elements.referenceModal.style.display = 'none';
+      document.body.style.overflow = ''; // Restore scrolling
+    }, 300);
+  }
+  
+  /**
+   * Check if modal is open
+   */
+  function isModalOpen() {
+    return elements.referenceModal.style.display === 'flex';
+  }
+  
+  /**
+   * Navigate to a specific page of results
+   */
+  function navigateToPage(page) {
+    if (page < 1 || page > state.totalPages) return;
+    
+    state.currentPage = page;
+    displayResults();
+    
+    // Scroll to top of results
+    elements.resultsContainer.scrollIntoView({ behavior: 'smooth' });
+  }
+  
+  /**
+   * Show statistics loading state
+   */
+  function showStatsLoading(isLoading) {
+    if (elements.statsLoading) {
+      elements.statsLoading.style.display = isLoading ? 'block' : 'none';
     }
-  });
-  
-  // Show all groups
-  sermonGroups.forEach(group => {
-    group.style.display = '';
-  });
-  
-  // Hide "no results" message
-  if (noResultsElement) {
-    noResultsElement.hidden = true;
-  }
-}
-
-function resetAllFilters() {
-  // Reset sermon filter
-  const sermonFilter = document.getElementById('sermonFilter');
-  if (sermonFilter) {
-    sermonFilter.value = 'all';
+    
+    if (elements.statsContainer) {
+      elements.statsContainer.style.display = isLoading ? 'none' : 'flex';
+    }
   }
   
-  // Reset sort option
-  const sortOption = document.getElementById('sortOption');
-  if (sortOption) {
-    sortOption.value = 'date-desc';
+  /**
+   * Show search loading state
+   */
+  function showSearchLoading(isLoading) {
+    elements.searchLoading.style.display = isLoading ? 'flex' : 'none';
+    
+    if (isLoading) {
+      elements.resultsContainer.style.opacity = '0.5';
+    } else {
+      elements.resultsContainer.style.opacity = '1';
+    }
   }
   
-  // Reset search
-  const searchInput = document.getElementById('contextSearch');
-  const clearSearch = document.getElementById('clearSearch');
-  if (searchInput) {
-    searchInput.value = '';
-  }
-  if (clearSearch) {
-    clearSearch.classList.remove('visible');
-  }
-  
-  // Apply reset
-  resetSearch();
-  filterOccurrences();
-  sortOccurrences('date-desc');
-}
-
-// Initialize event listeners when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Simulate loading progress
-  const progressBar = document.getElementById('loadingProgress');
-  let progress = 0;
-  const progressInterval = setInterval(() => {
-    progress += 5;
-    if (progressBar) progressBar.style.width = `${progress}%`;
-    if (progress >= 100) {
-      clearInterval(progressInterval);
+  /**
+   * Show error notification
+   */
+  function showErrorNotification(message) {
+    // Check if notification container exists
+    let notificationContainer = document.querySelector('.bible-explorer-notification');
+    
+    if (!notificationContainer) {
+      // Create notification container
+      notificationContainer = document.createElement('div');
+      notificationContainer.className = 'bible-explorer-notification';
+      document.querySelector('.bible-explorer-container').appendChild(notificationContainer);
+    }
+    
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = 'bible-explorer-error';
+    notification.textContent = message;
+    
+    // Add to container
+    notificationContainer.appendChild(notification);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+      notification.classList.add('fade-out');
+      
       setTimeout(() => {
-        // Hide loading, show content
-        document.getElementById('loading-indicator').style.display = 'none';
-        document.getElementById('reference-details').style.display = 'block';
-        // Initialize data
-        initializeReferenceData();
+        if (notification.parentNode === notificationContainer) {
+          notificationContainer.removeChild(notification);
+        }
       }, 300);
-    }
-  }, 100);
+    }, 5000);
+  }
   
-  // Initialize event listeners
-  initEventListeners();
+  // ======= UTILITY FUNCTIONS =======
+  
+  /**
+   * Format book name for display
+   */
+  function formatBookName(book) {
+    if (!book) return '';
+    
+    // Replace underscores with spaces
+    return book.replace(/_/g, ' ');
+  }
+  
+  /**
+   * Format full reference for display
+   */
+  function formatReference(reference) {
+    const book = formatBookName(reference.book);
+    const chapter = reference.chapter;
+    const verse = reference.verse;
+    
+    if (chapter && verse) {
+      return `${book} ${chapter}:${verse}`;
+    } else if (chapter) {
+      return `${book} ${chapter}`;
+    } else {
+      return book;
+    }
+  }
+  
+  /**
+   * Format context with highlighting for search term
+   */
+  function formatContext(context, searchTerm) {
+    if (!context) return '';
+    
+    let formattedContext = context;
+    
+    // Escape HTML entities
+    formattedContext = formattedContext
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+    
+    // Highlight search term if present
+    if (searchTerm) {
+      const escapedSearchTerm = searchTerm
+        .replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape regex special characters
+      
+      const regex = new RegExp(`(${escapedSearchTerm})`, 'gi');
+      formattedContext = formattedContext.replace(regex, '<mark>$1</mark>');
+    }
+    
+    return formattedContext;
+  }
+  
+  /**
+   * Format date for display
+   */
+  function formatDate(dateValue) {
+    if (!dateValue) return '';
+    
+    try {
+      // Handle YYYYMMDD format
+      if (typeof dateValue === 'number' || /^\d{8}$/.test(dateValue)) {
+        const dateStr = String(dateValue);
+        const year = dateStr.substring(0, 4);
+        const month = dateStr.substring(4, 6);
+        const day = dateStr.substring(6, 8);
+        
+        return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+      
+      // Try to parse as date string
+      return new Date(dateValue).toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch (e) {
+      return dateValue;
+    }
+  }
+  
+  /**
+   * Parse date value for sorting
+   */
+  function parseDateValue(dateValue) {
+    if (!dateValue) return 0;
+    
+    try {
+      // Handle YYYYMMDD format
+      if (typeof dateValue === 'number' || /^\d{8}$/.test(dateValue)) {
+        return parseInt(dateValue);
+      }
+      
+      // Try to parse as date string
+      return new Date(dateValue).getTime();
+    } catch (e) {
+      return 0;
+    }
+  }
+  
+  /**
+   * Debounce function to limit frequency of function calls
+   */
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  // Return public API
+  return {
+    init,
+    handleSearch,
+    navigateToPage,
+    closeModal
+  };
+})();
+
+// Initialize Bible Explorer when document is ready
+document.addEventListener('DOMContentLoaded', () => {
+  BibleExplorer.init();
 });
 
-function initEventListeners() {
-  // Toggle view buttons
-  const viewList = document.getElementById('viewList');
-  const viewGrid = document.getElementById('viewGrid');
-  const occurrencesList = document.getElementById('occurrences-list');
-  
-  if (viewList && viewGrid && occurrencesList) {
-    viewList.addEventListener('click', function() {
-      occurrencesList.classList.remove('view-grid');
-      occurrencesList.classList.add('view-list');
-      viewList.classList.add('active');
-      viewGrid.classList.remove('active');
-    });
-    
-    viewGrid.addEventListener('click', function() {
-      occurrencesList.classList.remove('view-list');
-      occurrencesList.classList.add('view-grid');
-      viewGrid.classList.add('active');
-      viewList.classList.remove('active');
-    });
-  }
-  
-  // Sermon filter
-  const sermonFilter = document.getElementById('sermonFilter');
-  if (sermonFilter) {
-    sermonFilter.addEventListener('change', function() {
-      filterOccurrences();
-    });
-  }
-  
-  // Sort options
-  const sortOption = document.getElementById('sortOption');
-  if (sortOption) {
-    sortOption.addEventListener('change', function() {
-      sortOccurrences(this.value);
-    });
-  }
-  
-  // Search functionality
-  const searchInput = document.getElementById('contextSearch');
-  const clearSearch = document.getElementById('clearSearch');
-  
-  if (searchInput && clearSearch) {
-    searchInput.addEventListener('input', function() {
-      if (this.value.length > 0) {
-        clearSearch.classList.add('visible');
-      } else {
-        clearSearch.classList.remove('visible');
-      }
-      searchInOccurrences(this.value);
-    });
-    
-    clearSearch.addEventListener('click', function() {
-      searchInput.value = '';
-      this.classList.remove('visible');
-      resetSearch();
-      searchInput.focus();
-    });
-  }
-  
-  // Reset filters button
-  const resetFilters = document.getElementById('resetFilters');
-  if (resetFilters) {
-    resetFilters.addEventListener('click', function() {
-      resetAllFilters();
-    });
-  }
-  
-  // Copy reference button
-  const copyReferenceBtn = document.getElementById('copyReferenceBtn');
-  if (copyReferenceBtn) {
-    copyReferenceBtn.addEventListener('click', function() {
-      copyReferenceToClipboard();
-    });
-  }
-  
-  // Share reference button
-  const shareReferenceBtn = document.getElementById('shareReferenceBtn');
-  if (shareReferenceBtn) {
-    shareReferenceBtn.addEventListener('click', function() {
-      openShareModal();
-    });
-  }
-  
-  // Modal close buttons
-  const closeModalButtons = document.querySelectorAll('.close-modal');
-  closeModalButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const modal = this.closest('.modal');
-      if (modal) {
-        closeModal(modal);
-      }
-    });
-  });
-  
-  // Copy share URL button
-  const copyShareUrlBtn = document.getElementById('copyShareUrl');
-  if (copyShareUrlBtn) {
-    copyShareUrlBtn.addEventListener('click', function() {
-      const shareUrl = document.getElementById('shareUrl');
-      if (shareUrl) {
-        shareUrl.select();
-        document.execCommand('copy');
-        this.textContent = 'Copied!';
-        setTimeout(() => {
-          this.textContent = 'Copy';
-        }, 2000);
-      }
-    });
-  }
-  
-  // Share via email, Facebook, Twitter
-  const shareEmailBtn = document.getElementById('shareEmail');
-  const shareFacebookBtn = document.getElementById('shareFacebook');
-  const shareTwitterBtn = document.getElementById('shareTwitter');
-  
-  if (shareEmailBtn) {
-    shareEmailBtn.addEventListener('click', function() {
-      const url = document.getElementById('shareUrl').value;
-      const title = document.getElementById('reference-title').textContent;
-      window.location.href = `mailto:?subject=Bible Reference: ${title}&body=Check out this Bible reference: ${url}`;
-    });
-  }
-  
-  if (shareFacebookBtn) {
-    shareFacebookBtn.addEventListener('click', function() {
-      const url = encodeURIComponent(document.getElementById('shareUrl').value);
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, 'facebook-share', 'width=580,height=520');
-    });
-  }
-  
-  if (shareTwitterBtn) {
-    shareTwitterBtn.addEventListener('click', function() {
-      const url = encodeURIComponent(document.getElementById('shareUrl').value);
-      const title = encodeURIComponent(document.getElementById('reference-title').textContent);
-      window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, 'twitter-share', 'width=550,height=420');
-    });
-  }
-  
-  // Close modals when clicking backdrop
-  document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('modal')) {
-      closeModal(e.target);
-    }
-  });
-  
-  // Close modals with Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      const openModals = document.querySelectorAll('.modal:not([hidden])');
-      openModals.forEach(modal => {
-        closeModal(modal);
-      });
-    }
-  });
-}
+
 </script>
+
+<style>
+
+  /**
+ * Bible Reference Explorer
+ * Styling for the Bible reference search tool
+ */
+
+:root {
+  /* Color variables */
+  --primary-color: #3490dc;
+  --primary-dark: #2779bd;
+  --secondary-color: #6574cd;
+  --accent-color: #9561e2;
+  --success-color: #38c172;
+  --warning-color: #ffed4a;
+  --danger-color: #e3342f;
+  
+  --text-color: #2d3748;
+  --text-muted: #718096;
+  --light-text: #f7fafc;
+  
+  --border-color: #e2e8f0;
+  --bg-color: #ffffff;
+  --bg-gray: #f7fafc;
+  --bg-gray-dark: #edf2f7;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Animation */
+  --transition-speed: 0.3s;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f7fafc;
+    --text-muted: #cbd5e0;
+    --light-text: #f7fafc;
+    
+    --border-color: #4a5568;
+    --bg-color: #2d3748;
+    --bg-gray: #1a202c;
+    --bg-gray-dark: #171923;
+  }
+}
+
+/* Container */
+.bible-explorer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+}
+
+/* Header */
+.bible-explorer-header {
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.bible-explorer-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+  color: var(--primary-color);
+}
+
+.bible-explorer-intro {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Notifications */
+.bible-explorer-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 350px;
+}
+
+.bible-explorer-error {
+  background-color: var(--danger-color);
+  color: white;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease;
+}
+
+.bible-explorer-error.fade-out {
+  animation: fadeOut 0.3s ease;
+}
+
+/* Statistics */
+.bible-explorer-stats {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+}
+
+.stats-loading,
+.reference-loading {
+  text-align: center;
+  padding: var(--space-lg);
+  color: var(--text-muted);
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.stats-card {
+  background-color: var(--bg-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: var(--space-lg);
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed) ease, 
+              box-shadow var(--transition-speed) ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.stats-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: var(--space-sm) 0;
+}
+
+.stats-book {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: var(--space-xs);
+}
+
+/* Search Section */
+.bible-explorer-search-section {
+  margin-bottom: var(--space-xl);
+}
+
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.search-input-container {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.reference-search-input {
+  width: 100%;
+  padding: var(--space-md);
+  padding-right: 50px;
+  border: 2px solid var(--border-color);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
+.reference-search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.25);
+}
+
+.search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  border: none;
+  background-color: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-speed) ease;
+}
+
+.search-button:hover {
+  color: var(--primary-dark);
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.filter-select {
+  padding: 0.5rem var(--space-md);
+  border: 2px solid var(--border-color);
+  border-radius: 0.25rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  min-width: 150px;
+  cursor: pointer;
+  transition: border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.25);
+}
+
+.filter-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Top References */
+.top-references {
+  margin-top: var(--space-lg);
+}
+
+.top-references h3 {
+  margin-bottom: var(--space-md);
+  font-size: 1.25rem;
+}
+
+.top-references-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.top-reference-item {
+  background-color: var(--bg-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  padding: var(--space-md);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+  flex: 1;
+  min-width: 150px;
+}
+
+.top-reference-item:hover {
+  background-color: var(--bg-gray-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reference-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.reference-count {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.reference-empty {
+  text-align: center;
+  padding: var(--space-md);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Results Section */
+.bible-explorer-results-section {
+  margin-top: var(--space-xl);
+}
+
+.bible-explorer-results-section h2 {
+  margin-bottom: var(--space-md);
+  font-size: 1.5rem;
+}
+
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.results-sorting {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.sort-select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.search-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) 0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--bg-gray-dark);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-md);
+}
+
+.initial-state,
+.no-results {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  color: var(--text-muted);
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+}
+
+/* Reference Result */
+.reference-result {
+  background-color: var(--bg-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: var(--space-lg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed) ease, 
+              box-shadow var(--transition-speed) ease;
+}
+
+.reference-result:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reference-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.reference-bible-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.reference-bible-link {
+  background-color: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-speed) ease;
+}
+
+.reference-bible-link:hover {
+  color: var(--primary-color);
+}
+
+.reference-context {
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+  position: relative;
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--primary-color);
+  font-style: italic;
+}
+
+.reference-context mark {
+  background-color: var(--warning-color);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.reference-sermon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.sermon-info {
+  flex: 2;
+  min-width: 200px;
+}
+
+.sermon-title {
+  font-weight: bold;
+  margin-bottom: var(--space-xs);
+}
+
+.sermon-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.reference-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.reference-view-context,
+.reference-watch-video {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.reference-view-context {
+  background-color: var(--bg-gray-dark);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.reference-view-context:hover {
+  background-color: var(--border-color);
+}
+
+.reference-watch-video {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: white;
+}
+
+.reference-watch-video:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.page-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.page-button:hover:not(:disabled) {
+  background-color: var(--bg-gray-dark);
+}
+
+.page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Modal */
+.reference-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.reference-modal.active {
+  opacity: 1;
+}
+
+.reference-modal-content {
+  background-color: var(--bg-color);
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: transform var(--transition-speed) ease;
+}
+
+.reference-modal.active .reference-modal-content {
+  transform: translateY(0);
+}
+
+.reference-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 1;
+}
+
+.reference-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease;
+}
+
+.close-modal:hover {
+  background-color: var(--bg-gray);
+  color: var(--text-color);
+}
+
+.reference-modal-body {
+  padding: var(--space-lg);
+}
+
+.modal-sermon-info {
+  margin-bottom: var(--space-lg);
+}
+
+.modal-sermon-info h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+}
+
+.modal-sermon-date {
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.modal-reference-context {
+  margin-bottom: var(--space-lg);
+}
+
+.modal-context-quote {
+  margin: var(--space-md) 0;
+  padding: var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--primary-color);
+  background-color: var(--bg-gray);
+  border-radius: 0 0.25rem 0.25rem 0;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.modal-video-container {
+  margin-bottom: var(--space-lg);
+}
+
+.modal-video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.modal-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.modal-bible-link,
+.modal-youtube-link {
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-speed) ease;
+  font-weight: 500;
+  flex: 1;
+}
+
+.modal-bible-link {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.modal-bible-link:hover {
+  background-color: var(--accent-color);
+}
+
+.modal-youtube-link {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.modal-youtube-link:hover {
+  background-color: #c53030;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-controls {
+    flex-direction: column;
+  }
+  
+  .reference-sermon {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .reference-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stats-card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Focus styles for better accessibility */
+a:focus,
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .search-controls,
+  .reference-actions,
+  .modal-actions,
+  .close-modal,
+  .pagination {
+    display: none !important;
+  }
+  
+  .bible-explorer-container {
+    padding: 0;
+  }
+  
+  .reference-result,
+  .stats-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+}
+</style>
