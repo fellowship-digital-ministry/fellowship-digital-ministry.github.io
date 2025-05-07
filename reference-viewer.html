@@ -413,6 +413,24 @@ const BibleExplorer = (function() {
     
     // Load books list
     loadBibleBooks();
+    
+    // Default to Genesis instead of showing the spinner
+    setTimeout(() => {
+      if (state.booksLoaded) {
+        showBookView('Genesis');
+      } else {
+        // If books aren't loaded yet, set up a listener to show Genesis once they are
+        const checkBooksLoaded = setInterval(() => {
+          if (state.booksLoaded) {
+            showBookView('Genesis');
+            clearInterval(checkBooksLoaded);
+          }
+        }, 100);
+        
+        // Clear the interval after 10 seconds to prevent infinite checking
+        setTimeout(() => clearInterval(checkBooksLoaded), 10000);
+      }
+    }, 300);
   }
   
   /**
