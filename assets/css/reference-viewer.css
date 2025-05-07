@@ -52,9 +52,53 @@ body {
   border-right: 1px solid var(--border-color);
   background-color: var(--bg-gray);
   overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   display: flex;
   flex-direction: column;
   height: 100%; /* Fill parent height */
+}
+
+/* Sidebar header and search box */
+.sidebar-header {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-gray-dark);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 30px; /* Make room for the clear button */
+}
+
+.clear-search {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity var(--transition-speed) ease;
 }
 
 /* Bible content area - internal scrolling */
