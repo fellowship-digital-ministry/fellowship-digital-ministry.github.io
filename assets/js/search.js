@@ -591,101 +591,85 @@ const SermonSearch = (function() {
   /**
    * Add a message to the chat
    */
-  function addMessage(text, sender, isError = false) {
-    if (!elements.messagesContainer) return null;
-    
-    const messageElement = document.createElement('div');
-    messageElement.className = `claude-message claude-message-${sender}`;
-    messageElement.id = 'msg-' + Date.now();
-    
-    if (sender === 'bot') {
-      messageElement.setAttribute('role', 'region');
-      messageElement.setAttribute('aria-live', 'polite');
-      messageElement.setAttribute('aria-atomic', 'true');
-    }
-    
-    const messageContent = document.createElement('div');
-    messageContent.className = 'claude-message-content';
-    
-    if (isError) {
-      messageContent.classList.add('error');
-      messageElement.setAttribute('role', 'alert');
-    }
-    
-    // For bot messages, apply formatting
-    if (sender === 'bot') {
-      if (text.startsWith('<div class="welcome-message">')) {
-        // Convert welcome message to enhanced Claude-style
-        const welcomeContent = createWelcomeMessage();
-        messageContent.appendChild(welcomeContent);
-      } 
-      else if (text.startsWith('<div class="error-container">') || 
-               text.startsWith('<div class="connection-error">')) {
-        // For pre-formatted HTML error content
-        messageContent.innerHTML = text;
-      } 
-      else {
-        // Regular text responses
-        messageContent.innerHTML = formatResponse(text);
-        
-        // Look for sources in the response and create a toggle button
-        const hasSources = text.includes('sermon') && !text.includes('No relevant sermon content found');
-        if (hasSources) {
-          const sourcesToggle = document.createElement('button');
-          sourcesToggle.className = 'claude-sources-toggle';
-          sourcesToggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
-          sourcesToggle.setAttribute('data-active', 'false');
-          sourcesToggle.setAttribute('aria-expanded', 'false');
-          sourcesToggle.setAttribute('aria-controls', 'sourcesPanel');
-          
-          sourcesToggle.addEventListener('click', function() {
-            // Always show the sources panel, regardless of current state
-            toggleSourcesPanel(true);
-            
-            // Update toggle state to active
-            this.setAttribute('data-active', 'true');
-            this.setAttribute('aria-expanded', 'true');
-            this.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
-          });
-          
-          messageContent.appendChild(sourcesToggle);
-        }
-      }
-      
-      // Make Bible references clickable
-      setupBibleReferenceClicks(messageContent);
-    } else {
-      // For user messages, use text content for security
-      messageContent.textContent = text;
-    }
-    
-    messageElement.appendChild(messageContent);
-    elements.messagesContainer.appendChild(messageElement);
-    
-    // Add entrance animation class
-    messageElement.classList.add('animating-in');
-    
-    // Apply staggered animation based on position
-    const messages = elements.messagesContainer.querySelectorAll('.claude-message');
-    const messageIndex = Array.from(messages).indexOf(messageElement);
-    
-    // Small stagger delay based on message index
-    const staggerDelay = Math.min(messageIndex * 50, 200); // max 200ms delay
-    
-    // Set animation delay
-    messageElement.style.animationDelay = `${staggerDelay}ms`;
-    
-    // Remove animation class after animation completes
-    setTimeout(() => {
-      messageElement.classList.remove('animating-in');
-      messageElement.style.animationDelay = '';
-    }, 500 + staggerDelay);
-    
-    // Smooth scroll to the bottom
-    smoothScrollToBottom(elements.messagesContainer);
-    
-    return messageElement;
+ /**
+ * Add a message to the chat
+ */
+function addMessage(text, sender, isError = false) {
+  if (!elements.messagesContainer) return null;
+  
+  const messageElement = document.createElement('div');
+  messageElement.className = `claude-message claude-message-${sender}`;
+  messageElement.id = 'msg-' + Date.now();
+  
+  if (sender === 'bot') {
+    messageElement.setAttribute('role', 'region');
+    messageElement.setAttribute('aria-live', 'polite');
+    messageElement.setAttribute('aria-atomic', 'true');
   }
+  
+  const messageContent = document.createElement('div');
+  messageContent.className = 'claude-message-content';
+  
+  if (isError) {
+    messageContent.classList.add('error');
+    messageElement.setAttribute('role', 'alert');
+  }
+  
+  // For bot messages, apply formatting
+  if (sender === 'bot') {
+    if (text.startsWith('<div class="welcome-message">')) {
+      // Convert welcome message to enhanced Claude-style
+      const welcomeContent = createWelcomeMessage();
+      messageContent.appendChild(welcomeContent);
+    } 
+    else if (text.startsWith('<div class="error-container">') || 
+             text.startsWith('<div class="connection-error">')) {
+      // For pre-formatted HTML error content
+      messageContent.innerHTML = text;
+    } 
+    else {
+      // Regular text responses
+      messageContent.innerHTML = formatResponse(text);
+      
+      // REMOVED automatic sources toggle button detection
+      // We will ONLY add this button in the displayAnswer function
+      // when we KNOW there are actual sources available
+    }
+    
+    // Make Bible references clickable
+    setupBibleReferenceClicks(messageContent);
+  } else {
+    // For user messages, use text content for security
+    messageContent.textContent = text;
+  }
+  
+  messageElement.appendChild(messageContent);
+  elements.messagesContainer.appendChild(messageElement);
+  
+  // Add entrance animation class
+  messageElement.classList.add('animating-in');
+  
+  // Apply staggered animation based on position
+  const messages = elements.messagesContainer.querySelectorAll('.claude-message');
+  const messageIndex = Array.from(messages).indexOf(messageElement);
+  
+  // Small stagger delay based on message index
+  const staggerDelay = Math.min(messageIndex * 50, 200); // max 200ms delay
+  
+  // Set animation delay
+  messageElement.style.animationDelay = `${staggerDelay}ms`;
+  
+  // Remove animation class after animation completes
+  setTimeout(() => {
+    messageElement.classList.remove('animating-in');
+    messageElement.style.animationDelay = '';
+  }, 500 + staggerDelay);
+  
+  // Smooth scroll to the bottom
+  smoothScrollToBottom(elements.messagesContainer);
+  
+  return messageElement;
+}
 
   /**
    * Add a typing indicator
@@ -1976,8 +1960,8 @@ function updateSuggestions() {
   }
 
   /**
-   * Display answer from API
-   */
+ * Display answer from API
+ */
   function displayAnswer(data) {
     if (!data || !data.answer) {
       console.error('Invalid data received from API');
@@ -2012,7 +1996,7 @@ function updateSuggestions() {
     // Regular processing for when sermon content is found
     const messageElement = addMessage(data.answer, 'bot');
     
-    // Display sources in the side panel if available
+    // Display sources in the side panel ONLY if there are actual sermon sources
     if (hasSermonContent) {
       try {
         // Clear previous sources
@@ -2042,8 +2026,26 @@ function updateSuggestions() {
           }, 500 + (index * 50));
         });
         
-        // Sources panel will only open when the user clicks the toggle button
-        // (Auto-opening code removed as per user request)
+        // ALWAYS add the sources toggle button for messages with sources
+        const sourcesToggle = document.createElement('button');
+        sourcesToggle.className = 'claude-sources-toggle';
+        sourcesToggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
+        sourcesToggle.setAttribute('data-active', 'false');
+        sourcesToggle.setAttribute('aria-expanded', 'false');
+        sourcesToggle.setAttribute('aria-controls', 'sourcesPanel');
+        
+        sourcesToggle.addEventListener('click', function() {
+          // Always show the sources panel when clicked
+          toggleSourcesPanel(true);
+          
+          // Update toggle state to active
+          this.setAttribute('data-active', 'true');
+          this.setAttribute('aria-expanded', 'true');
+        });
+        
+        // Always add the button at the end of the message content
+        const messageContent = messageElement.querySelector('.claude-message-content');
+        messageContent.appendChild(sourcesToggle);
         
         // Add to conversation history
         state.conversationHistory.push({ role: 'assistant', content: data.answer });
@@ -2055,7 +2057,8 @@ function updateSuggestions() {
         state.conversationHistory.push({ role: 'assistant', content: data.answer });
       }
     } else {
-      // Add to conversation history
+      // If no sermon sources, don't add the sources toggle button
+      // Just add to conversation history
       state.conversationHistory.push({ role: 'assistant', content: data.answer });
     }
     
