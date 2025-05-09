@@ -1090,8 +1090,8 @@ const BibleExplorer = (function() {
     elements.verseView.style.display = 'none';
     elements.chapterView.style.display = 'block';
     
-    // Scroll to top
-    window.scrollTo(0, 0);
+    // Scroll content pane to top
+    elements.bibleContent.scrollTo({ top: 0, behavior: 'smooth' });
     
     // Load verses for this chapter
     // Since we already have the book data loaded, we can use that data instead of making another request
@@ -1289,8 +1289,8 @@ const BibleExplorer = (function() {
     elements.chapterView.style.display = 'none';
     elements.verseView.style.display = 'block';
     
-    // Scroll to top
-    window.scrollTo(0, 0);
+    // Scroll content pane to top
+    elements.bibleContent.scrollTo({ top: 0, behavior: 'smooth' });
     
     // Load verse occurrences - using the cached book data
     loadVerseOccurrences(book, chapter, verse);
