@@ -1026,136 +1026,162 @@ function updateSuggestions() {
   }
 
   /**
-   * Create a source element
-   */
-  function createSourceElement(source, index) {
-    const sourceElement = document.createElement('div');
-    sourceElement.className = 'claude-source-item';
-    sourceElement.setAttribute('data-video-id', source.video_id);
-    
-    // Add ARIA attributes for accessibility
-    sourceElement.setAttribute('role', 'region');
-    sourceElement.setAttribute('aria-label', 'Sermon source ' + (index + 1));
-    
-    const similarity = Math.round(source.similarity * 100);
-    
-    // Format title and date for display
-    const formattedTitle = formatSermonTitle(source.title);
-    let formattedDate = 'Date unknown';
-    if (source.publish_date) {
-      formattedDate = formatSermonDate(source.publish_date);
-    }
-    
-    // Create source header
-    const header = document.createElement('div');
-    header.className = 'claude-source-header';
-    
-    const title = document.createElement('div');
-    title.className = 'claude-source-title';
-    title.textContent = formattedTitle;
-    
-    const date = document.createElement('div');
-    date.className = 'claude-source-date';
-    date.textContent = formattedDate;
-    
-    header.appendChild(title);
-    header.appendChild(date);
-    
-    // Create source content
-    const content = document.createElement('div');
-    content.className = 'claude-source-content';
-    
-    // Create collapsible text container
-    const textPreview = document.createElement('div');
-    textPreview.className = 'claude-source-text-preview';
-    
-    // Get a short preview of the text (first 100 characters + ellipsis)
-    const previewText = source.text.length > 100 ? 
-      source.text.substring(0, 100) + '...' : 
-      source.text;
-    
-    textPreview.innerHTML = `"${formatText(previewText)}"`;
-    
-    // Create "View full text" button that opens modal
-    const viewFullButton = document.createElement('button');
-    viewFullButton.className = 'claude-source-text-view-button';
-    viewFullButton.textContent = translate('view-full-text') || 'View full text';
-    viewFullButton.setAttribute('aria-haspopup', 'dialog');
-    
-    // Add click handler for the view full text button
+ * Create a source element
+ */
+function createSourceElement(source, index) {
+  const sourceElement = document.createElement('div');
+  sourceElement.className = 'claude-source-item';
+  sourceElement.setAttribute('data-video-id', source.video_id);
+  
+  // Add ARIA attributes for accessibility
+  sourceElement.setAttribute('role', 'region');
+  sourceElement.setAttribute('aria-label', 'Sermon source ' + (index + 1));
+  
+  const similarity = Math.round(source.similarity * 100);
+  
+  // Format title and date for display
+  const formattedTitle = formatSermonTitle(source.title);
+  let formattedDate = 'Date unknown';
+  if (source.publish_date) {
+    formattedDate = formatSermonDate(source.publish_date);
+  }
+  
+  // Create source header
+  const header = document.createElement('div');
+  header.className = 'claude-source-header';
+  
+  const title = document.createElement('div');
+  title.className = 'claude-source-title';
+  title.textContent = formattedTitle;
+  
+  const date = document.createElement('div');
+  date.className = 'claude-source-date';
+  date.textContent = formattedDate;
+  
+  header.appendChild(title);
+  header.appendChild(date);
+  
+  // Create source content
+  const content = document.createElement('div');
+  content.className = 'claude-source-content';
+  
+  // Create collapsible text container
+  const textPreview = document.createElement('div');
+  textPreview.className = 'claude-source-text-preview';
+  
+  // Get a short preview of the text (first 100 characters + ellipsis)
+  const previewText = source.text.length > 100 ? 
+    source.text.substring(0, 100) + '...' : 
+    source.text;
+  
+  textPreview.innerHTML = `"${formatText(previewText)}"`;
+  
+  // Create "View full text" button that opens modal
+  const viewFullButton = document.createElement('button');
+  viewFullButton.className = 'claude-source-text-view-button';
+  viewFullButton.textContent = translate('view-full-text') || 'View full text';
+  viewFullButton.setAttribute('aria-haspopup', 'dialog');
+  
+  // Add click handler for the view full text button ONLY if in English
+  if (state.currentLanguage === 'en') {
     viewFullButton.addEventListener('click', function() {
       openSourceTextOverlay(source.text, formattedTitle);
     });
-    
-    const meta = document.createElement('div');
-    meta.className = 'claude-source-meta';
-    
-    const timestamp = document.createElement('div');
-    timestamp.className = 'claude-source-timestamp';
-    timestamp.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px">
-      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
-      <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg> ${formatTimestamp(source.start_time)}`;
-    
-    const match = document.createElement('div');
-    match.className = 'claude-source-match';
-    match.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px">
-      <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg> ${similarity}% ${translate('match') || 'match'}`;
-    
-    meta.appendChild(timestamp);
-    meta.appendChild(match);
-    
-    // Create actions with improved accessibility and modal support
-    const actions = document.createElement('div');
-    actions.className = 'claude-source-actions';
-    
-    // Watch video button - opens modal overlay
-    const watchButton = document.createElement('button');
-    watchButton.className = 'claude-source-button claude-source-button-primary';
-    watchButton.textContent = translate('watch-video') || 'Watch Video';
-    watchButton.setAttribute('aria-haspopup', 'dialog');
-    
-    watchButton.onclick = function() {
-      openVideoOverlay(source.video_id, Math.floor(source.start_time), formattedTitle);
-    };
-    
-    // Transcript button - opens modal overlay
-    const transcriptButton = document.createElement('button');
-    transcriptButton.className = 'claude-source-button';
-    transcriptButton.textContent = translate('view-transcript') || 'View Transcript';
-    transcriptButton.setAttribute('aria-haspopup', 'dialog');
-    
+  } else {
+    // Disable the button for non-English languages
+    viewFullButton.disabled = true;
+    viewFullButton.classList.add('disabled');
+    viewFullButton.style.opacity = '0.5';
+    viewFullButton.style.cursor = 'not-allowed';
+    // Add a title attribute for tooltip on hover
+    viewFullButton.setAttribute('title', 'Coming soon in ' + 
+      (state.currentLanguage === 'es' ? 'Spanish' : 
+      (state.currentLanguage === 'zh' ? 'Chinese' : 'this language')));
+  }
+  
+  const meta = document.createElement('div');
+  meta.className = 'claude-source-meta';
+  
+  const timestamp = document.createElement('div');
+  timestamp.className = 'claude-source-timestamp';
+  timestamp.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px">
+    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg> ${formatTimestamp(source.start_time)}`;
+  
+  const match = document.createElement('div');
+  match.className = 'claude-source-match';
+  match.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px">
+    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg> ${similarity}% ${translate('match') || 'match'}`;
+  
+  meta.appendChild(timestamp);
+  meta.appendChild(match);
+  
+  // Create actions with improved accessibility and modal support
+  const actions = document.createElement('div');
+  actions.className = 'claude-source-actions';
+  
+  // Watch video button - opens modal overlay
+  const watchButton = document.createElement('button');
+  watchButton.className = 'claude-source-button claude-source-button-primary';
+  watchButton.textContent = translate('watch-video') || 'Watch Video';
+  watchButton.setAttribute('aria-haspopup', 'dialog');
+  
+  watchButton.onclick = function() {
+    // Watch video works in all languages
+    openVideoOverlay(source.video_id, Math.floor(source.start_time), formattedTitle);
+  };
+  
+  // Transcript button - opens modal overlay
+  const transcriptButton = document.createElement('button');
+  transcriptButton.className = 'claude-source-button';
+  transcriptButton.textContent = translate('view-transcript') || 'View Transcript';
+  transcriptButton.setAttribute('aria-haspopup', 'dialog');
+  
+  // Add click handler for transcript ONLY if in English
+  if (state.currentLanguage === 'en') {
     transcriptButton.onclick = function() {
       openTranscriptOverlay(source.video_id, source.start_time, formattedTitle);
     };
-    
-    // YouTube button - opens in new tab
-    const youtubeButton = document.createElement('button');
-    youtubeButton.className = 'claude-source-button';
-    youtubeButton.textContent = translate('open-youtube') || 'Open YouTube';
-    youtubeButton.setAttribute('aria-label', 'Open video in YouTube at ' + formatTimestamp(source.start_time));
-    
-    youtubeButton.onclick = function() {
-      window.open(`https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}`, '_blank');
-    };
-    
-    // Add buttons to actions
-    actions.appendChild(watchButton);
-    actions.appendChild(transcriptButton);
-    actions.appendChild(youtubeButton);
-    
-    // Assemble all components
-    content.appendChild(textPreview);
-    content.appendChild(viewFullButton);
-    content.appendChild(meta);
-    content.appendChild(actions);
-    
-    sourceElement.appendChild(header);
-    sourceElement.appendChild(content);
-    
-    return sourceElement;
+  } else {
+    // Disable the button for non-English languages
+    transcriptButton.disabled = true;
+    transcriptButton.classList.add('disabled');
+    transcriptButton.style.opacity = '0.5';
+    transcriptButton.style.cursor = 'not-allowed';
+    // Add a title attribute for tooltip on hover
+    transcriptButton.setAttribute('title', 'Coming soon in ' + 
+      (state.currentLanguage === 'es' ? 'Spanish' : 
+      (state.currentLanguage === 'zh' ? 'Chinese' : 'this language')));
   }
+  
+  // YouTube button - opens in new tab
+  const youtubeButton = document.createElement('button');
+  youtubeButton.className = 'claude-source-button';
+  youtubeButton.textContent = translate('open-youtube') || 'Open YouTube';
+  youtubeButton.setAttribute('aria-label', 'Open video in YouTube at ' + formatTimestamp(source.start_time));
+  
+  youtubeButton.onclick = function() {
+    window.open(`https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}`, '_blank');
+  };
+  
+  // Add buttons to actions
+  actions.appendChild(watchButton);
+  actions.appendChild(transcriptButton);
+  actions.appendChild(youtubeButton);
+  
+  // Assemble all components
+  content.appendChild(textPreview);
+  content.appendChild(viewFullButton);
+  content.appendChild(meta);
+  content.appendChild(actions);
+  
+  sourceElement.appendChild(header);
+  sourceElement.appendChild(content);
+  
+  return sourceElement;
+}
 
   // ======= OVERLAY/MODAL FUNCTIONS =======
 
