@@ -3211,4 +3211,39 @@ document.addEventListener('DOMContentLoaded', () => {
 .claude-sources-toggle[data-active="true"] .claude-sources-toggle-icon {
   transform: rotate(180deg);
 }
+/* Add bottom margin to the Bible Explorer */
+
+/* Increase the bottom margin of the main container */
+.bible-explorer-container {
+  margin-bottom: 5rem; /* Add significant bottom margin */
+}
+
+/* Add bottom margin to the main content area */
+.bible-explorer-main {
+  margin-bottom: 3rem; /* Good size margin between the explorer and any footer content */
+}
+
+/* Ensure the last chapter grid item has proper spacing */
+.chapter-grid {
+  margin-bottom: 2rem;
+}
+
+/* Add space after scrollable areas */
+.bible-content {
+  padding-bottom: 4rem;
+}
+
+/* Make sure the very last element inside content has margin */
+.occurrences-list:last-child,
+.verse-list:last-child,
+.chapter-grid:last-child {
+  margin-bottom: 3rem;
+}
+
+/* Add more margin specifically on desktop */
+@media (min-width: 769px) {
+  .bible-explorer-container {
+    margin-bottom: 8rem; /* Even larger margin on desktop */
+  }
+}
 </style>
