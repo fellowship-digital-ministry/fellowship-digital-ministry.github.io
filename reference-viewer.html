@@ -199,7 +199,9 @@ const BibleExplorer = (function() {
     bibleGatewayBaseUrl: 'https://www.biblegateway.com/passage/?search=',
     bibleVersion: 'KJV',
     cacheExpiration: 60 * 60 * 1000, // 1 hour in milliseconds
-    useCaching: true // Enable/disable local storage caching
+    useCaching: true, // Enable/disable local storage caching
+    scrollBehavior: 'auto', // Changed from 'smooth' to 'auto' to help with mobile
+    preserveScrollOnNavigation: true // New config to control scroll behavior
   };
   
   // State
@@ -217,7 +219,8 @@ const BibleExplorer = (function() {
     isLoadingStats: false,
     isLoadingBooks: false,
     isLoadingChapters: false,
-    isLoadingVerses: false
+    isLoadingVerses: false,
+    lastScrollPosition: 0 // Store last scroll position for history navigation
   };
   
   // Bible book order for sorting
@@ -335,6 +338,29 @@ const BibleExplorer = (function() {
     if (config.useCaching) {
       restoreFromCache();
     }
+    
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', handleHistoryNavigation);
+  }
+  
+  /**
+   * Handle browser history navigation (back/forward buttons)
+   */
+  function handleHistoryNavigation(event) {
+    if (event.state) {
+      const { view, book, chapter, verse } = event.state;
+      
+      // Don't scroll to top when navigating with browser history
+      const preserveScroll = true;
+      
+      if (view === 'book' && book) {
+        showBookView(book, preserveScroll);
+      } else if (view === 'chapter' && book && chapter) {
+        showChapterView(book, chapter, preserveScroll);
+      } else if (view === 'verse' && book && chapter && verse) {
+        showVerseView(book, chapter, verse, preserveScroll);
+      }
+    }
   }
   
   /**
@@ -404,6 +430,11 @@ const BibleExplorer = (function() {
         closeModal();
       }
     });
+    
+    // Store scroll position on scroll
+    window.addEventListener('scroll', debounce(function() {
+      state.lastScrollPosition = window.scrollY;
+    }, 100));
   }
   
   /**
@@ -876,7 +907,7 @@ const BibleExplorer = (function() {
   /**
    * Show book view with chapters
    */
-  function showBookView(book) {
+  function showBookView(book, preserveScroll = false) {
     if (!book) return;
     
     // Update state
@@ -914,6 +945,70 @@ const BibleExplorer = (function() {
         item.classList.add('active');
       }
     });
+    
+    // Handle history state
+    updateHistoryState('book', book);
+    
+    // Scroll behavior (fixed for mobile scroll issues)
+    if (!preserveScroll && !config.preserveScrollOnNavigation) {
+      scrollToTop();
+    }
+  }
+  
+  /**
+   * Update browser history state
+   */
+  function updateHistoryState(view, book, chapter, verse) {
+    // Create a state object
+    const state = { view, book };
+    
+    // Add chapter and verse if available
+    if (chapter) state.chapter = chapter;
+    if (verse) state.verse = verse;
+    
+    // Create a title for the history entry
+    let title = 'Bible Reference Explorer';
+    if (book) {
+      title = formatBookName(book);
+      if (chapter) {
+        title += ` ${chapter}`;
+        if (verse) {
+          title += `:${verse}`;
+        }
+      }
+      title += ' - Bible Reference Explorer';
+    }
+    
+    // Create a URL for the history entry
+    let url = '';
+    if (book) {
+      url = `#${book}`;
+      if (chapter) {
+        url += `/${chapter}`;
+        if (verse) {
+          url += `/${verse}`;
+        }
+      }
+    }
+    
+    // Check if we need to replace the current state or push a new one
+    const currentState = history.state;
+    const shouldReplace = currentState && 
+                         currentState.view === view && 
+                         currentState.book === book &&
+                         (currentState.chapter === chapter || (!currentState.chapter && !chapter)) &&
+                         (currentState.verse === verse || (!currentState.verse && !verse));
+    
+    // Update history
+    try {
+      if (shouldReplace) {
+        history.replaceState(state, title, url);
+      } else {
+        history.pushState(state, title, url);
+      }
+    } catch (error) {
+      console.error('Error updating history state:', error);
+    }
   }
   
   /**
@@ -1046,7 +1141,7 @@ const BibleExplorer = (function() {
   /**
    * Show chapter view with verses
    */
-  function showChapterView(book, chapter) {
+  function showChapterView(book, chapter, preserveScroll = false) {
     if (!book || !chapter) return;
     
     // Update state
@@ -1061,9 +1156,9 @@ const BibleExplorer = (function() {
     
     // Make breadcrumb book clickable
     elements.breadcrumbChapterBook.style.cursor = 'pointer';
-    elements.breadcrumbChapterBook.addEventListener('click', function() {
+    elements.breadcrumbChapterBook.onclick = function() {
       showBookView(book);
-    });
+    };
     
     // Update title
     elements.chapterTitle.textContent = chapter === 'unknown' 
@@ -1075,9 +1170,6 @@ const BibleExplorer = (function() {
     elements.bookView.style.display = 'none';
     elements.verseView.style.display = 'none';
     elements.chapterView.style.display = 'block';
-    
-    // Scroll to top
-    window.scrollTo(0, 0);
     
     // Load verses for this chapter
     // Since we already have the book data loaded, we can use that data instead of making another request
@@ -1093,6 +1185,14 @@ const BibleExplorer = (function() {
     } else {
       // If the cached data doesn't have this chapter, load fresh data
       loadChapterVerses(book, chapter);
+    }
+    
+    // Handle history state
+    updateHistoryState('chapter', book, chapter);
+    
+    // Scroll behavior (fixed for mobile scroll issues)
+    if (!preserveScroll && !config.preserveScrollOnNavigation) {
+      scrollToTop();
     }
   }
   
@@ -1235,7 +1335,7 @@ const BibleExplorer = (function() {
   /**
    * Show verse view with occurrences
    */
-  function showVerseView(book, chapter, verse) {
+  function showVerseView(book, chapter, verse, preserveScroll = false) {
     if (!book || !chapter || !verse) return;
     
     // Update state
@@ -1252,15 +1352,15 @@ const BibleExplorer = (function() {
     
     // Make breadcrumb book clickable
     elements.breadcrumbVerseBook.style.cursor = 'pointer';
-    elements.breadcrumbVerseBook.addEventListener('click', function() {
+    elements.breadcrumbVerseBook.onclick = function() {
       showBookView(book);
-    });
+    };
     
     // Make breadcrumb chapter clickable
     elements.breadcrumbVerseChapter.style.cursor = 'pointer';
-    elements.breadcrumbVerseChapter.addEventListener('click', function() {
+    elements.breadcrumbVerseChapter.onclick = function() {
       showChapterView(book, chapter);
-    });
+    };
     
     // Update title
     elements.verseTitle.textContent = formatReference({
@@ -1275,11 +1375,26 @@ const BibleExplorer = (function() {
     elements.chapterView.style.display = 'none';
     elements.verseView.style.display = 'block';
     
-    // Scroll to top
-    window.scrollTo(0, 0);
-    
     // Load verse occurrences - using the cached book data
     loadVerseOccurrences(book, chapter, verse);
+    
+    // Handle history state
+    updateHistoryState('verse', book, chapter, verse);
+    
+    // Scroll behavior (fixed for mobile scroll issues)
+    if (!preserveScroll && !config.preserveScrollOnNavigation) {
+      scrollToTop();
+    }
+  }
+  
+  /**
+   * Scroll to top with optionally smooth behavior
+   */
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: config.scrollBehavior // 'auto' for immediate jump, 'smooth' for animation
+    });
   }
   
   /**
@@ -2088,9 +2203,8 @@ document.addEventListener('DOMContentLoaded', () => {
   BibleExplorer.init();
 });
 </script>
-
 <style>
-/* Bible Reference Explorer Styles */
+  /* Bible Reference Explorer Styles */
 :root {
   /* Colors */
   --primary-color: #2284c5;
@@ -2115,6 +2229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2rem;
+  --space-xxl: 3rem; /* Added for bottom padding */
   
   /* Animation */
   --transition-speed: 0.3s;
@@ -2127,6 +2242,7 @@ document.addEventListener('DOMContentLoaded', () => {
   padding: var(--space-md);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--text-color);
+  padding-bottom: var(--space-xxl); /* Add extra padding at the bottom */
 }
 
 /* Header */
@@ -2221,6 +2337,7 @@ document.addEventListener('DOMContentLoaded', () => {
   height: calc(100vh - 300px);
   min-height: 500px;
   overflow: hidden;
+  margin-bottom: var(--space-xl); /* Add margin to bottom */
 }
 
 /* Sidebar */
@@ -2231,6 +2348,7 @@ document.addEventListener('DOMContentLoaded', () => {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  padding-bottom: var(--space-xl); /* Add padding at the bottom */
 }
 
 .sidebar-header {
@@ -2295,6 +2413,10 @@ document.addEventListener('DOMContentLoaded', () => {
   padding: var(--space-md) 0;
 }
 
+.testament-section:last-child {
+  padding-bottom: var(--space-xxl); /* Add extra padding to last section */
+}
+
 .testament-title {
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -2352,6 +2474,7 @@ document.addEventListener('DOMContentLoaded', () => {
 .bible-content {
   flex: 1;
   padding: var(--space-md);
+  padding-bottom: var(--space-xxl); /* Add extra padding at bottom */
   overflow-y: auto;
 }
 
@@ -2444,6 +2567,7 @@ document.addEventListener('DOMContentLoaded', () => {
   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   gap: var(--space-md);
   padding: var(--space-sm) 0;
+  margin-bottom: var(--space-xxl); /* Add extra margin at bottom */
 }
 
 .chapter-item {
@@ -2498,6 +2622,7 @@ document.addEventListener('DOMContentLoaded', () => {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  margin-bottom: var(--space-xxl); /* Add extra margin at bottom */
 }
 
 .verse-item {
@@ -2563,6 +2688,7 @@ document.addEventListener('DOMContentLoaded', () => {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  margin-bottom: var(--space-xxl); /* Add extra margin at bottom */
 }
 
 .occurrence-item {
@@ -2749,6 +2875,7 @@ document.addEventListener('DOMContentLoaded', () => {
   flex: 1;
   overflow-y: auto;
   padding: var(--space-lg);
+  padding-bottom: var(--space-xxl); /* Add extra padding at bottom */
 }
 
 /* Modal Video */
@@ -2823,6 +2950,7 @@ document.addEventListener('DOMContentLoaded', () => {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  margin-bottom: var(--space-lg); /* Add margin to bottom */
 }
 
 .transcript-segment {
@@ -2955,6 +3083,14 @@ document.addEventListener('DOMContentLoaded', () => {
   to { transform: translateX(100%); opacity: 0; }
 }
 
+/* Add a pseudo-element for bottom spacing */
+.bible-explorer-container::after {
+  content: "";
+  display: block;
+  height: var(--space-xxl);
+  width: 100%;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .bible-explorer-main {
@@ -2998,6 +3134,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   .occurrence-date {
     margin-top: var(--space-xs);
+  }
+  
+  /* Mobile-specific fix for bottom padding */
+  .bible-content,
+  .bible-sidebar,
+  .reference-modal-body {
+    padding-bottom: calc(var(--space-xxl) + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -3067,40 +3210,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 .claude-sources-toggle[data-active="true"] .claude-sources-toggle-icon {
   transform: rotate(180deg);
-}
-/* Add this to your existing CSS styles */
-
-/* Solution 1: Add padding to the bottom of scrollable areas */
-.bible-content {
-  padding-bottom: 2rem; /* Add extra padding at the bottom */
-}
-
-.bible-sidebar {
-  padding-bottom: 2rem; /* Add padding to sidebar as well */
-}
-
-/* Solution 2: Add padding to the last children of scrollable areas */
-.verse-list > .verse-item:last-child,
-.occurrences-list > .occurrence-item:last-child,
-.chapter-grid {
-  margin-bottom: 2rem; /* Add margin to the last item in lists */
-}
-
-/* Solution 3: Add a pseudo-element for extra space */
-.bible-explorer-container::after {
-  content: '';
-  display: block;
-  height: 2rem; /* Height of the bottom space */
-  width: 100%;
-}
-
-/* Ensure the footer of the page has adequate spacing */
-.bible-explorer-main {
-  margin-bottom: 2rem; /* Add margin to the main container */
-}
-
-/* Ensure content in modal has adequate spacing at bottom */
-.reference-modal-body {
-  padding-bottom: 2rem;
 }
 </style>
