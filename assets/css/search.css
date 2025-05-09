@@ -1,5 +1,8 @@
 /* Base styles */
 :root {
+  /* Tell browsers we manage both light and dark color schemes */
+  color-scheme: light dark;
+  
   /* Colors with improved contrast ratios */
   --primary-color: #2284c5; /* Darker blue for better contrast */
   --primary-dark: #1a6aa1;
@@ -1361,4 +1364,10 @@ body.keyboard-open .claude-messages {
 [data-theme="dark"] body.keyboard-open .claude-input-area {
   background-color: #1f2937;
   border-top-color: #374151;
+}
+
+/* dark‑mode: make sure description text isn't black */
+[data-theme="dark"] .about-container,
+[data-theme="dark"] .about-container * {
+  color: var(--text-color) !important;
 }
