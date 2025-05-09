@@ -3211,39 +3211,39 @@ document.addEventListener('DOMContentLoaded', () => {
 .claude-sources-toggle[data-active="true"] .claude-sources-toggle-icon {
   transform: rotate(180deg);
 }
-/* Add bottom margin to the Bible Explorer */
+/* Add this to your existing CSS styles */
 
-/* Increase the bottom margin of the main container */
-.bible-explorer-container {
-  margin-bottom: 5rem; /* Add significant bottom margin */
-}
-
-/* Add bottom margin to the main content area */
-.bible-explorer-main {
-  margin-bottom: 3rem; /* Good size margin between the explorer and any footer content */
-}
-
-/* Ensure the last chapter grid item has proper spacing */
-.chapter-grid {
-  margin-bottom: 2rem;
-}
-
-/* Add space after scrollable areas */
+/* Solution 1: Add padding to the bottom of scrollable areas */
 .bible-content {
-  padding-bottom: 4rem;
+  padding-bottom: 2rem; /* Add extra padding at the bottom */
 }
 
-/* Make sure the very last element inside content has margin */
-.occurrences-list:last-child,
-.verse-list:last-child,
-.chapter-grid:last-child {
-  margin-bottom: 3rem;
+.bible-sidebar {
+  padding-bottom: 2rem; /* Add padding to sidebar as well */
 }
 
-/* Add more margin specifically on desktop */
-@media (min-width: 769px) {
-  .bible-explorer-container {
-    margin-bottom: 8rem; /* Even larger margin on desktop */
-  }
+/* Solution 2: Add padding to the last children of scrollable areas */
+.verse-list > .verse-item:last-child,
+.occurrences-list > .occurrence-item:last-child,
+.chapter-grid {
+  margin-bottom: 2rem; /* Add margin to the last item in lists */
+}
+
+/* Solution 3: Add a pseudo-element for extra space */
+.bible-explorer-container::after {
+  content: '';
+  display: block;
+  height: 2rem; /* Height of the bottom space */
+  width: 100%;
+}
+
+/* Ensure the footer of the page has adequate spacing */
+.bible-explorer-main {
+  margin-bottom: 2rem; /* Add margin to the main container */
+}
+
+/* Ensure content in modal has adequate spacing at bottom */
+.reference-modal-body {
+  padding-bottom: 2rem;
 }
 </style>
