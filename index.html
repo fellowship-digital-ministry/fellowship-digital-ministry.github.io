@@ -20,9 +20,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         </div>
         <h3>Search Sermon Content</h3>
         <p>Ask questions and receive answers based on sermon content with direct links to video segments.</p>
-        <div class="button-wrapper">
-          <a href="{{ '/search.html' | relative_url }}" class="btn">Chat about Sermons</a>
-        </div>
+        <a href="{{ '/search.html' | relative_url }}" class="btn">Chat about Sermons</a>
       </div>
       
       <div class="feature-card">
@@ -33,9 +31,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         </div>
         <h3>Reference Viewer</h3>
         <p>View all occurrences of specific Bible passages across the sermon recordings with timestamp links.</p>
-        <div class="button-wrapper">
-          <a href="{{ '/reference-viewer.html' | relative_url }}" class="btn">Browse References</a>
-        </div>
+        <a href="{{ '/reference-viewer.html' | relative_url }}" class="btn">Browse References</a>
       </div>
       
       <div class="feature-card">
@@ -47,16 +43,14 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         </div>
         <h3>Fellowship Church Website</h3>
         <p>Learn more about the doctrines and beliefs of this Christ-honoring community in Oakton, VA, and view information about their worship services.</p>
-        <div class="button-wrapper">
-          <a href="https://www.fellowshipbaptistchurch.org" class="btn btn-external" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-            Visit Official Site
-          </a>
-        </div>
+        <a href="https://www.fellowshipbaptistchurch.org" class="btn btn-external" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          Visit Official Site
+        </a>
       </div>
     </div>
     
@@ -204,24 +198,18 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     line-height: 1.6;
   }
   
-  /* Button wrapper to fix alignment */
-  .button-wrapper {
-    margin: 0 -2rem -2rem -2rem;
-  }
-  
   .btn {
     display: inline-block;
     width: 100%;
     padding: 0.75rem 1.25rem;
-    border-radius: 0 0 8px 8px;
+    border-radius: 6px;
     text-decoration: none;
     transition: all 0.2s ease;
     font-weight: 500;
     text-align: center;
     background-color: #f1f5f9;
     color: var(--color-primary, #3155a6);
-    border: none;
-    border-top: 1px solid #e2e8f0;
+    border: 1px solid #e2e8f0;
   }
   
   .btn:hover {
