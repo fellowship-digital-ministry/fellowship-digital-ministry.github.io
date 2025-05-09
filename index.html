@@ -160,17 +160,19 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     margin: 3rem 0;
   }
   
-  .feature-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #eeeeee;
-  }
+.feature-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eeeeee;
+  position: relative; /* Add this */
+  padding-bottom: 5rem; /* Add this to make space for the button */
+}
   
   .feature-card:hover {
     transform: translateY(-5px);
@@ -198,19 +200,22 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     line-height: 1.6;
   }
   
-  .btn {
-    display: inline-block;
-    width: 100%;
-    padding: 0.75rem 1.25rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    font-weight: 500;
-    text-align: center;
-    background-color: #f1f5f9;
-    color: var(--color-primary, #3155a6);
-    border: 1px solid #e2e8f0;
-  }
+.btn {
+  display: inline-block;
+  width: calc(100% - 2rem); /* Change from 100% to account for padding */
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  text-align: center;
+  background-color: #f1f5f9;
+  color: var(--color-primary, #3155a6);
+  border: 1px solid #e2e8f0;
+  position: absolute; /* Add this */
+  bottom: 2rem; /* Add this */
+  left: 2rem; /* Add this to align with the card padding */
+}
   
   .btn:hover {
     background-color: #e2e8f0;
