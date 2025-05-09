@@ -750,60 +750,60 @@ const SermonSearch = (function() {
     }, config.transitionDuration);
   }
 
-  /**
-   * Create welcome message with suggestions
-   */
-  function createWelcomeMessage() {
-    const welcomeContainer = document.createElement('div');
-    welcomeContainer.className = 'claude-welcome';
-    welcomeContainer.setAttribute('role', 'region');
-    welcomeContainer.setAttribute('aria-label', 'Welcome message');
+ /**
+ * Create welcome message with suggestions
+ */
+function createWelcomeMessage() {
+  const welcomeContainer = document.createElement('div');
+  welcomeContainer.className = 'claude-welcome';
+  welcomeContainer.setAttribute('role', 'region');
+  welcomeContainer.setAttribute('aria-label', 'Welcome message');
+  
+  const title = document.createElement('h4');
+  title.textContent = translate('welcome-title');
+  
+  const description = document.createElement('p');
+  description.textContent = translate('welcome-intro');
+  
+  const suggestionLabel = document.createElement('p');
+  suggestionLabel.className = 'claude-suggestion-label';
+  suggestionLabel.textContent = translate('suggestion-heading');
+  
+  const suggestions = document.createElement('div');
+  suggestions.className = 'claude-suggestions';
+  suggestions.setAttribute('role', 'list');
+  
+  // Add suggestion chips with translated text
+  const translatedQueries = getTranslatedQueries();
+  translatedQueries.forEach(query => {
+    const chip = document.createElement('button');
+    chip.className = 'claude-suggestion';
+    chip.textContent = query;
+    chip.setAttribute('role', 'listitem');
+    chip.setAttribute('type', 'button');
     
-    const title = document.createElement('h4');
-    title.textContent = translate('welcome-title');
-    
-    const description = document.createElement('p');
-    description.textContent = translate('welcome-intro');
-    
-    const suggestionLabel = document.createElement('p');
-    suggestionLabel.className = 'claude-suggestion-label';
-    suggestionLabel.textContent = translate('suggestion-heading');
-    
-    const suggestions = document.createElement('div');
-    suggestions.className = 'claude-suggestions';
-    suggestions.setAttribute('role', 'list');
-    
-    // Add suggestion chips
-    getTranslatedQueries().forEach(query => {
-      const chip = document.createElement('button');
-      chip.className = 'claude-suggestion';
-      chip.textContent = query;
-      chip.setAttribute('role', 'listitem');
-      chip.setAttribute('type', 'button');
+    // Add click handler
+    chip.addEventListener('click', function(e) {
+      // Add visual feedback
+      addRippleEffect(this, e);
       
-      // Add click handler
-      chip.addEventListener('click', function(e) {
-        // Add visual feedback
-        addRippleEffect(this, e);
-        
-        // Submit the query
-        setTimeout(() => {
-          elements.queryInput.value = query;
-          elements.chatForm.dispatchEvent(new Event('submit'));
-        }, 300);
-      });
-      
-      suggestions.appendChild(chip);
+      // Submit the query
+      setTimeout(() => {
+        elements.queryInput.value = query;
+        elements.chatForm.dispatchEvent(new Event('submit'));
+      }, 300);
     });
     
-    welcomeContainer.appendChild(title);
-    welcomeContainer.appendChild(description);
-    welcomeContainer.appendChild(suggestionLabel);
-    welcomeContainer.appendChild(suggestions);
-    
-    return welcomeContainer;
-  }
-
+    suggestions.appendChild(chip);
+  });
+  
+  welcomeContainer.appendChild(title);
+  welcomeContainer.appendChild(description);
+  welcomeContainer.appendChild(suggestionLabel);
+  welcomeContainer.appendChild(suggestions);
+  
+  return welcomeContainer;
+}
   /**
    * Add ripple effect to element on click
    */
@@ -949,11 +949,10 @@ const SermonSearch = (function() {
   function displayWelcomeMessage() {
     // Add welcome message with instructions
     const welcomeMsg = `<div class="welcome-message"></div>`;
-    addMessage(welcomeMsg, 'bot');
+    const messageElement = addMessage(welcomeMsg, 'bot');
     
     state.isFirstLoad = false;
   }
-
   /**
    * Get translated sample queries
    */
@@ -2048,67 +2047,72 @@ const SermonSearch = (function() {
   /**
    * Change the interface language
    */
-  function changeLanguage(language) {
-    if (!translations[language]) {
-      console.error(`Translations for language "${language}" not found`);
-      return;
-    }
-    
-    state.currentLanguage = language;
-    console.log(`Language changed to ${language}`);
-    
-    // Update direction for RTL languages (if needed in the future)
-    document.documentElement.classList.remove('rtl');
-    if (language === 'ar' || language === 'he') {
-      document.documentElement.classList.add('rtl');
-    }
-    
-    // Update all translatable elements
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-      const key = element.getAttribute('data-i18n');
-      if (translations[language][key]) {
-        element.textContent = translations[language][key];
-      }
-    });
-    
-    // Update placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-      const key = element.getAttribute('data-i18n-placeholder');
-      if (translations[language][key]) {
-        element.placeholder = translations[language][key];
-      }
-    });
-    
-    // Set static placeholder for query input
-    if (elements.queryInput) {
-      elements.queryInput.placeholder = translate('what-does-pastor-teach');
-    }
-    
-    // Update welcome message if it exists
-    if (state.isFirstLoad) {
-      displayWelcomeMessage();
-    } else {
-      // Try to update existing welcome content without clearing conversation
-      const welcomeTitle = document.querySelector('.claude-welcome h4');
-      const welcomeIntro = document.querySelector('.claude-welcome p:first-of-type');
-      const suggestionHeading = document.querySelector('.claude-suggestion-label');
-      
-      if (welcomeTitle) welcomeTitle.textContent = translate('welcome-title');
-      if (welcomeIntro) welcomeIntro.textContent = translate('welcome-intro');
-      if (suggestionHeading) suggestionHeading.textContent = translate('suggestion-heading');
-      
-      // Update suggestion chips text
-      document.querySelectorAll('.claude-suggestion').forEach((chip, index) => {
-        if (index < sampleQueries.length) {
-          const translatedQuery = translate(sampleQueries[index]);
-          chip.textContent = translatedQuery;
-        }
-      });
-    }
-    
-    // Update any Bible references in existing messages
-    updateBibleReferencesForLanguage();
+/**
+ * Change the interface language
+ */
+function changeLanguage(language) {
+  if (!translations[language]) {
+    console.error(`Translations for language "${language}" not found`);
+    return;
   }
+  
+  state.currentLanguage = language;
+  console.log(`Language changed to ${language}`);
+  
+  // Update direction for RTL languages (if needed in the future)
+  document.documentElement.classList.remove('rtl');
+  if (language === 'ar' || language === 'he') {
+    document.documentElement.classList.add('rtl');
+  }
+  
+  // Update all translatable elements
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (translations[language][key]) {
+      element.textContent = translations[language][key];
+    }
+  });
+  
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    if (translations[language][key]) {
+      element.placeholder = translations[language][key];
+    }
+  });
+  
+  // Set static placeholder for query input
+  if (elements.queryInput) {
+    elements.queryInput.placeholder = translate('what-does-pastor-teach');
+  }
+  
+  // Update welcome message if it exists
+  if (state.isFirstLoad) {
+    displayWelcomeMessage();
+  } else {
+    // Try to update existing welcome content without clearing conversation
+    const welcomeTitle = document.querySelector('.claude-welcome h4');
+    const welcomeIntro = document.querySelector('.claude-welcome p:first-of-type');
+    const suggestionHeading = document.querySelector('.claude-suggestion-label');
+    
+    if (welcomeTitle) welcomeTitle.textContent = translate('welcome-title');
+    if (welcomeIntro) welcomeIntro.textContent = translate('welcome-intro');
+    if (suggestionHeading) suggestionHeading.textContent = translate('suggestion-heading');
+    
+    // Update suggestion chips text
+    const suggestionChips = document.querySelectorAll('.claude-suggestion');
+    const translatedQueries = getTranslatedQueries();
+    
+    suggestionChips.forEach((chip, index) => {
+      if (index < translatedQueries.length) {
+        chip.textContent = translatedQueries[index];
+      }
+    });
+  }
+  
+  // Update any Bible references in existing messages
+  updateBibleReferencesForLanguage();
+}
 
   /**
    * Clear the conversation history
@@ -2932,42 +2936,42 @@ Would you like me to search for sermon content on any of these topics instead?`;
   }
 
   function setupExampleQuestionClicks() {
-    // Target both info section examples and welcome message examples
-    const allExampleQuestions = document.querySelectorAll('.info-section-list li, .claude-suggestions .claude-suggestion');
+  // Target both info section examples and welcome message examples
+  const allExampleQuestions = document.querySelectorAll('.info-section-list li, .claude-suggestions .claude-suggestion');
+  
+  allExampleQuestions.forEach(item => {
+    item.style.cursor = 'pointer';
     
-    allExampleQuestions.forEach(item => {
-      item.style.cursor = 'pointer';
+    item.addEventListener('click', function() {
+      // Just use the current text content which is already in the correct language
+      const query = this.textContent.trim();
       
-      item.addEventListener('click', function() {
-        // Just use the current text content which is already in the correct language
-        const query = this.textContent.trim();
+      if (elements.queryInput) {
+        elements.queryInput.value = query;
         
-        if (elements.queryInput) {
-          elements.queryInput.value = query;
-          
-          // Smoothly scroll to chat section if needed
-          const chatSection = document.querySelector('.chat-section-wrapper');
-          if (chatSection && window.innerWidth <= 768) {
-            chatSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-          
-          // Short delay before submitting
-          setTimeout(() => {
-            elements.chatForm.dispatchEvent(new Event('submit'));
-          }, 300);
+        // Smoothly scroll to chat section if needed
+        const chatSection = document.querySelector('.chat-section-wrapper');
+        if (chatSection && window.innerWidth <= 768) {
+          chatSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      });
-      
-      // Add hover effects for better UX
-      item.addEventListener('mouseenter', function() {
-        this.classList.add('hover');
-      });
-      
-      item.addEventListener('mouseleave', function() {
-        this.classList.remove('hover');
-      });
+        
+        // Short delay before submitting
+        setTimeout(() => {
+          elements.chatForm.dispatchEvent(new Event('submit'));
+        }, 300);
+      }
     });
-  }
+    
+    // Add hover effects for better UX
+    item.addEventListener('mouseenter', function() {
+      this.classList.add('hover');
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      this.classList.remove('hover');
+    });
+  });
+}
 
   // ======= PUBLIC API =======
   
