@@ -737,25 +737,11 @@ const BibleExplorer = (function() {
       elements.topBookCount.textContent = topBook.count.toLocaleString();
     }
     
-    // Update top chapter - filter out non-Bible books
+    // Update top chapter
     if (data.top_chapters && data.top_chapters.length > 0) {
-      // Filter to only include valid Bible books
-      const validTopChapters = data.top_chapters.filter(chapter => 
-        bibleBookOrder.includes(chapter.book) || 
-        chapter.book === 'Psalms' || 
-        chapter.book === 'Song of Songs'
-      );
-      
-      if (validTopChapters.length > 0) {
-        // Use the first valid chapter
-        const topChapter = validTopChapters[0];
-        elements.topChapter.textContent = `${formatBookName(topChapter.book)} ${topChapter.chapter}`;
-        elements.topChapterCount.textContent = topChapter.count.toLocaleString();
-      } else {
-        // Fallback if no valid chapters found
-        elements.topChapter.textContent = 'No valid chapter data';
-        elements.topChapterCount.textContent = '0';
-      }
+      const topChapter = data.top_chapters[0];
+      elements.topChapter.textContent = `${formatBookName(topChapter.book)} ${topChapter.chapter}`;
+      elements.topChapterCount.textContent = topChapter.count.toLocaleString();
     }
     
     // Show the statistics container
