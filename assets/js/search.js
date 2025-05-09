@@ -591,9 +591,6 @@ const SermonSearch = (function() {
   /**
    * Add a message to the chat
    */
- /**
- * Add a message to the chat
- */
 function addMessage(text, sender, isError = false) {
   if (!elements.messagesContainer) return null;
   
@@ -628,12 +625,8 @@ function addMessage(text, sender, isError = false) {
       messageContent.innerHTML = text;
     } 
     else {
-      // Regular text responses
+      // Regular text responses - NEVER add sources button here
       messageContent.innerHTML = formatResponse(text);
-      
-      // REMOVED automatic sources toggle button detection
-      // We will ONLY add this button in the displayAnswer function
-      // when we KNOW there are actual sources available
     }
     
     // Make Bible references clickable
@@ -1962,109 +1955,108 @@ function updateSuggestions() {
   /**
  * Display answer from API
  */
-  function displayAnswer(data) {
-    if (!data || !data.answer) {
-      console.error('Invalid data received from API');
-      addMessage("Sorry, I received an invalid response from the API. Please try again.", 'bot');
-      return;
-    }
+/**
+ * Display answer from API
+ */
+function displayAnswer(data) {
+  if (!data || !data.answer) {
+    console.error('Invalid data received from API');
+    addMessage("Sorry, I received an invalid response from the API. Please try again.", 'bot');
+    return;
+  }
+  
+  // Check if there are any sermon sources - STRICT CHECK
+  const hasSermonContent = data.sources && Array.isArray(data.sources) && data.sources.length > 0;
+  
+  // Detect if this is a "no results" response by checking for specific phrases
+  const isNoResultsResponse = data.answer.includes(translate('no-results')) || 
+                             data.answer.includes("I couldn't find sermon content");
+  
+  // If no sermon content but we have conversation history, use the fallback logic
+  if (!hasSermonContent && isNoResultsResponse && state.conversationHistory.length > 0) {
+    // Generate a conversational response instead
+    const conversationalResponse = handleConversationFallback(
+      data.query, 
+      state.conversationHistory
+    );
     
-    // Check if there are any sermon sources
-    const hasSermonContent = data.sources && data.sources.length > 0;
+    // Display the conversational response
+    const messageElement = addMessage(conversationalResponse, 'bot');
+    messageElement.classList.add('conversation-mode');
     
-    // If no sermon content but we have conversation history, use the fallback logic
-    if (!hasSermonContent && data.answer.includes(translate('no-results')) && state.conversationHistory.length > 0) {
-      // Generate a conversational response instead
-      const conversationalResponse = handleConversationFallback(
-        data.query, 
-        state.conversationHistory
-      );
+    // Add to conversation history
+    state.conversationHistory.push({ 
+      role: 'assistant', 
+      content: conversationalResponse 
+    });
+    
+    return;
+  }
+  
+  // Regular processing for a response
+  const messageElement = addMessage(data.answer, 'bot');
+  
+  // ONLY display sources button if there are ACTUAL sermon sources AND NOT a "no results" response
+  if (hasSermonContent && !isNoResultsResponse) {
+    try {
+      // Clear previous sources
+      elements.sourcesPanelContent.innerHTML = '';
       
-      // Display the conversational response
-      const messageElement = addMessage(conversationalResponse, 'bot');
-      messageElement.classList.add('conversation-mode');
+      // Add title with source count
+      const sourcesTitle = document.createElement('h3');
+      sourcesTitle.textContent = translate('sources-found') + ' (' + data.sources.length + ')';
+      elements.sourcesPanelContent.appendChild(sourcesTitle);
       
-      // Add to conversation history
-      state.conversationHistory.push({ 
-        role: 'assistant', 
-        content: conversationalResponse 
+      // Sort sources by similarity score
+      const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
+      
+      // Add sources to panel
+      sortedSources.forEach((source, index) => {
+        const sourceElement = createSourceElement(source, index);
+        elements.sourcesPanelContent.appendChild(sourceElement);
+        
+        // Add staggered animation
+        sourceElement.style.animationDelay = `${index * 50}ms`;
+        sourceElement.classList.add('animating-in');
+        
+        // Remove animation class after animation completes
+        setTimeout(() => {
+          sourceElement.classList.remove('animating-in');
+          sourceElement.style.animationDelay = '';
+        }, 500 + (index * 50));
       });
       
-      return;
+      // ONLY add the sources toggle button if we have actual sources
+      const sourcesToggle = document.createElement('button');
+      sourcesToggle.className = 'claude-sources-toggle';
+      sourcesToggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
+      sourcesToggle.setAttribute('data-active', 'false');
+      sourcesToggle.setAttribute('aria-expanded', 'false');
+      sourcesToggle.setAttribute('aria-controls', 'sourcesPanel');
+      
+      sourcesToggle.addEventListener('click', function() {
+        // Always show the sources panel when clicked
+        toggleSourcesPanel(true);
+        
+        // Update toggle state to active
+        this.setAttribute('data-active', 'true');
+        this.setAttribute('aria-expanded', 'true');
+      });
+      
+      // Add the button to the message content
+      const messageContent = messageElement.querySelector('.claude-message-content');
+      messageContent.appendChild(sourcesToggle);
+    } catch (error) {
+      console.error('Error displaying sources:', error);
     }
-    
-    // Regular processing for when sermon content is found
-    const messageElement = addMessage(data.answer, 'bot');
-    
-    // Display sources in the side panel ONLY if there are actual sermon sources
-    if (hasSermonContent) {
-      try {
-        // Clear previous sources
-        elements.sourcesPanelContent.innerHTML = '';
-        
-        // Add title with source count
-        const sourcesTitle = document.createElement('h3');
-        sourcesTitle.textContent = translate('sources-found') + ' (' + data.sources.length + ')';
-        elements.sourcesPanelContent.appendChild(sourcesTitle);
-        
-        // Sort sources by similarity score
-        const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
-        
-        // Add sources to panel
-        sortedSources.forEach((source, index) => {
-          const sourceElement = createSourceElement(source, index);
-          elements.sourcesPanelContent.appendChild(sourceElement);
-          
-          // Add staggered animation
-          sourceElement.style.animationDelay = `${index * 50}ms`;
-          sourceElement.classList.add('animating-in');
-          
-          // Remove animation class after animation completes
-          setTimeout(() => {
-            sourceElement.classList.remove('animating-in');
-            sourceElement.style.animationDelay = '';
-          }, 500 + (index * 50));
-        });
-        
-        // ALWAYS add the sources toggle button for messages with sources
-        const sourcesToggle = document.createElement('button');
-        sourcesToggle.className = 'claude-sources-toggle';
-        sourcesToggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
-        sourcesToggle.setAttribute('data-active', 'false');
-        sourcesToggle.setAttribute('aria-expanded', 'false');
-        sourcesToggle.setAttribute('aria-controls', 'sourcesPanel');
-        
-        sourcesToggle.addEventListener('click', function() {
-          // Always show the sources panel when clicked
-          toggleSourcesPanel(true);
-          
-          // Update toggle state to active
-          this.setAttribute('data-active', 'true');
-          this.setAttribute('aria-expanded', 'true');
-        });
-        
-        // Always add the button at the end of the message content
-        const messageContent = messageElement.querySelector('.claude-message-content');
-        messageContent.appendChild(sourcesToggle);
-        
-        // Add to conversation history
-        state.conversationHistory.push({ role: 'assistant', content: data.answer });
-        
-      } catch (error) {
-        console.error('Error displaying sources:', error);
-        
-        // Still add to conversation history
-        state.conversationHistory.push({ role: 'assistant', content: data.answer });
-      }
-    } else {
-      // If no sermon sources, don't add the sources toggle button
-      // Just add to conversation history
-      state.conversationHistory.push({ role: 'assistant', content: data.answer });
-    }
-    
-    // Add ripple effect to new message for attention
-    addMessageRippleEffect(messageElement);
   }
+  
+  // Add to conversation history
+  state.conversationHistory.push({ role: 'assistant', content: data.answer });
+  
+  // Add ripple effect to new message for attention
+  addMessageRippleEffect(messageElement);
+}
 
   /**
    * Change the interface language
