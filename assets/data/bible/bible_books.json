@@ -1,0 +1,274 @@
+{
+  "books": [
+    {
+      "book": "Genesis",
+      "count": 2585
+    },
+    {
+      "book": "John",
+      "count": 1920
+    },
+    {
+      "book": "Psalms",
+      "count": 1471
+    },
+    {
+      "book": "Acts",
+      "count": 1456
+    },
+    {
+      "book": "Hebrews",
+      "count": 1439
+    },
+    {
+      "book": "Romans",
+      "count": 1141
+    },
+    {
+      "book": "1_Corinthians",
+      "count": 1101
+    },
+    {
+      "book": "Matthew",
+      "count": 1036
+    },
+    {
+      "book": "2_Corinthians",
+      "count": 980
+    },
+    {
+      "book": "Ephesians",
+      "count": 938
+    },
+    {
+      "book": "1_John",
+      "count": 922
+    },
+    {
+      "book": "Revelation",
+      "count": 795
+    },
+    {
+      "book": "1_Peter",
+      "count": 612
+    },
+    {
+      "book": "2_Timothy",
+      "count": 604
+    },
+    {
+      "book": "1_Thessalonians",
+      "count": 598
+    },
+    {
+      "book": "Colossians",
+      "count": 561
+    },
+    {
+      "book": "Exodus",
+      "count": 544
+    },
+    {
+      "book": "1_Timothy",
+      "count": 522
+    },
+    {
+      "book": "Philippians",
+      "count": 521
+    },
+    {
+      "book": "processed_files",
+      "count": 493
+    },
+    {
+      "book": "Galatians",
+      "count": 479
+    },
+    {
+      "book": "Luke",
+      "count": 455
+    },
+    {
+      "book": "Proverbs",
+      "count": 352
+    },
+    {
+      "book": "James",
+      "count": 318
+    },
+    {
+      "book": "Psalm",
+      "count": 295
+    },
+    {
+      "book": "2_Peter",
+      "count": 280
+    },
+    {
+      "book": "2_Kings",
+      "count": 275
+    },
+    {
+      "book": "1_Samuel",
+      "count": 265
+    },
+    {
+      "book": "Deuteronomy",
+      "count": 256
+    },
+    {
+      "book": "Mark",
+      "count": 249
+    },
+    {
+      "book": "Jeremiah",
+      "count": 237
+    },
+    {
+      "book": "Isaiah",
+      "count": 230
+    },
+    {
+      "book": "Joshua",
+      "count": 156
+    },
+    {
+      "book": "2_Chronicles",
+      "count": 153
+    },
+    {
+      "book": "1_Kings",
+      "count": 150
+    },
+    {
+      "book": "Numbers",
+      "count": 144
+    },
+    {
+      "book": "Nehemiah",
+      "count": 136
+    },
+    {
+      "book": "Leviticus",
+      "count": 134
+    },
+    {
+      "book": "2_Thessalonians",
+      "count": 127
+    },
+    {
+      "book": "Titus",
+      "count": 119
+    },
+    {
+      "book": "Daniel",
+      "count": 113
+    },
+    {
+      "book": "Judges",
+      "count": 101
+    },
+    {
+      "book": "Ezekiel",
+      "count": 94
+    },
+    {
+      "book": "Job",
+      "count": 84
+    },
+    {
+      "book": "Jonah",
+      "count": 73
+    },
+    {
+      "book": "1_Chronicles",
+      "count": 69
+    },
+    {
+      "book": "Jude",
+      "count": 65
+    },
+    {
+      "book": "Ezra",
+      "count": 57
+    },
+    {
+      "book": "Lamentations",
+      "count": 57
+    },
+    {
+      "book": "Hosea",
+      "count": 51
+    },
+    {
+      "book": "Malachi",
+      "count": 49
+    },
+    {
+      "book": "2_Samuel",
+      "count": 41
+    },
+    {
+      "book": "Amos",
+      "count": 37
+    },
+    {
+      "book": "Ecclesiastes",
+      "count": 29
+    },
+    {
+      "book": "Micah",
+      "count": 28
+    },
+    {
+      "book": "3_John",
+      "count": 20
+    },
+    {
+      "book": "Philemon",
+      "count": 19
+    },
+    {
+      "book": "Habakkuk",
+      "count": 16
+    },
+    {
+      "book": "Joel",
+      "count": 13
+    },
+    {
+      "book": "Obadiah",
+      "count": 8
+    },
+    {
+      "book": "Haggai",
+      "count": 8
+    },
+    {
+      "book": "Zechariah",
+      "count": 5
+    },
+    {
+      "book": "Esther",
+      "count": 3
+    },
+    {
+      "book": "2_John",
+      "count": 3
+    },
+    {
+      "book": "Ruth",
+      "count": 2
+    },
+    {
+      "book": "Song_of_Solomon",
+      "count": 1
+    },
+    {
+      "book": "Zephaniah",
+      "count": 1
+    }
+  ],
+  "total_books": 67,
+  "total_references": 26096
+}
