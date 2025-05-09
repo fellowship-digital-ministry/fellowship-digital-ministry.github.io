@@ -1040,7 +1040,7 @@ function updateStatistics(data) {
     }
     
     // Fetch from local JSON file
-    fetch(`${config.booksPath}/${book.replace(/\s+/g, '_')}.json`)
+    fetch(`${config.booksPath}/${book}.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load chapters for ${book}: ${response.status} ${response.statusText}`);
@@ -1219,7 +1219,7 @@ function updateStatistics(data) {
     elements.chapterVerses.innerHTML = '<div class="verses-loading">Loading verses...</div>';
     
     // Load the entire book data
-    fetch(`${config.booksPath}/${book.replace(/\s+/g, '_')}.json`)
+    fetch(`${config.booksPath}/${book}.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load book data for ${book}: ${response.status} ${response.statusText}`);
@@ -1435,7 +1435,7 @@ function updateStatistics(data) {
       displayOccurrences(occurrences);
     } else {
       // Need to load book data
-      fetch(`${config.booksPath}/${book.replace(/\s+/g, '_')}.json`)
+      fetch(`${config.booksPath}/${book}.json`)
         .then(response => {
           if (!response.ok) {
             throw new Error(`Failed to load references for ${book}: ${response.status} ${response.statusText}`);
