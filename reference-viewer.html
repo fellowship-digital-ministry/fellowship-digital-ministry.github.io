@@ -183,16 +183,18 @@ custom_class: reference-viewer-page
 </div>
 <script src="{{ '/assets/js/bible-sources-panel.js' | relative_url }}"></script>
 <script>
-  /**
+/**
  * Bible Reference Explorer
  * A tool for exploring Bible references from sermon transcripts
  * Organized by book, chapter, and verse
+ * Modified to use local JSON files instead of API calls
  */
 
 const BibleExplorer = (function() {
   // Configuration
   const config = {
-    apiBaseUrl: 'https://sermon-search-api-8fok.onrender.com',
+    dataPath: '/assets/data/bible', // Base path for Bible data JSON files
+    booksPath: '/assets/data/bible/books', // Path for individual book JSON files
     youtubeBaseUrl: 'https://www.youtube.com/watch?v=',
     bibleGatewayBaseUrl: 'https://www.biblegateway.com/passage/?search=',
     bibleVersion: 'KJV',
@@ -633,7 +635,7 @@ const BibleExplorer = (function() {
   }
   
   /**
-   * Load Bible statistics from API
+   * Load Bible statistics from local JSON file
    */
   function loadBibleStats() {
     if (state.isLoadingStats || state.statsLoaded) return;
@@ -641,7 +643,7 @@ const BibleExplorer = (function() {
     state.isLoadingStats = true;
     showStatsLoading(true);
     
-    fetch(`${config.apiBaseUrl}/bible/stats`)
+    fetch(`${config.dataPath}/bible_stats.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load Bible statistics: ${response.status} ${response.statusText}`);
@@ -668,14 +670,14 @@ const BibleExplorer = (function() {
   }
   
   /**
-   * Load Bible books list from API
+   * Load Bible books list from local JSON file
    */
-   function loadBibleBooks() {
+  function loadBibleBooks() {
     if (state.isLoadingBooks || state.booksLoaded) return;
     
     state.isLoadingBooks = true;
     
-    fetch(`${config.apiBaseUrl}/bible/books`)
+    fetch(`${config.dataPath}/bible_books.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load Bible books: ${response.status} ${response.statusText}`);
@@ -683,7 +685,7 @@ const BibleExplorer = (function() {
         return response.json();
       })
       .then(data => {
-        // Filter out any non-Bible books like "processed_files"
+        // Filter out any non-Bible books
         if (data.books && Array.isArray(data.books)) {
           data.books = filterValidBibleBooks(data.books);
         }
@@ -703,20 +705,22 @@ const BibleExplorer = (function() {
         state.isLoadingBooks = false;
       });
   }
-  /**
- * Filter out non-Bible books from API response
- */
-function filterValidBibleBooks(books) {
-  if (!books || !Array.isArray(books)) return [];
   
-  // Only keep books that are in our bibleBookOrder array (known Bible books)
-  return books.filter(bookData => 
-    bibleBookOrder.includes(bookData.book) || 
-    // Include some alternates that might be in the data but not in our order array
-    bookData.book === 'Psalms' || 
-    bookData.book === 'Song of Songs'
-  );
-}
+  /**
+   * Filter out non-Bible books from data
+   */
+  function filterValidBibleBooks(books) {
+    if (!books || !Array.isArray(books)) return [];
+    
+    // Only keep books that are in our bibleBookOrder array (known Bible books)
+    return books.filter(bookData => 
+      bibleBookOrder.includes(bookData.book) || 
+      // Include some alternates that might be in the data but not in our order array
+      bookData.book === 'Psalms' || 
+      bookData.book === 'Song of Songs'
+    );
+  }
+  
   /**
    * Update statistics display
    */
@@ -913,7 +917,7 @@ function filterValidBibleBooks(books) {
   }
   
   /**
-   * Load chapters for a book
+   * Load chapters for a book from local JSON file
    */
   function loadBookChapters(book) {
     if (!book) return;
@@ -928,8 +932,8 @@ function filterValidBibleBooks(books) {
       return;
     }
     
-    // Fetch from API
-    fetch(`${config.apiBaseUrl}/bible/books/${book}`)
+    // Fetch from local JSON file
+    fetch(`${config.booksPath}/${book}.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load chapters for ${book}: ${response.status} ${response.statusText}`);
@@ -1075,12 +1079,26 @@ function filterValidBibleBooks(books) {
     // Scroll to top
     window.scrollTo(0, 0);
     
-    // Get references for this chapter
-    loadChapterVerses(book, chapter);
+    // Load verses for this chapter
+    // Since we already have the book data loaded, we can use that data instead of making another request
+    const cachedBook = getChaptersFromCache(book);
+    if (cachedBook && cachedBook.chapters && cachedBook.chapters[chapter]) {
+      const chapterData = {
+        all_occurrences: cachedBook.chapters[chapter]
+      };
+      // Update chapter count
+      elements.chapterCount.textContent = chapterData.all_occurrences.length;
+      // Display verses
+      populateVerses(book, chapter, chapterData);
+    } else {
+      // If the cached data doesn't have this chapter, load fresh data
+      loadChapterVerses(book, chapter);
+    }
   }
   
   /**
    * Load verses for a chapter
+   * This function is now a fallback if the cached book data doesn't contain the chapter
    */
   function loadChapterVerses(book, chapter) {
     if (!book || !chapter) return;
@@ -1088,38 +1106,38 @@ function filterValidBibleBooks(books) {
     // Show loading state
     elements.chapterVerses.innerHTML = '<div class="verses-loading">Loading verses...</div>';
     
-    // Build reference ID for the API
-    const referenceId = `${book}_${chapter}`;
-    
-    // Check cache first
-    const cachedVerses = getVersesFromCache(book, chapter);
-    if (cachedVerses) {
-      populateVerses(book, chapter, cachedVerses);
-      return;
-    }
-    
-    // Fetch from API
-    fetch(`${config.apiBaseUrl}/bible/references/${referenceId}`)
+    // Load the entire book data
+    fetch(`${config.booksPath}/${book}.json`)
       .then(response => {
         if (!response.ok) {
-          throw new Error(`Failed to load verses for ${referenceId}: ${response.status} ${response.statusText}`);
+          throw new Error(`Failed to load book data for ${book}: ${response.status} ${response.statusText}`);
         }
         return response.json();
       })
       .then(data => {
         // Save to cache
-        saveVersesToCache(book, chapter, data);
+        saveChaptersToCache(book, data);
         
-        // Update chapter count
-        if (data.all_occurrences) {
-          elements.chapterCount.textContent = data.all_occurrences.length;
+        // Extract chapter data
+        if (data.chapters && data.chapters[chapter]) {
+          const chapterData = {
+            all_occurrences: data.chapters[chapter]
+          };
+          
+          // Save to verses cache
+          saveVersesToCache(book, chapter, chapterData);
+          
+          // Update chapter count
+          elements.chapterCount.textContent = chapterData.all_occurrences.length;
+          
+          // Display verses
+          populateVerses(book, chapter, chapterData);
+        } else {
+          elements.chapterVerses.innerHTML = `<div class="no-verses">No verses found for ${formatBookName(book)} ${chapter}</div>`;
         }
-        
-        // Display verses
-        populateVerses(book, chapter, data);
       })
       .catch(error => {
-        console.error(`Error loading verses for ${referenceId}:`, error);
+        console.error(`Error loading verses for ${book} ${chapter}:`, error);
         elements.chapterVerses.innerHTML = `
           <div class="error-message">
             Failed to load verses for ${formatBookName(book)} ${chapter}. 
@@ -1260,92 +1278,78 @@ function filterValidBibleBooks(books) {
     // Scroll to top
     window.scrollTo(0, 0);
     
-    // Load verse occurrences
+    // Load verse occurrences - using the cached book data
     loadVerseOccurrences(book, chapter, verse);
   }
   
   /**
    * Load occurrences for a verse
    */
-/**
- * This function needs to be updated in your reference-viewer.html file
- * Find the loadVerseOccurrences function and update it to use the correct API format
- */
-
-/**
- * Load occurrences for a verse
- */
- function loadVerseOccurrences(book, chapter, verse) {
-  if (!book || !chapter) return;
-  
-  // Show loading state
-  elements.verseOccurrences.innerHTML = '<div class="occurrences-loading">Loading references...</div>';
-  
-  // Build reference ID for the API - IMPORTANT: Use only book_chapter format 
-  // This is the key fix - the API expects referenceId to be in book_chapter format
-  const referenceId = `${book}_${chapter}`;
-  
-  // Get cached chapter data
-  const cachedVerses = getVersesFromCache(book, chapter);
-  
-  if (cachedVerses && cachedVerses.all_occurrences) {
-    // Filter occurrences by verse
-    const occurrences = cachedVerses.all_occurrences.filter(ref => {
-      const refVerse = ref.verse !== null ? ref.verse : 'unknown';
-      return refVerse == verse; // Use == to handle string/number comparison
-    });
+  function loadVerseOccurrences(book, chapter, verse) {
+    if (!book || !chapter) return;
     
-    // Update count
-    elements.verseCount.textContent = occurrences.length;
+    // Show loading state
+    elements.verseOccurrences.innerHTML = '<div class="occurrences-loading">Loading references...</div>';
     
-    // Display occurrences
-    displayOccurrences(occurrences);
-  } else {
-    // Need to load chapter data first
-    const referenceId = `${book}_${chapter}`; // Correct format for API
+    // Get cached chapter data
+    const cachedBook = getChaptersFromCache(book);
     
-    fetch(`${config.apiBaseUrl}/bible/references/${referenceId}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Failed to load references for ${referenceId}: ${response.status} ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Save to cache
-        saveVersesToCache(book, chapter, data);
-        
-        // Filter occurrences by verse
-        const occurrences = data.all_occurrences.filter(ref => {
-          const refVerse = ref.verse !== null ? ref.verse : 'unknown';
-          return refVerse == verse; // Use == to handle string/number comparison
-        });
-        
-        // Update count
-        elements.verseCount.textContent = occurrences.length;
-        
-        // Display occurrences
-        displayOccurrences(occurrences);
-      })
-      .catch(error => {
-        console.error(`Error loading references for ${referenceId}:`, error);
-        elements.verseOccurrences.innerHTML = `
-          <div class="error-message">
-            Failed to load references for ${formatBookName(book)} ${chapter}:${verse}. 
-            <button class="retry-button" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">Try Again</button>
-          </div>
-        `;
-        
-        // Add retry functionality
-        const retryButton = elements.verseOccurrences.querySelector('.retry-button');
-        if (retryButton) {
-          retryButton.addEventListener('click', function() {
-            loadVerseOccurrences(book, chapter, verse);
-          });
-        }
+    if (cachedBook && cachedBook.chapters && cachedBook.chapters[chapter]) {
+      // Filter occurrences by verse
+      const occurrences = cachedBook.chapters[chapter].filter(ref => {
+        const refVerse = ref.verse !== null ? ref.verse : 'unknown';
+        return refVerse == verse; // Use == to handle string/number comparison
       });
+      
+      // Update count
+      elements.verseCount.textContent = occurrences.length;
+      
+      // Display occurrences
+      displayOccurrences(occurrences);
+    } else {
+      // Need to load book data
+      fetch(`${config.booksPath}/${book}.json`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load references for ${book}: ${response.status} ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Save to cache
+          saveChaptersToCache(book, data);
+          
+          // Filter occurrences by verse
+          const occurrences = (data.chapters[chapter] || []).filter(ref => {
+            const refVerse = ref.verse !== null ? ref.verse : 'unknown';
+            return refVerse == verse; // Use == to handle string/number comparison
+          });
+          
+          // Update count
+          elements.verseCount.textContent = occurrences.length;
+          
+          // Display occurrences
+          displayOccurrences(occurrences);
+        })
+        .catch(error => {
+          console.error(`Error loading references for ${book} ${chapter}:${verse}:`, error);
+          elements.verseOccurrences.innerHTML = `
+            <div class="error-message">
+              Failed to load references for ${formatBookName(book)} ${chapter}:${verse}. 
+              <button class="retry-button" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">Try Again</button>
+            </div>
+          `;
+          
+          // Add retry functionality
+          const retryButton = elements.verseOccurrences.querySelector('.retry-button');
+          if (retryButton) {
+            retryButton.addEventListener('click', function() {
+              loadVerseOccurrences(book, chapter, verse);
+            });
+          }
+        });
+    }
   }
-}
   
   /**
    * Display occurrences of a verse
@@ -1462,7 +1466,7 @@ function filterValidBibleBooks(books) {
   }
   
   /**
-   * Open transcript modal
+   * Open transcript modal - still uses API for transcripts
    */
   function openTranscriptModal(videoId, timestamp, title) {
     if (!videoId) return;
@@ -1482,8 +1486,10 @@ function filterValidBibleBooks(books) {
     elements.referenceModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     
-    // Fetch the transcript
-    fetch(`${config.apiBaseUrl}/transcript/${videoId}`)
+    // Fetch the transcript - note: this still uses the API since transcripts aren't cached locally
+    const apiBaseUrl = 'https://sermon-search-api-8fok.onrender.com';
+    
+    fetch(`${apiBaseUrl}/transcript/${videoId}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load transcript: ${response.status} ${response.statusText}`);
@@ -1607,8 +1613,7 @@ function filterValidBibleBooks(books) {
               elements.modalContent.insertBefore(videoContainer, elements.modalContent.firstChild);
             }
           }
-        });
-        
+        });        
         // Create text content
         const textElement = document.createElement('div');
         textElement.className = 'transcript-text';

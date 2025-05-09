@@ -1,0 +1,88 @@
+name: Fetch Bible Reference Data
+
+on:
+  schedule:
+    # Run once a day at 1 AM UTC
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    # Allow manual trigger from GitHub UI
+    inputs:
+      force_refresh:
+        description: 'Force refresh all Bible data'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+jobs:
+  fetch-bible-data:
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          # Fetch all history for all branches and tags
+          fetch-depth: 0
+        
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install httpx asyncio
+
+      - name: Create output directories
+        run: |
+          mkdir -p assets/data/bible
+          mkdir -p assets/data/bible/books
+      
+      - name: Run Bible data fetcher
+        env:
+          API_URL: ${{ secrets.API_URL || 'https://sermon-search-api-8fok.onrender.com' }}
+          FORCE_REFRESH: ${{ github.event.inputs.force_refresh || 'false' }}
+        run: |
+          # If force_refresh is true, delete existing data
+          if [ "$FORCE_REFRESH" = "true" ]; then
+            echo "Forcing full refresh of Bible reference data"
+            rm -rf assets/data/bible/*
+          fi
+          
+          # Run the data fetcher script
+          python scripts/fetch_bible_data.py
+          
+      - name: Commit and push if changes
+        run: |
+          # Stash any existing changes
+          git stash
+          
+          # Pull the latest changes from remote
+          git pull --rebase origin main
+          
+          git add assets/data/bible
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update Bible reference data [skip ci]"
+            
+            # Push changes
+            git push
+          fi
+          
+          # Restore stashed changes if any
+          git stash list | grep -q "stash" && git stash pop || echo "No stashed changes"
