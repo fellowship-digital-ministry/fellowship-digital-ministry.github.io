@@ -20,7 +20,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
         </div>
         <h3>Search Sermon Content</h3>
         <p>Ask questions and receive answers based on sermon content with direct links to video segments.</p>
-        <a href="{{ '/search.html' | relative_url }}" class="btn btn-primary">Chat about Sermons</a>
+        <a href="{{ '/search.html' | relative_url }}" class="btn">Chat about Sermons</a>
       </div>
       
       <div class="feature-card">
@@ -30,7 +30,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
           </svg>
         </div>
         <h3>Reference Viewer</h3>
-        <p>View all occurrences of specific Bible passages across our sermon library with timestamp links.</p>
+        <p>View all occurrences of specific Bible passages across the sermon recordings with timestamp links.</p>
         <a href="{{ '/reference-viewer.html' | relative_url }}" class="btn">Browse References</a>
       </div>
       
@@ -41,9 +41,16 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
           </svg>
         </div>
-        <h3>Visit Our Church</h3>
-        <p>Discover the doctrines and beliefs of our loving, Christ-honoring community in Oakton, VA, and join us for worship.</p>
-        <a href="https://www.fellowshipbaptistchurch.org" class="btn btn-primary" target="_blank">Church Website</a>
+        <h3>Fellowship Church Website</h3>
+        <p>Learn more about the doctrines and beliefs of this Christ-honoring community in Oakton, VA, and view information about their worship services.</p>
+        <a href="https://www.fellowshipbaptistchurch.org" class="btn btn-external" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          Visit Official Site
+        </a>
       </div>
     </div>
     
@@ -58,7 +65,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            <h3>Church Schedule</h3>
+            <h3>Service Schedule</h3>
           </div>
           <div class="schedule-grid">
             <div class="schedule-item">
@@ -85,7 +92,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <h3>Visit Us</h3>
+            <h3>Location</h3>
           </div>
       
           <address class="church-address">
@@ -108,11 +115,11 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
       
             <a href="{{ site.church_website }}" class="action-link" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
-              Church Website
+              Official Website
             </a>
           </div>
         </div>
@@ -157,7 +164,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     background-color: white;
     border-radius: 8px;
     padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -167,57 +174,65 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   
   .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
   }
   
   .feature-icon {
-    color: var(--color-primary);
+    color: var(--color-primary, #3155a6);
     margin-bottom: 1.5rem;
     height: 48px;
     width: 48px;
   }
   
   .feature-card h3 {
-    color: var(--color-heading);
+    color: var(--color-heading, #333);
     margin-bottom: 1rem;
     font-size: 1.35rem;
+    font-weight: 600;
   }
   
   .feature-card p {
-    color: var(--color-text);
+    color: var(--color-text, #555);
     margin-bottom: 1.5rem;
     flex-grow: 1;
     line-height: 1.6;
   }
   
-  .feature-link {
-    display: inline-block;
-    color: var(--color-primary);
-    font-weight: 600;
-    margin-top: auto;
-  }
-  
-  .feature-link:hover {
-    text-decoration: underline;
-  }
-  
   .btn {
     display: inline-block;
-    padding: 0.5rem 1.25rem;
-    border-radius: 4px;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-weight: 500;
     text-align: center;
+    background-color: #f1f5f9;
+    color: var(--color-primary, #3155a6);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .btn:hover {
+    background-color: #e2e8f0;
+    color: var(--color-primary-dark, #25417f);
   }
   
   .btn-primary {
     background-color: var(--color-primary, #3155a6);
     color: white;
+    border: none;
   }
   
   .btn-primary:hover {
     background-color: var(--color-primary-dark, #25417f);
+    color: white;
+  }
+  
+  .btn-external {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
   }
   
   /* Improved church info section */
@@ -232,13 +247,14 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   }
   
   .church-card {
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 8px;
     padding: 1.75rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid #eeeeee;
   }
   
   .church-card-header {
@@ -253,6 +269,7 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     margin: 0;
     font-size: 1.25rem;
     color: var(--color-heading, #333);
+    font-weight: 600;
   }
   
   .schedule-grid {
@@ -298,12 +315,16 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
     text-decoration: none;
     color: var(--color-primary, #3155a6);
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
   }
   
   .action-link:hover {
+    background-color: #e2e8f0;
     color: var(--color-primary-dark, #25417f);
-    text-decoration: underline;
   }
   
   @media (max-width: 768px) {
