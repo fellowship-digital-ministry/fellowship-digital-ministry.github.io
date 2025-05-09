@@ -750,7 +750,7 @@ const SermonSearch = (function() {
     }, config.transitionDuration);
   }
 
- /**
+/**
  * Create welcome message with suggestions
  */
 function createWelcomeMessage() {
@@ -774,22 +774,26 @@ function createWelcomeMessage() {
   suggestions.setAttribute('role', 'list');
   
   // Add suggestion chips with translated text
-  const translatedQueries = getTranslatedQueries();
-  translatedQueries.forEach(query => {
+  sampleQueries.forEach(key => {
     const chip = document.createElement('button');
     chip.className = 'claude-suggestion';
-    chip.textContent = query;
+    chip.textContent = translate(key);
     chip.setAttribute('role', 'listitem');
     chip.setAttribute('type', 'button');
+    // Store the translation key for later reference
+    chip.setAttribute('data-query-key', key);
     
     // Add click handler
     chip.addEventListener('click', function(e) {
       // Add visual feedback
       addRippleEffect(this, e);
       
+      // Use the translated text from the button itself
+      const translatedQuery = this.textContent;
+      
       // Submit the query
       setTimeout(() => {
-        elements.queryInput.value = query;
+        elements.queryInput.value = translatedQuery;
         elements.chatForm.dispatchEvent(new Event('submit'));
       }, 300);
     });
@@ -804,6 +808,21 @@ function createWelcomeMessage() {
   
   return welcomeContainer;
 }
+
+/**
+ * Update suggestions when language changes
+ */
+function updateSuggestions() {
+  const suggestionChips = document.querySelectorAll('.claude-suggestion');
+  
+  suggestionChips.forEach(chip => {
+    const queryKey = chip.getAttribute('data-query-key');
+    if (queryKey && translations[state.currentLanguage] && translations[state.currentLanguage][queryKey]) {
+      chip.textContent = translations[state.currentLanguage][queryKey];
+    }
+  });
+}
+
   /**
    * Add ripple effect to element on click
    */
@@ -2099,19 +2118,15 @@ function changeLanguage(language) {
     if (welcomeIntro) welcomeIntro.textContent = translate('welcome-intro');
     if (suggestionHeading) suggestionHeading.textContent = translate('suggestion-heading');
     
-    // Update suggestion chips text
-    const suggestionChips = document.querySelectorAll('.claude-suggestion');
-    const translatedQueries = getTranslatedQueries();
-    
-    suggestionChips.forEach((chip, index) => {
-      if (index < translatedQueries.length) {
-        chip.textContent = translatedQueries[index];
-      }
-    });
+    // Update suggestion chips with translated text
+    updateSuggestions();
   }
   
   // Update any Bible references in existing messages
   updateBibleReferencesForLanguage();
+  
+  // Update any example question buttons in the UI
+  setupExampleQuestionClicks();
 }
 
   /**
@@ -2940,10 +2955,19 @@ Would you like me to search for sermon content on any of these topics instead?`;
   const allExampleQuestions = document.querySelectorAll('.info-section-list li, .claude-suggestions .claude-suggestion');
   
   allExampleQuestions.forEach(item => {
-    item.style.cursor = 'pointer';
+    // Remove previous event listeners by cloning and replacing
+    const newItem = item.cloneNode(true);
+    if (item.parentNode) {
+      item.parentNode.replaceChild(newItem, item);
+    }
     
-    item.addEventListener('click', function() {
-      // Just use the current text content which is already in the correct language
+    newItem.style.cursor = 'pointer';
+    
+    newItem.addEventListener('click', function(e) {
+      // Add ripple effect
+      addRippleEffect(this, e);
+      
+      // Get the translated text from the button itself
       const query = this.textContent.trim();
       
       if (elements.queryInput) {
@@ -2963,11 +2987,11 @@ Would you like me to search for sermon content on any of these topics instead?`;
     });
     
     // Add hover effects for better UX
-    item.addEventListener('mouseenter', function() {
+    newItem.addEventListener('mouseenter', function() {
       this.classList.add('hover');
     });
     
-    item.addEventListener('mouseleave', function() {
+    newItem.addEventListener('mouseleave', function() {
       this.classList.remove('hover');
     });
   });
