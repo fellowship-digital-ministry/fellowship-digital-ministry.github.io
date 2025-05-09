@@ -752,33 +752,45 @@ const BibleExplorer = (function() {
     );
   }
   
-  /**
-   * Update statistics display
-   */
-  function updateStatistics(data) {
-    if (!data) return;
+/**
+ * Update statistics display
+ */
+function updateStatistics(data) {
+  if (!data) return;
+  
+  // Update summary statistics
+  elements.totalReferences.textContent = data.total_references.toLocaleString();
+  
+  // Update top book
+  if (data.top_books && data.top_books.length > 0) {
+    const topBook = data.top_books[0];
+    elements.topBook.textContent = formatBookName(topBook.book);
+    elements.topBookCount.textContent = topBook.count.toLocaleString();
+  }
+  
+  // Update top chapter - but skip 'unknown' chapters
+  if (data.top_chapters && data.top_chapters.length > 0) {
+    // Find the first chapter that isn't 'unknown'
+    const validTopChapter = data.top_chapters.find(chapter => 
+      chapter.chapter !== 'unknown' && chapter.chapter !== null
+    );
     
-    // Update summary statistics
-    elements.totalReferences.textContent = data.total_references.toLocaleString();
-    
-    // Update top book
-    if (data.top_books && data.top_books.length > 0) {
-      const topBook = data.top_books[0];
-      elements.topBook.textContent = formatBookName(topBook.book);
-      elements.topBookCount.textContent = topBook.count.toLocaleString();
-    }
-    
-    // Update top chapter
-    if (data.top_chapters && data.top_chapters.length > 0) {
+    // If we found a valid chapter, display it
+    if (validTopChapter) {
+      elements.topChapter.textContent = `${formatBookName(validTopChapter.book)} ${validTopChapter.chapter}`;
+      elements.topChapterCount.textContent = validTopChapter.count.toLocaleString();
+    } else {
+      // Fallback if all top chapters are 'unknown'
       const topChapter = data.top_chapters[0];
       elements.topChapter.textContent = `${formatBookName(topChapter.book)} ${topChapter.chapter}`;
       elements.topChapterCount.textContent = topChapter.count.toLocaleString();
     }
-    
-    // Show the statistics container
-    elements.statsLoading.style.display = 'none';
-    elements.statsContainer.style.display = 'flex';
   }
+  
+  // Show the statistics container
+  elements.statsLoading.style.display = 'none';
+  elements.statsContainer.style.display = 'flex';
+}
   
   /**
    * Populate books list based on Old/New Testament
@@ -1028,7 +1040,7 @@ const BibleExplorer = (function() {
     }
     
     // Fetch from local JSON file
-    fetch(`${config.booksPath}/${book}.json`)
+    fetch(`${config.booksPath}/${book.replace(/\s+/g, '_')}.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load chapters for ${book}: ${response.status} ${response.statusText}`);
@@ -1207,7 +1219,7 @@ const BibleExplorer = (function() {
     elements.chapterVerses.innerHTML = '<div class="verses-loading">Loading verses...</div>';
     
     // Load the entire book data
-    fetch(`${config.booksPath}/${book}.json`)
+    fetch(`${config.booksPath}/${book.replace(/\s+/g, '_')}.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load book data for ${book}: ${response.status} ${response.statusText}`);
@@ -1423,7 +1435,7 @@ const BibleExplorer = (function() {
       displayOccurrences(occurrences);
     } else {
       // Need to load book data
-      fetch(`${config.booksPath}/${book}.json`)
+      fetch(`${config.booksPath}/${book.replace(/\s+/g, '_')}.json`)
         .then(response => {
           if (!response.ok) {
             throw new Error(`Failed to load references for ${book}: ${response.status} ${response.statusText}`);
