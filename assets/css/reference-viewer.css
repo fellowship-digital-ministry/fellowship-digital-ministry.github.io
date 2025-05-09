@@ -205,3 +205,39 @@ body {
     height: calc(100vh - 64px); /* Match remaining viewport height */
   }
 }
+
+/* Add this to your existing CSS styles */
+
+/* Solution 1: Add padding to the bottom of scrollable areas */
+.bible-content {
+  padding-bottom: 2rem; /* Add extra padding at the bottom */
+}
+
+.bible-sidebar {
+  padding-bottom: 2rem; /* Add padding to sidebar as well */
+}
+
+/* Solution 2: Add padding to the last children of scrollable areas */
+.verse-list > .verse-item:last-child,
+.occurrences-list > .occurrence-item:last-child,
+.chapter-grid {
+  margin-bottom: 2rem; /* Add margin to the last item in lists */
+}
+
+/* Solution 3: Add a pseudo-element for extra space */
+.bible-explorer-container::after {
+  content: '';
+  display: block;
+  height: 2rem; /* Height of the bottom space */
+  width: 100%;
+}
+
+/* Ensure the footer of the page has adequate spacing */
+.bible-explorer-main {
+  margin-bottom: 2rem; /* Add margin to the main container */
+}
+
+/* Ensure content in modal has adequate spacing at bottom */
+.reference-modal-body {
+  padding-bottom: 2rem;
+}
