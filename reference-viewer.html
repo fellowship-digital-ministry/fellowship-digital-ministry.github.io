@@ -2109,62 +2109,60 @@ function updateStatistics(data) {
   /**
    * Format date for display
    */
-  function formatDate(dateValue) {
-    if (!dateValue) return 'Date unknown';
+   /**
+   * Format sermon date from various formats
+   */
+  function formatSermonDate(dateStr) {
+    if (!dateStr) return 'Date unknown';
     
     try {
       // Handle YYYYMMDD format
-      if (typeof dateValue === 'number' || /^\d{8}$/.test(dateValue)) {
-        const dateStr = String(dateValue);
-        const year = dateStr.substring(0, 4);
-        const month = dateStr.substring(4, 6);
-        const day = dateStr.substring(6, 8);
+      if (typeof dateStr === 'number' || (typeof dateStr === 'string' && /^\d{8}$/.test(dateStr))) {
+        const yearStr = String(dateStr).substring(0, 4);
+        const monthStr = String(dateStr).substring(4, 6);
+        const dayStr = String(dateStr).substring(6, 8);
         
-        const date = new Date(year, month - 1, day);
+        const year = parseInt(yearStr);
+        const month = parseInt(monthStr) - 1;
+        const day = parseInt(dayStr);
+        
+        const date = new Date(year, month, day);
         if (isNaN(date.getTime())) return 'Date unknown';
         
-        return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+        return new Intl.DateTimeFormat(state.currentLanguage, {
           year: 'numeric',
-          month: 'long',
+          month: 'long', 
           day: 'numeric'
-        });
+        }).format(date);
       }
       
       // Handle ISO date strings (YYYY-MM-DD)
-      if (typeof dateValue === 'string' && dateValue.includes('-')) {
-        const date = new Date(dateValue);
+      if (typeof dateStr === 'string' && dateStr.includes('-')) {
+        const date = new Date(dateStr);
         if (isNaN(date.getTime())) return 'Date unknown';
         
-        return date.toLocaleDateString(undefined, {
+        return new Intl.DateTimeFormat(state.currentLanguage, {
           year: 'numeric',
-          month: 'long',
+          month: 'long', 
           day: 'numeric'
-        });
+        }).format(date);
       }
       
-      // Handle timestamp (seconds since epoch)
-      if (typeof dateValue === 'number') {
-        const date = new Date(dateValue * 1000);
+      // Handle timestamp
+      if (typeof dateStr === 'number') {
+        const date = new Date(dateStr);
         if (isNaN(date.getTime())) return 'Date unknown';
         
-        return date.toLocaleDateString(undefined, {
+        return new Intl.DateTimeFormat(state.currentLanguage, {
           year: 'numeric',
-          month: 'long',
+          month: 'long', 
           day: 'numeric'
-        });
+        }).format(date);
       }
       
-      // Try to parse as date string
-      const date = new Date(dateValue);
-      if (isNaN(date.getTime())) return 'Date unknown';
-      
-      return date.toLocaleDateString(undefined, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
+      return typeof dateStr === 'string' ? dateStr : 'Date unknown';
     } catch (e) {
-      console.error(`Error parsing date: ${dateValue}`, e);
+      console.error(`Error parsing date: ${dateStr}`, e);
       return 'Date unknown';
     }
   }
