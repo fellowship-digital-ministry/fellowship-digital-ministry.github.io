@@ -1497,7 +1497,7 @@ function updateStatistics(data) {
       
       // Format sermon information
       const sermonTitle = occurrence.sermon_title || 'Unknown Sermon';
-      const sermonDate = formatDate(occurrence.publish_date || occurrence.sermon_date);
+      const sermonDate = formatSermonDate(occurrence.publish_date);
       const videoId = occurrence.video_id;
       const timestamp = occurrence.start_time;
       
