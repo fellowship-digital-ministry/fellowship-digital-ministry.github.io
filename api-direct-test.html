@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sermon Embeddings Dashboard</title>
+  <title>Pinecone Data Test Tool</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -28,7 +28,7 @@
       margin-right: 8px;
       margin-bottom: 8px;
     }
-    input, textarea, select {
+    input, textarea {
       width: 100%;
       padding: 8px;
       margin-bottom: 10px;
@@ -38,7 +38,6 @@
     }
     .success { color: green; }
     .error { color: red; }
-    .warning { color: orange; }
     .section {
       margin-bottom: 30px;
       padding: 15px;
@@ -85,47 +84,11 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
-    .latest-sermon {
-      background-color: #e6f7ff;
-      border-left: 5px solid #2ea3f2;
-    }
-    .highlight {
-      background-color: #ffffcc;
-    }
-    .tabs {
-      display: flex;
-      margin-bottom: 15px;
-    }
-    .tab {
-      padding: 10px 15px;
-      cursor: pointer;
-      border: 1px solid #ddd;
-      background-color: #f5f5f5;
-      border-bottom: none;
-      border-radius: 5px 5px 0 0;
-      margin-right: 5px;
-    }
-    .tab.active {
-      background-color: white;
-      border-bottom: 2px solid white;
-    }
-    .tab-content {
-      display: none;
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 0 5px 5px 5px;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .video-preview {
-      margin-top: 10px;
-    }
   </style>
 </head>
 <body>
-  <h1>Sermon Embeddings Dashboard</h1>
-  <p>This dashboard helps you monitor your sermon data in Pinecone, showing latest videos with embeddings status.</p>
+  <h1>Pinecone Data Test Tool</h1>
+  <p>This tool helps you view statistics and information about your sermon data in Pinecone.</p>
   
   <div class="section">
     <h2>API Configuration</h2>
@@ -134,41 +97,6 @@
       <input type="text" id="apiUrl" value="https://sermon-search-api-8fok.onrender.com">
     </div>
     <button id="updateApiUrl">Update API URL</button>
-    <button id="refreshAllData">Refresh All Data</button>
-  </div>
-  
-  <!-- NEW SECTION: Latest Sermon Status -->
-  <div class="section">
-    <h2>Latest Sermon Status</h2>
-    <p>Shows the most recent sermons in your system and their embedding status</p>
-    <div class="stats">
-      <div class="stat-card">
-        <div>Latest Sermon Date</div>
-        <div class="stat-value" id="latestSermonDate">-</div>
-        <div>Most recent sermon date</div>
-      </div>
-      <div class="stat-card">
-        <div>Days Since Latest</div>
-        <div class="stat-value" id="daysSinceLatest">-</div>
-        <div>Days since most recent sermon</div>
-      </div>
-      <div class="stat-card">
-        <div>Latest Embedding</div>
-        <div class="stat-value" id="latestEmbeddingDate">-</div>
-        <div>Most recent sermon with embeddings</div>
-      </div>
-    </div>
-    
-    <div id="latestSermonCard" class="card latest-sermon">
-      <h3 id="latestSermonTitle">Loading latest sermon...</h3>
-      <p><strong>ID:</strong> <span id="latestSermonId">-</span></p>
-      <p><strong>Date:</strong> <span id="latestSermonFullDate">-</span></p>
-      <p><strong>Status:</strong> <span id="latestSermonStatus">-</span></p>
-      <p><strong>YouTube:</strong> <a id="latestSermonLink" href="#" target="_blank">View on YouTube</a></p>
-      <div class="video-preview" id="latestSermonPreview"></div>
-    </div>
-    
-    <button id="checkLatestBtn">Check Latest Sermon Status</button>
   </div>
   
   <div class="section">
@@ -198,6 +126,7 @@
   <div class="section">
     <h2>Sermons List</h2>
     <p>View all sermons in the database with their vector counts.</p>
+    <button id="fetchSermonsBtn">Fetch Sermons List</button>
     <div>
       <label for="sortBy">Sort by:</label>
       <select id="sortBy">
@@ -206,8 +135,6 @@
         <option value="title">Title (A-Z)</option>
       </select>
     </div>
-    <button id="fetchSermonsBtn">Fetch Sermons List</button>
-    <input type="text" id="filterSermons" placeholder="Filter sermons by title or ID...">
     <div id="sermonsResult">
       <div id="sermonsList"></div>
     </div>
@@ -243,46 +170,28 @@
     // DOM Elements
     const apiUrlInput = document.getElementById('apiUrl');
     const updateApiUrlBtn = document.getElementById('updateApiUrl');
-    const refreshAllDataBtn = document.getElementById('refreshAllData');
     
-    // Latest sermon elements
-    const latestSermonDateElement = document.getElementById('latestSermonDate');
-    const daysSinceLatestElement = document.getElementById('daysSinceLatest');
-    const latestEmbeddingDateElement = document.getElementById('latestEmbeddingDate');
-    const latestSermonTitleElement = document.getElementById('latestSermonTitle');
-    const latestSermonIdElement = document.getElementById('latestSermonId');
-    const latestSermonFullDateElement = document.getElementById('latestSermonFullDate');
-    const latestSermonStatusElement = document.getElementById('latestSermonStatus');
-    const latestSermonLinkElement = document.getElementById('latestSermonLink');
-    const latestSermonPreviewElement = document.getElementById('latestSermonPreview');
-    const checkLatestBtn = document.getElementById('checkLatestBtn');
-    
-    // Stats elements
     const totalVectorsElement = document.getElementById('totalVectors');
     const totalSermonsElement = document.getElementById('totalSermons');
     const avgChunksElement = document.getElementById('avgChunks');
     const fetchStatsBtn = document.getElementById('fetchStatsBtn');
     const statsResult = document.getElementById('statsResult');
     
-    // Sermons list elements
     const fetchSermonsBtn = document.getElementById('fetchSermonsBtn');
     const sermonsResult = document.getElementById('sermonsResult');
     const sermonsList = document.getElementById('sermonsList');
     const sortBySelect = document.getElementById('sortBy');
-    const filterSermonsInput = document.getElementById('filterSermons');
     
-    // Search elements
     const searchQuery = document.getElementById('searchQuery');
     const topK = document.getElementById('topK');
     const testSearchBtn = document.getElementById('testSearchBtn');
     const searchResult = document.getElementById('searchResult');
     
-    // Vector explorer elements
     const videoId = document.getElementById('videoId');
     const fetchVectorsBtn = document.getElementById('fetchVectorsBtn');
     const vectorsResult = document.getElementById('vectorsResult');
     
-    // Store API URL and data
+    // Store API URL
     let apiUrl = apiUrlInput.value;
     let sermonsData = [];
     
@@ -290,18 +199,6 @@
     updateApiUrlBtn.addEventListener('click', () => {
       apiUrl = apiUrlInput.value.trim();
       alert(`API URL updated to: ${apiUrl}`);
-    });
-    
-    refreshAllDataBtn.addEventListener('click', async () => {
-      await Promise.all([
-        checkLatestSermon(),
-        fetchDatabaseStats(),
-        fetchSermonsList()
-      ]);
-    });
-    
-    checkLatestBtn.addEventListener('click', async () => {
-      await checkLatestSermon();
     });
     
     fetchStatsBtn.addEventListener('click', async () => {
@@ -313,12 +210,6 @@
     });
     
     sortBySelect.addEventListener('change', () => {
-      if (sermonsData.length > 0) {
-        displaySermonsList(sermonsData);
-      }
-    });
-    
-    filterSermonsInput.addEventListener('input', () => {
       if (sermonsData.length > 0) {
         displaySermonsList(sermonsData);
       }
@@ -351,138 +242,6 @@
       
       await fetchVectorChunks(id);
     });
-    
-    // Check latest sermon status
-    async function checkLatestSermon() {
-      const latestCard = document.getElementById('latestSermonCard');
-      latestCard.innerHTML = '<p>Checking latest sermon... <span class="loading"></span></p>';
-      
-      try {
-        // Fetch sermons list if we don't already have it
-        if (sermonsData.length === 0) {
-          await fetchSermonsList();
-        }
-        
-        if (sermonsData.length === 0) {
-          latestCard.innerHTML = '<p class="error">No sermons found.</p>';
-          return;
-        }
-        
-        // Sort by date, newest first
-        const sortedSermons = [...sermonsData].sort((a, b) => {
-          // Extract dates in various formats
-          const dateA = getDateFromSermon(a);
-          const dateB = getDateFromSermon(b);
-          
-          if (dateA && dateB) {
-            return dateB - dateA;
-          } else {
-            return 0;
-          }
-        });
-        
-        // Get the latest sermon
-        const latestSermon = sortedSermons[0];
-        
-        if (!latestSermon) {
-          latestCard.innerHTML = '<p class="error">Could not determine latest sermon.</p>';
-          return;
-        }
-        
-        // Update the card with the latest sermon info
-        const sermonDate = getDateFromSermon(latestSermon);
-        const formattedDate = sermonDate ? sermonDate.toLocaleDateString() : 'Unknown';
-        const daysSince = sermonDate ? Math.floor((new Date() - sermonDate) / (1000 * 60 * 60 * 24)) : '-';
-        
-        // Get sermon with the latest embedding
-        const sermonsWithEmbeddings = sortedSermons.filter(sermon => 
-          sermon.vector_count && sermon.vector_count > 0
-        );
-        
-        const latestEmbedding = sermonsWithEmbeddings.length > 0 ? sermonsWithEmbeddings[0] : null;
-        const latestEmbeddingDate = latestEmbedding ? getDateFromSermon(latestEmbedding) : null;
-        
-        // Update stats cards
-        latestSermonDateElement.textContent = formattedDate;
-        daysSinceLatestElement.textContent = daysSince;
-        latestEmbeddingDateElement.textContent = latestEmbeddingDate ? 
-          latestEmbeddingDate.toLocaleDateString() : 'None';
-        
-        // Update card
-        latestSermonTitleElement.textContent = latestSermon.title || 'Untitled Sermon';
-        latestSermonIdElement.textContent = latestSermon.video_id || latestSermon.id || 'N/A';
-        latestSermonFullDateElement.textContent = formattedDate;
-        
-        // Determine status
-        let status = '';
-        let statusClass = '';
-        
-        if (latestSermon.vector_count && latestSermon.vector_count > 0) {
-          status = `✅ Embeddings complete (${latestSermon.vector_count} vectors)`;
-          statusClass = 'success';
-        } else if (latestSermon.processing_status === 'processed') {
-          status = '⚠️ Transcript processed, awaiting embeddings';
-          statusClass = 'warning';
-        } else {
-          status = '❌ Not processed';
-          statusClass = 'error';
-        }
-        
-        latestSermonStatusElement.textContent = status;
-        latestSermonStatusElement.className = statusClass;
-        
-        // Create YouTube link
-        const videoId = latestSermon.video_id || latestSermon.id;
-        latestSermonLinkElement.href = `https://www.youtube.com/watch?v=${videoId}`;
-        
-        // Add YouTube preview
-        latestSermonPreviewElement.innerHTML = `
-          <iframe 
-            width="100%" 
-            height="315" 
-            src="https://www.youtube.com/embed/${videoId}" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        `;
-        
-      } catch (error) {
-        console.error('Error checking latest sermon:', error);
-        latestCard.innerHTML = `
-          <p class="error">Error checking latest sermon: ${error.message}</p>
-        `;
-      }
-    }
-    
-    // Helper function to extract date from sermon object
-    function getDateFromSermon(sermon) {
-      // Try different date fields
-      const dateFields = ['date', 'publish_date', 'upload_date', 'processing_date'];
-      
-      for (const field of dateFields) {
-        if (sermon[field]) {
-          try {
-            // Handle different date formats
-            let dateStr = sermon[field];
-            
-            // Format YYYYMMDD without separators
-            if (/^\d{8}$/.test(dateStr)) {
-              dateStr = `${dateStr.substring(0, 4)}-${dateStr.substring(4, 6)}-${dateStr.substring(6, 8)}`;
-            }
-            
-            const date = new Date(dateStr);
-            if (!isNaN(date.getTime())) {
-              return date;
-            }
-          } catch (e) {
-            console.warn(`Could not parse date field ${field}:`, e);
-          }
-        }
-      }
-      
-      return null;
-    }
     
     // Helper function to test an endpoint
     async function testEndpoint(endpoint, method, data, resultElement) {
@@ -610,9 +369,6 @@
           console.log('Sermons:', result);
           
           if (result.sermons && Array.isArray(result.sermons)) {
-            // Save sermons data
-            sermonsData = result.sermons;
-            
             // Calculate stats
             const totalSermons = result.sermons.length;
             
@@ -644,9 +400,6 @@
               <p class="success">Stats calculated from sermons list!</p>
               <p>Note: Vector counts may be estimated if not directly provided by the API.</p>
             `;
-            
-            // Also update the latest sermon info
-            checkLatestSermon();
           } else {
             statsResult.innerHTML = `
               <p class="error">Could not calculate stats: Invalid sermon data format.</p>
@@ -682,92 +435,46 @@
     
     // Display sermons list
     function displaySermonsList(sermons) {
-      // Filter sermons if filter input has text
-      const filterText = filterSermonsInput.value.toLowerCase();
-      let filteredSermons = sermons;
-      
-      if (filterText) {
-        filteredSermons = sermons.filter(sermon => {
-          const title = (sermon.title || '').toLowerCase();
-          const id = (sermon.video_id || sermon.id || '').toLowerCase();
-          return title.includes(filterText) || id.includes(filterText);
-        });
-      }
-      
       // Sort sermons based on selected option
       const sortBy = sortBySelect.value;
       
       if (sortBy === 'date') {
-        filteredSermons.sort((a, b) => {
+        sermons.sort((a, b) => {
           // Sort by date if available, otherwise by title
-          const dateA = getDateFromSermon(a);
-          const dateB = getDateFromSermon(b);
-          
-          if (dateA && dateB) {
-            return dateB - dateA;
+          if (a.date && b.date) {
+            return new Date(b.date) - new Date(a.date);
           } else {
             return a.title.localeCompare(b.title);
           }
         });
       } else if (sortBy === 'chunks') {
-        filteredSermons.sort((a, b) => {
+        sermons.sort((a, b) => {
           // Sort by vector_count if available
           const countA = a.vector_count || 0;
           const countB = b.vector_count || 0;
           return countB - countA;
         });
       } else if (sortBy === 'title') {
-        filteredSermons.sort((a, b) => a.title.localeCompare(b.title));
+        sermons.sort((a, b) => a.title.localeCompare(b.title));
       }
       
       // Generate HTML
       let html = '';
       
-      if (filteredSermons.length === 0) {
-        html = '<p>No sermons found matching your filter.</p>';
-      } else {
-        // Find the most recent date to highlight
-        let mostRecentDate = null;
-        filteredSermons.forEach(sermon => {
-          const date = getDateFromSermon(sermon);
-          if (date && (!mostRecentDate || date > mostRecentDate)) {
-            mostRecentDate = date;
-          }
-        });
+      sermons.forEach(sermon => {
+        const date = sermon.date ? new Date(sermon.date).toLocaleDateString() : 'No date';
+        const vectorCount = sermon.vector_count !== undefined ? sermon.vector_count : 'N/A';
         
-        filteredSermons.forEach(sermon => {
-          const date = getDateFromSermon(sermon);
-          const formattedDate = date ? date.toLocaleDateString() : 'No date';
-          const vectorCount = sermon.vector_count !== undefined ? sermon.vector_count : 'N/A';
-          const isLatest = date && mostRecentDate && date.getTime() === mostRecentDate.getTime();
-          
-          // Determine status
-          let status = '';
-          let statusClass = '';
-          
-          if (sermon.vector_count && sermon.vector_count > 0) {
-            status = `✅ Embeddings complete (${sermon.vector_count} vectors)`;
-            statusClass = 'success';
-          } else if (sermon.processing_status === 'processed') {
-            status = '⚠️ Transcript processed, awaiting embeddings';
-            statusClass = 'warning';
-          } else {
-            status = '❌ Not processed';
-            statusClass = 'error';
-          }
-          
-          html += `
-            <div class="card ${isLatest ? 'latest-sermon' : ''}">
-              <h3>${sermon.title || 'Untitled Sermon'}</h3>
-              <p><strong>ID:</strong> ${sermon.video_id || sermon.id || 'N/A'}</p>
-              <p><strong>Date:</strong> ${formattedDate}</p>
-              <p><strong>Status:</strong> <span class="${statusClass}">${status}</span></p>
-              <p><strong>YouTube:</strong> <a href="https://www.youtube.com/watch?v=${sermon.video_id || sermon.id}" target="_blank">View on YouTube</a></p>
-              <button class="view-vectors-btn" data-id="${sermon.video_id || sermon.id}">View Vector Chunks</button>
-            </div>
-          `;
-        });
-      }
+        html += `
+          <div class="card">
+            <h3>${sermon.title || 'Untitled Sermon'}</h3>
+            <p><strong>ID:</strong> ${sermon.video_id || sermon.id || 'N/A'}</p>
+            <p><strong>Date:</strong> ${date}</p>
+            <p><strong>Vector Chunks:</strong> ${vectorCount}</p>
+            <button class="view-vectors-btn" data-id="${sermon.video_id || sermon.id}">View Vector Chunks</button>
+          </div>
+        `;
+      });
       
       sermonsList.innerHTML = html;
       
@@ -860,7 +567,6 @@
     // Initialize by fetching stats when the page loads
     window.addEventListener('DOMContentLoaded', () => {
       fetchDatabaseStats();
-      checkLatestSermon();
     });
   </script>
 </body>
