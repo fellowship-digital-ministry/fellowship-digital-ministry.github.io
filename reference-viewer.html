@@ -1500,6 +1500,7 @@ function updateStatistics(data) {
       const sermonDate = formatDate(occurrence.publish_date || occurrence.sermon_date);
       const videoId = occurrence.video_id;
       const timestamp = occurrence.start_time;
+      console.log(occurrence)
       
       occurrenceElement.innerHTML = `
         <div class="occurrence-header">
