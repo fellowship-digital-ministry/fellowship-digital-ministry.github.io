@@ -1316,6 +1316,7 @@ function updateStatistics(data) {
       
       const verseElement = document.createElement('div');
       verseElement.className = 'verse-item';
+      verseElement.setAttribute('data-verse', verse);
       
       const formattedVerse = verse === 'unknown' ? 'Unknown Verse' : `Verse ${verse}`;
       
@@ -1328,16 +1329,31 @@ function updateStatistics(data) {
           : references[0].context;
       }
       
+      // Create the verse element with a placeholder for Bible text
       verseElement.innerHTML = `
         <div class="verse-header">
           <div class="verse-number">${formattedVerse}</div>
           <div class="verse-count">${count} references</div>
         </div>
+        <div class="verse-bible-text" id="bible-text-${book}-${chapter}-${verse}" style="display: none;">
+          <div class="verse-bible-content"></div>
+          <button class="verse-bible-toggle">Show less</button>
+        </div>
         <div class="verse-preview">${sampleText}</div>
+        <button class="verse-bible-expand" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          Show Bible verse
+        </button>
       `;
       
-      // Make verse clickable
-      verseElement.addEventListener('click', function() {
+      // Make verse clickable (but not when clicking the expand button)
+      verseElement.addEventListener('click', function(e) {
+        // Don't navigate if clicking on the expand button or toggle button
+        if (e.target.closest('.verse-bible-expand') || e.target.closest('.verse-bible-toggle')) {
+          return;
+        }
         showVerseView(book, chapter, verse);
       });
       
@@ -1347,6 +1363,86 @@ function updateStatistics(data) {
     // Update the verses container
     elements.chapterVerses.innerHTML = '';
     elements.chapterVerses.appendChild(versesContainer);
+    
+    // Add event listeners for expand buttons
+    versesContainer.querySelectorAll('.verse-bible-expand').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent navigation to verse view
+        
+        const book = this.getAttribute('data-book');
+        const chapter = this.getAttribute('data-chapter');
+        const verse = this.getAttribute('data-verse');
+        const bibleTextContainer = document.getElementById(`bible-text-${book}-${chapter}-${verse}`);
+        const bibleTextContent = bibleTextContainer.querySelector('.verse-bible-content');
+        
+        // If already loaded, just toggle visibility
+        if (bibleTextContainer.style.display === 'none') {
+          // Need to load the verse text
+          if (bibleTextContent.textContent.trim() === '') {
+            bibleTextContent.innerHTML = '<em>Loading verse text...</em>';
+            bibleTextContainer.style.display = 'block';
+            
+            // Fetch the verse text
+            fetchBibleVerseText(book, chapter, verse)
+              .then(text => {
+                if (text) {
+                  bibleTextContent.textContent = text;
+                } else {
+                  bibleTextContent.innerHTML = '<em>Verse text not available</em>';
+                }
+              })
+              .catch(error => {
+                console.error('Error loading verse text:', error);
+                bibleTextContent.innerHTML = '<em>Error loading verse text</em>';
+              });
+          } else {
+            // Already loaded, just show it
+            bibleTextContainer.style.display = 'block';
+          }
+          
+          // Update button text
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+            Hide Bible verse
+          `;
+        } else {
+          // Hide the verse text
+          bibleTextContainer.style.display = 'none';
+          
+          // Update button text
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Show Bible verse
+          `;
+        }
+      });
+    });
+    
+    // Add event listeners for toggle buttons
+    versesContainer.querySelectorAll('.verse-bible-toggle').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent navigation to verse view
+        
+        const bibleTextContainer = this.closest('.verse-bible-text');
+        const verseItem = this.closest('.verse-item');
+        const expandButton = verseItem.querySelector('.verse-bible-expand');
+        
+        // Hide the verse text
+        bibleTextContainer.style.display = 'none';
+        
+        // Update expand button text
+        expandButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          Show Bible verse
+        `;
+      });
+    });
   }
   
   /**
@@ -1468,35 +1564,11 @@ function updateStatistics(data) {
     elements.chapterView.style.display = 'none';
     elements.verseView.style.display = 'block';
     
-    // Get verse text container elements
+    // Always hide the verse text container in verse view
+    // (as per user request, we only show the pastor's sermon transcript in verse view)
     const verseTextContainer = document.getElementById('verse-text-container');
-    const verseText = document.getElementById('verse-text');
-    
-    // Hide verse text container initially
-    verseTextContainer.style.display = 'none';
-    
-    // Fetch and display the Bible verse text
-    if (chapter !== 'unknown' && verse !== 'unknown') {
-      // Show loading state in verse text container
-      verseTextContainer.style.display = 'block';
-      verseText.innerHTML = '<em>Loading verse text...</em>';
-      
-      // Fetch the verse text
-      fetchBibleVerseText(book, chapter, verse)
-        .then(text => {
-          if (text) {
-            // Display the verse text
-            verseText.textContent = text;
-            verseTextContainer.style.display = 'block';
-          } else {
-            // Hide the container if no verse text found
-            verseTextContainer.style.display = 'none';
-          }
-        })
-        .catch(error => {
-          console.error('Error displaying verse text:', error);
-          verseTextContainer.style.display = 'none';
-        });
+    if (verseTextContainer) {
+      verseTextContainer.style.display = 'none';
     }
     
     // Load verse occurrences - using the cached book data
@@ -2791,6 +2863,63 @@ document.addEventListener('DOMContentLoaded', () => {
   font-style: italic;
   font-size: 0.95rem;
   line-height: 1.5;
+  margin-bottom: var(--space-sm);
+}
+
+/* Bible verse text in chapter view */
+.verse-bible-text {
+  background-color: var(--primary-lighter);
+  border: 1px solid var(--primary-light);
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+  font-family: Georgia, serif;
+  line-height: 1.6;
+  position: relative;
+}
+
+.verse-bible-content {
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.verse-bible-toggle {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: var(--space-xs) 0;
+  margin-top: var(--space-xs);
+  display: block;
+  text-align: right;
+}
+
+.verse-bible-toggle:hover {
+  text-decoration: underline;
+}
+
+.verse-bible-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--bg-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.verse-bible-expand svg {
+  margin-right: var(--space-xs);
+}
+
+.verse-bible-expand:hover {
+  background-color: var(--bg-gray-dark);
 }
 
 /* Verse View */
