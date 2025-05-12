@@ -1126,24 +1126,24 @@ function updateStatistics(data) {
       chaptersContainer.appendChild(chapterElement);
     });
     
-    // Handle 'unknown' chapter if it exists
-    if (data.chapters['unknown'] && data.chapters['unknown'].length > 0) {
-      const unknownCount = data.chapters['unknown'].length;
-      
-      const unknownElement = document.createElement('div');
-      unknownElement.className = 'chapter-item unknown-chapter';
-      unknownElement.innerHTML = `
-        <div class="chapter-number">Unknown</div>
-        <div class="chapter-reference-count">${unknownCount}</div>
-      `;
-      
-      // Make chapter clickable
-      unknownElement.addEventListener('click', function() {
-        showChapterView(book, 'unknown');
-      });
-      
-      chaptersContainer.appendChild(unknownElement);
-    }
+      // Handle 'unknown' chapter if it exists
+      if (data.chapters['unknown'] && data.chapters['unknown'].length > 0) {
+        const unknownCount = data.chapters['unknown'].length;
+        
+        const unknownElement = document.createElement('div');
+        unknownElement.className = 'chapter-item unknown-chapter';
+        unknownElement.innerHTML = `
+          <div class="chapter-number">General References</div>
+          <div class="chapter-reference-count">${unknownCount}</div>
+        `;
+        
+        // Make chapter clickable
+        unknownElement.addEventListener('click', function() {
+          showChapterView(book, 'unknown');
+        });
+        
+        chaptersContainer.appendChild(unknownElement);
+      }
     
     // Update the chapters container
     elements.bookChapters.innerHTML = '';
@@ -1164,7 +1164,7 @@ function updateStatistics(data) {
     // Update breadcrumbs
     elements.breadcrumbChapterBook.textContent = formatBookName(book);
     elements.breadcrumbChapterBook.setAttribute('data-book', book);
-    elements.breadcrumbChapter.textContent = chapter === 'unknown' ? 'Unknown Chapter' : `Chapter ${chapter}`;
+    elements.breadcrumbChapter.textContent = chapter === 'unknown' ? 'General References' : `Chapter ${chapter}`;
     
     // Make breadcrumb book clickable
     elements.breadcrumbChapterBook.style.cursor = 'pointer';
@@ -1174,7 +1174,7 @@ function updateStatistics(data) {
     
     // Update title
     elements.chapterTitle.textContent = chapter === 'unknown' 
-      ? `${formatBookName(book)} (Unknown Chapter)` 
+      ? `${formatBookName(book)} (General References)` 
       : `${formatBookName(book)} ${chapter}`;
     
     // Hide other views and show chapter view
@@ -1312,7 +1312,7 @@ function updateStatistics(data) {
       const verseElement = document.createElement('div');
       verseElement.className = 'verse-item';
       
-      const formattedVerse = verse === 'unknown' ? 'Unknown Verse' : `Verse ${verse}`;
+      const formattedVerse = verse === 'unknown' ? 'Chapter References' : `Verse ${verse}`;
       
       // Find a sample reference for preview
       let sampleText = '';
@@ -1360,7 +1360,7 @@ function updateStatistics(data) {
     elements.breadcrumbVerseBook.setAttribute('data-book', book);
     elements.breadcrumbVerseChapter.textContent = chapter === 'unknown' ? 'Unknown Chapter' : `Chapter ${chapter}`;
     elements.breadcrumbVerseChapter.setAttribute('data-chapter', chapter);
-    elements.breadcrumbVerse.textContent = verse === 'unknown' ? 'Unknown Verse' : `Verse ${verse}`;
+    elements.breadcrumbVerse.textContent = verse === 'unknown' ? 'Chapter References' : `Verse ${verse}`;
     
     // Make breadcrumb book clickable
     elements.breadcrumbVerseBook.style.cursor = 'pointer';
