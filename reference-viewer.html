@@ -1457,13 +1457,12 @@ function updateStatistics(data) {
       // Normalize book name to match KJV dataset file naming
       const bookFileName = normalizeBookNameForKJV(book);
       
-      // Try multiple possible paths
+      // Try multiple possible paths, prioritizing the assets directory
       const possiblePaths = [
-        '/data/Bible-kjv-master',
-        '/_data/Bible-kjv-master',
+        '/assets/data/Bible-kjv-master',
         '/assets/data/bible-kjv',
-        '../_data/Bible-kjv-master',
-        '../../_data/Bible-kjv-master'
+        '/data/Bible-kjv-master',
+        '/_data/Bible-kjv-master'
       ];
       
       let bookData = null;
