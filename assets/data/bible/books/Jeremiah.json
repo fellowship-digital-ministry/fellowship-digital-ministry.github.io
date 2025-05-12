@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 237,
+  "total_references": 240,
   "chapters": {
     "31": [
       {
@@ -641,6 +641,32 @@
         "end_time": 189.0399932861328,
         "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
         "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=117"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 33,
+        "verse": 3,
+        "reference_text": "Jeremiah 33:3",
+        "context": "prior to the promise that we read in Jeremiah 33-3, it starts out by saying, call unto me",
+        "is_implicit": false,
+        "video_id": "GOhUNz1pDM0",
+        "start_time": 310.9599914550781,
+        "end_time": 375.44000244140625,
+        "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+        "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=310"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 33,
+        "verse": 3,
+        "reference_text": "Jeremiah 33:3",
+        "context": "God says this to Jeremiah in Jeremiah 33, 3, calling to me, and then He says this, and I will answer thee and show thee great and mighty things which thou knowest not.",
+        "is_implicit": false,
+        "video_id": "GOhUNz1pDM0",
+        "start_time": 1050.719970703125,
+        "end_time": 1124.0,
+        "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+        "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=1050"
       }
     ],
     "1": [
@@ -892,6 +918,19 @@
         "end_time": 1533.5800170898438,
         "sermon_title": "\"To The Church Of Ephesus - Part Two\" Revelation 2:1-7",
         "url": "https://www.youtube.com/watch?v=V298kr7O9NY&t=1463"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 17,
+        "verse": 9,
+        "reference_text": "Jeremiah 17:9",
+        "context": "God's Word says your heart is deceitful. Don't trust in your heart.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 870.1400146484375,
+        "end_time": 937.1000061035156,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=870"
       },
       {
         "book": "Jeremiah",
@@ -6219,6 +6258,45 @@
       "end_time": 189.0399932861328,
       "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
       "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=117"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 33,
+      "verse": 3,
+      "reference_text": "Jeremiah 33:3",
+      "context": "prior to the promise that we read in Jeremiah 33-3, it starts out by saying, call unto me",
+      "is_implicit": false,
+      "video_id": "GOhUNz1pDM0",
+      "start_time": 310.9599914550781,
+      "end_time": 375.44000244140625,
+      "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+      "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=310"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 33,
+      "verse": 3,
+      "reference_text": "Jeremiah 33:3",
+      "context": "God says this to Jeremiah in Jeremiah 33, 3, calling to me, and then He says this, and I will answer thee and show thee great and mighty things which thou knowest not.",
+      "is_implicit": false,
+      "video_id": "GOhUNz1pDM0",
+      "start_time": 1050.719970703125,
+      "end_time": 1124.0,
+      "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+      "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=1050"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 17,
+      "verse": 9,
+      "reference_text": "Jeremiah 17:9",
+      "context": "God's Word says your heart is deceitful. Don't trust in your heart.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 870.1400146484375,
+      "end_time": 937.1000061035156,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=870"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 938,
+  "total_references": 941,
   "chapters": {
     "2": [
       {
@@ -2394,6 +2394,19 @@
         "end_time": 2548.6199798583984,
         "sermon_title": "\"Present With The Lord\" II Corinthians 5:1-9",
         "url": "https://www.youtube.com/watch?v=_utmsqe125g&t=2491"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 2,
+        "verse": 8,
+        "reference_text": "Ephesians 2:8",
+        "context": "Ephesians 2 says that for by grace you're saved through faith and not of yourselves. It's the gift of God, not of works, lest any man should boast.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2476.60001373291,
+        "end_time": 2543.240020751953,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2476"
       },
       {
         "book": "Ephesians",
@@ -5037,6 +5050,19 @@
         "end_time": 243.67999267578125,
         "sermon_title": "\"Hallowed Be Thy Name\" Luke 11:2",
         "url": "https://www.youtube.com/watch?v=ZJOWWMF4BZE&t=189"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "Ephesians chapter number one",
+        "context": "if you read Ephesians chapter number one, God determined before the foundation of the world that there was only one way that mankind would be saved and that was through Jesus Christ.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 1188.3400268554688,
+        "end_time": 1246.7399787902832,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1188"
       },
       {
         "book": "Ephesians",
@@ -9539,6 +9565,19 @@
         "end_time": 1748.8200073242188,
         "sermon_title": "\"Effectual Prayer\" I Timothy 2:8",
         "url": "https://www.youtube.com/watch?v=PE0mOy8YRqw&t=1690"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 4,
+        "verse": 25,
+        "reference_text": "Ephesians 4:25",
+        "context": "know what Paul says in Ephesians 4? Stop lying. Speak the truth.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2330.0800170898438,
+        "end_time": 2411.0400171279907,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2330"
       },
       {
         "book": "Ephesians",
@@ -24405,6 +24444,45 @@
       "end_time": 189.0399932861328,
       "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
       "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=117"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Ephesians chapter number one",
+      "context": "if you read Ephesians chapter number one, God determined before the foundation of the world that there was only one way that mankind would be saved and that was through Jesus Christ.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 1188.3400268554688,
+      "end_time": 1246.7399787902832,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1188"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 4,
+      "verse": 25,
+      "reference_text": "Ephesians 4:25",
+      "context": "know what Paul says in Ephesians 4? Stop lying. Speak the truth.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2330.0800170898438,
+      "end_time": 2411.0400171279907,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2330"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 2,
+      "verse": 8,
+      "reference_text": "Ephesians 2:8",
+      "context": "Ephesians 2 says that for by grace you're saved through faith and not of yourselves. It's the gift of God, not of works, lest any man should boast.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2476.60001373291,
+      "end_time": 2543.240020751953,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2476"
     }
   ]
 }

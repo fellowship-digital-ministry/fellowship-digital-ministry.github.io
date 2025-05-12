@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 598,
+  "total_references": 611,
   "chapters": {
     "5": [
       {
@@ -2710,6 +2710,19 @@
       {
         "book": "1 Thessalonians",
         "chapter": 5,
+        "verse": 24,
+        "reference_text": "faithful is he that calleth you who also will do it",
+        "context": "The Bible says, faithful is he that calleth you who also will do it.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 0.5,
+        "end_time": 62.0,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=0"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 5,
         "verse": 25,
         "reference_text": "1 Thessalonians 5:25",
         "context": "He asked the believers in Thessalonica this way. He says, brethren, pray for us.",
@@ -3624,6 +3637,19 @@
       {
         "book": "1 Thessalonians",
         "chapter": 2,
+        "verse": null,
+        "reference_text": "1 Thessalonians chapter 2",
+        "context": "In 1 Thessalonians chapter 2, notice what Paul says as he's writing to this church.",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 2713.0201110839844,
+        "end_time": 2791.3001098632812,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2713"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 2,
         "verse": 1,
         "reference_text": "1st Thessalonians 2:1",
         "context": "1st Thessalonians chapter number 2 will be looking at verses 1 through 9 this morning 1st Thessalonians 2 verses 1 through 9",
@@ -4517,6 +4543,32 @@
         "end_time": 2142.2400512695312,
         "sermon_title": "\"My Fellowworkers\" Colossians 4:7-11",
         "url": "https://www.youtube.com/watch?v=R9o268hePTY&t=2078"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 2,
+        "verse": 19,
+        "reference_text": "1 Thessalonians 2:19",
+        "context": "for what is our hope or joy or crown of rejoicing, notice this, are not even ye in the presence of our Lord Jesus Christ that is coming",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 2791.3001098632812,
+        "end_time": 2853.1800842285156,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2791"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 2,
+        "verse": 20,
+        "reference_text": "1 Thessalonians 2:20",
+        "context": "for ye are our glory and joy",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 2791.3001098632812,
+        "end_time": 2853.1800842285156,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2791"
       }
     ],
     "4": [
@@ -4688,6 +4740,45 @@
         "end_time": 1642.5,
         "sermon_title": "\"Walk Worthy\" I Thessalonians 2:12",
         "url": "https://www.youtube.com/watch?v=ZadXdqo8T-A&t=1585"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": null,
+        "reference_text": "1 Thessalonians chapter 4",
+        "context": "But notice what the Bible says in 1 Thessalonians chapter number 4, where God is giving to us an outline with regard to this event that we would refer to as being the rapture.",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 1863.8999633789062,
+        "end_time": 1921.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=1863"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": null,
+        "reference_text": "1 Thessalonians 4",
+        "context": "We're going to meet him in the air. 1 Thessalonians 4.",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2157.8999633789062,
+        "end_time": 2230.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2157"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": null,
+        "reference_text": "1 Thessalonians 4",
+        "context": "Listen, we can look at 1 Thessalonians 4, and we can understand what God is teaching us, and understanding the teaching of the rapture...",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2230.8999633789062,
+        "end_time": 2301.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2230"
       },
       {
         "book": "1 Thessalonians",
@@ -5927,6 +6018,19 @@
       {
         "book": "1 Thessalonians",
         "chapter": 4,
+        "verse": 13,
+        "reference_text": "1 Thessalonians chapter 4 beginning in verse number 13",
+        "context": "look in 1 Thessalonians chapter 4 beginning in verse number 13. The Bible says, but I would not have you to be ignorant, brethren.",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 1921.8999633789062,
+        "end_time": 1977.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=1921"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
         "verse": 14,
         "reference_text": "1 Thessalonians 4:14",
         "context": "for if we believe that Jesus died and rose again, and we do, even so them also which sleep in Jesus will God bring with him.",
@@ -6248,6 +6352,19 @@
         "end_time": 795.5,
         "sermon_title": "\"Present With The Lord\" II Corinthians 5:1-9",
         "url": "https://www.youtube.com/watch?v=_utmsqe125g&t=741"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": 15,
+        "reference_text": "by the word of the Lord, that we which are alive and remain unto the coming of the Lord shall not prevent them which are asleep",
+        "context": "And he says here, by the word of the Lord, that we which are alive and remain unto the coming of the Lord shall not prevent them which are asleep.",
+        "is_implicit": true,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2033.8999633789062,
+        "end_time": 2093.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2033"
       },
       {
         "book": "1 Thessalonians",
@@ -6707,6 +6824,45 @@
       {
         "book": "1 Thessalonians",
         "chapter": 4,
+        "verse": 16,
+        "reference_text": "for the Lord himself shall descend from heaven",
+        "context": "So we come to verse 16, for the Lord himself shall descend from heaven.",
+        "is_implicit": true,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2033.8999633789062,
+        "end_time": 2093.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2033"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": 16,
+        "reference_text": "1 Thessalonians 4:16",
+        "context": "the Lord himself shall descend from heaven with a shout, with the voice of the archangel and with the trump of God, and the dead in Christ shall rise first.",
+        "is_implicit": true,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2093.8999633789062,
+        "end_time": 2157.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2093"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": 16,
+        "reference_text": "1 Thessalonians 4:16",
+        "context": "the dead in Christ shall rise first",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2301.8999633789062,
+        "end_time": 2365.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2301"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
         "verse": 17,
         "reference_text": "1 Thessalonians 4:17",
         "context": "Then we which are alive and remain shall be caught up together with them in the clouds to meet the Lord in the air and so shall we ever be with the Lord",
@@ -7093,6 +7249,19 @@
         "end_time": 795.5,
         "sermon_title": "\"Present With The Lord\" II Corinthians 5:1-9",
         "url": "https://www.youtube.com/watch?v=_utmsqe125g&t=741"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": 17,
+        "reference_text": "1 Thessalonians 4:17",
+        "context": "then we which are alive and remain shall be caught up together with them in the clouds to meet the Lord in the air, and so shall we ever be with the Lord.",
+        "is_implicit": true,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2093.8999633789062,
+        "end_time": 2157.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2093"
       },
       {
         "book": "1 Thessalonians",
@@ -15563,6 +15732,175 @@
       "end_time": 795.5,
       "sermon_title": "\"Present With The Lord\" II Corinthians 5:1-9",
       "url": "https://www.youtube.com/watch?v=_utmsqe125g&t=741"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": null,
+      "reference_text": "1 Thessalonians chapter 4",
+      "context": "But notice what the Bible says in 1 Thessalonians chapter number 4, where God is giving to us an outline with regard to this event that we would refer to as being the rapture.",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 1863.8999633789062,
+      "end_time": 1921.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=1863"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 13,
+      "reference_text": "1 Thessalonians chapter 4 beginning in verse number 13",
+      "context": "look in 1 Thessalonians chapter 4 beginning in verse number 13. The Bible says, but I would not have you to be ignorant, brethren.",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 1921.8999633789062,
+      "end_time": 1977.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=1921"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 15,
+      "reference_text": "by the word of the Lord, that we which are alive and remain unto the coming of the Lord shall not prevent them which are asleep",
+      "context": "And he says here, by the word of the Lord, that we which are alive and remain unto the coming of the Lord shall not prevent them which are asleep.",
+      "is_implicit": true,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2033.8999633789062,
+      "end_time": 2093.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2033"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "for the Lord himself shall descend from heaven",
+      "context": "So we come to verse 16, for the Lord himself shall descend from heaven.",
+      "is_implicit": true,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2033.8999633789062,
+      "end_time": 2093.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2033"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "1 Thessalonians 4:16",
+      "context": "the Lord himself shall descend from heaven with a shout, with the voice of the archangel and with the trump of God, and the dead in Christ shall rise first.",
+      "is_implicit": true,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2093.8999633789062,
+      "end_time": 2157.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2093"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 17,
+      "reference_text": "1 Thessalonians 4:17",
+      "context": "then we which are alive and remain shall be caught up together with them in the clouds to meet the Lord in the air, and so shall we ever be with the Lord.",
+      "is_implicit": true,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2093.8999633789062,
+      "end_time": 2157.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2093"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": null,
+      "reference_text": "1 Thessalonians 4",
+      "context": "We're going to meet him in the air. 1 Thessalonians 4.",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2157.8999633789062,
+      "end_time": 2230.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2157"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": null,
+      "reference_text": "1 Thessalonians 4",
+      "context": "Listen, we can look at 1 Thessalonians 4, and we can understand what God is teaching us, and understanding the teaching of the rapture...",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2230.8999633789062,
+      "end_time": 2301.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2230"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "1 Thessalonians 4:16",
+      "context": "the dead in Christ shall rise first",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2301.8999633789062,
+      "end_time": 2365.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2301"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 2,
+      "verse": null,
+      "reference_text": "1 Thessalonians chapter 2",
+      "context": "In 1 Thessalonians chapter 2, notice what Paul says as he's writing to this church.",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 2713.0201110839844,
+      "end_time": 2791.3001098632812,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2713"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 2,
+      "verse": 19,
+      "reference_text": "1 Thessalonians 2:19",
+      "context": "for what is our hope or joy or crown of rejoicing, notice this, are not even ye in the presence of our Lord Jesus Christ that is coming",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 2791.3001098632812,
+      "end_time": 2853.1800842285156,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2791"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 2,
+      "verse": 20,
+      "reference_text": "1 Thessalonians 2:20",
+      "context": "for ye are our glory and joy",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 2791.3001098632812,
+      "end_time": 2853.1800842285156,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2791"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 5,
+      "verse": 24,
+      "reference_text": "faithful is he that calleth you who also will do it",
+      "context": "The Bible says, faithful is he that calleth you who also will do it.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 0.5,
+      "end_time": 62.0,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=0"
     }
   ]
 }

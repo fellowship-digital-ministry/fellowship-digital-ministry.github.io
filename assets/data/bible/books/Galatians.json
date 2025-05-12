@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 479,
+  "total_references": 485,
   "chapters": {
     "2": [
       {
@@ -756,6 +756,32 @@
         "end_time": 1439.0,
         "sermon_title": "\"Abraham Made A Great Feast\" Genesis 21:8-21",
         "url": "https://www.youtube.com/watch?v=Zt0gPTUWrio&t=1369"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 2,
+        "verse": 21,
+        "reference_text": "Galatians 2:21",
+        "context": "For if righteousness come by the law, then Christ is dead in vain.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2726.8400268554688,
+        "end_time": 2796.1600036621094,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2726"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 2,
+        "verse": 21,
+        "reference_text": "Galatians 2:21",
+        "context": "if righteousness come by the law, then Christ is dead in vain.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2796.1600036621094,
+        "end_time": 2880.300018310547,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2796"
       }
     ],
     "6": [
@@ -5372,6 +5398,19 @@
       {
         "book": "Galatians",
         "chapter": 3,
+        "verse": 6,
+        "reference_text": "Galatians 3:6",
+        "context": "In Galatians chapter number 3 and verse number 6, the Bible says, even as Abraham believed God and it was accounted to him for righteousness.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2668.8200073242188,
+        "end_time": 2726.8400268554688,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2668"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 3,
         "verse": 7,
         "reference_text": "Galatians 3:7",
         "context": "know you therefore that they which are of faith the same are the children of Abraham.",
@@ -5918,6 +5957,32 @@
       {
         "book": "Galatians",
         "chapter": 3,
+        "verse": 21,
+        "reference_text": "Galatians 3:21",
+        "context": "I want you to skip down and look at verse number 21, if you will. The Bible says, is the law then against the promises",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2668.8200073242188,
+        "end_time": 2726.8400268554688,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2668"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 3,
+        "verse": 21,
+        "reference_text": "Galatians 3:21",
+        "context": "for if there had been a law given which could have given life, verily righteousness should have been by the law.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2726.8400268554688,
+        "end_time": 2796.1600036621094,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2726"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 3,
         "verse": 22,
         "reference_text": "Galatians 3:22",
         "context": "Verse 22, but the scripture hath concluded, all under sin, that the promise by faith of Jesus Christ might be given to them that believe.",
@@ -6241,6 +6306,19 @@
         "end_time": 827.1000213623047,
         "sermon_title": "\"Sent Forth\" Acts 13:1-12",
         "url": "https://www.youtube.com/watch?v=Y7Ff430VPN0&t=766"
+      },
+      {
+        "book": "Galatians",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "the book of Galatians",
+        "context": "you read the book of Galatians, he said, I receive this with the revelation of Jesus Christ.",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2033.8999633789062,
+        "end_time": 2093.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2033"
       }
     ]
   },
@@ -12471,6 +12549,84 @@
       "end_time": 2745.260009765625,
       "sermon_title": "\"The Testimony Of A Changed Life\" Galatians 1:11-24",
       "url": "https://www.youtube.com/watch?v=_pCyHOxnY7Y&t=2669"
+    },
+    {
+      "book": "Galatians",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "the book of Galatians",
+      "context": "you read the book of Galatians, he said, I receive this with the revelation of Jesus Christ.",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2033.8999633789062,
+      "end_time": 2093.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2033"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 3,
+      "verse": 6,
+      "reference_text": "Galatians 3:6",
+      "context": "In Galatians chapter number 3 and verse number 6, the Bible says, even as Abraham believed God and it was accounted to him for righteousness.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2668.8200073242188,
+      "end_time": 2726.8400268554688,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2668"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 3,
+      "verse": 21,
+      "reference_text": "Galatians 3:21",
+      "context": "I want you to skip down and look at verse number 21, if you will. The Bible says, is the law then against the promises",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2668.8200073242188,
+      "end_time": 2726.8400268554688,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2668"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 3,
+      "verse": 21,
+      "reference_text": "Galatians 3:21",
+      "context": "for if there had been a law given which could have given life, verily righteousness should have been by the law.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2726.8400268554688,
+      "end_time": 2796.1600036621094,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2726"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 2,
+      "verse": 21,
+      "reference_text": "Galatians 2:21",
+      "context": "For if righteousness come by the law, then Christ is dead in vain.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2726.8400268554688,
+      "end_time": 2796.1600036621094,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2726"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 2,
+      "verse": 21,
+      "reference_text": "Galatians 2:21",
+      "context": "if righteousness come by the law, then Christ is dead in vain.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2796.1600036621094,
+      "end_time": 2880.300018310547,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2796"
     }
   ]
 }

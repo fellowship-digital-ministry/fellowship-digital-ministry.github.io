@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 318,
+  "total_references": 322,
   "chapters": {
     "4": [
       {
@@ -1527,6 +1527,19 @@
       {
         "book": "James",
         "chapter": 4,
+        "verse": 14,
+        "reference_text": "James 4:14",
+        "context": "what is your life? It's a vapor that appears for a little time and then vanisheth away.",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 1022.6000061035156,
+        "end_time": 1115.0,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1022"
+      },
+      {
+        "book": "James",
+        "chapter": 4,
         "verse": 15,
         "reference_text": "James 4:15",
         "context": "for that ye ought to say, if the Lord will, we shall live and do this or that",
@@ -2084,6 +2097,19 @@
         "end_time": 798.8000183105469,
         "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
         "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=740"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 5,
+        "reference_text": "James 1:5",
+        "context": "if any man lack wisdom, let him ask of God, who giveth to all men liberally and upbraideth",
+        "is_implicit": false,
+        "video_id": "GOhUNz1pDM0",
+        "start_time": 981.760009765625,
+        "end_time": 1050.719970703125,
+        "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+        "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=981"
       },
       {
         "book": "James",
@@ -3650,6 +3676,19 @@
       {
         "book": "James",
         "chapter": 5,
+        "verse": 16,
+        "reference_text": "James 5:16",
+        "context": "the effectual fervent prayer of a righteous man availeth much",
+        "is_implicit": false,
+        "video_id": "GOhUNz1pDM0",
+        "start_time": 1345.8399658203125,
+        "end_time": 1420.1600341796875,
+        "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+        "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=1345"
+      },
+      {
+        "book": "James",
+        "chapter": 5,
         "verse": 17,
         "reference_text": "James 5:17",
         "context": "It rained not on the earth by the space of three years and six months. And he prayed again and the heaven gave rain.",
@@ -3830,6 +3869,19 @@
         "end_time": 478.239990234375,
         "sermon_title": "\"Thou Shalt Teach Thy Children\" Deuteronomy 6:1-9",
         "url": "https://www.youtube.com/watch?v=U_xKQPutdso&t=414"
+      },
+      {
+        "book": "James",
+        "chapter": 2,
+        "verse": 10,
+        "reference_text": "James 2:10",
+        "context": "James will later say that if you offend in one point, you're guilty of all.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2999.02001953125,
+        "end_time": 3058.260021209717,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2999"
       },
       {
         "book": "James",
@@ -8281,6 +8333,58 @@
       "end_time": 2463.6400032043457,
       "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
       "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=2381"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 5,
+      "reference_text": "James 1:5",
+      "context": "if any man lack wisdom, let him ask of God, who giveth to all men liberally and upbraideth",
+      "is_implicit": false,
+      "video_id": "GOhUNz1pDM0",
+      "start_time": 981.760009765625,
+      "end_time": 1050.719970703125,
+      "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+      "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=981"
+    },
+    {
+      "book": "James",
+      "chapter": 5,
+      "verse": 16,
+      "reference_text": "James 5:16",
+      "context": "the effectual fervent prayer of a righteous man availeth much",
+      "is_implicit": false,
+      "video_id": "GOhUNz1pDM0",
+      "start_time": 1345.8399658203125,
+      "end_time": 1420.1600341796875,
+      "sermon_title": "\"Ask, Seek, Knock\"   Matthew 7:7-11",
+      "url": "https://www.youtube.com/watch?v=GOhUNz1pDM0&t=1345"
+    },
+    {
+      "book": "James",
+      "chapter": 4,
+      "verse": 14,
+      "reference_text": "James 4:14",
+      "context": "what is your life? It's a vapor that appears for a little time and then vanisheth away.",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 1022.6000061035156,
+      "end_time": 1115.0,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1022"
+    },
+    {
+      "book": "James",
+      "chapter": 2,
+      "verse": 10,
+      "reference_text": "James 2:10",
+      "context": "James will later say that if you offend in one point, you're guilty of all.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2999.02001953125,
+      "end_time": 3058.260021209717,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2999"
     }
   ]
 }

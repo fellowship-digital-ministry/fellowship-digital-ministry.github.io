@@ -1,6 +1,6 @@
 {
   "book": "Mark",
-  "total_references": 249,
+  "total_references": 250,
   "chapters": {
     "1": [
       {
@@ -1139,6 +1139,19 @@
         "end_time": 2089.9800415039062,
         "sermon_title": "\"The Witness Of God Is Greater\" I John 5:6-13",
         "url": "https://www.youtube.com/watch?v=Qlkc9s-IZMU&t=2016"
+      },
+      {
+        "book": "Mark",
+        "chapter": 8,
+        "verse": 36,
+        "reference_text": "Mark 8:36",
+        "context": "But shall it profit a man that gain the whole world but lose his own soul? Is that not what Jesus asked?",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2193.3600158691406,
+        "end_time": 2264.0800170898438,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2193"
       },
       {
         "book": "Mark",
@@ -6507,6 +6520,19 @@
       "end_time": 1344.0800018310547,
       "sermon_title": "\"Ye Therefore Do Greatly Err\" Mark 12:18-27",
       "url": "https://www.youtube.com/watch?v=_bNqgIZk0oA&t=1262"
+    },
+    {
+      "book": "Mark",
+      "chapter": 8,
+      "verse": 36,
+      "reference_text": "Mark 8:36",
+      "context": "But shall it profit a man that gain the whole world but lose his own soul? Is that not what Jesus asked?",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2193.3600158691406,
+      "end_time": 2264.0800170898438,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2193"
     }
   ]
 }

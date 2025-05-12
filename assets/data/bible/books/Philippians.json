@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 521,
+  "total_references": 527,
   "chapters": {
     "2": [
       {
@@ -2166,6 +2166,32 @@
       {
         "book": "Philippians",
         "chapter": 3,
+        "verse": 4,
+        "reference_text": "Philippians 3:4",
+        "context": "Paul had, we're going to start reading verse number 4.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2796.1600036621094,
+        "end_time": 2880.300018310547,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2796"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 3,
+        "verse": 4,
+        "reference_text": "Philippians 3:4",
+        "context": "though, verse number 4, Philippians 3, though I might also have confidence in the flesh.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2880.300018310547,
+        "end_time": 2934.260009765625,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2880"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 3,
         "verse": 5,
         "reference_text": "Philippians 3:5",
         "context": "Circumcised the eighth day, the stock of Israel of the tribe of Benjamin and Hebrew of the Hebrews is touching the law of Pharisee.",
@@ -2257,6 +2283,19 @@
       {
         "book": "Philippians",
         "chapter": 3,
+        "verse": 8,
+        "reference_text": "Philippians 3:8",
+        "context": "of Christ Jesus my Lord, for whom I have suffered the loss of all things, and do count them but dung, that I may win Christ",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2934.260009765625,
+        "end_time": 2999.02001953125,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2934"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 3,
         "verse": 9,
         "reference_text": "Philippians 3:9",
         "context": "I think of what Paul says when he talks about not being clothed with his own righteousness, but with the righteousness of Christ.",
@@ -2279,6 +2318,19 @@
         "end_time": 1506.739990234375,
         "sermon_title": "\"Who Are You Living For?\" Philippians 1:21",
         "url": "https://www.youtube.com/watch?v=M196IRZkKYY&t=1449"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 3,
+        "verse": 9,
+        "reference_text": "Philippians 3:9",
+        "context": "and then notice what he says in verse nine, and be found in him, not having mine own righteousness which is of the law, but that which is through the faith of Christ, the righteousness which is of God by faith",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2934.260009765625,
+        "end_time": 2999.02001953125,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2934"
       },
       {
         "book": "Philippians",
@@ -6460,6 +6512,19 @@
       {
         "book": "Philippians",
         "chapter": 1,
+        "verse": 21,
+        "reference_text": "Philippians 1:21",
+        "context": "for me to live as Christ, but to die as gain.",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 2306.06005859375,
+        "end_time": 2363.0200805664062,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2306"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 1,
         "verse": 22,
         "reference_text": "Philippians 1:22",
         "context": "but if I live in the flesh, this is the fruit of my labor, yet what I shall choose I will not",
@@ -6703,6 +6768,19 @@
         "end_time": 1943.2999877929688,
         "sermon_title": "\"Present With The Lord\" II Corinthians 5:1-9",
         "url": "https://www.youtube.com/watch?v=_utmsqe125g&t=1880"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 1,
+        "verse": 23,
+        "reference_text": "Philippians 1:23",
+        "context": "he was in a straight betwixt two. What was the straight betwixt two? Having a desire to part, to be with Christ, which is far better.",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 2306.06005859375,
+        "end_time": 2363.0200805664062,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2306"
       },
       {
         "book": "Philippians",
@@ -13559,6 +13637,84 @@
       "end_time": 1150.2200317382812,
       "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
       "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=1059"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 1,
+      "verse": 23,
+      "reference_text": "Philippians 1:23",
+      "context": "he was in a straight betwixt two. What was the straight betwixt two? Having a desire to part, to be with Christ, which is far better.",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 2306.06005859375,
+      "end_time": 2363.0200805664062,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2306"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 1,
+      "verse": 21,
+      "reference_text": "Philippians 1:21",
+      "context": "for me to live as Christ, but to die as gain.",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 2306.06005859375,
+      "end_time": 2363.0200805664062,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=2306"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 3,
+      "verse": 4,
+      "reference_text": "Philippians 3:4",
+      "context": "Paul had, we're going to start reading verse number 4.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2796.1600036621094,
+      "end_time": 2880.300018310547,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2796"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 3,
+      "verse": 4,
+      "reference_text": "Philippians 3:4",
+      "context": "though, verse number 4, Philippians 3, though I might also have confidence in the flesh.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2880.300018310547,
+      "end_time": 2934.260009765625,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2880"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 3,
+      "verse": 8,
+      "reference_text": "Philippians 3:8",
+      "context": "of Christ Jesus my Lord, for whom I have suffered the loss of all things, and do count them but dung, that I may win Christ",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2934.260009765625,
+      "end_time": 2999.02001953125,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2934"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 3,
+      "verse": 9,
+      "reference_text": "Philippians 3:9",
+      "context": "and then notice what he says in verse nine, and be found in him, not having mine own righteousness which is of the law, but that which is through the faith of Christ, the righteousness which is of God by faith",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2934.260009765625,
+      "end_time": 2999.02001953125,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2934"
     }
   ]
 }

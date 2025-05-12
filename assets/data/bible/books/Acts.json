@@ -1,6 +1,6 @@
 {
   "book": "Acts",
-  "total_references": 1456,
+  "total_references": 1462,
   "chapters": {
     "12": [
       {
@@ -4003,6 +4003,19 @@
       {
         "book": "Acts",
         "chapter": 1,
+        "verse": 6,
+        "reference_text": "Acts 1",
+        "context": "...when the disciples asked Jesus in Acts 1, is it now the time that you're going to restore the kingdom to Israel?...",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2613.659957885742,
+        "end_time": 2684.1399536132812,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2613"
+      },
+      {
+        "book": "Acts",
+        "chapter": 1,
         "verse": 7,
         "reference_text": "Acts 1:7",
         "context": "it's not for you to know the times or the seasons, which the Father hath put in his own power",
@@ -4991,6 +5004,19 @@
       {
         "book": "Acts",
         "chapter": 1,
+        "verse": 8,
+        "reference_text": "Acts 1:8",
+        "context": "but you shall receive power after the Holy Ghost has come upon you. And you shall be witnesses unto me, both in Jerusalem, Judea, Samaria, the uttermost part of the earth.",
+        "is_implicit": false,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2684.1399536132812,
+        "end_time": 2746.5399780273438,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2684"
+      },
+      {
+        "book": "Acts",
+        "chapter": 1,
         "verse": 9,
         "reference_text": "Acts 1:9",
         "context": "I want to remind you of what happened in Acts chapter number 1",
@@ -5598,6 +5624,19 @@
         "end_time": 2086.7000122070312,
         "sermon_title": "\"I Will Come Again\" John 14:1-3",
         "url": "https://www.youtube.com/watch?v=yTL0aNdEv6o&t=2021"
+      },
+      {
+        "book": "Acts",
+        "chapter": 1,
+        "verse": 11,
+        "reference_text": "Acts 1:11",
+        "context": "Why stand you gazing up into heaven? This same Jesus, right? Is that what they say in Acts chapter 1?",
+        "is_implicit": true,
+        "video_id": "14-YoafCO5U",
+        "start_time": 2093.8999633789062,
+        "end_time": 2157.8999633789062,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2093"
       },
       {
         "book": "Acts",
@@ -11943,6 +11982,19 @@
       {
         "book": "Acts",
         "chapter": 5,
+        "verse": 34,
+        "reference_text": "Acts 5:34",
+        "context": "Gamaliel stands and says",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 280.0,
+        "end_time": 332.0,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=280"
+      },
+      {
+        "book": "Acts",
+        "chapter": 5,
         "verse": 36,
         "reference_text": "Acts 5:36",
         "context": "he speaks about Theudas in verse number 36",
@@ -13626,6 +13678,19 @@
       {
         "book": "Acts",
         "chapter": 8,
+        "verse": null,
+        "reference_text": "Acts chapter 8",
+        "context": "to talk about the pattern of faithful ambassadors, because I want you to see not only seizing the opportunity from the disciples in Acts chapter 8",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 1617.9800415039062,
+        "end_time": 1677.5400390625,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1617"
+      },
+      {
+        "book": "Acts",
+        "chapter": 8,
         "verse": 1,
         "reference_text": "Acts 8:1",
         "context": "and Saul was consenting unto his death, and at that time there was a great persecution against the church, which was at Jerusalem, and they were all scattered abroad throughout the regions of Judea and Samaria except the apostles.",
@@ -13999,6 +14064,19 @@
         "end_time": 701.7400207519531,
         "sermon_title": "\"Sent Forth\" Acts 13:1-12",
         "url": "https://www.youtube.com/watch?v=Y7Ff430VPN0&t=643"
+      },
+      {
+        "book": "Acts",
+        "chapter": 8,
+        "verse": 4,
+        "reference_text": "Acts 8:4",
+        "context": "In Acts chapter number 8, we see the faithfulness of these disciples here in this really highest point of persecution. As we've read through the book of Acts from the first chapter till now in chapter 8, as you understand all that's going on, this height of persecution there in Jerusalem, it was a great persecution. The church was scattered abroad because of this, and all the believers of the church. Now, the thing that's interesting about Acts chapter number 8 is that the leaders of the church, well, they stayed in Jerusalem. It was the people that were scattered abroad. And the Bible says this in verse number 4 in Acts chapter number",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 1380.060043334961,
+        "end_time": 1437.4200439453125,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1380"
       },
       {
         "book": "Acts",
@@ -37917,6 +37995,84 @@
       "end_time": 1892.9800033569336,
       "sermon_title": "\"The Testimony Of A Changed Life\" Galatians 1:11-24",
       "url": "https://www.youtube.com/watch?v=_pCyHOxnY7Y&t=1831"
+    },
+    {
+      "book": "Acts",
+      "chapter": 1,
+      "verse": 11,
+      "reference_text": "Acts 1:11",
+      "context": "Why stand you gazing up into heaven? This same Jesus, right? Is that what they say in Acts chapter 1?",
+      "is_implicit": true,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2093.8999633789062,
+      "end_time": 2157.8999633789062,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2093"
+    },
+    {
+      "book": "Acts",
+      "chapter": 1,
+      "verse": 6,
+      "reference_text": "Acts 1",
+      "context": "...when the disciples asked Jesus in Acts 1, is it now the time that you're going to restore the kingdom to Israel?...",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2613.659957885742,
+      "end_time": 2684.1399536132812,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2613"
+    },
+    {
+      "book": "Acts",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Acts 1:8",
+      "context": "but you shall receive power after the Holy Ghost has come upon you. And you shall be witnesses unto me, both in Jerusalem, Judea, Samaria, the uttermost part of the earth.",
+      "is_implicit": false,
+      "video_id": "14-YoafCO5U",
+      "start_time": 2684.1399536132812,
+      "end_time": 2746.5399780273438,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=2684"
+    },
+    {
+      "book": "Acts",
+      "chapter": 8,
+      "verse": 4,
+      "reference_text": "Acts 8:4",
+      "context": "In Acts chapter number 8, we see the faithfulness of these disciples here in this really highest point of persecution. As we've read through the book of Acts from the first chapter till now in chapter 8, as you understand all that's going on, this height of persecution there in Jerusalem, it was a great persecution. The church was scattered abroad because of this, and all the believers of the church. Now, the thing that's interesting about Acts chapter number 8 is that the leaders of the church, well, they stayed in Jerusalem. It was the people that were scattered abroad. And the Bible says this in verse number 4 in Acts chapter number",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 1380.060043334961,
+      "end_time": 1437.4200439453125,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1380"
+    },
+    {
+      "book": "Acts",
+      "chapter": 8,
+      "verse": null,
+      "reference_text": "Acts chapter 8",
+      "context": "to talk about the pattern of faithful ambassadors, because I want you to see not only seizing the opportunity from the disciples in Acts chapter 8",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 1617.9800415039062,
+      "end_time": 1677.5400390625,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1617"
+    },
+    {
+      "book": "Acts",
+      "chapter": 5,
+      "verse": 34,
+      "reference_text": "Acts 5:34",
+      "context": "Gamaliel stands and says",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 280.0,
+      "end_time": 332.0,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=280"
     }
   ]
 }

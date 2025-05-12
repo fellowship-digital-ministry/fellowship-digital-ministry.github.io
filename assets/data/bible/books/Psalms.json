@@ -1,6 +1,6 @@
 {
   "book": "Psalms",
-  "total_references": 1471,
+  "total_references": 1474,
   "chapters": {
     "90": [
       {
@@ -5233,6 +5233,32 @@
       {
         "book": "Psalms",
         "chapter": 34,
+        "verse": 8,
+        "reference_text": "Psalm 34:8",
+        "context": "David says in Psalm 34 and verse number 8, oh taste and see that the Lord is good",
+        "is_implicit": false,
+        "video_id": "iYsTC-osByQ",
+        "start_time": 1677.5400390625,
+        "end_time": 1737.3800659179688,
+        "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+        "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1677"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 34,
+        "verse": 8,
+        "reference_text": "Psalm 34:8",
+        "context": "David said, taste and see that the Lord is good",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 937.1000061035156,
+        "end_time": 1008.1799926757812,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=937"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 34,
         "verse": 17,
         "reference_text": "Psalm 34:17",
         "context": "I'm actually going to back it up and look at verse 17",
@@ -9521,6 +9547,19 @@
         "end_time": 1545.6199951171875,
         "sermon_title": "\"Thou Shalt Teach Thy Children\" Deuteronomy 6:1-9",
         "url": "https://www.youtube.com/watch?v=U_xKQPutdso&t=1481"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 127,
+        "verse": 3,
+        "reference_text": "Psalm 127:3",
+        "context": "children are an inheritance of the Lord. The fruit of the womb is His reward",
+        "is_implicit": true,
+        "video_id": "2-7TNtHtf_0",
+        "start_time": 1786.4400024414062,
+        "end_time": 1861.3800048828125,
+        "sermon_title": "\"A Virtuous Woman\"  Ruth 3:11",
+        "url": "https://www.youtube.com/watch?v=2-7TNtHtf_0&t=1786"
       },
       {
         "book": "Psalms",
@@ -38449,6 +38488,45 @@
       "end_time": 251.8000030517578,
       "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
       "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=189"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 127,
+      "verse": 3,
+      "reference_text": "Psalm 127:3",
+      "context": "children are an inheritance of the Lord. The fruit of the womb is His reward",
+      "is_implicit": true,
+      "video_id": "2-7TNtHtf_0",
+      "start_time": 1786.4400024414062,
+      "end_time": 1861.3800048828125,
+      "sermon_title": "\"A Virtuous Woman\"  Ruth 3:11",
+      "url": "https://www.youtube.com/watch?v=2-7TNtHtf_0&t=1786"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 34,
+      "verse": 8,
+      "reference_text": "Psalm 34:8",
+      "context": "David says in Psalm 34 and verse number 8, oh taste and see that the Lord is good",
+      "is_implicit": false,
+      "video_id": "iYsTC-osByQ",
+      "start_time": 1677.5400390625,
+      "end_time": 1737.3800659179688,
+      "sermon_title": "\"A Faithful Ambassador\"  II Corinthians 5:20",
+      "url": "https://www.youtube.com/watch?v=iYsTC-osByQ&t=1677"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 34,
+      "verse": 8,
+      "reference_text": "Psalm 34:8",
+      "context": "David said, taste and see that the Lord is good",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 937.1000061035156,
+      "end_time": 1008.1799926757812,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=937"
     }
   ]
 }

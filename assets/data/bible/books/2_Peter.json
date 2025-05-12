@@ -1,6 +1,6 @@
 {
   "book": "2_Peter",
-  "total_references": 280,
+  "total_references": 281,
   "chapters": {
     "3": [
       {
@@ -288,6 +288,19 @@
         "end_time": 2736.719970703125,
         "sermon_title": "\"Present With The Lord\" II Corinthians 5:1-9",
         "url": "https://www.youtube.com/watch?v=_utmsqe125g&t=2686"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 3,
+        "verse": null,
+        "reference_text": "2 Peter 3",
+        "context": "A day is 1,000 years, 1,000 years as a day. We read that in 2 Peter chapter three.",
+        "is_implicit": true,
+        "video_id": "14-YoafCO5U",
+        "start_time": 1065.6199951171875,
+        "end_time": 1128.0999755859375,
+        "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+        "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=1065"
       },
       {
         "book": "2 Peter",
@@ -7291,6 +7304,19 @@
       "end_time": 2993.199951171875,
       "sermon_title": "\"Present With The Lord\" II Corinthians 5:1-9",
       "url": "https://www.youtube.com/watch?v=_utmsqe125g&t=2924"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "2 Peter 3",
+      "context": "A day is 1,000 years, 1,000 years as a day. We read that in 2 Peter chapter three.",
+      "is_implicit": true,
+      "video_id": "14-YoafCO5U",
+      "start_time": 1065.6199951171875,
+      "end_time": 1128.0999755859375,
+      "sermon_title": "\"The Things Which Shall Be Hereafter\"   Revelation 4:1",
+      "url": "https://www.youtube.com/watch?v=14-YoafCO5U&t=1065"
     }
   ]
 }

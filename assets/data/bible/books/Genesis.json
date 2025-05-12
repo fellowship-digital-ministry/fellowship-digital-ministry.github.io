@@ -1,6 +1,6 @@
 {
   "book": "Genesis",
-  "total_references": 2585,
+  "total_references": 2598,
   "chapters": {
     "37": [
       {
@@ -13211,6 +13211,32 @@
       {
         "book": "Genesis",
         "chapter": 3,
+        "verse": null,
+        "reference_text": "Genesis chapter 3",
+        "context": "We have to go back to Genesis chapter 3.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 704.4400024414062,
+        "end_time": 758.5800018310547,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=704"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": null,
+        "reference_text": "Genesis chapter number three",
+        "context": "That sin that entered the world in Genesis chapter number three has affected every human being that's ever lived upon planet earth outside of Jesus Christ because he was virgin born.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2193.3600158691406,
+        "end_time": 2264.0800170898438,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2193"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
         "verse": 1,
         "reference_text": "Genesis 3:1",
         "context": "now the serpent was more subtle than any beast of the field which the Lord God had made. And he said unto the woman, Yea, hath God said, Ye shall not eat of every tree of the garden.",
@@ -13484,6 +13510,45 @@
       {
         "book": "Genesis",
         "chapter": 3,
+        "verse": 1,
+        "reference_text": "Genesis 3:1",
+        "context": "the serpent was more subtle than any beast of the field",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 758.5800018310547,
+        "end_time": 818.3399963378906,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=758"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 1,
+        "reference_text": "Genesis 3:1",
+        "context": "yea, hath God said, ye shall not eat of every tree of the garden",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 818.3399963378906,
+        "end_time": 870.1400146484375,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=818"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 1,
+        "reference_text": "Genesis 3:1",
+        "context": "We just read that in Genesis 3, verses 1 through 7.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 1075.260009765625,
+        "end_time": 1129.5399780273438,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1075"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
         "verse": 2,
         "reference_text": "Genesis 3:2",
         "context": "you read in the first four verses of Genesis three how that the truth that God had given to Adam and Eve has been attacked",
@@ -13506,6 +13571,19 @@
         "end_time": 1323.3400039672852,
         "sermon_title": "\"The Truth Shall Make You Free\" John 8:32-36",
         "url": "https://www.youtube.com/watch?v=TFJvlz_mzCo&t=1250"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 2,
+        "reference_text": "Genesis 3:2",
+        "context": "we may eat of the fruit of the trees of the garden",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 818.3399963378906,
+        "end_time": 870.1400146484375,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=818"
       },
       {
         "book": "Genesis",
@@ -13558,6 +13636,19 @@
         "end_time": 872.7000122070312,
         "sermon_title": "\"To Save Sinners\" I Timothy 1:12-17",
         "url": "https://www.youtube.com/watch?v=_-JIAWqr-ME&t=808"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 3,
+        "reference_text": "Genesis 3:3",
+        "context": "but of the fruit of the tree which is in the midst of the garden, God hath said, ye shall not eat of it, neither shall ye touch it, lest ye die",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 818.3399963378906,
+        "end_time": 870.1400146484375,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=818"
       },
       {
         "book": "Genesis",
@@ -13692,6 +13783,19 @@
       {
         "book": "Genesis",
         "chapter": 3,
+        "verse": 4,
+        "reference_text": "Genesis 3:4",
+        "context": "The Bible says in verse number four, and the serpent said unto the woman, ye shall not surely die.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 870.1400146484375,
+        "end_time": 937.1000061035156,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=870"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
         "verse": 5,
         "reference_text": "Genesis 3:5",
         "context": "For God doth know that in the day ye eat thereof, then your eyes shall be opened, and ye shall be as gods, knowing good and evil.",
@@ -13727,6 +13831,19 @@
         "end_time": 933.5799865722656,
         "sermon_title": "\"To Save Sinners\" I Timothy 1:12-17",
         "url": "https://www.youtube.com/watch?v=_-JIAWqr-ME&t=872"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 5,
+        "reference_text": "Genesis 3:5",
+        "context": "then in the day ye eat thereof, then your eyes should be opened and you should be as God's, knowing good and evil",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 937.1000061035156,
+        "end_time": 1008.1799926757812,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=937"
       },
       {
         "book": "Genesis",
@@ -13770,6 +13887,19 @@
       {
         "book": "Genesis",
         "chapter": 3,
+        "verse": 6,
+        "reference_text": "Genesis 3:6",
+        "context": "it was pleasant to the eyes, and a tree to be desired to make one wise, she took of the fruit thereof, and did eat, and gave also unto her husband with her, and he did eat.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 1008.1799926757812,
+        "end_time": 1075.260009765625,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1008"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
         "verse": 7,
         "reference_text": "Genesis 3:7",
         "context": "the eyes of them both were open that they knew that they were naked and they sewed fig leaves together and made themselves aprons.",
@@ -13779,6 +13909,32 @@
         "end_time": 807.5400238037109,
         "sermon_title": "\"Complete In Christ\" Colossians 2:10",
         "url": "https://www.youtube.com/watch?v=LAgQEfojK6Q&t=743"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 7,
+        "reference_text": "Genesis 3:7",
+        "context": "And the eyes of them both were opened, and they knew that they were naked, and they sewed fig leaves together and made themselves aprons.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 1008.1799926757812,
+        "end_time": 1075.260009765625,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1008"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 7,
+        "reference_text": "Genesis 3:7",
+        "context": "We just read that in Genesis 3, verses 1 through 7.",
+        "is_implicit": false,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 1075.260009765625,
+        "end_time": 1129.5399780273438,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1075"
       },
       {
         "book": "Genesis",
@@ -21352,6 +21508,19 @@
         "end_time": 1042.7200012207031,
         "sermon_title": "\"Thy Name Shall Be Abraham\" Genesis 17:2-27",
         "url": "https://www.youtube.com/watch?v=TJvBj1CQhW4&t=975"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 15,
+        "verse": 6,
+        "reference_text": "Genesis 15:6",
+        "context": "Abraham was, he believed God and it was accounted to him for righteousness.",
+        "is_implicit": true,
+        "video_id": "vVjqEYUgWc4",
+        "start_time": 2726.8400268554688,
+        "end_time": 2796.1600036621094,
+        "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+        "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2726"
       },
       {
         "book": "Genesis",
@@ -67315,6 +67484,175 @@
       "end_time": 2078.4400024414062,
       "sermon_title": "\"The Secret Was Revealed Unto Daniel\" Daniel 2:7-23",
       "url": "https://www.youtube.com/watch?v=__bA4Uw99tw&t=2013"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "Genesis chapter 3",
+      "context": "We have to go back to Genesis chapter 3.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 704.4400024414062,
+      "end_time": 758.5800018310547,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=704"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 1,
+      "reference_text": "Genesis 3:1",
+      "context": "the serpent was more subtle than any beast of the field",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 758.5800018310547,
+      "end_time": 818.3399963378906,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=758"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 1,
+      "reference_text": "Genesis 3:1",
+      "context": "yea, hath God said, ye shall not eat of every tree of the garden",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 818.3399963378906,
+      "end_time": 870.1400146484375,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=818"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 2,
+      "reference_text": "Genesis 3:2",
+      "context": "we may eat of the fruit of the trees of the garden",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 818.3399963378906,
+      "end_time": 870.1400146484375,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=818"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 3,
+      "reference_text": "Genesis 3:3",
+      "context": "but of the fruit of the tree which is in the midst of the garden, God hath said, ye shall not eat of it, neither shall ye touch it, lest ye die",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 818.3399963378906,
+      "end_time": 870.1400146484375,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=818"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 4,
+      "reference_text": "Genesis 3:4",
+      "context": "The Bible says in verse number four, and the serpent said unto the woman, ye shall not surely die.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 870.1400146484375,
+      "end_time": 937.1000061035156,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=870"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 5,
+      "reference_text": "Genesis 3:5",
+      "context": "then in the day ye eat thereof, then your eyes should be opened and you should be as God's, knowing good and evil",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 937.1000061035156,
+      "end_time": 1008.1799926757812,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=937"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 6,
+      "reference_text": "Genesis 3:6",
+      "context": "it was pleasant to the eyes, and a tree to be desired to make one wise, she took of the fruit thereof, and did eat, and gave also unto her husband with her, and he did eat.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 1008.1799926757812,
+      "end_time": 1075.260009765625,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1008"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 7,
+      "reference_text": "Genesis 3:7",
+      "context": "And the eyes of them both were opened, and they knew that they were naked, and they sewed fig leaves together and made themselves aprons.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 1008.1799926757812,
+      "end_time": 1075.260009765625,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1008"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 1,
+      "reference_text": "Genesis 3:1",
+      "context": "We just read that in Genesis 3, verses 1 through 7.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 1075.260009765625,
+      "end_time": 1129.5399780273438,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1075"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 7,
+      "reference_text": "Genesis 3:7",
+      "context": "We just read that in Genesis 3, verses 1 through 7.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 1075.260009765625,
+      "end_time": 1129.5399780273438,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=1075"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "Genesis chapter number three",
+      "context": "That sin that entered the world in Genesis chapter number three has affected every human being that's ever lived upon planet earth outside of Jesus Christ because he was virgin born.",
+      "is_implicit": false,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2193.3600158691406,
+      "end_time": 2264.0800170898438,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2193"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 15,
+      "verse": 6,
+      "reference_text": "Genesis 15:6",
+      "context": "Abraham was, he believed God and it was accounted to him for righteousness.",
+      "is_implicit": true,
+      "video_id": "vVjqEYUgWc4",
+      "start_time": 2726.8400268554688,
+      "end_time": 2796.1600036621094,
+      "sermon_title": "\"The Great Transaction\"  II Corinthians 5:21",
+      "url": "https://www.youtube.com/watch?v=vVjqEYUgWc4&t=2726"
     }
   ]
 }
