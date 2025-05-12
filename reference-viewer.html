@@ -1390,24 +1390,26 @@ function updateStatistics(data) {
           : references[0].context;
       }
       
-      // Create the verse element with a placeholder for Bible text
-      verseElement.innerHTML = `
-        <div class="verse-header">
-          <div class="verse-number">${formattedVerse}</div>
-          <div class="verse-count">${count} references</div>
-        </div>
-        <div class="verse-bible-text" id="bible-text-${book}-${chapter}-${verse}" style="display: none;">
-          <div class="verse-bible-content"></div>
-          <button class="verse-bible-toggle">Show less</button>
-        </div>
-        <div class="verse-preview">${sampleText}</div>
-        <button class="verse-bible-expand" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-          Show Bible verse
-        </button>
-      `;
+        // To this (adding clear labels for sermon text vs. Bible verse):
+        verseElement.innerHTML = `
+          <div class="verse-header">
+            <div class="verse-number">${formattedVerse}</div>
+            <div class="verse-count">${count} references</div>
+          </div>
+          <div class="verse-preview-header">From sermon:</div>
+          <div class="verse-preview">${sampleText}</div>
+          <div class="verse-bible-text" id="bible-text-${book}-${chapter}-${verse}" style="display: none;">
+            <div class="verse-bible-header">KJV Bible verse:</div>
+            <div class="verse-bible-content"></div>
+            <button class="verse-bible-toggle">Hide Bible verse</button>
+          </div>
+          <button class="verse-bible-expand" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Show KJV Bible verse
+          </button>
+        `;
       
       // Make verse clickable (but not when clicking the expand button)
       verseElement.addEventListener('click', function(e) {
@@ -1766,6 +1768,7 @@ function updateStatistics(data) {
           <h3 class="occurrence-title">${escapeHTML(sermonTitle)}</h3>
           <div class="occurrence-date">${sermonDate}</div>
         </div>
+        <div class="occurrence-context-label">Pastor's reference to this verse:</div>
         <div class="occurrence-context">"${escapeHTML(occurrence.context)}"</div>
         <div class="occurrence-meta">
           <div class="occurrence-timestamp">
@@ -2505,6 +2508,27 @@ document.addEventListener('DOMContentLoaded', () => {
   
   /* Animation */
   --transition-speed: 0.3s;
+}
+
+.verse-preview-header {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+}
+
+.verse-bible-header {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+}
+
+.occurrence-context-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
 }
 
 /* Main Container */
