@@ -150,6 +150,11 @@ custom_class: reference-viewer-page
           </div>
         </div>
         
+        <!-- Bible verse text container -->
+        <div class="verse-text-container" id="verse-text-container" style="display: none;">
+          <div class="verse-text" id="verse-text"></div>
+        </div>
+        
         <div class="verse-occurrences" id="verse-occurrences">
           <!-- Occurrences will be populated here -->
         </div>
@@ -1345,6 +1350,82 @@ function updateStatistics(data) {
   }
   
   /**
+   * Fetch Bible verse text from KJV dataset
+   */
+  async function fetchBibleVerseText(book, chapter, verse) {
+    if (!book || !chapter || !verse || chapter === 'unknown' || verse === 'unknown') {
+      return null;
+    }
+    
+    try {
+      // Normalize book name to match KJV dataset file naming
+      const bookFileName = normalizeBookNameForKJV(book);
+      
+      // Fetch the book data from the KJV dataset
+      const response = await fetch(`/_data/Bible-kjv-master/${bookFileName}.json`);
+      
+      if (!response.ok) {
+        console.error(`Failed to load KJV data for ${book}: ${response.status} ${response.statusText}`);
+        return null;
+      }
+      
+      const bookData = await response.json();
+      
+      // Find the chapter and verse
+      const chapterData = bookData.chapters.find(c => c.chapter === chapter.toString());
+      if (chapterData) {
+        const verseData = chapterData.verses.find(v => v.verse === verse.toString());
+        if (verseData) {
+          return verseData.text;
+        }
+      }
+      
+      return null;
+    } catch (error) {
+      console.error('Error fetching Bible verse text:', error);
+      return null;
+    }
+  }
+  
+  /**
+   * Normalize book name to match KJV dataset file naming
+   */
+  function normalizeBookNameForKJV(book) {
+    // Handle special cases
+    const bookMappings = {
+      'Psalms': 'Psalms',
+      'Psalm': 'Psalms',
+      'Song_of_Solomon': 'SongofSolomon',
+      'Song_of_Songs': 'SongofSolomon',
+      '1_Samuel': '1Samuel',
+      '2_Samuel': '2Samuel',
+      '1_Kings': '1Kings',
+      '2_Kings': '2Kings',
+      '1_Chronicles': '1Chronicles',
+      '2_Chronicles': '2Chronicles',
+      '1_Corinthians': '1Corinthians',
+      '2_Corinthians': '2Corinthians',
+      '1_Thessalonians': '1Thessalonians',
+      '2_Thessalonians': '2Thessalonians',
+      '1_Timothy': '1Timothy',
+      '2_Timothy': '2Timothy',
+      '1_Peter': '1Peter',
+      '2_Peter': '2Peter',
+      '1_John': '1John',
+      '2_John': '2John',
+      '3_John': '3John'
+    };
+    
+    // Check if we have a direct mapping
+    if (bookMappings[book]) {
+      return bookMappings[book];
+    }
+    
+    // Default: remove underscores
+    return book.replace(/_/g, '');
+  }
+  
+  /**
    * Show verse view with occurrences
    */
   function showVerseView(book, chapter, verse, preserveScroll = false) {
@@ -1386,6 +1467,37 @@ function updateStatistics(data) {
     elements.bookView.style.display = 'none';
     elements.chapterView.style.display = 'none';
     elements.verseView.style.display = 'block';
+    
+    // Get verse text container elements
+    const verseTextContainer = document.getElementById('verse-text-container');
+    const verseText = document.getElementById('verse-text');
+    
+    // Hide verse text container initially
+    verseTextContainer.style.display = 'none';
+    
+    // Fetch and display the Bible verse text
+    if (chapter !== 'unknown' && verse !== 'unknown') {
+      // Show loading state in verse text container
+      verseTextContainer.style.display = 'block';
+      verseText.innerHTML = '<em>Loading verse text...</em>';
+      
+      // Fetch the verse text
+      fetchBibleVerseText(book, chapter, verse)
+        .then(text => {
+          if (text) {
+            // Display the verse text
+            verseText.textContent = text;
+            verseTextContainer.style.display = 'block';
+          } else {
+            // Hide the container if no verse text found
+            verseTextContainer.style.display = 'none';
+          }
+        })
+        .catch(error => {
+          console.error('Error displaying verse text:', error);
+          verseTextContainer.style.display = 'none';
+        });
+    }
     
     // Load verse occurrences - using the cached book data
     loadVerseOccurrences(book, chapter, verse);
@@ -2695,6 +2807,44 @@ document.addEventListener('DOMContentLoaded', () => {
 .verse-stats {
   color: var(--text-muted);
   font-size: 1rem;
+}
+
+/* Bible Verse Text */
+.verse-text-container {
+  background-color: var(--primary-lighter);
+  border: 1px solid var(--primary-light);
+  border-radius: 0.5rem;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+.verse-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-family: Georgia, serif;
+  position: relative;
+}
+
+.verse-text::before {
+  content: '"';
+  font-size: 2.5rem;
+  color: var(--primary-light);
+  position: absolute;
+  left: -1.5rem;
+  top: -0.5rem;
+  opacity: 0.7;
+}
+
+.verse-text::after {
+  content: '"';
+  font-size: 2.5rem;
+  color: var(--primary-light);
+  position: absolute;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  opacity: 0.7;
 }
 
 .occurrences-list {
