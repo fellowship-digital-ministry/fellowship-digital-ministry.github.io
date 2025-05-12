@@ -541,9 +541,69 @@ const newTestamentBooks = [
     
     try {
       const key = `chapters_${book}`;
-      localStorage.setItem(`bible_explorer_${key}`, JSON.stringify(data));
-      localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+      const dataString = JSON.stringify(data);
       
+      // Try to store the data
+      try {
+        localStorage.setItem(`bible_explorer_${key}`, dataString);
+        localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+      } catch (storageError) {
+        // If we hit quota limits, try to free up space
+        if (storageError.name === 'QuotaExceededError' || 
+            storageError.code === 22 || // Chrome quota error
+            storageError.code === 1014) { // Firefox quota error
+          
+          console.log(`Storage quota exceeded for ${book}, attempting to free space...`);
+          
+          // Try to clear older cached items
+          const keysToRemove = [];
+          
+          // Find all bible_explorer cache items
+          for (let i = 0; i < localStorage.length; i++) {
+            const storageKey = localStorage.key(i);
+            if (storageKey && storageKey.startsWith('bible_explorer_chapters_') && 
+                !storageKey.endsWith('_timestamp') && 
+                storageKey !== `bible_explorer_${key}`) {
+              keysToRemove.push(storageKey);
+            }
+          }
+          
+          // Sort by timestamp (oldest first) if available
+          keysToRemove.sort((a, b) => {
+            const timestampA = localStorage.getItem(`${a}_timestamp`) || '0';
+            const timestampB = localStorage.getItem(`${b}_timestamp`) || '0';
+            return parseInt(timestampA) - parseInt(timestampB);
+          });
+          
+          // Remove oldest items first
+          let removed = 0;
+          for (const keyToRemove of keysToRemove) {
+            localStorage.removeItem(keyToRemove);
+            localStorage.removeItem(`${keyToRemove}_timestamp`);
+            removed++;
+            
+            // Try storing again after each removal
+            try {
+              localStorage.setItem(`bible_explorer_${key}`, dataString);
+              localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+              console.log(`Successfully stored ${book} after removing ${removed} older items`);
+              break; // Success, exit the loop
+            } catch (e) {
+              // Continue removing items
+              if (removed >= keysToRemove.length) {
+                // If we've removed everything and still can't store, give up
+                console.warn(`Unable to cache ${book} even after clearing space`);
+                return;
+              }
+            }
+          }
+        } else {
+          // If it's not a quota error, rethrow
+          throw storageError;
+        }
+      }
+      
+      // Update in-memory cache
       if (!cache.chapters) cache.chapters = {};
       cache.chapters[book] = data;
       
@@ -551,6 +611,7 @@ const newTestamentBooks = [
       cache.timestamp[key] = Date.now();
     } catch (error) {
       console.error(`Error saving chapters for ${book} to cache:`, error);
+      // Continue without caching
     }
   }
   
@@ -1448,48 +1509,30 @@ function updateStatistics(data) {
   /**
    * Fetch Bible verse text from KJV dataset
    */
-  async function fetchBibleVerseText(book, chapter, verse) {
-    if (!book || !chapter || !verse || chapter === 'unknown' || verse === 'unknown') {
-      return null;
-    }
+ async function fetchBibleVerseText(book, chapter, verse) {
+  if (!book || !chapter || !verse || chapter === 'unknown' || verse === 'unknown') {
+    return null;
+  }
+  
+  try {
+    // Normalize book name to match KJV dataset file naming
+    const bookFileName = normalizeBookNameForKJV(book);
+    
+    // Set the exact correct path based on your URL structure
+    const basePath = '/assets/data/Bible-kjv-master';
+    const url = `${basePath}/${bookFileName}.json`;
+    
+    console.log(`Fetching Bible verse from: ${url}`);
     
     try {
-      // Normalize book name to match KJV dataset file naming
-      const bookFileName = normalizeBookNameForKJV(book);
-      
-      // Try multiple possible paths, prioritizing the assets directory
-      const possiblePaths = [
-        '/assets/data/Bible-kjv-master',
-        '/assets/data/bible-kjv',
-        '/data/Bible-kjv-master',
-        '/_data/Bible-kjv-master'
-      ];
-      
-      let bookData = null;
-      
-      // Try each path until we find one that works
-      for (const basePath of possiblePaths) {
-        const url = `${basePath}/${bookFileName}.json`;
-        console.log(`Attempting to fetch from: ${url}`);
-        
-        try {
-          const response = await fetch(url);
-          if (response.ok) {
-            bookData = await response.json();
-            console.log(`Successfully loaded Bible data from: ${url}`);
-            break;
-          } else {
-            console.log(`Path failed: ${url} (${response.status})`);
-          }
-        } catch (e) {
-          console.log(`Error with path ${url}: ${e.message}`);
-        }
-      }
-      
-      if (!bookData) {
-        console.error('All paths failed to load Bible data');
+      const response = await fetch(url);
+      if (!response.ok) {
+        console.error(`Failed to load Bible data: ${response.status} ${response.statusText}`);
         return null;
       }
+      
+      const bookData = await response.json();
+      console.log(`Successfully loaded Bible data for ${bookFileName}`);
       
       // Find the chapter and verse
       const chapterData = bookData.chapters.find(c => c.chapter === chapter.toString());
@@ -1497,15 +1540,23 @@ function updateStatistics(data) {
         const verseData = chapterData.verses.find(v => v.verse === verse.toString());
         if (verseData) {
           return verseData.text;
+        } else {
+          console.log(`Verse ${verse} not found in ${bookFileName} chapter ${chapter}`);
         }
+      } else {
+        console.log(`Chapter ${chapter} not found in ${bookFileName}`);
       }
       
       return null;
-    } catch (error) {
-      console.error('Error fetching Bible verse text:', error);
+    } catch (e) {
+      console.error(`Error fetching Bible data: ${e.message}`);
       return null;
     }
+  } catch (error) {
+    console.error('Error in fetchBibleVerseText:', error);
+    return null;
   }
+}
   
   /**
    * Normalize book name to match KJV dataset file naming
