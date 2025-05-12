@@ -1916,236 +1916,147 @@ function updateStatistics(data) {
   /**
    * Display transcript in modal
    */
-
-
-/**
- * Display transcript in modal
- */
-function displayTranscript(data, timestamp, context) {
-  if (!data || (!data.segments && !data.transcript)) {
-    elements.modalContent.innerHTML = '<div class="error-message">Transcript data not available</div>';
-    return;
-  }
-  
-  // Create transcript container
-  const transcriptContainer = document.createElement('div');
-  transcriptContainer.className = 'transcript-container';
-  
-  // If we have the reference context, add it at the top
-  if (context) {
-    const referenceNote = document.createElement('div');
-    referenceNote.className = 'transcript-reference-note';
-    referenceNote.innerHTML = `
-      <div class="transcript-reference-header">Bible reference from sermon:</div>
-      <div class="transcript-reference-quote">"${escapeHTML(context)}"</div>
-    `;
-    transcriptContainer.appendChild(referenceNote);
-  }
-  
-  // Add search box
-  const searchBox = document.createElement('div');
-  searchBox.className = 'transcript-search';
-  searchBox.innerHTML = `
-    <input type="text" class="transcript-search-input" placeholder="Search in transcript...">
-    <button class="transcript-search-button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-    </button>
-  `;
-  
-  // Process segmented transcript
-  const transcriptContent = document.createElement('div');
-  transcriptContent.className = 'transcript-content';
-  
-  if (data.segments && Array.isArray(data.segments)) {
-    // If we have the reference context, auto-populate the search with it
-    if (context && context.length > 0) {
-      // Extract a significant phrase (3-5 words) from the context for search
-      let searchPhrase = '';
-      const words = context.split(/\s+/);
-      if (words.length > 3) {
-        // Take 3-5 significant words (skip common words)
-        const commonWords = ['the', 'and', 'a', 'an', 'in', 'on', 'at', 'of', 'to', 'for', 'with', 'is', 'are'];
-        const significantWords = words.filter(word => 
-          word.length > 3 && !commonWords.includes(word.toLowerCase())
-        );
-        
-        // If we have enough significant words, use those; otherwise just use the first few words
-        if (significantWords.length >= 3) {
-          searchPhrase = significantWords.slice(0, 3).join(' ');
-        } else {
-          searchPhrase = words.slice(0, Math.min(5, words.length)).join(' ');
-        }
-      }
-      
-      // If we found a good search phrase, we'll use it later
-      if (searchPhrase) {
-        // We'll set this value in the input after it's added to the DOM
-        setTimeout(() => {
-          const searchInput = transcriptContainer.querySelector('.transcript-search-input');
-          if (searchInput) {
-            searchInput.value = searchPhrase;
-            // Trigger the search programmatically after a moment
-            setTimeout(() => {
-              const searchButton = transcriptContainer.querySelector('.transcript-search-button');
-              if (searchButton) searchButton.click();
-            }, 500);
-          }
-        }, 100);
-      }
+  function displayTranscript(data, timestamp) {
+    if (!data || (!data.segments && !data.transcript)) {
+      elements.modalContent.innerHTML = '<div class="error-message">Transcript data not available</div>';
+      return;
     }
     
-    data.segments.forEach((segment, index) => {
-      if (segment.is_gap) {
-        const gapElement = document.createElement('div');
-        gapElement.className = 'transcript-gap';
-        gapElement.innerHTML = '[...]';
-        transcriptContent.appendChild(gapElement);
-        return;
-      }
-      
-      const segmentElement = document.createElement('div');
-      segmentElement.className = 'transcript-segment';
-      segmentElement.setAttribute('data-time', segment.start_time);
-      
-      // Enhanced highlighting logic - check both timestamp and content matching
-      let shouldHighlight = Math.abs(segment.start_time - timestamp) < 10; // Current timestamp-based logic
-      
-      // Add content-based matching if we have the context
-      if (context && !shouldHighlight) {
-        // Clean up text for comparison
-        const cleanSegmentText = segment.text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"""'']/g, "").toLowerCase().trim();
-        const cleanContext = context.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"""'']/g, "").toLowerCase().trim();
-        
-        // Check if significant portion of either text is contained in the other
-        // Use substring matching for better results with partial quotes
-        if (cleanSegmentText.length > 15 && cleanContext.length > 15) {
-          // Try to find a substantial matching substring (at least 15 chars)
-          const minMatchLength = 15;
-          const maxSubstringLength = Math.min(cleanSegmentText.length, cleanContext.length);
-          
-          for (let i = minMatchLength; i <= maxSubstringLength; i++) {
-            for (let j = 0; j <= cleanContext.length - i; j++) {
-              const contextSubstring = cleanContext.substring(j, j + i);
-              if (cleanSegmentText.includes(contextSubstring)) {
-                shouldHighlight = true;
-                break;
-              }
-            }
-            if (shouldHighlight) break;
-          }
+    // Create transcript container
+    const transcriptContainer = document.createElement('div');
+    transcriptContainer.className = 'transcript-container';
+    
+    // Add search box
+    const searchBox = document.createElement('div');
+    searchBox.className = 'transcript-search';
+    searchBox.innerHTML = `
+      <input type="text" class="transcript-search-input" placeholder="Search in transcript...">
+      <button class="transcript-search-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    `;
+    
+    // Process segmented transcript
+    const transcriptContent = document.createElement('div');
+    transcriptContent.className = 'transcript-content';
+    
+    if (data.segments && Array.isArray(data.segments)) {
+      data.segments.forEach((segment, index) => {
+        if (segment.is_gap) {
+          const gapElement = document.createElement('div');
+          gapElement.className = 'transcript-gap';
+          gapElement.innerHTML = '[...]';
+          transcriptContent.appendChild(gapElement);
+          return;
         }
-      }
-      
-      if (shouldHighlight) {
-        segmentElement.classList.add('highlight');
-        // Store the ID for scrolling
-        segmentElement.id = `segment-${index}`;
-      }
-      
-      // Create timestamp label
-      const timeLabel = document.createElement('div');
-      timeLabel.className = 'transcript-time';
-      timeLabel.textContent = formatTimestamp(segment.start_time);
-      timeLabel.setAttribute('data-time', segment.start_time);
-      
-      // Make timestamp clickable to jump in video
-      timeLabel.addEventListener('click', function() {
-        const time = parseFloat(this.getAttribute('data-time'));
         
-        // Check if we already have a video iframe in the modal
-        const videoIframe = document.querySelector('.modal-video iframe');
-        if (videoIframe) {
-          // Update existing iframe's timestamp
-          const src = videoIframe.src;
-          const videoId = new URL(src).pathname.split('/').pop();
-          videoIframe.src = `https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1`;
-        } else {
-          // Create a video section at the top
-          const videoContainer = document.createElement('div');
-          videoContainer.className = 'modal-video';
+        const segmentElement = document.createElement('div');
+        segmentElement.className = 'transcript-segment';
+        segmentElement.setAttribute('data-time', segment.start_time);
+        
+        // Highlight segment near the reference
+        if (Math.abs(segment.start_time - timestamp) < 10) {
+          segmentElement.classList.add('highlight');
           
-          // Extract video ID from closest element with data-video-id
-          const videoIdElement = this.closest('[data-video-id]');
-          const videoId = videoIdElement ? videoIdElement.getAttribute('data-video-id') : null;
+          // Store the ID for scrolling
+          segmentElement.id = `segment-${index}`;
+        }
+        
+        // Create timestamp label
+        const timeLabel = document.createElement('div');
+        timeLabel.className = 'transcript-time';
+        timeLabel.textContent = formatTimestamp(segment.start_time);
+        timeLabel.setAttribute('data-time', segment.start_time);
+        
+        // Make timestamp clickable to jump in video
+        timeLabel.addEventListener('click', function() {
+          const time = parseFloat(this.getAttribute('data-time'));
           
-          if (videoId) {
-            videoContainer.innerHTML = `
-              <iframe src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1" 
-                      frameborder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                      allowfullscreen></iframe>
-            `;
+          // Check if we already have a video iframe in the modal
+          const videoIframe = document.querySelector('.modal-video iframe');
+          if (videoIframe) {
+            // Update existing iframe's timestamp
+            const src = videoIframe.src;
+            const videoId = new URL(src).pathname.split('/').pop();
+            videoIframe.src = `https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1`;
+          } else {
+            // Create a video section at the top
+            const videoContainer = document.createElement('div');
+            videoContainer.className = 'modal-video';
             
-            // Insert at the top of the modal content
-            elements.modalContent.insertBefore(videoContainer, elements.modalContent.firstChild);
+            // Extract video ID from closest element with data-video-id
+            const videoIdElement = this.closest('[data-video-id]');
+            const videoId = videoIdElement ? videoIdElement.getAttribute('data-video-id') : null;
+            
+            if (videoId) {
+              videoContainer.innerHTML = `
+                <iframe src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+              `;
+              
+              // Insert at the top of the modal content
+              elements.modalContent.insertBefore(videoContainer, elements.modalContent.firstChild);
+            }
           }
+        });        
+        // Create text content
+        const textElement = document.createElement('div');
+        textElement.className = 'transcript-text';
+        textElement.textContent = segment.text;
+        
+        // Assemble segment
+        segmentElement.appendChild(timeLabel);
+        segmentElement.appendChild(textElement);
+        transcriptContent.appendChild(segmentElement);
+      });
+      
+      // Add a download button
+      const downloadButton = document.createElement('button');
+      downloadButton.className = 'transcript-download';
+      downloadButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download Transcript
+      `;
+      
+      // Add download functionality
+      downloadButton.addEventListener('click', function() {
+        downloadTranscript(data);
+      });
+      
+      // Assemble transcript container
+      transcriptContainer.appendChild(searchBox);
+      transcriptContainer.appendChild(transcriptContent);
+      transcriptContainer.appendChild(downloadButton);
+      
+      // Update modal content
+      elements.modalContent.innerHTML = '';
+      elements.modalContent.appendChild(transcriptContainer);
+      
+      // Setup search functionality
+      const searchInput = transcriptContainer.querySelector('.transcript-search-input');
+      const searchButton = transcriptContainer.querySelector('.transcript-search-button');
+      
+      searchButton.addEventListener('click', function() {
+        searchTranscript(searchInput.value, transcriptContent);
+      });
+      
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          searchTranscript(this.value, transcriptContent);
         }
       });
       
-      // Create text content
-      const textElement = document.createElement('div');
-      textElement.className = 'transcript-text';
-      textElement.textContent = segment.text;
-      
-      // Assemble segment
-      segmentElement.appendChild(timeLabel);
-      segmentElement.appendChild(textElement);
-      transcriptContent.appendChild(segmentElement);
-    });
-    
-    // Add a download button
-    const downloadButton = document.createElement('button');
-    downloadButton.className = 'transcript-download';
-    downloadButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-        <polyline points="7 10 12 15 17 10"></polyline>
-        <line x1="12" y1="15" x2="12" y2="3"></line>
-      </svg>
-      Download Transcript
-    `;
-    
-    // Add download functionality
-    downloadButton.addEventListener('click', function() {
-      downloadTranscript(data);
-    });
-    
-    // Assemble transcript container
-    transcriptContainer.appendChild(searchBox);
-    transcriptContainer.appendChild(transcriptContent);
-    transcriptContainer.appendChild(downloadButton);
-    
-    // Update modal content
-    elements.modalContent.innerHTML = '';
-    elements.modalContent.appendChild(transcriptContainer);
-    
-    // Setup search functionality
-    const searchInput = transcriptContainer.querySelector('.transcript-search-input');
-    const searchButton = transcriptContainer.querySelector('.transcript-search-button');
-    
-    searchButton.addEventListener('click', function() {
-      searchTranscript(searchInput.value, transcriptContent);
-    });
-    
-    searchInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        searchTranscript(this.value, transcriptContent);
-      }
-    });
-    
-    // Scroll to highlighted segment
-    setTimeout(() => {
-      // First try finding any segments highlighted by our enhanced matching
-      const highlightedSegments = transcriptContent.querySelectorAll('.transcript-segment.highlight');
-      
-      if (highlightedSegments.length > 0) {
-        // Scroll to the first highlighted segment
-        highlightedSegments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
-        // Fallback to timestamp-based search
+      // Scroll to highlighted segment
+      setTimeout(() => {
         const highlightedSegment = document.getElementById(`segment-${data.segments.findIndex(segment => 
           Math.abs(segment.start_time - timestamp) < 10
         )}`);
@@ -2153,59 +2064,35 @@ function displayTranscript(data, timestamp, context) {
         if (highlightedSegment) {
           highlightedSegment.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-      }
-    }, 300);
-  } else if (data.transcript) {
-    // Handle plain transcript format
-    transcriptContent.innerHTML = `<div class="plain-transcript">${escapeHTML(data.transcript)}</div>`;
-    
-    // Assemble transcript container
-    transcriptContainer.appendChild(searchBox);
-    transcriptContainer.appendChild(transcriptContent);
-    
-    // Update modal content
-    elements.modalContent.innerHTML = '';
-    elements.modalContent.appendChild(transcriptContainer);
-    
-    // Setup search functionality
-    const searchInput = transcriptContainer.querySelector('.transcript-search-input');
-    const searchButton = transcriptContainer.querySelector('.transcript-search-button');
-    
-    searchButton.addEventListener('click', function() {
-      searchTranscript(searchInput.value, transcriptContent);
-    });
-    
-    searchInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        searchTranscript(this.value, transcriptContent);
-      }
-    });
-    
-    // If we have context, auto-search for it in plain transcript
-    if (context) {
-      // Extract a significant phrase for search
-      const words = context.split(/\s+/);
-      if (words.length > 2) {
-        const searchPhrase = words.slice(0, 3).join(' ');
-        
-        setTimeout(() => {
-          const searchInput = transcriptContainer.querySelector('.transcript-search-input');
-          if (searchInput) {
-            searchInput.value = searchPhrase;
-            // Trigger the search
-            setTimeout(() => {
-              const searchButton = transcriptContainer.querySelector('.transcript-search-button');
-              if (searchButton) searchButton.click();
-            }, 300);
-          }
-        }, 100);
-      }
+      }, 300);
+    } else if (data.transcript) {
+      // Handle plain transcript format
+      transcriptContent.innerHTML = `<div class="plain-transcript">${escapeHTML(data.transcript)}</div>`;
+      
+      // Assemble transcript container
+      transcriptContainer.appendChild(searchBox);
+      transcriptContainer.appendChild(transcriptContent);
+      
+      // Update modal content
+      elements.modalContent.innerHTML = '';
+      elements.modalContent.appendChild(transcriptContainer);
+      
+      // Setup search functionality
+      const searchInput = transcriptContainer.querySelector('.transcript-search-input');
+      const searchButton = transcriptContainer.querySelector('.transcript-search-button');
+      
+      searchButton.addEventListener('click', function() {
+        searchTranscript(searchInput.value, transcriptContent);
+      });
+      
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          searchTranscript(this.value, transcriptContent);
+        }
+      });
     }
   }
-}
-
-
-
+  
   /**
    * Search within a transcript
    */
