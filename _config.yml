@@ -6,6 +6,10 @@ theme: minima
 plugins: []
 markdown: kramdown
 
+# Include the Bible KJV data in the built site
+include:
+  - _data/Bible-kjv-master
+
 # Custom settings
 api_url: "https://sermon-search-api-8fok.onrender.com"  # Make sure this URL is correct and without trailing slash
 church_website: "https://fbcministries.net/"

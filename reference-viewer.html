@@ -1457,15 +1457,40 @@ function updateStatistics(data) {
       // Normalize book name to match KJV dataset file naming
       const bookFileName = normalizeBookNameForKJV(book);
       
-      // Fetch the book data from the KJV dataset
-      const response = await fetch(`/_data/Bible-kjv-master/${bookFileName}.json`);
+      // Try multiple possible paths
+      const possiblePaths = [
+        '/data/Bible-kjv-master',
+        '/_data/Bible-kjv-master',
+        '/assets/data/bible-kjv',
+        '../_data/Bible-kjv-master',
+        '../../_data/Bible-kjv-master'
+      ];
       
-      if (!response.ok) {
-        console.error(`Failed to load KJV data for ${book}: ${response.status} ${response.statusText}`);
-        return null;
+      let bookData = null;
+      
+      // Try each path until we find one that works
+      for (const basePath of possiblePaths) {
+        const url = `${basePath}/${bookFileName}.json`;
+        console.log(`Attempting to fetch from: ${url}`);
+        
+        try {
+          const response = await fetch(url);
+          if (response.ok) {
+            bookData = await response.json();
+            console.log(`Successfully loaded Bible data from: ${url}`);
+            break;
+          } else {
+            console.log(`Path failed: ${url} (${response.status})`);
+          }
+        } catch (e) {
+          console.log(`Error with path ${url}: ${e.message}`);
+        }
       }
       
-      const bookData = await response.json();
+      if (!bookData) {
+        console.error('All paths failed to load Bible data');
+        return null;
+      }
       
       // Find the chapter and verse
       const chapterData = bookData.chapters.find(c => c.chapter === chapter.toString());
