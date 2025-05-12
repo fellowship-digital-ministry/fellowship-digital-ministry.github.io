@@ -2111,7 +2111,7 @@ function updateStatistics(data) {
    * Format date for display
    */
   function formatDate(dateValue) {
-    if (!dateValue) return 'Date unknown';
+    if (!dateValue) return '';
     
     try {
       // Handle YYYYMMDD format
@@ -2122,7 +2122,7 @@ function updateStatistics(data) {
         const day = dateStr.substring(6, 8);
         
         const date = new Date(year, month - 1, day);
-        if (isNaN(date.getTime())) return 'Date unknown';
+        if (isNaN(date.getTime())) return '';
         
         return new Date(year, month - 1, day).toLocaleDateString(undefined, {
           year: 'numeric',
@@ -2134,7 +2134,7 @@ function updateStatistics(data) {
       // Handle ISO date strings (YYYY-MM-DD)
       if (typeof dateValue === 'string' && dateValue.includes('-')) {
         const date = new Date(dateValue);
-        if (isNaN(date.getTime())) return 'Date unknown';
+        if (isNaN(date.getTime())) return '';
         
         return date.toLocaleDateString(undefined, {
           year: 'numeric',
@@ -2146,7 +2146,7 @@ function updateStatistics(data) {
       // Handle timestamp (seconds since epoch)
       if (typeof dateValue === 'number') {
         const date = new Date(dateValue * 1000);
-        if (isNaN(date.getTime())) return 'Date unknown';
+        if (isNaN(date.getTime())) return '';
         
         return date.toLocaleDateString(undefined, {
           year: 'numeric',
@@ -2157,7 +2157,7 @@ function updateStatistics(data) {
       
       // Try to parse as date string
       const date = new Date(dateValue);
-      if (isNaN(date.getTime())) return 'Date unknown';
+      if (isNaN(date.getTime())) return '';
       
       return date.toLocaleDateString(undefined, {
         year: 'numeric',
@@ -2166,7 +2166,7 @@ function updateStatistics(data) {
       });
     } catch (e) {
       console.error(`Error parsing date: ${dateValue}`, e);
-      return 'Date unknown';
+      return '';
     }
   }
   
