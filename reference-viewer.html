@@ -1992,229 +1992,64 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-
     /**
- * Normalize book name to match KJV dataset file naming
- * This preserves compatibility with your existing file structure
- */
-function normalizeBookNameForKJV(book) {
-  // Handle special cases
-  const bookMappings = {
-    'Psalms': 'Psalms',
-    'Psalm': 'Psalms',
-    'Song_of_Solomon': 'SongofSolomon',
-    'Song_of_Songs': 'SongofSolomon',
-    '1_Samuel': '1Samuel',
-    '2_Samuel': '2Samuel',
-    '1_Kings': '1Kings',
-    '2_Kings': '2Kings',
-    '1_Chronicles': '1Chronicles',
-    '2_Chronicles': '2Chronicles',
-    '1_Corinthians': '1Corinthians',
-    '2_Corinthians': '2Corinthians',
-    '1_Thessalonians': '1Thessalonians',
-    '2_Thessalonians': '2Thessalonians',
-    '1_Timothy': '1Timothy',
-    '2_Timothy': '2Timothy',
-    '1_Peter': '1Peter',
-    '2_Peter': '2Peter',
-    '1_John': '1John',
-    '2_John': '2John',
-    '3_John': '3John'
-  };
-  
-  // Check if we have a direct mapping
-  if (bookMappings[book]) {
-    return bookMappings[book];
-  }
-  
-  // Default: remove underscores
-  return book.replace(/_/g, '');
-}
-
-/**
- * Enhanced function to fetch Bible verse text with better error handling
- * This acts as a backup for the main verse loading method
- */
-async function fetchBibleVerseText(book, chapter, verse) {
-  if (!book || !chapter || !verse || chapter === 'general' || verse === 'general') {
-    return null;
-  }
-  
-  try {
-    // Normalize book name to match KJV dataset
-    const bookFileName = normalizeBookNameForKJV(book);
-    
-    // Set the exact correct path based on your URL structure
-    const basePath = '/assets/data/Bible-kjv-master';
-    const url = `${basePath}/${bookFileName}.json`;
-    
-    console.log(`Fetching Bible verse from: ${url}`);
-    
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        console.error(`Failed to load Bible data: ${response.status} ${response.statusText}`);
-        return null;
+     * Load Bible verse text from KJV API
+     */
+    function loadBibleVerseText(book, chapter, verse, element) {
+      if (!book || !chapter || !verse || chapter === 'general' || verse === 'general') {
+        if (element) {
+          element.textContent = 'No Bible text available for this reference.';
+        }
+        return;
       }
       
-      const bookData = await response.json();
-      console.log(`Successfully loaded Bible data for ${bookFileName}`);
-      
-      // Find the chapter and verse
-      const chapterData = bookData.chapters.find(c => c.chapter === chapter.toString());
-      if (chapterData) {
-        const verseData = chapterData.verses.find(v => v.verse === verse.toString());
-        if (verseData) {
-          return verseData.text;
-        } else {
-          console.log(`Verse ${verse} not found in ${bookFileName} chapter ${chapter}`);
-        }
-      } else {
-        console.log(`Chapter ${chapter} not found in ${bookFileName}`);
-      }
-      
-      return null;
-    } catch (e) {
-      console.error(`Error fetching Bible data: ${e.message}`);
-      return null;
-    }
-  } catch (error) {
-    console.error('Error in fetchBibleVerseText:', error);
-    return null;
-  }
-}
-/**
- * Add another helper function for expanding Bible text in the compact view
- */
-function expandBibleText(book, chapter, verse, button) {
-  const verseId = `bible-text-${book}-${chapter}-${verse}`;
-  let textContainer = document.getElementById(verseId);
-  
-  // If container doesn't exist, create it
-  if (!textContainer) {
-    textContainer = document.createElement('div');
-    textContainer.id = verseId;
-    textContainer.className = 'verse-bible-container';
-    textContainer.innerHTML = `
-      <div class="verse-bible-header">
-        <div class="verse-bible-label">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-          </svg>
-          KJV Bible Text
-        </div>
-        <a href="${config.bibleGatewayBaseUrl}${book}+${chapter}:${verse}&version=${config.bibleVersion}" class="bible-gateway-link" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-          View on Bible Gateway
-        </a>
-      </div>
-      <div class="verse-bible-content">Loading verse text...</div>
-    `;
-    
-    // Insert after the button
-    button.parentNode.insertBefore(textContainer, button.nextSibling);
-  }
-  
-  // Toggle visibility
-  const isVisible = textContainer.style.display !== 'none';
-  textContainer.style.display = isVisible ? 'none' : 'block';
-  
-  // Update button text
-  button.innerHTML = isVisible ? `
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-    </svg>
-    Show KJV Bible Text
-  ` : `
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-    </svg>
-    Hide KJV Bible Text
-  `;
-  
-  // Load Bible text if container is now visible and doesn't have content yet
-  if (!isVisible) {
-    const contentElement = textContainer.querySelector('.verse-bible-content');
-    if (contentElement && contentElement.textContent === 'Loading verse text...') {
-      loadBibleVerseText(book, chapter, verse, contentElement);
-    }
-  }
-}
-
-/**
- * Load Bible verse text from local JSON files
- * This function maintains compatibility with the existing JSON structure
- */
-function loadBibleVerseText(book, chapter, verse, element) {
-  if (!book || !chapter || !verse || chapter === 'general' || verse === 'general') {
-    if (element) {
-      element.textContent = 'No Bible text available for this reference.';
-    }
-    return;
-  }
-  
-  try {
-    // Normalize book name to match KJV dataset file naming
-    const bookFileName = normalizeBookNameForKJV(book);
-    
-    // Set the exact correct path based on your URL structure
-    const basePath = '/assets/data/Bible-kjv-master';
-    const url = `${basePath}/${bookFileName}.json`;
-    
-    console.log(`Fetching Bible verse from: ${url}`);
-    
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Failed to load Bible data: ${response.status} ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .then(bookData => {
-        console.log(`Successfully loaded Bible data for ${bookFileName}`);
+      try {
+        // Format the book name for KJV API
+        const formattedBook = formatBookForKJV(book);
         
-        // Find the chapter and verse
-        const chapterData = bookData.chapters.find(c => c.chapter === chapter.toString());
-        if (chapterData) {
-          const verseData = chapterData.verses.find(v => v.verse === verse.toString());
-          if (verseData) {
-            // Update the element with the verse text
-            if (element) {
-              element.textContent = verseData.text;
+        // Make the request to the KJV API
+        fetch(`${config.kjvApiBase}/${formattedBook}.json`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Failed to load Bible data: ${response.status}`);
             }
-            return;
-          } else {
-            console.log(`Verse ${verse} not found in ${bookFileName} chapter ${chapter}`);
-          }
-        } else {
-          console.log(`Chapter ${chapter} not found in ${bookFileName}`);
-        }
-        
+            return response.json();
+          })
+          .then(data => {
+            // Find the chapter
+            const chapterData = data.chapters.find(c => c.chapter.toString() === chapter.toString());
+            
+            if (chapterData) {
+              // Find the verse
+              const verseData = chapterData.verses.find(v => v.verse.toString() === verse.toString());
+              
+              if (verseData) {
+                // Update the element with the verse text
+                if (element) {
+                  element.textContent = verseData.text;
+                }
+                return;
+              }
+            }
+            
+            // If we get here, the verse wasn't found
+            if (element) {
+              element.textContent = `Verse text not found for ${formatBookName(book)} ${chapter}:${verse}.`;
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching Bible verse:', error);
+            if (element) {
+              element.textContent = 'Error loading Bible verse text.';
+            }
+          });
+      } catch (error) {
+        console.error('Error in loadBibleVerseText:', error);
         if (element) {
-          element.textContent = `Verse text not found for ${formatBookName(book)} ${chapter}:${verse}.`;
+          element.textContent = 'Error processing Bible verse request.';
         }
-      })
-      .catch(error => {
-        console.error(`Error fetching Bible data: ${error.message}`);
-        if (element) {
-          element.textContent = 'Error loading Bible verse text. You can view it on Bible Gateway instead.';
-        }
-      });
-  } catch (error) {
-    console.error('Error in loadBibleVerseText:', error);
-    if (element) {
-      element.textContent = 'Error processing Bible verse request.';
+      }
     }
-  }
-}
     
     /**
      * Format book name for KJV API
