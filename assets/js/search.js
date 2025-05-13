@@ -7,6 +7,43 @@
  */
 
 // Global API configuration that Jekyll can write to directly
+
+// Add CSS styles dynamically
+(function addCustomStyles() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .claude-filter-notice {
+      margin: 8px 0;
+      padding: 8px 12px;
+      background-color: #f0f7ff;
+      border-left: 3px solid #2ea3f2;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+    }
+    
+    .search-filter-info {
+      margin-bottom: 4px;
+    }
+    
+    .search-filter-info:last-child {
+      margin-bottom: 0;
+    }
+    
+    .claude-safety-disclaimer {
+      margin: 8px 0;
+      padding: 8px 12px;
+      background-color: #fff8e1;
+      border-left: 3px solid #ffb74d;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.4;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 const API_CONFIG = {
   baseUrl: 'https://sermon-search-api-8fok.onrender.com'
 };
@@ -117,48 +154,53 @@ const SermonAPI = {
     }
   },
   
-  /**
-   * Send a query to the API
-   * @param {Object} queryData - The data to send
-   * @returns {Promise<Object>} - The API response
-   */
-  async sendQuery(queryData) {
-    // First check connection
-    const isConnected = await this.verifyConnection();
-    if (!isConnected) {
-      throw new Error('API connection failed');
+/**
+ * Send a query to the API
+ * @param {Object} queryData - The data to send
+ * @returns {Promise<Object>} - The API response
+ */
+async sendQuery(queryData) {
+  // First check connection
+  const isConnected = await this.verifyConnection();
+  if (!isConnected) {
+    throw new Error('API connection failed');
+  }
+  
+  try {
+    // IMPORTANT: Use "/answer" endpoint for the main search query
+    const url = this.baseUrl.endsWith('/') 
+      ? `${this.baseUrl.slice(0, -1)}/answer` 
+      : `${this.baseUrl}/answer`;
+    
+    console.log('Sending query to:', url);
+    
+    // Filter out null parameters to avoid empty strings being sent
+    const filteredData = Object.fromEntries(
+      Object.entries(queryData).filter(([_, v]) => v != null)
+    );
+    
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin,
+        'Accept-Language': queryData.language || 'en'
+      },
+      mode: 'cors',
+      body: JSON.stringify(filteredData)
+    });
+    
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
     }
     
-    try {
-      // IMPORTANT: Use "/answer" endpoint for the main search query
-      const url = this.baseUrl.endsWith('/') 
-        ? `${this.baseUrl.slice(0, -1)}/answer` 
-        : `${this.baseUrl}/answer`;
-      
-      console.log('Sending query to:', url);
-      
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Origin': window.location.origin,
-          'Accept-Language': queryData.language || 'en'
-        },
-        mode: 'cors',
-        body: JSON.stringify(queryData)
-      });
-      
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
-      }
-      
-      return await response.json();
-    } catch (error) {
-      console.error('Query error:', error);
-      throw error;
-    }
-  },
+    return await response.json();
+  } catch (error) {
+    console.error('Query error:', error);
+    throw error;
+  }
+},
   
   /**
    * Fetch transcript for a video
@@ -513,6 +555,190 @@ const SermonSearch = (function() {
     // Then highlight Bible references
     return text.replace(getBibleReferenceRegex(), '<span class="bible-reference">$&</span>');
   }
+
+/**
+ * Extract date, title and preacher parameters from a natural language query
+ * @param {string} query - The user's natural language query
+ * @returns {Object} - Object containing processed query and extracted parameters
+ */
+function extractQueryParameters(query) {
+  const params = {
+    query: query,
+    title: null,
+    date: null,
+    preacher: null
+  };
+  
+  // Date extraction
+  const datePatterns = [
+    // Format: May 5th, 2025
+    {
+      regex: /(?:from|on|dated?|preached on)\s+(?:the\s+)?(\w+\.?\s+\d+(?:st|nd|rd|th)?,?\s+\d{4})/i,
+      processor: (match) => {
+        try {
+          const dateString = match[1];
+          const date = new Date(dateString);
+          if (!isNaN(date.getTime())) {
+            return date.toISOString().split('T')[0]; // YYYY-MM-DD
+          }
+          return null;
+        } catch (e) {
+          return null;
+        }
+      }
+    },
+    // Format: 5/5/2025 or 05-05-2025
+    {
+      regex: /(?:from|on|dated?|preached on)\s+(?:the\s+)?(\d{1,2}[/-]\d{1,2}[/-]\d{4})/i,
+      processor: (match) => {
+        try {
+          const dateString = match[1].replace(/-/g, '/');
+          const date = new Date(dateString);
+          if (!isNaN(date.getTime())) {
+            return date.toISOString().split('T')[0]; // YYYY-MM-DD
+          }
+          return null;
+        } catch (e) {
+          return null;
+        }
+      }
+    },
+    // Format: YYYY-MM-DD explicitly mentioned
+    {
+      regex: /(?:from|on|dated?|preached on)\s+(?:the\s+)?(\d{4}-\d{2}-\d{2})/i,
+      processor: (match) => match[1]
+    }
+  ];
+  
+  // Try each date pattern
+  for (const pattern of datePatterns) {
+    const match = query.match(pattern.regex);
+    if (match) {
+      params.date = pattern.processor(match);
+      if (params.date) {
+        // Remove the date portion from the query to avoid duplication
+        params.query = params.query.replace(match[0], '').trim();
+        break;
+      }
+    }
+  }
+  
+  // Title extraction
+  const titlePatterns = [
+    // "sermon titled X", "sermon called X", "sermon about X"
+    /(?:sermon|message|teaching)(?:\s+(?:titled|called|named|about))?\s+["'](.+?)["']/i,
+    /(?:sermon|message|teaching)(?:\s+(?:titled|called|named|about))?\s+(.+?)(?:\s+by|\s+from|\s+on\s+\d|\s+in \d{4}|$)/i
+  ];
+  
+  for (const pattern of titlePatterns) {
+    const match = query.match(pattern);
+    if (match && match[1]) {
+      params.title = match[1].trim();
+      // Remove the title portion from the query to avoid duplication
+      params.query = params.query.replace(match[0], '').trim();
+      break;
+    }
+  }
+  
+  // Preacher extraction
+  const preacherPatterns = [
+    // "by Pastor X", "from Pastor X", "preached by X"
+    /(?:by|from|preached by)\s+(?:Pastor\s+|Missionary\s+|Rev\.\s+|Dr\.\s+)?([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i
+  ];
+  
+  for (const pattern of preacherPatterns) {
+    const match = query.match(pattern);
+    if (match && match[1]) {
+      params.preacher = match[1].trim();
+      // Remove the preacher portion from the query to avoid duplication
+      params.query = params.query.replace(match[0], '').trim();
+      break;
+    }
+  }
+  
+  // If the query is now too short after extractions, use the original
+  if (params.query.length < 10 && query.length > 10) {
+    // Keep original query but with extracted parameters
+    params.query = query;
+  }
+  
+  return params;
+}
+
+/**
+ * Check if a query contains inappropriate content
+ * @param {string} query - User query
+ * @returns {boolean} - True if query is inappropriate
+ */
+function isInappropriateQuery(query) {
+  const inappropriatePatterns = [
+    /\b(sex|porn|nude|explicit|f[*u]ck|sh[*i]t|damn|ass|hell|bitch)\b/i,
+    /\b(gambling|casino|betting)\b/i,
+    /\b(alcohol|drunk|weed|marijuana|cocaine|heroin|drugs)\b/i,
+    // Add more patterns as needed
+  ];
+  
+  return inappropriatePatterns.some(pattern => pattern.test(query));
+}
+
+/**
+ * Check if a query is potentially harmful or inappropriate for a church context
+ * @param {string} query - User query
+ * @returns {Object} - Flags and suggested response for inappropriate queries
+ */
+function checkQuerySafety(query) {
+  const result = {
+    safe: true,
+    pastorReferral: false,
+    inappropriateContent: false,
+    leadingQuestion: false,
+    response: null
+  };
+  
+  // Check for inappropriate content
+  if (isInappropriateQuery(query)) {
+    result.safe = false;
+    result.inappropriateContent = true;
+    result.response = "I'm sorry, but I cannot provide information on that topic. This tool is designed to help with sermon content and biblical teachings. Please consider speaking with a pastor if you have questions about sensitive topics.";
+    return result;
+  }
+  
+  // Check for questions that should be directed to a pastor
+  const pastorReferralPatterns = [
+    /\b(suicide|kill myself|want to die|end my life)\b/i,
+    /\b(divorce|leaving (my )?spouse|marital crisis)\b/i,
+    /\b(abortion|terminate pregnancy)\b/i,
+    /\b(abuse|domestic violence|being hurt by)\b/i,
+    /\b(addiction|alcoholism|substance abuse)\b/i,
+    /\b(counseling|therapy|mental health)\b/i
+  ];
+  
+  if (pastorReferralPatterns.some(pattern => pattern.test(query))) {
+    result.safe = true; // Still safe to process
+    result.pastorReferral = true;
+    result.response = "I can provide information from sermons on this topic, but for personal guidance on this sensitive matter, I'd encourage you to speak directly with Pastor Mann or another trusted spiritual advisor. Would you still like me to share what the sermons say about this subject?";
+    return result;
+  }
+  
+  // Check for leading or politically charged questions
+  const leadingPatterns = [
+    /\b(democrat|republican|liberal|conservative|biden|trump|election)\b/i,
+    /\b(abortion rights|pro-choice|pro-life)\b/i,
+    /\b(gay marriage|lgbt|transgender)\b/i,
+    /\b(immigration|border|illegals)\b/i,
+    /\b(gun control|second amendment|gun rights)\b/i
+  ];
+  
+  if (leadingPatterns.some(pattern => pattern.test(query))) {
+    result.safe = true; // Still safe but add disclaimer
+    result.leadingQuestion = true;
+    // No direct response, but we'll add a disclaimer to the answer
+  }
+  
+  return result;
+}
+
+
 
   /**
    * Format response text with Markdown-like syntax
@@ -1852,103 +2078,81 @@ function createSourceElement(source, index) {
   // ======= EVENT HANDLERS =======
 
   /**
-   * Handle form submission
-   */
-  async function handleSubmit(event) {
-    if (event) event.preventDefault();
-    console.log('Form submitted');
+ * Handle form submission
+ */
+async function handleSubmit(event) {
+  if (event) event.preventDefault();
+  console.log('Form submitted');
+  
+  const query = elements.queryInput.value.trim();
+  if (!query) {
+    console.log('Empty query, ignoring');
+    return;
+  }
+  
+  // Extract parameters from the query
+  const queryParams = extractQueryParameters(query);
+  console.log('Extracted parameters:', queryParams);
+  
+  // Check query safety
+  const safetyCheck = checkQuerySafety(query);
+  
+  // Add user message to the chat (original query, not modified)
+  addMessage(query, 'user');
+  
+  // Add to conversation history
+  state.conversationHistory.push({ role: 'user', content: query });
+  
+  // Limit history length
+  if (state.conversationHistory.length > config.maxMemoryLength * 2) {
+    state.conversationHistory = state.conversationHistory.slice(-config.maxMemoryLength * 2);
+  }
+  
+  // Clear input field and reset height
+  elements.queryInput.value = '';
+  adjustTextareaHeight(elements.queryInput);
+  
+  // Add typing indicator
+  const typingId = addTypingIndicator();
+  
+  // Increment pending requests counter
+  state.pendingRequests++;
+  
+  // Handle unsafe queries
+  if (!safetyCheck.safe) {
+    // Skip API call for unsafe content
+    removeMessage(typingId);
+    addMessage(safetyCheck.response, 'bot');
+    state.pendingRequests--;
+    return;
+  }
+  
+  // For pastor referral, show the message but still process the query
+  if (safetyCheck.pastorReferral) {
+    addMessage(safetyCheck.response, 'bot');
+  }
+  
+  // Add disclaimer for politically charged topics
+  if (safetyCheck.leadingQuestion) {
+    let disclaimerMessage = "Note: I'll share what sermons say about this topic. The views expressed are those from the pulpit and not my personal opinions. For nuanced discussion on this topic, speaking with Pastor Mann directly would be valuable.";
     
-    const query = elements.queryInput.value.trim();
-    if (!query) {
-      console.log('Empty query, ignoring');
-      return;
-    }
-    
-    // Add user message to the chat
-    addMessage(query, 'user');
-    
-    // Add to conversation history
-    state.conversationHistory.push({ role: 'user', content: query });
-    
-    // Limit history length
-    if (state.conversationHistory.length > config.maxMemoryLength * 2) {
-      state.conversationHistory = state.conversationHistory.slice(-config.maxMemoryLength * 2);
-    }
-    
-    // Clear input field and reset height
-    elements.queryInput.value = '';
-    adjustTextareaHeight(elements.queryInput);
-    
-    // Add typing indicator
-    const typingId = addTypingIndicator();
-    
-    // Increment pending requests counter
-    state.pendingRequests++;
-    
-    // Verify API connection before sending request
-    if (!state.isApiConnected) {
-      const isConnected = await verifyApiConnection(false);
-      if (!isConnected) {
-        // Remove typing indicator
-        removeMessage(typingId);
-        
-        // Show connection error
-        const errorMsg = `
-          <div class="connection-error">
-            <p>${translate('connection-error')}</p>
-            <button class="retry-button">${translate('try-again')}</button>
-          </div>
-        `;
-        const errorElement = addMessage(errorMsg, 'bot', true);
-        
-        // Add retry button functionality
-        const retryButton = errorElement.querySelector('.retry-button');
-        if (retryButton) {
-          retryButton.addEventListener('click', function() {
-            // Remove error message
-            removeMessage(errorElement.id);
-            
-            // Try again with the same query
-            elements.queryInput.value = query;
-            elements.chatForm.dispatchEvent(new Event('submit'));
-          });
-        }
-        
-        // Decrement pending requests counter
-        state.pendingRequests--;
-        return;
-      }
-    }
-    
-    try {
-      // Prepare request data
-      const requestData = {
-        query: query,
-        conversation_history: state.conversationHistory.slice(-config.maxMemoryLength * 2),
-        language: state.currentLanguage
-      };
-      
-      // Use SermonAPI to send the query
-      const data = await SermonAPI.sendQuery(requestData);
-      
+    const disclaimerElement = document.createElement('div');
+    disclaimerElement.className = 'claude-safety-disclaimer';
+    disclaimerElement.textContent = disclaimerMessage;
+    elements.messagesContainer.appendChild(disclaimerElement);
+  }
+  
+  // Verify API connection before sending request
+  if (!state.isApiConnected) {
+    const isConnected = await verifyApiConnection(false);
+    if (!isConnected) {
       // Remove typing indicator
       removeMessage(typingId);
       
-      console.log('Received API response:', data);
-      
-      // Display the answer
-      displayAnswer(data);
-      
-    } catch (error) {
-      console.error('Error in API request:', error);
-      
-      // Remove typing indicator
-      removeMessage(typingId);
-      
-      // Show error message
+      // Show connection error
       const errorMsg = `
-        <div class="error-container">
-          <p>Sorry, an error occurred: ${error.message}</p>
+        <div class="connection-error">
+          <p>${translate('connection-error')}</p>
           <button class="retry-button">${translate('try-again')}</button>
         </div>
       `;
@@ -1966,17 +2170,101 @@ function createSourceElement(source, index) {
           elements.chatForm.dispatchEvent(new Event('submit'));
         });
       }
-    } finally {
+      
       // Decrement pending requests counter
       state.pendingRequests--;
-      
-      // Re-enable input field
-      if (elements.queryInput) {
-        elements.queryInput.disabled = false;
-        elements.queryInput.focus();
-      }
+      return;
     }
   }
+  
+  try {
+    // Prepare request data with extracted parameters
+    const requestData = {
+      query: queryParams.query,
+      conversation_history: state.conversationHistory.slice(-config.maxMemoryLength * 2),
+      language: state.currentLanguage,
+      title: queryParams.title,
+      date: queryParams.date,
+      preacher: queryParams.preacher
+    };
+    
+    console.log('Sending request with parameters:', requestData);
+    
+    // Use SermonAPI to send the query
+    const data = await SermonAPI.sendQuery(requestData);
+    
+    // Remove typing indicator
+    removeMessage(typingId);
+    
+    console.log('Received API response:', data);
+    
+    // Add filter info to the response
+    if (queryParams.title || queryParams.date || queryParams.preacher) {
+      let filterInfo = "";
+      
+      if (queryParams.date) {
+        const formattedDate = formatSermonDate(queryParams.date);
+        filterInfo += `<div class="search-filter-info">Showing results from sermons dated ${formattedDate}</div>`;
+      }
+      
+      if (queryParams.title) {
+        filterInfo += `<div class="search-filter-info">Showing results from sermon titled "${escapeHTML(queryParams.title)}"</div>`;
+      }
+      
+      if (queryParams.preacher) {
+        filterInfo += `<div class="search-filter-info">Showing results from sermons by ${escapeHTML(queryParams.preacher)}</div>`;
+      }
+      
+      // Add filter info to the message
+      if (filterInfo) {
+        const filterElement = document.createElement('div');
+        filterElement.className = 'claude-filter-notice';
+        filterElement.innerHTML = filterInfo;
+        elements.messagesContainer.appendChild(filterElement);
+      }
+    }
+    
+    // Display the answer
+    displayAnswer(data);
+    
+  } catch (error) {
+    console.error('Error in API request:', error);
+    
+    // Remove typing indicator
+    removeMessage(typingId);
+    
+    // Show error message
+    const errorMsg = `
+      <div class="error-container">
+        <p>Sorry, an error occurred: ${error.message}</p>
+        <button class="retry-button">${translate('try-again')}</button>
+      </div>
+    `;
+    const errorElement = addMessage(errorMsg, 'bot', true);
+    
+    // Add retry button functionality
+    const retryButton = errorElement.querySelector('.retry-button');
+    if (retryButton) {
+      retryButton.addEventListener('click', function() {
+        // Remove error message
+        removeMessage(errorElement.id);
+        
+        // Try again with the same query
+        elements.queryInput.value = query;
+        elements.chatForm.dispatchEvent(new Event('submit'));
+      });
+    }
+  } finally {
+    // Decrement pending requests counter
+    state.pendingRequests--;
+    
+    // Re-enable input field
+    if (elements.queryInput) {
+      elements.queryInput.disabled = false;
+      elements.queryInput.focus();
+    }
+  }
+}
 
   /**
  * Display answer from API
