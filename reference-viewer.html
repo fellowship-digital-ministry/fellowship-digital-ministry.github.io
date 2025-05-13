@@ -1236,6 +1236,7 @@ custom_class: reference-viewer-page
 /**
  * Bible Reference Explorer
  * Redesigned to address user concerns around usability and clarity
+ * With fixes to restore book selection and analytics functionality
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1249,7 +1250,39 @@ document.addEventListener('DOMContentLoaded', function() {
       bibleVersion: 'KJV',
       // Added KJV API for better Bible verse retrieval
       kjvApiBase: '/assets/data/Bible-kjv-master',
+      cacheExpiration: 60 * 60 * 1000, // 1 hour in milliseconds
+      useCaching: true // Enable/disable local storage caching
     };
+    
+    // Bible book order for sorting
+    const bibleBookOrder = [
+      // Old Testament
+      "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+      "Joshua", "Judges", "Ruth", "1_Samuel", "2_Samuel",
+      "1_Kings", "2_Kings", "1_Chronicles", "2_Chronicles",
+      "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+      "Ecclesiastes", "Song_of_Solomon", "Isaiah", "Jeremiah",
+      "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+      "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah",
+      "Haggai", "Zechariah", "Malachi",
+      // New Testament
+      "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+      "1_Corinthians", "2_Corinthians", "Galatians", "Ephesians",
+      "Philippians", "Colossians", "1_Thessalonians", "2_Thessalonians",
+      "1_Timothy", "2_Timothy", "Titus", "Philemon", "Hebrews",
+      "James", "1_Peter", "2_Peter", "1_John", "2_John", "3_John",
+      "Jude", "Revelation"
+    ];
+    
+    // New Testament books for categorization
+    const newTestamentBooks = [
+      "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+      "1_Corinthians", "2_Corinthians", "Galatians", "Ephesians",
+      "Philippians", "Colossians", "1_Thessalonians", "2_Thessalonians",
+      "1_Timothy", "2_Timothy", "Titus", "Philemon", "Hebrews",
+      "James", "1_Peter", "2_Peter", "1_John", "2_John", "3_John",
+      "Jude", "Revelation"
+    ];
     
     // State
     const state = {
@@ -1258,7 +1291,24 @@ document.addEventListener('DOMContentLoaded', function() {
       currentVerse: null,
       viewMode: 'compact', // 'compact' or 'expanded'
       sortOption: 'verse-number', // 'verse-number' or 'reference-count'
-      expandedVerses: {} // Track which verses have their Bible text expanded
+      expandedVerses: {}, // Track which verses have their Bible text expanded
+      // Added state tracking variables
+      statsLoaded: false,
+      booksLoaded: false,
+      isLoadingStats: false,
+      isLoadingBooks: false,
+      chaptersLoaded: {},
+      versesLoaded: {}
+    };
+    
+    // Cached data
+    const cache = {
+      stats: null,
+      books: null,
+      chapters: {},
+      verses: {},
+      references: {},
+      timestamp: {}
     };
     
     // DOM Elements
@@ -1274,8 +1324,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // Setup event listeners
       setupEventListeners();
       
-      // Load initial data (Genesis by default)
-      loadBook('Philemon');
+      // Load initial data
+      loadInitialData();
+      
+      // Try to restore cached data
+      if (config.useCaching) {
+        restoreFromCache();
+      }
     }
     
     /**
@@ -1283,6 +1338,21 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function mapDomElements() {
       elements = {
+        // Stats elements
+        statsLoading: document.getElementById('stats-loading'),
+        statsContainer: document.getElementById('stats-container'),
+        totalReferences: document.getElementById('total-references'),
+        topBook: document.getElementById('top-book'),
+        topBookCount: document.getElementById('top-book-count'),
+        topChapter: document.getElementById('top-chapter'),
+        topChapterCount: document.getElementById('top-chapter-count'),
+        
+        // Book navigation
+        bookSearch: document.getElementById('book-search'),
+        clearSearch: document.getElementById('clear-search'),
+        otBooks: document.getElementById('ot-books'),
+        ntBooks: document.getElementById('nt-books'),
+        
         // Views
         bookView: document.getElementById('book-view'),
         chapterView: document.getElementById('chapter-view'),
@@ -1331,6 +1401,24 @@ document.addEventListener('DOMContentLoaded', function() {
      * Set up event listeners
      */
     function setupEventListeners() {
+      // Book search
+      if (elements.bookSearch) {
+        elements.bookSearch.addEventListener('input', debounce(function(e) {
+          const searchTerm = e.target.value.trim().toLowerCase();
+          filterBooks(searchTerm);
+        }, 300));
+      }
+      
+      // Clear search
+      if (elements.clearSearch) {
+        elements.clearSearch.addEventListener('click', function() {
+          if (elements.bookSearch) {
+            elements.bookSearch.value = '';
+            filterBooks('');
+          }
+        });
+      }
+      
       // Back buttons
       if (elements.backToBook) {
         elements.backToBook.addEventListener('click', () => {
@@ -1419,31 +1507,381 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /**
-     * Load book data and display the book view
+     * Load initial data (statistics and books list)
      */
-    function loadBook(book) {
-      if (!book) return;
+    function loadInitialData() {
+      // Load statistics
+      loadBibleStats();
       
-      state.currentBook = book;
+      // Load books list
+      loadBibleBooks();
       
-      // Show loading state
-      showLoading(true);
+      // After loading completes, show Genesis (or another default book)
+      setTimeout(() => {
+        if (state.booksLoaded) {
+          // Initialize with Genesis instead of hardcoding Philemon
+          showBookView('Genesis');
+        } else {
+          // If books aren't loaded yet, set up a listener to show Genesis once they are
+          const checkBooksLoaded = setInterval(() => {
+            if (state.booksLoaded) {
+              showBookView('Genesis');
+              clearInterval(checkBooksLoaded);
+            }
+          }, 100);
+          
+          // Clear the interval after 10 seconds to prevent infinite checking
+          setTimeout(() => clearInterval(checkBooksLoaded), 10000);
+        }
+      }, 300);
+    }
+    
+    /**
+     * Restore data from local storage cache
+     */
+    function restoreFromCache() {
+      try {
+        // Check if we have cached stats
+        const cachedStats = localStorage.getItem('bible_explorer_stats');
+        if (cachedStats) {
+          const statsData = JSON.parse(cachedStats);
+          const timestamp = parseInt(localStorage.getItem('bible_explorer_stats_timestamp') || '0');
+          
+          // Check if cache is still valid
+          if (Date.now() - timestamp < config.cacheExpiration) {
+            cache.stats = statsData;
+            cache.timestamp.stats = timestamp;
+            
+            // Update UI with cached stats
+            updateStatistics(statsData);
+            state.statsLoaded = true;
+          }
+        }
+        
+        // Check if we have cached books
+        const cachedBooks = localStorage.getItem('bible_explorer_books');
+        if (cachedBooks) {
+          const booksData = JSON.parse(cachedBooks);
+          const timestamp = parseInt(localStorage.getItem('bible_explorer_books_timestamp') || '0');
+          
+          // Check if cache is still valid
+          if (Date.now() - timestamp < config.cacheExpiration) {
+            cache.books = booksData;
+            cache.timestamp.books = timestamp;
+            
+            // Update UI with cached books
+            if (booksData.books && Array.isArray(booksData.books)) {
+              populateBooksList(booksData.books);
+              state.booksLoaded = true;
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Error restoring from cache:', error);
+        // Clear potentially corrupted cache
+        clearCache();
+      }
+    }
+    
+    /**
+     * Save data to local storage cache
+     */
+    function saveToCache(key, data) {
+      if (!config.useCaching) return;
       
-      // Fetch book data
-      fetch(`${config.booksPath}/${book}.json`)
-        .then(response => response.json())
+      try {
+        localStorage.setItem(`bible_explorer_${key}`, JSON.stringify(data));
+        localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+        
+        cache[key] = data;
+        cache.timestamp[key] = Date.now();
+      } catch (error) {
+        console.error(`Error saving ${key} to cache:`, error);
+      }
+    }
+    
+    /**
+     * Clear cache
+     */
+    function clearCache() {
+      try {
+        // Clear stats and books
+        localStorage.removeItem('bible_explorer_stats');
+        localStorage.removeItem('bible_explorer_stats_timestamp');
+        localStorage.removeItem('bible_explorer_books');
+        localStorage.removeItem('bible_explorer_books_timestamp');
+        
+        // Find and clear chapters and verses
+        Object.keys(localStorage).forEach(key => {
+          if (key.startsWith('bible_explorer_chapters_') || 
+              key.startsWith('bible_explorer_verses_') ||
+              key.startsWith('bible_explorer_references_')) {
+            localStorage.removeItem(key);
+            localStorage.removeItem(key + '_timestamp');
+          }
+        });
+        
+        // Reset cache object
+        cache.stats = null;
+        cache.books = null;
+        cache.chapters = {};
+        cache.verses = {};
+        cache.references = {};
+        cache.timestamp = {};
+      } catch (error) {
+        console.error('Error clearing cache:', error);
+      }
+    }
+    
+    /**
+     * Load Bible statistics from JSON file
+     */
+    function loadBibleStats() {
+      if (state.isLoadingStats || state.statsLoaded) return;
+      
+      state.isLoadingStats = true;
+      // Show loading indicator for stats
+      if (elements.statsLoading) {
+        elements.statsLoading.style.display = 'block';
+      }
+      if (elements.statsContainer) {
+        elements.statsContainer.style.display = 'none';
+      }
+      
+      fetch(`${config.dataPath}/bible_stats.json`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load Bible statistics: ${response.status}`);
+          }
+          return response.json();
+        })
         .then(data => {
-          // Process the book data
-          showBookView(book, data);
+          // Update statistics UI
+          updateStatistics(data);
+          
+          // Save to cache
+          saveToCache('stats', data);
+          
+          state.statsLoaded = true;
+          state.isLoadingStats = false;
+          // Hide loading indicator
+          if (elements.statsLoading) {
+            elements.statsLoading.style.display = 'none';
+          }
+          if (elements.statsContainer) {
+            elements.statsContainer.style.display = 'flex';
+          }
         })
         .catch(error => {
-          console.error(`Error loading book ${book}:`, error);
-          showErrorMessage(`Failed to load data for ${book}. Please try again.`);
+          console.error('Error loading Bible statistics:', error);
+          showErrorMessage('Failed to load statistics. Please try again later.');
+          state.isLoadingStats = false;
         });
     }
     
     /**
-     * Show the book view with chapters
+     * Load Bible books list from JSON file
+     */
+    function loadBibleBooks() {
+      if (state.isLoadingBooks || state.booksLoaded) return;
+      
+      state.isLoadingBooks = true;
+      
+      fetch(`${config.dataPath}/bible_books.json`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load Bible books: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Save to cache
+          saveToCache('books', data);
+          
+          // Process the books data
+          if (data.books && Array.isArray(data.books)) {
+            // Filter books if needed to match the Bible order
+            const filteredBooks = data.books.filter(book => 
+              bibleBookOrder.includes(book.book) || 
+              book.book === 'Psalms' || 
+              book.book === 'Song of Songs'
+            );
+            
+            // Populate the sidebar with books
+            populateBooksList(filteredBooks);
+          }
+          
+          state.booksLoaded = true;
+          state.isLoadingBooks = false;
+        })
+        .catch(error => {
+          console.error('Error loading Bible books:', error);
+          showErrorMessage('Failed to load Bible books. Please try again later.');
+          state.isLoadingBooks = false;
+        });
+    }
+    
+    /**
+     * Update statistics display
+     */
+    function updateStatistics(data) {
+      if (!data) return;
+      
+      // Update summary statistics
+      if (elements.totalReferences) {
+        elements.totalReferences.textContent = data.total_references.toLocaleString();
+      }
+      
+      // Update top book
+      if (data.top_books && data.top_books.length > 0 && elements.topBook && elements.topBookCount) {
+        const topBook = data.top_books[0];
+        elements.topBook.textContent = formatBookName(topBook.book);
+        elements.topBookCount.textContent = topBook.count.toLocaleString();
+      }
+      
+      // Update top chapter
+      if (data.top_chapters && data.top_chapters.length > 0 && elements.topChapter && elements.topChapterCount) {
+        // Find the first chapter that isn't 'unknown'
+        const validTopChapter = data.top_chapters.find(chapter => 
+          chapter.chapter !== 'unknown' && chapter.chapter !== null
+        ) || data.top_chapters[0];
+        
+        if (validTopChapter) {
+          elements.topChapter.textContent = `${formatBookName(validTopChapter.book)} ${validTopChapter.chapter}`;
+          elements.topChapterCount.textContent = validTopChapter.count.toLocaleString();
+        }
+      }
+      
+      // Show the statistics container
+      if (elements.statsLoading && elements.statsContainer) {
+        elements.statsLoading.style.display = 'none';
+        elements.statsContainer.style.display = 'flex';
+      }
+    }
+    
+    /**
+     * Populate books list based on Old/New Testament
+     */
+    function populateBooksList(books) {
+      if (!books || !Array.isArray(books) || !elements.otBooks || !elements.ntBooks) return;
+      
+      // Clear loading messages
+      elements.otBooks.innerHTML = '';
+      elements.ntBooks.innerHTML = '';
+      
+      // Sort books according to biblical order
+      const sortedBooks = [...books].sort((a, b) => {
+        const indexA = bibleBookOrder.indexOf(a.book);
+        const indexB = bibleBookOrder.indexOf(b.book);
+        
+        // If both books are found in the order array
+        if (indexA !== -1 && indexB !== -1) {
+          return indexA - indexB;
+        }
+        
+        // If only one book is found, prioritize it
+        if (indexA !== -1) return -1;
+        if (indexB !== -1) return 1;
+        
+        // If neither is found, sort alphabetically
+        return a.book.localeCompare(b.book);
+      });
+      
+      // Filter books by testament and create elements
+      sortedBooks.forEach(bookData => {
+        const bookElement = createBookElement(bookData);
+        
+        // Determine if this is an OT or NT book
+        if (newTestamentBooks.includes(bookData.book)) {
+          elements.ntBooks.appendChild(bookElement);
+        } else {
+          elements.otBooks.appendChild(bookElement);
+        }
+      });
+    }
+    
+    /**
+     * Create a book element for the sidebar
+     */
+    function createBookElement(bookData) {
+      const book = bookData.book;
+      const count = bookData.count;
+      
+      const bookElement = document.createElement('div');
+      bookElement.className = 'book-item';
+      bookElement.setAttribute('data-book', book);
+      
+      const bookName = formatBookName(book);
+      
+      bookElement.innerHTML = `
+        <div class="book-item-header">
+          <div class="book-name">${bookName}</div>
+          <div class="book-count">${count}</div>
+        </div>
+      `;
+      
+      // Make book clickable
+      bookElement.addEventListener('click', function() {
+        // Show the book view
+        showBookView(book);
+      });
+      
+      return bookElement;
+    }
+    
+    /**
+     * Filter books based on search term
+     */
+    function filterBooks(searchTerm) {
+      // Get all book items
+      const bookItems = document.querySelectorAll('.book-item');
+      
+      if (!searchTerm) {
+        // Show all books
+        bookItems.forEach(item => {
+          item.style.display = 'block';
+        });
+        
+        // Show all testament sections
+        document.querySelectorAll('.testament-section').forEach(section => {
+          section.style.display = 'block';
+        });
+        
+        return;
+      }
+      
+      // Show/hide books based on search term
+      let oldTestamentVisible = false;
+      let newTestamentVisible = false;
+      
+      bookItems.forEach(item => {
+        const bookName = item.querySelector('.book-name').textContent.toLowerCase();
+        
+        if (bookName.includes(searchTerm)) {
+          item.style.display = 'block';
+          
+          // Determine which testament section should be shown
+          const book = item.getAttribute('data-book');
+          if (newTestamentBooks.includes(book)) {
+            newTestamentVisible = true;
+          } else {
+            oldTestamentVisible = true;
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Show/hide testament sections based on filtered books
+      const otSection = document.querySelector('.testament-section:first-child');
+      const ntSection = document.querySelector('.testament-section:last-child');
+      
+      if (otSection) otSection.style.display = oldTestamentVisible ? 'block' : 'none';
+      if (ntSection) ntSection.style.display = newTestamentVisible ? 'block' : 'none';
+    }
+    
+    /**
+     * Show book view with chapters
      */
     function showBookView(book, bookData) {
       if (!book) return;
@@ -1464,7 +1902,15 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Update title and count
       elements.bookTitle.textContent = formatBookName(book);
-      elements.bookCount.textContent = bookData.total_references;
+      
+      if (bookData.total_references) {
+        elements.bookCount.textContent = bookData.total_references;
+      } else if (cache.books && cache.books.books) {
+        const cachedBook = cache.books.books.find(b => b.book === book);
+        if (cachedBook) {
+          elements.bookCount.textContent = cachedBook.count;
+        }
+      }
       
       // Show book view, hide others
       elements.contentLoading.style.display = 'none';
@@ -1474,6 +1920,56 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Populate chapters
       populateChapters(book, bookData);
+      
+      // Update active state in sidebar
+      document.querySelectorAll('.book-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('data-book') === book) {
+          item.classList.add('active');
+        }
+      });
+    }
+    
+    /**
+     * Load book data and display the book view
+     */
+    function loadBook(book) {
+      if (!book) return;
+      
+      state.currentBook = book;
+      
+      // Show loading state
+      showLoading(true);
+      
+      // Check if we have this book in cache
+      const cachedChapters = cache.chapters[book];
+      if (cachedChapters) {
+        showBookView(book, cachedChapters);
+        showLoading(false);
+        return;
+      }
+      
+      // Fetch book data
+      fetch(`${config.booksPath}/${book}.json`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load book ${book}: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Cache the data
+          cache.chapters[book] = data;
+          
+          // Process the book data
+          showBookView(book, data);
+          showLoading(false);
+        })
+        .catch(error => {
+          console.error(`Error loading book ${book}:`, error);
+          showErrorMessage(`Failed to load data for ${book}. Please try again.`);
+          showLoading(false);
+        });
     }
     
     /**
@@ -1602,31 +2098,27 @@ document.addEventListener('DOMContentLoaded', function() {
       elements.verseView.style.display = 'none';
       elements.chapterView.style.display = 'block';
       
+      // Check if we have data cached
+      if (cache.chapters[book]) {
+        processChapterData(book, chapter, cache.chapters[book]);
+        showLoading(false);
+        return;
+      }
+      
       // Fetch book data if we don't have it
       fetch(`${config.booksPath}/${book}.json`)
-        .then(response => response.json())
-        .then(data => {
-          // Process the chapter data
-          let references = [];
-          
-          if (chapter === 'general') {
-            // Combine 'None' and 'unknown' references
-            if (data.chapters['None']) {
-              references = references.concat(data.chapters['None']);
-            }
-            if (data.chapters['unknown']) {
-              references = references.concat(data.chapters['unknown']);
-            }
-          } else {
-            // Get chapter references
-            references = data.chapters[chapter] || [];
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load chapter data for ${book} ${chapter}: ${response.status}`);
           }
+          return response.json();
+        })
+        .then(data => {
+          // Cache the data
+          cache.chapters[book] = data;
           
-          // Update reference count
-          elements.chapterCount.textContent = references.length;
-          
-          // Populate verses
-          populateVerses(book, chapter, references);
+          // Process the chapter data
+          processChapterData(book, chapter, data);
           
           // Hide loading
           showLoading(false);
@@ -1636,6 +2128,33 @@ document.addEventListener('DOMContentLoaded', function() {
           showErrorMessage(`Failed to load chapter data for ${formatBookName(book)} ${chapter}.`);
           showLoading(false);
         });
+    }
+    
+    /**
+     * Process chapter data after fetching
+     */
+    function processChapterData(book, chapter, data) {
+      // Get references based on chapter
+      let references = [];
+      
+      if (chapter === 'general') {
+        // Combine 'None' and 'unknown' references
+        if (data.chapters['None']) {
+          references = references.concat(data.chapters['None']);
+        }
+        if (data.chapters['unknown']) {
+          references = references.concat(data.chapters['unknown']);
+        }
+      } else {
+        // Get chapter references
+        references = data.chapters[chapter] || [];
+      }
+      
+      // Update reference count
+      elements.chapterCount.textContent = references.length;
+      
+      // Populate verses
+      populateVerses(book, chapter, references);
     }
     
     /**
@@ -1842,6 +2361,9 @@ document.addEventListener('DOMContentLoaded', function() {
               const isVisible = textContainer.style.display !== 'none';
               textContainer.style.display = isVisible ? 'none' : 'block';
               
+              // Track expanded state
+              state.expandedVerses[`${verseBook}-${verseChapter}-${verseNum}`] = !isVisible;
+              
               // Toggle button text and icon rotation
               toggleButton.classList.toggle('active', !isVisible);
               toggleButton.innerHTML = isVisible ? `
@@ -1936,60 +2458,83 @@ document.addEventListener('DOMContentLoaded', function() {
       elements.chapterView.style.display = 'none';
       elements.verseView.style.display = 'block';
       
+      // Check if we have the book data in cache
+      if (cache.chapters[book]) {
+        processVerseData(book, chapter, verse, cache.chapters[book], scrollToBibleText);
+        showLoading(false);
+        return;
+      }
+      
       // Fetch book data and filter for verse
       fetch(`${config.booksPath}/${book}.json`)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load verse data for ${book} ${chapter}:${verse}: ${response.status}`);
+          }
+          return response.json();
+        })
         .then(data => {
-          let references = [];
+          // Cache the data
+          cache.chapters[book] = data;
           
-          if (verse === 'general' || chapter === 'general') {
-            // Combine references from 'None' and 'unknown'
-            if (data.chapters['None']) {
-              references = references.concat(data.chapters['None']);
-            }
-            if (data.chapters['unknown']) {
-              references = references.concat(data.chapters['unknown'].filter(ref => 
-                ref.verse === null || ref.verse === 'unknown'
-              ));
-            }
-          } else {
-            // Get chapter references and filter by verse
-            const chapterReferences = data.chapters[chapter] || [];
-            references = chapterReferences.filter(ref => 
-              (ref.verse === parseInt(verse)) || 
-              (ref.verse === verse)
-            );
-          }
-          
-          // Update reference count
-          elements.verseCount.textContent = references.length;
-          
-          // Load Bible verse text
-          if (verse !== 'general' && chapter !== 'general') {
-            loadBibleVerseText(book, chapter, verse, elements.verseText);
-            elements.verseText.parentElement.style.display = 'block';
-          } else {
-            elements.verseText.parentElement.style.display = 'none';
-          }
-          
-          // Populate occurrences
-          populateOccurrences(references);
+          // Process the verse data
+          processVerseData(book, chapter, verse, data, scrollToBibleText);
           
           // Hide loading
           showLoading(false);
-          
-          // Scroll to Bible text if requested
-          if (scrollToBibleText && verse !== 'general') {
-            setTimeout(() => {
-              elements.verseText.parentElement.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-          }
         })
         .catch(error => {
           console.error(`Error loading verse data for ${book} ${chapter}:${verse}:`, error);
           showErrorMessage(`Failed to load verse data for ${formatBookName(book)} ${chapter}:${verse}.`);
           showLoading(false);
         });
+    }
+    
+    /**
+     * Process verse data after fetching
+     */
+    function processVerseData(book, chapter, verse, data, scrollToBibleText) {
+      let references = [];
+      
+      if (verse === 'general' || chapter === 'general') {
+        // Combine references from 'None' and 'unknown'
+        if (data.chapters['None']) {
+          references = references.concat(data.chapters['None']);
+        }
+        if (data.chapters['unknown']) {
+          references = references.concat(data.chapters['unknown'].filter(ref => 
+            ref.verse === null || ref.verse === 'unknown'
+          ));
+        }
+      } else {
+        // Get chapter references and filter by verse
+        const chapterReferences = data.chapters[chapter] || [];
+        references = chapterReferences.filter(ref => 
+          (ref.verse === parseInt(verse)) || 
+          (ref.verse === verse)
+        );
+      }
+      
+      // Update reference count
+      elements.verseCount.textContent = references.length;
+      
+      // Load Bible verse text
+      if (verse !== 'general' && chapter !== 'general') {
+        loadBibleVerseText(book, chapter, verse, elements.verseText);
+        elements.verseText.parentElement.style.display = 'block';
+      } else {
+        elements.verseText.parentElement.style.display = 'none';
+      }
+      
+      // Populate occurrences
+      populateOccurrences(references);
+      
+      // Scroll to Bible text if requested
+      if (scrollToBibleText && verse !== 'general') {
+        setTimeout(() => {
+          elements.verseText.parentElement.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
     }
     
     /**
@@ -2264,8 +2809,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
           // Add retry functionality
           const retryButton = elements.modalContent.querySelector('.retry-button');
-          if (retryButton) {
-            retryButton.addEventListener('click', function() {
+          if (retryButton) {retryButton.addEventListener('click', function() {
               openTranscriptModal(
                 this.getAttribute('data-video-id'),
                 this.getAttribute('data-timestamp'),
@@ -2779,6 +3323,17 @@ document.addEventListener('DOMContentLoaded', function() {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
+    }
+    
+    /**
+     * Debounce function for limiting frequency of calls
+     */
+    function debounce(func, wait) {
+      let timeout;
+      return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+      };
     }
     
     // Public API
