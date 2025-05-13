@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sermon Summarization Test Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    button {
+      background-color: #2ea3f2;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .success { color: green; }
+    .error { color: red; }
+    .section {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: #2ea3f2;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .summary-container {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+    }
+    .summary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .summary-metadata {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+    }
+    .summary-content {
+      line-height: 1.7;
+    }
+    .references-section {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    .sermon-link {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #2ea3f2;
+    }
+    .sermon-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sermon Summarization Test Tool</h1>
+  <p>This tool helps you test the sermon summarization endpoint for your API.</p>
+  
+  <div class="section">
+    <h2>API Configuration</h2>
+    <div>
+      <label for="apiUrl">API URL:</label>
+      <input type="text" id="apiUrl" value="https://sermon-search-api-8fok.onrender.com">
+    </div>
+    <button id="testConnectionBtn">Test Connection</button>
+    <div id="connectionResult"></div>
+  </div>
+  
+  <div class="section">
+    <h2>Sermon Summarization Test</h2>
+    <p>Request a summary of a sermon using different date references.</p>
+    
+    <div>
+      <label for="dateReference">Date Reference:</label>
+      <select id="dateReference">
+        <option value="last sunday">Last Sunday</option>
+        <option value="latest">Latest Sermon</option>
+        <option value="yesterday">Yesterday</option>
+        <option value="custom">Custom Date</option>
+      </select>
+    </div>
+    
+    <div id="customDateContainer" style="display: none;">
+      <label for="customDate">Custom Date (YYYY-MM-DD):</label>
+      <input type="date" id="customDate">
+    </div>
+    
+    <div>
+      <label for="maxLength">Max Summary Length (words):</label>
+      <input type="number" id="maxLength" value="500" min="100" max="1000">
+    </div>
+    
+    <div>
+      <label for="language">Language:</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="zh">Chinese</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="includeScripture">Include Scripture References:</label>
+      <input type="checkbox" id="includeScripture" checked>
+    </div>
+    
+    <button id="getSummaryBtn">Get Sermon Summary</button>
+    <div id="loadingIndicator" style="display:none; margin-top: 10px;">
+      <p>Generating summary... This may take 20-30 seconds for a full sermon. <span class="loading"></span></p>
+    </div>
+    
+    <div id="summaryResult"></div>
+  </div>
+  
+  <div class="section">
+    <h2>Test with Video ID</h2>
+    <p>If you already know the video ID, you can test summarization directly.</p>
+    
+    <div>
+      <label for="videoId">Video ID:</label>
+      <input type="text" id="videoId" placeholder="Enter YouTube video ID">
+    </div>
+    
+    <button id="getSummaryByIdBtn">Get Summary by ID</button>
+    <div id="summaryByIdResult"></div>
+  </div>
+  
+  <div class="section">
+    <h2>Request Format Reference</h2>
+    <p>Here's the expected format for the summarize endpoint request:</p>
+    <pre>{
+  "date_reference": "last sunday",
+  "max_length": 500,
+  "language": "en",
+  "include_scripture": true
+}</pre>
+  </div>
+
+  <script>
+    // DOM Elements
+    const apiUrlInput = document.getElementById('apiUrl');
+    const testConnectionBtn = document.getElementById('testConnectionBtn');
+    const connectionResult = document.getElementById('connectionResult');
+    
+    const dateReferenceSelect = document.getElementById('dateReference');
+    const customDateContainer = document.getElementById('customDateContainer');
+    const customDateInput = document.getElementById('customDate');
+    const maxLengthInput = document.getElementById('maxLength');
+    const languageSelect = document.getElementById('language');
+    const includeScriptureCheckbox = document.getElementById('includeScripture');
+    const getSummaryBtn = document.getElementById('getSummaryBtn');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const summaryResult = document.getElementById('summaryResult');
+    
+    const videoIdInput = document.getElementById('videoId');
+    const getSummaryByIdBtn = document.getElementById('getSummaryByIdBtn');
+    const summaryByIdResult = document.getElementById('summaryByIdResult');
+    
+    // Set today's date as the default for the custom date input
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0];
+    customDateInput.value = formattedDate;
+    
+    // Event Listeners
+    testConnectionBtn.addEventListener('click', async () => {
+      await testConnection();
+    });
+    
+    dateReferenceSelect.addEventListener('change', () => {
+      if (dateReferenceSelect.value === 'custom') {
+        customDateContainer.style.display = 'block';
+      } else {
+        customDateContainer.style.display = 'none';
+      }
+    });
+    
+    getSummaryBtn.addEventListener('click', async () => {
+      await getSummary();
+    });
+    
+    getSummaryByIdBtn.addEventListener('click', async () => {
+      await getSummaryById();
+    });
+    
+    // Test API connection
+    async function testConnection() {
+      connectionResult.innerHTML = '<p>Testing connection... <span class="loading"></span></p>';
+      
+      const apiUrl = apiUrlInput.value.trim();
+      
+      try {
+        const response = await fetch(`${apiUrl}/health`, {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          mode: 'cors'
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+          connectionResult.innerHTML = `
+            <p class="success">Connection successful! API is running.</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        } else {
+          connectionResult.innerHTML = `
+            <p class="error">Connection error! Status: ${response.status}</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        console.error('Connection error:', error);
+        connectionResult.innerHTML = `
+          <p class="error">Connection error: ${error.message}</p>
+          <p>Make sure the API server is running and the URL is correct.</p>
+        `;
+      }
+    }
+    
+    // Get sermon summary
+    async function getSummary() {
+      summaryResult.innerHTML = '';
+      loadingIndicator.style.display = 'block';
+      
+      const apiUrl = apiUrlInput.value.trim();
+      let dateReference = dateReferenceSelect.value;
+      
+      // Handle custom date
+      if (dateReference === 'custom') {
+        dateReference = customDateInput.value;
+        if (!dateReference) {
+          summaryResult.innerHTML = '<p class="error">Please enter a custom date.</p>';
+          loadingIndicator.style.display = 'none';
+          return;
+        }
+      }
+      
+      const maxLength = parseInt(maxLengthInput.value) || 500;
+      const language = languageSelect.value;
+      const includeScripture = includeScriptureCheckbox.checked;
+      
+      try {
+        const response = await fetch(`${apiUrl}/summarize`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            date_reference: dateReference,
+            max_length: maxLength,
+            language: language,
+            include_scripture: includeScripture
+          }),
+          mode: 'cors'
+        });
+        
+        const result = await response.json();
+        
+        loadingIndicator.style.display = 'none';
+        
+        if (response.ok) {
+          console.log('Summary result:', result);
+          displaySummary(result, summaryResult);
+        } else {
+          summaryResult.innerHTML = `
+            <p class="error">Error fetching summary! Status: ${response.status}</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        console.error('Summary error:', error);
+        loadingIndicator.style.display = 'none';
+        summaryResult.innerHTML = `
+          <p class="error">Error fetching summary: ${error.message}</p>
+          <p>This could indicate that the summarize endpoint is not implemented yet.</p>
+        `;
+      }
+    }
+    
+    // Get sermon summary by ID
+    async function getSummaryById() {
+      summaryByIdResult.innerHTML = '';
+      
+      const apiUrl = apiUrlInput.value.trim();
+      const videoId = videoIdInput.value.trim();
+      
+      if (!videoId) {
+        summaryByIdResult.innerHTML = '<p class="error">Please enter a video ID.</p>';
+        return;
+      }
+      
+      try {
+        const response = await fetch(`${apiUrl}/summarize_by_id`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            video_id: videoId,
+            max_length: parseInt(maxLengthInput.value) || 500,
+            language: languageSelect.value,
+            include_scripture: includeScriptureCheckbox.checked
+          }),
+          mode: 'cors'
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+          console.log('Summary by ID result:', result);
+          displaySummary(result, summaryByIdResult);
+        } else {
+          summaryByIdResult.innerHTML = `
+            <p class="error">Error fetching summary! Status: ${response.status}</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        }
+      } catch (error) {
+        console.error('Summary by ID error:', error);
+        summaryByIdResult.innerHTML = `
+          <p class="error">Error fetching summary: ${error.message}</p>
+          <p>This could indicate that the summarize_by_id endpoint is not implemented yet.</p>
+        `;
+      }
+    }
+    
+    // Display a formatted summary
+    function displaySummary(data, container) {
+      // Format date if available
+      let formattedDate = data.date || 'Unknown date';
+      try {
+        if (data.date) {
+          const date = new Date(data.date);
+          formattedDate = date.toLocaleDateString(undefined, { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          });
+        }
+      } catch (e) {
+        console.warn('Date formatting error:', e);
+      }
+      
+      // Format processing time
+      const processingTime = data.processing_time ? 
+        `Processing time: ${data.processing_time.toFixed(2)} seconds` : '';
+      
+      // Create summary HTML
+      let html = `
+        <div class="summary-container">
+          <div class="summary-header">
+            <h3>${data.title || 'Sermon Summary'}</h3>
+            <span>${formattedDate}</span>
+          </div>
+          
+          <div class="summary-metadata">
+            <p><strong>Video ID:</strong> ${data.video_id || 'N/A'}</p>
+            ${processingTime ? `<p><strong>${processingTime}</strong></p>` : ''}
+          </div>
+          
+          <div class="summary-content">
+            ${formatSummaryText(data.summary)}
+          </div>
+      `;
+      
+      // Add scripture references if available
+      if (data.scripture_references && data.scripture_references.length > 0) {
+        html += `
+          <div class="references-section">
+            <h4>Scripture References</h4>
+            <ul>
+        `;
+        
+        data.scripture_references.forEach(ref => {
+          const reference = ref.reference_text || `${ref.book} ${ref.chapter}:${ref.verse}`;
+          html += `<li>${reference}</li>`;
+        });
+        
+        html += `
+            </ul>
+          </div>
+        `;
+      }
+      
+      // Add watch sermon link
+      if (data.url) {
+        html += `
+          <a href="${data.url}" target="_blank" class="sermon-link">
+            Watch Sermon on YouTube
+          </a>
+        `;
+      }
+      
+      html += `</div>`;
+      
+      container.innerHTML = html;
+    }
+    
+    // Format summary text with paragraphs and lists
+    function formatSummaryText(text) {
+      if (!text) return '<p><em>No summary available</em></p>';
+      
+      // Convert line breaks to paragraphs
+      let formatted = text
+        .split('\n\n')
+        .map(para => {
+          // Check if this is a list item
+          if (para.trim().match(/^\d+\.\s/)) {
+            // This looks like a numbered list
+            const items = para.split(/\n(?=\d+\.\s)/).map(item => `<li>${item.replace(/^\d+\.\s/, '')}</li>`);
+            return `<ol>${items.join('')}</ol>`;
+          } else if (para.trim().match(/^[\*\-•]\s/)) {
+            // This looks like a bulleted list
+            const items = para.split(/\n(?=[\*\-•]\s)/).map(item => `<li>${item.replace(/^[\*\-•]\s/, '')}</li>`);
+            return `<ul>${items.join('')}</ul>`;
+          } else {
+            return `<p>${para}</p>`;
+          }
+        })
+        .join('');
+        
+      return formatted;
+    }
+    
+    // Initialize by testing connection when the page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      testConnection();
+    });
+  </script>
+</body>
+</html>
