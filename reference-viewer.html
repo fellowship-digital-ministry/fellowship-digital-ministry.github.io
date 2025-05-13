@@ -3,7 +3,6 @@ layout: default
 title: Bible Reference Explorer
 custom_class: reference-viewer-page
 ---
-<!-- Bible Reference Explorer - Redesigned for Jekyll -->
 <div class="bible-explorer-container">
   <div class="bible-explorer-header">
     <h1>Bible Reference Explorer</h1>
@@ -118,34 +117,6 @@ custom_class: reference-viewer-page
           </div>
         </div>
         
-        <!-- New: Sorting controls -->
-        <div class="chapter-controls">
-          <div class="sort-control">
-            <label for="verse-sort">Sort by:</label>
-            <select id="verse-sort" class="verse-sort-dropdown">
-              <option value="verse-number">Verse Number</option>
-              <option value="reference-count">Reference Count (Most to Least)</option>
-            </select>
-          </div>
-          <div class="view-control">
-            <span>View:</span>
-            <button id="view-compact" class="view-button active" title="Compact View">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="21" y1="10" x2="3" y2="10"></line>
-                <line x1="21" y1="6" x2="3" y2="6"></line>
-                <line x1="21" y1="14" x2="3" y2="14"></line>
-                <line x1="21" y1="18" x2="3" y2="18"></line>
-              </svg>
-            </button>
-            <button id="view-expanded" class="view-button" title="Expanded View">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-        
         <div class="chapter-verses" id="chapter-verses">
           <!-- Verses will be populated here -->
         </div>
@@ -179,23 +150,10 @@ custom_class: reference-viewer-page
           </div>
         </div>
         
-        <!-- Bible verse text container - Always visible but separate from occurrences -->
-        <div class="verse-text-container" id="verse-text-container">
-          <div class="verse-text-header">
-            <div class="verse-bible-label">KJV Bible Text</div>
-            <a href="#" class="bible-gateway-link" id="bible-gateway-link" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              View on Bible Gateway
-            </a>
-          </div>
-          <div class="verse-text" id="verse-text">Loading verse text...</div>
+        <!-- Bible verse text container -->
+        <div class="verse-text-container" id="verse-text-container" style="display: none;">
+          <div class="verse-text" id="verse-text"></div>
         </div>
-        
-        <h3 class="occurrences-heading">Sermon References</h3>
         
         <div class="verse-occurrences" id="verse-occurrences">
           <!-- Occurrences will be populated here -->
@@ -216,2544 +174,2227 @@ custom_class: reference-viewer-page
       </div>
     </div>
   </div>
+  
+  <!-- Sources Panel (similar to search.html) -->
+  <div id="sourcesPanel" class="claude-sources-panel" aria-hidden="true">
+    <button id="closeSourcesPanel" class="claude-sources-close" aria-label="Close sources panel">×</button>
+    <div id="sourcesPanelContent" class="claude-sources-panel-content">
+      <!-- Sources will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Overlay Container for Modals -->
+  <div id="claude-overlay-container"></div>
 </div>
-
-<style>
-/* Bible Reference Explorer - Redesigned Styles */
-:root {
-  /* Colors */
-  --primary-color: #2284c5;
-  --primary-dark: #1a6aa1;
-  --primary-light: #a8dcff;
-  --primary-lighter: #e9f5ff;
-  --secondary-color: #f2f5f7;
-  --accent-color: #3a9fff;
-  --text-color: #333333;
-  --text-muted: #666666;
-  --border-color: #e2e8f0;
-  --bg-color: #ffffff;
-  --bg-gray: #f7fafc;
-  --bg-gray-dark: #edf2f7;
-  --success-color: #38c172;
-  --error-color: #e3342f;
-  --warning-color: #f6993f;
-  --highlight-color: #ffe082;
-  
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-xxl: 3rem;
-  
-  /* Animation */
-  --transition-speed: 0.3s;
-}
-
-/* Main Container */
-.bible-explorer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-md);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text-color);
-  padding-bottom: var(--space-xxl);
-}
-
-/* Header */
-.bible-explorer-header {
-  margin-bottom: var(--space-xl);
-  text-align: center;
-}
-
-.bible-explorer-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-md);
-  color: var(--primary-color);
-}
-
-.bible-explorer-intro {
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-/* Stats Section */
-.bible-explorer-stats {
-  margin-bottom: var(--space-xl);
-}
-
-.stats-loading,
-.books-loading,
-.chapters-loading,
-.verses-loading,
-.occurrences-loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--space-lg);
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.stats-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-md);
-}
-
-.stats-card {
-  background-color: var(--bg-gray);
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  padding: var(--space-lg);
-  min-width: 200px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform var(--transition-speed) ease, 
-              box-shadow var(--transition-speed) ease;
-  flex: 1;
-}
-
-.stats-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.stats-card h3 {
-  margin-top: 0;
-  margin-bottom: var(--space-sm);
-  font-size: 1rem;
-  color: var(--text-muted);
-}
-
-.stats-number {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  margin: var(--space-sm) 0;
-}
-
-.stats-book {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: var(--space-xs);
-}
-
-/* Main Content Area */
-.bible-explorer-main {
-  display: flex;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  background-color: var(--bg-color);
-  min-height: 500px;
-  overflow: hidden;
-  margin-bottom: var(--space-xl);
-}
-
-/* Sidebar */
-.bible-sidebar {
-  width: 300px;
-  border-right: 1px solid var(--border-color);
-  background-color: var(--bg-gray);
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  max-height: 700px;
-}
-
-.sidebar-header {
-  padding: var(--space-md);
-  border-bottom: 1px solid var(--border-color);
-  background-color: var(--bg-gray-dark);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.sidebar-header h3 {
-  margin: 0 0 var(--space-sm);
-  font-size: 1.1rem;
-}
-
-.search-box {
-  position: relative;
-  margin-bottom: var(--space-sm);
-}
-
-.search-box input {
-  width: 100%;
-  padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-lg);
-  border: 1px solid var(--border-color);
-  border-radius: 0.25rem;
-  font-size: 0.9rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: 8px center;
-}
-
-.search-box input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.25);
-}
-
-.clear-search {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  opacity: 0.5;
-  transition: opacity var(--transition-speed) ease;
-}
-
-.clear-search:hover {
-  opacity: 1;
-}
-
-.testament-section {
-  padding: var(--space-md) 0;
-}
-
-.testament-title {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin: 0;
-  padding: 0 var(--space-md) var(--space-sm);
-  letter-spacing: 0.05em;
-}
-
-.books-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.book-item {
-  padding: var(--space-sm) var(--space-md);
-  border-left: 3px solid transparent;
-  transition: background-color var(--transition-speed) ease,
-              border-color var(--transition-speed) ease;
-  cursor: pointer;
-}
-
-.book-item:hover {
-  background-color: var(--bg-gray-dark);
-  border-left-color: var(--primary-light);
-}
-
-.book-item.active {
-  background-color: var(--primary-lighter);
-  border-left-color: var(--primary-color);
-}
-
-.book-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.book-name {
-  font-weight: 500;
-}
-
-.book-count {
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
-  font-size: 0.8rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 0.25rem;
-  min-width: 24px;
-  text-align: center;
-}
-
-/* Bible Content Area */
-.bible-content {
-  flex: 1;
-  padding: var(--space-md);
-  overflow-y: auto;
-  height: 100%;
-  max-height: 700px;
-}
-
-.content-loading {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  color: var(--text-muted);
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(52, 144, 220, 0.2);
-  border-top: 4px solid var(--primary-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: var(--space-md);
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Breadcrumbs */
-.breadcrumbs {
-  margin-bottom: var(--space-md);
-  font-size: 0.9rem;
-}
-
-.breadcrumb-home {
-  color: var(--text-muted);
-}
-
-.breadcrumb-separator {
-  margin: 0 var(--space-xs);
-  color: var(--text-muted);
-}
-
-.breadcrumb-book,
-.breadcrumb-chapter,
-.breadcrumb-verse {
-  color: var(--primary-color);
-  cursor: pointer;
-}
-
-.breadcrumb-book:hover,
-.breadcrumb-chapter:hover,
-.breadcrumb-verse:hover {
-  text-decoration: underline;
-}
-
-/* Back Button */
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-sm) var(--space-md);
-  background-color: var(--bg-gray);
-  border: 1px solid var(--border-color);
-  border-radius: 0.25rem;
-  color: var(--text-color);
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-bottom: var(--space-md);
-  transition: background-color var(--transition-speed) ease;
-}
-
-.back-button svg {
-  margin-right: var(--space-sm);
-}
-
-.back-button:hover {
-  background-color: var(--bg-gray-dark);
-}
-
-/* Book View */
-.book-header {
-  margin-bottom: var(--space-lg);
-}
-
-.book-header h2 {
-  font-size: 1.75rem;
-  margin: 0 0 var(--space-sm);
-  color: var(--primary-color);
-}
-
-.book-stats {
-  color: var(--text-muted);
-  font-size: 1rem;
-}
-
-.chapter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-  gap: var(--space-md);
-  padding: var(--space-sm) 0;
-}
-
-.chapter-item {
-  background-color: var(--bg-gray);
-  border: 1px solid var(--border-color);
-  border-radius: 0.25rem;
-  padding: var(--space-md) var(--space-sm);
-  text-align: center;
-  cursor: pointer;
-  transition: transform var(--transition-speed) ease,
-              box-shadow var(--transition-speed) ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.chapter-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.chapter-number {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: var(--space-xs);
-}
-
-.chapter-reference-count {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.general-references {
-  grid-column: 1 / -1;
-  background-color: var(--primary-lighter);
-  border: 1px solid var(--primary-light);
-  padding: var(--space-md);
-  border-radius: 0.5rem;
-  margin-top: var(--space-md);
-}
-
-.general-references-title {
-  font-size: 1.1rem;
-  color: var(--primary-dark);
-  margin: 0 0 var(--space-sm);
-  font-weight: 600;
-}
-
-.general-references-count {
-  background-color: var(--primary-color);
-  color: white;
-  font-size: 0.8rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 0.25rem;
-  display: inline-block;
-  margin-left: var(--space-xs);
-}
-
-.general-references-desc {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin: var(--space-sm) 0;
-}
-
-/* Chapter View */
-.chapter-header {
-  margin-bottom: var(--space-lg);
-}
-
-.chapter-header h2 {
-  font-size: 1.75rem;
-  margin: 0 0 var(--space-sm);
-  color: var(--primary-color);
-}
-
-.chapter-stats {
-  color: var(--text-muted);
-  font-size: 1rem;
-}
-
-/* Chapter Controls */
-.chapter-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
-  background-color: var(--bg-gray);
-  border-radius: 0.5rem;
-}
-
-.sort-control {
-  display: flex;
-  align-items: center;
-}
-
-.sort-control label {
-  margin-right: var(--space-sm);
-  font-size: 0.9rem;
-}
-
-.verse-sort-dropdown {
-  padding: var(--space-xs) var(--space-sm);
-  border: 1px solid var(--border-color);
-  border-radius: 0.25rem;
-  font-size: 0.9rem;
-}
-
-.view-control {
-  display: flex;
-  align-items: center;
-}
-
-.view-control span {
-  margin-right: var(--space-sm);
-  font-size: 0.9rem;
-}
-
-.view-button {
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
-  padding: var(--space-xs) var(--space-sm);
-  margin-left: var(--space-xs);
-  border-radius: 0.25rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.view-button.active {
-  background-color: var(--primary-light);
-  border-color: var(--primary-color);
-  color: var(--primary-dark);
-}
-
-/* Verse List */
-.verse-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.verse-item {
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform var(--transition-speed) ease,
-              box-shadow var(--transition-speed) ease;
-}
-
-.verse-item.interactive {
-  cursor: pointer;
-}
-
-.verse-item.interactive:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.verse-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-md);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.verse-number {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-}
-
-.verse-count {
-  font-size: 0.8rem;
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.25rem;
-}
-
-.verse-content {
-  padding: var(--space-md);
-}
-
-.verse-section {
-  margin-bottom: var(--space-md);
-}
-
-.verse-section-label {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: var(--space-xs);
-  display: block;
-}
-
-.verse-preview {
-  color: var(--text-color);
-  font-style: italic;
-  line-height: 1.5;
-  margin-bottom: var(--space-sm);
-  padding: var(--space-sm);
-  background-color: var(--bg-gray);
-  border-radius: 0.25rem;
-  position: relative;
-}
-
-.verse-preview::before {
-  content: '"';
-  position: absolute;
-  left: -0.2rem;
-  top: -0.5rem;
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  opacity: 0.5;
-}
-
-.verse-preview::after {
-  content: '"';
-  position: absolute;
-  right: -0.2rem;
-  bottom: -1rem;
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  opacity: 0.5;
-}
-
-/* Bible Text Container */
-.verse-bible-container {
-  margin-top: var(--space-md);
-  padding: var(--space-md);
-  background-color: var(--primary-lighter);
-  border: 1px solid var(--primary-light);
-  border-radius: 0.5rem;
-}
-
-.verse-bible-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-sm);
-}
-
-.verse-bible-label {
-  font-weight: 600;
-  color: var(--primary-dark);
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-}
-
-.verse-bible-label svg {
-  margin-right: var(--space-xs);
-}
-
-.verse-bible-content {
-  font-family: Georgia, serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-color);
-}
-
-.verse-actions {
-  display: flex;
-  gap: var(--space-sm);
-  margin-top: var(--space-md);
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--border-color);
-}
-
-.verse-action-button {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-xs) var(--space-sm);
-  background-color: var(--bg-gray);
-  border: 1px solid var(--border-color);
-  border-radius: 0.25rem;
-  color: var(--text-color);
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: background-color var(--transition-speed) ease;
-}
-
-.verse-action-button svg {
-  margin-right: var(--space-xs);
-}
-
-.verse-action-button:hover {
-  background-color: var(--bg-gray-dark);
-}
-
-.view-references {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-dark);
-}
-
-.view-references:hover {
-  background-color: var(--primary-dark);
-}
-
-/* Expanded View */
-.verse-item.expanded {
-  margin-bottom: var(--space-lg);
-}
-
-.verse-bible-toggle {
-  background: none;
-  border: none;
-  color: var(--primary-color);
-  font-size: 0.9rem;
-  padding: 0;
-  margin-top: var(--space-xs);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.verse-bible-toggle svg {
-  transition: transform var(--transition-speed) ease;
-  margin-right: var(--space-xs);
-}
-
-.verse-bible-toggle.active svg {
-  transform: rotate(90deg);
-}
-
-.verse-bible-toggle:hover {
-  text-decoration: underline;
-}
-
-/* Verse View */
-.verse-view .verse-header {
-  margin-bottom: var(--space-lg);
-  border-bottom: none;
-  padding: 0;
-}
-
-.verse-view .verse-header h2 {
-  font-size: 1.75rem;
-  margin: 0 0 var(--space-sm);
-  color: var(--primary-color);
-}
-
-.verse-view .verse-stats {
-  color: var(--text-muted);
-  font-size: 1rem;
-}
-
-/* Verse Text Container in Verse View */
-.verse-text-container {
-  background-color: var(--primary-lighter);
-  border: 1px solid var(--primary-light);
-  border-radius: 0.5rem;
-  padding: var(--space-lg);
-  margin-bottom: var(--space-lg);
-}
-
-.verse-text-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-md);
-}
-
-.verse-bible-label {
-  font-weight: 600;
-  color: var(--primary-dark);
-  display: flex;
-  align-items: center;
-}
-
-.bible-gateway-link {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.9rem;
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.bible-gateway-link svg {
-  margin-right: var(--space-xs);
-}
-
-.bible-gateway-link:hover {
-  text-decoration: underline;
-}
-
-.verse-text {
-  font-family: Georgia, serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: var(--text-color);
-}
-
-/* Occurrences Heading */
-.occurrences-heading {
-  font-size: 1.3rem;
-  color: var(--text-color);
-  margin: var(--space-lg) 0 var(--space-md);
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: var(--space-sm);
-}
-
-/* Occurrences in Verse View */
-.verse-occurrences {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.occurrence-item {
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  padding: var(--space-md);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform var(--transition-speed) ease,
-              box-shadow var(--transition-speed) ease;
-}
-
-.occurrence-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.occurrence-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--space-md);
-}
-
-.occurrence-title {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: var(--text-color);
-  margin: 0 0 var(--space-xs);
-}
-
-.occurrence-date {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.occurrence-context-label {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: var(--space-xs);
-}
-
-.occurrence-context {
-  background-color: var(--bg-gray);
-  border-radius: 0.5rem;
-  padding: var(--space-md);
-  margin-bottom: var(--space-md);
-  position: relative;
-  font-style: italic;
-  line-height: 1.6;
-}
-
-.occurrence-context .highlight {
-  background-color: var(--highlight-color);
-  padding: 0 2px;
-  border-radius: 2px;
-}
-
-.occurrence-meta {
-  display: flex;
-  margin-bottom: var(--space-md);
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.occurrence-timestamp {
-  display: flex;
-  align-items: center;
-}
-
-.occurrence-timestamp svg {
-  margin-right: var(--space-xs);
-}
-
-.occurrence-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-
-.occurrence-button {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-sm) var(--space-md);
-  background-color: var(--bg-gray);
-  border: 1px solid var(--border-color);
-  border-radius: 0.25rem;
-  color: var(--text-color);
-  font-size: 0.9rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color var(--transition-speed) ease;
-}
-
-.occurrence-button svg {
-  margin-right: var(--space-sm);
-}
-
-.occurrence-button:hover {
-  background-color: var(--bg-gray-dark);
-}
-
-.watch-video {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.watch-video:hover {
-  background-color: var(--primary-dark);
-}
-
-/* Modal */
-.reference-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-}
-
-.reference-modal-content {
-  background-color: white;
-  border-radius: 0.5rem;
-  width: 90%;
-  max-width: 900px;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.reference-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-md) var(--space-lg);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.reference-modal-header h2 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.close-modal {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--text-muted);
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.close-modal:hover {
-  background-color: var(--bg-gray);
-}
-
-.reference-modal-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: var(--space-lg);
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 992px) {
-  .bible-explorer-main {
-    flex-direction: column;
-    height: auto;
-  }
-  
-  .bible-sidebar {
-    width: 100%;
-    max-height: 300px;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  .bible-content {
-    max-height: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .stats-container {
-    flex-direction: column;
-  }
-  
-  .chapter-grid {
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-  }
-  
-  .chapter-controls {
-    flex-direction: column;
-    gap: var(--space-sm);
-    align-items: flex-start;
-  }
-  
-  .occurrence-actions {
-    flex-direction: column;
-  }
-  
-  .occurrence-button {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .verse-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-xs);
-  }
-  
-  .occurrence-header {
-    flex-direction: column;
-  }
-}
-</style>
-
+<script src="{{ '/assets/js/bible-sources-panel.js' | relative_url }}"></script>
 <script>
 /**
  * Bible Reference Explorer
- * Redesigned to address user concerns around usability and clarity
+ * A tool for exploring Bible references from sermon transcripts
+ * Organized by book, chapter, and verse
+ * Modified to use local JSON files instead of API calls
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-  const BibleExplorer = (function() {
-    // Configuration
-    const config = {
-      dataPath: '/assets/data/bible', // Base path for Bible data JSON files
-      booksPath: '/assets/data/bible/books', // Path for individual book JSON files
-      youtubeBaseUrl: 'https://www.youtube.com/watch?v=',
-      bibleGatewayBaseUrl: 'https://www.biblegateway.com/passage/?search=',
-      bibleVersion: 'KJV',
-      // Added KJV API for better Bible verse retrieval
-      kjvApiBase: '/assets/data/Bible-kjv-master',
+const BibleExplorer = (function() {
+  // Configuration
+  const config = {
+    dataPath: '/assets/data/bible', // Base path for Bible data JSON files
+    booksPath: '/assets/data/bible/books', // Path for individual book JSON files
+    youtubeBaseUrl: 'https://www.youtube.com/watch?v=',
+    bibleGatewayBaseUrl: 'https://www.biblegateway.com/passage/?search=',
+    bibleVersion: 'KJV',
+    cacheExpiration: 60 * 60 * 1000, // 1 hour in milliseconds
+    useCaching: true, // Enable/disable local storage caching
+    scrollBehavior: 'auto', // Changed from 'smooth' to 'auto' to help with mobile
+    preserveScrollOnNavigation: true // New config to control scroll behavior
+  };
+  
+  // State
+  const state = {
+    statsLoaded: false,
+    booksLoaded: false,
+    chaptersLoaded: {},
+    versesLoaded: {},
+    currentBook: null,
+    currentChapter: null,
+    currentVerse: null,
+    expandedBooks: {},
+    expandedChapters: {},
+    searchTerm: '',
+    isLoadingStats: false,
+    isLoadingBooks: false,
+    isLoadingChapters: false,
+    isLoadingVerses: false,
+    lastScrollPosition: 0 // Store last scroll position for history navigation
+  };
+  
+  // Bible book order for sorting
+const bibleBookOrder = [
+  // Old Testament
+  "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+  "Joshua", "Judges", "Ruth", "1_Samuel", "2_Samuel",
+  "1_Kings", "2_Kings", "1_Chronicles", "2_Chronicles",
+  "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+  "Ecclesiastes", "Song_of_Solomon", "Isaiah", "Jeremiah",
+  "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+  "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah",
+  "Haggai", "Zechariah", "Malachi",
+  // New Testament
+  "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+  "1_Corinthians", "2_Corinthians", "Galatians", "Ephesians",
+  "Philippians", "Colossians", "1_Thessalonians", "2_Thessalonians",
+  "1_Timothy", "2_Timothy", "Titus", "Philemon", "Hebrews",
+  "James", "1_Peter", "2_Peter", "1_John", "2_John", "3_John",
+  "Jude", "Revelation"
+];
+  
+  // New Testament books for categorization
+const newTestamentBooks = [
+  "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+  "1_Corinthians", "2_Corinthians", "Galatians", "Ephesians",
+  "Philippians", "Colossians", "1_Thessalonians", "2_Thessalonians",
+  "1_Timothy", "2_Timothy", "Titus", "Philemon", "Hebrews",
+  "James", "1_Peter", "2_Peter", "1_John", "2_John", "3_John",
+  "Jude", "Revelation"
+];
+  
+  // Cached data
+  const cache = {
+    stats: null,
+    books: null,
+    chapters: {},
+    verses: {},
+    references: {},
+    timestamp: {}
+  };
+  
+  // DOM Elements - initialize in the init function
+  let elements = {};
+  
+  /**
+   * Initialize the Bible Explorer
+   */
+  function init() {
+    // Get DOM elements
+    elements = {
+      // Statistics elements
+      statsLoading: document.getElementById('stats-loading'),
+      statsContainer: document.getElementById('stats-container'),
+      totalReferences: document.getElementById('total-references'),
+      topBook: document.getElementById('top-book'),
+      topBookCount: document.getElementById('top-book-count'),
+      topChapter: document.getElementById('top-chapter'),
+      topChapterCount: document.getElementById('top-chapter-count'),
+      
+      // Book navigation
+      bookSearch: document.getElementById('book-search'),
+      clearSearch: document.getElementById('clear-search'),
+      otBooks: document.getElementById('ot-books'),
+      ntBooks: document.getElementById('nt-books'),
+      
+      // Content views
+      contentLoading: document.getElementById('content-loading'),
+      bookView: document.getElementById('book-view'),
+      chapterView: document.getElementById('chapter-view'),
+      verseView: document.getElementById('verse-view'),
+      
+      // Book view elements
+      breadcrumbBook: document.getElementById('breadcrumb-book'),
+      bookTitle: document.getElementById('book-title'),
+      bookCount: document.getElementById('book-count'),
+      bookChapters: document.getElementById('book-chapters'),
+      
+      // Chapter view elements
+      breadcrumbChapterBook: document.getElementById('breadcrumb-chapter-book'),
+      breadcrumbChapter: document.getElementById('breadcrumb-chapter'),
+      backToBook: document.getElementById('back-to-book'),
+      chapterTitle: document.getElementById('chapter-title'),
+      chapterCount: document.getElementById('chapter-count'),
+      chapterVerses: document.getElementById('chapter-verses'),
+      
+      // Verse view elements
+      breadcrumbVerseBook: document.getElementById('breadcrumb-verse-book'),
+      breadcrumbVerseChapter: document.getElementById('breadcrumb-verse-chapter'),
+      breadcrumbVerse: document.getElementById('breadcrumb-verse'),
+      backToChapter: document.getElementById('back-to-chapter'),
+      verseTitle: document.getElementById('verse-title'),
+      verseCount: document.getElementById('verse-count'),
+      verseOccurrences: document.getElementById('verse-occurrences'),
+      
+      // Modal elements
+      referenceModal: document.getElementById('reference-modal'),
+      modalTitle: document.getElementById('modal-title'),
+      modalContent: document.getElementById('modal-content'),
+      closeModal: document.getElementById('close-modal')
     };
     
-    // State
-    const state = {
-      currentBook: null,
-      currentChapter: null,
-      currentVerse: null,
-      viewMode: 'compact', // 'compact' or 'expanded'
-      sortOption: 'verse-number', // 'verse-number' or 'reference-count'
-      expandedVerses: {} // Track which verses have their Bible text expanded
-    };
-    
-    // DOM Elements
-    let elements = {};
-    
-    /**
-     * Initialize the Bible Explorer
-     */
-    function init() {
-      // Get DOM elements
-      mapDomElements();
-      
-      // Setup event listeners
-      setupEventListeners();
-      
-      // Load initial data (Genesis by default)
-      loadBook('Philemon');
+    if (!checkElements()) {
+      console.error('Bible Explorer: Required DOM elements not found');
+      return;
     }
     
-    /**
-     * Map all DOM elements used by the explorer
-     */
-    function mapDomElements() {
-      elements = {
-        // Views
-        bookView: document.getElementById('book-view'),
-        chapterView: document.getElementById('chapter-view'),
-        verseView: document.getElementById('verse-view'),
-        contentLoading: document.getElementById('content-loading'),
-        
-        // Book view elements
-        bookTitle: document.getElementById('book-title'),
-        bookCount: document.getElementById('book-count'),
-        bookChapters: document.getElementById('book-chapters'),
-        
-        // Chapter view elements
-        chapterTitle: document.getElementById('chapter-title'),
-        chapterCount: document.getElementById('chapter-count'),
-        chapterVerses: document.getElementById('chapter-verses'),
-        verseSort: document.getElementById('verse-sort'),
-        viewCompact: document.getElementById('view-compact'),
-        viewExpanded: document.getElementById('view-expanded'),
-        
-        // Verse view elements
-        verseTitle: document.getElementById('verse-title'),
-        verseCount: document.getElementById('verse-count'),
-        verseText: document.getElementById('verse-text'),
-        verseOccurrences: document.getElementById('verse-occurrences'),
-        bibleGatewayLink: document.getElementById('bible-gateway-link'),
-        
-        // Navigation
-        breadcrumbBook: document.getElementById('breadcrumb-book'),
-        breadcrumbChapterBook: document.getElementById('breadcrumb-chapter-book'),
-        breadcrumbChapter: document.getElementById('breadcrumb-chapter'),
-        breadcrumbVerseBook: document.getElementById('breadcrumb-verse-book'),
-        breadcrumbVerseChapter: document.getElementById('breadcrumb-verse-chapter'),
-        breadcrumbVerse: document.getElementById('breadcrumb-verse'),
-        backToBook: document.getElementById('back-to-book'),
-        backToChapter: document.getElementById('back-to-chapter'),
-        
-        // Modal
-        referenceModal: document.getElementById('reference-modal'),
-        modalTitle: document.getElementById('modal-title'),
-        modalContent: document.getElementById('modal-content'),
-        closeModal: document.getElementById('close-modal'),
-      };
+    // Setup event listeners
+    setupEventListeners();
+    
+    // Load initial data
+    loadInitialData();
+    
+    // Try to restore cached data
+    if (config.useCaching) {
+      restoreFromCache();
     }
     
-    /**
-     * Set up event listeners
-     */
-    function setupEventListeners() {
-      // Back buttons
-      if (elements.backToBook) {
-        elements.backToBook.addEventListener('click', () => {
-          showBookView(state.currentBook);
-        });
-      }
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', handleHistoryNavigation);
+  }
+  
+  /**
+   * Handle browser history navigation (back/forward buttons)
+   */
+  function handleHistoryNavigation(event) {
+    if (event.state) {
+      const { view, book, chapter, verse } = event.state;
       
-      if (elements.backToChapter) {
-        elements.backToChapter.addEventListener('click', () => {
-          showChapterView(state.currentBook, state.currentChapter);
-        });
-      }
+      // Don't scroll to top when navigating with browser history
+      const preserveScroll = true;
       
-      // Breadcrumbs
-      if (elements.breadcrumbBook) {
-        elements.breadcrumbBook.addEventListener('click', () => {
-          showBookView(state.currentBook);
-        });
+      if (view === 'book' && book) {
+        showBookView(book, preserveScroll);
+      } else if (view === 'chapter' && book && chapter) {
+        showChapterView(book, chapter, preserveScroll);
+      } else if (view === 'verse' && book && chapter && verse) {
+        showVerseView(book, chapter, verse, preserveScroll);
       }
-      
-      if (elements.breadcrumbChapterBook) {
-        elements.breadcrumbChapterBook.addEventListener('click', () => {
-          showBookView(state.currentBook);
-        });
-      }
-      
-      if (elements.breadcrumbVerseBook) {
-        elements.breadcrumbVerseBook.addEventListener('click', () => {
-          showBookView(state.currentBook);
-        });
-      }
-      
-      if (elements.breadcrumbVerseChapter) {
-        elements.breadcrumbVerseChapter.addEventListener('click', () => {
-          showChapterView(state.currentBook, state.currentChapter);
-        });
-      }
-      
-      // Sorting
-      if (elements.verseSort) {
-        elements.verseSort.addEventListener('change', (e) => {
-          state.sortOption = e.target.value;
-          // Reload the current chapter view with new sorting
-          showChapterView(state.currentBook, state.currentChapter, true);
-        });
-      }
-      
-      // View mode toggles
-      if (elements.viewCompact) {
-        elements.viewCompact.addEventListener('click', () => {
-          state.viewMode = 'compact';
-          elements.viewCompact.classList.add('active');
-          elements.viewExpanded.classList.remove('active');
-          showChapterView(state.currentBook, state.currentChapter, true);
-        });
-      }
-      
-      if (elements.viewExpanded) {
-        elements.viewExpanded.addEventListener('click', () => {
-          state.viewMode = 'expanded';
-          elements.viewExpanded.classList.add('active');
-          elements.viewCompact.classList.remove('active');
-          showChapterView(state.currentBook, state.currentChapter, true);
-        });
-      }
-      
-      // Modal close
-      if (elements.closeModal) {
-        elements.closeModal.addEventListener('click', closeModal);
-      }
-      
-      if (elements.referenceModal) {
-        elements.referenceModal.addEventListener('click', (e) => {
-          if (e.target === elements.referenceModal) {
-            closeModal();
-          }
-        });
-      }
-      
-      // Key press for Escape to close modal
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && elements.referenceModal.style.display === 'flex') {
+    }
+  }
+  
+  /**
+   * Check if all required DOM elements exist
+   */
+  function checkElements() {
+    // Check if critical elements exist
+    return elements.statsLoading && 
+           elements.otBooks &&
+           elements.ntBooks;
+  }
+  
+  /**
+   * Setup event listeners
+   */
+  function setupEventListeners() {
+    // Book search
+    if (elements.bookSearch) {
+      elements.bookSearch.addEventListener('input', debounce(function(e) {
+        state.searchTerm = e.target.value.trim().toLowerCase();
+        filterBooks(state.searchTerm);
+      }, 300));
+    }
+    
+    // Clear search
+    if (elements.clearSearch) {
+      elements.clearSearch.addEventListener('click', function() {
+        if (elements.bookSearch) {
+          elements.bookSearch.value = '';
+          state.searchTerm = '';
+          filterBooks('');
+        }
+      });
+    }
+    
+    // Back to book button
+    if (elements.backToBook) {
+      elements.backToBook.addEventListener('click', function() {
+        showBookView(state.currentBook);
+      });
+    }
+    
+    // Back to chapter button
+    if (elements.backToChapter) {
+      elements.backToChapter.addEventListener('click', function() {
+        showChapterView(state.currentBook, state.currentChapter);
+      });
+    }
+    
+    // Modal close button
+    if (elements.closeModal) {
+      elements.closeModal.addEventListener('click', closeModal);
+    }
+    
+    // Global click handler for modal backdrop
+    if (elements.referenceModal) {
+      elements.referenceModal.addEventListener('click', function(event) {
+        if (event.target === elements.referenceModal) {
           closeModal();
         }
       });
     }
     
-    /**
-     * Load book data and display the book view
-     */
-    function loadBook(book) {
-      if (!book) return;
-      
-      state.currentBook = book;
-      
-      // Show loading state
-      showLoading(true);
-      
-      // Fetch book data
-      fetch(`${config.booksPath}/${book}.json`)
-        .then(response => response.json())
-        .then(data => {
-          // Process the book data
-          showBookView(book, data);
-        })
-        .catch(error => {
-          console.error(`Error loading book ${book}:`, error);
-          showErrorMessage(`Failed to load data for ${book}. Please try again.`);
-        });
-    }
+    // Keyboard navigation
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isModalOpen()) {
+        closeModal();
+      }
+    });
     
-    /**
-     * Show the book view with chapters
-     */
-    function showBookView(book, bookData) {
-      if (!book) return;
-      
-      // If we don't have book data, load it first
-      if (!bookData) {
-        loadBook(book);
-        return;
-      }
-      
-      // Update state
-      state.currentBook = book;
-      state.currentChapter = null;
-      state.currentVerse = null;
-      
-      // Update breadcrumbs
-      elements.breadcrumbBook.textContent = formatBookName(book);
-      
-      // Update title and count
-      elements.bookTitle.textContent = formatBookName(book);
-      elements.bookCount.textContent = bookData.total_references;
-      
-      // Show book view, hide others
-      elements.contentLoading.style.display = 'none';
-      elements.chapterView.style.display = 'none';
-      elements.verseView.style.display = 'none';
-      elements.bookView.style.display = 'block';
-      
-      // Populate chapters
-      populateChapters(book, bookData);
-    }
+    // Store scroll position on scroll
+    window.addEventListener('scroll', debounce(function() {
+      state.lastScrollPosition = window.scrollY;
+    }, 100));
+  }
+  
+  /**
+   * Load initial data (statistics and books)
+   */
+  function loadInitialData() {
+    // Load statistics
+    loadBibleStats();
     
-    /**
-     * Populate chapters grid
-     */
-    function populateChapters(book, bookData) {
-      elements.bookChapters.innerHTML = '';
-      
-      if (!bookData || !bookData.chapters) {
-        elements.bookChapters.innerHTML = `<div class="no-chapters">No chapters found for ${formatBookName(book)}</div>`;
-        return;
-      }
-      
-      // Create chapter grid
-      const chaptersContainer = document.createElement('div');
-      chaptersContainer.className = 'chapter-grid';
-      
-      // Count references by chapter
-      const chapterCounts = {};
-      let generalReferencesCount = 0;
-      
-      Object.entries(bookData.chapters).forEach(([chapter, references]) => {
-        if (chapter === 'None' || chapter === 'unknown') {
-          generalReferencesCount += references.length;
-        } else {
-          chapterCounts[chapter] = references.length;
-        }
-      });
-      
-      // Sort chapter numbers numerically
-      const chapterNumbers = Object.keys(chapterCounts).sort((a, b) => parseInt(a) - parseInt(b));
-      
-      // Create chapter elements
-      chapterNumbers.forEach(chapterNum => {
-        const count = chapterCounts[chapterNum];
-        
-        const chapterElement = document.createElement('div');
-        chapterElement.className = 'chapter-item';
-        chapterElement.innerHTML = `
-          <div class="chapter-number">${chapterNum}</div>
-          <div class="chapter-reference-count">${count} ref${count !== 1 ? 's' : ''}</div>
-        `;
-        
-        // Add heat map coloring based on reference count
-        const maxCount = Math.max(...Object.values(chapterCounts));
-        const ratio = Math.min(count / (maxCount * 0.5), 1);
-        chapterElement.style.backgroundColor = `hsla(211, ${Math.round(ratio * 100)}%, 90%, ${0.6 + (ratio * 0.4)})`;
-        
-        // Make chapter clickable
-        chapterElement.addEventListener('click', () => {
-          showChapterView(book, chapterNum);
-        });
-        
-        chaptersContainer.appendChild(chapterElement);
-      });
-      
-      elements.bookChapters.appendChild(chaptersContainer);
-      
-      // Add general references section if any exist
-      if (generalReferencesCount > 0) {
-        const generalSection = document.createElement('div');
-        generalSection.className = 'general-references';
-        generalSection.innerHTML = `
-          <div class="general-references-title">
-            General Book References <span class="general-references-count">${generalReferencesCount}</span>
-          </div>
-          <div class="general-references-desc">
-            References to ${formatBookName(book)} without specific chapter or verse attribution
-          </div>
-          <button class="verse-action-button view-references">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            View References
-          </button>
-        `;
-        
-        // Make button clickable to view general references
-        const viewButton = generalSection.querySelector('.view-references');
-        viewButton.addEventListener('click', () => {
-          showChapterView(book, 'general');
-        });
-        
-        elements.bookChapters.appendChild(generalSection);
-      }
-    }
+    // Load books list
+    loadBibleBooks();
     
-    /**
-     * Show chapter view with verses
-     */
-    function showChapterView(book, chapter, preserveState = false) {
-      if (!book || !chapter) return;
-      
-      // Update state if not preserving state (for sorting/view changes)
-      if (!preserveState) {
-        state.currentBook = book;
-        state.currentChapter = chapter;
-        state.currentVerse = null;
-      }
-      
-      // Show loading state
-      showLoading(true);
-      
-      // Update breadcrumbs
-      elements.breadcrumbChapterBook.textContent = formatBookName(book);
-      elements.breadcrumbChapter.textContent = chapter === 'general' ? 'General References' : `Chapter ${chapter}`;
-      
-      // Update title
-      elements.chapterTitle.textContent = chapter === 'general' 
-        ? `${formatBookName(book)} - General References` 
-        : `${formatBookName(book)} ${chapter}`;
-      
-      // Set sort dropdown to current state
-      if (elements.verseSort) {
-        elements.verseSort.value = state.sortOption;
-      }
-      
-      // Set view mode buttons
-      elements.viewCompact.classList.toggle('active', state.viewMode === 'compact');
-      elements.viewExpanded.classList.toggle('active', state.viewMode === 'expanded');
-      
-      // Show chapter view, hide others
-      elements.contentLoading.style.display = 'none';
-      elements.bookView.style.display = 'none';
-      elements.verseView.style.display = 'none';
-      elements.chapterView.style.display = 'block';
-      
-      // Fetch book data if we don't have it
-      fetch(`${config.booksPath}/${book}.json`)
-        .then(response => response.json())
-        .then(data => {
-          // Process the chapter data
-          let references = [];
-          
-          if (chapter === 'general') {
-            // Combine 'None' and 'unknown' references
-            if (data.chapters['None']) {
-              references = references.concat(data.chapters['None']);
-            }
-            if (data.chapters['unknown']) {
-              references = references.concat(data.chapters['unknown']);
-            }
-          } else {
-            // Get chapter references
-            references = data.chapters[chapter] || [];
-          }
-          
-          // Update reference count
-          elements.chapterCount.textContent = references.length;
-          
-          // Populate verses
-          populateVerses(book, chapter, references);
-          
-          // Hide loading
-          showLoading(false);
-        })
-        .catch(error => {
-          console.error(`Error loading chapter data for ${book} ${chapter}:`, error);
-          showErrorMessage(`Failed to load chapter data for ${formatBookName(book)} ${chapter}.`);
-          showLoading(false);
-        });
-    }
-    
-    /**
-     * Populate verses for chapter view
-     */
-    function populateVerses(book, chapter, references) {
-      elements.chapterVerses.innerHTML = '';
-      
-      if (!references || references.length === 0) {
-        elements.chapterVerses.innerHTML = `
-          <div class="no-verses">No verses found for ${formatBookName(book)} ${chapter}</div>
-        `;
-        return;
-      }
-      
-      // Group references by verse
-      const verseMap = {};
-      references.forEach(reference => {
-        const verse = reference.verse !== null ? reference.verse : 'general';
-        
-        if (!verseMap[verse]) {
-          verseMap[verse] = [];
-        }
-        
-        verseMap[verse].push(reference);
-      });
-      
-      // Get verses based on sort option
-      let verses = Object.keys(verseMap);
-      
-      if (state.sortOption === 'verse-number') {
-        // Sort verses numerically
-        verses.sort((a, b) => {
-          if (a === 'general') return 1;
-          if (b === 'general') return -1;
-          return parseInt(a) - parseInt(b);
-        });
+    // Default to Genesis instead of showing the spinner
+    setTimeout(() => {
+      if (state.booksLoaded) {
+        showBookView('Genesis');
       } else {
-        // Sort by reference count (most first)
-        verses.sort((a, b) => {
-          return verseMap[b].length - verseMap[a].length;
-        });
+        // If books aren't loaded yet, set up a listener to show Genesis once they are
+        const checkBooksLoaded = setInterval(() => {
+          if (state.booksLoaded) {
+            showBookView('Genesis');
+            clearInterval(checkBooksLoaded);
+          }
+        }, 100);
+        
+        // Clear the interval after 10 seconds to prevent infinite checking
+        setTimeout(() => clearInterval(checkBooksLoaded), 10000);
+      }
+    }, 300);
+  }
+  
+  /**
+   * Restore data from local storage cache
+   */
+  function restoreFromCache() {
+    try {
+      // Check if we have cached stats
+      const cachedStats = localStorage.getItem('bible_explorer_stats');
+      if (cachedStats) {
+        const statsData = JSON.parse(cachedStats);
+        const timestamp = parseInt(localStorage.getItem('bible_explorer_stats_timestamp') || '0');
+        
+        // Check if cache is still valid
+        if (Date.now() - timestamp < config.cacheExpiration) {
+          cache.stats = statsData;
+          cache.timestamp.stats = timestamp;
+          
+          // Update UI with cached stats
+          updateStatistics(statsData);
+        }
       }
       
-      // Create verses container
-      const versesContainer = document.createElement('div');
-      versesContainer.className = 'verse-list';
-      
-      // Create verse items
-      verses.forEach(verse => {
-        const verseReferences = verseMap[verse];
-        const count = verseReferences.length;
+      // Check if we have cached books
+      const cachedBooks = localStorage.getItem('bible_explorer_books');
+      if (cachedBooks) {
+        const booksData = JSON.parse(cachedBooks);
+        const timestamp = parseInt(localStorage.getItem('bible_explorer_books_timestamp') || '0');
         
-        // Create verse element
-        const verseElement = document.createElement('div');
-        verseElement.className = 'verse-item interactive';
-        verseElement.setAttribute('data-verse', verse);
-        
-        // Format verse display text
-        const formattedVerse = verse === 'general' 
-          ? 'General References' 
-          : `Verse ${verse}`;
-        
-        // Get a sample reference for preview
-        const sampleReference = verseReferences[0];
-        let contextPreview = '';
-        
-        if (sampleReference && sampleReference.context) {
-          contextPreview = sampleReference.context.length > 150
-            ? sampleReference.context.substring(0, 150) + '...'
-            : sampleReference.context;
-        }
-        
-        if (state.viewMode === 'compact') {
-          // Compact view - just shows basic info and a preview
-          verseElement.innerHTML = `
-            <div class="verse-header">
-              <div class="verse-number">${formattedVerse}</div>
-              <div class="verse-count">${count} reference${count !== 1 ? 's' : ''}</div>
-            </div>
-            <div class="verse-content">
-              <div class="verse-section">
-                <span class="verse-section-label">From sermon:</span>
-                <div class="verse-preview">${escapeHTML(contextPreview)}</div>
-              </div>
-              
-              <div class="verse-actions">
-                <button class="verse-action-button view-references">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                  View All References
-                </button>
-                
-                ${verse !== 'general' ? `
-                <button class="verse-action-button toggle-bible-text" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                  </svg>
-                  Show KJV Bible Text
-                </button>
-                ` : ''}
-              </div>
-            </div>
-          `;
-        } else {
-          // Expanded view - shows more details including Bible text section
-          let bibleTextHTML = '';
+        // Check if cache is still valid
+        if (Date.now() - timestamp < config.cacheExpiration) {
+          cache.books = booksData;
+          cache.timestamp.books = timestamp;
           
-          if (verse !== 'general') {
-            bibleTextHTML = `
-              <div class="verse-bible-container" style="display: none"; id="bible-text-${book}-${chapter}-${verse}">
-                <div class="verse-bible-header">
-                  <div class="verse-bible-label">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                    </svg>
-                    KJV Bible Text
-                  </div>
-                  <a href="${config.bibleGatewayBaseUrl}${book}+${chapter}:${verse}&version=${config.bibleVersion}" class="bible-gateway-link" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    View on Bible Gateway
-                  </a>
-                </div>
-                <div class="verse-bible-content">Loading verse text...</div>
-              </div>
-            `;
+          // Update UI with cached books
+          if (booksData.books && Array.isArray(booksData.books)) {
+            populateBooksList(booksData.books);
           }
-          
-          verseElement.innerHTML = `
-            <div class="verse-header">
-              <div class="verse-number">${formattedVerse}</div>
-              <div class="verse-count">${count} reference${count !== 1 ? 's' : ''}</div>
-            </div>
-            <div class="verse-content">
-              <div class="verse-section">
-                <span class="verse-section-label">From sermon:</span>
-                <div class="verse-preview">${escapeHTML(contextPreview)}</div>
-              </div>
-              
-              ${bibleTextHTML}
-              
-              <div class="verse-actions">
-                <button class="verse-action-button view-references">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                  View All References
-                </button>
-                
-                ${verse !== 'general' ? `
-                <button class="verse-bible-toggle" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                  Show KJV Bible Text
-                </button>
-                ` : ''}
-              </div>
-            </div>
-          `;
         }
-        
-        // Add click handler for verse
-        verseElement.querySelector('.view-references').addEventListener('click', (e) => {
-          e.stopPropagation(); // Don't propagate to verse element
-          showVerseView(book, chapter, verse);
-        });
-        
-        // Add click handler for verse element
-        verseElement.addEventListener('click', () => {
-          showVerseView(book, chapter, verse);
-        });
-        
-        // Add toggle handlers for Bible text if it exists
-        const toggleButton = verseElement.querySelector('.toggle-bible-text, .verse-bible-toggle');
-        if (toggleButton) {
-          toggleButton.addEventListener('click', (e) => {
-            e.stopPropagation(); // Don't propagate to verse element
-            
-            const verseBook = toggleButton.getAttribute('data-book');
-            const verseChapter = toggleButton.getAttribute('data-chapter');
-            const verseNum = toggleButton.getAttribute('data-verse');
-            
-            // In compact view, we need to load and show the Bible text
-            if (state.viewMode === 'compact') {
-              // Open verse view but scroll to Bible text
-              showVerseView(verseBook, verseChapter, verseNum, true);
-              return;
-            }
-            
-            // In expanded view, we toggle the Bible text container
-            const textContainer = document.getElementById(`bible-text-${verseBook}-${verseChapter}-${verseNum}`);
-            
-            if (textContainer) {
-              const isVisible = textContainer.style.display !== 'none';
-              textContainer.style.display = isVisible ? 'none' : 'block';
-              
-              // Toggle button text and icon rotation
-              toggleButton.classList.toggle('active', !isVisible);
-              toggleButton.innerHTML = isVisible ? `
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-                Show KJV Bible Text
-              ` : `
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 6 15 12 9 18"></polyline>
-                </svg>
-                Hide KJV Bible Text
-              `;
-              
-              // Load Bible text if container is now visible and doesn't have content yet
-              const contentElement = textContainer.querySelector('.verse-bible-content');
-              if (!isVisible && contentElement && contentElement.textContent === 'Loading verse text...') {
-                loadBibleVerseText(verseBook, verseChapter, verseNum, contentElement);
-              }
-            }
-          });
-        }
-        
-        versesContainer.appendChild(verseElement);
-        
-        // In expanded view, load Bible text for visible containers
-        if (state.viewMode === 'expanded' && verse !== 'general') {
-          setTimeout(() => {
-            const textContainer = document.getElementById(`bible-text-${book}-${chapter}-${verse}`);
-            if (textContainer && state.expandedVerses[`${book}-${chapter}-${verse}`]) {
-              textContainer.style.display = 'block';
-              
-              const contentElement = textContainer.querySelector('.verse-bible-content');
-              if (contentElement && contentElement.textContent === 'Loading verse text...') {
-                loadBibleVerseText(book, chapter, verse, contentElement);
-              }
-              
-              // Update toggle button
-              const toggleButton = verseElement.querySelector('.verse-bible-toggle');
-              if (toggleButton) {
-                toggleButton.classList.add('active');
-                toggleButton.innerHTML = `
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 6 15 12 9 18"></polyline>
-                  </svg>
-                  Hide KJV Bible Text
-                `;
-              }
-            }
-          }, 100);
-        }
-      });
-      
-      elements.chapterVerses.appendChild(versesContainer);
+      }
+    } catch (error) {
+      console.error('Error restoring from cache:', error);
+      // Clear potentially corrupted cache
+      clearCache();
     }
+  }
+  
+  /**
+   * Save data to local storage cache
+   */
+  function saveToCache(key, data) {
+    if (!config.useCaching) return;
     
-    /**
-     * Show verse view with occurrences
-     */
-    function showVerseView(book, chapter, verse, scrollToBibleText = false) {
-      if (!book || !chapter) return;
+    try {
+      localStorage.setItem(`bible_explorer_${key}`, JSON.stringify(data));
+      localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
       
-      // Update state
-      state.currentBook = book;
-      state.currentChapter = chapter;
-      state.currentVerse = verse;
-      
-      // Show loading state
-      showLoading(true);
-      
-      // Update breadcrumbs
-      elements.breadcrumbVerseBook.textContent = formatBookName(book);
-      elements.breadcrumbVerseChapter.textContent = chapter === 'general' ? 'General References' : `Chapter ${chapter}`;
-      elements.breadcrumbVerse.textContent = verse === 'general' ? 'General References' : `Verse ${verse}`;
-      
-      // Update title
-      const reference = verse === 'general' 
-        ? `${formatBookName(book)} - General References` 
-        : `${formatBookName(book)} ${chapter}:${verse}`;
-      
-      elements.verseTitle.textContent = reference;
-      
-      // Update Bible Gateway link
-      if (elements.bibleGatewayLink) {
-        const url = `${config.bibleGatewayBaseUrl}${book}+${chapter}:${verse}&version=${config.bibleVersion}`;
-        elements.bibleGatewayLink.href = url;
-      }
-      
-      // Show verse view, hide others
-      elements.contentLoading.style.display = 'none';
-      elements.bookView.style.display = 'none';
-      elements.chapterView.style.display = 'none';
-      elements.verseView.style.display = 'block';
-      
-      // Fetch book data and filter for verse
-      fetch(`${config.booksPath}/${book}.json`)
-        .then(response => response.json())
-        .then(data => {
-          let references = [];
-          
-          if (verse === 'general' || chapter === 'general') {
-            // Combine references from 'None' and 'unknown'
-            if (data.chapters['None']) {
-              references = references.concat(data.chapters['None']);
-            }
-            if (data.chapters['unknown']) {
-              references = references.concat(data.chapters['unknown'].filter(ref => 
-                ref.verse === null || ref.verse === 'unknown'
-              ));
-            }
-          } else {
-            // Get chapter references and filter by verse
-            const chapterReferences = data.chapters[chapter] || [];
-            references = chapterReferences.filter(ref => 
-              (ref.verse === parseInt(verse)) || 
-              (ref.verse === verse)
-            );
-          }
-          
-          // Update reference count
-          elements.verseCount.textContent = references.length;
-          
-          // Load Bible verse text
-          if (verse !== 'general' && chapter !== 'general') {
-            loadBibleVerseText(book, chapter, verse, elements.verseText);
-            elements.verseText.parentElement.style.display = 'block';
-          } else {
-            elements.verseText.parentElement.style.display = 'none';
-          }
-          
-          // Populate occurrences
-          populateOccurrences(references);
-          
-          // Hide loading
-          showLoading(false);
-          
-          // Scroll to Bible text if requested
-          if (scrollToBibleText && verse !== 'general') {
-            setTimeout(() => {
-              elements.verseText.parentElement.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-          }
-        })
-        .catch(error => {
-          console.error(`Error loading verse data for ${book} ${chapter}:${verse}:`, error);
-          showErrorMessage(`Failed to load verse data for ${formatBookName(book)} ${chapter}:${verse}.`);
-          showLoading(false);
-        });
+      cache[key] = data;
+      cache.timestamp[key] = Date.now();
+    } catch (error) {
+      console.error(`Error saving ${key} to cache:`, error);
     }
+  }
+  
+  /**
+   * Save chapters data to cache with book as key
+   */
+  function saveChaptersToCache(book, data) {
+    if (!config.useCaching) return;
     
-    /**
-     * Load Bible verse text from KJV API
-     */
-    function loadBibleVerseText(book, chapter, verse, element) {
-      if (!book || !chapter || !verse || chapter === 'general' || verse === 'general') {
-        if (element) {
-          element.textContent = 'No Bible text available for this reference.';
-        }
-        return;
-      }
+    try {
+      const key = `chapters_${book}`;
+      const dataString = JSON.stringify(data);
       
+      // Try to store the data
       try {
-        // Format the book name for KJV API
-        const formattedBook = formatBookForKJV(book);
-        
-        // Make the request to the KJV API
-        fetch(`${config.kjvApiBase}/${formattedBook}.json`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`Failed to load Bible data: ${response.status}`);
+        localStorage.setItem(`bible_explorer_${key}`, dataString);
+        localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+      } catch (storageError) {
+        // If we hit quota limits, try to free up space
+        if (storageError.name === 'QuotaExceededError' || 
+            storageError.code === 22 || // Chrome quota error
+            storageError.code === 1014) { // Firefox quota error
+          
+          console.log(`Storage quota exceeded for ${book}, attempting to free space...`);
+          
+          // Try to clear older cached items
+          const keysToRemove = [];
+          
+          // Find all bible_explorer cache items
+          for (let i = 0; i < localStorage.length; i++) {
+            const storageKey = localStorage.key(i);
+            if (storageKey && storageKey.startsWith('bible_explorer_chapters_') && 
+                !storageKey.endsWith('_timestamp') && 
+                storageKey !== `bible_explorer_${key}`) {
+              keysToRemove.push(storageKey);
             }
-            return response.json();
-          })
-          .then(data => {
-            // Find the chapter
-            const chapterData = data.chapters.find(c => c.chapter.toString() === chapter.toString());
+          }
+          
+          // Sort by timestamp (oldest first) if available
+          keysToRemove.sort((a, b) => {
+            const timestampA = localStorage.getItem(`${a}_timestamp`) || '0';
+            const timestampB = localStorage.getItem(`${b}_timestamp`) || '0';
+            return parseInt(timestampA) - parseInt(timestampB);
+          });
+          
+          // Remove oldest items first
+          let removed = 0;
+          for (const keyToRemove of keysToRemove) {
+            localStorage.removeItem(keyToRemove);
+            localStorage.removeItem(`${keyToRemove}_timestamp`);
+            removed++;
             
-            if (chapterData) {
-              // Find the verse
-              const verseData = chapterData.verses.find(v => v.verse.toString() === verse.toString());
-              
-              if (verseData) {
-                // Update the element with the verse text
-                if (element) {
-                  element.textContent = verseData.text;
-                }
+            // Try storing again after each removal
+            try {
+              localStorage.setItem(`bible_explorer_${key}`, dataString);
+              localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+              console.log(`Successfully stored ${book} after removing ${removed} older items`);
+              break; // Success, exit the loop
+            } catch (e) {
+              // Continue removing items
+              if (removed >= keysToRemove.length) {
+                // If we've removed everything and still can't store, give up
+                console.warn(`Unable to cache ${book} even after clearing space`);
                 return;
               }
             }
-            
-            // If we get here, the verse wasn't found
-            if (element) {
-              element.textContent = `Verse text not found for ${formatBookName(book)} ${chapter}:${verse}.`;
-            }
-          })
-          .catch(error => {
-            console.error('Error fetching Bible verse:', error);
-            if (element) {
-              element.textContent = 'Error loading Bible verse text.';
-            }
-          });
-      } catch (error) {
-        console.error('Error in loadBibleVerseText:', error);
-        if (element) {
-          element.textContent = 'Error processing Bible verse request.';
+          }
+        } else {
+          // If it's not a quota error, rethrow
+          throw storageError;
+        }
+      }
+      
+      // Update in-memory cache
+      if (!cache.chapters) cache.chapters = {};
+      cache.chapters[book] = data;
+      
+      if (!cache.timestamp) cache.timestamp = {};
+      cache.timestamp[key] = Date.now();
+    } catch (error) {
+      console.error(`Error saving chapters for ${book} to cache:`, error);
+      // Continue without caching
+    }
+  }
+  
+  /**
+   * Restore chapters data from cache
+   */
+  function getChaptersFromCache(book) {
+    if (!config.useCaching) return null;
+    
+    try {
+      const key = `chapters_${book}`;
+      const cachedData = localStorage.getItem(`bible_explorer_${key}`);
+      
+      if (cachedData) {
+        const timestamp = parseInt(localStorage.getItem(`bible_explorer_${key}_timestamp`) || '0');
+        
+        // Check if cache is still valid
+        if (Date.now() - timestamp < config.cacheExpiration) {
+          const data = JSON.parse(cachedData);
+          
+          if (!cache.chapters) cache.chapters = {};
+          cache.chapters[book] = data;
+          
+          return data;
+        }
+      }
+    } catch (error) {
+      console.error(`Error retrieving chapters for ${book} from cache:`, error);
+    }
+    
+    return null;
+  }
+  
+  /**
+   * Save verses data to cache with book and chapter as key
+   */
+  function saveVersesToCache(book, chapter, data) {
+    if (!config.useCaching) return;
+    
+    try {
+      const key = `verses_${book}_${chapter}`;
+      localStorage.setItem(`bible_explorer_${key}`, JSON.stringify(data));
+      localStorage.setItem(`bible_explorer_${key}_timestamp`, Date.now().toString());
+      
+      if (!cache.verses) cache.verses = {};
+      if (!cache.verses[book]) cache.verses[book] = {};
+      cache.verses[book][chapter] = data;
+      
+      if (!cache.timestamp) cache.timestamp = {};
+      cache.timestamp[key] = Date.now();
+    } catch (error) {
+      console.error(`Error saving verses for ${book} ${chapter} to cache:`, error);
+    }
+  }
+  
+  /**
+   * Restore verses data from cache
+   */
+  function getVersesFromCache(book, chapter) {
+    if (!config.useCaching) return null;
+    
+    try {
+      const key = `verses_${book}_${chapter}`;
+      const cachedData = localStorage.getItem(`bible_explorer_${key}`);
+      
+      if (cachedData) {
+        const timestamp = parseInt(localStorage.getItem(`bible_explorer_${key}_timestamp`) || '0');
+        
+        // Check if cache is still valid
+        if (Date.now() - timestamp < config.cacheExpiration) {
+          const data = JSON.parse(cachedData);
+          
+          if (!cache.verses) cache.verses = {};
+          if (!cache.verses[book]) cache.verses[book] = {};
+          cache.verses[book][chapter] = data;
+          
+          return data;
+        }
+      }
+    } catch (error) {
+      console.error(`Error retrieving verses for ${book} ${chapter} from cache:`, error);
+    }
+    
+    return null;
+  }
+  
+  /**
+   * Clear cache
+   */
+  function clearCache() {
+    try {
+      // Clear stats and books
+      localStorage.removeItem('bible_explorer_stats');
+      localStorage.removeItem('bible_explorer_stats_timestamp');
+      localStorage.removeItem('bible_explorer_books');
+      localStorage.removeItem('bible_explorer_books_timestamp');
+      
+      // Find and clear chapters and verses
+      Object.keys(localStorage).forEach(key => {
+        if (key.startsWith('bible_explorer_chapters_') || 
+            key.startsWith('bible_explorer_verses_') ||
+            key.startsWith('bible_explorer_references_')) {
+          localStorage.removeItem(key);
+          localStorage.removeItem(key + '_timestamp');
+        }
+      });
+      
+      // Reset cache object
+      cache.stats = null;
+      cache.books = null;
+      cache.chapters = {};
+      cache.verses = {};
+      cache.references = {};
+      cache.timestamp = {};
+    } catch (error) {
+      console.error('Error clearing cache:', error);
+    }
+  }
+  
+  /**
+   * Load Bible statistics from local JSON file
+   */
+  function loadBibleStats() {
+    if (state.isLoadingStats || state.statsLoaded) return;
+    
+    state.isLoadingStats = true;
+    showStatsLoading(true);
+    
+    fetch(`${config.dataPath}/bible_stats.json`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load Bible statistics: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Update statistics UI
+        updateStatistics(data);
+        
+        // Save to cache
+        saveToCache('stats', data);
+        
+        state.statsLoaded = true;
+        state.isLoadingStats = false;
+        showStatsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error loading Bible statistics:', error);
+        showErrorNotification('Failed to load statistics. Please try again later.');
+        state.isLoadingStats = false;
+        showStatsLoading(false);
+      });
+  }
+  
+  /**
+   * Load Bible books list from local JSON file
+   */
+  function loadBibleBooks() {
+    if (state.isLoadingBooks || state.booksLoaded) return;
+    
+    state.isLoadingBooks = true;
+    
+    fetch(`${config.dataPath}/bible_books.json`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load Bible books: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Filter out any non-Bible books
+        if (data.books && Array.isArray(data.books)) {
+          data.books = filterValidBibleBooks(data.books);
+        }
+        
+        // Populate book lists
+        populateBooksList(data.books || []);
+        
+        // Save to cache
+        saveToCache('books', data);
+        
+        state.booksLoaded = true;
+        state.isLoadingBooks = false;
+      })
+      .catch(error => {
+        console.error('Error loading Bible books:', error);
+        showErrorNotification('Failed to load Bible books. Please try again later.');
+        state.isLoadingBooks = false;
+      });
+  }
+  
+  /**
+   * Filter out non-Bible books from data
+   */
+  function filterValidBibleBooks(books) {
+    if (!books || !Array.isArray(books)) return [];
+    
+    // Only keep books that are in our bibleBookOrder array (known Bible books)
+    return books.filter(bookData => 
+      bibleBookOrder.includes(bookData.book) || 
+      // Include some alternates that might be in the data but not in our order array
+      bookData.book === 'Psalms' || 
+      bookData.book === 'Song of Songs'
+    );
+  }
+  
+/**
+ * Update statistics display
+ */
+function updateStatistics(data) {
+  if (!data) return;
+  
+  // Update summary statistics
+  elements.totalReferences.textContent = data.total_references.toLocaleString();
+  
+  // Update top book
+  if (data.top_books && data.top_books.length > 0) {
+    const topBook = data.top_books[0];
+    elements.topBook.textContent = formatBookName(topBook.book);
+    elements.topBookCount.textContent = topBook.count.toLocaleString();
+  }
+  
+  // Update top chapter - but skip 'unknown' chapters
+  if (data.top_chapters && data.top_chapters.length > 0) {
+    // Find the first chapter that isn't 'unknown'
+    const validTopChapter = data.top_chapters.find(chapter => 
+      chapter.chapter !== 'unknown' && chapter.chapter !== null
+    );
+    
+    // If we found a valid chapter, display it
+    if (validTopChapter) {
+      elements.topChapter.textContent = `${formatBookName(validTopChapter.book)} ${validTopChapter.chapter}`;
+      elements.topChapterCount.textContent = validTopChapter.count.toLocaleString();
+    } else {
+      // Fallback if all top chapters are 'unknown'
+      const topChapter = data.top_chapters[0];
+      elements.topChapter.textContent = `${formatBookName(topChapter.book)} ${topChapter.chapter}`;
+      elements.topChapterCount.textContent = topChapter.count.toLocaleString();
+    }
+  }
+  
+  // Show the statistics container
+  elements.statsLoading.style.display = 'none';
+  elements.statsContainer.style.display = 'flex';
+}
+  
+  /**
+   * Populate books list based on Old/New Testament
+   */
+  function populateBooksList(books) {
+    if (!books || !Array.isArray(books)) return;
+    
+    // Clear loading messages
+    elements.otBooks.innerHTML = '';
+    elements.ntBooks.innerHTML = '';
+    
+    // Sort books according to biblical order
+    const sortedBooks = [...books].sort((a, b) => {
+      const bookA = a.book;
+      const bookB = b.book;
+      
+      const indexA = bibleBookOrder.indexOf(bookA);
+      const indexB = bibleBookOrder.indexOf(bookB);
+      
+      // If both books are found in the order array
+      if (indexA !== -1 && indexB !== -1) {
+        return indexA - indexB;
+      }
+      
+      // If only one book is found, prioritize it
+      if (indexA !== -1) return -1;
+      if (indexB !== -1) return 1;
+      
+      // If neither is found, sort alphabetically
+      return bookA.localeCompare(bookB);
+    });
+    
+    // Filter books by testament and create elements
+    sortedBooks.forEach(bookData => {
+      const bookElement = createBookElement(bookData);
+      
+      // Determine if this is an OT or NT book
+      if (newTestamentBooks.includes(bookData.book)) {
+        elements.ntBooks.appendChild(bookElement);
+      } else {
+        elements.otBooks.appendChild(bookElement);
+      }
+    });
+  }
+  
+  /**
+   * Create a book element for the sidebar
+   */
+  function createBookElement(bookData) {
+    const book = bookData.book;
+    const count = bookData.count;
+    
+    const bookElement = document.createElement('div');
+    bookElement.className = 'book-item';
+    bookElement.setAttribute('data-book', book);
+    
+    const bookName = formatBookName(book);
+    
+    bookElement.innerHTML = `
+      <div class="book-item-header">
+        <div class="book-name">${bookName}</div>
+        <div class="book-count">${count}</div>
+      </div>
+    `;
+    
+    // Make book clickable
+    bookElement.addEventListener('click', function() {
+      // Show the book view
+      showBookView(book);
+    });
+    
+    return bookElement;
+  }
+  
+  /**
+   * Filter books based on search term
+   */
+  function filterBooks(searchTerm) {
+    // Get all book items
+    const bookItems = document.querySelectorAll('.book-item');
+    
+    if (!searchTerm) {
+      // Show all books
+      bookItems.forEach(item => {
+        item.style.display = 'block';
+      });
+      
+      // Show all testament sections
+      document.querySelectorAll('.testament-section').forEach(section => {
+        section.style.display = 'block';
+      });
+      
+      return;
+    }
+    
+    // Show/hide books based on search term
+    let oldTestamentVisible = false;
+    let newTestamentVisible = false;
+    
+    bookItems.forEach(item => {
+      const bookName = item.querySelector('.book-name').textContent.toLowerCase();
+      
+      if (bookName.includes(searchTerm)) {
+        item.style.display = 'block';
+        
+        // Determine which testament section should be shown
+        const book = item.getAttribute('data-book');
+        if (newTestamentBooks.includes(book)) {
+          newTestamentVisible = true;
+        } else {
+          oldTestamentVisible = true;
+        }
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    
+    // Show/hide testament sections based on filtered books
+    const otSection = document.querySelector('.testament-section:first-child');
+    const ntSection = document.querySelector('.testament-section:last-child');
+    
+    if (otSection) otSection.style.display = oldTestamentVisible ? 'block' : 'none';
+    if (ntSection) ntSection.style.display = newTestamentVisible ? 'block' : 'none';
+  }
+  
+  /**
+   * Show book view with chapters
+   */
+  function showBookView(book, preserveScroll = false) {
+    if (!book) return;
+    
+    // Update state
+    state.currentBook = book;
+    state.currentChapter = null;
+    state.currentVerse = null;
+    
+    // Update breadcrumbs
+    elements.breadcrumbBook.textContent = formatBookName(book);
+    
+    // Update title
+    elements.bookTitle.textContent = formatBookName(book);
+    
+    // Find book count
+    if (cache.books && cache.books.books) {
+      const bookData = cache.books.books.find(b => b.book === book);
+      if (bookData) {
+        elements.bookCount.textContent = bookData.count;
+      }
+    }
+    
+    // Hide other views and show book view
+    elements.contentLoading.style.display = 'none';
+    elements.chapterView.style.display = 'none';
+    elements.verseView.style.display = 'none';
+    elements.bookView.style.display = 'block';
+    
+    // Load chapters for this book
+    loadBookChapters(book);
+    
+    // Update active state in sidebar
+    document.querySelectorAll('.book-item').forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('data-book') === book) {
+        item.classList.add('active');
+      }
+    });
+    
+    // Handle history state
+    updateHistoryState('book', book);
+    
+    // Scroll behavior (fixed for mobile scroll issues)
+    if (!preserveScroll && !config.preserveScrollOnNavigation) {
+      scrollToTop();
+    }
+  }
+  
+  /**
+   * Update browser history state
+   */
+  function updateHistoryState(view, book, chapter, verse) {
+    // Create a state object
+    const state = { view, book };
+    
+    // Add chapter and verse if available
+    if (chapter) state.chapter = chapter;
+    if (verse) state.verse = verse;
+    
+    // Create a title for the history entry
+    let title = 'Bible Reference Explorer';
+    if (book) {
+      title = formatBookName(book);
+      if (chapter) {
+        title += ` ${chapter}`;
+        if (verse) {
+          title += `:${verse}`;
+        }
+      }
+      title += ' - Bible Reference Explorer';
+    }
+    
+    // Create a URL for the history entry
+    let url = '';
+    if (book) {
+      url = `#${book}`;
+      if (chapter) {
+        url += `/${chapter}`;
+        if (verse) {
+          url += `/${verse}`;
         }
       }
     }
     
-    /**
-     * Format book name for KJV API
-     */
-    function formatBookForKJV(book) {
-      // Map of special book name conversions
-      const bookMap = {
-        'Song_of_Solomon': 'SongofSolomon',
-        '1_Samuel': '1Samuel',
-        '2_Samuel': '2Samuel',
-        '1_Kings': '1Kings',
-        '2_Kings': '2Kings',
-        '1_Chronicles': '1Chronicles',
-        '2_Chronicles': '2Chronicles',
-        '1_Corinthians': '1Corinthians',
-        '2_Corinthians': '2Corinthians',
-        '1_Thessalonians': '1Thessalonians',
-        '2_Thessalonians': '2Thessalonians',
-        '1_Timothy': '1Timothy',
-        '2_Timothy': '2Timothy',
-        '1_Peter': '1Peter',
-        '2_Peter': '2Peter',
-        '1_John': '1John',
-        '2_John': '2John',
-        '3_John': '3John'
-      };
-      
-      // Check if we have a direct mapping
-      if (bookMap[book]) {
-        return bookMap[book];
+    // Check if we need to replace the current state or push a new one
+    const currentState = history.state;
+    const shouldReplace = currentState && 
+                         currentState.view === view && 
+                         currentState.book === book &&
+                         (currentState.chapter === chapter || (!currentState.chapter && !chapter)) &&
+                         (currentState.verse === verse || (!currentState.verse && !verse));
+    
+    // Update history
+    try {
+      if (shouldReplace) {
+        history.replaceState(state, title, url);
+      } else {
+        history.pushState(state, title, url);
       }
-      
-      // Default: remove underscores
-      return book.replace(/_/g, '');
+    } catch (error) {
+      console.error('Error updating history state:', error);
+    }
+  }
+  
+  /**
+   * Load chapters for a book from local JSON file
+   */
+  function loadBookChapters(book) {
+    if (!book) return;
+    
+    // Show loading state
+    elements.bookChapters.innerHTML = '<div class="chapters-loading">Loading chapters...</div>';
+    
+    // Check cache first
+    const cachedChapters = getChaptersFromCache(book);
+    if (cachedChapters) {
+      populateChapters(book, cachedChapters);
+      return;
     }
     
-    /**
-     * Populate occurrences in verse view
-     */
-    function populateOccurrences(references) {
-      elements.verseOccurrences.innerHTML = '';
-      
-      if (!references || references.length === 0) {
-        elements.verseOccurrences.innerHTML = '<div class="no-occurrences">No references found</div>';
-        return;
-      }
-      
-      // Create occurrences container
-      const occurrencesContainer = document.createElement('div');
-      occurrencesContainer.className = 'verse-occurrences';
-      
-      // Create occurrence items
-      references.forEach(reference => {
-        const occurrenceElement = document.createElement('div');
-        occurrenceElement.className = 'occurrence-item';
-        
-        // Format sermon details
-        const sermonTitle = reference.sermon_title || 'Unknown Sermon';
-        const sermonDate = formatDate(reference.publish_date || reference.sermon_date);
-        
-        // Highlight reference text in context
-        let highlightedContext = reference.context;
-        if (reference.reference_text && reference.context.includes(reference.reference_text)) {
-          highlightedContext = reference.context.replace(
-            reference.reference_text,
-            `<span class="highlight">${reference.reference_text}</span>`
-          );
+    // Fetch from local JSON file
+    fetch(`${config.booksPath}/${book}.json`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load chapters for ${book}: ${response.status} ${response.statusText}`);
         }
+        return response.json();
+      })
+      .then(data => {
+        // Save to cache
+        saveChaptersToCache(book, data);
         
-        occurrenceElement.innerHTML = `
-          <div class="occurrence-header">
-            <div>
-              <h3 class="occurrence-title">${escapeHTML(sermonTitle)}</h3>
-              ${sermonDate ? `<div class="occurrence-date">${sermonDate}</div>` : ''}
-            </div>
-          </div>
-          
-          <div class="occurrence-context-label">Context from sermon:</div>
-          <div class="occurrence-context">${highlightedContext}</div>
-          
-          <div class="occurrence-meta">
-            <div class="occurrence-timestamp">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              ${formatTimestamp(reference.start_time)}
-            </div>
-          </div>
-          
-          <div class="occurrence-actions">
-            <button class="occurrence-button watch-video" data-video-id="${reference.video_id}" data-timestamp="${reference.start_time}" data-title="${escapeHTML(sermonTitle)}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-              Watch Video
-            </button>
-            
-            <button class="occurrence-button view-transcript" data-video-id="${reference.video_id}" data-timestamp="${reference.start_time}" data-title="${escapeHTML(sermonTitle)}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-              View Transcript
-            </button>
-            
-            <a href="${config.youtubeBaseUrl}${reference.video_id}&t=${Math.floor(reference.start_time)}" target="_blank" rel="noopener noreferrer" class="occurrence-button open-youtube">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Open in YouTube
-            </a>
+        // Display chapters
+        populateChapters(book, data);
+      })
+      .catch(error => {
+        console.error(`Error loading chapters for ${book}:`, error);
+        elements.bookChapters.innerHTML = `
+          <div class="error-message">
+            Failed to load chapters for ${formatBookName(book)}. 
+            <button class="retry-button" data-book="${book}">Try Again</button>
           </div>
         `;
         
-        // Add click handlers for buttons
-        const watchButton = occurrenceElement.querySelector('.watch-video');
-        watchButton.addEventListener('click', function() {
-          const videoId = this.getAttribute('data-video-id');
-          const timestamp = this.getAttribute('data-timestamp');
-          const title = this.getAttribute('data-title');
-          openVideoModal(videoId, timestamp, title);
-        });
-        
-        const transcriptButton = occurrenceElement.querySelector('.view-transcript');
-        transcriptButton.addEventListener('click', function() {
-          const videoId = this.getAttribute('data-video-id');
-          const timestamp = this.getAttribute('data-timestamp');
-          const title = this.getAttribute('data-title');
-          openTranscriptModal(videoId, timestamp, title);
-        });
-        
-        occurrencesContainer.appendChild(occurrenceElement);
+        // Add retry functionality
+        const retryButton = elements.bookChapters.querySelector('.retry-button');
+        if (retryButton) {
+          retryButton.addEventListener('click', function() {
+            loadBookChapters(book);
+          });
+        }
+      });
+  }
+  
+  /**
+   * Populate chapters grid
+   */
+  function populateChapters(book, data) {
+    if (!data || !data.chapters) {
+      elements.bookChapters.innerHTML = `<div class="no-chapters">No chapters found for ${formatBookName(book)}</div>`;
+      return;
+    }
+    
+    const chaptersContainer = document.createElement('div');
+    chaptersContainer.className = 'chapter-grid';
+    
+    // Get chapter numbers and sort them numerically
+    const chapterNumbers = Object.keys(data.chapters);
+    chapterNumbers.sort((a, b) => {
+      // Handle 'unknown' chapter special case
+      if (a === 'unknown') return 1;
+      if (b === 'unknown') return -1;
+      
+      return parseInt(a) - parseInt(b);
+    });
+    
+    // Create chapter elements
+    chapterNumbers.forEach(chapterNum => {
+      if (chapterNum === 'unknown') return; // Skip 'unknown' chapter for now
+      
+      const references = data.chapters[chapterNum];
+      const count = references.length;
+      
+      const chapterElement = document.createElement('div');
+      chapterElement.className = 'chapter-item';
+      chapterElement.innerHTML = `
+        <div class="chapter-number">${chapterNum}</div>
+        <div class="chapter-reference-count">${count}</div>
+      `;
+      
+      // Add heat map coloring based on reference count
+      const maxCount = Math.max(...chapterNumbers.map(chap => 
+        chap !== 'unknown' ? data.chapters[chap].length : 0
+      ));
+      
+      // Create a heat map color based on count ratio (max saturation at 50% or above)
+      const ratio = Math.min(count / (maxCount * 0.5), 1);
+      chapterElement.style.backgroundColor = `hsla(211, ${Math.round(ratio * 100)}%, 90%, ${0.6 + (ratio * 0.4)})`;
+      
+      // Make chapter clickable
+      chapterElement.addEventListener('click', function() {
+        showChapterView(book, chapterNum);
       });
       
-      elements.verseOccurrences.appendChild(occurrencesContainer);
+      chaptersContainer.appendChild(chapterElement);
+    });
+    
+      // Handle 'unknown' chapter if it exists
+      if (data.chapters['unknown'] && data.chapters['unknown'].length > 0) {
+        const unknownCount = data.chapters['unknown'].length;
+        
+        const unknownElement = document.createElement('div');
+        unknownElement.className = 'chapter-item unknown-chapter';
+        unknownElement.innerHTML = `
+          <div class="chapter-number">Unknown</div>
+          <div class="chapter-reference-count">${unknownCount}</div>
+        `;
+        
+        // Make chapter clickable
+        unknownElement.addEventListener('click', function() {
+          showChapterView(book, 'unknown');
+        });
+        
+        chaptersContainer.appendChild(unknownElement);
+      }
+    
+    // Update the chapters container
+    elements.bookChapters.innerHTML = '';
+    elements.bookChapters.appendChild(chaptersContainer);
+  }
+  
+  /**
+   * Show chapter view with verses
+   */
+  function showChapterView(book, chapter, preserveScroll = false) {
+    if (!book || !chapter) return;
+    
+    // Update state
+    state.currentBook = book;
+    state.currentChapter = chapter;
+    state.currentVerse = null;
+    
+    // Update breadcrumbs
+    elements.breadcrumbChapterBook.textContent = formatBookName(book);
+    elements.breadcrumbChapterBook.setAttribute('data-book', book);
+    elements.breadcrumbChapter.textContent = chapter === 'unknown' ? 'Unknown Chapter' : `Chapter ${chapter}`;
+    
+    // Make breadcrumb book clickable
+    elements.breadcrumbChapterBook.style.cursor = 'pointer';
+    elements.breadcrumbChapterBook.onclick = function() {
+      showBookView(book);
+    };
+    
+    // Update title
+    elements.chapterTitle.textContent = chapter === 'unknown' 
+      ? `${formatBookName(book)} (Unknown Chapter)` 
+      : `${formatBookName(book)} ${chapter}`;
+    
+    // Hide other views and show chapter view
+    elements.contentLoading.style.display = 'none';
+    elements.bookView.style.display = 'none';
+    elements.verseView.style.display = 'none';
+    elements.chapterView.style.display = 'block';
+    
+    // Load verses for this chapter
+    // Since we already have the book data loaded, we can use that data instead of making another request
+    const cachedBook = getChaptersFromCache(book);
+    if (cachedBook && cachedBook.chapters && cachedBook.chapters[chapter]) {
+      const chapterData = {
+        all_occurrences: cachedBook.chapters[chapter]
+      };
+      // Update chapter count
+      elements.chapterCount.textContent = chapterData.all_occurrences.length;
+      // Display verses
+      populateVerses(book, chapter, chapterData);
+    } else {
+      // If the cached data doesn't have this chapter, load fresh data
+      loadChapterVerses(book, chapter);
     }
     
-    /**
-     * Open video modal
-     */
-    function openVideoModal(videoId, timestamp, title) {
-      if (!videoId) return;
-      
-      // Update modal title
-      elements.modalTitle.textContent = title || 'Sermon Video';
-      
-      // Update modal content
-      elements.modalContent.innerHTML = `
-        <div class="modal-video">
-          <iframe 
-            src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(timestamp)}&autoplay=1" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-          ></iframe>
-        </div>
+    // Handle history state
+    updateHistoryState('chapter', book, chapter);
+    
+    // Scroll behavior (fixed for mobile scroll issues)
+    if (!preserveScroll && !config.preserveScrollOnNavigation) {
+      scrollToTop();
+    }
+  }
+  
+  /**
+   * Load verses for a chapter
+   * This function is now a fallback if the cached book data doesn't contain the chapter
+   */
+  function loadChapterVerses(book, chapter) {
+    if (!book || !chapter) return;
+    
+    // Show loading state
+    elements.chapterVerses.innerHTML = '<div class="verses-loading">Loading verses...</div>';
+    
+    // Load the entire book data
+    fetch(`${config.booksPath}/${book}.json`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load book data for ${book}: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Save to cache
+        saveChaptersToCache(book, data);
+        
+        // Extract chapter data
+        if (data.chapters && data.chapters[chapter]) {
+          const chapterData = {
+            all_occurrences: data.chapters[chapter]
+          };
+          
+          // Save to verses cache
+          saveVersesToCache(book, chapter, chapterData);
+          
+          // Update chapter count
+          elements.chapterCount.textContent = chapterData.all_occurrences.length;
+          
+          // Display verses
+          populateVerses(book, chapter, chapterData);
+        } else {
+          elements.chapterVerses.innerHTML = `<div class="no-verses">No verses found for ${formatBookName(book)} ${chapter}</div>`;
+        }
+      })
+      .catch(error => {
+        console.error(`Error loading verses for ${book} ${chapter}:`, error);
+        elements.chapterVerses.innerHTML = `
+          <div class="error-message">
+            Failed to load verses for ${formatBookName(book)} ${chapter}. 
+            <button class="retry-button" data-book="${book}" data-chapter="${chapter}">Try Again</button>
+          </div>
+        `;
+        
+        // Add retry functionality
+        const retryButton = elements.chapterVerses.querySelector('.retry-button');
+        if (retryButton) {
+          retryButton.addEventListener('click', function() {
+            loadChapterVerses(book, chapter);
+          });
+        }
+      });
+  }
+  
+  /**
+   * Populate verses list
+   */
+  function populateVerses(book, chapter, data) {
+    if (!data || !data.all_occurrences || data.all_occurrences.length === 0) {
+      elements.chapterVerses.innerHTML = `
+        <div class="no-verses">No verse references found for ${formatBookName(book)} ${chapter}</div>
       `;
-      
-      // Show modal
-      elements.referenceModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
+      return;
     }
     
-    /**
-     * Open transcript modal
-     */
-    function openTranscriptModal(videoId, timestamp, title) {
-      if (!videoId) return;
+    // Update chapter count
+    elements.chapterCount.textContent = data.all_occurrences.length;
+    
+    // Group references by verse
+    const verseMap = {};
+    data.all_occurrences.forEach(reference => {
+      const verse = reference.verse !== null ? reference.verse : 'unknown';
       
-      // Update modal title
-      elements.modalTitle.textContent = (title ? title + ' - ' : '') + 'Transcript';
+      if (!verseMap[verse]) {
+        verseMap[verse] = [];
+      }
       
-      // Show loading state first
-      elements.modalContent.innerHTML = `
-        <div class="transcript-loading">
-          <div class="spinner"></div>
-          <p>Loading transcript...</p>
-        </div>
-      `;
+      verseMap[verse].push(reference);
+    });
+    
+    // Sort verses numerically
+    const sortedVerses = Object.keys(verseMap).sort((a, b) => {
+      if (a === 'unknown') return 1;
+      if (b === 'unknown') return -1;
+      return parseInt(a) - parseInt(b);
+    });
+    
+    // Create verses container
+    const versesContainer = document.createElement('div');
+    versesContainer.className = 'verse-list';
+    
+    // Create verse items
+    sortedVerses.forEach(verse => {
+      const references = verseMap[verse];
+      const count = references.length;
       
-      // Show modal right away
-      elements.referenceModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
+      const verseElement = document.createElement('div');
+      verseElement.className = 'verse-item';
+      verseElement.setAttribute('data-verse', verse);
       
-      // Fetch transcript from API
-      const apiBaseUrl = 'https://sermon-search-api-8fok.onrender.com';
+      const formattedVerse = verse === 'unknown' ? 'Unknown Verse' : `Verse ${verse}`;
       
-      fetch(`${apiBaseUrl}/transcript/${videoId}`)
+      // Find a sample reference for preview
+      let sampleText = '';
+      if (references[0] && references[0].context) {
+        // Get a short preview of context
+        sampleText = references[0].context.length > 120
+          ? references[0].context.substring(0, 120) + '...'
+          : references[0].context;
+      }
+      
+        // To this (adding clear labels for sermon text vs. Bible verse):
+        verseElement.innerHTML = `
+          <div class="verse-header">
+            <div class="verse-number">${formattedVerse}</div>
+            <div class="verse-count">${count} references</div>
+          </div>
+          <div class="verse-preview-header">From sermon:</div>
+          <div class="verse-preview">${sampleText}</div>
+          <div class="verse-bible-text" id="bible-text-${book}-${chapter}-${verse}" style="display: none;">
+            <div class="verse-bible-header">KJV Bible verse:</div>
+            <div class="verse-bible-content"></div>
+            <button class="verse-bible-toggle">Hide Bible verse</button>
+          </div>
+          <button class="verse-bible-expand" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Show KJV Bible verse
+          </button>
+        `;
+      
+      // Make verse clickable (but not when clicking the expand button)
+      verseElement.addEventListener('click', function(e) {
+        // Don't navigate if clicking on the expand button or toggle button
+        if (e.target.closest('.verse-bible-expand') || e.target.closest('.verse-bible-toggle')) {
+          return;
+        }
+        showVerseView(book, chapter, verse);
+      });
+      
+      versesContainer.appendChild(verseElement);
+    });
+    
+    // Update the verses container
+    elements.chapterVerses.innerHTML = '';
+    elements.chapterVerses.appendChild(versesContainer);
+    
+    // Add event listeners for expand buttons
+    versesContainer.querySelectorAll('.verse-bible-expand').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent navigation to verse view
+        
+        const book = this.getAttribute('data-book');
+        const chapter = this.getAttribute('data-chapter');
+        const verse = this.getAttribute('data-verse');
+        const bibleTextContainer = document.getElementById(`bible-text-${book}-${chapter}-${verse}`);
+        const bibleTextContent = bibleTextContainer.querySelector('.verse-bible-content');
+        
+        // If already loaded, just toggle visibility
+        if (bibleTextContainer.style.display === 'none') {
+          // Need to load the verse text
+          if (bibleTextContent.textContent.trim() === '') {
+            bibleTextContent.innerHTML = '<em>Loading verse text...</em>';
+            bibleTextContainer.style.display = 'block';
+            
+            // Fetch the verse text
+            fetchBibleVerseText(book, chapter, verse)
+              .then(text => {
+                if (text) {
+                  bibleTextContent.textContent = text;
+                } else {
+                  bibleTextContent.innerHTML = '<em>Verse text not available</em>';
+                }
+              })
+              .catch(error => {
+                console.error('Error loading verse text:', error);
+                bibleTextContent.innerHTML = '<em>Error loading verse text</em>';
+              });
+          } else {
+            // Already loaded, just show it
+            bibleTextContainer.style.display = 'block';
+          }
+          
+          // Update button text
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+            Hide Bible verse
+          `;
+        } else {
+          // Hide the verse text
+          bibleTextContainer.style.display = 'none';
+          
+          // Update button text
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Show Bible verse
+          `;
+        }
+      });
+    });
+    
+    // Add event listeners for toggle buttons
+    versesContainer.querySelectorAll('.verse-bible-toggle').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent navigation to verse view
+        
+        const bibleTextContainer = this.closest('.verse-bible-text');
+        const verseItem = this.closest('.verse-item');
+        const expandButton = verseItem.querySelector('.verse-bible-expand');
+        
+        // Hide the verse text
+        bibleTextContainer.style.display = 'none';
+        
+        // Update expand button text
+        expandButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          Show Bible verse
+        `;
+      });
+    });
+  }
+  
+  /**
+   * Fetch Bible verse text from KJV dataset
+   */
+ async function fetchBibleVerseText(book, chapter, verse) {
+  if (!book || !chapter || !verse || chapter === 'unknown' || verse === 'unknown') {
+    return null;
+  }
+  
+  try {
+    // Normalize book name to match KJV dataset file naming
+    const bookFileName = normalizeBookNameForKJV(book);
+    
+    // Set the exact correct path based on your URL structure
+    const basePath = '/assets/data/Bible-kjv-master';
+    const url = `${basePath}/${bookFileName}.json`;
+    
+    console.log(`Fetching Bible verse from: ${url}`);
+    
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        console.error(`Failed to load Bible data: ${response.status} ${response.statusText}`);
+        return null;
+      }
+      
+      const bookData = await response.json();
+      console.log(`Successfully loaded Bible data for ${bookFileName}`);
+      
+      // Find the chapter and verse
+      const chapterData = bookData.chapters.find(c => c.chapter === chapter.toString());
+      if (chapterData) {
+        const verseData = chapterData.verses.find(v => v.verse === verse.toString());
+        if (verseData) {
+          return verseData.text;
+        } else {
+          console.log(`Verse ${verse} not found in ${bookFileName} chapter ${chapter}`);
+        }
+      } else {
+        console.log(`Chapter ${chapter} not found in ${bookFileName}`);
+      }
+      
+      return null;
+    } catch (e) {
+      console.error(`Error fetching Bible data: ${e.message}`);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error in fetchBibleVerseText:', error);
+    return null;
+  }
+}
+  
+  /**
+   * Normalize book name to match KJV dataset file naming
+   */
+  function normalizeBookNameForKJV(book) {
+    // Handle special cases
+    const bookMappings = {
+      'Psalms': 'Psalms',
+      'Psalm': 'Psalms',
+      'Song_of_Solomon': 'SongofSolomon',
+      'Song_of_Songs': 'SongofSolomon',
+      '1_Samuel': '1Samuel',
+      '2_Samuel': '2Samuel',
+      '1_Kings': '1Kings',
+      '2_Kings': '2Kings',
+      '1_Chronicles': '1Chronicles',
+      '2_Chronicles': '2Chronicles',
+      '1_Corinthians': '1Corinthians',
+      '2_Corinthians': '2Corinthians',
+      '1_Thessalonians': '1Thessalonians',
+      '2_Thessalonians': '2Thessalonians',
+      '1_Timothy': '1Timothy',
+      '2_Timothy': '2Timothy',
+      '1_Peter': '1Peter',
+      '2_Peter': '2Peter',
+      '1_John': '1John',
+      '2_John': '2John',
+      '3_John': '3John'
+    };
+    
+    // Check if we have a direct mapping
+    if (bookMappings[book]) {
+      return bookMappings[book];
+    }
+    
+    // Default: remove underscores
+    return book.replace(/_/g, '');
+  }
+  
+  /**
+   * Show verse view with occurrences
+   */
+  function showVerseView(book, chapter, verse, preserveScroll = false) {
+    if (!book || !chapter || !verse) return;
+    
+    // Update state
+    state.currentBook = book;
+    state.currentChapter = chapter;
+    state.currentVerse = verse;
+    
+    // Update breadcrumbs
+    elements.breadcrumbVerseBook.textContent = formatBookName(book);
+    elements.breadcrumbVerseBook.setAttribute('data-book', book);
+    elements.breadcrumbVerseChapter.textContent = chapter === 'unknown' ? 'Unknown Chapter' : `Chapter ${chapter}`;
+    elements.breadcrumbVerseChapter.setAttribute('data-chapter', chapter);
+    elements.breadcrumbVerse.textContent = verse === 'unknown' ? 'Unknown Verse' : `Verse ${verse}`;
+    
+    // Make breadcrumb book clickable
+    elements.breadcrumbVerseBook.style.cursor = 'pointer';
+    elements.breadcrumbVerseBook.onclick = function() {
+      showBookView(book);
+    };
+    
+    // Make breadcrumb chapter clickable
+    elements.breadcrumbVerseChapter.style.cursor = 'pointer';
+    elements.breadcrumbVerseChapter.onclick = function() {
+      showChapterView(book, chapter);
+    };
+    
+    // Update title
+    elements.verseTitle.textContent = formatReference({
+      book: book,
+      chapter: chapter === 'unknown' ? null : chapter,
+      verse: verse === 'unknown' ? null : verse
+    });
+    
+    // Hide other views and show verse view
+    elements.contentLoading.style.display = 'none';
+    elements.bookView.style.display = 'none';
+    elements.chapterView.style.display = 'none';
+    elements.verseView.style.display = 'block';
+    
+    // Always hide the verse text container in verse view
+    // (as per user request, we only show the pastor's sermon transcript in verse view)
+    const verseTextContainer = document.getElementById('verse-text-container');
+    if (verseTextContainer) {
+      verseTextContainer.style.display = 'none';
+    }
+    
+    // Load verse occurrences - using the cached book data
+    loadVerseOccurrences(book, chapter, verse);
+    
+    // Handle history state
+    updateHistoryState('verse', book, chapter, verse);
+    
+    // Scroll behavior (fixed for mobile scroll issues)
+    if (!preserveScroll && !config.preserveScrollOnNavigation) {
+      scrollToTop();
+    }
+  }
+  
+  /**
+   * Scroll to top with optionally smooth behavior
+   */
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: config.scrollBehavior // 'auto' for immediate jump, 'smooth' for animation
+    });
+  }
+  
+  /**
+   * Load occurrences for a verse
+   */
+  function loadVerseOccurrences(book, chapter, verse) {
+    if (!book || !chapter) return;
+    
+    // Show loading state
+    elements.verseOccurrences.innerHTML = '<div class="occurrences-loading">Loading references...</div>';
+    
+    // Get cached chapter data
+    const cachedBook = getChaptersFromCache(book);
+    
+    if (cachedBook && cachedBook.chapters && cachedBook.chapters[chapter]) {
+      // Filter occurrences by verse
+      const occurrences = cachedBook.chapters[chapter].filter(ref => {
+        const refVerse = ref.verse !== null ? ref.verse : 'unknown';
+        return refVerse == verse; // Use == to handle string/number comparison
+      });
+      
+      // Update count
+      elements.verseCount.textContent = occurrences.length;
+      
+      // Display occurrences
+      displayOccurrences(occurrences);
+    } else {
+      // Need to load book data
+      fetch(`${config.booksPath}/${book}.json`)
         .then(response => {
           if (!response.ok) {
-            throw new Error(`Failed to load transcript: ${response.status}`);
+            throw new Error(`Failed to load references for ${book}: ${response.status} ${response.statusText}`);
           }
           return response.json();
         })
         .then(data => {
-          displayTranscript(data, timestamp, videoId);
+          // Save to cache
+          saveChaptersToCache(book, data);
+          
+          // Filter occurrences by verse
+          const occurrences = (data.chapters[chapter] || []).filter(ref => {
+            const refVerse = ref.verse !== null ? ref.verse : 'unknown';
+            return refVerse == verse; // Use == to handle string/number comparison
+          });
+          
+          // Update count
+          elements.verseCount.textContent = occurrences.length;
+          
+          // Display occurrences
+          displayOccurrences(occurrences);
         })
         .catch(error => {
-          console.error('Error loading transcript:', error);
-          elements.modalContent.innerHTML = `
+          console.error(`Error loading references for ${book} ${chapter}:${verse}:`, error);
+          elements.verseOccurrences.innerHTML = `
             <div class="error-message">
-              Failed to load transcript. Please try again later.
-              <button class="retry-button" data-video-id="${videoId}" data-timestamp="${timestamp}" data-title="${escapeHTML(title || '')}">Try Again</button>
+              Failed to load references for ${formatBookName(book)} ${chapter}:${verse}. 
+              <button class="retry-button" data-book="${book}" data-chapter="${chapter}" data-verse="${verse}">Try Again</button>
             </div>
           `;
           
           // Add retry functionality
-          const retryButton = elements.modalContent.querySelector('.retry-button');
+          const retryButton = elements.verseOccurrences.querySelector('.retry-button');
           if (retryButton) {
             retryButton.addEventListener('click', function() {
-              openTranscriptModal(
-                this.getAttribute('data-video-id'),
-                this.getAttribute('data-timestamp'),
-                this.getAttribute('data-title')
-              );
+              loadVerseOccurrences(book, chapter, verse);
             });
           }
         });
     }
+  }
+  
+  /**
+   * Display occurrences of a verse
+   */
+  function displayOccurrences(occurrences) {
+    if (!occurrences || occurrences.length === 0) {
+      elements.verseOccurrences.innerHTML = '<div class="no-occurrences">No occurrences found</div>';
+      return;
+    }
     
-    /**
-     * Display transcript in modal
-     */
-    function displayTranscript(data, timestamp, videoId) {
-      if (!data || (!data.segments && !data.transcript)) {
-        elements.modalContent.innerHTML = '<div class="error-message">Transcript data not available</div>';
-        return;
-      }
+    const occurrencesContainer = document.createElement('div');
+    occurrencesContainer.className = 'occurrences-list';
+    
+    // Create occurrence elements
+    occurrences.forEach((occurrence, index) => {
+      const occurrenceElement = document.createElement('div');
+      occurrenceElement.className = 'occurrence-item';
       
-      // Create transcript container
-      const transcriptContainer = document.createElement('div');
-      transcriptContainer.className = 'transcript-container';
+      // Format sermon information
+      const sermonTitle = occurrence.sermon_title || 'Unknown Sermon';
+      const sermonDate = formatDate(occurrence.publish_date || occurrence.sermon_date);
+      const videoId = occurrence.video_id;
+      const timestamp = occurrence.start_time;
+      console.log(occurrence)
       
-      // Add search box
-      const searchBox = document.createElement('div');
-      searchBox.className = 'transcript-search';
-      searchBox.innerHTML = `
-        <input type="text" class="transcript-search-input" placeholder="Search in transcript...">
-        <button class="transcript-search-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
+      occurrenceElement.innerHTML = `
+        <div class="occurrence-header">
+          <h3 class="occurrence-title">${escapeHTML(sermonTitle)}</h3>
+          <div class="occurrence-date">${sermonDate}</div>
+        </div>
+        <div class="occurrence-context-label">Pastor's reference to this verse:</div>
+        <div class="occurrence-context">"${escapeHTML(occurrence.context)}"</div>
+        <div class="occurrence-meta">
+          <div class="occurrence-timestamp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            ${formatTimestamp(timestamp)}
+          </div>
+        </div>
+        <div class="occurrence-actions">
+          <button class="occurrence-button watch-video" data-video-id="${videoId}" data-timestamp="${timestamp}" data-title="${escapeHTML(sermonTitle)}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Watch Video
+          </button>
+          <button class="occurrence-button view-transcript" data-video-id="${videoId}" data-timestamp="${timestamp}" data-title="${escapeHTML(sermonTitle)}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            View Transcript
+          </button>
+          <a href="${config.youtubeBaseUrl}${videoId}&t=${Math.floor(timestamp)}" target="_blank" rel="noopener noreferrer" class="occurrence-button open-youtube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Open in YouTube
+          </a>
+        </div>
       `;
       
-      // Create transcript content
-      const transcriptContent = document.createElement('div');
-      transcriptContent.className = 'transcript-content';
+      // Add click handlers
+      const watchButton = occurrenceElement.querySelector('.watch-video');
+      watchButton.addEventListener('click', function() {
+        const videoId = this.getAttribute('data-video-id');
+        const timestamp = this.getAttribute('data-timestamp');
+        const title = this.getAttribute('data-title');
+        openVideoModal(videoId, timestamp, title);
+      });
       
-      // Process segmented transcript
-      if (data.segments && Array.isArray(data.segments)) {
-        // Find segments that contain the reference (timestamp +/- 10 seconds)
-        let highlightedSegments = [];
+      const transcriptButton = occurrenceElement.querySelector('.view-transcript');
+      transcriptButton.addEventListener('click', function() {
+        const videoId = this.getAttribute('data-video-id');
+        const timestamp = this.getAttribute('data-timestamp');
+        const title = this.getAttribute('data-title');
+        openTranscriptModal(videoId, timestamp, title);
+      });
+      
+      occurrencesContainer.appendChild(occurrenceElement);
+    });
+    
+    elements.verseOccurrences.innerHTML = '';
+    elements.verseOccurrences.appendChild(occurrencesContainer);
+  }
+  
+  /**
+   * Open video modal
+   */
+  function openVideoModal(videoId, timestamp, title) {
+    if (!videoId) return;
+    
+    // Update modal title
+    elements.modalTitle.textContent = title || 'Sermon Video';
+    
+    // Update modal content
+    elements.modalContent.innerHTML = `
+      <div class="modal-video">
+        <iframe src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(timestamp)}&autoplay=1" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+      </div>
+    `;
+    
+    // Show modal
+    elements.referenceModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  
+  /**
+   * Open transcript modal - still uses API for transcripts
+   */
+  function openTranscriptModal(videoId, timestamp, title) {
+    if (!videoId) return;
+    
+    // Update modal title
+    elements.modalTitle.textContent = (title ? title + ' - ' : '') + 'Transcript';
+    
+    // Show loading state first
+    elements.modalContent.innerHTML = `
+      <div class="transcript-loading">
+        <div class="spinner"></div>
+        <p>Loading transcript...</p>
+      </div>
+    `;
+    
+    // Show modal right away
+    elements.referenceModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Fetch the transcript - note: this still uses the API since transcripts aren't cached locally
+    const apiBaseUrl = 'https://sermon-search-api-8fok.onrender.com';
+    
+    fetch(`${apiBaseUrl}/transcript/${videoId}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load transcript: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Update the modal content with transcript
+        displayTranscript(data, timestamp);
+      })
+      .catch(error => {
+        console.error('Error loading transcript:', error);
+        elements.modalContent.innerHTML = `
+          <div class="error-message">
+            Failed to load transcript. Please try again later.
+            <button class="retry-button" data-video-id="${videoId}" data-timestamp="${timestamp}" data-title="${escapeHTML(title || '')}">Try Again</button>
+          </div>
+        `;
         
-        data.segments.forEach((segment, index) => {
-          // Check if segment is close to the reference timestamp
-          if (Math.abs(segment.start_time - timestamp) < 10) {
-            highlightedSegments.push(index);
-          }
+        // Add retry functionality
+        const retryButton = elements.modalContent.querySelector('.retry-button');
+        if (retryButton) {
+          retryButton.addEventListener('click', function() {
+            openTranscriptModal(
+              this.getAttribute('data-video-id'),
+              this.getAttribute('data-timestamp'),
+              this.getAttribute('data-title')
+            );
+          });
+        }
+      });
+  }
+  
+  /**
+   * Display transcript in modal
+   */
+  function displayTranscript(data, timestamp) {
+    if (!data || (!data.segments && !data.transcript)) {
+      elements.modalContent.innerHTML = '<div class="error-message">Transcript data not available</div>';
+      return;
+    }
+    
+    // Create transcript container
+    const transcriptContainer = document.createElement('div');
+    transcriptContainer.className = 'transcript-container';
+    
+    // Add search box
+    const searchBox = document.createElement('div');
+    searchBox.className = 'transcript-search';
+    searchBox.innerHTML = `
+      <input type="text" class="transcript-search-input" placeholder="Search in transcript...">
+      <button class="transcript-search-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    `;
+    
+    // Process segmented transcript
+    const transcriptContent = document.createElement('div');
+    transcriptContent.className = 'transcript-content';
+    
+    if (data.segments && Array.isArray(data.segments)) {
+      data.segments.forEach((segment, index) => {
+        if (segment.is_gap) {
+          const gapElement = document.createElement('div');
+          gapElement.className = 'transcript-gap';
+          gapElement.innerHTML = '[...]';
+          transcriptContent.appendChild(gapElement);
+          return;
+        }
+        
+        const segmentElement = document.createElement('div');
+        segmentElement.className = 'transcript-segment';
+        segmentElement.setAttribute('data-time', segment.start_time);
+        
+        // Highlight segment near the reference
+        if (Math.abs(segment.start_time - timestamp) < 10) {
+          segmentElement.classList.add('highlight');
           
-          // Skip gap segments
-          if (segment.is_gap) {
-            const gapElement = document.createElement('div');
-            gapElement.className = 'transcript-gap';
-            gapElement.innerHTML = '[...]';
-            transcriptContent.appendChild(gapElement);
-            return;
-          }
-          
-          // Create segment element
-          const segmentElement = document.createElement('div');
-          segmentElement.className = 'transcript-segment';
-          segmentElement.setAttribute('data-time', segment.start_time);
+          // Store the ID for scrolling
           segmentElement.id = `segment-${index}`;
+        }
+        
+        // Create timestamp label
+        const timeLabel = document.createElement('div');
+        timeLabel.className = 'transcript-time';
+        timeLabel.textContent = formatTimestamp(segment.start_time);
+        timeLabel.setAttribute('data-time', segment.start_time);
+        
+        // Make timestamp clickable to jump in video
+        timeLabel.addEventListener('click', function() {
+          const time = parseFloat(this.getAttribute('data-time'));
           
-          // Highlight segments near the reference
-          if (highlightedSegments.includes(index)) {
-            segmentElement.classList.add('highlight');
-          }
-          
-          // Create timestamp
-          const timeLabel = document.createElement('div');
-          timeLabel.className = 'transcript-time';
-          timeLabel.textContent = formatTimestamp(segment.start_time);
-          timeLabel.setAttribute('data-time', segment.start_time);
-          timeLabel.setAttribute('data-video-id', videoId);
-          
-          // Make timestamp clickable
-          timeLabel.addEventListener('click', function() {
-            const time = parseFloat(this.getAttribute('data-time'));
-            const videoId = this.getAttribute('data-video-id');
+          // Check if we already have a video iframe in the modal
+          const videoIframe = document.querySelector('.modal-video iframe');
+          if (videoIframe) {
+            // Update existing iframe's timestamp
+            const src = videoIframe.src;
+            const videoId = new URL(src).pathname.split('/').pop();
+            videoIframe.src = `https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1`;
+          } else {
+            // Create a video section at the top
+            const videoContainer = document.createElement('div');
+            videoContainer.className = 'modal-video';
             
-            // Check if we have a video iframe
-            const videoIframe = document.querySelector('.modal-video iframe');
-            if (videoIframe) {
-              // Update existing iframe
-              videoIframe.src = `https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1`;
-            } else {
-              // Create a new video section
-              const videoContainer = document.createElement('div');
-              videoContainer.className = 'modal-video';
+            // Extract video ID from closest element with data-video-id
+            const videoIdElement = this.closest('[data-video-id]');
+            const videoId = videoIdElement ? videoIdElement.getAttribute('data-video-id') : null;
+            
+            if (videoId) {
               videoContainer.innerHTML = `
-                <iframe 
-                  src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen
-                ></iframe>
+                <iframe src="https://www.youtube.com/embed/${videoId}?start=${Math.floor(time)}&autoplay=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
               `;
               
               // Insert at the top of the modal content
               elements.modalContent.insertBefore(videoContainer, elements.modalContent.firstChild);
             }
-          });
-          
-          // Create text content
-          const textElement = document.createElement('div');
-          textElement.className = 'transcript-text';
-          textElement.textContent = segment.text;
-          
-          // Assemble segment
-          segmentElement.appendChild(timeLabel);
-          segmentElement.appendChild(textElement);
-          transcriptContent.appendChild(segmentElement);
-        });
-        
-        // Add a download button
-        const downloadButton = document.createElement('button');
-        downloadButton.className = 'transcript-download';
-        downloadButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Download Transcript
-        `;
-        
-        // Add download functionality
-        downloadButton.addEventListener('click', function() {
-          downloadTranscript(data, videoId);
-        });
-        
-        // Assemble transcript container
-        transcriptContainer.appendChild(searchBox);
-        transcriptContainer.appendChild(transcriptContent);
-        transcriptContainer.appendChild(downloadButton);
-        
-        // Update modal content
-        elements.modalContent.innerHTML = '';
-        elements.modalContent.appendChild(transcriptContainer);
-        
-        // Set up search functionality
-        const searchInput = transcriptContainer.querySelector('.transcript-search-input');
-        const searchButton = transcriptContainer.querySelector('.transcript-search-button');
-        
-        searchButton.addEventListener('click', function() {
-          searchTranscript(searchInput.value, transcriptContent);
-        });
-        
-        searchInput.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') {
-            searchTranscript(this.value, transcriptContent);
           }
-        });
+        });        
+        // Create text content
+        const textElement = document.createElement('div');
+        textElement.className = 'transcript-text';
+        textElement.textContent = segment.text;
         
-        // Scroll to highlighted segment
-        if (highlightedSegments.length > 0) {
-          setTimeout(() => {
-            const firstHighlightedSegment = document.getElementById(`segment-${highlightedSegments[0]}`);
-            if (firstHighlightedSegment) {
-              firstHighlightedSegment.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-          }, 300);
-        }
-      } else if (data.transcript) {
-        // Handle plain transcript format
-        transcriptContent.innerHTML = `<div class="plain-transcript">${escapeHTML(data.transcript)}</div>`;
-        
-        // Assemble transcript container
-        transcriptContainer.appendChild(searchBox);
-        transcriptContainer.appendChild(transcriptContent);
-        
-        // Update modal content
-        elements.modalContent.innerHTML = '';
-        elements.modalContent.appendChild(transcriptContainer);
-        
-        // Set up search functionality
-        const searchInput = transcriptContainer.querySelector('.transcript-search-input');
-        const searchButton = transcriptContainer.querySelector('.transcript-search-button');
-        
-        searchButton.addEventListener('click', function() {
-          searchTranscript(searchInput.value, transcriptContent);
-        });
-        
-        searchInput.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') {
-            searchTranscript(this.value, transcriptContent);
-          }
-        });
-      }
-    }
-    
-    /**
-     * Search within a transcript
-     */
-    function searchTranscript(query, container) {
-      if (!query || !container) return;
-      
-      // Remove existing highlights and counts
-      const existingHighlights = container.querySelectorAll('.search-highlight');
-      existingHighlights.forEach(highlight => {
-        const textNode = document.createTextNode(highlight.textContent);
-        highlight.parentNode.replaceChild(textNode, highlight);
+        // Assemble segment
+        segmentElement.appendChild(timeLabel);
+        segmentElement.appendChild(textElement);
+        transcriptContent.appendChild(segmentElement);
       });
       
-      const existingCount = container.parentNode.querySelector('.search-count');
-      if (existingCount) {
-        existingCount.remove();
-      }
-      
-      if (!query.trim()) return;
-      
-      // Create a case-insensitive regex
-      try {
-        const regex = new RegExp(
-          query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
-          'gi'
-        );
-        
-        let matchCount = 0;
-        let firstMatch = null;
-        
-        // Search in transcript segments
-        const segments = container.querySelectorAll('.transcript-segment');
-        
-        if (segments.length > 0) {
-          // Segmented transcript
-          segments.forEach(segment => {
-            const textElement = segment.querySelector('.transcript-text');
-            if (!textElement) return;
-            
-            const originalText = textElement.textContent;
-            let match;
-            let lastIndex = 0;
-            let hasMatches = false;
-            let newHtml = '';
-            
-            while ((match = regex.exec(originalText)) !== null) {
-              hasMatches = true;
-              matchCount++;
-              
-              if (!firstMatch) {
-                firstMatch = segment;
-              }
-              
-              // Add text before match
-              newHtml += escapeHTML(originalText.substring(lastIndex, match.index));
-              
-              // Add highlighted match
-              newHtml += `<span class="search-highlight">${escapeHTML(match[0])}</span>`;
-              
-              // Update lastIndex
-              lastIndex = regex.lastIndex;
-            }
-            
-            // Add remaining text
-            if (lastIndex < originalText.length) {
-              newHtml += escapeHTML(originalText.substring(lastIndex));
-            }
-            
-            // Update text element if matches found
-            if (hasMatches) {
-              textElement.innerHTML = newHtml;
-            }
-          });
-        } else {
-          // Plain transcript
-          const plainTranscript = container.querySelector('.plain-transcript');
-          
-          if (plainTranscript) {
-            const originalText = plainTranscript.textContent;
-            let match;
-            let lastIndex = 0;
-            let newHtml = '';
-            
-            while ((match = regex.exec(originalText)) !== null) {
-              matchCount++;
-              
-              // Add text before match
-              newHtml += escapeHTML(originalText.substring(lastIndex, match.index));
-              
-              // Add highlighted match
-              newHtml += `<span class="search-highlight">${escapeHTML(match[0])}</span>`;
-              
-              // Update lastIndex
-              lastIndex = regex.lastIndex;
-            }
-            
-            // Add remaining text
-            if (lastIndex < originalText.length) {
-              newHtml += escapeHTML(originalText.substring(lastIndex));
-            }
-            
-            // Update plain transcript
-            plainTranscript.innerHTML = newHtml;
-          }
-        }
-        
-        // Add count display
-        const countElement = document.createElement('div');
-        countElement.className = 'search-count';
-        countElement.textContent = matchCount > 0 
-          ? `${matchCount} match${matchCount !== 1 ? 'es' : ''} found` 
-          : 'No matches found';
-        
-        container.parentNode.insertBefore(countElement, container);
-        
-        // Scroll to first match
-        if (firstMatch) {
-          firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      } catch (error) {
-        console.error('Error searching transcript:', error);
-      }
-    }
-    
-    /**
-     * Download transcript as text file
-     */
-    function downloadTranscript(data, videoId) {
-      if (!data) return;
-      
-      let content = 'TRANSCRIPT\n\n';
-      let filename = videoId ? `transcript-${videoId}.txt` : 'sermon-transcript.txt';
-      
-      // Format transcript content
-      if (data.segments && Array.isArray(data.segments)) {
-        data.segments.forEach(segment => {
-          if (segment.is_gap) {
-            content += '[...]\n\n';
-          } else {
-            content += `[${formatTimestamp(segment.start_time)}] ${segment.text}\n\n`;
-          }
-        });
-      } else if (data.transcript) {
-        content += data.transcript;
-      } else {
-        content += 'No transcript data available.';
-      }
-      
-      // Create and download file
-      const blob = new Blob([content], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      a.style.display = 'none';
-      
-      document.body.appendChild(a);
-      a.click();
-      
-      setTimeout(() => {
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }, 100);
-    }
-    
-    /**
-     * Close modal
-     */
-    function closeModal() {
-      elements.referenceModal.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-    
-    /**
-     * Show loading state
-     */
-    function showLoading(isLoading) {
-      if (isLoading) {
-        elements.contentLoading.style.display = 'flex';
-      } else {
-        elements.contentLoading.style.display = 'none';
-      }
-    }
-    
-    /**
-     * Show error message
-     */
-    function showErrorMessage(message) {
-      // Create a temporary error message element
-      const errorElement = document.createElement('div');
-      errorElement.className = 'error-notification';
-      errorElement.innerHTML = `
-        <div class="notification-content">
-          <div class="notification-message">${message}</div>
-          <button class="notification-close">&times;</button>
-        </div>
+      // Add a download button
+      const downloadButton = document.createElement('button');
+      downloadButton.className = 'transcript-download';
+      downloadButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download Transcript
       `;
       
-      // Add close button functionality
-      const closeButton = errorElement.querySelector('.notification-close');
-      closeButton.addEventListener('click', function() {
-        errorElement.classList.add('notification-hiding');
-        setTimeout(() => {
-          if (errorElement.parentNode) {
-            errorElement.parentNode.removeChild(errorElement);
-          }
-        }, 300);
+      // Add download functionality
+      downloadButton.addEventListener('click', function() {
+        downloadTranscript(data);
       });
       
-      // Add to body
-      document.body.appendChild(errorElement);
+      // Assemble transcript container
+      transcriptContainer.appendChild(searchBox);
+      transcriptContainer.appendChild(transcriptContent);
+      transcriptContainer.appendChild(downloadButton);
       
-      // Auto-hide after 5 seconds
+      // Update modal content
+      elements.modalContent.innerHTML = '';
+      elements.modalContent.appendChild(transcriptContainer);
+      
+      // Setup search functionality
+      const searchInput = transcriptContainer.querySelector('.transcript-search-input');
+      const searchButton = transcriptContainer.querySelector('.transcript-search-button');
+      
+      searchButton.addEventListener('click', function() {
+        searchTranscript(searchInput.value, transcriptContent);
+      });
+      
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          searchTranscript(this.value, transcriptContent);
+        }
+      });
+      
+      // Scroll to highlighted segment
       setTimeout(() => {
-        errorElement.classList.add('notification-hiding');
-        setTimeout(() => {
-          if (errorElement.parentNode) {
-            errorElement.parentNode.removeChild(errorElement);
+        const highlightedSegment = document.getElementById(`segment-${data.segments.findIndex(segment => 
+          Math.abs(segment.start_time - timestamp) < 10
+        )}`);
+        
+        if (highlightedSegment) {
+          highlightedSegment.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 300);
+    } else if (data.transcript) {
+      // Handle plain transcript format
+      transcriptContent.innerHTML = `<div class="plain-transcript">${escapeHTML(data.transcript)}</div>`;
+      
+      // Assemble transcript container
+      transcriptContainer.appendChild(searchBox);
+      transcriptContainer.appendChild(transcriptContent);
+      
+      // Update modal content
+      elements.modalContent.innerHTML = '';
+      elements.modalContent.appendChild(transcriptContainer);
+      
+      // Setup search functionality
+      const searchInput = transcriptContainer.querySelector('.transcript-search-input');
+      const searchButton = transcriptContainer.querySelector('.transcript-search-button');
+      
+      searchButton.addEventListener('click', function() {
+        searchTranscript(searchInput.value, transcriptContent);
+      });
+      
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          searchTranscript(this.value, transcriptContent);
+        }
+      });
+    }
+  }
+  
+  /**
+   * Search within a transcript
+   */
+  function searchTranscript(query, container) {
+    if (!query || !container) return;
+    
+    // Remove existing highlights and counts
+    const existingHighlights = container.querySelectorAll('.search-highlight');
+    existingHighlights.forEach(highlight => {
+      const textNode = document.createTextNode(highlight.textContent);
+      highlight.parentNode.replaceChild(textNode, highlight);
+    });
+    
+    const existingCount = container.parentNode.querySelector('.search-count');
+    if (existingCount) {
+      existingCount.remove();
+    }
+    
+    if (!query.trim()) return;
+    
+    // Create a case-insensitive regex
+    try {
+      const regex = new RegExp(
+        query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+        'gi'
+      );
+      
+      // Scroll to highlighted segment
+      setTimeout(() => {
+        // Your scrolling logic here
+      }, 0);
+      
+      let matchCount = 0;
+      let firstMatch = null;
+      
+      // Search in transcript segments
+      const segments = container.querySelectorAll('.transcript-segment');
+      
+      if (segments.length > 0) {
+        // Segmented transcript
+        segments.forEach(segment => {
+          const textElement = segment.querySelector('.transcript-text');
+          if (!textElement) return;
+          
+          const originalText = textElement.textContent;
+          let match;
+          let lastIndex = 0;
+          let hasMatches = false;
+          let newHtml = '';
+          
+          while ((match = regex.exec(originalText)) !== null) {
+            hasMatches = true;
+            matchCount++;
+            
+            if (!firstMatch) {
+              firstMatch = segment;
+            }
+            
+            // Add text before match
+            newHtml += escapeHTML(originalText.substring(lastIndex, match.index));
+            
+            // Add highlighted match
+            newHtml += `<span class="search-highlight">${escapeHTML(match[0])}</span>`;
+            
+            // Update lastIndex
+            lastIndex = regex.lastIndex;
           }
-        }, 300);
-      }, 5000);
-    }
-    
-    // Utility functions
-    
-    /**
-     * Format book name for display (replace underscores with spaces)
-     */
-    function formatBookName(book) {
-      if (!book) return '';
-      return book.replace(/_/g, ' ');
-    }
-    
-    /**
-     * Format timestamp as MM:SS
-     */
-    function formatTimestamp(seconds) {
-      if (!seconds && seconds !== 0) return '00:00';
+          
+          // Add remaining text
+          if (lastIndex < originalText.length) {
+            newHtml += escapeHTML(originalText.substring(lastIndex));
+          }
+          
+          // Update text element if matches found
+          if (hasMatches) {
+            textElement.innerHTML = newHtml;
+          }
+        });
+      } else {
+        // Plain transcript
+        const plainTranscript = container.querySelector('.plain-transcript');
+        
+        if (plainTranscript) {
+          const originalText = plainTranscript.textContent;
+          let match;
+          let lastIndex = 0;
+          let newHtml = '';
+          
+          while ((match = regex.exec(originalText)) !== null) {
+            matchCount++;
+            
+            // Add text before match
+            newHtml += escapeHTML(originalText.substring(lastIndex, match.index));
+            
+            // Add highlighted match
+            newHtml += `<span class="search-highlight">${escapeHTML(match[0])}</span>`;
+            
+            // Update lastIndex
+            lastIndex = regex.lastIndex;
+          }
+          
+          // Add remaining text
+          if (lastIndex < originalText.length) {
+            newHtml += escapeHTML(originalText.substring(lastIndex));
+          }
+          
+          // Update plain transcript
+          plainTranscript.innerHTML = newHtml;
+        }
+      }
       
-      const minutes = Math.floor(seconds / 60);
-      const remainingSeconds = Math.floor(seconds % 60);
-      return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+      // Add count display
+      const countElement = document.createElement('div');
+      countElement.className = 'search-count';
+      countElement.textContent = matchCount > 0 
+        ? `${matchCount} match${matchCount !== 1 ? 'es' : ''} found` 
+        : 'No matches found';
+      
+      container.parentNode.insertBefore(countElement, container);
+      
+      // Scroll to first match
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } catch (error) {
+      console.error('Error searching transcript:', error);
+    }
+  }
+  
+  /**
+   * Download transcript as text file
+   */
+  function downloadTranscript(data) {
+    if (!data) return;
+    
+    let content = 'TRANSCRIPT\n\n';
+    let filename = 'sermon-transcript.txt';
+    
+    // Format transcript content
+    if (data.segments && Array.isArray(data.segments)) {
+      data.segments.forEach(segment => {
+        if (segment.is_gap) {
+          content += '[...]\n\n';
+        } else {
+          content += `[${formatTimestamp(segment.start_time)}] ${segment.text}\n\n`;
+        }
+      });
+    } else if (data.transcript) {
+      content += data.transcript;
+    } else {
+      content += 'No transcript data available.';
     }
     
-    /**
-     * Format date for display
-     */
-    function formatDate(dateValue) {
-      if (!dateValue) return '';
+    // Create and download file
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    
+    document.body.appendChild(a);
+    a.click();
+    
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+  
+  /**
+   * Close modal
+   */
+  function closeModal() {
+    elements.referenceModal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  
+  /**
+   * Check if modal is open
+   */
+  function isModalOpen() {
+    return elements.referenceModal.style.display === 'flex';
+  }
+  
+  /**
+   * Show stats loading state
+   */
+  function showStatsLoading(isLoading) {
+    if (elements.statsLoading) {
+      elements.statsLoading.style.display = isLoading ? 'block' : 'none';
+    }
+    
+    if (elements.statsContainer) {
+      elements.statsContainer.style.display = isLoading ? 'none' : 'flex';
+    }
+  }
+  
+  /**
+   * Show error notification
+   */
+  function showErrorNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'error-notification';
+    notification.innerHTML = `
+      <div class="notification-content">
+        <div class="notification-message">${message}</div>
+        <button class="notification-close">&times;</button>
+      </div>
+    `;
+    
+    // Add close button functionality
+    const closeButton = notification.querySelector('.notification-close');
+    closeButton.addEventListener('click', function() {
+      notification.classList.add('notification-hiding');
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    });
+    
+    // Add to body
+    document.body.appendChild(notification);
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      notification.classList.add('notification-hiding');
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    }, 5000);
+  }
+  
+  // ======= UTILITY FUNCTIONS =======
+  
+  /**
+   * Format book name for display
+   */
+  function formatBookName(book) {
+    if (!book) return '';
+    
+    // Replace underscores with spaces
+    return book.replace(/_/g, ' ');
+  }
+  
+  /**
+   * Format full reference for display
+   */
+  function formatReference(reference) {
+    const book = formatBookName(reference.book);
+    const chapter = reference.chapter;
+    const verse = reference.verse;
+    
+    if (chapter && verse) {
+      return `${book} ${chapter}:${verse}`;
+    } else if (chapter) {
+      return `${book} ${chapter}`;
+    } else {
+      return book;
+    }
+  }
+  
+  /**
+   * Format timestamp to MM:SS
+   */
+  function formatTimestamp(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+  
+  /**
+   * Format date for display
+   */
+  function formatDate(dateValue) {
+    if (!dateValue) return '';
+    
+    try {
+      // Handle YYYYMMDD format
+      if (typeof dateValue === 'number' || /^\d{8}$/.test(dateValue)) {
+        const dateStr = String(dateValue);
+        const year = dateStr.substring(0, 4);
+        const month = dateStr.substring(4, 6);
+        const day = dateStr.substring(6, 8);
+        
+        const date = new Date(year, month - 1, day);
+        if (isNaN(date.getTime())) return '';
+        
+        return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
       
-      try {
-        // Handle YYYYMMDD format
-        if (typeof dateValue === 'number' || /^\d{8}$/.test(dateValue)) {
-          const dateStr = String(dateValue);
-          const year = dateStr.substring(0, 4);
-          const month = dateStr.substring(4, 6);
-          const day = dateStr.substring(6, 8);
-          
-          const date = new Date(year, month - 1, day);
-          if (isNaN(date.getTime())) return '';
-          
-          return new Date(year, month - 1, day).toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          });
-        }
-        
-        // Handle ISO date strings (YYYY-MM-DD)
-        if (typeof dateValue === 'string' && dateValue.includes('-')) {
-          const date = new Date(dateValue);
-          if (isNaN(date.getTime())) return '';
-          
-          return date.toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          });
-        }
-        
-        // Handle timestamp (seconds since epoch)
-        if (typeof dateValue === 'number') {
-          const date = new Date(dateValue * 1000);
-          if (isNaN(date.getTime())) return '';
-          
-          return date.toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          });
-        }
-        
-        // Try to parse as date string
+      // Handle ISO date strings (YYYY-MM-DD)
+      if (typeof dateValue === 'string' && dateValue.includes('-')) {
         const date = new Date(dateValue);
         if (isNaN(date.getTime())) return '';
         
@@ -2762,38 +2403,78 @@ document.addEventListener('DOMContentLoaded', function() {
           month: 'long',
           day: 'numeric'
         });
-      } catch (e) {
-        console.error(`Error parsing date: ${dateValue}`, e);
-        return '';
       }
+      
+      // Handle timestamp (seconds since epoch)
+      if (typeof dateValue === 'number') {
+        const date = new Date(dateValue * 1000);
+        if (isNaN(date.getTime())) return '';
+        
+        return date.toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+      
+      // Try to parse as date string
+      const date = new Date(dateValue);
+      if (isNaN(date.getTime())) return '';
+      
+      return date.toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch (e) {
+      console.error(`Error parsing date: ${dateValue}`, e);
+      return '';
     }
-    
-    /**
-     * Escape HTML to prevent XSS
-     */
-    function escapeHTML(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-    
-    // Public API
-    return {
-      init,
-      showBookView,
-      showChapterView,
-      showVerseView,
-      openVideoModal,
-      openTranscriptModal,
-      closeModal
-    };
-  })();
+  }
   
-  // Initialize Bible Explorer
+  /**
+   * Escape HTML to prevent XSS
+   */
+  function escapeHTML(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+  
+  /**
+   * Debounce function to limit frequency of function calls
+   */
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  // Return public API
+  return {
+    init,
+    showBookView,
+    showChapterView,
+    showVerseView,
+    openVideoModal,
+    openTranscriptModal,
+    closeModal
+  };
+})();
+
+// Initialize Bible Explorer when document is ready
+document.addEventListener('DOMContentLoaded', () => {
   BibleExplorer.init();
 });
 </script>
