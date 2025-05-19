@@ -35,8 +35,9 @@
   --primary-dark: #3180b8;
   --primary-light: #6ab8f5;
   --secondary-color: #202326;
-  --text-color: #e5e7eb;
-  --text-light: #9ca3af;
+  /* Brighter text colors for better contrast */
+  --text-color: #f5f5f5;
+  --text-light: #d1d5db;
   --border-color: #374151;
   --shadow-color: rgba(0, 0, 0, 0.3);
 }
@@ -809,7 +810,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 }
 
 [data-theme="dark"] .claude-overlay-close {
-  color: #e5e7eb;
+  color: #f5f5f5;
 }
 
 [data-theme="dark"] .claude-overlay-body {

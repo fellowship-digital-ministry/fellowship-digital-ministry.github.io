@@ -222,7 +222,7 @@
   [data-theme="dark"] .control-button {
     background-color: #374151;
     border-color: #4b5563;
-    color: #e5e7eb !important;
+    color: #f5f5f5 !important; /* Brighter text */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
   
@@ -238,13 +238,13 @@
   
   /* Dark theme messages */
   [data-theme="dark"] .claude-messages {
-    color: #e5e7eb;
+    color: #f5f5f5;
   }
   
   /* Dark theme message content */
   [data-theme="dark"] .claude-message-content,
   [data-theme="dark"] .claude-message-bot .claude-message-content {
-    color: #e5e7eb !important;
+    color: #f5f5f5 !important;
   }
 
   .chat-section-wrapper {
@@ -289,12 +289,12 @@
   }
   
   /* Dark theme welcome message */
-  [data-theme="dark"] .claude-welcome h4, 
+  [data-theme="dark"] .claude-welcome h4,
   [data-theme="dark"] .claude-welcome p,
   [data-theme="dark"] .claude-suggestion-label,
-  [data-theme="dark"] .example-questions li, 
+  [data-theme="dark"] .example-questions li,
   [data-theme="dark"] .claude-suggestion {
-    color: #e5e7eb !important;
+    color: #f5f5f5 !important;
   }
   
   /* Dark theme source elements */
@@ -314,7 +314,7 @@
   
   [data-theme="dark"] .claude-source-meta,
   [data-theme="dark"] .claude-source-date {
-    color: #e5e7eb !important;
+    color: #f5f5f5 !important;
     font-weight: 500;
   }
   
