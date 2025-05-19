@@ -1372,3 +1372,8 @@ body.keyboard-open .claude-messages {
 [data-theme="dark"] .about-container * {
   color: var(--text-color) !important;
 }
+
+/* Provide a darker background for the about section in dark mode */
+[data-theme="dark"] .about-container {
+  background-color: #374151;
+}
