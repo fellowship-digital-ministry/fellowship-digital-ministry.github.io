@@ -1361,6 +1361,26 @@ body.keyboard-open .claude-messages {
   padding-bottom: 80px; /* Reduced padding when keyboard is open */
 }
 
+/* Style for the about section */
+.about-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Styling for the disclaimer note within the about section */
+.about-container .disclaimer {
+  background-color: #f0f0f0;
+  padding: 12px;
+  border-radius: 6px;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin-top: 24px;
+}
+
 /* Dark mode adjustments */
 [data-theme="dark"] body.keyboard-open .claude-input-area {
   background-color: #1f2937;
@@ -1376,4 +1396,9 @@ body.keyboard-open .claude-messages {
 /* Provide a darker background for the about section in dark mode */
 [data-theme="dark"] .about-container {
   background-color: #374151;
+}
+
+/* Dark mode background for the disclaimer note */
+[data-theme="dark"] .about-container .disclaimer {
+  background-color: #4b5563;
 }
