@@ -1387,3 +1387,9 @@ body.keyboard-open .claude-messages {
 [data-theme="dark"] .about-container {
   background-color: #374151;
 }
+
+/* Improve disclaimer contrast in dark theme */
+[data-theme="dark"] p[data-i18n="disclaimer"] {
+  background-color: #4a5568 !important; /* dark grey background */
+  color: var(--text-color) !important;
+}
