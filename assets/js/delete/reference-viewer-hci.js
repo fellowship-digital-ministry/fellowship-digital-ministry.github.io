@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.referrer && document.referrer.includes(window.location.hostname)) {
       window.history.back();
     } else {
-      window.location.href = 'analytics.html';
+      window.location.href = 'index.html';
     }
   }
   

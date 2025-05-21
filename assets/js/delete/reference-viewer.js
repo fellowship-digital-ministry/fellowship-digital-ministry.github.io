@@ -112,7 +112,7 @@ function showReferenceGuide() {
       </div>
       
       <div class="guide-footer">
-        <a href="analytics.html" class="back-to-analytics">
+        <a href="index.html" class="back-to-analytics">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5"></path>
             <path d="M12 19l-7-7 7-7"></path>
@@ -477,8 +477,8 @@ function initializeBackButton() {
     if (document.referrer && document.referrer.includes(window.location.hostname)) {
       window.history.back();
     } else {
-      // Default to analytics page if no referrer
-      window.location.href = 'analytics.html';
+      // Default to home page if no referrer
+      window.location.href = 'index.html';
     }
   });
 }

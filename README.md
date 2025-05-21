@@ -7,8 +7,6 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 - **Sermon Search**: Ask questions about sermon content and get AI-generated answers based on the transcript library
 - **Video Integration**: Watch relevant sermon segments directly on the site with timestamp linking
 - **Bible Reference Explorer**: Click on any Bible reference to see all sermon mentions with context
-- **Analytics Dashboard**: Explore insights about Bible references, most cited verses, and sermon content
-- **Time Filtering**: Analyze sermons by year, month, or specific time periods
 - **Mobile Responsive**: Works well on all devices
 
 ## Project Structure
@@ -42,7 +40,6 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 │   └── process_existing_metadata.py
 ├── index.html                # Home page
 ├── search.html               # Search interface
-├── analytics.html            # Analytics dashboard
 ├── reference-viewer.html     # Bible reference viewer
 ├── api-test.html             # Tool for API testing
 └── API-TROUBLESHOOTING.md    # Guide for API issues
@@ -118,13 +115,7 @@ The site uses pre-computed analytics data to efficiently display insights about 
 
 The search interface allows users to ask questions about sermon content and get AI-generated answers. It makes direct API calls to your Render API endpoint.
 
-### Analytics Dashboard
 
-The analytics dashboard visualizes Bible references across all sermons. Features include:
-- Bible book reference chart
-- Testament distribution pie chart
-- Top chapters list
-- Time period filtering
 
 ### Bible Reference Explorer
 
