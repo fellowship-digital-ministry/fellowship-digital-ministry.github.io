@@ -24,7 +24,7 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 ├── _layouts/                 # Page templates
 │   └── default.html
 ├── .github/workflows/        # GitHub Actions
-│   └── generate-analytics.yml # Weekly analytics generation
+│   └── fetch_bible_data.yml  # Daily Bible data fetch
 ├── assets/                   # Static assets
 │   ├── css/
 │   │   ├── style.css
@@ -38,7 +38,7 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 │       ├── reference-viewer.js
 │       └── search.js
 ├── scripts/                  # Python scripts for data generation
-│   ├── generate_analytics.py
+│   ├── fetch_bible_data.py
 │   └── process_existing_metadata.py
 ├── index.html                # Home page
 ├── search.html               # Search interface
@@ -83,7 +83,7 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 
 5. **Run the initial analytics generation**
 
-   Manually run the GitHub Action workflow to generate the initial analytics data.
+   Manually run the `fetch_bible_data.yml` workflow to fetch the initial Bible statistics.
 
 6. **Enable GitHub Pages**
 
@@ -95,20 +95,20 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 
 ## Analytics Generation
 
-The site uses pre-computed analytics data to efficiently display insights about all 428 sermon transcripts. This data is automatically updated weekly by a GitHub Action workflow:
+The site uses pre-computed analytics data to efficiently display insights about sermon transcripts. This data is automatically updated daily by the `fetch_bible_data.yml` GitHub Action workflow:
 
 1. **Process Existing Metadata** (`process_existing_metadata.py`)
    - Fetches sermon metadata from your API
    - Organizes sermon titles, dates, and other information 
 
-2. **Generate Analytics** (`generate_analytics.py`)
-   - Analyzes sermon chunks for Bible references
-   - Generates statistics for books, chapters, and verses
-   - Creates time-based groupings for filtering
-   - Builds reference occurrence data for the reference viewer
+2. **Fetch Bible Data** (`fetch_bible_data.py`)
+   - Collects Bible reference statistics from your API
+   - Generates per-book files for quick lookup
+   - Updates aggregated stats used by the analytics dashboard
 
 3. **Data Storage**
-   - All data is stored as static JSON files in `_data/analytics/`
+   - Sermon metadata is saved to `_data/analytics/`
+   - Bible statistics are written to `assets/data/bible/`
    - The site's JavaScript components read from these files
    - No runtime API calls are needed for analytics
 
