@@ -32,10 +32,12 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 │   ├── img/
 │   │   └── default-thumbnail.svg
 │   └── js/
-│       ├── analytics-optimized.js
 │       ├── bible-references.js
-│       ├── cors-proxy.js
-│       ├── reference-viewer.js
+│       ├── bible-sources-panel.js
+│       ├── claude-interface.js
+│       ├── enhanced-sermon-chat.js
+│       ├── mobile-header.js
+│       ├── mobile-keyboard.js
 │       └── search.js
 ├── scripts/                  # Python scripts for data generation
 │   ├── fetch_bible_data.py
