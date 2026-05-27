@@ -213,6 +213,7 @@ const SermonSearch = (function() {
   // State management
   let state = {
     conversationHistory: [],
+    persistedTurns: [],          // browser-only persistence; survives reload
     isFirstLoad: true,
     currentLanguage: config.defaultLanguage,
     isApiConnected: false,
@@ -220,6 +221,38 @@ const SermonSearch = (function() {
     isScrolling: false,
     lastScrollTime: 0
   };
+
+  // ===== Browser-only chat persistence =====
+  // The conversation lives in memory and dies on page reload, which is a
+  // real UX failure when users navigate away and come back. We persist
+  // the last N turns to localStorage. No backend, no logging — just the
+  // user's own browser remembering what they were doing.
+  const CHAT_STORAGE_KEY = 'fellowship-chat-v1';
+  const CHAT_STORAGE_MAX_TURNS = 10;
+
+  function saveChatTurns(turns) {
+    try {
+      const trimmed = turns.slice(-CHAT_STORAGE_MAX_TURNS);
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(trimmed));
+    } catch (e) {
+      // Silent — quota exceeded, private browsing, etc.
+    }
+  }
+
+  function loadChatTurns() {
+    try {
+      const raw = localStorage.getItem(CHAT_STORAGE_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function clearChatTurnsStorage() {
+    try { localStorage.removeItem(CHAT_STORAGE_KEY); } catch (e) {}
+  }
 
   // DOM Elements - will be populated on init
   let elements = {};
@@ -1984,7 +2017,11 @@ function createSourceElement(source, index) {
 
       // Display the answer
       displayAnswer(data);
-      
+
+      // Persist this round-trip so the conversation survives page reload.
+      state.persistedTurns.push({ user: query, data });
+      saveChatTurns(state.persistedTurns);
+
     } catch (error) {
       console.error('Error in API request:', error);
       
@@ -2202,7 +2239,12 @@ function changeLanguage(language) {
   function clearConversation() {
     // Clear the conversation history array
     state.conversationHistory = [];
-    
+
+    // Wipe the persisted-turns array AND the localStorage backing it,
+    // so a reload after Clear truly starts fresh.
+    state.persistedTurns = [];
+    clearChatTurnsStorage();
+
     // Show clearing animation
     const messages = document.querySelectorAll('.claude-message');
     
@@ -2732,8 +2774,34 @@ Would you like me to search for sermon content on any of these topics instead?`;
     
     // Verify API connection
     verifyApiConnection(false);
-    
-    // Display welcome message for first-time users
+
+    // Restore any previous conversation from localStorage. If anything
+    // is restored, we skip the welcome message. The restore re-runs the
+    // same addMessage + displayAnswer code paths a live conversation uses,
+    // so source panels + bible chips + markdown all come back correctly.
+    const savedTurns = loadChatTurns();
+    if (savedTurns.length > 0) {
+      state.persistedTurns = savedTurns.slice();
+      state.isFirstLoad = false;
+      for (const turn of savedTurns) {
+        try {
+          addMessage(turn.user, 'user');
+          state.conversationHistory.push({ role: 'user', content: turn.user });
+          // displayAnswer also pushes the assistant message to conversationHistory
+          displayAnswer(turn.data);
+        } catch (e) {
+          // If a saved turn fails to restore (e.g., shape changed), skip it
+          // rather than break the whole restore.
+          console.warn('Failed to restore one chat turn:', e);
+        }
+      }
+      // Trim conversationHistory to the API context cap
+      if (state.conversationHistory.length > config.maxMemoryLength * 2) {
+        state.conversationHistory = state.conversationHistory.slice(-config.maxMemoryLength * 2);
+      }
+    }
+
+    // Display welcome message only if nothing was restored
     if (state.isFirstLoad) {
       displayWelcomeMessage();
     }
