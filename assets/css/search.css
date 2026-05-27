@@ -322,12 +322,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   line-height: 1.65;
 }
 
-/* B: comfortable line-length cap on desktop */
-@media (min-width: 768px) {
-  .claude-message-bot .claude-message-content {
-    max-width: 62ch;
-  }
-}
+/* (Previously had a max-width: 62ch cap here for desktop reading
+   comfort, but it felt scrunched. Reverted — bot messages now fill
+   the chat panel width as before. The other readability changes
+   (bold/h2/blockquote/line-height/suggestions block) all stay.) */
 
 .claude-message-bot .claude-message-content h1,
 .claude-message-bot .claude-message-content h2,
