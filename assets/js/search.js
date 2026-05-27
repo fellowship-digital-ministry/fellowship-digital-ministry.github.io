@@ -1856,11 +1856,9 @@ function createSourceElement(source, index) {
    */
   async function handleSubmit(event) {
     if (event) event.preventDefault();
-    console.log('Form submitted');
-    
+
     const query = elements.queryInput.value.trim();
     if (!query) {
-      console.log('Empty query, ignoring');
       return;
     }
     
@@ -1898,9 +1896,7 @@ function createSourceElement(source, index) {
       
       // Remove typing indicator
       removeMessage(typingId);
-      
-      console.log('Received API response:', data);
-      
+
       // Display the answer
       displayAnswer(data);
       

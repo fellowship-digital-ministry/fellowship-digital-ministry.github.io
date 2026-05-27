@@ -43,11 +43,8 @@ A Jekyll-based GitHub Pages site that provides an interface for exploring sermon
 │   ├── fetch_bible_data.py
 │   └── process_existing_metadata.py
 ├── index.html                # Home page
-├── search.html               # Search interface
-├── analytics.html            # Analytics dashboard
-├── reference-viewer.html     # Bible reference viewer
-├── api-test.html             # Tool for API testing
-└── API-TROUBLESHOOTING.md    # Guide for API issues
+├── search.html               # Chat / search interface
+└── reference-viewer.html     # Bible reference viewer
 ```
 
 ## Setup and Deployment
@@ -149,10 +146,6 @@ To customize the appearance:
 If your API endpoint changes:
 1. Update `_config.yml`
 2. Update GitHub secret `API_URL`
-
-## Troubleshooting
-
-If you encounter API connection issues, refer to `API-TROUBLESHOOTING.md` for guidance on diagnosing and resolving common problems.
 
 ## License
 
