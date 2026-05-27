@@ -541,6 +541,120 @@
   border: 0;
 }
 
+/* ---------- KJV chapter reading block ----------
+   Chapter detail view leads with the actual KJV chapter text. Verses with
+   sermon references get a small badge linking to the corresponding sermon
+   group below. Lets the page read like a study Bible. */
+.refv-bible-reading {
+  margin: 0 0 2.5rem;
+  padding: 1.25rem 1.25rem 0.5rem;
+  background: var(--refv-bg-soft);
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius);
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  color: var(--refv-text);
+}
+.refv-bible-verse {
+  position: relative;
+  margin: 0 0 0.75rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  padding: 0.15rem 0.25rem;
+  border-radius: var(--refv-radius-sm);
+  transition: background-color 0.5s ease;
+}
+.refv-bible-verse.has-refs {
+  background: rgba(100, 28, 20, 0.04);
+}
+.refv-bible-verse.is-flash {
+  background: rgba(255, 224, 130, 0.6);
+}
+.refv-bible-vnum {
+  display: inline-block;
+  min-width: 1.5em;
+  margin-right: 0.4rem;
+  color: var(--refv-text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  vertical-align: super;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.refv-bible-vtext {
+  /* default */
+}
+.refv-bible-badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 1px 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--refv-primary);
+  background: white;
+  border: 1px solid var(--refv-primary);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.refv-bible-badge:hover,
+.refv-bible-badge:focus-visible {
+  background: var(--refv-primary);
+  color: white;
+  outline: none;
+}
+
+/* Grouped sermon sections below the chapter. */
+.refv-sermons-grouped {
+  /* */
+}
+.refv-sermons-grouped-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  color: var(--refv-text);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--refv-border);
+}
+.refv-sermon-group {
+  margin-bottom: 2rem;
+  /* Offset so the heading isn't hidden under any sticky header on smooth scroll. */
+  scroll-margin-top: 1rem;
+}
+.refv-sermon-group:last-child { margin-bottom: 0; }
+.refv-sermon-group-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 0.85rem;
+  padding: 0 0.25rem 0.4rem;
+  border-bottom: 1px solid var(--refv-border);
+}
+.refv-sermon-group-label {
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--refv-primary);
+}
+.refv-sermon-group-count {
+  font-size: 0.78rem;
+  color: var(--refv-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.refv-sermon-group .refv-occ {
+  margin-bottom: 0.65rem;
+}
+.refv-sermon-group .refv-occ:last-child {
+  margin-bottom: 0;
+}
+
+/* Page-level smooth scrolling for badge anchors. */
+html { scroll-behavior: smooth; }
+
 /* ---------- Transcript modal ---------- */
 .refv-transcript-modal[hidden] { display: none; }
 .refv-transcript-modal {

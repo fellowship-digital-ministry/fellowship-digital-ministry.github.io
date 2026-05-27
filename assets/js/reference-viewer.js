@@ -467,29 +467,137 @@
 
   function renderChapterOccurrences(book, chapter, verse, data) {
     var refs = (data.chapters && data.chapters[String(chapter)]) || [];
+
     if (verse) {
-      refs = refs.filter(function (r) { return Number(r.verse) === Number(verse); });
+      // Single-verse view: KJV text on top, sermons for just that verse below.
+      var vrefs = refs.filter(function (r) { return Number(r.verse) === Number(verse); });
       renderVerseText(book, chapter, verse);
-    }
-    if (!refs.length) {
-      els.occurrences.innerHTML = '<div class="refv-empty">No sermons in the library reference ' +
-        book.display + ' ' + chapter + (verse ? ':' + verse : '') + ' yet.</div>';
+      if (!vrefs.length) {
+        els.occurrences.innerHTML = '<div class="refv-empty">No sermons in the library reference ' +
+          book.display + ' ' + chapter + ':' + verse + ' yet.</div>';
+        return;
+      }
+      vrefs = sortRefs(vrefs);
+      els.occurrences.innerHTML = vrefs.map(renderOccurrenceCard).join('');
+      wireOccurrenceButtons(els.occurrences);
       return;
     }
-    // Sort: most recent sermon first (we don't have dates per-ref; use start_time as tiebreak)
-    refs = refs.slice().sort(function (a, b) {
-      return (a.video_id || '').localeCompare(b.video_id || '') || (a.start_time || 0) - (b.start_time || 0);
+
+    // Whole-chapter view: read the KJV chapter, with badges on preached verses
+    // and sermon cards grouped by verse below.
+    els.occurrences.innerHTML = '<div class="refv-loading">Loading chapter…</div>';
+    loadKjvBook(book).then(function (kjvData) {
+      var kjvChapter = readKjvChapter(kjvData, chapter);
+      renderChapterReading(book, chapter, refs, kjvChapter);
+    }).catch(function () {
+      // KJV unavailable; degrade to a flat sermon list.
+      if (!refs.length) {
+        els.occurrences.innerHTML = '<div class="refv-empty">No sermons in the library reference ' +
+          book.display + ' ' + chapter + ' yet.</div>';
+        return;
+      }
+      els.occurrences.innerHTML = sortRefs(refs).map(renderOccurrenceCard).join('');
+      wireOccurrenceButtons(els.occurrences);
     });
-    els.occurrences.innerHTML = refs.map(function (r, i) { return renderOccurrenceCard(r, i); }).join('');
-    // Wire button handlers
-    Array.prototype.forEach.call(els.occurrences.querySelectorAll('[data-action="watch"]'), function (el) {
+  }
+
+  function sortRefs(refs) {
+    return refs.slice().sort(function (a, b) {
+      return (a.video_id || '').localeCompare(b.video_id || '')
+        || (a.start_time || 0) - (b.start_time || 0);
+    });
+  }
+
+  function wireOccurrenceButtons(scope) {
+    Array.prototype.forEach.call(scope.querySelectorAll('[data-action="watch"]'), function (el) {
       el.addEventListener('click', function () {
         openVideoModal(el.getAttribute('data-video'), parseFloat(el.getAttribute('data-ts')) || 0, el.getAttribute('data-title'));
       });
     });
-    Array.prototype.forEach.call(els.occurrences.querySelectorAll('[data-action="transcript"]'), function (el) {
+    Array.prototype.forEach.call(scope.querySelectorAll('[data-action="transcript"]'), function (el) {
       el.addEventListener('click', function () {
         openTranscriptModal(el.getAttribute('data-video'), parseFloat(el.getAttribute('data-ts')) || 0, el.getAttribute('data-title'));
+      });
+    });
+  }
+
+  function renderChapterReading(book, chapter, refs, kjvChapter) {
+    // Group refs by verse. Verse-less refs land in a "chapter-level" bucket.
+    var byVerse = {};
+    refs.forEach(function (r) {
+      var v = (r.verse != null && r.verse !== '' && !isNaN(parseInt(r.verse, 10)))
+        ? parseInt(r.verse, 10) : 'chapter';
+      if (!byVerse[v]) byVerse[v] = [];
+      byVerse[v].push(r);
+    });
+
+    var bibleHtml = '';
+    if (kjvChapter && Array.isArray(kjvChapter.verses) && kjvChapter.verses.length) {
+      bibleHtml = '<section class="refv-bible-reading" aria-label="' +
+        escapeAttr(book.display + ' ' + chapter + ', King James Version') + '">';
+      bibleHtml += kjvChapter.verses.map(function (v) {
+        var vNum = parseInt(v.verse, 10);
+        var hits = byVerse[vNum];
+        var hasHits = hits && hits.length > 0;
+        var classes = 'refv-bible-verse' + (hasHits ? ' has-refs' : '');
+        var badge = hasHits
+          ? '<a class="refv-bible-badge" href="#sermons-v' + vNum +
+            '" data-vnum="' + vNum + '">' + hits.length +
+            (hits.length === 1 ? ' sermon' : ' sermons') + '</a>'
+          : '';
+        return '<p class="' + classes + '" id="verse-' + vNum + '">' +
+          '<sup class="refv-bible-vnum">' + vNum + '</sup>' +
+          '<span class="refv-bible-vtext">' + escapeHtml(v.text || '') + '</span>' +
+          badge +
+        '</p>';
+      }).join('');
+      bibleHtml += '</section>';
+    }
+
+    var hasAnyRefs = refs.length > 0;
+    var sermonHtml = '';
+    if (hasAnyRefs) {
+      sermonHtml += '<section class="refv-sermons-grouped" aria-label="Sermons">';
+      sermonHtml += '<h3 class="refv-sermons-grouped-heading">Sermons that touched this chapter</h3>';
+      // Ordered: verses ascending, then chapter-level at the end.
+      var verseKeys = Object.keys(byVerse).filter(function (k) { return k !== 'chapter'; })
+        .sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
+      if (byVerse['chapter']) verseKeys.push('chapter');
+      sermonHtml += verseKeys.map(function (vk) {
+        var items = sortRefs(byVerse[vk]);
+        var label = vk === 'chapter'
+          ? book.display + ' ' + chapter + ' (chapter-level references)'
+          : book.display + ' ' + chapter + ':' + vk;
+        var anchor = vk === 'chapter' ? 'sermons-chapter' : 'sermons-v' + vk;
+        return '<div class="refv-sermon-group" id="' + anchor + '">' +
+          '<h4 class="refv-sermon-group-head">' +
+            '<span class="refv-sermon-group-label">' + escapeHtml(label) + '</span>' +
+            '<span class="refv-sermon-group-count">' + items.length +
+              (items.length === 1 ? ' sermon' : ' sermons') + '</span>' +
+          '</h4>' +
+          items.map(renderOccurrenceCard).join('') +
+        '</div>';
+      }).join('');
+      sermonHtml += '</section>';
+    } else {
+      sermonHtml = '<div class="refv-empty">No sermons in the library reference ' +
+        book.display + ' ' + chapter + ' yet.</div>';
+    }
+
+    els.occurrences.innerHTML = bibleHtml + sermonHtml;
+    wireOccurrenceButtons(els.occurrences);
+
+    // Smooth in-page scroll for the verse badges.
+    Array.prototype.forEach.call(els.occurrences.querySelectorAll('.refv-bible-badge'), function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.getElementById(a.getAttribute('href').slice(1));
+        if (target && target.scrollIntoView) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Brief flash so the user sees where they landed.
+          target.classList.add('is-flash');
+          setTimeout(function () { target.classList.remove('is-flash'); }, 1200);
+        }
       });
     });
   }
@@ -559,24 +667,14 @@
   }
 
   function renderVerseText(book, chapter, verse) {
-    var slug = book.slug; // KJV repo uses CamelCase like "Romans.json"
-    // Bible-kjv-master uses "Psalms.json"; if data slug differs, map.
-    var kjvSlug = book.dataSlug ? book.dataSlug.replace(/_/g, '') : book.slug;
     var gatewayBook = encodeURIComponent(book.display);
     els.bibleGatewayLink.href = 'https://www.biblegateway.com/passage/?search=' +
       gatewayBook + '+' + chapter + ':' + verse + '&version=KJV';
     els.verseTextBlock.hidden = false;
     els.verseTextBody.textContent = 'Loading…';
 
-    var cacheKey = kjvSlug;
-    if (state.kjvCache[cacheKey]) {
-      els.verseTextBody.textContent = readKjvVerse(state.kjvCache[cacheKey], chapter, verse);
-      return;
-    }
-    fetch(KJV_URL(kjvSlug))
-      .then(function (r) { if (!r.ok) throw new Error('not ok'); return r.json(); })
+    loadKjvBook(book)
       .then(function (d) {
-        state.kjvCache[cacheKey] = d;
         els.verseTextBody.textContent = readKjvVerse(d, chapter, verse);
       })
       .catch(function () {
@@ -584,13 +682,28 @@
       });
   }
 
+  function loadKjvBook(book) {
+    // Bible-kjv-master uses CamelCase ("1Corinthians.json", "SongofSolomon.json").
+    var kjvSlug = book.dataSlug ? book.dataSlug.replace(/_/g, '') : book.slug;
+    if (state.kjvCache[kjvSlug]) {
+      return Promise.resolve(state.kjvCache[kjvSlug]);
+    }
+    return fetch(KJV_URL(kjvSlug))
+      .then(function (r) { if (!r.ok) throw new Error('not ok'); return r.json(); })
+      .then(function (d) { state.kjvCache[kjvSlug] = d; return d; });
+  }
+
   function readKjvVerse(data, chapter, verse) {
-    // Bible-kjv-master format: { book, chapters: [ { chapter: "1", verses: [ { verse: "1", text: "..." } ] } ] }
-    if (!data || !Array.isArray(data.chapters)) return '(verse text unavailable)';
-    var ch = data.chapters.find(function (c) { return String(c.chapter) === String(chapter); });
-    if (!ch || !Array.isArray(ch.verses)) return '(chapter ' + chapter + ' not found)';
+    var ch = readKjvChapter(data, chapter);
+    if (!ch) return '(chapter ' + chapter + ' not found)';
     var v = ch.verses.find(function (x) { return String(x.verse) === String(verse); });
     return v && v.text ? v.text : '(verse ' + verse + ' not found)';
+  }
+
+  function readKjvChapter(data, chapter) {
+    // Bible-kjv-master format: { book, chapters: [ { chapter: "1", verses: [...] } ] }
+    if (!data || !Array.isArray(data.chapters)) return null;
+    return data.chapters.find(function (c) { return String(c.chapter) === String(chapter); }) || null;
   }
 
   // ============================================================
