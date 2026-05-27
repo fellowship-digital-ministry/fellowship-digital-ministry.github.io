@@ -1,7 +1,11 @@
 /* Base styles */
 :root {
-  /* Tell browsers we manage both light and dark color schemes */
-  color-scheme: light dark;
+  /* Opt OUT of browser auto-dark-mode. There is no dark-mode toggle in
+     the UI, the [data-theme="dark"] rules are never activated by JS, and
+     Chrome's "Auto Dark Theme" feature on Android was producing
+     unreadable black-on-dark-blue inversions of the chat. "only light"
+     tells the browser to render the page as designed, no auto-darkening. */
+  color-scheme: only light;
   
   /* Colors — burgundy matches the church brand (#641c14). The old palette
      used a bright Bootstrap blue (#2284c5) as the primary accent, which
