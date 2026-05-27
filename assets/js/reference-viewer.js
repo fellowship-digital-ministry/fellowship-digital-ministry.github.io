@@ -16,6 +16,8 @@
   var STATS_URL = '/assets/data/bible/bible_stats.json';
   var BOOK_URL = function (slug) { return '/assets/data/bible/books/' + slug + '.json'; };
   var KJV_URL = function (slug) { return '/assets/data/Bible-kjv-master/' + slug + '.json'; };
+  var API_BASE = 'https://sermon-search-api-8fok.onrender.com';
+  var TRANSCRIPT_URL = function (videoId) { return API_BASE + '/transcript/' + encodeURIComponent(videoId); };
 
   // Canonical book order (KJV, 66 books). Mirrors the data filenames.
   var BIBLE_BOOKS = [
@@ -168,7 +170,8 @@
   var state = {
     stats: null,
     bookCache: {},
-    kjvCache: {}
+    kjvCache: {},
+    transcriptCache: {}
   };
 
   var els = {};
@@ -198,6 +201,11 @@
     els.videoModalFrame = $('video-modal-frame');
     els.videoModalTitle = $('video-modal-title');
     els.videoModalClose = $('video-modal-close');
+    els.transcriptModal = $('transcript-modal');
+    els.transcriptModalBody = $('transcript-modal-body');
+    els.transcriptModalTitle = $('transcript-modal-title');
+    els.transcriptModalSub = $('transcript-modal-sub');
+    els.transcriptModalClose = $('transcript-modal-close');
   }
 
   // ============================================================
@@ -479,39 +487,75 @@
         openVideoModal(el.getAttribute('data-video'), parseFloat(el.getAttribute('data-ts')) || 0, el.getAttribute('data-title'));
       });
     });
+    Array.prototype.forEach.call(els.occurrences.querySelectorAll('[data-action="transcript"]'), function (el) {
+      el.addEventListener('click', function () {
+        openTranscriptModal(el.getAttribute('data-video'), parseFloat(el.getAttribute('data-ts')) || 0, el.getAttribute('data-title'));
+      });
+    });
   }
 
   function renderOccurrenceCard(ref, index) {
-    var title = escapeHtml(ref.sermon_title || 'Sermon');
+    var sermonTitle = escapeHtml(ref.sermon_title || 'Sermon');
     var ts = formatTimestamp(ref.start_time);
     var url = ref.url || ('https://www.youtube.com/watch?v=' + (ref.video_id || '') + '&t=' + Math.floor(ref.start_time || 0));
     var refText = ref.reference_text || '';
     var ctx = ref.context || '';
-    var highlighted = ctx;
-    if (refText && ctx.toLowerCase().indexOf(refText.toLowerCase()) !== -1) {
+
+    // Build a clean reference label from the structured fields rather than
+    // the raw reference_text (which might be "Matthew chapter number one,
+    // verse twenty-one"). This is the WHY-is-this-card-here signal.
+    var bookDisplay = displayBookName(ref.book);
+    var refBadge = bookDisplay;
+    if (ref.chapter != null && ref.chapter !== '' && !isNaN(parseInt(ref.chapter, 10))) {
+      refBadge += ' ' + ref.chapter;
+      if (ref.verse != null && ref.verse !== '' && !isNaN(parseInt(ref.verse, 10))) {
+        refBadge += ':' + ref.verse;
+      }
+    }
+    var implicitTag = ref.is_implicit
+      ? '<span class="refv-occ-badge-tag" title="The speaker quoted the verse without naming the citation">quoted</span>'
+      : '';
+
+    // Highlight the reference_text inside the context snippet if it's there.
+    var highlighted;
+    if (refText && ctx && ctx.toLowerCase().indexOf(refText.toLowerCase()) !== -1) {
       var re = new RegExp('(' + escapeRegex(refText) + ')', 'i');
       highlighted = escapeHtml(ctx).replace(re, '<span class="refv-occ-hl">$1</span>');
     } else {
       highlighted = escapeHtml(ctx);
     }
-    var implicitBadge = ref.is_implicit ? ' <span style="font-size:0.75rem;color:var(--refv-text-muted);font-weight:400">· quoted</span>' : '';
+
     return '<article class="refv-occ">' +
-      '<div class="refv-occ-head">' +
-        '<h3 class="refv-occ-title">' + title + '</h3>' +
+      '<div class="refv-occ-badge">' +
+        '<span class="refv-occ-badge-ref">' + escapeHtml(refBadge) + '</span>' +
+        implicitTag +
       '</div>' +
-      '<div class="refv-occ-meta">' +
-        '<span>' + ts + '</span>' +
-        (refText ? '<span>' + escapeHtml(refText) + implicitBadge + '</span>' : '') +
+      '<div class="refv-occ-sermon">' +
+        '<span class="refv-occ-sermon-label">from sermon</span> ' +
+        '<span class="refv-occ-sermon-title">' + sermonTitle + '</span>' +
+        ' <span class="refv-occ-sermon-ts">· ' + ts + '</span>' +
       '</div>' +
       (ctx ? '<blockquote class="refv-occ-context">' + highlighted + '</blockquote>' : '') +
       '<div class="refv-occ-actions">' +
         '<button class="refv-occ-btn is-primary" data-action="watch" data-video="' + escapeAttr(ref.video_id) +
           '" data-ts="' + (ref.start_time || 0) + '" data-title="' + escapeAttr(ref.sermon_title || 'Sermon') + '" type="button">' +
-          '▶ Watch in browser' +
+          '▶ Watch' +
         '</button>' +
-        '<a class="refv-occ-btn" href="' + escapeAttr(url) + '" target="_blank" rel="noopener">Open on YouTube ↗</a>' +
+        '<button class="refv-occ-btn" data-action="transcript" data-video="' + escapeAttr(ref.video_id) +
+          '" data-ts="' + (ref.start_time || 0) + '" data-title="' + escapeAttr(ref.sermon_title || 'Sermon') + '" type="button">' +
+          'Transcript' +
+        '</button>' +
+        '<a class="refv-occ-btn" href="' + escapeAttr(url) + '" target="_blank" rel="noopener">YouTube ↗</a>' +
       '</div>' +
     '</article>';
+  }
+
+  function displayBookName(rawBook) {
+    if (!rawBook) return '';
+    // Data is occasionally stored as "1_Corinthians" or "Song_of_Solomon".
+    var s = String(rawBook).replace(/_/g, ' ');
+    var b = BOOK_INDEX[s.toLowerCase().replace(/\s+/g, '')];
+    return b ? b.display : s;
   }
 
   function renderVerseText(book, chapter, verse) {
@@ -569,6 +613,92 @@
     els.videoModal.hidden = true;
     els.videoModal.setAttribute('aria-hidden', 'true');
     els.videoModalFrame.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  // ============================================================
+  // Transcript modal
+  // ============================================================
+
+  function openTranscriptModal(videoId, startSec, title) {
+    if (!videoId) return;
+    els.transcriptModalTitle.textContent = title || 'Sermon';
+    els.transcriptModalSub.textContent = 'Scroll position aligned to ' + formatTimestamp(startSec);
+    els.transcriptModal.hidden = false;
+    els.transcriptModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    var renderAndScroll = function (data) {
+      renderTranscript(data, startSec);
+      // Defer scroll so the layout has settled.
+      requestAnimationFrame(function () {
+        var target = els.transcriptModalBody.querySelector('.refv-transcript-segment.is-current');
+        if (target && target.scrollIntoView) {
+          target.scrollIntoView({ block: 'center', behavior: 'instant' in window ? 'instant' : 'auto' });
+        }
+      });
+    };
+
+    if (state.transcriptCache[videoId]) {
+      renderAndScroll(state.transcriptCache[videoId]);
+      return;
+    }
+    els.transcriptModalBody.innerHTML = '<p class="refv-loading">Loading transcript…</p>';
+    fetch(TRANSCRIPT_URL(videoId))
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        state.transcriptCache[videoId] = data;
+        renderAndScroll(data);
+      })
+      .catch(function (err) {
+        els.transcriptModalBody.innerHTML = '<div class="refv-empty">Transcript not available yet for this sermon.' +
+          ' (' + escapeHtml(err.message) + ')</div>';
+      });
+  }
+
+  function renderTranscript(data, focusSec) {
+    var segments = (data && data.segments) || [];
+    if (!segments.length) {
+      els.transcriptModalBody.innerHTML = '<div class="refv-empty">No transcript segments found.</div>';
+      return;
+    }
+    // Group small segments into ~25–35s paragraphs for readability without
+    // burying timestamps.
+    var paragraphs = [];
+    var current = null;
+    var GROUP_SECS = 30;
+    segments.forEach(function (seg) {
+      var startVal = seg.start_time != null ? seg.start_time : seg.start;
+      var endVal = seg.end_time != null ? seg.end_time : seg.end;
+      var text = (seg.text || '').trim();
+      if (!text) return;
+      if (!current || (startVal - current.start) >= GROUP_SECS) {
+        current = { start: startVal, end: endVal, text: text };
+        paragraphs.push(current);
+      } else {
+        current.end = endVal;
+        current.text += ' ' + text;
+      }
+    });
+
+    var focusTs = focusSec || 0;
+    var html = paragraphs.map(function (p) {
+      var isCurrent = focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
+      var classes = 'refv-transcript-segment' + (isCurrent ? ' is-current' : '');
+      return '<p class="' + classes + '" data-start="' + p.start + '">' +
+        '<span class="refv-transcript-ts">' + formatTimestamp(p.start) + '</span> ' +
+        escapeHtml(p.text) +
+      '</p>';
+    }).join('');
+    els.transcriptModalBody.innerHTML = html;
+  }
+
+  function closeTranscriptModal() {
+    els.transcriptModal.hidden = true;
+    els.transcriptModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
@@ -639,8 +769,18 @@
         if (e.target === els.videoModal) closeVideoModal();
       });
     }
+    if (els.transcriptModalClose) {
+      els.transcriptModalClose.addEventListener('click', closeTranscriptModal);
+    }
+    if (els.transcriptModal) {
+      els.transcriptModal.addEventListener('click', function (e) {
+        if (e.target === els.transcriptModal) closeTranscriptModal();
+      });
+    }
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !els.videoModal.hidden) closeVideoModal();
+      if (e.key !== 'Escape') return;
+      if (!els.transcriptModal.hidden) { closeTranscriptModal(); return; }
+      if (!els.videoModal.hidden) { closeVideoModal(); return; }
     });
     window.addEventListener('hashchange', applyRoute);
 

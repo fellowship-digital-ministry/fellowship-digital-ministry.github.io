@@ -310,7 +310,10 @@
   color: var(--refv-text);
 }
 
-/* Sermon occurrence cards */
+/* Sermon occurrence cards.
+   Cards lead with a prominent reference badge so the WHY-is-this-on-this-page
+   signal is obvious: scanning Matthew 1 you see "MATTHEW 1:21" on each card,
+   not the sermon's own subject. */
 .refv-occurrences {
   display: flex;
   flex-direction: column;
@@ -323,27 +326,52 @@
   padding: 1rem 1.1rem;
   box-shadow: var(--refv-shadow);
 }
-.refv-occ-head {
+.refv-occ-badge {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 0.4rem;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-bottom: 0.3rem;
 }
-.refv-occ-title {
-  margin: 0;
-  font-size: 1rem;
+.refv-occ-badge-ref {
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--refv-primary);
+  letter-spacing: -0.005em;
+}
+.refv-occ-badge-tag {
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--refv-text);
-  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--refv-bg-soft);
+  color: var(--refv-text-muted);
+  border: 1px solid var(--refv-border);
 }
-.refv-occ-meta {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  font-size: 0.82rem;
+.refv-occ-sermon {
+  font-size: 0.85rem;
   color: var(--refv-text-muted);
   margin-bottom: 0.7rem;
+  line-height: 1.4;
+}
+.refv-occ-sermon-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--refv-text-muted);
+  opacity: 0.75;
+}
+.refv-occ-sermon-title {
+  color: var(--refv-text);
+  font-weight: 500;
+}
+.refv-occ-sermon-ts {
+  font-variant-numeric: tabular-nums;
+  color: var(--refv-text-muted);
+  opacity: 0.8;
 }
 .refv-occ-context {
   margin: 0 0 0.85rem;
@@ -511,6 +539,105 @@
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* ---------- Transcript modal ---------- */
+.refv-transcript-modal[hidden] { display: none; }
+.refv-transcript-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+}
+.refv-transcript-modal-card {
+  background: white;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+@media (min-width: 720px) {
+  .refv-transcript-modal { padding: 2rem 1rem; align-items: center; }
+  .refv-transcript-modal-card {
+    border-radius: var(--refv-radius);
+    max-height: calc(100vh - 4rem);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  }
+}
+.refv-transcript-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--refv-border);
+  flex-shrink: 0;
+}
+.refv-transcript-modal-head-text { min-width: 0; }
+.refv-transcript-modal-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--refv-text);
+  line-height: 1.3;
+}
+.refv-transcript-modal-sub {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--refv-text-muted);
+}
+.refv-transcript-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--refv-text-muted);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.refv-transcript-modal-close:hover {
+  background: var(--refv-bg-soft);
+  color: var(--refv-primary);
+}
+.refv-transcript-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.1rem 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+.refv-transcript-segment {
+  margin: 0 0 1rem;
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--refv-text);
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--refv-radius-sm);
+  border-left: 3px solid transparent;
+}
+.refv-transcript-segment.is-current {
+  background: rgba(255, 224, 130, 0.4);
+  border-left-color: var(--refv-primary);
+}
+.refv-transcript-ts {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--refv-text-muted);
+  background: var(--refv-bg-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
 /* ---------- Wider viewports ---------- */

@@ -87,3 +87,19 @@ custom_js: reference-viewer
     <div class="refv-video-modal-frame" id="video-modal-frame"></div>
   </div>
 </div>
+
+<!-- Transcript modal (read view; auto-scrolls to the timestamp). -->
+<div id="transcript-modal" class="refv-transcript-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="transcript-modal-title">
+  <div class="refv-transcript-modal-card">
+    <header class="refv-transcript-modal-head">
+      <div class="refv-transcript-modal-head-text">
+        <h3 id="transcript-modal-title">Sermon transcript</h3>
+        <p class="refv-transcript-modal-sub" id="transcript-modal-sub"></p>
+      </div>
+      <button id="transcript-modal-close" class="refv-transcript-modal-close" aria-label="Close transcript">&times;</button>
+    </header>
+    <div class="refv-transcript-modal-body" id="transcript-modal-body">
+      <p class="refv-loading">Loading transcript…</p>
+    </div>
+  </div>
+</div>
