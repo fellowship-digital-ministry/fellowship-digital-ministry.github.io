@@ -159,7 +159,93 @@ const SermonAPI = {
 
     return await response.json();
   },
-  
+
+  /**
+   * Stream a query response via Server-Sent Events (SSE).
+   *
+   * Same backend model as sendQuery, but tokens arrive as they generate
+   * so the user sees output start in <1s instead of waiting 6-8s.
+   *
+   * @param {Object} queryData - Same shape as sendQuery
+   * @param {Object} callbacks - { onSources, onToken, onDone, onError }
+   * @returns {Promise<void>} - Resolves when stream ends
+   */
+  async sendQueryStream(queryData, callbacks) {
+    const url = this.baseUrl.endsWith('/')
+      ? `${this.baseUrl.slice(0, -1)}/answer/stream`
+      : `${this.baseUrl}/answer/stream`;
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'text/event-stream',
+        'Origin': window.location.origin,
+        'Accept-Language': queryData.language || 'en',
+      },
+      mode: 'cors',
+      body: JSON.stringify(queryData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Stream request failed: ${response.status}`);
+    }
+    if (!response.body) {
+      throw new Error('Response has no body (streaming not supported by this browser?)');
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+
+      // SSE events are delimited by a blank line (\n\n)
+      const parts = buffer.split('\n\n');
+      buffer = parts.pop();  // last possibly-incomplete event stays in buffer
+
+      for (const part of parts) {
+        const event = this._parseSSEEvent(part);
+        if (!event) continue;
+        switch (event.type) {
+          case 'sources':
+            if (callbacks.onSources) callbacks.onSources(event.data);
+            break;
+          case 'token':
+            if (callbacks.onToken) callbacks.onToken(event.data.text || '');
+            break;
+          case 'done':
+            if (callbacks.onDone) callbacks.onDone(event.data);
+            break;
+          case 'error':
+            if (callbacks.onError) callbacks.onError(event.data.message || 'Stream error');
+            break;
+        }
+      }
+    }
+  },
+
+  _parseSSEEvent(raw) {
+    const lines = raw.split('\n');
+    let type = 'message';
+    const dataLines = [];
+    for (const line of lines) {
+      if (line.startsWith('event:')) type = line.slice(6).trim();
+      else if (line.startsWith('data:')) dataLines.push(line.slice(5).trim());
+    }
+    if (!dataLines.length) return null;
+    try {
+      return { type, data: JSON.parse(dataLines.join('\n')) };
+    } catch (e) {
+      console.warn('Failed to parse SSE event JSON:', e);
+      return null;
+    }
+  },
+
   /**
    * Fetch transcript for a video
    * @param {string} videoId - The video ID
@@ -1995,39 +2081,114 @@ function createSourceElement(source, index) {
     elements.queryInput.value = '';
     adjustTextareaHeight(elements.queryInput);
     
-    // Add typing indicator
-    const typingId = addTypingIndicator();
-    
     // Increment pending requests counter
     state.pendingRequests++;
 
+    // Prepare request data
+    const requestData = {
+      query: query,
+      conversation_history: state.conversationHistory.slice(-config.maxMemoryLength * 2),
+      language: state.currentLanguage,
+    };
+
+    // Streaming is English-only on the backend (translation needs full buffer).
+    // For non-English, fall straight through to the non-streaming path below.
+    const useStreaming = state.currentLanguage === 'en';
+
     try {
-      // Prepare request data
-      const requestData = {
-        query: query,
-        conversation_history: state.conversationHistory.slice(-config.maxMemoryLength * 2),
-        language: state.currentLanguage
-      };
-      
-      // Use SermonAPI to send the query
-      const data = await SermonAPI.sendQuery(requestData);
-      
-      // Remove typing indicator
-      removeMessage(typingId);
+      if (useStreaming) {
+        // === Streaming path ===
+        // Create the bot bubble empty, then fill it as tokens arrive.
+        // No typing indicator — the streaming text itself is the indicator.
+        const placeholder = '<div class="streaming-placeholder"><span>Reviewing sermons</span><span class="streaming-dots">…</span></div>';
+        const botMessageEl = addMessage(placeholder, 'bot');
+        const contentEl = botMessageEl.querySelector('.claude-message-content');
 
-      // Display the answer
-      displayAnswer(data);
+        let accumulatedText = '';
+        let sourcesData = [];
+        let suggestedQueries = [];
+        let firstTokenReceived = false;
+        let renderTimer = null;
 
-      // Persist this round-trip so the conversation survives page reload.
-      state.persistedTurns.push({ user: query, data });
-      saveChatTurns(state.persistedTurns);
+        // Debounced markdown re-render: avoids flicker on every token by
+        // batching renders to ~10/sec. The Bible-reference chip enrichment
+        // is deferred to the final render in onDone.
+        const scheduleRender = () => {
+          if (renderTimer) return;
+          renderTimer = setTimeout(() => {
+            contentEl.innerHTML = formatResponse(accumulatedText);
+            renderTimer = null;
+            smoothScrollToBottom(elements.messagesContainer);
+          }, 100);
+        };
+
+        await SermonAPI.sendQueryStream(requestData, {
+          onSources: (data) => {
+            sourcesData = data.sources || [];
+          },
+          onToken: (text) => {
+            if (!firstTokenReceived) {
+              contentEl.innerHTML = '';  // clear placeholder once content starts
+              firstTokenReceived = true;
+            }
+            accumulatedText += text;
+            scheduleRender();
+          },
+          onDone: (data) => {
+            // Cancel any pending debounced render — we're about to do the final one
+            if (renderTimer) { clearTimeout(renderTimer); renderTimer = null; }
+
+            // Final pass: full markdown render + Bible-reference enrichment
+            contentEl.innerHTML = formatResponse(accumulatedText);
+            setupBibleReferenceClicks(contentEl);
+
+            suggestedQueries = data.suggested_queries || [];
+
+            // Add sources panel + toggle button (mirrors displayAnswer's logic)
+            const isNoResults = accumulatedText.includes(translate('no-results')) ||
+                                accumulatedText.includes("I couldn't find sermon content");
+            if (sourcesData.length > 0 && !isNoResults) {
+              populateSourcesPanelAndAddToggle(contentEl, sourcesData);
+            }
+
+            // Push to conversation history + persist for reload
+            state.conversationHistory.push({ role: 'assistant', content: accumulatedText });
+
+            const persistedTurn = {
+              user: query,
+              data: {
+                query: requestData.query,
+                answer: accumulatedText,
+                sources: sourcesData,
+                suggested_queries: suggestedQueries,
+                processing_time: data.processing_time,
+              },
+            };
+            state.persistedTurns.push(persistedTurn);
+            saveChatTurns(state.persistedTurns);
+
+            smoothScrollToBottom(elements.messagesContainer);
+          },
+          onError: (msg) => {
+            contentEl.innerHTML = `<div class="error-container"><p>Error: ${msg}</p></div>`;
+          },
+        });
+      } else {
+        // === Non-streaming path (used for Spanish/Chinese — translation needs full buffer) ===
+        const typingId = addTypingIndicator();
+        const data = await SermonAPI.sendQuery(requestData);
+        removeMessage(typingId);
+        displayAnswer(data);
+        state.persistedTurns.push({ user: query, data });
+        saveChatTurns(state.persistedTurns);
+      }
 
     } catch (error) {
       console.error('Error in API request:', error);
-      
-      // Remove typing indicator
-      removeMessage(typingId);
-      
+
+      // Clean up any leftover typing indicator from the non-streaming path
+      document.querySelectorAll('.claude-typing').forEach((el) => removeMessage(el.id));
+
       // Show error message
       const errorMsg = `
         <div class="error-container">
@@ -2036,15 +2197,12 @@ function createSourceElement(source, index) {
         </div>
       `;
       const errorElement = addMessage(errorMsg, 'bot', true);
-      
+
       // Add retry button functionality
       const retryButton = errorElement.querySelector('.retry-button');
       if (retryButton) {
-        retryButton.addEventListener('click', function() {
-          // Remove error message
+        retryButton.addEventListener('click', function () {
           removeMessage(errorElement.id);
-          
-          // Try again with the same query
           elements.queryInput.value = query;
           elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
         });
@@ -2067,6 +2225,54 @@ function createSourceElement(source, index) {
 /**
  * Display answer from API
  */
+/**
+ * Populate the right-side sources panel with this answer's sources and
+ * append a "Show sources" toggle button to the message bubble.
+ *
+ * Shared between displayAnswer (non-streaming + restore-from-storage path)
+ * and the streaming flow (handleSubmit). Don't change one without the
+ * other unless you're intentionally changing the source-card behavior.
+ */
+function populateSourcesPanelAndAddToggle(messageContent, sources) {
+  if (!sources || !sources.length || !elements.sourcesPanelContent) return;
+  try {
+    elements.sourcesPanelContent.innerHTML = '';
+
+    const sourcesTitle = document.createElement('h3');
+    sourcesTitle.textContent = translate('sources-found') + ' (' + sources.length + ')';
+    elements.sourcesPanelContent.appendChild(sourcesTitle);
+
+    const sortedSources = [...sources].sort((a, b) => b.similarity - a.similarity);
+    sortedSources.forEach((source, index) => {
+      const sourceElement = createSourceElement(source, index);
+      elements.sourcesPanelContent.appendChild(sourceElement);
+      sourceElement.style.animationDelay = `${index * 50}ms`;
+      sourceElement.classList.add('animating-in');
+      setTimeout(() => {
+        sourceElement.classList.remove('animating-in');
+        sourceElement.style.animationDelay = '';
+      }, 500 + (index * 50));
+    });
+
+    const sourcesToggle = document.createElement('button');
+    sourcesToggle.className = 'claude-sources-toggle';
+    sourcesToggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
+    sourcesToggle.setAttribute('data-active', 'false');
+    sourcesToggle.setAttribute('aria-expanded', 'false');
+    sourcesToggle.setAttribute('aria-controls', 'sourcesPanel');
+
+    sourcesToggle.addEventListener('click', function () {
+      toggleSourcesPanel(true);
+      this.setAttribute('data-active', 'true');
+      this.setAttribute('aria-expanded', 'true');
+    });
+
+    messageContent.appendChild(sourcesToggle);
+  } catch (error) {
+    console.error('Error displaying sources:', error);
+  }
+}
+
 function displayAnswer(data) {
   if (!data || !data.answer) {
     console.error('Invalid data received from API');
@@ -2107,59 +2313,10 @@ function displayAnswer(data) {
   
   // ONLY display sources button if there are ACTUAL sermon sources AND NOT a "no results" response
   if (hasSermonContent && !isNoResultsResponse) {
-    try {
-      // Clear previous sources
-      elements.sourcesPanelContent.innerHTML = '';
-      
-      // Add title with source count
-      const sourcesTitle = document.createElement('h3');
-      sourcesTitle.textContent = translate('sources-found') + ' (' + data.sources.length + ')';
-      elements.sourcesPanelContent.appendChild(sourcesTitle);
-      
-      // Sort sources by similarity score
-      const sortedSources = [...data.sources].sort((a, b) => b.similarity - a.similarity);
-      
-      // Add sources to panel
-      sortedSources.forEach((source, index) => {
-        const sourceElement = createSourceElement(source, index);
-        elements.sourcesPanelContent.appendChild(sourceElement);
-        
-        // Add staggered animation
-        sourceElement.style.animationDelay = `${index * 50}ms`;
-        sourceElement.classList.add('animating-in');
-        
-        // Remove animation class after animation completes
-        setTimeout(() => {
-          sourceElement.classList.remove('animating-in');
-          sourceElement.style.animationDelay = '';
-        }, 500 + (index * 50));
-      });
-      
-      // ONLY add the sources toggle button if we have actual sources
-      const sourcesToggle = document.createElement('button');
-      sourcesToggle.className = 'claude-sources-toggle';
-      sourcesToggle.innerHTML = '<span class="claude-sources-toggle-icon">⬆</span> ' + translate('show-sources');
-      sourcesToggle.setAttribute('data-active', 'false');
-      sourcesToggle.setAttribute('aria-expanded', 'false');
-      sourcesToggle.setAttribute('aria-controls', 'sourcesPanel');
-      
-      sourcesToggle.addEventListener('click', function() {
-        // Always show the sources panel when clicked
-        toggleSourcesPanel(true);
-        
-        // Update toggle state to active
-        this.setAttribute('data-active', 'true');
-        this.setAttribute('aria-expanded', 'true');
-      });
-      
-      // Add the button to the message content
-      const messageContent = messageElement.querySelector('.claude-message-content');
-      messageContent.appendChild(sourcesToggle);
-    } catch (error) {
-      console.error('Error displaying sources:', error);
-    }
+    const messageContent = messageElement.querySelector('.claude-message-content');
+    populateSourcesPanelAndAddToggle(messageContent, data.sources);
   }
-  
+
   // Add to conversation history
   state.conversationHistory.push({ role: 'assistant', content: data.answer });
   

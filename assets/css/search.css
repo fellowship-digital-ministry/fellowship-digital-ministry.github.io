@@ -1541,3 +1541,25 @@ body.keyboard-open .claude-messages {
   opacity: 0.7;
   margin-left: 0.1em;
 }
+
+/* ============================================================
+   Streaming placeholder
+   Shown briefly in the bot bubble between submission and the
+   first token arriving (~300-800ms typically). Replaced by the
+   actual streamed content as it arrives.
+   ============================================================ */
+.streaming-placeholder {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+.streaming-placeholder .streaming-dots {
+  display: inline-block;
+  margin-left: 0.1em;
+  animation: streaming-dots-pulse 1.4s infinite;
+}
+@keyframes streaming-dots-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
