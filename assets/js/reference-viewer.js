@@ -575,7 +575,12 @@
       '<div class="refv-empty refv-reading-empty">No sermons in the library reference ' +
         book.display + ' ' + chapter + ' yet.</div>';
 
-    els.occurrences.innerHTML = toolbarHtml + bibleHtml + emptyNote;
+    // Pagination placeholders — we render the strips once neighbors resolve
+    // (async, since the prev book's chapter count may need a fetch).
+    var topNavHtml = '<div class="refv-chapter-nav refv-chapter-nav-top" id="chapter-nav-top"></div>';
+    var bottomNavHtml = '<div class="refv-chapter-nav refv-chapter-nav-bottom" id="chapter-nav-bottom"></div>';
+
+    els.occurrences.innerHTML = topNavHtml + toolbarHtml + bibleHtml + emptyNote + bottomNavHtml;
 
     // Wire verse-number clicks → open modal for that verse.
     Array.prototype.forEach.call(els.occurrences.querySelectorAll('.refv-vnum.has-refs'), function (el) {
@@ -593,6 +598,81 @@
     if (allBtn) {
       allBtn.addEventListener('click', function () { openSermonsModal({ all: true }); });
     }
+
+    // Render chapter pagination once neighbors resolve.
+    renderChapterNav(book, chapter);
+  }
+
+  function renderChapterNav(book, chapter) {
+    Promise.all([
+      getNeighborChapter(book, chapter, -1),
+      getNeighborChapter(book, chapter, +1)
+    ]).then(function (results) {
+      var prev = results[0], next = results[1];
+      var topEl = document.getElementById('chapter-nav-top');
+      var bottomEl = document.getElementById('chapter-nav-bottom');
+      if (!topEl || !bottomEl) return; // user navigated away
+
+      // Top: compact arrows centered around the current chapter
+      topEl.innerHTML =
+        '<div class="refv-chapter-nav-row">' +
+          navButton(prev, 'prev', false) +
+          '<span class="refv-chapter-nav-here">' + escapeHtml(book.display + ' ' + chapter) + '</span>' +
+          navButton(next, 'next', false) +
+        '</div>';
+
+      // Bottom: bigger "continue reading" style buttons
+      bottomEl.innerHTML =
+        '<div class="refv-chapter-nav-row refv-chapter-nav-row-big">' +
+          navButton(prev, 'prev', true) +
+          navButton(next, 'next', true) +
+        '</div>';
+
+      // Wire clicks
+      Array.prototype.forEach.call(
+        document.querySelectorAll('.refv-chapter-nav [data-nav-slug]'),
+        function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            setHash([el.getAttribute('data-nav-slug'), el.getAttribute('data-nav-chapter')]);
+            applyRoute();
+          });
+        }
+      );
+    });
+  }
+
+  function navButton(target, dir, big) {
+    var classes = 'refv-chapter-nav-btn refv-chapter-nav-btn-' + dir;
+    if (big) classes += ' is-big';
+    if (!target) {
+      return '<span class="' + classes + ' is-disabled" aria-hidden="true">' +
+        (dir === 'prev' ? '←' : '→') +
+        (big ? '<span class="refv-chapter-nav-label">—</span>' : '') +
+      '</span>';
+    }
+    var label = target.book.display + ' ' + target.chapter;
+    var arrow = dir === 'prev' ? '←' : '→';
+    if (big) {
+      return '<button type="button" class="' + classes +
+        '" data-nav-slug="' + target.book.slug +
+        '" data-nav-chapter="' + target.chapter + '">' +
+        (dir === 'prev' ? '<span class="refv-chapter-nav-arrow">' + arrow + '</span>' : '') +
+        '<span class="refv-chapter-nav-label">' +
+          '<span class="refv-chapter-nav-lead">' +
+            (dir === 'prev' ? 'Previous' : 'Continue reading') +
+          '</span>' +
+          '<span class="refv-chapter-nav-target">' + escapeHtml(label) + '</span>' +
+        '</span>' +
+        (dir === 'next' ? '<span class="refv-chapter-nav-arrow">' + arrow + '</span>' : '') +
+      '</button>';
+    }
+    return '<button type="button" class="' + classes +
+      '" data-nav-slug="' + target.book.slug +
+      '" data-nav-chapter="' + target.chapter +
+      '" aria-label="Go to ' + escapeAttr(label) + '" title="' + escapeAttr(label) + '">' +
+      arrow +
+    '</button>';
   }
 
   // Group verses into paragraphs of ~5, mimicking printed-Bible flow.
@@ -794,6 +874,32 @@
     // Bible-kjv-master format: { book, chapters: [ { chapter: "1", verses: [...] } ] }
     if (!data || !Array.isArray(data.chapters)) return null;
     return data.chapters.find(function (c) { return String(c.chapter) === String(chapter); }) || null;
+  }
+
+  // Resolve prev/next chapter (chains across book boundaries).
+  // Returns Promise<{book, chapter} | null>.
+  function getNeighborChapter(book, chapter, direction) {
+    return loadKjvBook(book).then(function (data) {
+      var n = (data.chapters || []).length;
+      var target = chapter + direction;
+      if (target >= 1 && target <= n) {
+        return { book: book, chapter: target };
+      }
+      // Cross-book: walk BIBLE_BOOKS for next non-empty book.
+      var idx = -1;
+      for (var i = 0; i < BIBLE_BOOKS.length; i++) {
+        if (BIBLE_BOOKS[i].slug === book.slug) { idx = i; break; }
+      }
+      var nextIdx = idx + direction;
+      if (idx < 0 || nextIdx < 0 || nextIdx >= BIBLE_BOOKS.length) return null;
+      var nextBook = BIBLE_BOOKS[nextIdx];
+      if (direction > 0) return { book: nextBook, chapter: 1 };
+      // Going backward — need the previous book's last chapter.
+      return loadKjvBook(nextBook).then(function (d2) {
+        var lastN = (d2.chapters || []).length;
+        return lastN ? { book: nextBook, chapter: lastN } : null;
+      }).catch(function () { return null; });
+    }).catch(function () { return null; });
   }
 
   // ============================================================
