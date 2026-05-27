@@ -123,41 +123,41 @@ const SermonAPI = {
    * @returns {Promise<Object>} - The API response
    */
   async sendQuery(queryData) {
-    // First check connection
-    const isConnected = await this.verifyConnection();
-    if (!isConnected) {
-      throw new Error('API connection failed');
-    }
-    
+    const url = this.baseUrl.endsWith('/')
+      ? `${this.baseUrl.slice(0, -1)}/answer`
+      : `${this.baseUrl}/answer`;
+
+    const doFetch = () => fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin,
+        'Accept-Language': queryData.language || 'en'
+      },
+      mode: 'cors',
+      body: JSON.stringify(queryData)
+    });
+
+    console.log('Sending query to:', url);
+
+    // Render free tier sleeps after inactivity; the first request after a cold
+    // period can fail with a network error before the container is ready. Retry
+    // once after a short delay to invisibly recover.
+    let response;
     try {
-      // IMPORTANT: Use "/answer" endpoint for the main search query
-      const url = this.baseUrl.endsWith('/') 
-        ? `${this.baseUrl.slice(0, -1)}/answer` 
-        : `${this.baseUrl}/answer`;
-      
-      console.log('Sending query to:', url);
-      
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Origin': window.location.origin,
-          'Accept-Language': queryData.language || 'en'
-        },
-        mode: 'cors',
-        body: JSON.stringify(queryData)
-      });
-      
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
-      }
-      
-      return await response.json();
-    } catch (error) {
-      console.error('Query error:', error);
-      throw error;
+      response = await doFetch();
+    } catch (err) {
+      console.warn('First /answer attempt failed, retrying after 5s (cold start?):', err);
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      response = await doFetch();
     }
+
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    return await response.json();
   },
   
   /**
@@ -206,7 +206,7 @@ const SermonSearch = (function() {
     maxMemoryLength: 10,
     defaultLanguage: 'en',
     debounceTime: 300, // ms for debouncing events
-    typingIndicatorTimeout: 30000, // 30 seconds max for typing indicator
+    typingIndicatorTimeout: 60000, // 60s — covers OpenAI latency + occasional Render cold-start retry
     transitionDuration: 300 // ms for animations
   };
 
@@ -1884,42 +1884,7 @@ function createSourceElement(source, index) {
     
     // Increment pending requests counter
     state.pendingRequests++;
-    
-    // Verify API connection before sending request
-    if (!state.isApiConnected) {
-      const isConnected = await verifyApiConnection(false);
-      if (!isConnected) {
-        // Remove typing indicator
-        removeMessage(typingId);
-        
-        // Show connection error
-        const errorMsg = `
-          <div class="connection-error">
-            <p>${translate('connection-error')}</p>
-            <button class="retry-button">${translate('try-again')}</button>
-          </div>
-        `;
-        const errorElement = addMessage(errorMsg, 'bot', true);
-        
-        // Add retry button functionality
-        const retryButton = errorElement.querySelector('.retry-button');
-        if (retryButton) {
-          retryButton.addEventListener('click', function() {
-            // Remove error message
-            removeMessage(errorElement.id);
-            
-            // Try again with the same query
-            elements.queryInput.value = query;
-            elements.chatForm.dispatchEvent(new Event('submit'));
-          });
-        }
-        
-        // Decrement pending requests counter
-        state.pendingRequests--;
-        return;
-      }
-    }
-    
+
     try {
       // Prepare request data
       const requestData = {

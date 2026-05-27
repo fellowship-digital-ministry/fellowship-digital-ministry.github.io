@@ -1,0 +1,27 @@
+name: Keep API Warm
+
+# Render's free tier spins the backend down after ~15 min of inactivity, which
+# causes the first request from a real visitor to fail (the container hasn't
+# finished booting before fetch times out). Pinging /health every 10 minutes
+# keeps the container hot so visitors never hit a cold start.
+#
+# GitHub Actions cron is best-effort and may run a few minutes late under load,
+# so a 10-minute interval gives margin against Render's 15-minute idle timer.
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping /health
+        run: |
+          curl -sS --fail --max-time 60 --retry 2 --retry-delay 10 \
+            https://sermon-search-api-8fok.onrender.com/health
