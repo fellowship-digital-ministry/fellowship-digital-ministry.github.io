@@ -2301,36 +2301,139 @@ function addPrintButton(messageElement) {
 }
 
 function printMessagePair(botMessageEl) {
-  // Walk back through siblings to find the user message that prompted this answer
+  // Walk back to find the user message that prompted this answer
   let userMsg = botMessageEl.previousElementSibling;
   while (userMsg && !userMsg.classList.contains('claude-message-user')) {
     userMsg = userMsg.previousElementSibling;
   }
+  const questionText = userMsg
+    ? (userMsg.querySelector('.claude-message-content')?.textContent || '').trim()
+    : '';
 
-  document.body.classList.add('printing');
-  if (userMsg) userMsg.classList.add('print-target');
-  botMessageEl.classList.add('print-target');
+  const answerContent = botMessageEl.querySelector('.claude-message-content');
+  if (!answerContent) return;
 
-  // Inject a print-only header so the printed page identifies itself
-  const header = document.createElement('div');
-  header.className = 'print-only-header';
-  header.innerHTML = `
-    <div class="print-only-title">Fellowship Digital Ministry</div>
-    <div class="print-only-sub">Sermon search answer · ${new Date().toLocaleDateString(undefined, {
-      year: 'numeric', month: 'long', day: 'numeric',
-    })}</div>
-  `;
-  document.body.insertBefore(header, document.body.firstChild);
+  // Clone the answer DOM so we can strip interactive-only elements
+  // without touching the live page
+  const answerClone = answerContent.cloneNode(true);
+  answerClone.querySelectorAll(
+    '.message-print-button, .claude-sources-toggle, .bible-ref-count'
+  ).forEach((el) => el.remove());
 
-  window.print();
+  const dateStr = new Date().toLocaleDateString(undefined, {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+  const escape = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[c]);
+
+  // Open a fresh window with a minimal stylesheet — no interference from
+  // the chat page's complex CSS, which is what was clipping the previous
+  // print attempt. The new window is a standalone printable document.
+  const win = window.open('', '_blank', 'width=820,height=900');
+  if (!win) {
+    alert('Please allow pop-ups for this site to print the answer.');
+    return;
+  }
+
+  win.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fellowship Digital Ministry — Sermon search answer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root { --burgundy: #641c14; --text: #222; --muted: #666; }
+    @page { margin: 1.5cm 2cm; }
+    html, body { margin: 0; padding: 0; background: white; color: var(--text); }
+    body {
+      font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+      font-size: 11pt; line-height: 1.55;
+      padding: 2cm; max-width: 21cm;
+    }
+    .page-header {
+      border-bottom: 1px solid #999;
+      padding-bottom: 8pt; margin-bottom: 14pt;
+    }
+    .page-title { font-size: 13pt; font-weight: 700; color: var(--burgundy); margin: 0; }
+    .page-sub { font-size: 9pt; color: var(--muted); margin-top: 2pt; }
+    .question {
+      font-weight: 700; font-size: 12pt;
+      color: var(--burgundy);
+      margin: 0 0 12pt;
+    }
+    .question::before { content: 'Question: '; }
+    h1, h2, h3, h4 { color: var(--burgundy); page-break-after: avoid; line-height: 1.3; }
+    h1 { font-size: 14pt; margin: 14pt 0 6pt; }
+    h2 { font-size: 12pt; margin: 12pt 0 4pt; font-weight: 700; }
+    h3 { font-size: 11pt; margin: 10pt 0 3pt; }
+    p { margin: 0 0 7pt; }
+    ul, ol { margin: 0 0 7pt; padding-left: 1.5em; }
+    li { margin-bottom: 3pt; }
+    strong { color: var(--burgundy); }
+    em, i { font-style: italic; }
+    blockquote {
+      border-left: 3px solid var(--burgundy);
+      padding-left: 10pt; margin: 8pt 0;
+      font-style: italic; color: var(--muted);
+      page-break-inside: avoid;
+    }
+    code {
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      background: #f4f0ea;
+      padding: 0.1em 0.3em; border-radius: 3px;
+    }
+    .footer {
+      margin-top: 18pt; padding-top: 8pt;
+      border-top: 1px solid #ccc;
+      font-size: 9pt; color: var(--muted);
+    }
+    .print-controls {
+      position: fixed; top: 12px; right: 12px;
+      background: white; padding: 6px 10px;
+      border: 1px solid #ddd; border-radius: 4px;
+      font-family: system-ui, sans-serif; font-size: 13px;
+    }
+    .print-controls button {
+      background: var(--burgundy); color: white;
+      border: none; padding: 4px 10px; border-radius: 3px;
+      cursor: pointer; font-size: 13px;
+    }
+    @media print {
+      body { padding: 0; }
+      .print-controls { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-controls" aria-hidden="true">
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+  <div class="page-header">
+    <div class="page-title">Fellowship Digital Ministry</div>
+    <div class="page-sub">Sermon search answer — ${escape(dateStr)}</div>
+  </div>
+  ${questionText ? `<div class="question">${escape(questionText)}</div>` : ''}
+  <div class="answer">${answerClone.innerHTML}</div>
+  <div class="footer">From the Fellowship Digital Ministry sermon search (unofficial study tool). Source sermons are publicly available on the church's YouTube channel.</div>
+</body>
+</html>`);
+  win.document.close();
+
+  // Give the new document a moment to render + fonts to load before
+  // triggering the print dialog. The user can also click the Print
+  // button if auto-print doesn't fire (some browsers block it).
+  setTimeout(() => {
+    try {
+      win.focus();
+      win.print();
+    } catch (_) {
+      // Fallback: the in-window Print button is always available
+    }
+  }, 400);
 }
-
-// Single afterprint listener handles cleanup for any printed message
-window.addEventListener('afterprint', () => {
-  document.body.classList.remove('printing');
-  document.querySelectorAll('.print-target').forEach((el) => el.classList.remove('print-target'));
-  document.querySelectorAll('.print-only-header').forEach((el) => el.remove());
-});
 
 /**
  * Populate the right-side sources panel with this answer's sources and
