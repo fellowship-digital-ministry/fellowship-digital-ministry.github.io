@@ -1510,3 +1510,34 @@ body.keyboard-open .claude-messages {
   background-color: #4a5568 !important; /* dark grey background */
   color: var(--text-color) !important;
 }
+
+/* ============================================================
+   Bible reference sermon-count chip
+   Appears inline after each .bible-reference in chat answers.
+   Subtle so it doesn't dominate the prose; clicking takes you
+   to the reference viewer to explore which sermons cite the passage.
+   ============================================================ */
+.bible-ref-count {
+  display: inline-block;
+  margin-left: 0.35em;
+  padding: 1px 0.5em;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: rgba(100, 28, 20, 0.08);
+  border-radius: 999px;
+  text-decoration: none;
+  vertical-align: baseline;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition: background-color var(--transition-speed) ease;
+}
+.bible-ref-count:hover {
+  background-color: rgba(100, 28, 20, 0.18);
+  text-decoration: none;
+}
+.bible-ref-count::after {
+  content: ' →';
+  opacity: 0.7;
+  margin-left: 0.1em;
+}

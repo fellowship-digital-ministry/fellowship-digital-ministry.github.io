@@ -920,23 +920,23 @@ function updateSuggestions() {
    */
   function setupBibleReferenceClicks(element) {
     if (!element) return;
-    
+
     const bibleRefs = element.querySelectorAll('.bible-reference');
-    
+
     bibleRefs.forEach(ref => {
       // Ensure it's accessible
       ref.setAttribute('role', 'button');
       ref.setAttribute('tabindex', '0');
       ref.setAttribute('aria-label', `Open Bible reference: ${ref.textContent.trim()}`);
-      
+
       // Add click handler
       ref.addEventListener('click', function() {
         const reference = this.textContent.trim();
         const bibleConfig = bibleWebsites[state.currentLanguage] || bibleWebsites.en;
-        
+
         window.open(`${bibleConfig.site}?search=${encodeURIComponent(reference)}&version=${bibleConfig.version}`, '_blank');
       });
-      
+
       // Add keyboard handler
       ref.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -944,6 +944,60 @@ function updateSuggestions() {
           this.click();
         }
       });
+    });
+
+    // Asynchronously enrich each reference with a "N sermons →" chip
+    // that links into the reference viewer. Best-effort: if the data
+    // can't load, the refs still display + work as before.
+    enrichBibleReferencesWithCounts(element);
+  }
+
+  // Cache the references_index across multiple message renders
+  let _refsIndexPromise = null;
+  function loadReferencesIndex() {
+    if (!_refsIndexPromise) {
+      _refsIndexPromise = fetch('/assets/data/analytics/references_index.json')
+        .then(r => r.ok ? r.json() : {})
+        .catch(() => ({}));
+    }
+    return _refsIndexPromise;
+  }
+
+  // "Romans 8:28" → "Romans 8"; "John 3:16-17" → "John 3"; "Hebrews 11" → "Hebrews 11"
+  function chapterKeyFromReference(refText) {
+    const m = refText.match(/^([1-3]?\s?[A-Za-z]+(?:\s[A-Za-z]+)?)\s+(\d+)/);
+    return m ? `${m[1].trim()} ${m[2]}` : null;
+  }
+
+  async function enrichBibleReferencesWithCounts(element) {
+    const refs = element.querySelectorAll('.bible-reference');
+    if (!refs.length) return;
+
+    let index;
+    try {
+      index = await loadReferencesIndex();
+    } catch (e) {
+      return;  // silent fallback — refs already work
+    }
+    if (!index || !Object.keys(index).length) return;
+
+    refs.forEach(refEl => {
+      // Avoid double-enriching if this DOM element is re-processed
+      if (refEl.nextElementSibling && refEl.nextElementSibling.classList.contains('bible-ref-count')) {
+        return;
+      }
+      const key = chapterKeyFromReference(refEl.textContent.trim());
+      if (!key) return;
+      const count = index[key];
+      if (!count) return;
+
+      const chip = document.createElement('a');
+      chip.className = 'bible-ref-count';
+      chip.href = new URL('reference-viewer.html', document.baseURI).pathname;
+      const noun = count === 1 ? 'sermon' : 'sermons';
+      chip.title = `${count} ${noun} reference ${key}`;
+      chip.textContent = `${count} ${noun}`;
+      refEl.parentNode.insertBefore(chip, refEl.nextSibling);
     });
   }
 
