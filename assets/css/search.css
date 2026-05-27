@@ -3,11 +3,14 @@
   /* Tell browsers we manage both light and dark color schemes */
   color-scheme: light dark;
   
-  /* Colors with improved contrast ratios */
-  --primary-color: #2284c5; /* Darker blue for better contrast */
-  --primary-dark: #1a6aa1;
-  --primary-light: #a8dcff;
-  --secondary-color: #f2f5f7;
+  /* Colors — burgundy matches the church brand (#641c14). The old palette
+     used a bright Bootstrap blue (#2284c5) as the primary accent, which
+     clashed against the burgundy hero on the home page. Unifying to
+     burgundy makes the chat read as part of the church, not a separate app. */
+  --primary-color: #641c14;            /* Fellowship Baptist burgundy */
+  --primary-dark: #4a1310;             /* Darker burgundy for hover/active */
+  --primary-light: rgba(100, 28, 20, 0.12); /* Subtle wash for focus rings */
+  --secondary-color: #f8f4ed;          /* Warm cream — replaces cold #f2f5f7 */
   --text-color: #333;
   --text-light: #555; /* Darker for better readability */
   --error-color: #b91c1c;
@@ -16,6 +19,7 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
   --transition-speed: 0.3s;
   --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'PT Serif', Georgia, 'Times New Roman', serif; /* For sermon quotes + scripture */
   --content-max-width: 1200px;
   --header-height: 3.5rem; /* Increased from 3rem */
   --header-height-mobile: 3.5rem; /* Increased from 3rem */
@@ -31,9 +35,9 @@
 
 /* Dark mode variables */
 [data-theme="dark"] {
-  --primary-color: #4aa3e2;
-  --primary-dark: #3180b8;
-  --primary-light: #6ab8f5;
+  --primary-color: #b38a82;            /* Lightened burgundy for dark-bg contrast */
+  --primary-dark: #c9a59d;
+  --primary-light: rgba(179, 138, 130, 0.2);
   --secondary-color: #202326;
   /* Brighter text colors for better contrast */
   --text-color: #f5f5f5;
@@ -387,10 +391,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 
 .claude-submit-button {
   position: absolute;
-  right: 0.75rem; /* Increased from 0.5rem to move button further from scrollbar */
-  bottom: 0.5rem;
-  width: 36px;
-  height: 36px;
+  right: 0.6rem;            /* Optical breathing room from scrollbar/edge */
+  bottom: 0.6rem;
+  width: 34px;              /* Slightly smaller, less utility-block */
+  height: 34px;
   background-color: var(--primary-color);
   border: none;
   border-radius: 50%;
@@ -399,12 +403,26 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color var(--transition-speed) ease;
-  z-index: 5; /* Ensure button stays above scrollbar */
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+  box-shadow: 0 1px 3px rgba(100, 28, 20, 0.25);
+  z-index: 5;               /* Above scrollbar */
 }
 
 .claude-submit-button:hover {
   background-color: var(--primary-dark);
+  box-shadow: 0 2px 6px rgba(100, 28, 20, 0.35);
+}
+
+.claude-submit-button:active {
+  transform: scale(0.95);
+}
+
+/* Optically center the arrow glyph — the SVG ships with a small visual
+   left-bias which makes the button look misaligned at small sizes. */
+.claude-submit-icon {
+  transform: translateX(1px);
 }
 
 .claude-submit-icon {
@@ -523,7 +541,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 .claude-source-text-preview {
   margin-bottom: 0.75rem;
   color: var(--text-color);
+  font-family: var(--font-serif);   /* Sermon quotes feel right in serif */
+  font-size: 1rem;                  /* Slightly larger than UI chrome */
   font-style: italic;
+  line-height: 1.55;
 }
 
 .claude-source-text-view-button {
@@ -609,7 +630,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 }
 
 .claude-sources-toggle:hover {
-  background-color: #e8f0fe;
+  background-color: rgba(100, 28, 20, 0.08);
   transform: translateY(-2px);
   box-shadow: 0 3px 6px rgba(0,0,0,0.12);
 }
@@ -627,8 +648,8 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 }
 
 .claude-sources-toggle[data-active="true"] {
-  background-color: #e8f0fe;
-  border-color: #c0d7f0;
+  background-color: rgba(100, 28, 20, 0.08);
+  border-color: rgba(100, 28, 20, 0.20);
 }
 
 .claude-sources-toggle[data-active="true"] .claude-sources-toggle-icon {
@@ -695,8 +716,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 }
 
 .claude-welcome h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-family: var(--font-serif);   /* Serif greeting reads as reverent, not transactional */
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
   margin-bottom: 0.75rem;
   color: var(--text-color);
 }
@@ -997,7 +1020,9 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 
 .claude-source-text {
   white-space: pre-wrap;
-  line-height: 1.6;
+  font-family: var(--font-serif);   /* Full quote modal — keep typography consistent with the preview */
+  font-size: 1.05rem;
+  line-height: 1.7;
   max-height: 60vh;
   overflow-y: auto;
   padding: 1rem;

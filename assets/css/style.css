@@ -1,6 +1,6 @@
 :root {
   /* Colors - based on Fellowship Baptist Church Ministries brand with improved contrast ratios */
-  --color-primary: #2284c5; /* Darker blue for better contrast */
+  --color-primary: #641c14; /* Fellowship Baptist burgundy — unified with --color-bg-maroon */
   --color-bg-maroon: #641c14;
   --color-bg: #ffffff;
   --color-bg-light: #f8f9fa;
