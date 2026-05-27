@@ -1563,3 +1563,167 @@ body.keyboard-open .claude-messages {
   0%, 100% { opacity: 0.4; }
   50%      { opacity: 1; }
 }
+
+/* ============================================================
+   "Print this answer" — per-bot-message button + print stylesheet
+   ============================================================ */
+
+/* On-screen: small unobtrusive button at the bottom of each bot bubble */
+.message-print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-top: 0.75rem;
+  padding: 4px 10px;
+  background: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.message-print-button:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(100, 28, 20, 0.04);
+}
+.message-print-button svg {
+  flex-shrink: 0;
+}
+
+/* If both print button and sources toggle exist, sit them on the same row */
+.message-print-button + .claude-sources-toggle,
+.claude-sources-toggle + .message-print-button {
+  margin-left: 0.5rem;
+}
+
+/* The print-only header that gets injected when a user clicks Print */
+.print-only-header { display: none; }
+
+/* ===== @media print: only the targeted message pair shows ===== */
+@media print {
+  /* Reset page + body */
+  body, html {
+    background: white !important;
+    color: black !important;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* When .printing class is set, hide everything except print targets */
+  body.printing > *:not(.print-only-header):not(.main-container) {
+    display: none !important;
+  }
+  body.printing .mobile-friendly-header,
+  body.printing .claude-input-area,
+  body.printing .language-selector-container,
+  body.printing .claude-sources-panel,
+  body.printing .claude-sources-backdrop,
+  body.printing .info-section,
+  body.printing #infoToggle,
+  body.printing .conversation-controls,
+  body.printing .claude-sources-toggle,
+  body.printing .message-print-button,
+  body.printing .bible-ref-count,
+  body.printing #api-status-banner {
+    display: none !important;
+  }
+  body.printing .claude-message:not(.print-target) {
+    display: none !important;
+  }
+
+  /* Reveal the injected print header */
+  body.printing .print-only-header {
+    display: block !important;
+    padding: 0 0 0.5cm 0;
+    margin-bottom: 0.5cm;
+    border-bottom: 1px solid #999;
+  }
+  .print-only-header .print-only-title {
+    font-family: var(--font-serif);
+    font-size: 14pt;
+    font-weight: 700;
+    color: #641c14;
+  }
+  .print-only-header .print-only-sub {
+    font-size: 10pt;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  /* Container reset so the printed content uses full page width */
+  body.printing .main-container,
+  body.printing .container,
+  body.printing .container.search-container,
+  body.printing .chat-section-wrapper,
+  body.printing .claude-chat-panel,
+  body.printing .claude-interface,
+  body.printing .claude-messages {
+    display: block !important;
+    height: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  /* Each print-target message: clean styling for paper */
+  body.printing .print-target {
+    page-break-inside: avoid;
+    margin: 0 0 0.4cm 0;
+    padding: 0;
+  }
+  body.printing .print-target .claude-message-content {
+    background: none !important;
+    color: black !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  /* User question: bold + underline as a section header */
+  body.printing .print-target.claude-message-user .claude-message-content {
+    font-weight: 700;
+    font-size: 12pt;
+    border-bottom: 1px solid #999;
+    padding-bottom: 0.15cm !important;
+    margin-bottom: 0.3cm !important;
+  }
+  body.printing .print-target.claude-message-user .claude-message-content::before {
+    content: 'Question: ';
+    color: #641c14;
+  }
+
+  /* Bot answer: readable serif, keep headings in burgundy */
+  body.printing .print-target.claude-message-bot .claude-message-content {
+    font-family: var(--font-serif);
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  body.printing .print-target.claude-message-bot .claude-message-content h1,
+  body.printing .print-target.claude-message-bot .claude-message-content h2,
+  body.printing .print-target.claude-message-bot .claude-message-content h3 {
+    color: #641c14 !important;
+    page-break-after: avoid;
+  }
+  body.printing .print-target.claude-message-bot .claude-message-content blockquote {
+    border-left: 3px solid #641c14;
+    padding-left: 0.4cm;
+    margin-left: 0;
+    font-style: italic;
+    page-break-inside: avoid;
+  }
+
+  /* Page margins for the printed sheet */
+  @page {
+    margin: 1.5cm 2cm;
+  }
+}

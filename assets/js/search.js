@@ -2151,6 +2151,9 @@ function createSourceElement(source, index) {
               populateSourcesPanelAndAddToggle(contentEl, sourcesData);
             }
 
+            // Print this answer button (works regardless of whether there are sources)
+            addPrintButton(botMessageEl);
+
             // Push to conversation history + persist for reload
             state.conversationHistory.push({ role: 'assistant', content: accumulatedText });
 
@@ -2225,6 +2228,67 @@ function createSourceElement(source, index) {
 /**
  * Display answer from API
  */
+/**
+ * Add a small "Print this answer" button to a bot message bubble.
+ * Clicking marks the message + preceding user-question as print targets,
+ * then triggers window.print(). Print stylesheet hides everything else.
+ * Users can "Save as PDF" from the browser's print dialog.
+ */
+function addPrintButton(messageElement) {
+  if (!messageElement || messageElement.querySelector('.message-print-button')) return;
+  const contentEl = messageElement.querySelector('.claude-message-content');
+  if (!contentEl) return;
+
+  const btn = document.createElement('button');
+  btn.className = 'message-print-button';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Print this answer');
+  btn.title = 'Print this answer (or save as PDF)';
+  btn.innerHTML = `
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 9 6 2 18 2 18 9"></polyline>
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+      <rect x="6" y="14" width="12" height="8"></rect>
+    </svg>
+    <span>Print</span>
+  `;
+  btn.addEventListener('click', () => printMessagePair(messageElement));
+  contentEl.appendChild(btn);
+}
+
+function printMessagePair(botMessageEl) {
+  // Walk back through siblings to find the user message that prompted this answer
+  let userMsg = botMessageEl.previousElementSibling;
+  while (userMsg && !userMsg.classList.contains('claude-message-user')) {
+    userMsg = userMsg.previousElementSibling;
+  }
+
+  document.body.classList.add('printing');
+  if (userMsg) userMsg.classList.add('print-target');
+  botMessageEl.classList.add('print-target');
+
+  // Inject a print-only header so the printed page identifies itself
+  const header = document.createElement('div');
+  header.className = 'print-only-header';
+  header.innerHTML = `
+    <div class="print-only-title">Fellowship Digital Ministry</div>
+    <div class="print-only-sub">Sermon search answer · ${new Date().toLocaleDateString(undefined, {
+      year: 'numeric', month: 'long', day: 'numeric',
+    })}</div>
+  `;
+  document.body.insertBefore(header, document.body.firstChild);
+
+  window.print();
+}
+
+// Single afterprint listener handles cleanup for any printed message
+window.addEventListener('afterprint', () => {
+  document.body.classList.remove('printing');
+  document.querySelectorAll('.print-target').forEach((el) => el.classList.remove('print-target'));
+  document.querySelectorAll('.print-only-header').forEach((el) => el.remove());
+});
+
 /**
  * Populate the right-side sources panel with this answer's sources and
  * append a "Show sources" toggle button to the message bubble.
@@ -2316,6 +2380,9 @@ function displayAnswer(data) {
     const messageContent = messageElement.querySelector('.claude-message-content');
     populateSourcesPanelAndAddToggle(messageContent, data.sources);
   }
+
+  // Print button works for every answer, sources or not
+  addPrintButton(messageElement);
 
   // Add to conversation history
   state.conversationHistory.push({ role: 'assistant', content: data.answer });
