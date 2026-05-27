@@ -2,8 +2,14 @@ name: Keep API Warm
 
 # Render's free tier spins the backend down after ~15 min of inactivity, which
 # causes the first request from a real visitor to fail (the container hasn't
-# finished booting before fetch times out). Pinging /health every 10 minutes
+# finished booting before fetch times out). Pinging the root every 10 minutes
 # keeps the container hot so visitors never hit a cold start.
+#
+# We hit `/` (a static JSON literal) rather than `/health` — they both keep the
+# container alive, but /health makes a real OpenAI embeddings call on every
+# request (billable, ~$0.40/mo at 10-min ping cadence). The keep-warm cron's
+# job is warming, not monitoring; use /health by hand when you want to verify
+# the full stack is healthy.
 #
 # GitHub Actions cron is best-effort and may run a few minutes late under load,
 # so a 10-minute interval gives margin against Render's 15-minute idle timer.
@@ -21,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Ping /health
+      - name: Ping /
         run: |
           curl -sS --fail --max-time 60 --retry 2 --retry-delay 10 \
-            https://sermon-search-api-8fok.onrender.com/health
+            https://sermon-search-api-8fok.onrender.com/
