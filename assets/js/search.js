@@ -2085,10 +2085,15 @@ function createSourceElement(source, index) {
     state.pendingRequests++;
 
     // Prepare request data
+    // top_k=8 (vs the backend default of 5) lets the source display adapt
+    // to relevance: the backend filters out matches below similarity 0.5,
+    // so narrow topics naturally show 2-3 strong matches while broad
+    // topics show 6-8. No UI control needed — the count varies on its own.
     const requestData = {
       query: query,
       conversation_history: state.conversationHistory.slice(-config.maxMemoryLength * 2),
       language: state.currentLanguage,
+      top_k: 8,
     };
 
     // Streaming is English-only on the backend (translation needs full buffer).
