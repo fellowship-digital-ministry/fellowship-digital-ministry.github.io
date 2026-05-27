@@ -577,88 +577,105 @@
   border: 0;
 }
 
-/* ---------- KJV chapter reading block ----------
-   Chapter detail view leads with the actual KJV chapter text. Verses with
-   sermon references get a small badge linking to the corresponding sermon
-   group below. Lets the page read like a study Bible. */
+/* ---------- KJV chapter reading ----------
+   Reads like the Bible. No container box, no widget chrome — just text on
+   the page. Paragraph flow groups ~5 verses each; verse numbers ride as
+   quiet superscripts. Verses with sermon references get the verse number
+   itself made clickable, plus a small bullet, so the indicator never breaks
+   the prose. */
 .refv-bible-reading {
-  margin: 0 0 2.5rem;
-  padding: 1.25rem 1.25rem 0.5rem;
+  max-width: 65ch;
+  margin: 1.25rem auto 2.5rem;
+  color: var(--refv-text);
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+.refv-bible-para {
+  margin: 0 0 1.1em;
+  text-indent: 0;
+}
+.refv-bible-para + .refv-bible-para {
+  /* Slight subsequent-paragraph indent — printed-Bible feel. */
+  text-indent: 1.5em;
+}
+.refv-vnum {
+  display: inline;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--refv-text-muted);
+  font-variant-numeric: tabular-nums;
+  vertical-align: super;
+  line-height: 0;
+  margin-right: 0.15em;
+  padding: 0 0.05em;
+  user-select: none;
+}
+.refv-vnum.has-refs {
+  color: var(--refv-primary);
+  cursor: pointer;
+  border-radius: 3px;
+  position: relative;
+  transition: background 0.12s ease;
+}
+.refv-vnum.has-refs:hover,
+.refv-vnum.has-refs:focus-visible {
+  background: var(--refv-primary-light);
+  outline: none;
+}
+.refv-vdot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 2px;
+  background: var(--refv-primary);
+  border-radius: 50%;
+  vertical-align: 0.25em;
+}
+
+/* Reading toolbar — small strip above the chapter for the "All sermons" CTA. */
+.refv-reading-toolbar {
+  max-width: 65ch;
+  margin: 0 auto 1.5rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
   background: var(--refv-bg-soft);
   border: 1px solid var(--refv-border);
   border-radius: var(--refv-radius);
-  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
-  color: var(--refv-text);
+  font-size: 0.92rem;
 }
-.refv-bible-verse {
-  position: relative;
-  margin: 0 0 0.75rem;
-  font-size: 1.02rem;
-  line-height: 1.7;
-  padding: 0.15rem 0.25rem;
-  border-radius: var(--refv-radius-sm);
-  transition: background-color 0.5s ease;
-}
-.refv-bible-verse.has-refs {
-  background: rgba(100, 28, 20, 0.04);
-}
-.refv-bible-verse.is-flash {
-  background: rgba(255, 224, 130, 0.6);
-}
-.refv-bible-vnum {
-  display: inline-block;
-  min-width: 1.5em;
-  margin-right: 0.4rem;
+.refv-reading-toolbar-stat {
   color: var(--refv-text-muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  vertical-align: super;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
-.refv-bible-vtext {
-  /* default */
-}
-.refv-bible-badge {
-  display: inline-block;
-  margin-left: 0.4rem;
-  padding: 1px 8px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: var(--refv-primary);
-  background: white;
-  border: 1px solid var(--refv-primary);
-  border-radius: 999px;
-  text-decoration: none;
-  white-space: nowrap;
-  vertical-align: middle;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-.refv-bible-badge:hover,
-.refv-bible-badge:focus-visible {
+.refv-reading-toolbar-btn {
   background: var(--refv-primary);
   color: white;
+  border: none;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--refv-radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.refv-reading-toolbar-btn:hover,
+.refv-reading-toolbar-btn:focus-visible {
+  background: var(--refv-primary-dark);
   outline: none;
 }
+.refv-reading-empty {
+  max-width: 65ch;
+  margin: 0 auto 2rem;
+}
 
-/* Grouped sermon sections below the chapter. */
-.refv-sermons-grouped {
-  /* */
-}
-.refv-sermons-grouped-heading {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 1.25rem;
-  color: var(--refv-text);
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--refv-border);
-}
+/* Sermon-group blocks (used inside the sermons modal). */
 .refv-sermon-group {
-  margin-bottom: 2rem;
-  /* Offset so the heading isn't hidden under any sticky header on smooth scroll. */
-  scroll-margin-top: 1rem;
+  margin-bottom: 1.75rem;
 }
 .refv-sermon-group:last-child { margin-bottom: 0; }
 .refv-sermon-group-head {
@@ -666,8 +683,8 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 0.75rem;
-  margin: 0 0 0.85rem;
-  padding: 0 0.25rem 0.4rem;
+  margin: 0 0 0.75rem;
+  padding: 0 0.1rem 0.4rem;
   border-bottom: 1px solid var(--refv-border);
 }
 .refv-sermon-group-label {
@@ -688,7 +705,78 @@
   margin-bottom: 0;
 }
 
-/* Page-level smooth scrolling for badge anchors. */
+/* ---------- Sermons modal ----------
+   Same visual idiom as the transcript modal so the two feel like siblings.
+   Full-height on mobile (top-to-bottom), centered card on desktop. */
+.refv-sermons-modal[hidden] { display: none; }
+.refv-sermons-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.refv-sermons-modal-card {
+  background: white;
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+@media (min-width: 720px) {
+  .refv-sermons-modal { padding: 2rem 1rem; align-items: center; }
+  .refv-sermons-modal-card {
+    border-radius: var(--refv-radius);
+    max-height: calc(100vh - 4rem);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+}
+.refv-sermons-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--refv-border);
+  flex-shrink: 0;
+}
+.refv-sermons-modal-head h3 {
+  margin: 0;
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--refv-primary);
+  line-height: 1.3;
+}
+.refv-sermons-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--refv-text-muted);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.refv-sermons-modal-close:hover,
+.refv-sermons-modal-close:focus-visible {
+  background: var(--refv-bg-soft);
+  color: var(--refv-primary);
+  outline: none;
+}
+.refv-sermons-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Page-level smooth scrolling (kept for the Back button / hero scroll). */
 html { scroll-behavior: smooth; }
 
 /* ---------- Transcript modal ---------- */
@@ -725,21 +813,23 @@ html { scroll-behavior: smooth; }
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1rem 1.1rem;
+  padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--refv-border);
   flex-shrink: 0;
+  background: var(--refv-bg-soft);
 }
 .refv-transcript-modal-head-text { min-width: 0; }
 .refv-transcript-modal-head h3 {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--refv-text);
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--refv-primary);
   line-height: 1.3;
 }
 .refv-transcript-modal-sub {
-  margin: 4px 0 0;
-  font-size: 0.8rem;
+  margin: 5px 0 0;
+  font-size: 0.82rem;
   color: var(--refv-text-muted);
 }
 .refv-transcript-modal-close {
@@ -753,41 +843,56 @@ html { scroll-behavior: smooth; }
   border-radius: 999px;
   flex-shrink: 0;
 }
-.refv-transcript-modal-close:hover {
-  background: var(--refv-bg-soft);
+.refv-transcript-modal-close:hover,
+.refv-transcript-modal-close:focus-visible {
+  background: white;
   color: var(--refv-primary);
+  outline: none;
 }
 .refv-transcript-modal-body {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem 1.1rem 2rem;
+  padding: 1.5rem 1.25rem 2.5rem;
   -webkit-overflow-scrolling: touch;
+  max-width: 65ch;
+  margin: 0 auto;
+  width: 100%;
 }
 .refv-transcript-segment {
-  margin: 0 0 1rem;
+  margin: 0 0 1.15rem;
   font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.08rem;
+  line-height: 1.75;
   color: var(--refv-text);
-  padding: 0.55rem 0.75rem;
+  padding: 0.4rem 0.6rem;
   border-radius: var(--refv-radius-sm);
   border-left: 3px solid transparent;
 }
 .refv-transcript-segment.is-current {
-  background: rgba(255, 224, 130, 0.4);
+  background: rgba(255, 224, 130, 0.5);
   border-left-color: var(--refv-primary);
 }
 .refv-transcript-ts {
   display: inline-block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 0.72rem;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: var(--refv-text-muted);
-  background: var(--refv-bg-soft);
-  padding: 2px 7px;
+  background: white;
+  padding: 2px 8px;
   border-radius: 999px;
+  border: 1px solid var(--refv-border);
   margin-right: 0.5rem;
   vertical-align: middle;
+  text-decoration: none;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+.refv-transcript-ts:hover,
+.refv-transcript-ts:focus-visible {
+  color: var(--refv-primary);
+  border-color: var(--refv-primary);
+  outline: none;
 }
 
 /* ---------- Wider viewports ---------- */

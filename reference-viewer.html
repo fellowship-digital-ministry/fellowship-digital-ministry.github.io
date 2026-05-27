@@ -88,6 +88,18 @@ custom_js: reference-viewer
   </div>
 </div>
 
+<!-- Sermons modal: opened from a verse number or "All sermons in chapter".
+     Lets users peek at sermons without leaving the reading flow. -->
+<div id="sermons-modal" class="refv-sermons-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sermons-modal-title">
+  <div class="refv-sermons-modal-card">
+    <header class="refv-sermons-modal-head">
+      <h3 id="sermons-modal-title">Sermons</h3>
+      <button id="sermons-modal-close" class="refv-sermons-modal-close" aria-label="Close sermons panel">&times;</button>
+    </header>
+    <div class="refv-sermons-modal-body" id="sermons-modal-body"></div>
+  </div>
+</div>
+
 <!-- Transcript modal (read view; auto-scrolls to the timestamp). -->
 <div id="transcript-modal" class="refv-transcript-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="transcript-modal-title">
   <div class="refv-transcript-modal-card">

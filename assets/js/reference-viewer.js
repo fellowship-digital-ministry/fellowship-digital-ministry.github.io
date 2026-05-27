@@ -206,6 +206,10 @@
     els.transcriptModalTitle = $('transcript-modal-title');
     els.transcriptModalSub = $('transcript-modal-sub');
     els.transcriptModalClose = $('transcript-modal-close');
+    els.sermonsModal = $('sermons-modal');
+    els.sermonsModalBody = $('sermons-modal-body');
+    els.sermonsModalTitle = $('sermons-modal-title');
+    els.sermonsModalClose = $('sermons-modal-close');
   }
 
   // ============================================================
@@ -531,75 +535,146 @@
       byVerse[v].push(r);
     });
 
+    // Stash for the modal openers.
+    state.currentChapter = {
+      book: book,
+      chapter: chapter,
+      refs: refs,
+      byVerse: byVerse
+    };
+
+    var hasAnyRefs = refs.length > 0;
+    var versesWithRefs = Object.keys(byVerse).filter(function (k) {
+      return k !== 'chapter';
+    }).length;
+
+    // Top toolbar: count + "All sermons" trigger. Keeps user in the reading
+    // flow but gives them one click to see everything.
+    var toolbarHtml = '';
+    if (hasAnyRefs) {
+      var summary = refs.length + ' reference' + (refs.length === 1 ? '' : 's') +
+        ' across ' + versesWithRefs + ' verse' + (versesWithRefs === 1 ? '' : 's');
+      toolbarHtml = '<div class="refv-reading-toolbar">' +
+        '<span class="refv-reading-toolbar-stat">' + summary + '</span>' +
+        '<button class="refv-reading-toolbar-btn" id="open-all-sermons" type="button">' +
+          'All sermons in this chapter →' +
+        '</button>' +
+      '</div>';
+    }
+
+    // The chapter itself, in paragraph flow.
     var bibleHtml = '';
     if (kjvChapter && Array.isArray(kjvChapter.verses) && kjvChapter.verses.length) {
       bibleHtml = '<section class="refv-bible-reading" aria-label="' +
         escapeAttr(book.display + ' ' + chapter + ', King James Version') + '">';
-      bibleHtml += kjvChapter.verses.map(function (v) {
-        var vNum = parseInt(v.verse, 10);
-        var hits = byVerse[vNum];
-        var hasHits = hits && hits.length > 0;
-        var classes = 'refv-bible-verse' + (hasHits ? ' has-refs' : '');
-        var badge = hasHits
-          ? '<a class="refv-bible-badge" href="#sermons-v' + vNum +
-            '" data-vnum="' + vNum + '">' + hits.length +
-            (hits.length === 1 ? ' sermon' : ' sermons') + '</a>'
-          : '';
-        return '<p class="' + classes + '" id="verse-' + vNum + '">' +
-          '<sup class="refv-bible-vnum">' + vNum + '</sup>' +
-          '<span class="refv-bible-vtext">' + escapeHtml(v.text || '') + '</span>' +
-          badge +
-        '</p>';
-      }).join('');
+      bibleHtml += renderVersesAsParagraphs(kjvChapter.verses, byVerse);
       bibleHtml += '</section>';
     }
 
-    var hasAnyRefs = refs.length > 0;
-    var sermonHtml = '';
-    if (hasAnyRefs) {
-      sermonHtml += '<section class="refv-sermons-grouped" aria-label="Sermons">';
-      sermonHtml += '<h3 class="refv-sermons-grouped-heading">Sermons that touched this chapter</h3>';
-      // Ordered: verses ascending, then chapter-level at the end.
-      var verseKeys = Object.keys(byVerse).filter(function (k) { return k !== 'chapter'; })
+    var emptyNote = hasAnyRefs ? '' :
+      '<div class="refv-empty refv-reading-empty">No sermons in the library reference ' +
+        book.display + ' ' + chapter + ' yet.</div>';
+
+    els.occurrences.innerHTML = toolbarHtml + bibleHtml + emptyNote;
+
+    // Wire verse-number clicks → open modal for that verse.
+    Array.prototype.forEach.call(els.occurrences.querySelectorAll('.refv-vnum.has-refs'), function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        var v = parseInt(el.getAttribute('data-verse'), 10);
+        openSermonsModal({ verse: v });
+      });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      });
+    });
+
+    var allBtn = document.getElementById('open-all-sermons');
+    if (allBtn) {
+      allBtn.addEventListener('click', function () { openSermonsModal({ all: true }); });
+    }
+  }
+
+  // Group verses into paragraphs of ~5, mimicking printed-Bible flow.
+  // Verse numbers ride inline as quiet superscripts; verses with sermon refs
+  // become clickable (number + small bullet) without disrupting the prose.
+  function renderVersesAsParagraphs(verses, byVerse) {
+    var GROUP_SIZE = 5;
+    var paragraphs = [];
+    for (var i = 0; i < verses.length; i += GROUP_SIZE) {
+      paragraphs.push(verses.slice(i, i + GROUP_SIZE));
+    }
+    return paragraphs.map(function (group) {
+      var inner = group.map(function (v) {
+        var n = parseInt(v.verse, 10);
+        var hits = byVerse[n];
+        var has = hits && hits.length > 0;
+        var label = 'Verse ' + n + (has ? ' — ' + hits.length +
+          (hits.length === 1 ? ' sermon' : ' sermons') : '');
+        if (has) {
+          return '<sup class="refv-vnum has-refs" data-verse="' + n +
+            '" role="button" tabindex="0" aria-label="' + escapeAttr(label) + '">' +
+            n + '<span class="refv-vdot" aria-hidden="true"></span></sup> ' +
+            escapeHtml(v.text || '');
+        }
+        return '<sup class="refv-vnum" id="verse-' + n + '">' + n + '</sup> ' +
+          escapeHtml(v.text || '');
+      }).join(' ');
+      return '<p class="refv-bible-para">' + inner + '</p>';
+    }).join('');
+  }
+
+  // ---- Sermons modal ----
+
+  function openSermonsModal(opts) {
+    if (!state.currentChapter) return;
+    var cc = state.currentChapter;
+    var bookDisplay = cc.book.display;
+    var ch = cc.chapter;
+
+    var body, title;
+    if (opts && opts.verse != null) {
+      var items = sortRefs(cc.byVerse[opts.verse] || []);
+      title = bookDisplay + ' ' + ch + ':' + opts.verse;
+      body = items.length
+        ? items.map(renderOccurrenceCard).join('')
+        : '<div class="refv-empty">No sermons for this verse.</div>';
+    } else {
+      // "All sermons" view: grouped by verse, chapter-level at the end.
+      title = bookDisplay + ' ' + ch + ' — all sermons';
+      var verseKeys = Object.keys(cc.byVerse).filter(function (k) { return k !== 'chapter'; })
         .sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
-      if (byVerse['chapter']) verseKeys.push('chapter');
-      sermonHtml += verseKeys.map(function (vk) {
-        var items = sortRefs(byVerse[vk]);
-        var label = vk === 'chapter'
-          ? book.display + ' ' + chapter + ' (chapter-level references)'
-          : book.display + ' ' + chapter + ':' + vk;
-        var anchor = vk === 'chapter' ? 'sermons-chapter' : 'sermons-v' + vk;
-        return '<div class="refv-sermon-group" id="' + anchor + '">' +
+      if (cc.byVerse['chapter']) verseKeys.push('chapter');
+      body = verseKeys.map(function (vk) {
+        var items = sortRefs(cc.byVerse[vk]);
+        var groupLabel = vk === 'chapter'
+          ? bookDisplay + ' ' + ch + ' (chapter-level references)'
+          : bookDisplay + ' ' + ch + ':' + vk;
+        return '<div class="refv-sermon-group">' +
           '<h4 class="refv-sermon-group-head">' +
-            '<span class="refv-sermon-group-label">' + escapeHtml(label) + '</span>' +
+            '<span class="refv-sermon-group-label">' + escapeHtml(groupLabel) + '</span>' +
             '<span class="refv-sermon-group-count">' + items.length +
               (items.length === 1 ? ' sermon' : ' sermons') + '</span>' +
           '</h4>' +
           items.map(renderOccurrenceCard).join('') +
         '</div>';
       }).join('');
-      sermonHtml += '</section>';
-    } else {
-      sermonHtml = '<div class="refv-empty">No sermons in the library reference ' +
-        book.display + ' ' + chapter + ' yet.</div>';
+      if (!body) body = '<div class="refv-empty">No sermons for this chapter.</div>';
     }
 
-    els.occurrences.innerHTML = bibleHtml + sermonHtml;
-    wireOccurrenceButtons(els.occurrences);
+    els.sermonsModalTitle.textContent = title;
+    els.sermonsModalBody.innerHTML = body;
+    els.sermonsModalBody.scrollTop = 0;
+    els.sermonsModal.hidden = false;
+    els.sermonsModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    wireOccurrenceButtons(els.sermonsModalBody);
+  }
 
-    // Smooth in-page scroll for the verse badges.
-    Array.prototype.forEach.call(els.occurrences.querySelectorAll('.refv-bible-badge'), function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var target = document.getElementById(a.getAttribute('href').slice(1));
-        if (target && target.scrollIntoView) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Brief flash so the user sees where they landed.
-          target.classList.add('is-flash');
-          setTimeout(function () { target.classList.remove('is-flash'); }, 1200);
-        }
-      });
-    });
+  function closeSermonsModal() {
+    els.sermonsModal.hidden = true;
+    els.sermonsModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   }
 
   function renderOccurrenceCard(ref, index) {
@@ -750,14 +825,15 @@
 
   function openTranscriptModal(videoId, startSec, title) {
     if (!videoId) return;
+    state.currentTranscript = { videoId: videoId, title: title, startSec: startSec };
     els.transcriptModalTitle.textContent = title || 'Sermon';
-    els.transcriptModalSub.textContent = 'Scroll position aligned to ' + formatTimestamp(startSec);
+    els.transcriptModalSub.textContent = 'Loading…';
     els.transcriptModal.hidden = false;
     els.transcriptModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
     var renderAndScroll = function (data) {
-      renderTranscript(data, startSec);
+      renderTranscript(data, startSec, videoId);
       // Defer scroll so the layout has settled.
       requestAnimationFrame(function () {
         var target = els.transcriptModalBody.querySelector('.refv-transcript-segment.is-current');
@@ -782,19 +858,32 @@
         renderAndScroll(data);
       })
       .catch(function (err) {
+        els.transcriptModalSub.textContent = '';
         els.transcriptModalBody.innerHTML = '<div class="refv-empty">Transcript not available yet for this sermon.' +
           ' (' + escapeHtml(err.message) + ')</div>';
       });
   }
 
-  function renderTranscript(data, focusSec) {
+  function renderTranscript(data, focusSec, videoId) {
     var segments = (data && data.segments) || [];
+    // Update sub-header with sermon metadata (date, duration, jump-position).
+    var subBits = [];
+    if (data && data.publish_date) {
+      subBits.push(formatPublishDate(data.publish_date));
+    }
+    if (segments.length) {
+      var last = segments[segments.length - 1];
+      var dur = last.end_time != null ? last.end_time : last.end;
+      if (dur) subBits.push(formatDuration(dur) + ' sermon');
+    }
+    subBits.push('starting at ' + formatTimestamp(focusSec));
+    els.transcriptModalSub.textContent = subBits.join(' · ');
+
     if (!segments.length) {
       els.transcriptModalBody.innerHTML = '<div class="refv-empty">No transcript segments found.</div>';
       return;
     }
-    // Group small segments into ~25–35s paragraphs for readability without
-    // burying timestamps.
+    // Group micro-segments into ~30s paragraphs for readability.
     var paragraphs = [];
     var current = null;
     var GROUP_SECS = 30;
@@ -816,12 +905,38 @@
     var html = paragraphs.map(function (p) {
       var isCurrent = focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
       var classes = 'refv-transcript-segment' + (isCurrent ? ' is-current' : '');
+      var ytHref = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId) +
+        '&t=' + Math.floor(p.start);
       return '<p class="' + classes + '" data-start="' + p.start + '">' +
-        '<span class="refv-transcript-ts">' + formatTimestamp(p.start) + '</span> ' +
+        '<a class="refv-transcript-ts" href="' + ytHref +
+          '" target="_blank" rel="noopener" title="Jump to ' + formatTimestamp(p.start) + ' on YouTube">' +
+          formatTimestamp(p.start) +
+        '</a> ' +
         escapeHtml(p.text) +
       '</p>';
     }).join('');
     els.transcriptModalBody.innerHTML = html;
+  }
+
+  function formatDuration(sec) {
+    sec = Math.floor(sec || 0);
+    var m = Math.round(sec / 60);
+    if (m >= 60) {
+      var h = Math.floor(m / 60);
+      var mm = m % 60;
+      return h + 'h' + (mm ? ' ' + mm + 'm' : '');
+    }
+    return m + ' min';
+  }
+
+  function formatPublishDate(raw) {
+    // Backend gives YYYYMMDD as int. Format as e.g. "May 25, 2025".
+    var s = String(raw);
+    if (!/^\d{8}$/.test(s)) return '';
+    var y = s.slice(0, 4), m = parseInt(s.slice(4, 6), 10), d = parseInt(s.slice(6, 8), 10);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    if (m < 1 || m > 12) return '';
+    return months[m - 1] + ' ' + d + ', ' + y;
   }
 
   function closeTranscriptModal() {
@@ -905,9 +1020,18 @@
         if (e.target === els.transcriptModal) closeTranscriptModal();
       });
     }
+    if (els.sermonsModalClose) {
+      els.sermonsModalClose.addEventListener('click', closeSermonsModal);
+    }
+    if (els.sermonsModal) {
+      els.sermonsModal.addEventListener('click', function (e) {
+        if (e.target === els.sermonsModal) closeSermonsModal();
+      });
+    }
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
       if (!els.transcriptModal.hidden) { closeTranscriptModal(); return; }
+      if (!els.sermonsModal.hidden) { closeSermonsModal(); return; }
       if (!els.videoModal.hidden) { closeVideoModal(); return; }
     });
     window.addEventListener('hashchange', applyRoute);
