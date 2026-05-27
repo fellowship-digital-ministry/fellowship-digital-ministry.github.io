@@ -1,243 +1,521 @@
-/* Bible Reference Viewer Styles - Fixed Layout Version */
+/* Bible References — redesigned.
+   Light-only palette matching the rest of the site (burgundy primary).
+   Mobile-first; widens on desktop. */
 
-/* Base styles */
-body {
-  min-height: 100vh;
-  width: 100%;
+:root {
+  --refv-primary: #641c14;
+  --refv-primary-dark: #4a1310;
+  --refv-primary-light: rgba(100, 28, 20, 0.08);
+  --refv-text: #2a2a2a;
+  --refv-text-muted: #666;
+  --refv-bg: #ffffff;
+  --refv-bg-soft: #f8f4ed;
+  --refv-border: #e4dfd6;
+  --refv-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --refv-radius: 10px;
+  --refv-radius-sm: 6px;
 }
 
-/* Only hide body overflow on desktop */
-@media (min-width: 769px) {
-  body {
-    overflow-y: hidden; /* Prevent vertical scrolling on body for desktop */
-  }
-}
-
-/* Main Container - Fixed height with internal scrolling */
-.bible-explorer-container {
-  max-width: 1200px;
+.refv {
+  max-width: 880px;
   margin: 0 auto;
-  padding: var(--space-md);
+  padding: 1.5rem 1rem 4rem;
+  color: var(--refv-text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text-color);
-  height: calc(100vh - 56px - 20px); /* Adjust for header height and bottom margin */
-  margin-top: 56px; /* Match header height */
-  margin-bottom: 20px; /* Add bottom margin to prevent cramping */
-  display: flex;
-  flex-direction: column;
+  line-height: 1.55;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-/* Header section - fixed height */
-.bible-explorer-header {
-  margin-bottom: var(--space-xl);
-  text-align: center;
-  flex-shrink: 0; /* Prevent shrinking */
+/* ---------- Hero ---------- */
+.refv-hero {
+  margin-bottom: 2.5rem;
+}
+.refv-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--refv-primary);
+  letter-spacing: -0.01em;
+}
+.refv-tagline {
+  color: var(--refv-text-muted);
+  margin: 0 0 1.5rem;
+  max-width: 60ch;
 }
 
-/* Stats section - fixed height */
-.bible-explorer-stats {
-  margin-bottom: var(--space-xl);
-  flex-shrink: 0; /* Prevent shrinking */
-}
-
-/* Main content area - flexible height with internal scrolling */
-.bible-explorer-main {
+.refv-lookup {
   display: flex;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  background-color: var(--bg-color);
-  flex: 1; /* Take remaining space */
-  overflow: hidden; /* Hide overflow */
-  min-height: 0; /* Allow flex item to shrink below content size */
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.refv-lookup input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius);
+  background: var(--refv-bg);
+  color: var(--refv-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.refv-lookup input:focus {
+  outline: none;
+  border-color: var(--refv-primary);
+  box-shadow: 0 0 0 3px var(--refv-primary-light);
+}
+.refv-lookup-go {
+  width: 48px;
+  flex: 0 0 48px;
+  border: none;
+  background: var(--refv-primary);
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: var(--refv-radius);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.refv-lookup-go:hover,
+.refv-lookup-go:focus-visible {
+  background: var(--refv-primary-dark);
+  outline: none;
+}
+.refv-lookup-hint {
+  font-size: 0.85rem;
+  color: var(--refv-text-muted);
+  margin: 0 0 1.25rem;
+  min-height: 1.2em;
+}
+.refv-lookup-hint.is-error {
+  color: var(--refv-primary);
 }
 
-/* Sidebar - internal scrolling */
-.bible-sidebar {
-  width: 300px;
-  border-right: 1px solid var(--border-color);
-  background-color: var(--bg-gray);
-  overflow-y: auto; /* Enable vertical scrolling */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+.refv-stat-strip {
+  font-size: 0.95rem;
+  color: var(--refv-text-muted);
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--refv-bg-soft);
+  border-radius: var(--refv-radius);
+  border: 1px solid var(--refv-border);
+}
+.refv-stat-strip strong {
+  color: var(--refv-text);
+  font-weight: 600;
+}
+
+/* ---------- Sections ---------- */
+.refv-section {
+  margin-bottom: 2.5rem;
+}
+.refv-section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--refv-text);
+}
+.refv-section-sub {
+  font-size: 0.9rem;
+  color: var(--refv-text-muted);
+  margin: 0 0 1rem;
+}
+
+/* ---------- Top-passages list ---------- */
+.refv-top-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius);
+  overflow: hidden;
+  background: var(--refv-bg);
+}
+.refv-top-list li.refv-top-item {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--refv-border);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.refv-top-list li.refv-top-item:last-child { border-bottom: none; }
+.refv-top-list li.refv-top-item:hover,
+.refv-top-list li.refv-top-item:focus-within {
+  background: var(--refv-bg-soft);
+}
+.refv-top-rank {
+  font-variant-numeric: tabular-nums;
+  color: var(--refv-text-muted);
+  font-size: 0.9rem;
+}
+.refv-top-passage {
+  font-weight: 600;
+  color: var(--refv-primary);
+}
+.refv-top-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--refv-text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* ---------- Browse (collapsed details/summary) ---------- */
+.refv-browse details {
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius);
+  background: var(--refv-bg);
+}
+.refv-browse summary {
+  list-style: none;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  user-select: none;
   display: flex;
-  flex-direction: column;
-  height: 100%; /* Fill parent height */
+  align-items: center;
+  justify-content: space-between;
 }
-
-/* Sidebar header and search box */
-.sidebar-header {
-  padding: var(--space-md);
-  border-bottom: 1px solid var(--border-color);
-  background-color: var(--bg-gray-dark);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+.refv-browse summary::-webkit-details-marker { display: none; }
+.refv-browse summary::after {
+  content: "▾";
+  color: var(--refv-text-muted);
+  transition: transform 0.15s ease;
+}
+.refv-browse details[open] summary::after {
+  transform: rotate(180deg);
+}
+.refv-browse-body {
+  padding: 0.5rem 1rem 1.25rem;
+}
+.refv-testament + .refv-testament {
+  margin-top: 1.5rem;
+}
+.refv-testament-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--refv-text-muted);
+  margin: 0 0 0.6rem;
+}
+.refv-books-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.4rem;
+}
+.refv-book-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius-sm);
+  background: var(--refv-bg);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--refv-text);
+  text-align: left;
   width: 100%;
-  box-sizing: border-box;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.refv-book-chip:hover,
+.refv-book-chip:focus-visible {
+  border-color: var(--refv-primary);
+  background: var(--refv-bg-soft);
+  outline: none;
+}
+.refv-book-chip-count {
+  color: var(--refv-text-muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
 }
 
-.search-box {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
+/* ---------- Detail panel ---------- */
+.refv-detail[hidden] { display: none; }
+.refv-detail-header {
+  margin-bottom: 1.5rem;
 }
-
-.search-box input {
-  width: 100%;
-  box-sizing: border-box;
-  padding-right: 30px; /* Make room for the clear button */
-}
-
-.clear-search {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+.refv-back {
   background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--refv-primary);
+  font-size: 0.95rem;
   cursor: pointer;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.refv-back:hover { text-decoration: underline; }
+.refv-detail-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--refv-primary);
+  letter-spacing: -0.005em;
+}
+.refv-detail-sub {
+  margin: 0;
+  color: var(--refv-text-muted);
+  font-size: 0.95rem;
+}
+
+/* KJV verse text */
+.refv-verse-text {
+  margin: 0 0 1.75rem;
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius);
+  background: var(--refv-bg-soft);
+  padding: 1rem 1.25rem;
+}
+.refv-verse-text-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+.refv-verse-text-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--refv-text-muted);
+}
+.refv-bible-gateway {
+  font-size: 0.85rem;
+  color: var(--refv-primary);
+  text-decoration: none;
+}
+.refv-bible-gateway:hover { text-decoration: underline; }
+.refv-verse-text-body {
+  margin: 0;
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--refv-text);
+}
+
+/* Sermon occurrence cards */
+.refv-occurrences {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.refv-occ {
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius);
+  background: var(--refv-bg);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--refv-shadow);
+}
+.refv-occ-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+.refv-occ-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--refv-text);
+  line-height: 1.35;
+}
+.refv-occ-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--refv-text-muted);
+  margin-bottom: 0.7rem;
+}
+.refv-occ-context {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  color: var(--refv-text);
+  line-height: 1.55;
+  padding: 0.6rem 0.85rem;
+  background: var(--refv-bg-soft);
+  border-left: 3px solid var(--refv-primary);
+  border-radius: 0 var(--refv-radius-sm) var(--refv-radius-sm) 0;
+}
+.refv-occ-context .refv-occ-hl {
+  background: rgba(255, 224, 130, 0.55);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.refv-occ-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.refv-occ-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: var(--refv-radius-sm);
+  border: 1px solid var(--refv-border);
+  background: var(--refv-bg);
+  color: var(--refv-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.refv-occ-btn:hover,
+.refv-occ-btn:focus-visible {
+  border-color: var(--refv-primary);
+  background: var(--refv-bg-soft);
+  color: var(--refv-primary);
+  outline: none;
+}
+.refv-occ-btn.is-primary {
+  background: var(--refv-primary);
+  border-color: var(--refv-primary);
+  color: white;
+}
+.refv-occ-btn.is-primary:hover,
+.refv-occ-btn.is-primary:focus-visible {
+  background: var(--refv-primary-dark);
+  border-color: var(--refv-primary-dark);
+  color: white;
+}
+
+.refv-empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--refv-text-muted);
+  background: var(--refv-bg-soft);
+  border-radius: var(--refv-radius);
+  border: 1px dashed var(--refv-border);
+}
+.refv-loading {
+  padding: 1rem;
+  text-align: center;
+  color: var(--refv-text-muted);
+  font-style: italic;
+}
+
+/* Chapter grid shown when user opens a whole book (no verse selected) */
+.refv-chapter-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 0.5rem;
+}
+.refv-chapter-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.4rem;
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius-sm);
+  background: var(--refv-bg);
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.refv-chapter-chip:hover,
+.refv-chapter-chip:focus-visible {
+  border-color: var(--refv-primary);
+  background: var(--refv-bg-soft);
+  outline: none;
+}
+.refv-chapter-chip-num {
+  font-weight: 600;
+  color: var(--refv-text);
+  font-size: 1rem;
+}
+.refv-chapter-chip-count {
+  font-size: 0.75rem;
+  color: var(--refv-text-muted);
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Video modal ---------- */
+.refv-video-modal[hidden] { display: none; }
+.refv-video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  opacity: 0.5;
-  transition: opacity var(--transition-speed) ease;
+  padding: 1rem;
 }
-
-/* Bible content area - internal scrolling */
-.bible-content {
-  flex: 1;
-  padding: var(--space-md);
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100%; /* Fill parent height */
-}
-
-/* Book view - internal scrolling */
-.book-view {
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Chapter view - internal scrolling */
-.chapter-view {
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Verse view - internal scrolling */
-.verse-view {
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Modal adjustments */
-.reference-modal {
-  z-index: 1000;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .bible-explorer-container {
-    height: auto; /* Allow container to expand with content */
-    min-height: calc(100vh - 56px); /* Minimum height for mobile */
-    overflow-y: visible; /* Let content flow naturally */
-  }
-  
-  .bible-explorer-main {
-    flex-direction: column;
-    min-height: 0; /* Allow content to determine height */
-    flex: 1; /* Take remaining space */
-    overflow: visible; /* Allow content to flow naturally */
-  }
-  
-  .bible-sidebar {
-    width: 100%;
-    max-height: 300px;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  /* Ensure content areas can scroll properly on mobile */
-  .bible-content {
-    overflow-y: visible;
-    height: auto;
-  }
-  
-  .book-view, .chapter-view, .verse-view {
-    height: auto;
-    overflow-y: visible;
-  }
-}
-
-/* Desktop adjustments */
-@media (min-width: 769px) {
-  .bible-explorer-container {
-    height: calc(100vh - 64px - 30px); /* Adjust for desktop header and bottom margin */
-    margin-top: 64px; /* Match desktop header height */
-    margin-bottom: 30px; /* Add more bottom margin on larger screens */
-  }
-}
-
-/* Sources panel adjustments */
-.claude-sources-panel {
-  position: fixed;
-  top: 56px; /* Match header height */
-  right: 0;
-  width: 100%; /* Full width on mobile by default */
-  height: calc(100vh - 56px); /* Match remaining viewport height */
-  z-index: 50;
-}
-
-@media (min-width: 769px) {
-  .claude-sources-panel {
-    top: 64px; /* Match desktop header height */
-    width: 350px;
-    height: calc(100vh - 64px); /* Match remaining viewport height */
-  }
-}
-
-/* Add this to your existing CSS styles */
-
-/* Solution 1: Add padding to the bottom of scrollable areas */
-.bible-content {
-  padding-bottom: 2rem; /* Add extra padding at the bottom */
-}
-
-.bible-sidebar {
-  padding-bottom: 2rem; /* Add padding to sidebar as well */
-}
-
-/* Solution 2: Add padding to the last children of scrollable areas */
-.verse-list > .verse-item:last-child,
-.occurrences-list > .occurrence-item:last-child,
-.chapter-grid {
-  margin-bottom: 2rem; /* Add margin to the last item in lists */
-}
-
-/* Solution 3: Add a pseudo-element for extra space */
-.bible-explorer-container::after {
-  content: '';
-  display: block;
-  height: 2rem; /* Height of the bottom space */
+.refv-video-modal-card {
+  background: white;
   width: 100%;
+  max-width: 880px;
+  border-radius: var(--refv-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+.refv-video-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--refv-border);
+}
+.refv-video-modal-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--refv-text);
+}
+.refv-video-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--refv-text-muted);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+}
+.refv-video-modal-close:hover {
+  background: var(--refv-bg-soft);
+  color: var(--refv-primary);
+}
+.refv-video-modal-frame {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+.refv-video-modal-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-/* Ensure the footer of the page has adequate spacing */
-.bible-explorer-main {
-  margin-bottom: 2rem; /* Add margin to the main container */
-}
-
-/* Ensure content in modal has adequate spacing at bottom */
-.reference-modal-body {
-  padding-bottom: 2rem;
+/* ---------- Wider viewports ---------- */
+@media (min-width: 720px) {
+  .refv { padding: 2.5rem 1.5rem 5rem; }
+  .refv-title { font-size: 2.2rem; }
+  .refv-detail-title { font-size: 1.9rem; }
 }
