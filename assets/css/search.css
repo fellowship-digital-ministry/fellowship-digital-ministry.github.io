@@ -1195,51 +1195,84 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   color: var(--error-color);
 }
 
-/* Info section and toggle */
+/* Info section — small popover anchored above the About button rather
+   than a fullscreen overlay. Lighter and easier to dismiss. */
 .info-section {
   display: none;
-  background-color: white;
-  border-top: 1px solid var(--border-color);
-  padding: 1.5rem;
-  overflow-y: auto;
-}
-
-[data-theme="dark"] .info-section {
-  background-color: #1f2937;
-  border-top-color: #374151;
 }
 
 .info-section.active {
   display: block;
   position: fixed;
-  top: 56px; /* Updated to match new mobile header height */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 30;
-  padding-top: 3rem; /* room for the close button */
-  /* Leave room at the bottom so the disclaimer paragraph isn't trapped
-     behind the input area (which now sits at z-index 40). */
-  padding-bottom: 9rem;
+  /* Sit above the input area (~ controls + padding). The exact bottom
+     value is fine-tuned to clear the conversation-controls row on phones. */
+  bottom: 96px;
+  right: 12px;
+  left: auto;
+  top: auto;
+  width: min(360px, calc(100vw - 24px));
+  max-height: min(60vh, 480px);
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  padding: 2.5rem 1.25rem 1.25rem; /* top room for the close X */
+  z-index: 50; /* above the input area (z-index 40) */
+  animation: info-pop-in 0.16s ease-out;
 }
 
-/* Close affordance for the About panel — without this, the only way to
-   dismiss the panel was to tap the About button again, which gets covered
-   by this fixed overlay. */
+/* Tiny caret pointing down toward the About button. */
+.info-section.active::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  right: 32px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  transform: rotate(45deg);
+}
+
+@keyframes info-pop-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Tighten the inner card so it fits the popover comfortably. */
+.info-section.active .about-container {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  max-width: none;
+}
+.info-section.active .content-section-header {
+  font-size: 1.15rem !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 6px !important;
+}
+.info-section.active .about-container p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Close X — small, top-right of the popover. */
 .info-section-close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
-  width: 40px;
-  height: 40px;
+  top: 6px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
   display: none;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: none;
   border-radius: 999px;
-  color: var(--text-color);
-  font-size: 1.75rem;
+  color: var(--text-light);
+  font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
   z-index: 1;
@@ -1252,6 +1285,17 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   background: rgba(0, 0, 0, 0.06);
   color: var(--primary-color);
   outline: none;
+}
+
+/* On very small phones, let the popover hug the right edge with a hair more room. */
+@media (max-width: 380px) {
+  .info-section.active {
+    right: 8px;
+    bottom: 92px;
+  }
+  .info-section.active::after {
+    right: 28px;
+  }
 }
 
 /* Old floating ? bubble removed — it overlapped the input area / controls
@@ -1403,9 +1447,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     height: calc(100vh - 64px); /* Updated to match new desktop header height */
   }
   
-  .info-section.active {
-    top: 64px; /* Updated to match new desktop header height */
-  }
+  /* Popover dimensions are the same on desktop; no header-offset rule needed. */
 }
 
 /* Fix for chat container sizing to prevent scrolling */
@@ -1483,14 +1525,12 @@ body.search-page .claude-messages {
   overflow-y: auto;
 }
 
-/* Fixed input at bottom — z-index sits above the About overlay (z-index 30)
-   so the About toggle button stays tappable and the input row remains visible
-   while the panel is open. */
+/* Fixed input at bottom */
 body.search-page .claude-input-area {
   position: sticky;
   bottom: 0;
   background-color: white;
-  z-index: 40;
+  z-index: 40; /* sits below the About popover (z-index 50) but above messages */
 }
 
 /* Desktop adjustments */
@@ -1507,18 +1547,13 @@ body.search-page .claude-sources-panel {
   height: calc(100vh - 56px); /* Increased from 50px to match larger header */
 }
 
-body.search-page .info-section.active {
-  top: 56px; /* Increased from 50px to match larger header */
-}
+/* About panel is now a small popover anchored above the input area
+   rather than a fullscreen overlay; no header-offset positioning needed. */
 
 @media (min-width: 769px) {
   body.search-page .claude-sources-panel {
     top: 64px; /* Updated to match new desktop header height */
     height: calc(100vh - 64px); /* Updated to match new desktop header height */
-  }
-  
-  body.search-page .info-section.active {
-    top: 64px; /* Updated to match new desktop header height */
   }
 }
 

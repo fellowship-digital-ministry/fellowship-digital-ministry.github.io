@@ -3480,6 +3480,28 @@ Would you like me to search for sermon content on any of these topics instead?`;
         elements.infoToggle.setAttribute('aria-expanded', 'false');
       });
     }
+
+    // Dismiss the About popover when the user taps outside it (and not on
+    // the toggle button itself, which already handles its own close).
+    if (elements.infoSection && elements.infoToggle) {
+      document.addEventListener('click', function(event) {
+        if (!elements.infoSection.classList.contains('active')) return;
+        if (elements.infoSection.contains(event.target)) return;
+        if (elements.infoToggle.contains(event.target)) return;
+        elements.infoSection.classList.remove('active');
+        elements.infoToggle.classList.remove('active');
+        elements.infoToggle.setAttribute('aria-expanded', 'false');
+      });
+
+      // Escape key also closes the popover.
+      document.addEventListener('keydown', function(event) {
+        if (event.key !== 'Escape') return;
+        if (!elements.infoSection.classList.contains('active')) return;
+        elements.infoSection.classList.remove('active');
+        elements.infoToggle.classList.remove('active');
+        elements.infoToggle.setAttribute('aria-expanded', 'false');
+      });
+    }
     
     // Make example questions clickable
     setupExampleQuestionClicks();

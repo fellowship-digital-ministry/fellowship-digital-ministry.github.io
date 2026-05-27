@@ -159,10 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navMobile.style.paddingTop = `${headerHeight + 20}px`;
   }
   
-  // Fix for info section positioning
-  const infoSection = document.querySelector('.info-section');
-  if (infoSection && document.body.classList.contains('search-page')) {
-    const headerHeight = window.innerWidth <= 768 ? 56 : 64; // Updated to match new header heights
-    infoSection.style.top = `${headerHeight}px`;
-  }
+  // (Removed: stale inline `top` positioning for the old fullscreen About
+  // overlay. The About panel is now a popover anchored via CSS, not a
+  // header-offset overlay.)
 });
