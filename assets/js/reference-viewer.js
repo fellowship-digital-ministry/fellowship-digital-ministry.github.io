@@ -633,6 +633,20 @@
       highlighted = escapeHtml(ctx);
     }
 
+    // Optional AI footnote summary (study-Bible-style one-liner). Stored on
+    // the ref as `point_summary` by tools/generate_reference_summaries.py.
+    var summary = (ref.point_summary || '').trim();
+    var summaryHtml = '';
+    if (summary) {
+      summaryHtml = '<div class="refv-occ-summary">' +
+        '<span class="refv-occ-summary-label">In this sermon</span>' +
+        '<span class="refv-occ-summary-text">' + escapeHtml(summary) + '</span>' +
+        '<span class="refv-occ-summary-note">' +
+          'AI-generated · always verify in the transcript or video below' +
+        '</span>' +
+      '</div>';
+    }
+
     return '<article class="refv-occ">' +
       '<div class="refv-occ-badge">' +
         '<span class="refv-occ-badge-ref">' + escapeHtml(refBadge) + '</span>' +
@@ -643,6 +657,7 @@
         '<span class="refv-occ-sermon-title">' + sermonTitle + '</span>' +
         ' <span class="refv-occ-sermon-ts">· ' + ts + '</span>' +
       '</div>' +
+      summaryHtml +
       (ctx ? '<blockquote class="refv-occ-context">' + highlighted + '</blockquote>' : '') +
       '<div class="refv-occ-actions">' +
         '<button class="refv-occ-btn is-primary" data-action="watch" data-video="' + escapeAttr(ref.video_id) +

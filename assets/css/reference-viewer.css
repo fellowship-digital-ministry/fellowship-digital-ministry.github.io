@@ -373,6 +373,42 @@
   color: var(--refv-text-muted);
   opacity: 0.8;
 }
+/* AI footnote — one-sentence "In this sermon" summary that sits above the
+   raw transcript snippet. Visually distinct from the snippet so the reader
+   never confuses model output for the preacher's own words. */
+.refv-occ-summary {
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.9rem;
+  background: #fbf6ed;
+  border: 1px solid #e8dbb8;
+  border-radius: var(--refv-radius-sm);
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+}
+.refv-occ-summary-label {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a6b1f;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+.refv-occ-summary-text {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--refv-text);
+}
+.refv-occ-summary-note {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.72rem;
+  color: var(--refv-text-muted);
+  font-style: italic;
+}
+
 .refv-occ-context {
   margin: 0 0 0.85rem;
   font-size: 0.92rem;
