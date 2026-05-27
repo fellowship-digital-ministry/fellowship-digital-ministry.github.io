@@ -172,15 +172,12 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
   padding: 2rem;
   box-shadow: 0 3px 12px rgba(0,0,0,0.08);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   border: 1px solid #eeeeee;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  /* Stationary — no hover lift or shadow shift. The CTA button at
+     the bottom of each card carries the interactivity signal, so the
+     card itself doesn't need to move. */
 }
 
 .feature-icon {
