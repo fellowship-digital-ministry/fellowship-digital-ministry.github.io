@@ -685,7 +685,49 @@ const SermonSearch = (function() {
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     }
 
+    // Wrap the trailing "Bible-Based Questions You Might Find Helpful"
+    // block in its own div so CSS can style it as a quieter, distinct
+    // affordance (separated from the main answer).
+    html = wrapSuggestionsBlock(html);
+
     return highlightBibleReferences(html);
+  }
+
+  /**
+   * The backend appends `**Bible-Based Questions You Might Find Helpful:**\n\n1. ...`
+   * to most answers. After markdown render that's a <p><strong>...</strong></p>
+   * followed by an <ol>. Wrap both in a .suggested-questions-block div so
+   * CSS can quietly separate them from the main answer body.
+   */
+  function wrapSuggestionsBlock(html) {
+    const container = document.createElement('div');
+    container.innerHTML = html;
+
+    // Find the <strong> that contains the marker phrase
+    const strongs = container.querySelectorAll('strong');
+    let marker = null;
+    for (const s of strongs) {
+      if (/Bible[-\s]?Based Questions You Might Find Helpful/i.test(s.textContent)) {
+        marker = s;
+        break;
+      }
+    }
+    if (!marker) return html;
+
+    // The marker lives inside a <p>; the list follows as the next sibling
+    const heading = marker.closest('p');
+    if (!heading || !heading.parentNode) return html;
+    const list = heading.nextElementSibling;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'suggested-questions-block';
+    heading.parentNode.insertBefore(wrapper, heading);
+    wrapper.appendChild(heading);
+    if (list && /^(ol|ul)$/i.test(list.tagName)) {
+      wrapper.appendChild(list);
+    }
+
+    return container.innerHTML;
   }
 
   /**
