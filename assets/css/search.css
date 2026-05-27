@@ -296,6 +296,92 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
 }
 
+/* ============================================================
+   Rendered markdown inside bot messages.
+   Claude returns answers as Markdown (##, **, lists, blockquotes,
+   code). The defaults in the browser style sheet would render h1
+   at 32px+ — way too big for a chat bubble. These rules constrain
+   the elements so the answer reads as a structured paragraph, not
+   a styled document.
+   ============================================================ */
+.claude-message-bot .claude-message-content > :first-child { margin-top: 0; }
+.claude-message-bot .claude-message-content > :last-child  { margin-bottom: 0; }
+
+.claude-message-bot .claude-message-content h1,
+.claude-message-bot .claude-message-content h2,
+.claude-message-bot .claude-message-content h3,
+.claude-message-bot .claude-message-content h4 {
+  font-family: var(--font-serif);
+  color: var(--primary-color);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 1rem 0 0.5rem;
+}
+.claude-message-bot .claude-message-content h1 { font-size: 1.25rem; }
+.claude-message-bot .claude-message-content h2 { font-size: 1.15rem; }
+.claude-message-bot .claude-message-content h3,
+.claude-message-bot .claude-message-content h4 { font-size: 1.05rem; }
+
+.claude-message-bot .claude-message-content p {
+  margin: 0 0 0.75rem;
+}
+
+.claude-message-bot .claude-message-content ul,
+.claude-message-bot .claude-message-content ol {
+  margin: 0 0 0.75rem;
+  padding-left: 1.5rem;
+}
+.claude-message-bot .claude-message-content li {
+  margin-bottom: 0.25rem;
+}
+.claude-message-bot .claude-message-content li > p {
+  margin: 0;  /* GFM wraps loose-list items in <p>; collapse them */
+}
+
+.claude-message-bot .claude-message-content strong {
+  color: var(--primary-color);
+}
+
+/* Sermon quotes that Claude includes verbatim inside the answer
+   often arrive as blockquotes (>). Style them as scripture. */
+.claude-message-bot .claude-message-content blockquote {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 3px solid var(--primary-color);
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-light);
+  background: rgba(100, 28, 20, 0.04);
+}
+.claude-message-bot .claude-message-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.claude-message-bot .claude-message-content code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: rgba(100, 28, 20, 0.08);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+.claude-message-bot .claude-message-content pre {
+  background: #f8f4ed;
+  border: 1px solid rgba(100, 28, 20, 0.15);
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  overflow-x: auto;
+  margin: 0.5rem 0 0.75rem;
+}
+.claude-message-bot .claude-message-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.claude-message-bot .claude-message-content a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
 /* Typing indicator */
 .claude-typing {
   display: flex;
@@ -392,8 +478,10 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 .claude-submit-button {
   position: absolute;
   right: 0.6rem;            /* Optical breathing room from scrollbar/edge */
-  bottom: 0.6rem;
-  width: 34px;              /* Slightly smaller, less utility-block */
+  bottom: 4px;              /* (42px textarea − 34px button) / 2 = 4px:
+                               vertically centers at single-line, stays
+                               anchored to bottom-right as textarea grows */
+  width: 34px;
   height: 34px;
   background-color: var(--primary-color);
   border: none;

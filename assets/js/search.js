@@ -230,11 +230,11 @@ const SermonSearch = (function() {
       "welcome-title": "Welcome to the Sermon Search Tool",
       "welcome-intro": "Ask any question about the sermons and receive answers based on sermon content with timestamped video links.",
       "suggestion-heading": "Try asking about:",
-      "example-1": "How does a person get to heaven?",
-      "example-2": "What is the Trinity?",
-      "example-3": "How should Christians live?",
+      "example-1": "How can I be saved?",
+      "example-2": "What does the Bible say about anxiety?",
+      "example-3": "How should I live as a Christian?",
       "example-4": "Why read the King James Bible?",
-      "example-5": "Who is Melchizedek?",
+      "example-5": "How do I share my faith?",
       "watch-video": "Watch Video",
       "hide-video": "Hide Video",
       "view-transcript": "View Transcript",
@@ -263,11 +263,11 @@ const SermonSearch = (function() {
       "welcome-title": "Bienvenido a la Herramienta de Búsqueda de Sermones",
       "welcome-intro": "Haz cualquier pregunta sobre los sermones y recibirás respuestas basadas en el contenido con enlaces de video cronometrados.",
       "suggestion-heading": "Intenta preguntar sobre:",
-      "example-1": "¿Cómo llega una persona al cielo?",
-      "example-2": "¿Qué es la Trinidad?",
-      "example-3": "¿Cómo deben vivir los cristianos?",
+      "example-1": "¿Cómo puedo ser salvo?",
+      "example-2": "¿Qué dice la Biblia sobre la ansiedad?",
+      "example-3": "¿Cómo debo vivir como cristiano?",
       "example-4": "¿Por qué leer la Biblia Reina Valera?",
-      "example-5": "¿Quién es Melquisedec?",
+      "example-5": "¿Cómo comparto mi fe?",
       "watch-video": "Ver Video",
       "hide-video": "Ocultar Video",
       "view-transcript": "Ver Transcripción",
@@ -296,11 +296,11 @@ const SermonSearch = (function() {
       "welcome-title": "欢迎使用讲道搜索工具",
       "welcome-intro": "询问任何关于讲道的问题，您将获得基于讲道内容的答案，包含带有时间戳的视频链接。",
       "suggestion-heading": "尝试询问：",
-      "example-1": "一个人如何上天堂？",
-      "example-2": "三位一体是什么？",
-      "example-3": "基督徒应该如何生活？",
+      "example-1": "我如何才能得救？",
+      "example-2": "圣经怎么说焦虑？",
+      "example-3": "我应该如何作为基督徒生活？",
       "example-4": "为什么要读和合本圣经？",
-      "example-5": "麦基洗德是谁？",
+      "example-5": "我如何分享我的信仰？",
       "watch-video": "观看视频",
       "hide-video": "隐藏视频",
       "view-transcript": "查看文字稿",
@@ -515,30 +515,61 @@ const SermonSearch = (function() {
   }
 
   /**
-   * Format response text with Markdown-like syntax
+   * Render Claude's markdown response to HTML.
+   *
+   * Claude (and most LLMs) returns answers as Markdown — headers, bold,
+   * numbered/bulleted lists, blockquotes. We render via marked.js (loaded
+   * from CDN in default.html) so users see formatted prose instead of
+   * literal "##" and "**" tokens.
+   *
+   * Bible references like "Romans 3:23" still need to become clickable
+   * spans. We post-process the rendered HTML's text nodes only (not tag
+   * attributes) to wrap them in <span class="bible-reference">.
    */
   function formatResponse(text) {
     if (!text) return '';
-    
-    // Convert line breaks to HTML breaks
-    text = text.replace(/\n/g, '<br>');
-    
-    // Replace section headers (text between ** **)
-    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-    // Format numbered lists
-    text = text.replace(/(\d+\.\s+)([^\n<]+)(<br>|$)/g, '<div class="list-item"><span class="list-number">$1</span>$2</div>$3');
-    
-    // Highlight Bible references
-    text = text.replace(getBibleReferenceRegex(), '<span class="bible-reference">$&</span>');
-    
-    // Wrap paragraphs in <p> tags, but not if they're already in a div or other block element
-    text = text.replace(/(^|<\/div>)([^<]+)(<br>|$)/g, '$1<p>$2</p>$3');
-    
-    // Clean up any extra <br> tags after </p> tags
-    text = text.replace(/<\/p><br>/g, '</p>');
-    
-    return text;
+
+    // Fallback if marked failed to load (CDN blocked, offline, etc.)
+    let html;
+    if (typeof marked !== 'undefined') {
+      html = marked.parse(text, { breaks: true, gfm: true });
+    } else {
+      // Minimal fallback: escape + line breaks + bold
+      html = escapeHTML(text)
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    return highlightBibleReferences(html);
+  }
+
+  /**
+   * Walk an HTML string's text nodes and wrap Bible references in spans.
+   * Done DOM-side rather than via string regex so we never corrupt tag
+   * attributes or break existing <a href> markup.
+   */
+  function highlightBibleReferences(html) {
+    const regex = getBibleReferenceRegex();
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = html;
+
+    const walker = document.createTreeWalker(wrapper, NodeFilter.SHOW_TEXT, null);
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+
+    for (const textNode of textNodes) {
+      const original = textNode.nodeValue;
+      if (!regex.test(original)) continue;
+      // Reset lastIndex since /g regexes are stateful
+      regex.lastIndex = 0;
+      const replaced = original.replace(regex, '<span class="bible-reference">$&</span>');
+      if (replaced === original) continue;
+      const span = document.createElement('span');
+      span.innerHTML = replaced;
+      textNode.replaceWith(...span.childNodes);
+    }
+    return wrapper.innerHTML;
   }
 
   /**

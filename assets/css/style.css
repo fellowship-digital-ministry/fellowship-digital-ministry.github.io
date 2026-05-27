@@ -206,7 +206,9 @@ a:hover {
 nav {
   background-color: white;
   box-shadow: none;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  /* No bottom border — the header already has a subtle box-shadow that
+     separates it from the page; the extra hairline read as a divider
+     under the nav links and felt unfinished. */
   position: relative;
   z-index: 100;
 }
