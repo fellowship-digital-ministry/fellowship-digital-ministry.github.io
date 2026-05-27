@@ -3196,7 +3196,8 @@ Would you like me to search for sermon content on any of these topics instead?`;
       languageSelect: getElement('languageSelect'),
       clearConversationBtn: getElement('clearConversation'),
       infoToggle: getElement('infoToggle'),
-      infoSection: getElement('infoSection')
+      infoSection: getElement('infoSection'),
+      closeInfoSection: getElement('closeInfoSection')
     };
     
     // Create backdrop for mobile sources panel
@@ -3464,10 +3465,19 @@ Would you like me to search for sermon content on any of these topics instead?`;
       elements.infoToggle.addEventListener('click', function() {
         elements.infoSection.classList.toggle('active');
         this.classList.toggle('active');
-        
+
         // Set aria-expanded attribute for accessibility
         const isExpanded = elements.infoSection.classList.contains('active');
         this.setAttribute('aria-expanded', isExpanded.toString());
+      });
+    }
+
+    // Close button inside the About panel
+    if (elements.closeInfoSection && elements.infoSection && elements.infoToggle) {
+      elements.closeInfoSection.addEventListener('click', function() {
+        elements.infoSection.classList.remove('active');
+        elements.infoToggle.classList.remove('active');
+        elements.infoToggle.setAttribute('aria-expanded', 'false');
       });
     }
     
@@ -3537,26 +3547,13 @@ Would you like me to search for sermon content on any of these topics instead?`;
     }, 100);
     
     window.addEventListener('resize', throttledResize);
-    
-    // Observe theme changes for consistent dark mode
-    if (window.matchMedia) {
-      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      const handleThemeChange = (e) => {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-      };
-      
-      // Set initial value
-      handleThemeChange(darkModeMediaQuery);
-      
-      // Listen for changes
-      if (darkModeMediaQuery.addEventListener) {
-        darkModeMediaQuery.addEventListener('change', handleThemeChange);
-      } else if (darkModeMediaQuery.addListener) {
-        // Fallback for older browsers
-        darkModeMediaQuery.addListener(handleThemeChange);
-      }
-    }
+
+    // Light-only site. The previous code flipped data-theme="dark" based on
+    // prefers-color-scheme, which activated the partial dark CSS and produced
+    // unreadable black-text-on-dark-blue rendering for users whose phones are
+    // in system dark mode. The site is designed as light-only (color-scheme:
+    // only light, plus the matching <meta> tag), so we no longer toggle the
+    // theme attribute here.
     
     // Add visibility change listener to handle page focus/blur
     document.addEventListener('visibilitychange', function() {

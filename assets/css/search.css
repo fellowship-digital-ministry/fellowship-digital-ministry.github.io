@@ -1217,6 +1217,41 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   right: 0;
   bottom: 0;
   z-index: 30;
+  padding-top: 3rem; /* room for the close button */
+  /* Leave room at the bottom so the disclaimer paragraph isn't trapped
+     behind the input area (which now sits at z-index 40). */
+  padding-bottom: 9rem;
+}
+
+/* Close affordance for the About panel — without this, the only way to
+   dismiss the panel was to tap the About button again, which gets covered
+   by this fixed overlay. */
+.info-section-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  width: 40px;
+  height: 40px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  color: var(--text-color);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+.info-section.active .info-section-close {
+  display: flex;
+}
+.info-section-close:hover,
+.info-section-close:focus-visible {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--primary-color);
+  outline: none;
 }
 
 /* Old floating ? bubble removed — it overlapped the input area / controls
@@ -1448,12 +1483,14 @@ body.search-page .claude-messages {
   overflow-y: auto;
 }
 
-/* Fixed input at bottom */
+/* Fixed input at bottom — z-index sits above the About overlay (z-index 30)
+   so the About toggle button stays tappable and the input row remains visible
+   while the panel is open. */
 body.search-page .claude-input-area {
   position: sticky;
   bottom: 0;
   background-color: white;
-  z-index: 20;
+  z-index: 40;
 }
 
 /* Desktop adjustments */

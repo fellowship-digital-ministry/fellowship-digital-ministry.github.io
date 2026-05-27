@@ -1468,25 +1468,12 @@ function initClaudeInterface() {
         }
       });
       
-      // Observe theme changes for consistent dark mode
-      if (window.matchMedia) {
-        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        const handleThemeChange = (e) => {
-          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-        };
-        
-        // Set initial value
-        handleThemeChange(darkModeMediaQuery);
-        
-        // Listen for changes
-        if (darkModeMediaQuery.addEventListener) {
-          darkModeMediaQuery.addEventListener('change', handleThemeChange);
-        } else if (darkModeMediaQuery.addListener) {
-          // Fallback for older browsers
-          darkModeMediaQuery.addListener(handleThemeChange);
-        }
-      }
+      // Light-only site. The previous code flipped data-theme="dark" based on
+      // prefers-color-scheme, which activated the partial dark CSS and produced
+      // unreadable black-text-on-dark-blue rendering for users whose phones are
+      // in system dark mode. The site is designed as light-only (color-scheme:
+      // only light, plus the matching <meta> tag), so we no longer toggle the
+      // theme attribute here.
       
       // Auto-resize input on first load
       if (queryInput) {
