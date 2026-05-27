@@ -229,6 +229,31 @@ const SermonAPI = {
     }
   },
 
+  /**
+   * Find sermons by topic — no AI synthesis, just the matching sermon list.
+   * Uses the /search backend endpoint. Returns SearchResponse shape:
+   * { query, results: [SearchResult, ...], total_results, processing_time }
+   */
+  async searchSermons(query, opts) {
+    opts = opts || {};
+    const params = new URLSearchParams({
+      query: query,
+      top_k: String(opts.top_k || 15),
+      min_score: String(opts.min_score || 0.55),
+    });
+    const url = this.baseUrl.endsWith('/')
+      ? `${this.baseUrl.slice(0, -1)}/search?${params}`
+      : `${this.baseUrl}/search?${params}`;
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
+      mode: 'cors',
+    });
+    if (!response.ok) throw new Error(`Search request failed: ${response.status}`);
+    return await response.json();
+  },
+
   _parseSSEEvent(raw) {
     const lines = raw.split('\n');
     let type = 'message';
@@ -302,6 +327,7 @@ const SermonSearch = (function() {
     persistedTurns: [],          // browser-only persistence; survives reload
     isFirstLoad: true,
     currentLanguage: config.defaultLanguage,
+    currentMode: 'ask',          // 'ask' (AI synthesis) or 'find' (sermon list)
     isApiConnected: false,
     pendingRequests: 0,
     isScrolling: false,
@@ -2101,7 +2127,19 @@ function createSourceElement(source, index) {
     const useStreaming = state.currentLanguage === 'en';
 
     try {
-      if (useStreaming) {
+      // === Find sermons mode (no AI synthesis) ===
+      if (state.currentMode === 'find') {
+        const typingId = addTypingIndicator();
+        const searchData = await SermonAPI.searchSermons(query, { top_k: 15, min_score: 0.55 });
+        removeMessage(typingId);
+        displaySearchResults(searchData, query);
+
+        // Persist (tagged with mode='find' so restore knows which renderer to use)
+        state.persistedTurns.push({ user: query, mode: 'find', data: searchData });
+        saveChatTurns(state.persistedTurns);
+        smoothScrollToBottom(elements.messagesContainer);
+
+      } else if (useStreaming) {
         // === Streaming path ===
         // Create the bot bubble empty, then fill it as tokens arrive.
         // No typing indicator — the streaming text itself is the indicator.
@@ -2340,6 +2378,51 @@ function populateSourcesPanelAndAddToggle(messageContent, sources) {
   } catch (error) {
     console.error('Error displaying sources:', error);
   }
+}
+
+/**
+ * Render a "Find sermons" result list as a bot bubble — no AI synthesis,
+ * just the matching sermons as cards. Reuses createSourceElement so the
+ * cards look identical to the source cards shown alongside chat answers.
+ */
+function displaySearchResults(data, query) {
+  const results = (data && data.results) || [];
+  const messageElement = addMessage('', 'bot');
+  messageElement.classList.add('claude-find-results');
+  const contentEl = messageElement.querySelector('.claude-message-content');
+
+  if (results.length === 0) {
+    contentEl.innerHTML = `
+      <div class="find-results-empty">
+        <p>No sermons matched <strong>${escapeHTML(query)}</strong> closely enough.</p>
+        <p class="find-results-empty-hint">Try a broader topic (e.g., "prayer" instead of "intercessory prayer for missionaries") or switch to <em>Ask a question</em> mode for AI-assisted synthesis.</p>
+      </div>
+    `;
+    return messageElement;
+  }
+
+  const header = document.createElement('div');
+  header.className = 'find-results-header';
+  header.innerHTML = `<span class="find-results-count">${results.length}</span> sermon${results.length === 1 ? '' : 's'} matching <strong>${escapeHTML(query)}</strong>`;
+  contentEl.appendChild(header);
+
+  const list = document.createElement('div');
+  list.className = 'find-results-list';
+  results.forEach((source, index) => {
+    const card = createSourceElement(source, index);
+    list.appendChild(card);
+  });
+  contentEl.appendChild(list);
+
+  addPrintButton(messageElement);
+  return messageElement;
+}
+
+function escapeHTML(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[c]);
 }
 
 function displayAnswer(data) {
@@ -3016,8 +3099,12 @@ Would you like me to search for sermon content on any of these topics instead?`;
         try {
           addMessage(turn.user, 'user');
           state.conversationHistory.push({ role: 'user', content: turn.user });
-          // displayAnswer also pushes the assistant message to conversationHistory
-          displayAnswer(turn.data);
+          if (turn.mode === 'find') {
+            displaySearchResults(turn.data, turn.user);
+          } else {
+            // displayAnswer also pushes the assistant message to conversationHistory
+            displayAnswer(turn.data);
+          }
         } catch (e) {
           // If a saved turn fails to restore (e.g., shape changed), skip it
           // rather than break the whole restore.
@@ -3118,6 +3205,29 @@ Would you like me to search for sermon content on any of these topics instead?`;
       });
     }
     
+  // Mode toggle — switches between AI synthesis (ask) and sermon list (find).
+  // Updates placeholder text so the user sees what each mode is for.
+  const modeButtons = document.querySelectorAll('.mode-option');
+  if (modeButtons.length && elements.queryInput) {
+    const PLACEHOLDERS = {
+      ask: 'Ask a question about the sermons...',
+      find: 'Find sermons by topic (e.g., "prayer", "Romans 8")',
+    };
+    modeButtons.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const mode = this.getAttribute('data-mode');
+        if (!mode || mode === state.currentMode) return;
+        state.currentMode = mode;
+        modeButtons.forEach((b) => {
+          const isActive = b.getAttribute('data-mode') === mode;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-checked', isActive ? 'true' : 'false');
+        });
+        elements.queryInput.placeholder = PLACEHOLDERS[mode] || PLACEHOLDERS.ask;
+      });
+    });
+  }
+
   // Clear conversation button
   if (elements.clearConversationBtn) {
     elements.clearConversationBtn.addEventListener('click', function() {

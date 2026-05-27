@@ -1727,3 +1727,96 @@ body.keyboard-open .claude-messages {
     margin: 1.5cm 2cm;
   }
 }
+
+/* ============================================================
+   Mode toggle — Ask a question / Find sermons
+   Sits below the input area as small pill segmented control.
+   ============================================================ */
+.conversation-controls {
+  /* Ensure the toggle + Clear button share a row, with the toggle on the left */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mode-toggle {
+  display: inline-flex;
+  background: rgba(100, 28, 20, 0.06);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+.mode-toggle .mode-option {
+  background: transparent;
+  border: none;
+  padding: 5px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.mode-toggle .mode-option:hover {
+  color: var(--primary-color);
+}
+.mode-toggle .mode-option.active {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 1px 3px rgba(100, 28, 20, 0.25);
+}
+
+@media (max-width: 480px) {
+  .mode-toggle .mode-option { padding: 5px 10px; font-size: 0.78rem; }
+}
+
+/* ============================================================
+   Find sermons results — bot bubble containing a sermon-card list
+   ============================================================ */
+.claude-find-results .claude-message-content {
+  width: 100%;
+  max-width: 100%;
+}
+.find-results-header {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.find-results-count {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 1px 8px;
+  border-radius: 999px;
+  margin-right: 0.4em;
+  vertical-align: 0.05em;
+}
+.find-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.find-results-list .claude-source-item {
+  /* Reuse source-card styling but slightly tighter for list density */
+  margin: 0;
+}
+
+.find-results-empty {
+  font-family: var(--font-serif);
+  color: var(--text-light);
+  padding: 0.5rem 0;
+}
+.find-results-empty p { margin-bottom: 0.5rem; }
+.find-results-empty .find-results-empty-hint {
+  font-size: 0.9rem;
+  font-style: italic;
+}

@@ -52,6 +52,13 @@ custom_class: search-page
             </div>
           </form>
           <div class="conversation-controls">
+            <!-- Mode toggle — Ask uses AI synthesis, Find lists sermons without analysis -->
+            <div class="mode-toggle" role="radiogroup" aria-label="Search mode">
+              <button type="button" class="mode-option active" data-mode="ask"
+                      role="radio" aria-checked="true">Ask a question</button>
+              <button type="button" class="mode-option" data-mode="find"
+                      role="radio" aria-checked="false">Find sermons</button>
+            </div>
             <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear Conversation</button>
           </div>
         </div>
