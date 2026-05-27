@@ -3460,56 +3460,58 @@ Would you like me to search for sermon content on any of these topics instead?`;
       });
     }
     
-    // Info toggle button (mobile)
+    // About modal — open-only trigger plus three explicit close paths
+    // (X button, backdrop tap, Escape key). Returns focus to the trigger
+    // when closed.
     if (elements.infoToggle && elements.infoSection) {
-      elements.infoToggle.addEventListener('click', function() {
-        elements.infoSection.classList.toggle('active');
-        this.classList.toggle('active');
+      const openInfo = () => {
+        elements.infoSection.classList.add('active');
+        elements.infoSection.setAttribute('aria-hidden', 'false');
+        // Defer focus until the modal is visible so screen readers
+        // announce it properly.
+        requestAnimationFrame(() => {
+          if (elements.closeInfoSection) elements.closeInfoSection.focus();
+        });
+      };
 
-        // Set aria-expanded attribute for accessibility
-        const isExpanded = elements.infoSection.classList.contains('active');
-        this.setAttribute('aria-expanded', isExpanded.toString());
-      });
-    }
-
-    // Close button inside the About panel
-    if (elements.closeInfoSection && elements.infoSection && elements.infoToggle) {
-      elements.closeInfoSection.addEventListener('click', function() {
-        elements.infoSection.classList.remove('active');
-        elements.infoToggle.classList.remove('active');
-        elements.infoToggle.setAttribute('aria-expanded', 'false');
-      });
-    }
-
-    // Dismiss the About popover when the user taps outside it (and not on
-    // the toggle button itself, which already handles its own close).
-    if (elements.infoSection && elements.infoToggle) {
-      document.addEventListener('click', function(event) {
+      const closeInfo = () => {
         if (!elements.infoSection.classList.contains('active')) return;
-        if (elements.infoSection.contains(event.target)) return;
-        if (elements.infoToggle.contains(event.target)) return;
         elements.infoSection.classList.remove('active');
-        elements.infoToggle.classList.remove('active');
-        elements.infoToggle.setAttribute('aria-expanded', 'false');
+        elements.infoSection.setAttribute('aria-hidden', 'true');
+        elements.infoToggle.focus();
+      };
+
+      elements.infoToggle.addEventListener('click', openInfo);
+
+      if (elements.closeInfoSection) {
+        elements.closeInfoSection.addEventListener('click', closeInfo);
+      }
+
+      // Tap on the dimmed backdrop (the overlay element itself, not its
+      // content card) closes the modal.
+      elements.infoSection.addEventListener('click', function(event) {
+        if (event.target === elements.infoSection) closeInfo();
       });
 
-      // Escape key also closes the popover.
+      // Escape closes the modal when it's open.
       document.addEventListener('keydown', function(event) {
-        if (event.key !== 'Escape') return;
-        if (!elements.infoSection.classList.contains('active')) return;
-        elements.infoSection.classList.remove('active');
-        elements.infoToggle.classList.remove('active');
-        elements.infoToggle.setAttribute('aria-expanded', 'false');
+        if (event.key === 'Escape' &&
+            elements.infoSection.classList.contains('active')) {
+          closeInfo();
+        }
       });
     }
     
     // Make example questions clickable
     setupExampleQuestionClicks();
     
-    // Global event listener for overlay close via escape key
+    // Global event listener for overlay close via escape key.
+    // Skips #infoSection because that's a static modal — closeOverlay()
+    // removes the element from the DOM, which would break subsequent opens.
+    // #infoSection has its own Escape handler above.
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-        const activeOverlay = document.querySelector('.claude-overlay.active');
+        const activeOverlay = document.querySelector('.claude-overlay.active:not(#infoSection)');
         if (activeOverlay) {
           closeOverlay(activeOverlay);
         }

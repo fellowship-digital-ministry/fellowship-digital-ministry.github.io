@@ -1195,107 +1195,44 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   color: var(--error-color);
 }
 
-/* Info section — small popover anchored above the About button rather
-   than a fullscreen overlay. Lighter and easier to dismiss. */
-.info-section {
-  display: none;
+/* About modal uses the shared .claude-overlay pattern.
+   When inactive: visibility:hidden + pointer-events:none keeps it
+   non-interactive while preserving the opacity fade-in/out animation
+   defined on .claude-overlay. The delayed visibility transition makes
+   sure it stays visible until the fade-out completes. */
+#infoSection.claude-overlay {
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-speed) ease,
+              visibility 0s linear var(--transition-speed);
+}
+#infoSection.claude-overlay.active {
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity var(--transition-speed) ease,
+              visibility 0s linear 0s;
 }
 
-.info-section.active {
-  display: block;
-  position: fixed;
-  /* Sit above the input area (~ controls + padding). The exact bottom
-     value is fine-tuned to clear the conversation-controls row on phones. */
-  bottom: 96px;
-  right: 12px;
-  left: auto;
-  top: auto;
-  width: min(360px, calc(100vw - 24px));
-  max-height: min(60vh, 480px);
-  overflow-y: auto;
-  background-color: white;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-  padding: 2.5rem 1.25rem 1.25rem; /* top room for the close X */
-  z-index: 50; /* above the input area (z-index 40) */
-  animation: info-pop-in 0.16s ease-out;
+.about-body p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
-
-/* Tiny caret pointing down toward the About button. */
-.info-section.active::after {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  right: 32px;
-  width: 12px;
-  height: 12px;
-  background: white;
-  border-right: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  transform: rotate(45deg);
+.about-body p:last-child {
+  margin-bottom: 0;
 }
-
-@keyframes info-pop-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Tighten the inner card so it fits the popover comfortably. */
-.info-section.active .about-container {
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-  max-width: none;
-}
-.info-section.active .content-section-header {
-  font-size: 1.15rem !important;
-  margin-bottom: 0.75rem !important;
-  padding-bottom: 6px !important;
-}
-.info-section.active .about-container p {
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
-}
-
-/* Close X — small, top-right of the popover. */
-.info-section-close {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  border-radius: 999px;
-  color: var(--text-light);
-  font-size: 1.4rem;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 1;
-}
-.info-section.active .info-section-close {
-  display: flex;
-}
-.info-section-close:hover,
-.info-section-close:focus-visible {
-  background: rgba(0, 0, 0, 0.06);
+.about-scripture {
+  font-style: italic;
   color: var(--primary-color);
-  outline: none;
+  border-left: 3px solid var(--primary-color);
+  padding-left: 1rem;
+  margin: 1.25rem 0;
 }
-
-/* On very small phones, let the popover hug the right edge with a hair more room. */
-@media (max-width: 380px) {
-  .info-section.active {
-    right: 8px;
-    bottom: 92px;
-  }
-  .info-section.active::after {
-    right: 28px;
-  }
+.about-disclaimer {
+  background-color: #f0f0f0;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-top: 1.25rem !important;
 }
 
 /* Old floating ? bubble removed — it overlapped the input area / controls
@@ -1613,37 +1550,12 @@ body.keyboard-open .claude-messages {
   padding-bottom: 80px; /* Reduced padding when keyboard is open */
 }
 
-/* Style for the about section */
-.about-container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Dark mode adjustments */
+/* Dark mode adjustments for keyboard-open input area
+   (About-section dark rules removed — about content now lives inside
+   .claude-overlay-body, which already has its own dark-mode styling). */
 [data-theme="dark"] body.keyboard-open .claude-input-area {
   background-color: #1f2937;
   border-top-color: #374151;
-}
-
-/* dark‑mode: make sure description text isn't black */
-[data-theme="dark"] .about-container,
-[data-theme="dark"] .about-container * {
-  color: var(--text-color) !important;
-}
-
-/* Provide a darker background for the about section in dark mode */
-[data-theme="dark"] .about-container {
-  background-color: #374151;
-}
-
-/* Improve disclaimer contrast in dark theme */
-[data-theme="dark"] p[data-i18n="disclaimer"] {
-  background-color: #4a5568 !important; /* dark grey background */
-  color: var(--text-color) !important;
 }
 
 /* ============================================================
@@ -1758,7 +1670,7 @@ body.keyboard-open .claude-messages {
   body.printing .language-selector-container,
   body.printing .claude-sources-panel,
   body.printing .claude-sources-backdrop,
-  body.printing .info-section,
+  body.printing #infoSection,
   body.printing #infoToggle,
   body.printing .conversation-controls,
   body.printing .claude-sources-toggle,
