@@ -55,15 +55,19 @@ custom_class: search-page
             <!-- Mode toggle — Ask uses AI synthesis, Find lists sermons without analysis -->
             <div class="mode-toggle" role="radiogroup" aria-label="Search mode">
               <button type="button" class="mode-option active" data-mode="ask"
-                      role="radio" aria-checked="true">Ask a question</button>
+                      role="radio" aria-checked="true">Ask</button>
               <button type="button" class="mode-option" data-mode="find"
                       role="radio" aria-checked="false">Find sermons</button>
             </div>
-            <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear Conversation</button>
+            <div class="conversation-controls-right">
+              <button id="infoToggle" class="info-toggle-inline" aria-label="About this tool"
+                      aria-expanded="false" aria-controls="infoSection">About</button>
+              <button id="clearConversation" class="control-button" data-i18n="clear-conversation">Clear</button>
+            </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Sources Panel (slides in from bottom on mobile) -->
       <div id="sourcesPanel" class="claude-sources-panel" aria-hidden="true">
         <button id="closeSourcesPanel" class="claude-sources-close" aria-label="Close sources panel">×</button>
@@ -73,9 +77,6 @@ custom_class: search-page
       </div>
     </div>
   </div>
-
-  <!-- Mobile Help Toggle -->
-  <button id="infoToggle" class="info-toggle" aria-expanded="false" aria-controls="infoSection">?</button>
 
   <!-- Help Section (hidden on mobile by default) -->
 <!-- Help Section - Updated About Content -->
