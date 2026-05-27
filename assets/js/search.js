@@ -771,10 +771,10 @@ function createWelcomeMessage() {
       // Submit the query
       setTimeout(() => {
         elements.queryInput.value = translatedQuery;
-        elements.chatForm.dispatchEvent(new Event('submit'));
+        elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
       }, 300);
     });
-    
+
     suggestions.appendChild(chip);
   });
   
@@ -1928,7 +1928,7 @@ function createSourceElement(source, index) {
           
           // Try again with the same query
           elements.queryInput.value = query;
-          elements.chatForm.dispatchEvent(new Event('submit'));
+          elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
         });
       }
     } finally {
@@ -2704,7 +2704,7 @@ Would you like me to search for sermon content on any of these topics instead?`;
         // Submit on Enter (without Shift)
         if (e.key === 'Enter' && !e.shiftKey && !state.pendingRequests) {
           e.preventDefault();
-          if (elements.chatForm) elements.chatForm.dispatchEvent(new Event('submit'));
+          if (elements.chatForm) elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
         }
         
         // Handle Escape key to blur the textarea
@@ -2967,7 +2967,7 @@ Would you like me to search for sermon content on any of these topics instead?`;
         
         // Short delay before submitting
         setTimeout(() => {
-          elements.chatForm.dispatchEvent(new Event('submit'));
+          elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
         }, 300);
       }
     });
