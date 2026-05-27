@@ -7,11 +7,11 @@ custom_js: reference-viewer
 
 <div class="refv">
 
-  <!-- Hero: direct lookup + library stat strip -->
+  <!-- Hero: reading-focused entry. Lookup is the main "into the Word" door. -->
   <section class="refv-hero">
-    <h1 class="refv-title">Bible References</h1>
+    <h1 class="refv-title">Read the Bible.<br>See what's been preached.</h1>
     <p class="refv-tagline">
-      Find where a passage has been preached, or browse the most-referenced chapters across the sermon library.
+      Open any chapter to read the King James text. Verses marked with a burgundy dot have been preached at Fellowship — tap to see the sermons.
     </p>
 
     <form class="refv-lookup" id="lookup-form" autocomplete="off" role="search">
@@ -22,23 +22,13 @@ custom_js: reference-viewer
       <button type="submit" class="refv-lookup-go" aria-label="Look up passage">→</button>
     </form>
     <p class="refv-lookup-hint" id="lookup-hint" aria-live="polite"></p>
-
-    <p class="refv-stat-strip" id="stat-strip">Loading library stats…</p>
   </section>
 
-  <!-- Most-preached passages -->
-  <section class="refv-section refv-top">
-    <h2 class="refv-section-title">Most-preached passages</h2>
-    <p class="refv-section-sub">Ranked by total references across the sermon corpus.</p>
-    <ol class="refv-top-list" id="top-list">
-      <li class="refv-loading">Loading passages…</li>
-    </ol>
-  </section>
-
-  <!-- Browse all books (collapsed) -->
+  <!-- Browse all books — primary entry below the lookup. Open by default
+       so the page isn't empty under the fold. -->
   <section class="refv-section refv-browse">
-    <details>
-      <summary><span class="refv-section-title">Browse all books</span></summary>
+    <details open>
+      <summary><span class="refv-section-title">All books</span></summary>
       <div class="refv-browse-body">
         <div class="refv-testament">
           <h3 class="refv-testament-title">Old Testament</h3>

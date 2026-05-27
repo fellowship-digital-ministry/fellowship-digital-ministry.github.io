@@ -182,8 +182,6 @@
     els.lookupForm = $('lookup-form');
     els.lookupInput = $('lookup-input');
     els.lookupHint = $('lookup-hint');
-    els.statStrip = $('stat-strip');
-    els.topList = $('top-list');
     els.otList = $('ot-list');
     els.ntList = $('nt-list');
     els.detail = $('detail-panel');
@@ -195,7 +193,6 @@
     els.bibleGatewayLink = $('bible-gateway-link');
     els.occurrences = $('occurrences');
     els.heroSection = document.querySelector('.refv-hero');
-    els.topSection = document.querySelector('.refv-top');
     els.browseSection = document.querySelector('.refv-browse');
     els.videoModal = $('video-modal');
     els.videoModalFrame = $('video-modal-frame');
@@ -276,92 +273,6 @@
   }
 
   // ============================================================
-  // Rendering: stat strip
-  // ============================================================
-
-  function renderStatStrip() {
-    var s = state.stats;
-    if (!s) {
-      els.statStrip.textContent = 'Library stats unavailable.';
-      return;
-    }
-    var bookKeys = Object.keys(s.books_count || {}).filter(function (k) {
-      // Drop the "processed_files" tracker that leaks into books_count.
-      return k !== 'processed_files' && k !== 'unknown';
-    });
-    var coveredBooks = bookKeys.length;
-    // Sermon count: derive from per-book unique video_ids would need fetches;
-    // use total references for now.
-    var total = s.total_references || 0;
-    els.statStrip.innerHTML =
-      'Pastor has preached from <strong>' + coveredBooks +
-      ' of 66 books</strong> · <strong>' + total.toLocaleString() +
-      '</strong> Bible references logged across the sermon library.';
-  }
-
-  // ============================================================
-  // Rendering: top-N most-referenced chapters
-  // ============================================================
-
-  function renderTopList(limit) {
-    limit = limit || 20;
-    var s = state.stats;
-    if (!s || !s.chapters_count) {
-      els.topList.innerHTML = '<li class="refv-empty">No chapter data available.</li>';
-      return;
-    }
-    // Flatten: [{book, chapter, count}], filtering junk.
-    var flat = [];
-    Object.keys(s.chapters_count).forEach(function (bookKey) {
-      if (bookKey === 'processed_files') return;
-      var book = bookFromDataKey(bookKey);
-      if (!book) return;
-      var chapters = s.chapters_count[bookKey];
-      Object.keys(chapters).forEach(function (ch) {
-        if (ch === 'unknown' || ch === 'None' || ch === 'null') return;
-        var n = parseInt(ch, 10);
-        if (isNaN(n)) return;
-        flat.push({ book: book, chapter: n, count: chapters[ch] });
-      });
-    });
-    flat.sort(function (a, b) { return b.count - a.count; });
-    var top = flat.slice(0, limit);
-    if (!top.length) {
-      els.topList.innerHTML = '<li class="refv-empty">No chapter data available.</li>';
-      return;
-    }
-    var html = top.map(function (item, i) {
-      var label = item.book.display + ' ' + item.chapter;
-      return '<li class="refv-top-item" data-book="' + item.book.slug +
-             '" data-chapter="' + item.chapter +
-             '" tabindex="0" role="button" aria-label="Open ' + label + '">' +
-        '<span class="refv-top-rank">' + (i + 1) + '.</span>' +
-        '<span class="refv-top-passage">' + label + '</span>' +
-        '<span class="refv-top-count">' + item.count + ' refs</span>' +
-        '</li>';
-    }).join('');
-    els.topList.innerHTML = html;
-    Array.prototype.forEach.call(els.topList.children, function (el) {
-      el.addEventListener('click', function () {
-        var book = BOOK_INDEX[el.getAttribute('data-book').toLowerCase()];
-        setHash([book.slug, el.getAttribute('data-chapter')]);
-        applyRoute();
-      });
-      el.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
-      });
-    });
-  }
-
-  function bookFromDataKey(key) {
-    // bible_stats keys use underscores ("1_Timothy", "Song_of_Solomon"); a
-    // couple are inconsistent ("Psalm" not "Psalms"). Try several mappings.
-    var norm = key.toLowerCase().replace(/_/g, '');
-    if (norm === 'psalm') norm = 'psalms';
-    return BOOK_INDEX[norm] || null;
-  }
-
-  // ============================================================
   // Rendering: browse panel (OT + NT chips)
   // ============================================================
 
@@ -403,14 +314,12 @@
   function showHome() {
     els.detail.hidden = true;
     els.heroSection.hidden = false;
-    els.topSection.hidden = false;
     els.browseSection.hidden = false;
     window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
   }
 
   function showDetail(book, chapter, verse) {
     els.heroSection.hidden = true;
-    els.topSection.hidden = true;
     els.browseSection.hidden = true;
     els.detail.hidden = false;
     els.verseTextBlock.hidden = true;
@@ -544,23 +453,6 @@
     };
 
     var hasAnyRefs = refs.length > 0;
-    var versesWithRefs = Object.keys(byVerse).filter(function (k) {
-      return k !== 'chapter';
-    }).length;
-
-    // Top toolbar: count + "All sermons" trigger. Keeps user in the reading
-    // flow but gives them one click to see everything.
-    var toolbarHtml = '';
-    if (hasAnyRefs) {
-      var summary = refs.length + ' reference' + (refs.length === 1 ? '' : 's') +
-        ' across ' + versesWithRefs + ' verse' + (versesWithRefs === 1 ? '' : 's');
-      toolbarHtml = '<div class="refv-reading-toolbar">' +
-        '<span class="refv-reading-toolbar-stat">' + summary + '</span>' +
-        '<button class="refv-reading-toolbar-btn" id="open-all-sermons" type="button">' +
-          'All sermons in this chapter →' +
-        '</button>' +
-      '</div>';
-    }
 
     // The chapter itself, in paragraph flow.
     var bibleHtml = '';
@@ -580,7 +472,7 @@
     var topNavHtml = '<div class="refv-chapter-nav refv-chapter-nav-top" id="chapter-nav-top"></div>';
     var bottomNavHtml = '<div class="refv-chapter-nav refv-chapter-nav-bottom" id="chapter-nav-bottom"></div>';
 
-    els.occurrences.innerHTML = topNavHtml + toolbarHtml + bibleHtml + emptyNote + bottomNavHtml;
+    els.occurrences.innerHTML = topNavHtml + bibleHtml + emptyNote + bottomNavHtml;
 
     // Wire verse-number clicks → open modal for that verse.
     Array.prototype.forEach.call(els.occurrences.querySelectorAll('.refv-vnum.has-refs'), function (el) {
@@ -593,11 +485,6 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
       });
     });
-
-    var allBtn = document.getElementById('open-all-sermons');
-    if (allBtn) {
-      allBtn.addEventListener('click', function () { openSermonsModal({ all: true }); });
-    }
 
     // Render chapter pagination once neighbors resolve.
     renderChapterNav(book, chapter);
@@ -1146,14 +1033,10 @@
       .then(function (r) { if (!r.ok) throw new Error('not ok'); return r.json(); })
       .then(function (d) {
         state.stats = d;
-        renderStatStrip();
-        renderTopList(20);
         renderBrowse();
         applyRoute();
       })
       .catch(function () {
-        els.statStrip.textContent = 'Library stats are temporarily unavailable.';
-        els.topList.innerHTML = '<li class="refv-empty">Could not load passages.</li>';
         renderBrowse();
         applyRoute();
       });

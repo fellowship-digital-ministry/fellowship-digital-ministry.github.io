@@ -1,0 +1,574 @@
+{
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "The Genealogy of Jesus Christ"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Birth of Jesus Christ"
+    }
+  ],
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "John the Baptist Preaches"
+    },
+    {
+      "before_verse": 7,
+      "title": "John Rebukes the Pharisees and Sadducees"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Baptism of Jesus"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "The Temptation of Jesus"
+    },
+    {
+      "before_verse": 12,
+      "title": "Jesus Moves to Capernaum"
+    },
+    {
+      "before_verse": 18,
+      "title": "Four Disciples Called"
+    },
+    {
+      "before_verse": 23,
+      "title": "Jesus Teaches and Heals in Galilee"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "The Wise Men Visit Herod"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Wise Men Find the Child"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Flight into Egypt"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Slaughter of the Infants"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Return from Egypt"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "Almsgiving in Secret"
+    },
+    {
+      "before_verse": 5,
+      "title": "Prayer in Secret"
+    },
+    {
+      "before_verse": 16,
+      "title": "Fasting in Secret"
+    },
+    {
+      "before_verse": 19,
+      "title": "Treasure, the Eye, and Two Masters"
+    },
+    {
+      "before_verse": 25,
+      "title": "Against Anxiety"
+    }
+  ],
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "The Sermon on the Mount Begins"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Beatitudes"
+    },
+    {
+      "before_verse": 13,
+      "title": "Salt and Light"
+    },
+    {
+      "before_verse": 17,
+      "title": "Christ and the Law"
+    },
+    {
+      "before_verse": 21,
+      "title": "Six Antitheses"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "Judging Others"
+    },
+    {
+      "before_verse": 7,
+      "title": "Ask, Seek, Knock"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Narrow Gate"
+    },
+    {
+      "before_verse": 15,
+      "title": "False Prophets"
+    },
+    {
+      "before_verse": 24,
+      "title": "Two Builders"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "A Paralytic Healed"
+    },
+    {
+      "before_verse": 9,
+      "title": "Matthew Called"
+    },
+    {
+      "before_verse": 14,
+      "title": "A Question About Fasting"
+    },
+    {
+      "before_verse": 18,
+      "title": "A Ruler's Daughter and a Sick Woman"
+    },
+    {
+      "before_verse": 27,
+      "title": "Two Blind Men and a Mute Healed"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "John's Question from Prison"
+    },
+    {
+      "before_verse": 7,
+      "title": "Jesus Speaks of John"
+    },
+    {
+      "before_verse": 16,
+      "title": "Jesus Rebukes His Generation"
+    },
+    {
+      "before_verse": 20,
+      "title": "Woes on Unrepentant Cities"
+    },
+    {
+      "before_verse": 25,
+      "title": "Jesus Gives Thanks and Invites the Weary"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "The Twelve Apostles Commissioned"
+    },
+    {
+      "before_verse": 5,
+      "title": "Instructions for the Mission"
+    },
+    {
+      "before_verse": 16,
+      "title": "Warning of Coming Persecution"
+    },
+    {
+      "before_verse": 26,
+      "title": "Call to Fearless Proclamation"
+    },
+    {
+      "before_verse": 34,
+      "title": "Division and the Cost of Discipleship"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "A Leper Cleansed"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Centurion's Servant Healed"
+    },
+    {
+      "before_verse": 14,
+      "title": "Peter's Mother-in-Law and Many Others Healed"
+    },
+    {
+      "before_verse": 18,
+      "title": "Two Would-Be Followers"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Storm Stilled and Two Demoniacs Healed"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "The Parable of the Sower"
+    },
+    {
+      "before_verse": 10,
+      "title": "Jesus Explains His Use of Parables"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Sower and Three More Parables Explained"
+    },
+    {
+      "before_verse": 44,
+      "title": "Three More Parables of the Kingdom"
+    },
+    {
+      "before_verse": 54,
+      "title": "Jesus Rejected at Nazareth"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "Herod Fears John Risen"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Death of John the Baptist"
+    },
+    {
+      "before_verse": 13,
+      "title": "Five Thousand Fed"
+    },
+    {
+      "before_verse": 22,
+      "title": "Jesus Walks on the Sea"
+    },
+    {
+      "before_verse": 34,
+      "title": "Healings at Gennesaret"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "Jesus Rebukes the Pharisees"
+    },
+    {
+      "before_verse": 10,
+      "title": "What Defiles a Man"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Canaanite Woman's Daughter Healed"
+    },
+    {
+      "before_verse": 29,
+      "title": "Four Thousand Fed"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "Disciples Pluck Grain on the Sabbath"
+    },
+    {
+      "before_verse": 9,
+      "title": "A Withered Hand Healed on the Sabbath"
+    },
+    {
+      "before_verse": 22,
+      "title": "A Blind and Mute Man Healed"
+    },
+    {
+      "before_verse": 38,
+      "title": "The Sign of Jonah"
+    },
+    {
+      "before_verse": 46,
+      "title": "Jesus' Mother and Brothers"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "The Transfiguration"
+    },
+    {
+      "before_verse": 10,
+      "title": "Jesus Speaks of Elijah"
+    },
+    {
+      "before_verse": 14,
+      "title": "A Boy Healed of a Demon"
+    },
+    {
+      "before_verse": 22,
+      "title": "Jesus Foretells His Death"
+    },
+    {
+      "before_verse": 24,
+      "title": "The Temple Tax"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "The Greatest in the Kingdom"
+    },
+    {
+      "before_verse": 6,
+      "title": "Warning Against Causing Offense"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Parable of the Lost Sheep"
+    },
+    {
+      "before_verse": 15,
+      "title": "Reproving a Brother"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Parable of the Unforgiving Servant"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "Pharisees and Sadducees Demand a Sign"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Leaven of the Pharisees"
+    },
+    {
+      "before_verse": 13,
+      "title": "Peter's Confession at Caesarea Philippi"
+    },
+    {
+      "before_verse": 21,
+      "title": "Jesus Foretells His Death and Resurrection"
+    },
+    {
+      "before_verse": 24,
+      "title": "The Cost of Discipleship"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "Jesus Enters Judaea"
+    },
+    {
+      "before_verse": 3,
+      "title": "Question on Divorce"
+    },
+    {
+      "before_verse": 13,
+      "title": "Little Children Brought to Jesus"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Rich Young Man"
+    },
+    {
+      "before_verse": 27,
+      "title": "Peter's Question and Jesus' Answer"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "The Parable of the Laborers"
+    },
+    {
+      "before_verse": 17,
+      "title": "Jesus Foretells His Death"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Request of Zebedee's Sons"
+    },
+    {
+      "before_verse": 29,
+      "title": "Two Blind Men Healed"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "The Triumphal Entry"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Temple Cleansed"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Fig Tree Withered"
+    },
+    {
+      "before_verse": 23,
+      "title": "Jesus' Authority Questioned"
+    },
+    {
+      "before_verse": 28,
+      "title": "The Parable of the Two Sons and the Wicked Husbandmen"
+    }
+  ],
+  "23": [
+    {
+      "before_verse": 1,
+      "title": "Jesus Warns Against the Scribes and Pharisees"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Seven Woes"
+    },
+    {
+      "before_verse": 37,
+      "title": "Jesus Laments over Jerusalem"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "The Parable of the Wedding Feast"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Question About Tribute"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Sadducees Question the Resurrection"
+    },
+    {
+      "before_verse": 34,
+      "title": "The Great Commandment"
+    },
+    {
+      "before_verse": 41,
+      "title": "Jesus Questions the Pharisees"
+    }
+  ],
+  "25": [
+    {
+      "before_verse": 1,
+      "title": "The Parable of the Ten Virgins"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Parable of the Talents"
+    },
+    {
+      "before_verse": 31,
+      "title": "The Judgment of the Nations"
+    }
+  ],
+  "24": [
+    {
+      "before_verse": 1,
+      "title": "The Temple's Destruction Foretold"
+    },
+    {
+      "before_verse": 4,
+      "title": "Signs of the End"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Great Tribulation"
+    },
+    {
+      "before_verse": 32,
+      "title": "The Parable of the Fig Tree"
+    },
+    {
+      "before_verse": 45,
+      "title": "The Faithful and Evil Servants"
+    }
+  ],
+  "26": [
+    {
+      "before_verse": 1,
+      "title": "The Plot Against Jesus"
+    },
+    {
+      "before_verse": 6,
+      "title": "Jesus Anointed at Bethany"
+    },
+    {
+      "before_verse": 14,
+      "title": "Judas Agrees to Betray Jesus"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Last Supper"
+    },
+    {
+      "before_verse": 36,
+      "title": "Gethsemane"
+    },
+    {
+      "before_verse": 47,
+      "title": "The Arrest, Trial, and Peter's Denial"
+    }
+  ],
+  "28": [
+    {
+      "before_verse": 1,
+      "title": "The Empty Tomb"
+    },
+    {
+      "before_verse": 9,
+      "title": "Jesus Appears to the Women"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Guards Bribed"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Great Commission"
+    }
+  ],
+  "27": [
+    {
+      "before_verse": 1,
+      "title": "Jesus Delivered to Pilate"
+    },
+    {
+      "before_verse": 3,
+      "title": "Judas Returns the Silver"
+    },
+    {
+      "before_verse": 11,
+      "title": "Jesus Before Pilate"
+    },
+    {
+      "before_verse": 27,
+      "title": "The Soldiers Mock Jesus"
+    },
+    {
+      "before_verse": 33,
+      "title": "The Crucifixion"
+    },
+    {
+      "before_verse": 57,
+      "title": "The Burial of Jesus"
+    }
+  ]
+}
