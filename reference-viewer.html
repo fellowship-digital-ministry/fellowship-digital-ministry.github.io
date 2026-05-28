@@ -127,7 +127,11 @@ custom_js: reference-viewer
         <h3 id="transcript-modal-title">Sermon transcript</h3>
         <p class="refv-transcript-modal-sub" id="transcript-modal-sub"></p>
       </div>
-      <button id="transcript-modal-close" class="refv-transcript-modal-close" aria-label="Close transcript">&times;</button>
+      <div class="refv-transcript-modal-head-actions">
+        <button id="transcript-modal-top" class="refv-transcript-modal-action" type="button"
+                aria-label="Jump to start of transcript">Read from start</button>
+        <button id="transcript-modal-close" class="refv-transcript-modal-close" aria-label="Close transcript">&times;</button>
+      </div>
     </header>
     <div class="refv-transcript-modal-body" id="transcript-modal-body">
       <p class="refv-loading">Loading transcript…</p>

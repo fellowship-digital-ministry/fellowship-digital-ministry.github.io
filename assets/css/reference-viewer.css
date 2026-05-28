@@ -415,20 +415,30 @@
   padding: 1rem 1.1rem;
   box-shadow: var(--refv-shadow);
 }
-.refv-occ-badge {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  margin-bottom: 0.3rem;
-}
-.refv-occ-badge-ref {
+/* Card now leads with the sermon title (the reference is already known
+   from the modal title or verse view). Meta row carries timestamp + an
+   optional "quoted" pill for implicit citations. */
+.refv-occ-title {
   font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--refv-primary);
-  letter-spacing: -0.005em;
+  color: var(--refv-text);
+  line-height: 1.35;
+  margin: 0 0 0.3rem;
 }
-.refv-occ-badge-tag {
+.refv-occ-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--refv-text-muted);
+  margin-bottom: 0.7rem;
+}
+.refv-occ-meta-ts {
+  font-variant-numeric: tabular-nums;
+}
+.refv-occ-meta-pill {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -438,29 +448,6 @@
   background: var(--refv-bg-soft);
   color: var(--refv-text-muted);
   border: 1px solid var(--refv-border);
-}
-.refv-occ-sermon {
-  font-size: 0.85rem;
-  color: var(--refv-text-muted);
-  margin-bottom: 0.7rem;
-  line-height: 1.4;
-}
-.refv-occ-sermon-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--refv-text-muted);
-  opacity: 0.75;
-}
-.refv-occ-sermon-title {
-  color: var(--refv-text);
-  font-weight: 500;
-}
-.refv-occ-sermon-ts {
-  font-variant-numeric: tabular-nums;
-  color: var(--refv-text-muted);
-  opacity: 0.8;
 }
 /* AI footnote — one-sentence "In this sermon" summary that sits above the
    raw transcript snippet. Visually distinct from the snippet so the reader
@@ -611,7 +598,9 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
-  z-index: 1000;
+  /* Sits above the sermons / transcript / picker modals (all z-index 1000)
+     so "Watch" opens cleanly on top instead of behind them. */
+  z-index: 1100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1012,6 +1001,30 @@ html { scroll-behavior: smooth; }
   margin: 5px 0 0;
   font-size: 0.82rem;
   color: var(--refv-text-muted);
+}
+.refv-transcript-modal-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.refv-transcript-modal-action {
+  background: white;
+  border: 1px solid var(--refv-border);
+  color: var(--refv-text);
+  padding: 0.35rem 0.7rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: var(--refv-radius-sm);
+  cursor: pointer;
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+.refv-transcript-modal-action:hover,
+.refv-transcript-modal-action:focus-visible {
+  border-color: var(--refv-primary);
+  color: var(--refv-primary);
+  outline: none;
 }
 .refv-transcript-modal-close {
   background: none;

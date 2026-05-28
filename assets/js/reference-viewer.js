@@ -237,6 +237,7 @@
     els.transcriptModalTitle = $('transcript-modal-title');
     els.transcriptModalSub = $('transcript-modal-sub');
     els.transcriptModalClose = $('transcript-modal-close');
+    els.transcriptModalTop = $('transcript-modal-top');
     els.sermonsModal = $('sermons-modal');
     els.sermonsModalBody = $('sermons-modal-body');
     els.sermonsModalTitle = $('sermons-modal-title');
@@ -534,9 +535,12 @@
     els.verseTextBlock.hidden = true;
     els.occurrences.innerHTML = '<div class="refv-loading">Loading…</div>';
     els.detailTitle.textContent = book.display + (chapter ? ' ' + chapter : '') + (verse ? ':' + verse : '');
+    // Subtitle is empty by default in chapter view — the reading itself + the
+    // burgundy verse dots tell the story. We only set a hint for the
+    // book-only landing (a chapter grid).
     els.detailSub.textContent = chapter
-      ? (verse ? 'All sermons that touched this verse.' : 'All sermons that touched this chapter.')
-      : 'Pick a chapter to see the sermons that touched it.';
+      ? ''
+      : 'Pick a chapter to begin reading.';
 
     loadBook(book).then(function (data) {
       if (!chapter) {
@@ -911,35 +915,16 @@
     var bookDisplay = cc.book.display;
     var ch = cc.chapter;
 
-    var body, title;
-    if (opts && opts.verse != null) {
-      var items = sortRefs(cc.byVerse[opts.verse] || []);
-      title = bookDisplay + ' ' + ch + ':' + opts.verse;
-      body = items.length
-        ? items.map(renderOccurrenceCard).join('')
-        : '<div class="refv-empty">No sermons for this verse.</div>';
-    } else {
-      // "All sermons" view: grouped by verse, chapter-level at the end.
-      title = bookDisplay + ' ' + ch + ' — all sermons';
-      var verseKeys = Object.keys(cc.byVerse).filter(function (k) { return k !== 'chapter'; })
-        .sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
-      if (cc.byVerse['chapter']) verseKeys.push('chapter');
-      body = verseKeys.map(function (vk) {
-        var items = sortRefs(cc.byVerse[vk]);
-        var groupLabel = vk === 'chapter'
-          ? bookDisplay + ' ' + ch + ' (chapter-level references)'
-          : bookDisplay + ' ' + ch + ':' + vk;
-        return '<div class="refv-sermon-group">' +
-          '<h4 class="refv-sermon-group-head">' +
-            '<span class="refv-sermon-group-label">' + escapeHtml(groupLabel) + '</span>' +
-            '<span class="refv-sermon-group-count">' + items.length +
-              (items.length === 1 ? ' sermon' : ' sermons') + '</span>' +
-          '</h4>' +
-          items.map(renderOccurrenceCard).join('') +
-        '</div>';
-      }).join('');
-      if (!body) body = '<div class="refv-empty">No sermons for this chapter.</div>';
-    }
+    // Only entry point now is per-verse (clicking a verse number dot in the
+    // chapter reading). The "all sermons in chapter" branch was removed
+    // along with its toolbar trigger — kept the function signature
+    // (opts.verse) so future callers can still target a specific verse.
+    var verse = opts && opts.verse;
+    var items = verse != null ? sortRefs(cc.byVerse[verse] || []) : [];
+    var title = verse != null ? (bookDisplay + ' ' + ch + ':' + verse) : (bookDisplay + ' ' + ch);
+    var body = items.length
+      ? items.map(renderOccurrenceCard).join('')
+      : '<div class="refv-empty">No sermons here yet.</div>';
 
     els.sermonsModalTitle.textContent = title;
     els.sermonsModalBody.innerHTML = body;
@@ -1076,19 +1061,14 @@
     var refText = ref.reference_text || '';
     var ctx = ref.context || '';
 
-    // Build a clean reference label from the structured fields rather than
-    // the raw reference_text (which might be "Matthew chapter number one,
-    // verse twenty-one"). This is the WHY-is-this-card-here signal.
-    var bookDisplay = displayBookName(ref.book);
-    var refBadge = bookDisplay;
-    if (ref.chapter != null && ref.chapter !== '' && !isNaN(parseInt(ref.chapter, 10))) {
-      refBadge += ' ' + ref.chapter;
-      if (ref.verse != null && ref.verse !== '' && !isNaN(parseInt(ref.verse, 10))) {
-        refBadge += ':' + ref.verse;
-      }
-    }
+    // Cards always render in a context that already names the reference
+    // (the sermons modal title or the deep-link verse view), so the big
+    // Bible badge is redundant — drop it and lead with the sermon title.
+    // The implicit/explicit flag still matters: we show it as a small pill
+    // on the meta line so readers know whether the verse was named aloud
+    // or just quoted.
     var implicitTag = ref.is_implicit
-      ? '<span class="refv-occ-badge-tag" title="The speaker quoted the verse without naming the citation">quoted</span>'
+      ? '<span class="refv-occ-meta-pill" title="The speaker quoted the verse without naming the citation">quoted</span>'
       : '';
 
     // Highlight the reference_text inside the context snippet if it's there.
@@ -1115,14 +1095,10 @@
     }
 
     return '<article class="refv-occ">' +
-      '<div class="refv-occ-badge">' +
-        '<span class="refv-occ-badge-ref">' + escapeHtml(refBadge) + '</span>' +
+      '<h3 class="refv-occ-title">' + sermonTitle + '</h3>' +
+      '<div class="refv-occ-meta">' +
+        '<span class="refv-occ-meta-ts">' + ts + '</span>' +
         implicitTag +
-      '</div>' +
-      '<div class="refv-occ-sermon">' +
-        '<span class="refv-occ-sermon-label">from sermon</span> ' +
-        '<span class="refv-occ-sermon-title">' + sermonTitle + '</span>' +
-        ' <span class="refv-occ-sermon-ts">· ' + ts + '</span>' +
       '</div>' +
       summaryHtml +
       (ctx ? '<blockquote class="refv-occ-context">' + highlighted + '</blockquote>' : '') +
@@ -1638,6 +1614,15 @@
     if (els.transcriptModal) {
       els.transcriptModal.addEventListener('click', function (e) {
         if (e.target === els.transcriptModal) closeTranscriptModal();
+      });
+    }
+    if (els.transcriptModalTop) {
+      els.transcriptModalTop.addEventListener('click', function () {
+        // Scroll the transcript body to the top so the reader can study the
+        // whole sermon from the beginning, not just from the citation point.
+        if (els.transcriptModalBody) {
+          els.transcriptModalBody.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     }
     if (els.sermonsModalClose) {
