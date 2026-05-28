@@ -1120,11 +1120,12 @@
       highlighted = escapeHtml(ctx);
     }
 
-    // Optional AI footnote summary (study-Bible-style one-liner). Stored on
-    // the ref as `point_summary` by tools/generate_reference_summaries.py.
-    // When present, the summary replaces the raw transcript snippet as the
-    // primary content — but the snippet stays available behind a "Show
-    // original quote" disclosure so readers can verify the summary.
+    // Optional summary (study-Bible-style one-liner) of what the sermon
+    // said about this verse. Stored on the ref as `point_summary` by
+    // tools/generate_reference_summaries.py. When present, the summary
+    // replaces the raw transcript snippet as the primary content — but
+    // the snippet stays available behind a "Show original quote"
+    // disclosure so readers can verify the summary against what was said.
     var summary = (ref.point_summary || '').trim();
     var summaryHtml = '';
     if (summary) {
@@ -1138,10 +1139,7 @@
       summaryHtml = '<div class="refv-occ-summary">' +
         '<span class="refv-occ-summary-label">In this sermon</span>' +
         '<span class="refv-occ-summary-text">' + escapeHtml(summary) + '</span>' +
-        '<div class="refv-occ-summary-footer">' +
-          '<span class="refv-occ-summary-note">AI-generated</span>' +
-          quoteToggle +
-        '</div>' +
+        (quoteToggle ? '<div class="refv-occ-summary-footer">' + quoteToggle + '</div>' : '') +
       '</div>';
     }
 

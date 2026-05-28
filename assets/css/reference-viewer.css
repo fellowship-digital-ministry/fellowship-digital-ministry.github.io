@@ -495,9 +495,6 @@
   font-size: 0.72rem;
   color: var(--refv-text-muted);
 }
-.refv-occ-summary-note {
-  font-style: italic;
-}
 /* "Show original quote" disclosure — collapsed by default; expands the raw
    transcript snippet underneath for readers who want to verify the summary
    against the actual words spoken. */
