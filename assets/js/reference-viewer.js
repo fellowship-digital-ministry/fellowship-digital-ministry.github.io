@@ -207,35 +207,22 @@
     bodyLockScrollY: 0
   };
 
-  // iOS-friendly body scroll lock. `overflow: hidden` alone doesn't stop
-  // touch-scroll from chaining to the page underneath any open modal — the
-  // page just keeps scrolling. Pinning body to position:fixed at the current
-  // scroll offset is the standard workaround. Reference-counted so nested
-  // modal opens (e.g., Watch from inside Sermons) don't unlock prematurely.
+  // Body scroll lock. Simpler than the position:fixed pattern (which can
+  // shift the containing block for fixed-position modals on iOS Safari and
+  // visibly break the modal layout). overflow:hidden + per-modal
+  // overscroll-behavior:contain is enough to keep touch-scroll inside the
+  // modal on iOS 16+. Reference-counted so opening Watch from inside the
+  // Sermons modal doesn't unlock prematurely when Watch closes.
   function lockBody() {
     if (state.bodyLockCount === 0) {
-      state.bodyLockScrollY = window.scrollY || window.pageYOffset || 0;
-      var b = document.body;
-      b.style.position = 'fixed';
-      b.style.top = -state.bodyLockScrollY + 'px';
-      b.style.left = '0';
-      b.style.right = '0';
-      b.style.width = '100%';
-      b.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
     }
     state.bodyLockCount++;
   }
   function unlockBody() {
     state.bodyLockCount = Math.max(0, state.bodyLockCount - 1);
     if (state.bodyLockCount === 0) {
-      var b = document.body;
-      b.style.position = '';
-      b.style.top = '';
-      b.style.left = '';
-      b.style.right = '';
-      b.style.width = '';
-      b.style.overflow = '';
-      window.scrollTo(0, state.bodyLockScrollY);
+      document.body.style.overflow = '';
     }
   }
 
