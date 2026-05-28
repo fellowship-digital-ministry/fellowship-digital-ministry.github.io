@@ -385,6 +385,21 @@
   text-transform: uppercase;
   color: var(--refv-text-muted);
 }
+.refv-chapter-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--refv-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(100, 28, 20, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+.refv-chapter-link:hover,
+.refv-chapter-link:focus-visible {
+  text-decoration-color: var(--refv-primary);
+  outline: none;
+}
 .refv-verse-text-body {
   margin: 0;
   font-family: 'PT Serif', Georgia, 'Times New Roman', serif;

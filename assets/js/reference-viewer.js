@@ -256,6 +256,7 @@
     els.detailSub = $('detail-sub');
     els.verseTextBlock = $('verse-text-block');
     els.verseTextBody = $('verse-text-body');
+    els.verseChapterLink = $('verse-chapter-link');
     els.occurrences = $('occurrences');
     els.heroSection = document.querySelector('.refv-hero');
     els.browseSection = document.querySelector('.refv-browse');
@@ -1182,6 +1183,12 @@
   function renderVerseText(book, chapter, verse) {
     els.verseTextBlock.hidden = false;
     els.verseTextBody.textContent = 'Loading…';
+
+    // Easy escape hatch from single-verse view → full chapter.
+    if (els.verseChapterLink) {
+      els.verseChapterLink.href = '#' + book.slug + '/' + chapter;
+      els.verseChapterLink.textContent = 'Read all of ' + book.display + ' ' + chapter + ' →';
+    }
 
     loadKjvBook(book)
       .then(function (d) {
