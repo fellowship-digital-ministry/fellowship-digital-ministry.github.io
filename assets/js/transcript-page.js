@@ -117,20 +117,16 @@
       resumed = '<p class="tx-resumed">Recording begins mid-sentence.</p>';
     }
 
-    // Section headers (study-Bible style) anchored to timestamps. Emit each
-    // before the first paragraph at or after its time, with an id so the
-    // contents table can jump to it. Highlight a paragraph only when arriving
-    // via a real &t deep link, never on a plain open.
+    // Section headers (study-Bible style) inline in the transcript. Emit each
+    // before the first paragraph at or after its time. Highlight a paragraph
+    // only when arriving via a real &t deep link, never on a plain open.
     var secs = ((notes && notes.sections) || []).slice().sort(function (a, b) { return a.t - b.t; });
-    var emitted = [];  // sections actually placed in the body (for the contents table)
     var si = 0;
     var focusTs = focusSec || 0;
     var parts = [];
     paragraphs.forEach(function (p) {
       while (si < secs.length && secs[si].t <= p.start) {
-        var id = 'tx-sec-' + emitted.length;
-        parts.push('<h2 class="tx-section" id="' + id + '">' + escapeHtml(secs[si].heading) + '</h2>');
-        emitted.push({ id: id, t: secs[si].t, heading: secs[si].heading });
+        parts.push('<h2 class="tx-section">' + escapeHtml(secs[si].heading) + '</h2>');
         si++;
       }
       var isCurrent = focusTs > 0 && focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
@@ -145,12 +141,11 @@
         escapeHtml(p.text) +
       '</p>');
     });
-    els.body.innerHTML = resumed + parts.join('');
+    // Clear "this is where the recording starts" marker at the top of the body.
+    els.body.innerHTML = '<div class="tx-start">Transcript begins</div>' + resumed + parts.join('');
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.body);
 
-    // Metadata block under the header: description + a contents table that
-    // jumps to each section in the transcript.
-    renderMeta(notes, emitted);
+    renderNotes(notes);
 
     // Defer scroll-to-current until after layout so the position is correct.
     requestAnimationFrame(function () {
@@ -165,40 +160,24 @@
   }
 
   // Render the metadata block under the header: a catalog-style description and
-  // a contents table whose rows jump to each section in the transcript.
-  function renderMeta(notes, sections) {
-    if (!els.notes) return;
+  // a row of subject-theme keywords. Shown openly as quiet metadata.
+  function renderNotes(notes) {
+    if (!notes || !els.notes) return;
 
     var html = '';
-    if (notes && notes.introduction) {
+    if (notes.introduction) {
       html += '<p class="tx-overview-desc">' + escapeHtml(notes.introduction) + '</p>';
     }
-    if (sections && sections.length) {
-      var rows = sections.map(function (s) {
-        return '<li><a class="tx-toc-link" href="#' + s.id + '">' +
-          '<span class="tx-toc-time">' + formatTimestamp(s.t) + '</span>' +
-          '<span class="tx-toc-heading">' + escapeHtml(s.heading) + '</span>' +
-        '</a></li>';
-      }).join('');
-      html += '<nav class="tx-toc" aria-label="Sections of this sermon"><ol>' + rows + '</ol></nav>';
+    if (Array.isArray(notes.themes) && notes.themes.length) {
+      html += '<ul class="tx-overview-themes">' +
+        notes.themes.map(function (t) { return '<li>' + escapeHtml(t) + '</li>'; }).join('') +
+        '</ul>';
     }
     if (!html) { els.notes.hidden = true; return; }
 
     els.notes.innerHTML = html;
     els.notes.hidden = false;
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.notes);
-
-    // Smooth-scroll the contents links to their section (and update the hash).
-    els.notes.querySelectorAll('.tx-toc-link').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var target = document.getElementById(a.getAttribute('href').slice(1));
-        if (!target) return;
-        e.preventDefault();
-        var y = window.scrollY + target.getBoundingClientRect().top - 70;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-        if (history.replaceState) history.replaceState(null, '', a.getAttribute('href'));
-      });
-    });
   }
 
   // Fetch this sermon's catalog entry once: it carries both the Overview notes

@@ -207,9 +207,9 @@ body.transcript-page {
   .tx-totop.is-visible { transform: none; }
 }
 
-/* ===== Sermon metadata (description + contents) =====
+/* ===== Sermon metadata (description + themes) =====
    Shown openly under the header: a short catalog-style description (reads like
-   an abstract) and a contents table that jumps to each section. */
+   an abstract) and a row of subject-theme keywords. */
 .tx-notes {
   margin-bottom: 1.75rem;
 }
@@ -218,46 +218,37 @@ body.transcript-page {
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--tx-text-muted);
-  margin: 0 0 1rem;
+  margin: 0 0 0.8rem;
 }
-
-/* Contents table: timestamp + heading rows, each jumps into the transcript. */
-.tx-toc {
-  border-top: 1px solid var(--tx-border);
-  border-bottom: 1px solid var(--tx-border);
-}
-.tx-toc ol {
+.tx-overview-themes {
   list-style: none;
   margin: 0;
-  padding: 0.35rem 0;
-}
-.tx-toc-link {
+  padding: 0;
   display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  padding: 0.4rem 0.25rem;
-  text-decoration: none;
-  color: var(--tx-text);
-  border-radius: var(--tx-radius-sm);
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
-.tx-toc-link:hover,
-.tx-toc-link:focus-visible {
-  background: var(--tx-bg-soft);
-  color: var(--tx-primary);
-  outline: none;
-}
-.tx-toc-time {
-  flex: 0 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+.tx-overview-themes li {
   font-size: 0.74rem;
-  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
   color: var(--tx-text-muted);
-  min-width: 3.2ch;
+  background: var(--tx-bg-soft);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
 }
-.tx-toc-heading { font-size: 0.95rem; line-height: 1.35; }
 
-/* Anchor target offset so jumps clear the section heading nicely. */
-.tx-section { scroll-margin-top: 70px; }
+/* Clear marker for where the recording/transcript begins. */
+.tx-start {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--tx-text-muted);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--tx-border);
+}
 
 /* Scripture reference inside a title: bold, but never a link. */
 .tx-title .scripture-ref { font-weight: 700; white-space: nowrap; }

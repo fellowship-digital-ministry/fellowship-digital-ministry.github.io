@@ -57,13 +57,8 @@ custom_class: search-page
             Daily user? Bring your own OpenRouter key &rarr;
           </button>
           <div class="conversation-controls">
-            <!-- Mode toggle — Ask uses AI synthesis, Find lists sermons without analysis -->
-            <div class="mode-toggle" role="radiogroup" aria-label="Search mode">
-              <button type="button" class="mode-option active" data-mode="ask"
-                      role="radio" aria-checked="true">Ask</button>
-              <button type="button" class="mode-option" data-mode="find"
-                      role="radio" aria-checked="false">Find sermons</button>
-            </div>
+            <!-- Browsing sermons lives on the Transcripts page now; this page is
+                 ask-a-question only, so the old Ask/Find mode toggle is retired. -->
             <div class="conversation-controls-right">
               <!-- BYOK indicator — hidden by default, shown by search.js when a
                    key is stored in localStorage. -->
@@ -106,11 +101,11 @@ custom_class: search-page
       <div class="claude-overlay-body byok-body">
         <p>
           OpenRouter is the service this site uses to talk to AI models. With
-          your own key, you can keep asking questions and pay the AI directly —
+          your own key, you can keep asking questions and pay the AI directly,
           about 2 cents per question, no subscription.
         </p>
         <p class="byok-safety">
-          <strong>Is this safe?</strong> Yes &mdash; your key stays in your
+          <strong>Is this safe?</strong> Yes, your key stays in your
           web browser and we never see or store it. When you create the key
           on OpenRouter, set the spending limit to $5 so it can never be
           charged more than that.
@@ -123,7 +118,7 @@ custom_class: search-page
             (Google or GitHub sign-in works).
           </li>
           <li>
-            <strong>Add credit</strong> — $5 lasts about 250 questions.
+            <strong>Add credit</strong>: $5 lasts about 250 questions.
             <a href="https://openrouter.ai/credits" target="_blank" rel="noopener noreferrer">openrouter.ai/credits</a>
           </li>
           <li>
@@ -172,7 +167,7 @@ custom_class: search-page
         </p>
 
         <p data-i18n="biblical-basis" class="about-scripture">
-          "Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth." — 2 Timothy 2:15 (KJV)
+          "Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth." (2 Timothy 2:15, KJV)
         </p>
 
         <p data-i18n="how-it-works">
