@@ -58,7 +58,7 @@
     return months[m - 1] + ' ' + d + ', ' + y;
   }
 
-  function render(data, focusSec) {
+  function render(data, focusSec, sections) {
     var videoId = data.video_id;
     var segments = (data && data.segments) || [];
 
@@ -110,21 +110,38 @@
       }
     });
 
+    // Flag a recording that clearly began mid-sentence (first word lowercase).
+    var resumed = '';
+    var firstChar = (paragraphs[0].text || '').replace(/^[^A-Za-z]+/, '').charAt(0);
+    if (firstChar && firstChar === firstChar.toLowerCase() && firstChar !== firstChar.toUpperCase()) {
+      resumed = '<p class="tx-resumed">Recording begins mid-sentence.</p>';
+    }
+
+    // Section headers (study-Bible style) anchored to timestamps. Emit each
+    // before the first paragraph at or after its time. Highlight a paragraph
+    // only when arriving via a real &t deep link, never on a plain open.
+    var secs = (sections || []).slice().sort(function (a, b) { return a.t - b.t; });
+    var si = 0;
     var focusTs = focusSec || 0;
-    var html = paragraphs.map(function (p) {
-      var isCurrent = focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
+    var parts = [];
+    paragraphs.forEach(function (p) {
+      while (si < secs.length && secs[si].t <= p.start) {
+        parts.push('<h2 class="tx-section">' + escapeHtml(secs[si].heading) + '</h2>');
+        si++;
+      }
+      var isCurrent = focusTs > 0 && focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
       var classes = 'tx-segment' + (isCurrent ? ' is-current' : '');
       var ytHref = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId) +
         '&t=' + Math.floor(p.start);
-      return '<p class="' + classes + '" data-start="' + p.start + '">' +
+      parts.push('<p class="' + classes + '" data-start="' + p.start + '">' +
         '<a class="tx-ts" href="' + escapeAttr(ytHref) +
           '" target="_blank" rel="noopener" title="Jump to ' + formatTimestamp(p.start) + ' on YouTube">' +
           formatTimestamp(p.start) +
         '</a> ' +
         escapeHtml(p.text) +
-      '</p>';
-    }).join('');
-    els.body.innerHTML = html;
+      '</p>');
+    });
+    els.body.innerHTML = resumed + parts.join('');
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.body);
 
     // Defer scroll-to-current until after layout so the position is correct.
@@ -139,10 +156,9 @@
     });
   }
 
-  // Render the catalog-style overview from a sermon's `notes`: Introduction,
-  // Outline, and subject Themes. Deliberately collapsed and de-emphasized, and
-  // it carries no Conclusion/Application: it is descriptive metadata to help
-  // someone find and orient to the sermon, not a substitute for engaging it.
+  // Render the collapsed Overview card: a catalog-style Introduction and the
+  // subject Themes. Quiet, de-emphasized metadata; the section headers in the
+  // transcript itself carry the scanning structure.
   function renderNotes(notes) {
     if (!notes || !els.notes) return;
 
@@ -150,13 +166,6 @@
     if (notes.introduction) {
       parts.push('<div class="tx-notes-section"><h3>Introduction</h3><p>' +
         escapeHtml(notes.introduction) + '</p></div>');
-    }
-    if (Array.isArray(notes.outline) && notes.outline.length) {
-      var items = notes.outline.map(function (pt) {
-        return '<li>' + escapeHtml(pt) + '</li>';
-      }).join('');
-      parts.push('<div class="tx-notes-section"><h3>Outline</h3>' +
-        '<ol class="tx-notes-outline">' + items + '</ol></div>');
     }
     if (Array.isArray(notes.themes) && notes.themes.length) {
       var tags = notes.themes.map(function (t) {
@@ -172,26 +181,21 @@
     els.notes.innerHTML =
       '<details class="tx-notes-details">' +
         '<summary class="tx-notes-summary">Overview</summary>' +
-        '<div class="tx-notes-body">' +
-          '<p class="tx-notes-note">Auto-generated from the transcript to aid ' +
-          'searching and study. A starting point, not a substitute for the sermon.</p>' +
-          parts.join('') +
-        '</div>' +
+        '<div class="tx-notes-body">' + parts.join('') + '</div>' +
       '</details>';
     els.notes.hidden = false;
-    // Link any passages mentioned in the overview (Roman numerals included).
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.notes);
   }
 
-  function loadNotes(videoId) {
-    if (!els.notes) return;
-    fetch(CATALOG_URL)
+  // Fetch this sermon's catalog entry once: it carries both the Overview notes
+  // and the section headers the transcript render needs.
+  function fetchEntry(videoId) {
+    return fetch(CATALOG_URL)
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (catalog) {
-        var entry = (catalog || []).find(function (e) { return e.video_id === videoId; });
-        if (entry && entry.notes) renderNotes(entry.notes);
+        return (catalog || []).find(function (e) { return e.video_id === videoId; }) || null;
       })
-      .catch(function () { /* notes are a nice-to-have; never block the page */ });
+      .catch(function () { return null; });
   }
 
   function bindElements() {
@@ -249,14 +253,25 @@
       return;
     }
 
-    loadNotes(videoId);  // study-notes card (static catalog; independent of the transcript fetch)
+    // The catalog entry carries both the Overview and the section headers, so
+    // fetch it alongside the transcript and render the body once both arrive
+    // (so sections can be interleaved). Render the Overview as soon as it loads.
+    var entryP = fetchEntry(videoId);
+    entryP.then(function (entry) { if (entry && entry.notes) renderNotes(entry.notes); });
 
-    fetch(API_BASE + '/transcript/' + encodeURIComponent(videoId))
+    var txP = fetch(API_BASE + '/transcript/' + encodeURIComponent(videoId))
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
+      });
+
+    Promise.all([txP, entryP])
+      .then(function (results) {
+        var data = results[0];
+        var entry = results[1];
+        var sections = entry && entry.notes ? entry.notes.sections : null;
+        render(data, startSec, sections);
       })
-      .then(function (data) { render(data, startSec); })
       .catch(function (err) {
         els.title.textContent = 'Transcript unavailable';
         els.body.innerHTML = '<div class="tx-empty">The transcript for this sermon isn\'t available yet.<br><small>' +
