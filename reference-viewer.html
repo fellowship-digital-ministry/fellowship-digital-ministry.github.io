@@ -100,6 +100,25 @@ custom_js: reference-viewer
   </div>
 </div>
 
+<!-- Jump picker: book list (filterable) + chapter grid. Opened from the
+     pagination strip's center "Book N" label. -->
+<div id="picker-modal" class="refv-picker-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="picker-modal-title">
+  <div class="refv-picker-modal-card">
+    <header class="refv-picker-modal-head">
+      <h3 id="picker-modal-title">Jump to</h3>
+      <button id="picker-modal-close" class="refv-picker-modal-close" aria-label="Close picker">&times;</button>
+    </header>
+    <div class="refv-picker-search-wrap">
+      <input type="text" id="picker-search" class="refv-picker-search"
+             placeholder="Filter books — e.g. Rom, John, Hebrews" autocomplete="off" spellcheck="false" />
+    </div>
+    <div class="refv-picker-modal-body">
+      <nav class="refv-picker-books" id="picker-books" aria-label="Books"></nav>
+      <div class="refv-picker-chapters" id="picker-chapters"></div>
+    </div>
+  </div>
+</div>
+
 <!-- Transcript modal (read view; auto-scrolls to the timestamp). -->
 <div id="transcript-modal" class="refv-transcript-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="transcript-modal-title">
   <div class="refv-transcript-modal-card">

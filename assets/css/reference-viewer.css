@@ -1172,6 +1172,268 @@ html { scroll-behavior: smooth; }
   color: white;
 }
 
+/* ---------- Chapter-nav jump trigger ----------
+   Replaces the static "Book N" center label with a clickable button that
+   opens the jump picker. Tighter visual than a typical button so it reads
+   as a label first and an interactive element second. */
+.refv-chapter-nav-jump {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--refv-text-muted);
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--refv-radius-sm);
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  transition: border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
+}
+.refv-chapter-nav-jump:hover,
+.refv-chapter-nav-jump:focus-visible {
+  border-color: var(--refv-border);
+  color: var(--refv-primary);
+  background: var(--refv-bg-soft);
+  outline: none;
+}
+.refv-chapter-nav-jump-caret {
+  font-size: 0.7em;
+  margin-left: 0.25em;
+  opacity: 0.7;
+}
+
+/* ---------- Jump picker modal ---------- */
+.refv-picker-modal[hidden] { display: none; }
+.refv-picker-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.refv-picker-modal-card {
+  background: white;
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+@media (min-width: 720px) {
+  .refv-picker-modal { padding: 2rem 1rem; align-items: center; }
+  .refv-picker-modal-card {
+    border-radius: var(--refv-radius);
+    max-height: calc(100vh - 4rem);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+}
+.refv-picker-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--refv-border);
+  flex-shrink: 0;
+}
+.refv-picker-modal-head h3 {
+  margin: 0;
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--refv-primary);
+}
+.refv-picker-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--refv-text-muted);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+}
+.refv-picker-modal-close:hover,
+.refv-picker-modal-close:focus-visible {
+  background: var(--refv-bg-soft);
+  color: var(--refv-primary);
+  outline: none;
+}
+
+.refv-picker-search-wrap {
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--refv-border);
+  flex-shrink: 0;
+}
+.refv-picker-search {
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius-sm);
+  background: var(--refv-bg);
+  color: var(--refv-text);
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+.refv-picker-search:focus {
+  outline: none;
+  border-color: var(--refv-primary);
+  box-shadow: 0 0 0 3px var(--refv-primary-light);
+}
+
+.refv-picker-modal-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+@media (min-width: 720px) {
+  .refv-picker-modal-body {
+    flex-direction: row;
+  }
+}
+.refv-picker-books {
+  flex: 0 0 auto;
+  overflow-y: auto;
+  padding: 0.5rem 0.85rem 0.85rem;
+  max-height: 40vh;
+  border-bottom: 1px solid var(--refv-border);
+}
+.refv-picker-chapters {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.85rem 1.1rem 1.5rem;
+}
+@media (min-width: 720px) {
+  .refv-picker-books {
+    flex: 0 0 260px;
+    max-height: none;
+    border-bottom: none;
+    border-right: 1px solid var(--refv-border);
+  }
+}
+
+.refv-picker-section + .refv-picker-section { margin-top: 0.85rem; }
+.refv-picker-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--refv-text-muted);
+  margin: 0.4rem 0 0.4rem;
+  padding-bottom: 0.3rem;
+}
+.refv-picker-book-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.refv-picker-book {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0.45rem 0.6rem;
+  border-radius: var(--refv-radius-sm);
+  color: var(--refv-text);
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+.refv-picker-book:hover,
+.refv-picker-book:focus-visible {
+  background: var(--refv-bg-soft);
+  outline: none;
+}
+.refv-picker-book.is-active {
+  background: var(--refv-bg-soft);
+  color: var(--refv-primary);
+  font-weight: 600;
+}
+.refv-picker-book.is-current::before {
+  content: "•";
+  color: var(--refv-primary);
+  margin-right: 0.4em;
+  margin-left: -0.2em;
+}
+.refv-picker-book-count {
+  color: var(--refv-text-muted);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.refv-picker-chapters-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--refv-border);
+}
+.refv-picker-chapters-title {
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--refv-primary);
+  margin: 0;
+}
+.refv-picker-chapters-meta {
+  font-size: 0.78rem;
+  color: var(--refv-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.refv-picker-chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2.5rem, 1fr));
+  gap: 0.4rem;
+}
+.refv-picker-chapter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  background: white;
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius-sm);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--refv-text);
+  cursor: pointer;
+  transition: border-color 0.1s ease, color 0.1s ease, background 0.1s ease;
+}
+.refv-picker-chapter:hover,
+.refv-picker-chapter:focus-visible {
+  border-color: var(--refv-primary);
+  color: var(--refv-primary);
+  background: var(--refv-bg-soft);
+  outline: none;
+}
+.refv-picker-chapter.is-current {
+  background: var(--refv-primary);
+  color: white;
+  border-color: var(--refv-primary);
+}
+.refv-picker-empty {
+  margin: 0.5rem 0.6rem;
+  color: var(--refv-text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
 /* ---------- Wider viewports ---------- */
 @media (min-width: 720px) {
   .refv { padding: 2.5rem 1.5rem 5rem; }

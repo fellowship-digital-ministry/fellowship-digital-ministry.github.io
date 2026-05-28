@@ -92,6 +92,29 @@
     { slug: 'Revelation', display: 'Revelation', testament: 'NT' }
   ];
 
+  // Chapter counts per book (KJV). Static Bible data, never changes.
+  // Used by the jump picker to render the chapter grid without fetching the
+  // full KJV file for every book.
+  var CHAPTER_COUNTS = {
+    Genesis: 50, Exodus: 40, Leviticus: 27, Numbers: 36, Deuteronomy: 34,
+    Joshua: 24, Judges: 21, Ruth: 4,
+    '1Samuel': 31, '2Samuel': 24, '1Kings': 22, '2Kings': 25,
+    '1Chronicles': 29, '2Chronicles': 36,
+    Ezra: 10, Nehemiah: 13, Esther: 10,
+    Job: 42, Psalms: 150, Proverbs: 31, Ecclesiastes: 12, SongofSolomon: 8,
+    Isaiah: 66, Jeremiah: 52, Lamentations: 5, Ezekiel: 48, Daniel: 12,
+    Hosea: 14, Joel: 3, Amos: 9, Obadiah: 1, Jonah: 4, Micah: 7, Nahum: 3,
+    Habakkuk: 3, Zephaniah: 3, Haggai: 2, Zechariah: 14, Malachi: 4,
+    Matthew: 28, Mark: 16, Luke: 24, John: 21, Acts: 28,
+    Romans: 16, '1Corinthians': 16, '2Corinthians': 13,
+    Galatians: 6, Ephesians: 6, Philippians: 4, Colossians: 4,
+    '1Thessalonians': 5, '2Thessalonians': 3,
+    '1Timothy': 6, '2Timothy': 4, Titus: 3, Philemon: 1,
+    Hebrews: 13, James: 5,
+    '1Peter': 5, '2Peter': 3,
+    '1John': 5, '2John': 1, '3John': 1, Jude: 1, Revelation: 22
+  };
+
   // Index by lowercase display name + every known alias for the lookup parser.
   var BOOK_INDEX = (function () {
     var idx = {};
@@ -218,6 +241,11 @@
     els.sermonsModalBody = $('sermons-modal-body');
     els.sermonsModalTitle = $('sermons-modal-title');
     els.sermonsModalClose = $('sermons-modal-close');
+    els.pickerModal = $('picker-modal');
+    els.pickerModalClose = $('picker-modal-close');
+    els.pickerSearch = $('picker-search');
+    els.pickerBooks = $('picker-books');
+    els.pickerChapters = $('picker-chapters');
   }
 
   // ============================================================
@@ -692,11 +720,15 @@
       var bottomEl = document.getElementById('chapter-nav-bottom');
       if (!topEl || !bottomEl) return; // user navigated away
 
-      // Top: compact arrows centered around the current chapter
+      // Top: compact arrows around a clickable "Book N ▾" jump trigger.
+      var jumpLabel = escapeHtml(book.display + ' ' + chapter);
       topEl.innerHTML =
         '<div class="refv-chapter-nav-row">' +
           navButton(prev, 'prev', false) +
-          '<span class="refv-chapter-nav-here">' + escapeHtml(book.display + ' ' + chapter) + '</span>' +
+          '<button type="button" class="refv-chapter-nav-jump" id="chapter-nav-jump"' +
+            ' aria-haspopup="dialog" aria-label="Jump to another book or chapter">' +
+            jumpLabel + ' <span class="refv-chapter-nav-jump-caret" aria-hidden="true">▾</span>' +
+          '</button>' +
           navButton(next, 'next', false) +
         '</div>';
 
@@ -707,7 +739,7 @@
           navButton(next, 'next', true) +
         '</div>';
 
-      // Wire clicks
+      // Wire prev/next clicks
       Array.prototype.forEach.call(
         document.querySelectorAll('.refv-chapter-nav [data-nav-slug]'),
         function (el) {
@@ -718,6 +750,14 @@
           });
         }
       );
+
+      // Wire jump trigger
+      var jumpBtn = document.getElementById('chapter-nav-jump');
+      if (jumpBtn) {
+        jumpBtn.addEventListener('click', function () {
+          openPicker(book, chapter);
+        });
+      }
     });
   }
 
@@ -914,6 +954,119 @@
     els.sermonsModal.hidden = true;
     els.sermonsModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+  }
+
+  // ============================================================
+  // Jump picker — book list (filterable) + chapter grid
+  // ============================================================
+
+  function openPicker(currentBook, currentChapter) {
+    if (!els.pickerModal) return;
+    state.pickerBook = currentBook;
+    state.pickerChapter = currentChapter;
+    state.pickerSelectedBook = currentBook; // book shown in the right pane
+    renderPickerBooks('');
+    renderPickerChapters(state.pickerSelectedBook);
+    els.pickerSearch.value = '';
+    els.pickerModal.hidden = false;
+    els.pickerModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    // Focus the search after the modal paints so keyboard users can type-to-filter.
+    requestAnimationFrame(function () {
+      if (els.pickerSearch && els.pickerSearch.focus) {
+        try { els.pickerSearch.focus({ preventScroll: true }); } catch (e) { els.pickerSearch.focus(); }
+      }
+    });
+  }
+
+  function closePicker() {
+    if (!els.pickerModal) return;
+    els.pickerModal.hidden = true;
+    els.pickerModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function renderPickerBooks(filter) {
+    if (!els.pickerBooks) return;
+    var f = (filter || '').trim().toLowerCase().replace(/\s+/g, '');
+    function matchBook(book) {
+      if (!f) return true;
+      var key = book.display.toLowerCase().replace(/\s+/g, '');
+      return key.indexOf(f) !== -1;
+    }
+    function sectionHtml(label, list) {
+      if (!list.length) return '';
+      var lis = list.map(function (b) {
+        var n = CHAPTER_COUNTS[b.slug] || 0;
+        var classes = 'refv-picker-book' +
+          (state.pickerSelectedBook && state.pickerSelectedBook.slug === b.slug ? ' is-active' : '') +
+          (state.pickerBook && state.pickerBook.slug === b.slug ? ' is-current' : '');
+        return '<li><button type="button" class="' + classes +
+          '" data-slug="' + b.slug + '">' +
+          '<span class="refv-picker-book-name">' + escapeHtml(b.display) + '</span>' +
+          '<span class="refv-picker-book-count">' + n + '</span>' +
+        '</button></li>';
+      }).join('');
+      return '<div class="refv-picker-section">' +
+        '<h4 class="refv-picker-section-title">' + label + '</h4>' +
+        '<ul class="refv-picker-book-list">' + lis + '</ul>' +
+      '</div>';
+    }
+    var ot = BIBLE_BOOKS.filter(function (b) { return b.testament === 'OT' && matchBook(b); });
+    var nt = BIBLE_BOOKS.filter(function (b) { return b.testament === 'NT' && matchBook(b); });
+    if (!ot.length && !nt.length) {
+      els.pickerBooks.innerHTML = '<p class="refv-picker-empty">No books match "' +
+        escapeHtml(filter) + '".</p>';
+      return;
+    }
+    els.pickerBooks.innerHTML = sectionHtml('Old Testament', ot) + sectionHtml('New Testament', nt);
+    Array.prototype.forEach.call(
+      els.pickerBooks.querySelectorAll('.refv-picker-book'),
+      function (btn) {
+        btn.addEventListener('click', function () {
+          var slug = btn.getAttribute('data-slug');
+          var book = BOOK_INDEX[slug.toLowerCase()];
+          if (!book) return;
+          state.pickerSelectedBook = book;
+          // Re-render to update active highlight + chapters pane.
+          renderPickerBooks(els.pickerSearch.value);
+          renderPickerChapters(book);
+        });
+      }
+    );
+  }
+
+  function renderPickerChapters(book) {
+    if (!els.pickerChapters || !book) return;
+    var count = CHAPTER_COUNTS[book.slug] || 0;
+    var currentSlug = state.pickerBook && state.pickerBook.slug;
+    var currentCh = state.pickerChapter;
+    var grid = '';
+    for (var i = 1; i <= count; i++) {
+      var isHere = currentSlug === book.slug && i === currentCh;
+      grid += '<button type="button" class="refv-picker-chapter' +
+        (isHere ? ' is-current' : '') +
+        '" data-slug="' + book.slug + '" data-chapter="' + i + '">' + i + '</button>';
+    }
+    els.pickerChapters.innerHTML =
+      '<div class="refv-picker-chapters-head">' +
+        '<h4 class="refv-picker-chapters-title">' + escapeHtml(book.display) + '</h4>' +
+        '<span class="refv-picker-chapters-meta">' + count +
+          (count === 1 ? ' chapter' : ' chapters') + '</span>' +
+      '</div>' +
+      '<div class="refv-picker-chapter-grid">' + grid + '</div>';
+    Array.prototype.forEach.call(
+      els.pickerChapters.querySelectorAll('.refv-picker-chapter'),
+      function (btn) {
+        btn.addEventListener('click', function () {
+          var slug = btn.getAttribute('data-slug');
+          var ch = parseInt(btn.getAttribute('data-chapter'), 10);
+          setHash([slug, ch]);
+          closePicker();
+          applyRoute();
+        });
+      }
+    );
   }
 
   function renderOccurrenceCard(ref, index) {
@@ -1495,8 +1648,22 @@
         if (e.target === els.sermonsModal) closeSermonsModal();
       });
     }
+    if (els.pickerModalClose) {
+      els.pickerModalClose.addEventListener('click', closePicker);
+    }
+    if (els.pickerModal) {
+      els.pickerModal.addEventListener('click', function (e) {
+        if (e.target === els.pickerModal) closePicker();
+      });
+    }
+    if (els.pickerSearch) {
+      els.pickerSearch.addEventListener('input', function () {
+        renderPickerBooks(els.pickerSearch.value);
+      });
+    }
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
+      if (!els.pickerModal.hidden) { closePicker(); return; }
       if (!els.transcriptModal.hidden) { closeTranscriptModal(); return; }
       if (!els.sermonsModal.hidden) { closeSermonsModal(); return; }
       if (!els.videoModal.hidden) { closeVideoModal(); return; }
