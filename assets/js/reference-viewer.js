@@ -977,12 +977,18 @@
     els.pickerModal.hidden = false;
     els.pickerModal.setAttribute('aria-hidden', 'false');
     lockBody();
-    // Focus the search after the modal paints so keyboard users can type-to-filter.
-    requestAnimationFrame(function () {
-      if (els.pickerSearch && els.pickerSearch.focus) {
-        try { els.pickerSearch.focus({ preventScroll: true }); } catch (e) { els.pickerSearch.focus(); }
-      }
-    });
+    // Auto-focus the search input on desktop only. On touch devices this
+    // triggers the on-screen keyboard, which collapses the visible viewport
+    // and leaves only 2-3 rows of books visible — making it look like the
+    // list can't scroll up to Genesis. Tap-to-type still works on mobile.
+    var hasPointerKeyboard = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (hasPointerKeyboard) {
+      requestAnimationFrame(function () {
+        if (els.pickerSearch && els.pickerSearch.focus) {
+          try { els.pickerSearch.focus({ preventScroll: true }); } catch (e) { els.pickerSearch.focus(); }
+        }
+      });
+    }
   }
 
   function closePicker() {
