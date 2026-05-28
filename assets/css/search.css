@@ -1332,6 +1332,13 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   font-size: 0.78rem;
   color: var(--text-color);
 }
+/* Re-establish the browser's [hidden] default — our display:inline-flex
+   above has the same specificity as the UA's [hidden] { display: none }
+   but loads later in the cascade, so without this rule .hidden=true would
+   leave the indicator visible. */
+.byok-indicator[hidden] {
+  display: none;
+}
 .byok-indicator-icon {
   font-size: 0.85rem;
   line-height: 1;
