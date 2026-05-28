@@ -12,6 +12,50 @@ const API_CONFIG = {
 };
 
 /**
+ * BYOK (Bring Your Own OpenRouter Key)
+ *
+ * When the shared daily cap is hit, motivated users can paste in their
+ * own OpenRouter key. The key lives in localStorage only — we never
+ * send it anywhere except OpenRouter (via the X-OpenRouter-Key header
+ * on the answer endpoints, which the backend forwards without logging
+ * or persisting).
+ */
+const BYOK_STORAGE_KEY = 'fellowship-openrouter-key-v1';
+
+const BYOK = {
+  get() {
+    try { return localStorage.getItem(BYOK_STORAGE_KEY) || ''; }
+    catch (e) { return ''; }
+  },
+  set(key) {
+    try { localStorage.setItem(BYOK_STORAGE_KEY, key); }
+    catch (e) {}
+  },
+  clear() {
+    try { localStorage.removeItem(BYOK_STORAGE_KEY); }
+    catch (e) {}
+  },
+  isValidShape(key) {
+    // Real validation happens server-side on first use; this is just a
+    // gentle prefix check to catch obvious paste mistakes.
+    return typeof key === 'string' && /^sk-or-[A-Za-z0-9_-]{20,}$/.test(key.trim());
+  },
+};
+
+/**
+ * Thrown by SermonAPI methods when the backend returns a 429 with
+ * byok_supported: true. The caller catches this specific type to know
+ * it should offer the BYOK modal instead of showing a generic error.
+ */
+class CapHitError extends Error {
+  constructor(detail) {
+    super(detail.message || 'Daily quota exceeded');
+    this.name = 'CapHitError';
+    this.detail = detail;  // { error, message, byok_supported }
+  }
+}
+
+/**
  * API Connection Module
  * This handles all API connections with proper error handling
  */
@@ -127,16 +171,20 @@ const SermonAPI = {
       ? `${this.baseUrl.slice(0, -1)}/answer`
       : `${this.baseUrl}/answer`;
 
+    const headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Origin': window.location.origin,
+      'Accept-Language': queryData.language || 'en',
+    };
+    const byokKey = BYOK.get();
+    if (byokKey) headers['X-OpenRouter-Key'] = byokKey;
+
     const doFetch = () => fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': window.location.origin,
-        'Accept-Language': queryData.language || 'en'
-      },
+      headers,
       mode: 'cors',
-      body: JSON.stringify(queryData)
+      body: JSON.stringify(queryData),
     });
 
     console.log('Sending query to:', url);
@@ -151,6 +199,17 @@ const SermonAPI = {
       console.warn('First /answer attempt failed, retrying after 5s (cold start?):', err);
       await new Promise(resolve => setTimeout(resolve, 5000));
       response = await doFetch();
+    }
+
+    // Cap-hit: backend returned 429 with byok_supported. Bubble a typed
+    // error so the caller can offer the BYOK modal instead of a generic
+    // failure message.
+    if (response.status === 429) {
+      const body = await response.json().catch(() => ({}));
+      const detail = body.detail || body;  // FastAPI wraps in `detail`
+      if (detail && detail.byok_supported) {
+        throw new CapHitError(detail);
+      }
     }
 
     if (!response.ok) {
@@ -175,17 +234,30 @@ const SermonAPI = {
       ? `${this.baseUrl.slice(0, -1)}/answer/stream`
       : `${this.baseUrl}/answer/stream`;
 
+    const headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'text/event-stream',
+      'Origin': window.location.origin,
+      'Accept-Language': queryData.language || 'en',
+    };
+    const byokKey = BYOK.get();
+    if (byokKey) headers['X-OpenRouter-Key'] = byokKey;
+
     const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'text/event-stream',
-        'Origin': window.location.origin,
-        'Accept-Language': queryData.language || 'en',
-      },
+      headers,
       mode: 'cors',
       body: JSON.stringify(queryData),
     });
+
+    // Cap-hit before the stream opens — backend rejects with 429 + JSON.
+    if (response.status === 429) {
+      const body = await response.json().catch(() => ({}));
+      const detail = body.detail || body;
+      if (detail && detail.byok_supported) {
+        throw new CapHitError(detail);
+      }
+    }
 
     if (!response.ok) {
       throw new Error(`Stream request failed: ${response.status}`);
@@ -364,6 +436,127 @@ const SermonSearch = (function() {
 
   function clearChatTurnsStorage() {
     try { localStorage.removeItem(CHAT_STORAGE_KEY); } catch (e) {}
+  }
+
+  // ===== BYOK UI =====
+  // The cap-hit message is rendered inline in the chat when the backend
+  // returns 429. It explains the cap and offers a button that opens the
+  // BYOK modal. The modal walks the user through OpenRouter signup; on
+  // save, the original query is automatically re-submitted with the key.
+
+  // The pending query is kept here so the BYOK modal's save handler can
+  // retry the request after the key is stored.
+  let pendingCapHitQuery = null;
+
+  function renderCapHitMessage(query, capDetail, existingBotEl) {
+    pendingCapHitQuery = query;
+
+    const html = `
+      <div class="cap-hit-message" role="alert">
+        <strong>Today's question quota is used up</strong>
+        <p>${capDetail && capDetail.message ? escapeHtml(capDetail.message) : "This is a personal-volunteer project running on a small daily budget, and it's been used up for today. The site will work again tomorrow."}</p>
+        <p>Want to keep exploring now? You can use your own OpenRouter key — about 2 cents per question, stays in your browser only.</p>
+        <div class="cap-hit-actions">
+          <button type="button" class="cap-hit-primary" data-cap-action="byok">Use my own key</button>
+          <button type="button" class="cap-hit-secondary" data-cap-action="dismiss">Maybe tomorrow</button>
+        </div>
+      </div>
+    `;
+
+    let containerEl;
+    if (existingBotEl) {
+      // Streaming bubble was already created with a placeholder — replace
+      // its content rather than leaving a "Reviewing sermons…" dangling.
+      const contentEl = existingBotEl.querySelector('.claude-message-content');
+      if (contentEl) {
+        contentEl.innerHTML = html;
+        containerEl = contentEl;
+      }
+    }
+    if (!containerEl) {
+      // Non-streaming path: create a fresh bot bubble.
+      const botEl = addMessage('<div class="error-container"></div>', 'bot', true);
+      const contentEl = botEl.querySelector('.claude-message-content');
+      contentEl.innerHTML = html;
+      containerEl = contentEl;
+    }
+
+    // Wire the two action buttons.
+    const byokBtn = containerEl.querySelector('[data-cap-action="byok"]');
+    const dismissBtn = containerEl.querySelector('[data-cap-action="dismiss"]');
+    if (byokBtn) byokBtn.addEventListener('click', () => openByokModal());
+    if (dismissBtn) dismissBtn.addEventListener('click', () => {
+      pendingCapHitQuery = null;
+      // Replace the cap-hit block with a small acknowledgment.
+      containerEl.innerHTML = '<p class="cap-hit-dismissed">No problem — try again tomorrow.</p>';
+    });
+
+    smoothScrollToBottom(elements.messagesContainer);
+  }
+
+  // Very small HTML-escape helper for interpolating server-supplied strings
+  // into innerHTML. Used only for the cap-hit detail message.
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function openByokModal() {
+    if (!elements.byokSection) return;
+    elements.byokSection.classList.add('active');
+    elements.byokSection.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => {
+      if (elements.byokKeyInput) elements.byokKeyInput.focus();
+    });
+  }
+
+  function closeByokModal() {
+    if (!elements.byokSection) return;
+    if (!elements.byokSection.classList.contains('active')) return;
+    elements.byokSection.classList.remove('active');
+    elements.byokSection.setAttribute('aria-hidden', 'true');
+    if (elements.byokError) elements.byokError.textContent = '';
+  }
+
+  function updateByokIndicator() {
+    if (!elements.byokIndicator) return;
+    const hasKey = !!BYOK.get();
+    elements.byokIndicator.hidden = !hasKey;
+  }
+
+  function handleByokSave() {
+    if (!elements.byokKeyInput) return;
+    const raw = elements.byokKeyInput.value.trim();
+    if (!BYOK.isValidShape(raw)) {
+      if (elements.byokError) {
+        elements.byokError.textContent =
+          'That doesn\'t look like an OpenRouter key. Keys start with "sk-or-" — double-check that you copied the whole thing.';
+      }
+      return;
+    }
+    BYOK.set(raw);
+    elements.byokKeyInput.value = '';
+    if (elements.byokError) elements.byokError.textContent = '';
+    updateByokIndicator();
+    closeByokModal();
+
+    // If we got here because of a cap-hit, automatically retry that query
+    // so the user doesn't have to retype it.
+    if (pendingCapHitQuery) {
+      const q = pendingCapHitQuery;
+      pendingCapHitQuery = null;
+      elements.queryInput.value = q;
+      elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
+    }
+  }
+
+  function handleByokRemove() {
+    BYOK.clear();
+    updateByokIndicator();
   }
 
   // DOM Elements - will be populated on init
@@ -2206,6 +2399,11 @@ function createSourceElement(source, index) {
     // For non-English, fall straight through to the non-streaming path below.
     const useStreaming = state.currentLanguage === 'en';
 
+    // Tracked across the try/catch so the cap-hit handler can replace the
+    // streaming placeholder bubble (if one was created) in place rather than
+    // leaving a dangling "Reviewing sermons…" indicator.
+    let streamingBotEl = null;
+
     try {
       // === Find sermons mode (no AI synthesis) ===
       if (state.currentMode === 'find') {
@@ -2225,6 +2423,7 @@ function createSourceElement(source, index) {
         // No typing indicator — the streaming text itself is the indicator.
         const placeholder = '<div class="streaming-placeholder"><span>Reviewing sermons</span><span class="streaming-dots">…</span></div>';
         const botMessageEl = addMessage(placeholder, 'bot');
+        streamingBotEl = botMessageEl;
         const contentEl = botMessageEl.querySelector('.claude-message-content');
 
         let accumulatedText = '';
@@ -2315,23 +2514,30 @@ function createSourceElement(source, index) {
       // Clean up any leftover typing indicator from the non-streaming path
       document.querySelectorAll('.claude-typing').forEach((el) => removeMessage(el.id));
 
-      // Show error message
-      const errorMsg = `
-        <div class="error-container">
-          <p>Sorry, an error occurred: ${error.message}</p>
-          <button class="retry-button">${translate('try-again')}</button>
-        </div>
-      `;
-      const errorElement = addMessage(errorMsg, 'bot', true);
+      // === Cap-hit branch ===
+      // 429 with byok_supported: the user can keep going with their own
+      // OpenRouter key. Replace the streaming placeholder (if any) with a
+      // cap-hit message that opens the BYOK modal on click.
+      if (error instanceof CapHitError) {
+        renderCapHitMessage(query, error.detail, streamingBotEl);
+      } else {
+        // Generic error path (network failure, unexpected 5xx, etc.)
+        const errorMsg = `
+          <div class="error-container">
+            <p>Sorry, an error occurred: ${error.message}</p>
+            <button class="retry-button">${translate('try-again')}</button>
+          </div>
+        `;
+        const errorElement = addMessage(errorMsg, 'bot', true);
 
-      // Add retry button functionality
-      const retryButton = errorElement.querySelector('.retry-button');
-      if (retryButton) {
-        retryButton.addEventListener('click', function () {
-          removeMessage(errorElement.id);
-          elements.queryInput.value = query;
-          elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
-        });
+        const retryButton = errorElement.querySelector('.retry-button');
+        if (retryButton) {
+          retryButton.addEventListener('click', function () {
+            removeMessage(errorElement.id);
+            elements.queryInput.value = query;
+            elements.chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
+          });
+        }
       }
     } finally {
       // Decrement pending requests counter
@@ -3235,7 +3441,15 @@ Would you like me to search for sermon content on any of these topics instead?`;
       clearConversationBtn: getElement('clearConversation'),
       infoToggle: getElement('infoToggle'),
       infoSection: getElement('infoSection'),
-      closeInfoSection: getElement('closeInfoSection')
+      closeInfoSection: getElement('closeInfoSection'),
+      // BYOK modal + indicator
+      byokSection: getElement('byokSection'),
+      closeByokSection: getElement('closeByokSection'),
+      byokKeyInput: getElement('byokKeyInput'),
+      byokSaveButton: getElement('byokSaveButton'),
+      byokError: getElement('byokError'),
+      byokIndicator: getElement('byokIndicator'),
+      byokRemove: getElement('byokRemove'),
     };
     
     // Create backdrop for mobile sources panel
@@ -3539,7 +3753,45 @@ Would you like me to search for sermon content on any of these topics instead?`;
         }
       });
     }
-    
+
+    // BYOK modal — same open/close pattern as About modal. The modal is
+    // opened by the cap-hit message (via openByokModal) rather than a
+    // dedicated trigger button, since it should only surface when needed.
+    if (elements.byokSection) {
+      if (elements.closeByokSection) {
+        elements.closeByokSection.addEventListener('click', closeByokModal);
+      }
+      // Backdrop click closes.
+      elements.byokSection.addEventListener('click', function(event) {
+        if (event.target === elements.byokSection) closeByokModal();
+      });
+      // Escape closes when active.
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' &&
+            elements.byokSection.classList.contains('active')) {
+          closeByokModal();
+        }
+      });
+      // Save button + Enter-to-save inside the input.
+      if (elements.byokSaveButton) {
+        elements.byokSaveButton.addEventListener('click', handleByokSave);
+      }
+      if (elements.byokKeyInput) {
+        elements.byokKeyInput.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            handleByokSave();
+          }
+        });
+      }
+    }
+    // BYOK indicator's remove button.
+    if (elements.byokRemove) {
+      elements.byokRemove.addEventListener('click', handleByokRemove);
+    }
+    // Show indicator on initial load if a key is already stored.
+    updateByokIndicator();
+
     // Make example questions clickable
     setupExampleQuestionClicks();
     

@@ -60,6 +60,14 @@ custom_class: search-page
                       role="radio" aria-checked="false">Find sermons</button>
             </div>
             <div class="conversation-controls-right">
+              <!-- BYOK indicator — hidden by default, shown by search.js when a
+                   key is stored in localStorage. -->
+              <span id="byokIndicator" class="byok-indicator" hidden>
+                <span class="byok-indicator-icon" aria-hidden="true">&#x1F511;</span>
+                <span class="byok-indicator-text">Using your key</span>
+                <button id="byokRemove" type="button" class="byok-indicator-remove"
+                        aria-label="Remove saved key">remove</button>
+              </span>
               <button id="infoToggle" class="info-toggle-inline" type="button"
                       aria-label="About this tool" aria-haspopup="dialog"
                       aria-controls="infoSection">About</button>
@@ -75,6 +83,70 @@ custom_class: search-page
         <div id="sourcesPanelContent" class="claude-sources-panel-content">
           <!-- Sources will be added by JavaScript -->
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BYOK modal — shown when the daily shared quota is exhausted. Lets
+       motivated users continue with their own OpenRouter key. Key lives
+       in localStorage only, never sent to any server but OpenRouter. -->
+  <div id="byokSection" class="claude-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="byokHeading" aria-hidden="true">
+    <div class="claude-overlay-content">
+      <div class="claude-overlay-header">
+        <h2 id="byokHeading" class="claude-overlay-title">Bring your own OpenRouter key</h2>
+        <button id="closeByokSection" class="claude-overlay-close"
+                aria-label="Close" type="button">&times;</button>
+      </div>
+      <div class="claude-overlay-body byok-body">
+        <p>
+          OpenRouter is the service this site uses to talk to AI models. With
+          your own key, you can keep asking questions and pay the AI directly —
+          about 2 cents per question, no subscription.
+        </p>
+        <p class="byok-privacy">
+          Your key stays in your browser. It's never sent anywhere except
+          OpenRouter itself.
+        </p>
+
+        <ol class="byok-steps">
+          <li>
+            <strong>Create an account</strong> at
+            <a href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer">openrouter.ai</a>
+            (Google or GitHub sign-in works).
+          </li>
+          <li>
+            <strong>Add credit</strong> — $5 lasts about 250 questions.
+            <a href="https://openrouter.ai/credits" target="_blank" rel="noopener noreferrer">openrouter.ai/credits</a>
+          </li>
+          <li>
+            <strong>Create a key</strong> at
+            <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">openrouter.ai/keys</a>
+            → "Create Key" → name it anything → click <em>Create</em>.
+          </li>
+          <li>
+            <strong>Paste it below:</strong>
+            <div class="byok-input-row">
+              <input
+                type="password"
+                id="byokKeyInput"
+                class="byok-key-input"
+                placeholder="sk-or-v1-..."
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="OpenRouter API key"
+              />
+              <button type="button" id="byokSaveButton" class="byok-save-button">
+                Save and use my key
+              </button>
+            </div>
+            <div id="byokError" class="byok-error" role="alert" aria-live="polite"></div>
+          </li>
+        </ol>
+
+        <p class="byok-removal-note">
+          You can remove your key anytime from the controls below the chat.
+        </p>
       </div>
     </div>
   </div>
