@@ -58,7 +58,7 @@
     return months[m - 1] + ' ' + d + ', ' + y;
   }
 
-  function render(data, focusSec, sections) {
+  function render(data, focusSec, notes) {
     var videoId = data.video_id;
     var segments = (data && data.segments) || [];
 
@@ -118,15 +118,19 @@
     }
 
     // Section headers (study-Bible style) anchored to timestamps. Emit each
-    // before the first paragraph at or after its time. Highlight a paragraph
-    // only when arriving via a real &t deep link, never on a plain open.
-    var secs = (sections || []).slice().sort(function (a, b) { return a.t - b.t; });
+    // before the first paragraph at or after its time, with an id so the
+    // contents table can jump to it. Highlight a paragraph only when arriving
+    // via a real &t deep link, never on a plain open.
+    var secs = ((notes && notes.sections) || []).slice().sort(function (a, b) { return a.t - b.t; });
+    var emitted = [];  // sections actually placed in the body (for the contents table)
     var si = 0;
     var focusTs = focusSec || 0;
     var parts = [];
     paragraphs.forEach(function (p) {
       while (si < secs.length && secs[si].t <= p.start) {
-        parts.push('<h2 class="tx-section">' + escapeHtml(secs[si].heading) + '</h2>');
+        var id = 'tx-sec-' + emitted.length;
+        parts.push('<h2 class="tx-section" id="' + id + '">' + escapeHtml(secs[si].heading) + '</h2>');
+        emitted.push({ id: id, t: secs[si].t, heading: secs[si].heading });
         si++;
       }
       var isCurrent = focusTs > 0 && focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
@@ -144,6 +148,10 @@
     els.body.innerHTML = resumed + parts.join('');
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.body);
 
+    // Metadata block under the header: description + a contents table that
+    // jumps to each section in the transcript.
+    renderMeta(notes, emitted);
+
     // Defer scroll-to-current until after layout so the position is correct.
     requestAnimationFrame(function () {
       var target = els.body.querySelector('.tx-segment.is-current');
@@ -156,26 +164,41 @@
     });
   }
 
-  // Render the sermon's metadata under the header: a catalog-style description
-  // and the subject themes. Shown openly (not collapsed) and styled to read as
-  // quiet metadata, not an interactive widget.
-  function renderNotes(notes) {
-    if (!notes || !els.notes) return;
+  // Render the metadata block under the header: a catalog-style description and
+  // a contents table whose rows jump to each section in the transcript.
+  function renderMeta(notes, sections) {
+    if (!els.notes) return;
 
     var html = '';
-    if (notes.introduction) {
+    if (notes && notes.introduction) {
       html += '<p class="tx-overview-desc">' + escapeHtml(notes.introduction) + '</p>';
     }
-    if (Array.isArray(notes.themes) && notes.themes.length) {
-      html += '<ul class="tx-overview-themes">' +
-        notes.themes.map(function (t) { return '<li>' + escapeHtml(t) + '</li>'; }).join('') +
-        '</ul>';
+    if (sections && sections.length) {
+      var rows = sections.map(function (s) {
+        return '<li><a class="tx-toc-link" href="#' + s.id + '">' +
+          '<span class="tx-toc-time">' + formatTimestamp(s.t) + '</span>' +
+          '<span class="tx-toc-heading">' + escapeHtml(s.heading) + '</span>' +
+        '</a></li>';
+      }).join('');
+      html += '<nav class="tx-toc" aria-label="Sections of this sermon"><ol>' + rows + '</ol></nav>';
     }
-    if (!html) return;
+    if (!html) { els.notes.hidden = true; return; }
 
     els.notes.innerHTML = html;
     els.notes.hidden = false;
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.notes);
+
+    // Smooth-scroll the contents links to their section (and update the hash).
+    els.notes.querySelectorAll('.tx-toc-link').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var target = document.getElementById(a.getAttribute('href').slice(1));
+        if (!target) return;
+        e.preventDefault();
+        var y = window.scrollY + target.getBoundingClientRect().top - 70;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        if (history.replaceState) history.replaceState(null, '', a.getAttribute('href'));
+      });
+    });
   }
 
   // Fetch this sermon's catalog entry once: it carries both the Overview notes
@@ -244,11 +267,10 @@
       return;
     }
 
-    // The catalog entry carries both the Overview and the section headers, so
-    // fetch it alongside the transcript and render the body once both arrive
-    // (so sections can be interleaved). Render the Overview as soon as it loads.
+    // The catalog entry carries the description and section headers. Fetch it
+    // alongside the transcript and render once both arrive, so the section
+    // headers can be interleaved and the contents table matches them.
     var entryP = fetchEntry(videoId);
-    entryP.then(function (entry) { if (entry && entry.notes) renderNotes(entry.notes); });
 
     var txP = fetch(API_BASE + '/transcript/' + encodeURIComponent(videoId))
       .then(function (r) {
@@ -260,8 +282,7 @@
       .then(function (results) {
         var data = results[0];
         var entry = results[1];
-        var sections = entry && entry.notes ? entry.notes.sections : null;
-        render(data, startSec, sections);
+        render(data, startSec, entry && entry.notes);
       })
       .catch(function (err) {
         els.title.textContent = 'Transcript unavailable';
