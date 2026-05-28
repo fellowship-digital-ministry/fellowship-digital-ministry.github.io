@@ -1239,9 +1239,26 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   line-height: 1.55;
   margin-bottom: 0.85rem;
 }
-.byok-privacy {
+/* Plain-language safety reassurance for non-technical users. Slightly
+   inset and tinted so it reads as a distinct callout, not just body
+   copy that can be skimmed past. */
+.byok-safety {
+  margin: 1rem 0 1.25rem;
+  padding: 0.85rem 1rem;
+  background-color: rgba(46, 163, 242, 0.08);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 4px;
+}
+.byok-safety p {
+  margin: 0;
   font-size: 0.9rem;
-  color: var(--text-light);
+  line-height: 1.55;
+}
+.byok-safety p + p {
+  margin-top: 0.5rem;
+}
+[data-theme="dark"] .byok-safety {
+  background-color: rgba(46, 163, 242, 0.12);
 }
 .byok-steps {
   padding-left: 1.25rem;
