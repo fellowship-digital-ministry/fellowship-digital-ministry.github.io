@@ -141,3 +141,46 @@
 
 /* Scripture reference inside a card title: bold, not a link. */
 .sx-card-title .scripture-ref { font-weight: 700; white-space: nowrap; }
+
+/* Floating back-to-top button (matches the transcript reading page). Hidden
+   until scrolled down; visibility:hidden also drops it from the tab order
+   while off-screen. The safe-area inset keeps it clear of the iOS home bar. */
+.sx-totop {
+  position: fixed;
+  right: 1.25rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--primary-color, #641c14);
+  background: var(--primary-color, #641c14);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s, background 0.12s ease;
+}
+.sx-totop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.sx-totop:hover,
+.sx-totop:focus-visible {
+  background: var(--primary-dark, #4a1410);
+  border-color: var(--primary-dark, #4a1410);
+  outline: none;
+}
+.sx-totop svg { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sx-totop,
+  .sx-totop.is-visible { transform: none; }
+}

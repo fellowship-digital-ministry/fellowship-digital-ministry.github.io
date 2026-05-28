@@ -103,4 +103,22 @@
   if (filterEl) {
     filterEl.addEventListener('input', applyFilter);
   }
+
+  // Floating back-to-top: show once scrolled roughly a screenful down.
+  var toTopEl = document.getElementById('sx-totop');
+  if (toTopEl) {
+    toTopEl.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    var SHOW_AFTER = 600;
+    var ticking = false;
+    function syncToTop() {
+      ticking = false;
+      toTopEl.classList.toggle('is-visible', window.scrollY > SHOW_AFTER);
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(syncToTop); }
+    }, { passive: true });
+    syncToTop();
+  }
 })();
