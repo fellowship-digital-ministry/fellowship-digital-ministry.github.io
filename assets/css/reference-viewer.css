@@ -772,27 +772,6 @@
   vertical-align: 0.2em;
 }
 
-/* Legend at the top of the chapter that explains the burgundy
-   convention. Small enough to feel like editorial marginalia, not
-   a banner, but visible on first read so users don't have to guess
-   what the underlined verse numbers mean. */
-.refv-bible-legend {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.82rem;
-  line-height: 1.5;
-  color: var(--refv-text-muted);
-  font-style: italic;
-  margin: 0 0 1.5rem;
-  padding: 0.6rem 0.85rem;
-  border-left: 3px solid var(--refv-primary);
-  background: var(--refv-bg-soft);
-  border-radius: 0 var(--refv-radius-sm) var(--refv-radius-sm) 0;
-}
-.refv-bible-legend strong {
-  font-weight: 600;
-  color: var(--refv-primary);
-  font-style: normal;
-}
 
 /* Chapter pagination — chains across book boundaries (John 21 → Acts 1). */
 .refv-chapter-nav {
