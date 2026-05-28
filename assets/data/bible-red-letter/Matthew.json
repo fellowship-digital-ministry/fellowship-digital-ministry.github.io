@@ -1,5 +1,4 @@
 {
-  "2": [],
   "3": [
     {
       "verse": 15,
@@ -11,6 +10,8 @@
       ]
     }
   ],
+  "1": [],
+  "2": [],
   "4": [
     {
       "verse": 4,
@@ -43,7 +44,7 @@
       "verse": 17,
       "segments": [
         {
-          "intro": "Jesus began to preach, and to say,",
+          "intro": "From that time Jesus began to preach, and to say,",
           "speech": "Repent: for the kingdom of heaven is at hand."
         }
       ]
@@ -58,13 +59,12 @@
       ]
     }
   ],
-  "1": [],
   "8": [
     {
       "verse": 3,
       "segments": [
         {
-          "intro": "saying,",
+          "intro": "and touched him, saying,",
           "speech": "I will; be thou clean."
         }
       ]
@@ -91,7 +91,7 @@
       "verse": 10,
       "segments": [
         {
-          "intro": "and said to them that followed,",
+          "intro": "he marvelled, and said to them that followed,",
           "speech": "Verily I say unto you, I have not found so great faith, no, not in Israel."
         }
       ]
@@ -156,6 +156,161 @@
         {
           "intro": "And he said unto them,",
           "speech": "Go."
+        }
+      ]
+    }
+  ],
+  "9": [
+    {
+      "verse": 2,
+      "segments": [
+        {
+          "intro": "Jesus seeing their faith said unto the sick of the palsy;",
+          "speech": "Son, be of good cheer; thy sins be forgiven thee."
+        }
+      ]
+    },
+    {
+      "verse": 4,
+      "segments": [
+        {
+          "intro": "And Jesus knowing their thoughts said,",
+          "speech": "Wherefore think ye evil in your hearts?"
+        }
+      ]
+    },
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For whether is easier, to say, Thy sins be forgiven thee; or to say, Arise, and walk?"
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "But that ye may know that the Son of man hath power on earth to forgive sins, (then saith he to the sick of the palsy,)",
+          "speech": "Arise, take up thy bed, and go unto thine house."
+        }
+      ]
+    },
+    {
+      "verse": 9,
+      "segments": [
+        {
+          "intro": "he saith unto him,",
+          "speech": "Follow me."
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "But when Jesus heard that, he said unto them,",
+          "speech": "They that be whole need not a physician, but they that are sick."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But go ye and learn what that meaneth, I will have mercy, and not sacrifice: for I am not come to call the righteous, but sinners to repentance."
+        }
+      ]
+    },
+    {
+      "verse": 15,
+      "segments": [
+        {
+          "intro": "And Jesus said unto them,",
+          "speech": "Can the children of the bridechamber mourn, as long as the bridegroom is with them? but the days will come, when the bridegroom shall be taken from them, and then shall they fast."
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "No man putteth a piece of new cloth unto an old garment, for that which is put in to fill it up taketh from the garment, and the rent is made worse."
+        }
+      ]
+    },
+    {
+      "verse": 17,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Neither do men put new wine into old bottles: else the bottles break, and the wine runneth out, and the bottles perish: but they put new wine into new bottles, and both are preserved."
+        }
+      ]
+    },
+    {
+      "verse": 22,
+      "segments": [
+        {
+          "intro": "he said,",
+          "speech": "Daughter, be of good comfort; thy faith hath made thee whole."
+        }
+      ]
+    },
+    {
+      "verse": 24,
+      "segments": [
+        {
+          "intro": "He said unto them,",
+          "speech": "Give place: for the maid is not dead, but sleepeth."
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "Jesus saith unto them,",
+          "speech": "Believe ye that I am able to do this?"
+        }
+      ]
+    },
+    {
+      "verse": 29,
+      "segments": [
+        {
+          "intro": "saying,",
+          "speech": "According to your faith be it unto you."
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "saying,",
+          "speech": "See that no man know it."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "Then saith he unto his disciples,",
+          "speech": "The harvest truly is plenteous, but the labourers are few;"
+        }
+      ]
+    },
+    {
+      "verse": 38,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest."
         }
       ]
     }
@@ -324,6 +479,15 @@
       ]
     },
     {
+      "verse": 22,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Many will say to me in that day, Lord, Lord, have we not prophesied in thy name? and in thy name have cast out devils? and in thy name done many wonderful works?"
+        }
+      ]
+    },
+    {
       "verse": 23,
       "segments": [
         {
@@ -347,161 +511,6 @@
         {
           "intro": "",
           "speech": "And every one that heareth these sayings of mine, and doeth them not, shall be likened unto a foolish man, which built his house upon the sand:"
-        }
-      ]
-    }
-  ],
-  "9": [
-    {
-      "verse": 2,
-      "segments": [
-        {
-          "intro": "Jesus seeing their faith said unto the sick of the palsy;",
-          "speech": "Son, be of good cheer; thy sins be forgiven thee."
-        }
-      ]
-    },
-    {
-      "verse": 4,
-      "segments": [
-        {
-          "intro": "And Jesus knowing their thoughts said,",
-          "speech": "Wherefore think ye evil in your hearts?"
-        }
-      ]
-    },
-    {
-      "verse": 5,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "For whether is easier, to say, Thy sins be forgiven thee; or to say, Arise, and walk?"
-        }
-      ]
-    },
-    {
-      "verse": 6,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "But that ye may know that the Son of man hath power on earth to forgive sins, (then saith he to the sick of the palsy,) Arise, take up thy bed, and go unto thine house."
-        }
-      ]
-    },
-    {
-      "verse": 9,
-      "segments": [
-        {
-          "intro": "he saith unto him,",
-          "speech": "Follow me."
-        }
-      ]
-    },
-    {
-      "verse": 12,
-      "segments": [
-        {
-          "intro": "he said unto them,",
-          "speech": "They that be whole need not a physician, but they that are sick."
-        }
-      ]
-    },
-    {
-      "verse": 13,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "But go ye and learn what that meaneth, I will have mercy, and not sacrifice: for I am not come to call the righteous, but sinners to repentance."
-        }
-      ]
-    },
-    {
-      "verse": 15,
-      "segments": [
-        {
-          "intro": "And Jesus said unto them,",
-          "speech": "Can the children of the bridechamber mourn, as long as the bridegroom is with them? but the days will come, when the bridegroom shall be taken from them, and then shall they fast."
-        }
-      ]
-    },
-    {
-      "verse": 16,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "No man putteth a piece of new cloth unto an old garment, for that which is put in to fill it up taketh from the garment, and the rent is made worse."
-        }
-      ]
-    },
-    {
-      "verse": 17,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "Neither do men put new wine into old bottles: else the bottles break, and the wine runneth out, and the bottles perish: but they put new wine into new bottles, and both are preserved."
-        }
-      ]
-    },
-    {
-      "verse": 22,
-      "segments": [
-        {
-          "intro": "he said,",
-          "speech": "Daughter, be of good comfort; thy faith hath made thee whole."
-        }
-      ]
-    },
-    {
-      "verse": 24,
-      "segments": [
-        {
-          "intro": "He said unto them,",
-          "speech": "Give place: for the maid is not dead, but sleepeth."
-        }
-      ]
-    },
-    {
-      "verse": 28,
-      "segments": [
-        {
-          "intro": "Jesus saith unto them,",
-          "speech": "Believe ye that I am able to do this?"
-        }
-      ]
-    },
-    {
-      "verse": 29,
-      "segments": [
-        {
-          "intro": "saying,",
-          "speech": "According to your faith be it unto you."
-        }
-      ]
-    },
-    {
-      "verse": 30,
-      "segments": [
-        {
-          "intro": "saying,",
-          "speech": "See that no man know it."
-        }
-      ]
-    },
-    {
-      "verse": 37,
-      "segments": [
-        {
-          "intro": "Then saith he unto his disciples,",
-          "speech": "The harvest truly is plenteous, but the labourers are few;"
-        }
-      ]
-    },
-    {
-      "verse": 38,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "Pray ye therefore the Lord of the harvest, that he will send forth labourers into his harvest."
         }
       ]
     }
@@ -814,7 +823,6 @@
       ]
     }
   ],
-  "5": [],
   "14": [
     {
       "verse": 16,
@@ -858,6 +866,323 @@
         {
           "intro": "and said unto him,",
           "speech": "O thou of little faith, wherefore didst thou doubt?"
+        }
+      ]
+    }
+  ],
+  "10": [
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "These twelve Jesus sent forth, and commanded them, saying,",
+          "speech": "Go not into the way of the Gentiles, and into any city of the Samaritans enter ye not:"
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But go rather to the lost sheep of the house of Israel."
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And as ye go, preach, saying, The kingdom of heaven is at hand."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Heal the sick, cleanse the lepers, raise the dead, cast out devils: freely ye have received, freely give."
+        }
+      ]
+    },
+    {
+      "verse": 9,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Provide neither gold, nor silver, nor brass in your purses,"
+        }
+      ]
+    },
+    {
+      "verse": 10,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Nor scrip for your journey, neither two coats, neither shoes, nor yet staves: for the workman is worthy of his meat."
+        }
+      ]
+    },
+    {
+      "verse": 11,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And into whatsoever city or town ye shall enter, enquire who in it is worthy; and there abide till ye go thence."
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And when ye come into an house, salute it."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And if the house be worthy, let your peace come upon it: but if it be not worthy, let your peace return to you."
+        }
+      ]
+    },
+    {
+      "verse": 14,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And whosoever shall not receive you, nor hear your words, when ye depart out of that house or city, shake off the dust of your feet."
+        }
+      ]
+    },
+    {
+      "verse": 15,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Verily I say unto you, It shall be more tolerable for the land of Sodom and Gomorrha in the day of judgment, than for that city."
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves."
+        }
+      ]
+    },
+    {
+      "verse": 17,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But beware of men: for they will deliver you up to the councils, and they will scourge you in their synagogues;"
+        }
+      ]
+    },
+    {
+      "verse": 18,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And ye shall be brought before governors and kings for my sake, for a testimony against them and the Gentiles."
+        }
+      ]
+    },
+    {
+      "verse": 19,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But when they deliver you up, take no thought how or what ye shall speak: for it shall be given you in that same hour what ye shall speak."
+        }
+      ]
+    },
+    {
+      "verse": 20,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For it is not ye that speak, but the Spirit of your Father which speaketh in you."
+        }
+      ]
+    },
+    {
+      "verse": 21,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And the brother shall deliver up the brother to death, and the father the child: and the children shall rise up against their parents, and cause them to be put to death."
+        }
+      ]
+    },
+    {
+      "verse": 23,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But when they persecute you in this city, flee ye into another: for verily I say unto you, Ye shall not have gone over the cities of Israel, till the Son of man be come."
+        }
+      ]
+    },
+    {
+      "verse": 24,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "The disciple is not above his master, nor the servant above his lord."
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "It is enough for the disciple that he be as his master, and the servant as his lord. If they have called the master of the house Beelzebub, how much more shall they call them of his household?"
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Fear them not therefore: for there is nothing covered, that shall not be revealed; and hid, that shall not be known."
+        }
+      ]
+    },
+    {
+      "verse": 27,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "What I tell you in darkness, that speak ye in light: and what ye hear in the ear, that preach ye upon the housetops."
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And fear not them which kill the body, but are not able to kill the soul: but rather fear him which is able to destroy both soul and body in hell."
+        }
+      ]
+    },
+    {
+      "verse": 29,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father."
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But the very hairs of your head are all numbered."
+        }
+      ]
+    },
+    {
+      "verse": 31,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Fear ye not therefore, ye are of more value than many sparrows."
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Whosoever therefore shall confess me before men, him will I confess also before my Father which is in heaven."
+        }
+      ]
+    },
+    {
+      "verse": 33,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But whosoever shall deny me before men, him will I also deny before my Father which is in heaven."
+        }
+      ]
+    },
+    {
+      "verse": 34,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Think not that I am come to send peace on earth: I came not to send peace, but a sword."
+        }
+      ]
+    },
+    {
+      "verse": 35,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For I am come to set a man at variance against his father, and the daughter against her mother, and the daughter in law against her mother in law."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "He that loveth father or mother more than me is not worthy of me: and he that loveth son or daughter more than me is not worthy of me."
+        }
+      ]
+    },
+    {
+      "verse": 38,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And he that taketh not his cross, and followeth after me, is not worthy of me."
+        }
+      ]
+    },
+    {
+      "verse": 39,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "He that findeth his life shall lose it: and he that loseth his life for my sake shall find it."
+        }
+      ]
+    },
+    {
+      "verse": 40,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "He that receiveth you receiveth me, and he that receiveth me receiveth him that sent me."
+        }
+      ]
+    },
+    {
+      "verse": 42,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And whosoever shall give to drink unto one of these little ones a cup of cold water only in the name of a disciple, verily I say unto you, he shall in no wise lose his reward."
         }
       ]
     }
@@ -1038,7 +1363,7 @@
       "verse": 25,
       "segments": [
         {
-          "intro": "Jesus answered and said,",
+          "intro": "At that time Jesus answered and said,",
           "speech": "I thank thee, O Father, Lord of heaven and earth, because thou hast hid these things from the wise and prudent, and hast revealed them unto babes."
         }
       ]
@@ -1089,7 +1414,404 @@
       ]
     }
   ],
-  "10": [],
+  "5": [
+    {
+      "verse": 3,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are the poor in spirit: for theirs is the kingdom of heaven."
+        }
+      ]
+    },
+    {
+      "verse": 4,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are they that mourn: for they shall be comforted."
+        }
+      ]
+    },
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are the meek: for they shall inherit the earth."
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are they which do hunger and thirst after righteousness: for they shall be filled."
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are the merciful: for they shall obtain mercy."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are the pure in heart: for they shall see God."
+        }
+      ]
+    },
+    {
+      "verse": 9,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are the peacemakers: for they shall be called the children of God."
+        }
+      ]
+    },
+    {
+      "verse": 11,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed are ye, when men shall revile you, and persecute you, and shall say all manner of evil against you falsely, for my sake."
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Rejoice, and be exceeding glad: for great is your reward in heaven: for so persecuted they the prophets which were before you."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men."
+        }
+      ]
+    },
+    {
+      "verse": 14,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye are the light of the world. A city that is set on an hill cannot be hid."
+        }
+      ]
+    },
+    {
+      "verse": 15,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house."
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven."
+        }
+      ]
+    },
+    {
+      "verse": 17,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Think not that I am come to destroy the law, or the prophets: I am not come to destroy, but to fulfil."
+        }
+      ]
+    },
+    {
+      "verse": 18,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For verily I say unto you, Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law, till all be fulfilled."
+        }
+      ]
+    },
+    {
+      "verse": 19,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Whosoever therefore shall break one of these least commandments, and shall teach men so, he shall be called the least in the kingdom of heaven: but whosoever shall do and teach them, the same shall be called great in the kingdom of heaven."
+        }
+      ]
+    },
+    {
+      "verse": 20,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For I say unto you, That except your righteousness shall exceed the righteousness of the scribes and Pharisees, ye shall in no case enter into the kingdom of heaven."
+        }
+      ]
+    },
+    {
+      "verse": 21,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye have heard that it was said by them of old time, Thou shalt not kill; and whosoever shall kill shall be in danger of the judgment:"
+        }
+      ]
+    },
+    {
+      "verse": 22,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But I say unto you, That whosoever is angry with his brother without a cause shall be in danger of the judgment: and whosoever shall say to his brother, Raca, shall be in danger of the council: but whosoever shall say, Thou fool, shall be in danger of hell fire."
+        }
+      ]
+    },
+    {
+      "verse": 23,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Therefore if thou bring thy gift to the altar, and there rememberest that thy brother hath ought against thee;"
+        }
+      ]
+    },
+    {
+      "verse": 24,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Leave there thy gift before the altar, and go thy way; first be reconciled to thy brother, and then come and offer thy gift."
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Agree with thine adversary quickly, whiles thou art in the way with him; lest at any time the adversary deliver thee to the judge, and the judge deliver thee to the officer, and thou be cast into prison."
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Verily I say unto thee, Thou shalt by no means come out thence, till thou hast paid the uttermost farthing."
+        }
+      ]
+    },
+    {
+      "verse": 27,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye have heard that it was said by them of old time, Thou shalt not commit adultery:"
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But I say unto you, That whosoever looketh on a woman to lust after her hath committed adultery with her already in his heart."
+        }
+      ]
+    },
+    {
+      "verse": 29,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And if thy right eye offend thee, pluck it out, and cast it from thee: for it is profitable for thee that one of thy members should perish, and not that thy whole body should be cast into hell."
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And if thy right hand offend thee, cut it off, and cast it from thee: for it is profitable for thee that one of thy members should perish, and not that thy whole body should be cast into hell."
+        }
+      ]
+    },
+    {
+      "verse": 31,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "It hath been said, Whosoever shall put away his wife, let him give her a writing of divorcement:"
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But I say unto you, That whosoever shall put away his wife, saving for the cause of fornication, causeth her to commit adultery: and whosoever shall marry her that is divorced committeth adultery."
+        }
+      ]
+    },
+    {
+      "verse": 33,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Again, ye have heard that it hath been said by them of old time, Thou shalt not forswear thyself, but shalt perform unto the Lord thine oaths:"
+        }
+      ]
+    },
+    {
+      "verse": 35,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Nor by the earth; for it is his footstool: neither by Jerusalem; for it is the city of the great King."
+        }
+      ]
+    },
+    {
+      "verse": 36,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Neither shalt thou swear by thy head, because thou canst not make one hair white or black."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But let your communication be, Yea, yea; Nay, nay: for whatsoever is more than these cometh of evil."
+        }
+      ]
+    },
+    {
+      "verse": 38,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye have heard that it hath been said, An eye for an eye, and a tooth for a tooth:"
+        }
+      ]
+    },
+    {
+      "verse": 39,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But I say unto you, That ye resist not evil: but whosoever shall smite thee on thy right cheek, turn to him the other also."
+        }
+      ]
+    },
+    {
+      "verse": 40,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And if any man will sue thee at the law, and take away thy coat, let him have thy cloak also."
+        }
+      ]
+    },
+    {
+      "verse": 41,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And whosoever shall compel thee to go a mile, go with him twain."
+        }
+      ]
+    },
+    {
+      "verse": 42,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Give to him that asketh thee, and from him that would borrow of thee turn not thou away."
+        }
+      ]
+    },
+    {
+      "verse": 43,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye have heard that it hath been said, Thou shalt love thy neighbour, and hate thine enemy."
+        }
+      ]
+    },
+    {
+      "verse": 44,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you;"
+        }
+      ]
+    },
+    {
+      "verse": 45,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "That ye may be the children of your Father which is in heaven: for he maketh his sun to rise on the evil and on the good, and sendeth rain on the just and on the unjust."
+        }
+      ]
+    },
+    {
+      "verse": 46,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For if ye love them which love you, what reward have ye? do not even the publicans the same?"
+        }
+      ]
+    },
+    {
+      "verse": 47,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And if ye salute your brethren only, what do ye more than others? do not even the publicans so?"
+        }
+      ]
+    },
+    {
+      "verse": 48,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Be ye therefore perfect, even as your Father which is in heaven is perfect."
+        }
+      ]
+    }
+  ],
   "17": [
     {
       "verse": 7,
@@ -1373,7 +2095,6 @@
       ]
     }
   ],
-  "12": [],
   "16": [
     {
       "verse": 2,
@@ -1547,7 +2268,588 @@
       ]
     }
   ],
-  "13": [],
+  "12": [
+    {
+      "verse": 3,
+      "segments": [
+        {
+          "intro": "But he said unto them,",
+          "speech": "Have ye not read what David did, when he was an hungred, and they that were with him;"
+        }
+      ]
+    },
+    {
+      "verse": 4,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "How he entered into the house of God, and did eat the shewbread, which was not lawful for him to eat, neither for them which were with him, but only for the priests?"
+        }
+      ]
+    },
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Or have ye not read in the law, how that on the sabbath days the priests in the temple profane the sabbath, and are blameless?"
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But I say unto you, That in this place is one greater than the temple."
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But if ye had known what this meaneth, I will have mercy, and not sacrifice, ye would not have condemned the guiltless."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For the Son of man is Lord even of the sabbath day."
+        }
+      ]
+    },
+    {
+      "verse": 11,
+      "segments": [
+        {
+          "intro": "And he said unto them,",
+          "speech": "What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out?"
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "Then saith he to the man,",
+          "speech": "Stretch forth thine hand."
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
+          "intro": "And Jesus knew their thoughts, and said unto them,",
+          "speech": "Every kingdom divided against itself is brought to desolation; and every city or house divided against itself shall not stand:"
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And if Satan cast out Satan, he is divided against himself; how shall then his kingdom stand?"
+        }
+      ]
+    },
+    {
+      "verse": 27,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And if I by Beelzebub cast out devils, by whom do your children cast them out? therefore they shall be your judges."
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But if I cast out devils by the Spirit of God, then the kingdom of God is come unto you."
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "He that is not with me is against me; and he that gathereth not with me scattereth abroad."
+        }
+      ]
+    },
+    {
+      "verse": 31,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Wherefore I say unto you, All manner of sin and blasphemy shall be forgiven unto men: but the blasphemy against the Holy Ghost shall not be forgiven unto men."
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And whosoever speaketh a word against the Son of man, it shall be forgiven him: but whosoever speaketh against the Holy Ghost, it shall not be forgiven him, neither in this world, neither in the world to come."
+        }
+      ]
+    },
+    {
+      "verse": 33,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Either make the tree good, and his fruit good; or else make the tree corrupt, and his fruit corrupt: for the tree is known by his fruit."
+        }
+      ]
+    },
+    {
+      "verse": 34,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "O generation of vipers, how can ye, being evil, speak good things? for out of the abundance of the heart the mouth speaketh."
+        }
+      ]
+    },
+    {
+      "verse": 35,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "A good man out of the good treasure of the heart bringeth forth good things: and an evil man out of the evil treasure bringeth forth evil things."
+        }
+      ]
+    },
+    {
+      "verse": 36,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But I say unto you, That every idle word that men shall speak, they shall give account thereof in the day of judgment."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For by thy words thou shalt be justified, and by thy words thou shalt be condemned."
+        }
+      ]
+    },
+    {
+      "verse": 39,
+      "segments": [
+        {
+          "intro": "But he answered and said unto them,",
+          "speech": "An evil and adulterous generation seeketh after a sign; and there shall no sign be given to it, but the sign of the prophet Jonas:"
+        }
+      ]
+    },
+    {
+      "verse": 41,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "The men of Nineveh shall rise in judgment with this generation, and shall condemn it: because they repented at the preaching of Jonas; and, behold, a greater than Jonas is here."
+        }
+      ]
+    },
+    {
+      "verse": 42,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "The queen of the south shall rise up in the judgment with this generation, and shall condemn it: for she came from the uttermost parts of the earth to hear the wisdom of Solomon; and, behold, a greater than Solomon is here."
+        }
+      ]
+    },
+    {
+      "verse": 43,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "When the unclean spirit is gone out of a man, he walketh through dry places, seeking rest, and findeth none."
+        }
+      ]
+    },
+    {
+      "verse": 44,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then he saith, I will return into my house from whence I came out; and when he is come, he findeth it empty, swept, and garnished."
+        }
+      ]
+    },
+    {
+      "verse": 45,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then goeth he, and taketh with himself seven other spirits more wicked than himself, and they enter in and dwell there: and the last state of that man is worse than the first. Even so shall it be also unto this wicked generation."
+        }
+      ]
+    },
+    {
+      "verse": 48,
+      "segments": [
+        {
+          "intro": "But he answered and said unto him that told him,",
+          "speech": "Who is my mother? and who are my brethren?"
+        }
+      ]
+    },
+    {
+      "verse": 49,
+      "segments": [
+        {
+          "intro": "and said,",
+          "speech": "Behold my mother and my brethren!"
+        }
+      ]
+    },
+    {
+      "verse": 50,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For whosoever shall do the will of my Father which is in heaven, the same is my brother, and sister, and mother."
+        }
+      ]
+    }
+  ],
+  "20": [
+    {
+      "verse": 4,
+      "segments": [
+        {
+          "intro": "And said unto them;",
+          "speech": "Go ye also into the vineyard, and whatsoever is right I will give you."
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "and saith unto them,",
+          "speech": "Why stand ye here all the day idle?"
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "He saith unto them,",
+          "speech": "Go ye also into the vineyard; and whatsoever is right, that shall ye receive."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "the lord of the vineyard saith unto his steward,",
+          "speech": "Call the labourers, and give them their hire, beginning from the last unto the first."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "But he answered one of them, and said,",
+          "speech": "Friend, I do thee no wrong: didst not thou agree with me for a penny?"
+        }
+      ]
+    },
+    {
+      "verse": 14,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Take that thine is, and go thy way: I will give unto this last, even as unto thee."
+        }
+      ]
+    },
+    {
+      "verse": 15,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good?"
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "So the last shall be first, and the first last: for many be called, but few chosen."
+        }
+      ]
+    },
+    {
+      "verse": 18,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Behold, we go up to Jerusalem; and the Son of man shall be betrayed unto the chief priests and unto the scribes, and they shall condemn him to death,"
+        }
+      ]
+    },
+    {
+      "verse": 19,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And shall deliver him to the Gentiles to mock, and to scourge, and to crucify him: and the third day he shall rise again."
+        }
+      ]
+    },
+    {
+      "verse": 21,
+      "segments": [
+        {
+          "intro": "And he said unto her,",
+          "speech": "What wilt thou?"
+        }
+      ]
+    },
+    {
+      "verse": 22,
+      "segments": [
+        {
+          "intro": "But Jesus answered and said,",
+          "speech": "Ye know not what ye ask. Are ye able to drink of the cup that I shall drink of, and to be baptized with the baptism that I am baptized with?"
+        }
+      ]
+    },
+    {
+      "verse": 23,
+      "segments": [
+        {
+          "intro": "And he saith unto them,",
+          "speech": "Ye shall drink indeed of my cup, and be baptized with the baptism that I am baptized with: but to sit on my right hand, and on my left, is not mine to give, but it shall be given to them for whom it is prepared of my Father."
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
+          "intro": "But Jesus called them unto him, and said,",
+          "speech": "Ye know that the princes of the Gentiles exercise dominion over them, and they that are great exercise authority upon them."
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But it shall not be so among you: but whosoever will be great among you, let him be your minister;"
+        }
+      ]
+    },
+    {
+      "verse": 27,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And whosoever will be chief among you, let him be your servant:"
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Even as the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many."
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "And Jesus stood still, and called them, and said,",
+          "speech": "What will ye that I shall do unto you?"
+        }
+      ]
+    }
+  ],
+  "19": [
+    {
+      "verse": 4,
+      "segments": [
+        {
+          "intro": "And he answered and said unto them,",
+          "speech": "Have ye not read, that he which made them at the beginning made them male and female,"
+        }
+      ]
+    },
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And said, For this cause shall a man leave father and mother, and shall cleave to his wife: and they twain shall be one flesh?"
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Wherefore they are no more twain, but one flesh. What therefore God hath joined together, let not man put asunder."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "He saith unto them,",
+          "speech": "Moses because of the hardness of your hearts suffered you to put away your wives: but from the beginning it was not so."
+        }
+      ]
+    },
+    {
+      "verse": 9,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And I say unto you, Whosoever shall put away his wife, except it be for fornication, and shall marry another, committeth adultery: and whoso marrieth her which is put away doth commit adultery."
+        }
+      ]
+    },
+    {
+      "verse": 11,
+      "segments": [
+        {
+          "intro": "But he said unto them,",
+          "speech": "All men cannot receive this saying, save they to whom it is given."
+        }
+      ]
+    },
+    {
+      "verse": 14,
+      "segments": [
+        {
+          "intro": "But Jesus said,",
+          "speech": "Suffer little children, and forbid them not, to come unto me: for of such is the kingdom of heaven."
+        }
+      ]
+    },
+    {
+      "verse": 17,
+      "segments": [
+        {
+          "intro": "And he said unto him,",
+          "speech": "Why callest thou me good? there is none good but one, that is, God: but if thou wilt enter into life, keep the commandments."
+        }
+      ]
+    },
+    {
+      "verse": 18,
+      "segments": [
+        {
+          "intro": "Jesus said,",
+          "speech": "Thou shalt do no murder, Thou shalt not commit adultery, Thou shalt not steal, Thou shalt not bear false witness,"
+        }
+      ]
+    },
+    {
+      "verse": 19,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Honour thy father and thy mother: and, Thou shalt love thy neighbour as thyself."
+        }
+      ]
+    },
+    {
+      "verse": 21,
+      "segments": [
+        {
+          "intro": "Jesus said unto him,",
+          "speech": "If thou wilt be perfect, go and sell that thou hast, and give to the poor, and thou shalt have treasure in heaven: and come and follow me."
+        }
+      ]
+    },
+    {
+      "verse": 23,
+      "segments": [
+        {
+          "intro": "Then said Jesus unto his disciples,",
+          "speech": "Verily I say unto you, That a rich man shall hardly enter into the kingdom of heaven."
+        }
+      ]
+    },
+    {
+      "verse": 24,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And again I say unto you, It is easier for a camel to go through the eye of a needle, than for a rich man to enter into the kingdom of God."
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "But Jesus beheld them, and said unto them,",
+          "speech": "With men this is impossible; but with God all things are possible."
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "And Jesus said unto them,",
+          "speech": "Verily I say unto you, That ye which have followed me, in the regeneration when the Son of man shall sit in the throne of his glory, ye also shall sit upon twelve thrones, judging the twelve tribes of Israel."
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But many that are first shall be last; and the last shall be first."
+        }
+      ]
+    }
+  ],
   "18": [
     {
       "verse": 3,
@@ -1838,177 +3140,22 @@
       ]
     }
   ],
-  "20": [
+  "13": [
+    {
+      "verse": 3,
+      "segments": [
+        {
+          "intro": "And he spake many things unto them in parables, saying,",
+          "speech": "Behold, a sower went forth to sow;"
+        }
+      ]
+    },
     {
       "verse": 4,
       "segments": [
         {
-          "intro": "And said unto them;",
-          "speech": "Go ye also into the vineyard, and whatsoever is right I will give you."
-        }
-      ]
-    },
-    {
-      "verse": 6,
-      "segments": [
-        {
-          "intro": "and saith unto them,",
-          "speech": "Why stand ye here all the day idle?"
-        }
-      ]
-    },
-    {
-      "verse": 7,
-      "segments": [
-        {
-          "intro": "He saith unto them,",
-          "speech": "Go ye also into the vineyard; and whatsoever is right, that shall ye receive."
-        }
-      ]
-    },
-    {
-      "verse": 8,
-      "segments": [
-        {
-          "intro": "the lord of the vineyard saith unto his steward,",
-          "speech": "Call the labourers, and give them their hire, beginning from the last unto the first."
-        }
-      ]
-    },
-    {
-      "verse": 13,
-      "segments": [
-        {
-          "intro": "But he answered one of them, and said,",
-          "speech": "Friend, I do thee no wrong: didst not thou agree with me for a penny?"
-        }
-      ]
-    },
-    {
-      "verse": 14,
-      "segments": [
-        {
           "intro": "",
-          "speech": "Take that thine is, and go thy way: I will give unto this last, even as unto thee."
-        }
-      ]
-    },
-    {
-      "verse": 15,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good?"
-        }
-      ]
-    },
-    {
-      "verse": 16,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "So the last shall be first, and the first last: for many be called, but few chosen."
-        }
-      ]
-    },
-    {
-      "verse": 18,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "Behold, we go up to Jerusalem; and the Son of man shall be betrayed unto the chief priests and unto the scribes, and they shall condemn him to death,"
-        }
-      ]
-    },
-    {
-      "verse": 19,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "And shall deliver him to the Gentiles to mock, and to scourge, and to crucify him: and the third day he shall rise again."
-        }
-      ]
-    },
-    {
-      "verse": 21,
-      "segments": [
-        {
-          "intro": "And he said unto her,",
-          "speech": "What wilt thou?"
-        }
-      ]
-    },
-    {
-      "verse": 22,
-      "segments": [
-        {
-          "intro": "But Jesus answered and said,",
-          "speech": "Ye know not what ye ask. Are ye able to drink of the cup that I shall drink of, and to be baptized with the baptism that I am baptized with?"
-        }
-      ]
-    },
-    {
-      "verse": 23,
-      "segments": [
-        {
-          "intro": "And he saith unto them,",
-          "speech": "Ye shall drink indeed of my cup, and be baptized with the baptism that I am baptized with: but to sit on my right hand, and on my left, is not mine to give, but it shall be given to them for whom it is prepared of my Father."
-        }
-      ]
-    },
-    {
-      "verse": 25,
-      "segments": [
-        {
-          "intro": "But Jesus called them unto him, and said,",
-          "speech": "Ye know that the princes of the Gentiles exercise dominion over them, and they that are great exercise authority upon them."
-        }
-      ]
-    },
-    {
-      "verse": 26,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "But it shall not be so among you: but whosoever will be great among you, let him be your minister;"
-        }
-      ]
-    },
-    {
-      "verse": 27,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "And whosoever will be chief among you, let him be your servant:"
-        }
-      ]
-    },
-    {
-      "verse": 28,
-      "segments": [
-        {
-          "intro": "",
-          "speech": "Even as the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many."
-        }
-      ]
-    },
-    {
-      "verse": 32,
-      "segments": [
-        {
-          "intro": "and said,",
-          "speech": "What will ye that I shall do unto you?"
-        }
-      ]
-    }
-  ],
-  "19": [
-    {
-      "verse": 4,
-      "segments": [
-        {
-          "intro": "And he answered and said unto them,",
-          "speech": "Have ye not read, that he which made them at the beginning made them male and female,"
+          "speech": "And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up:"
         }
       ]
     },
@@ -2017,7 +3164,7 @@
       "segments": [
         {
           "intro": "",
-          "speech": "And said, For this cause shall a man leave father and mother, and shall cleave to his wife: and they twain shall be one flesh?"
+          "speech": "Some fell upon stony places, where they had not much earth: and forthwith they sprung up, because they had no deepness of earth:"
         }
       ]
     },
@@ -2026,7 +3173,16 @@
       "segments": [
         {
           "intro": "",
-          "speech": "Wherefore they are no more twain, but one flesh. What therefore God hath joined together, let not man put asunder."
+          "speech": "And when the sun was up, they were scorched; and because they had no root, they withered away."
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And some fell among thorns; and the thorns sprung up, and choked them:"
         }
       ]
     },
@@ -2034,8 +3190,8 @@
       "verse": 8,
       "segments": [
         {
-          "intro": "He saith unto them,",
-          "speech": "Moses because of the hardness of your hearts suffered you to put away your wives: but from the beginning it was not so."
+          "intro": "",
+          "speech": "But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold."
         }
       ]
     },
@@ -2044,7 +3200,7 @@
       "segments": [
         {
           "intro": "",
-          "speech": "And I say unto you, Whosoever shall put away his wife, except it be for fornication, and shall marry another, committeth adultery: and whoso marrieth her which is put away doth commit adultery."
+          "speech": "Who hath ears to hear, let him hear."
         }
       ]
     },
@@ -2052,8 +3208,26 @@
       "verse": 11,
       "segments": [
         {
-          "intro": "But he said unto them,",
-          "speech": "All men cannot receive this saying, save they to whom it is given."
+          "intro": "He answered and said unto them,",
+          "speech": "Because it is given unto you to know the mysteries of the kingdom of heaven, but to them it is not given."
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For whosoever hath, to him shall be given, and he shall have more abundance: but whosoever hath not, from him shall be taken away even that he hath."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Therefore speak I to them in parables: because they seeing see not; and hearing they hear not, neither do they understand."
         }
       ]
     },
@@ -2061,8 +3235,17 @@
       "verse": 14,
       "segments": [
         {
-          "intro": "But Jesus said,",
-          "speech": "Suffer little children, and forbid them not, to come unto me: for of such is the kingdom of heaven."
+          "intro": "",
+          "speech": "And in them is fulfilled the prophecy of Esaias, which saith, By hearing ye shall hear, and shall not understand; and seeing ye shall see, and shall not perceive:"
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But blessed are your eyes, for they see: and your ears, for they hear."
         }
       ]
     },
@@ -2070,8 +3253,8 @@
       "verse": 17,
       "segments": [
         {
-          "intro": "And he said unto him,",
-          "speech": "Why callest thou me good? there is none good but one, that is, God: but if thou wilt enter into life, keep the commandments."
+          "intro": "",
+          "speech": "For verily I say unto you, That many prophets and righteous men have desired to see those things which ye see, and have not seen them; and to hear those things which ye hear, and have not heard them."
         }
       ]
     },
@@ -2079,8 +3262,8 @@
       "verse": 18,
       "segments": [
         {
-          "intro": "Jesus said,",
-          "speech": "Thou shalt do no murder, Thou shalt not commit adultery, Thou shalt not steal, Thou shalt not bear false witness,"
+          "intro": "",
+          "speech": "Hear ye therefore the parable of the sower."
         }
       ]
     },
@@ -2089,7 +3272,16 @@
       "segments": [
         {
           "intro": "",
-          "speech": "Honour thy father and thy mother: and, Thou shalt love thy neighbour as thyself."
+          "speech": "When any one heareth the word of the kingdom, and understandeth it not, then cometh the wicked one, and catcheth away that which was sown in his heart. This is he which received seed by the way side."
+        }
+      ]
+    },
+    {
+      "verse": 20,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But he that received the seed into stony places, the same is he that heareth the word, and anon with joy receiveth it;"
         }
       ]
     },
@@ -2097,8 +3289,17 @@
       "verse": 21,
       "segments": [
         {
-          "intro": "Jesus said unto him,",
-          "speech": "If thou wilt be perfect, go and sell that thou hast, and give to the poor, and thou shalt have treasure in heaven: and come and follow me."
+          "intro": "",
+          "speech": "Yet hath he not root in himself, but dureth for a while: for when tribulation or persecution ariseth because of the word, by and by he is offended."
+        }
+      ]
+    },
+    {
+      "verse": 22,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "He also that received seed among the thorns is he that heareth the word; and the care of this world, and the deceitfulness of riches, choke the word, and he becometh unfruitful."
         }
       ]
     },
@@ -2106,8 +3307,8 @@
       "verse": 23,
       "segments": [
         {
-          "intro": "Then said Jesus unto his disciples,",
-          "speech": "Verily I say unto you, That a rich man shall hardly enter into the kingdom of heaven."
+          "intro": "",
+          "speech": "But he that received seed into the good ground is he that heareth the word, and understandeth it; which also beareth fruit, and bringeth forth, some an hundredfold, some sixty, some thirty."
         }
       ]
     },
@@ -2115,8 +3316,17 @@
       "verse": 24,
       "segments": [
         {
+          "intro": "Another parable put he forth unto them, saying,",
+          "speech": "The kingdom of heaven is likened unto a man which sowed good seed in his field:"
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
           "intro": "",
-          "speech": "And again I say unto you, It is easier for a camel to go through the eye of a needle, than for a rich man to enter into the kingdom of God."
+          "speech": "But while men slept, his enemy came and sowed tares among the wheat, and went his way."
         }
       ]
     },
@@ -2124,8 +3334,8 @@
       "verse": 26,
       "segments": [
         {
-          "intro": "But Jesus beheld them, and said unto them,",
-          "speech": "With men this is impossible; but with God all things are possible."
+          "intro": "",
+          "speech": "But when the blade was sprung up, and brought forth fruit, then appeared the tares also."
         }
       ]
     },
@@ -2133,8 +3343,17 @@
       "verse": 28,
       "segments": [
         {
-          "intro": "And Jesus said unto them,",
-          "speech": "Verily I say unto you, That ye which have followed me, in the regeneration when the Son of man shall sit in the throne of his glory, ye also shall sit upon twelve thrones, judging the twelve tribes of Israel."
+          "intro": "He said unto them,",
+          "speech": "An enemy hath done this."
+        }
+      ]
+    },
+    {
+      "verse": 29,
+      "segments": [
+        {
+          "intro": "But he said,",
+          "speech": "Nay; lest while ye gather up the tares, ye root up also the wheat with them."
         }
       ]
     },
@@ -2143,7 +3362,187 @@
       "segments": [
         {
           "intro": "",
-          "speech": "But many that are first shall be last; and the last shall be first."
+          "speech": "Let both grow together until the harvest: and in the time of harvest I will say to the reapers, Gather ye together first the tares, and bind them in bundles to burn them: but gather the wheat into my barn."
+        }
+      ]
+    },
+    {
+      "verse": 31,
+      "segments": [
+        {
+          "intro": "Another parable put he forth unto them, saying,",
+          "speech": "The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field:"
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof."
+        }
+      ]
+    },
+    {
+      "verse": 33,
+      "segments": [
+        {
+          "intro": "Another parable spake he unto them;",
+          "speech": "The kingdom of heaven is like unto leaven, which a woman took, and hid in three measures of meal, till the whole was leavened."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "He answered and said unto them,",
+          "speech": "He that soweth the good seed is the Son of man;"
+        }
+      ]
+    },
+    {
+      "verse": 38,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "The field is the world; the good seed are the children of the kingdom; but the tares are the children of the wicked one;"
+        }
+      ]
+    },
+    {
+      "verse": 39,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "The enemy that sowed them is the devil; the harvest is the end of the world; and the reapers are the angels."
+        }
+      ]
+    },
+    {
+      "verse": 40,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "As therefore the tares are gathered and burned in the fire; so shall it be in the end of this world."
+        }
+      ]
+    },
+    {
+      "verse": 41,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "The Son of man shall send forth his angels, and they shall gather out of his kingdom all things that offend, and them which do iniquity;"
+        }
+      ]
+    },
+    {
+      "verse": 42,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And shall cast them into a furnace of fire: there shall be wailing and gnashing of teeth."
+        }
+      ]
+    },
+    {
+      "verse": 43,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then shall the righteous shine forth as the sun in the kingdom of their Father. Who hath ears to hear, let him hear."
+        }
+      ]
+    },
+    {
+      "verse": 44,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Again, the kingdom of heaven is like unto treasure hid in a field; the which when a man hath found, he hideth, and for joy thereof goeth and selleth all that he hath, and buyeth that field."
+        }
+      ]
+    },
+    {
+      "verse": 45,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls:"
+        }
+      ]
+    },
+    {
+      "verse": 46,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Who, when he had found one pearl of great price, went and sold all that he had, and bought it."
+        }
+      ]
+    },
+    {
+      "verse": 47,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Again, the kingdom of heaven is like unto a net, that was cast into the sea, and gathered of every kind:"
+        }
+      ]
+    },
+    {
+      "verse": 48,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Which, when it was full, they drew to shore, and sat down, and gathered the good into vessels, but cast the bad away."
+        }
+      ]
+    },
+    {
+      "verse": 49,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "So shall it be at the end of the world: the angels shall come forth, and sever the wicked from among the just,"
+        }
+      ]
+    },
+    {
+      "verse": 50,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And shall cast them into the furnace of fire: there shall be wailing and gnashing of teeth."
+        }
+      ]
+    },
+    {
+      "verse": 51,
+      "segments": [
+        {
+          "intro": "Jesus saith unto them,",
+          "speech": "Have ye understood all these things?"
+        }
+      ]
+    },
+    {
+      "verse": 52,
+      "segments": [
+        {
+          "intro": "Then said he unto them,",
+          "speech": "Therefore every scribe which is instructed unto the kingdom of heaven is like unto a man that is an householder, which bringeth forth out of his treasure things new and old."
+        }
+      ]
+    },
+    {
+      "verse": 57,
+      "segments": [
+        {
+          "intro": "But Jesus said unto them,",
+          "speech": "A prophet is not without honour, save in his own country, and in his own house."
         }
       ]
     }
@@ -2651,8 +4050,314 @@
       ]
     }
   ],
-  "23": [],
-  "24": [],
+  "23": [
+    {
+      "verse": 3,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "All therefore whatsoever they bid you observe, that observe and do; but do not ye after their works: for they say, and do not."
+        }
+      ]
+    },
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But all their works they do for to be seen of men: they make broad their phylacteries, and enlarge the borders of their garments,"
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And love the uppermost rooms at feasts, and the chief seats in the synagogues,"
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And greetings in the markets, and to be called of men, Rabbi, Rabbi."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But be not ye called Rabbi: for one is your Master, even Christ; and all ye are brethren."
+        }
+      ]
+    },
+    {
+      "verse": 9,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And call no man your father upon the earth: for one is your Father, which is in heaven."
+        }
+      ]
+    },
+    {
+      "verse": 10,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Neither be ye called masters: for one is your Master, even Christ."
+        }
+      ]
+    },
+    {
+      "verse": 11,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But he that is greatest among you shall be your servant."
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And whosoever shall exalt himself shall be abased; and he that shall humble himself shall be exalted."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But woe unto you, scribes and Pharisees, hypocrites! for ye shut up the kingdom of heaven against men: for ye neither go in yourselves, neither suffer ye them that are entering to go in."
+        }
+      ]
+    },
+    {
+      "verse": 15,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Woe unto you, scribes and Pharisees, hypocrites! for ye compass sea and land to make one proselyte, and when he is made, ye make him twofold more the child of hell than yourselves."
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Woe unto you, ye blind guides, which say, Whosoever shall swear by the temple, it is nothing; but whosoever shall swear by the gold of the temple, he is a debtor!"
+        }
+      ]
+    },
+    {
+      "verse": 17,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye fools and blind: for whether is greater, the gold, or the temple that sanctifieth the gold?"
+        }
+      ]
+    },
+    {
+      "verse": 18,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And, Whosoever shall swear by the altar, it is nothing; but whosoever sweareth by the gift that is upon it, he is guilty."
+        }
+      ]
+    },
+    {
+      "verse": 19,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye fools and blind: for whether is greater, the gift, or the altar that sanctifieth the gift?"
+        }
+      ]
+    },
+    {
+      "verse": 20,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Whoso therefore shall swear by the altar, sweareth by it, and by all things thereon."
+        }
+      ]
+    },
+    {
+      "verse": 21,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And whoso shall swear by the temple, sweareth by it, and by him that dwelleth therein."
+        }
+      ]
+    },
+    {
+      "verse": 22,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And he that shall swear by heaven, sweareth by the throne of God, and by him that sitteth thereon."
+        }
+      ]
+    },
+    {
+      "verse": 23,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Woe unto you, scribes and Pharisees, hypocrites! for ye pay tithe of mint and anise and cummin, and have omitted the weightier matters of the law, judgment, mercy, and faith: these ought ye to have done, and not to leave the other undone."
+        }
+      ]
+    },
+    {
+      "verse": 24,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye blind guides, which strain at a gnat, and swallow a camel."
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Woe unto you, scribes and Pharisees, hypocrites! for ye make clean the outside of the cup and of the platter, but within they are full of extortion and excess."
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Thou blind Pharisee, cleanse first that which is within the cup and platter, that the outside of them may be clean also."
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Even so ye also outwardly appear righteous unto men, but within ye are full of hypocrisy and iniquity."
+        }
+      ]
+    },
+    {
+      "verse": 29,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Woe unto you, scribes and Pharisees, hypocrites! because ye build the tombs of the prophets, and garnish the sepulchres of the righteous,"
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And say, If we had been in the days of our fathers, we would not have been partakers with them in the blood of the prophets."
+        }
+      ]
+    },
+    {
+      "verse": 31,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Wherefore ye be witnesses unto yourselves, that ye are the children of them which killed the prophets."
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Fill ye up then the measure of your fathers."
+        }
+      ]
+    },
+    {
+      "verse": 33,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Ye serpents, ye generation of vipers, how can ye escape the damnation of hell?"
+        }
+      ]
+    },
+    {
+      "verse": 34,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Wherefore, behold, I send unto you prophets, and wise men, and scribes: and some of them ye shall kill and crucify; and some of them shall ye scourge in your synagogues, and persecute them from city to city:"
+        }
+      ]
+    },
+    {
+      "verse": 35,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "That upon you may come all the righteous blood shed upon the earth, from the blood of righteous Abel unto the blood of Zacharias son of Barachias, whom ye slew between the temple and the altar."
+        }
+      ]
+    },
+    {
+      "verse": 36,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Verily I say unto you, All these things shall come upon this generation."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "O Jerusalem, Jerusalem, thou that killest the prophets, and stonest them which are sent unto thee, how often would I have gathered thy children together, even as a hen gathereth her chickens under her wings, and ye would not!"
+        }
+      ]
+    },
+    {
+      "verse": 38,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Behold, your house is left unto you desolate."
+        }
+      ]
+    },
+    {
+      "verse": 39,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For I say unto you, Ye shall not see me henceforth, till ye shall say, Blessed is he that cometh in the name of the Lord."
+        }
+      ]
+    }
+  ],
   "26": [
     {
       "verse": 2,
@@ -2925,5 +4630,836 @@
       ]
     }
   ],
-  "25": []
+  "24": [
+    {
+      "verse": 2,
+      "segments": [
+        {
+          "intro": "And Jesus said unto them,",
+          "speech": "See ye not all these things? verily I say unto you, There shall not be left here one stone upon another, that shall not be thrown down."
+        }
+      ]
+    },
+    {
+      "verse": 4,
+      "segments": [
+        {
+          "intro": "And Jesus answered and said unto them,",
+          "speech": "Take heed that no man deceive you."
+        }
+      ]
+    },
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For many shall come in my name, saying, I am Christ; and shall deceive many."
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And ye shall hear of wars and rumours of wars: see that ye be not troubled: for all these things must come to pass, but the end is not yet."
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For nation shall rise against nation, and kingdom against kingdom: and there shall be famines, and pestilences, and earthquakes, in divers places."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "All these are the beginning of sorrows."
+        }
+      ]
+    },
+    {
+      "verse": 10,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And then shall many be offended, and shall betray one another, and shall hate one another."
+        }
+      ]
+    },
+    {
+      "verse": 11,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And many false prophets shall rise, and shall deceive many."
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And because iniquity shall abound, the love of many shall wax cold."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But he that shall endure unto the end, the same shall be saved."
+        }
+      ]
+    },
+    {
+      "verse": 14,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And this gospel of the kingdom shall be preached in all the world for a witness unto all nations; and then shall the end come."
+        }
+      ]
+    },
+    {
+      "verse": 15,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "When ye therefore shall see the abomination of desolation, spoken of by Daniel the prophet, stand in the holy place, (whoso readeth, let him understand:)"
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then let them which be in Judaea flee into the mountains:"
+        }
+      ]
+    },
+    {
+      "verse": 17,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Let him which is on the housetop not come down to take any thing out of his house:"
+        }
+      ]
+    },
+    {
+      "verse": 18,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Neither let him which is in the field return back to take his clothes."
+        }
+      ]
+    },
+    {
+      "verse": 19,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And woe unto them that are with child, and to them that give suck in those days!"
+        }
+      ]
+    },
+    {
+      "verse": 20,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But pray ye that your flight be not in the winter, neither on the sabbath day:"
+        }
+      ]
+    },
+    {
+      "verse": 21,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For then shall be great tribulation, such as was not since the beginning of the world to this time, no, nor ever shall be."
+        }
+      ]
+    },
+    {
+      "verse": 23,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then if any man shall say unto you, Lo, here is Christ, or there; believe it not."
+        }
+      ]
+    },
+    {
+      "verse": 24,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For there shall arise false Christs, and false prophets, and shall shew great signs and wonders; insomuch that, if it were possible, they shall deceive the very elect."
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Behold, I have told you before."
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Wherefore if they shall say unto you, Behold, he is in the desert; go not forth: behold, he is in the secret chambers; believe it not."
+        }
+      ]
+    },
+    {
+      "verse": 27,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For as the lightning cometh out of the east, and shineth even unto the west; so shall also the coming of the Son of man be."
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For wheresoever the carcase is, there will the eagles be gathered together."
+        }
+      ]
+    },
+    {
+      "verse": 29,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Immediately after the tribulation of those days shall the sun be darkened, and the moon shall not give her light, and the stars shall fall from heaven, and the powers of the heavens shall be shaken:"
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And then shall appear the sign of the Son of man in heaven: and then shall all the tribes of the earth mourn, and they shall see the Son of man coming in the clouds of heaven with power and great glory."
+        }
+      ]
+    },
+    {
+      "verse": 31,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And he shall send his angels with a great sound of a trumpet, and they shall gather together his elect from the four winds, from one end of heaven to the other."
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Now learn a parable of the fig tree; When his branch is yet tender, and putteth forth leaves, ye know that summer is nigh:"
+        }
+      ]
+    },
+    {
+      "verse": 33,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "So likewise ye, when ye shall see all these things, know that it is near, even at the doors."
+        }
+      ]
+    },
+    {
+      "verse": 34,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Verily I say unto you, This generation shall not pass, till all these things be fulfilled."
+        }
+      ]
+    },
+    {
+      "verse": 35,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Heaven and earth shall pass away, but my words shall not pass away."
+        }
+      ]
+    },
+    {
+      "verse": 36,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But of that day and hour knoweth no man, no, not the angels of heaven, but my Father only."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But as the days of Noe were, so shall also the coming of the Son of man be."
+        }
+      ]
+    },
+    {
+      "verse": 38,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For as in the days that were before the flood they were eating and drinking, marrying and giving in marriage, until the day that Noe entered into the ark,"
+        }
+      ]
+    },
+    {
+      "verse": 39,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And knew not until the flood came, and took them all away; so shall also the coming of the Son of man be."
+        }
+      ]
+    },
+    {
+      "verse": 40,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then shall two be in the field; the one shall be taken, and the other left."
+        }
+      ]
+    },
+    {
+      "verse": 41,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Two women shall be grinding at the mill; the one shall be taken, and the other left."
+        }
+      ]
+    },
+    {
+      "verse": 42,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Watch therefore: for ye know not what hour your Lord doth come."
+        }
+      ]
+    },
+    {
+      "verse": 43,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But know this, that if the goodman of the house had known in what watch the thief would come, he would have watched, and would not have suffered his house to be broken up."
+        }
+      ]
+    },
+    {
+      "verse": 44,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Therefore be ye also ready: for in such an hour as ye think not the Son of man cometh."
+        }
+      ]
+    },
+    {
+      "verse": 45,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Who then is a faithful and wise servant, whom his lord hath made ruler over his household, to give them meat in due season?"
+        }
+      ]
+    },
+    {
+      "verse": 46,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Blessed is that servant, whom his lord when he cometh shall find so doing."
+        }
+      ]
+    },
+    {
+      "verse": 47,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Verily I say unto you, That he shall make him ruler over all his goods."
+        }
+      ]
+    },
+    {
+      "verse": 48,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But and if that evil servant shall say in his heart, My lord delayeth his coming;"
+        }
+      ]
+    },
+    {
+      "verse": 49,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And shall begin to smite his fellowservants, and to eat and drink with the drunken;"
+        }
+      ]
+    },
+    {
+      "verse": 50,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "The lord of that servant shall come in a day when he looketh not for him, and in an hour that he is not aware of,"
+        }
+      ]
+    },
+    {
+      "verse": 51,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And shall cut him asunder, and appoint him his portion with the hypocrites: there shall be weeping and gnashing of teeth."
+        }
+      ]
+    }
+  ],
+  "25": [
+    {
+      "verse": 1,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom."
+        }
+      ]
+    },
+    {
+      "verse": 2,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And five of them were wise, and five were foolish."
+        }
+      ]
+    },
+    {
+      "verse": 3,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "They that were foolish took their lamps, and took no oil with them:"
+        }
+      ]
+    },
+    {
+      "verse": 4,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But the wise took oil in their vessels with their lamps."
+        }
+      ]
+    },
+    {
+      "verse": 5,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "While the bridegroom tarried, they all slumbered and slept."
+        }
+      ]
+    },
+    {
+      "verse": 6,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him."
+        }
+      ]
+    },
+    {
+      "verse": 7,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then all those virgins arose, and trimmed their lamps."
+        }
+      ]
+    },
+    {
+      "verse": 8,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And the foolish said unto the wise, Give us of your oil; for our lamps are gone out."
+        }
+      ]
+    },
+    {
+      "verse": 9,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves."
+        }
+      ]
+    },
+    {
+      "verse": 10,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut."
+        }
+      ]
+    },
+    {
+      "verse": 11,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Afterward came also the other virgins, saying, Lord, Lord, open to us."
+        }
+      ]
+    },
+    {
+      "verse": 12,
+      "segments": [
+        {
+          "intro": "But he answered and said,",
+          "speech": "Verily I say unto you, I know you not."
+        }
+      ]
+    },
+    {
+      "verse": 13,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh."
+        }
+      ]
+    },
+    {
+      "verse": 14,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For the kingdom of heaven is as a man travelling into a far country, who called his own servants, and delivered unto them his goods."
+        }
+      ]
+    },
+    {
+      "verse": 15,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And unto one he gave five talents, to another two, and to another one; to every man according to his several ability; and straightway took his journey."
+        }
+      ]
+    },
+    {
+      "verse": 16,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then he that had received the five talents went and traded with the same, and made them other five talents."
+        }
+      ]
+    },
+    {
+      "verse": 17,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And likewise he that had received two, he also gained other two."
+        }
+      ]
+    },
+    {
+      "verse": 19,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "After a long time the lord of those servants cometh, and reckoneth with them."
+        }
+      ]
+    },
+    {
+      "verse": 20,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And so he that had received five talents came and brought other five talents, saying, Lord, thou deliveredst unto me five talents: behold, I have gained beside them five talents more."
+        }
+      ]
+    },
+    {
+      "verse": 21,
+      "segments": [
+        {
+          "intro": "His lord said unto him,",
+          "speech": "Well done, thou good and faithful servant: thou hast been faithful over a few things, I will make thee ruler over many things: enter thou into the joy of thy lord."
+        }
+      ]
+    },
+    {
+      "verse": 22,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "He also that had received two talents came and said, Lord, thou deliveredst unto me two talents: behold, I have gained two other talents beside them."
+        }
+      ]
+    },
+    {
+      "verse": 23,
+      "segments": [
+        {
+          "intro": "His lord said unto him,",
+          "speech": "Well done, good and faithful servant; thou hast been faithful over a few things, I will make thee ruler over many things: enter thou into the joy of thy lord."
+        }
+      ]
+    },
+    {
+      "verse": 24,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then he which had received the one talent came and said, Lord, I knew thee that thou art an hard man, reaping where thou hast not sown, and gathering where thou hast not strawed:"
+        }
+      ]
+    },
+    {
+      "verse": 25,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And I was afraid, and went and hid thy talent in the earth: lo, there thou hast that is thine."
+        }
+      ]
+    },
+    {
+      "verse": 26,
+      "segments": [
+        {
+          "intro": "His lord answered and said unto him,",
+          "speech": "Thou wicked and slothful servant, thou knewest that I reap where I sowed not, and gather where I have not strawed:"
+        }
+      ]
+    },
+    {
+      "verse": 27,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Thou oughtest therefore to have put my money to the exchangers, and then at my coming I should have received mine own with usury."
+        }
+      ]
+    },
+    {
+      "verse": 28,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Take therefore the talent from him, and give it unto him which hath ten talents."
+        }
+      ]
+    },
+    {
+      "verse": 29,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For unto every one that hath shall be given, and he shall have abundance: but from him that hath not shall be taken away even that which he hath."
+        }
+      ]
+    },
+    {
+      "verse": 30,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And cast ye the unprofitable servant into outer darkness: there shall be weeping and gnashing of teeth."
+        }
+      ]
+    },
+    {
+      "verse": 31,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "When the Son of man shall come in his glory, and all the holy angels with him, then shall he sit upon the throne of his glory:"
+        }
+      ]
+    },
+    {
+      "verse": 32,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And before him shall be gathered all nations: and he shall separate them one from another, as a shepherd divideth his sheep from the goats:"
+        }
+      ]
+    },
+    {
+      "verse": 33,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And he shall set the sheep on his right hand, but the goats on the left."
+        }
+      ]
+    },
+    {
+      "verse": 34,
+      "segments": [
+        {
+          "intro": "Then shall the King say unto them on his right hand,",
+          "speech": "Come, ye blessed of my Father, inherit the kingdom prepared for you from the foundation of the world:"
+        }
+      ]
+    },
+    {
+      "verse": 35,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For I was an hungred, and ye gave me meat: I was thirsty, and ye gave me drink: I was a stranger, and ye took me in:"
+        }
+      ]
+    },
+    {
+      "verse": 36,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Naked, and ye clothed me: I was sick, and ye visited me: I was in prison, and ye came unto me."
+        }
+      ]
+    },
+    {
+      "verse": 37,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then shall the righteous answer him, saying, Lord, when saw we thee an hungred, and fed thee? or thirsty, and gave thee drink?"
+        }
+      ]
+    },
+    {
+      "verse": 38,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "When saw we thee a stranger, and took thee in? or naked, and clothed thee?"
+        }
+      ]
+    },
+    {
+      "verse": 39,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Or when saw we thee sick, or in prison, and came unto thee?"
+        }
+      ]
+    },
+    {
+      "verse": 40,
+      "segments": [
+        {
+          "intro": "And the King shall answer and say unto them,",
+          "speech": "Verily I say unto you, Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me."
+        }
+      ]
+    },
+    {
+      "verse": 41,
+      "segments": [
+        {
+          "intro": "Then shall he say also unto them on the left hand,",
+          "speech": "Depart from me, ye cursed, into everlasting fire, prepared for the devil and his angels:"
+        }
+      ]
+    },
+    {
+      "verse": 42,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "For I was an hungred, and ye gave me no meat: I was thirsty, and ye gave me no drink:"
+        }
+      ]
+    },
+    {
+      "verse": 43,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "I was a stranger, and ye took me not in: naked, and ye clothed me not: sick, and in prison, and ye visited me not."
+        }
+      ]
+    },
+    {
+      "verse": 44,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "Then shall they also answer him, saying, Lord, when saw we thee an hungred, or athirst, or a stranger, or naked, or sick, or in prison, and did not minister unto thee?"
+        }
+      ]
+    },
+    {
+      "verse": 45,
+      "segments": [
+        {
+          "intro": "Then shall he answer them, saying,",
+          "speech": "Verily I say unto you, Inasmuch as ye did it not to one of the least of these, ye did it not to me."
+        }
+      ]
+    },
+    {
+      "verse": 46,
+      "segments": [
+        {
+          "intro": "",
+          "speech": "And these shall go away into everlasting punishment: but the righteous into life eternal."
+        }
+      ]
+    }
+  ]
 }
