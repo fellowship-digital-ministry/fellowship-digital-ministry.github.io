@@ -165,9 +165,13 @@ def load_kjv_book(book_slug):
 
 
 def all_book_slugs():
-    """All 66 KJV book files."""
+    """All 66 KJV book files. Skips meta files (Books.json index, LICENSE, README)."""
+    SKIP = {"Books"}  # Books.json is a meta index of book names, not a book
     files = glob.glob(os.path.join(KJV_DIR, "*.json"))
-    return sorted(os.path.basename(f).replace(".json", "") for f in files)
+    return sorted(
+        s for s in (os.path.basename(f).replace(".json", "") for f in files)
+        if s not in SKIP
+    )
 
 
 def save_json(path, data):
@@ -306,7 +310,10 @@ def process_book_red_letter(book_slug, client, model, force, max_workers):
         if not verses: return chnum, {"verses": []}
         verses_by_num = {str(v["verse"]): v for v in verses}
         user = red_letter_user_message(book_name, chnum, verses)
-        result = call_llm(client, model, RED_LETTER_SYSTEM, user, max_tokens=2000)
+        # 4000 tokens is enough for long Jesus-heavy chapters (e.g. Matt 5,
+        # the Sermon on the Mount, hit ~8K chars output). Original 2000
+        # silently truncated mid-JSON and produced zero red-letter spans.
+        result = call_llm(client, model, RED_LETTER_SYSTEM, user, max_tokens=4000)
         if not result: return chnum, {"verses": []}
         cleaned = validate_red_letter(result, verses_by_num)
         return chnum, cleaned or {"verses": []}

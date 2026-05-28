@@ -38,18 +38,18 @@
 
 /* ---------- Hero ---------- */
 .refv-hero {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem;
 }
 .refv-title {
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.25rem;
   color: var(--refv-primary);
   letter-spacing: -0.01em;
 }
 .refv-tagline {
   color: var(--refv-text-muted);
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.25rem;
   max-width: 60ch;
 }
 
@@ -57,9 +57,15 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  align-items: flex-start;
+}
+.refv-lookup-combo {
+  position: relative;
+  flex: 1;
+  min-width: 0;
 }
 .refv-lookup input {
-  flex: 1;
+  width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   border: 1px solid var(--refv-border);
@@ -69,12 +75,72 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
   -webkit-appearance: none;
   appearance: none;
+  box-sizing: border-box;
 }
 .refv-lookup input:focus {
   outline: none;
   border-color: var(--refv-primary);
   box-shadow: 0 0 0 3px var(--refv-primary-light);
 }
+.refv-lookup-combo[aria-expanded="true"] input,
+.refv-lookup input[aria-expanded="true"] {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Autocomplete dropdown */
+.refv-lookup-suggestions {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--refv-bg);
+  border: 1px solid var(--refv-primary);
+  border-top-color: var(--refv-border);
+  border-radius: 0 0 var(--refv-radius) var(--refv-radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  max-height: 18rem;
+  overflow-y: auto;
+}
+.refv-lookup-suggestions[hidden] { display: none; }
+.refv-lookup-suggestion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  color: var(--refv-text);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+.refv-lookup-suggestion-name { font-weight: 500; }
+.refv-lookup-suggestion-name mark {
+  background: transparent;
+  color: var(--refv-primary);
+  font-weight: 700;
+}
+.refv-lookup-suggestion-target {
+  color: var(--refv-text-muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.refv-lookup-suggestion:hover,
+.refv-lookup-suggestion.is-active {
+  background: var(--refv-bg-soft);
+}
+.refv-lookup-suggestion-empty {
+  padding: 0.6rem 0.9rem;
+  color: var(--refv-text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 .refv-lookup-go {
   width: 48px;
   flex: 0 0 48px;
@@ -173,67 +239,62 @@
   white-space: nowrap;
 }
 
-/* ---------- Browse (collapsed details/summary) ---------- */
-.refv-browse details {
-  border: 1px solid var(--refv-border);
-  border-radius: var(--refv-radius);
-  background: var(--refv-bg);
+/* ---------- Browse (always-open book grid) ---------- */
+.refv-browse-head {
+  margin-bottom: 1rem;
 }
-.refv-browse summary {
-  list-style: none;
-  padding: 0.85rem 1rem;
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.refv-browse .refv-section-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+  color: var(--refv-text);
 }
-.refv-browse summary::-webkit-details-marker { display: none; }
-.refv-browse summary::after {
-  content: "▾";
+.refv-browse .refv-section-sub {
+  font-size: 0.875rem;
   color: var(--refv-text-muted);
-  transition: transform 0.15s ease;
-}
-.refv-browse details[open] summary::after {
-  transform: rotate(180deg);
+  margin: 0;
 }
 .refv-browse-body {
-  padding: 0.5rem 1rem 1.25rem;
+  padding: 0;
 }
 .refv-testament + .refv-testament {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
 }
 .refv-testament-title {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--refv-text-muted);
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.65rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--refv-border);
 }
 .refv-books-grid {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
 }
 .refv-book-chip {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.45rem 0.7rem;
+  padding: 0.6rem 0.8rem;
   border: 1px solid var(--refv-border);
   border-radius: var(--refv-radius-sm);
   background: var(--refv-bg);
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--refv-text);
   text-align: left;
   width: 100%;
-  transition: border-color 0.12s ease, background 0.12s ease;
+  min-height: 2.6rem;
+  transition: border-color 0.12s ease, background 0.12s ease, transform 0.08s ease;
 }
 .refv-book-chip:hover,
 .refv-book-chip:focus-visible {
@@ -241,10 +302,38 @@
   background: var(--refv-bg-soft);
   outline: none;
 }
+.refv-book-chip:active {
+  transform: translateY(1px);
+}
+.refv-book-chip-name {
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .refv-book-chip-count {
   color: var(--refv-text-muted);
   font-size: 0.8rem;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+/* Books with sermon refs: subtle burgundy accent on the count badge. */
+.refv-book-chip.has-refs .refv-book-chip-count {
+  color: var(--refv-primary);
+  font-weight: 600;
+}
+/* Books with no refs yet: keep navigable but visually quiet. */
+.refv-book-chip.no-refs {
+  background: transparent;
+}
+.refv-book-chip.no-refs .refv-book-chip-name {
+  color: var(--refv-text-muted);
+  font-weight: 400;
+}
+.refv-book-chip.no-refs .refv-book-chip-count {
+  color: #b5ad9f;
 }
 
 /* ---------- Detail panel ---------- */
@@ -987,9 +1076,108 @@ html { scroll-behavior: smooth; }
   outline: none;
 }
 
+/* ---------- Section headings (Scofield/ESV-style) ----------
+   Sits between paragraphs inside .refv-bible-reading. Restrained typography
+   so it orients without competing with the Scripture text. */
+.refv-bible-heading {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--refv-text-muted);
+  margin: 1.75rem 0 0.85rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--refv-border);
+}
+.refv-bible-reading > .refv-bible-heading:first-child {
+  margin-top: 0;
+}
+
+/* ---------- Red letter ----------
+   Jesus's spoken-word substrings wrapped by the renderer. Color picked to
+   match classic red-letter Bibles — deep red, eyes-friendly, prints fine. */
+.refv-red {
+  color: #a8201a;
+}
+
+/* ---------- Recent sermons (home page block) ---------- */
+.refv-recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.refv-recent-item {
+  background: var(--refv-bg);
+  border: 1px solid var(--refv-border);
+  border-radius: var(--refv-radius);
+  padding: 0.85rem 1rem;
+  box-shadow: var(--refv-shadow);
+}
+.refv-recent-meta {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+.refv-recent-date {
+  font-size: 0.78rem;
+  color: var(--refv-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.refv-recent-title {
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--refv-text);
+  line-height: 1.4;
+  margin-bottom: 0.65rem;
+}
+.refv-recent-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.refv-recent-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: var(--refv-radius-sm);
+  border: 1px solid var(--refv-border);
+  background: var(--refv-bg);
+  color: var(--refv-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+.refv-recent-btn:hover,
+.refv-recent-btn:focus-visible {
+  border-color: var(--refv-primary);
+  color: var(--refv-primary);
+  background: var(--refv-bg-soft);
+  outline: none;
+}
+.refv-recent-btn-read {
+  background: var(--refv-primary);
+  border-color: var(--refv-primary);
+  color: white;
+}
+.refv-recent-btn-read:hover,
+.refv-recent-btn-read:focus-visible {
+  background: var(--refv-primary-dark);
+  border-color: var(--refv-primary-dark);
+  color: white;
+}
+
 /* ---------- Wider viewports ---------- */
 @media (min-width: 720px) {
   .refv { padding: 2.5rem 1.5rem 5rem; }
-  .refv-title { font-size: 2.2rem; }
+  .refv-title { font-size: 2rem; }
   .refv-detail-title { font-size: 1.9rem; }
+  .refv-books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
 }

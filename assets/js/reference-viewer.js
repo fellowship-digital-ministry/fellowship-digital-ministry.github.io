@@ -16,8 +16,11 @@
   var STATS_URL = '/assets/data/bible/bible_stats.json';
   var BOOK_URL = function (slug) { return '/assets/data/bible/books/' + slug + '.json'; };
   var KJV_URL = function (slug) { return '/assets/data/Bible-kjv-master/' + slug + '.json'; };
+  var HEADINGS_URL = function (slug) { return '/assets/data/bible-headings/' + slug + '.json'; };
+  var RED_LETTER_URL = function (slug) { return '/assets/data/bible-red-letter/' + slug + '.json'; };
   var API_BASE = 'https://sermon-search-api-8fok.onrender.com';
   var TRANSCRIPT_URL = function (videoId) { return API_BASE + '/transcript/' + encodeURIComponent(videoId); };
+  var SERMONS_URL = API_BASE + '/sermons?limit=8';
 
   // Canonical book order (KJV, 66 books). Mirrors the data filenames.
   var BIBLE_BOOKS = [
@@ -171,7 +174,9 @@
     stats: null,
     bookCache: {},
     kjvCache: {},
-    transcriptCache: {}
+    transcriptCache: {},
+    headingsCache: {},
+    redLetterCache: {}
   };
 
   var els = {};
@@ -182,6 +187,7 @@
     els.lookupForm = $('lookup-form');
     els.lookupInput = $('lookup-input');
     els.lookupHint = $('lookup-hint');
+    els.lookupSuggestions = $('lookup-suggestions');
     els.otList = $('ot-list');
     els.ntList = $('nt-list');
     els.detail = $('detail-panel');
@@ -194,6 +200,8 @@
     els.occurrences = $('occurrences');
     els.heroSection = document.querySelector('.refv-hero');
     els.browseSection = document.querySelector('.refv-browse');
+    els.recentSection = $('recent-section');
+    els.recentList = $('recent-list');
     els.videoModal = $('video-modal');
     els.videoModalFrame = $('video-modal-frame');
     els.videoModalTitle = $('video-modal-title');
@@ -213,26 +221,109 @@
   // Lookup parser  ("Romans 8", "John 3:16", "1 Cor 13", "Ps 23:1")
   // ============================================================
 
-  function parseLookup(raw) {
+  // Split raw input into bookPart + chapter/verse. Tolerates partial input.
+  function splitLookup(raw) {
     if (!raw) return null;
     var s = raw.trim();
-    // Pull off optional verse: ":" or " v" or " verse "
     var verse = null, chapter = null;
     var m = s.match(/^(.+?)\s*[:.]\s*(\d+)\s*$/);
     if (m) {
       verse = parseInt(m[2], 10);
       s = m[1];
     }
-    // Now pull off chapter at end
     var m2 = s.match(/^(.+?)\s+(\d+)\s*$/);
     if (m2) {
       chapter = parseInt(m2[2], 10);
       s = m2[1];
     }
-    var bookKey = s.replace(/\s+/g, '').toLowerCase();
-    var book = BOOK_INDEX[bookKey];
+    return { bookPart: s.trim(), chapter: chapter, verse: verse };
+  }
+
+  function parseLookup(raw) {
+    var parts = splitLookup(raw);
+    if (!parts || !parts.bookPart) return null;
+    var key = parts.bookPart.replace(/\s+/g, '').toLowerCase();
+    var book = BOOK_INDEX[key];
+    if (!book) {
+      // Fall back to fuzzy: best autocomplete hit wins.
+      var hits = searchBooks(parts.bookPart, 1);
+      if (hits.length) book = hits[0].book;
+    }
     if (!book) return null;
-    return { book: book, chapter: chapter, verse: verse };
+    return { book: book, chapter: parts.chapter, verse: parts.verse };
+  }
+
+  // ============================================================
+  // Book search (powers autocomplete + fuzzy fallback)
+  // ============================================================
+
+  function levenshtein(a, b) {
+    if (a === b) return 0;
+    if (!a.length) return b.length;
+    if (!b.length) return a.length;
+    var prev = new Array(b.length + 1);
+    var curr = new Array(b.length + 1);
+    for (var j = 0; j <= b.length; j++) prev[j] = j;
+    for (var i = 1; i <= a.length; i++) {
+      curr[0] = i;
+      for (var k = 1; k <= b.length; k++) {
+        var cost = a.charCodeAt(i - 1) === b.charCodeAt(k - 1) ? 0 : 1;
+        curr[k] = Math.min(curr[k - 1] + 1, prev[k] + 1, prev[k - 1] + cost);
+      }
+      var tmp = prev; prev = curr; curr = tmp;
+    }
+    return prev[b.length];
+  }
+
+  // Returns ranked matches: [{ book, score, matchedKey }, ...]
+  // Lower score = better. Score buckets:
+  //   0 = exact, 1 = prefix, 2 = substring, 3+ = fuzzy (distance)
+  function searchBooks(query, limit) {
+    if (limit == null) limit = 6;
+    if (!query) return [];
+    var qRaw = query.toLowerCase().trim();
+    if (!qRaw) return [];
+    var q = qRaw.replace(/\s+/g, '');
+    if (!q) return [];
+
+    var seen = {};
+    var hits = [];
+
+    BIBLE_BOOKS.forEach(function (book) {
+      var name = book.display.toLowerCase();
+      var nameKey = name.replace(/\s+/g, '');
+      var score = -1;
+      if (nameKey === q) score = 0;
+      else if (nameKey.indexOf(q) === 0) score = 1;
+      else if (nameKey.indexOf(q) !== -1) score = 2;
+      else if (q.length >= 3) {
+        var window = nameKey.slice(0, q.length);
+        var d = levenshtein(q, window);
+        var maxAllowed = q.length <= 4 ? 1 : 2;
+        if (d <= maxAllowed) score = 3 + d;
+      }
+      if (score >= 0 && !seen[book.slug]) {
+        seen[book.slug] = true;
+        hits.push({ book: book, score: score, matchedName: book.display });
+      }
+    });
+
+    // Aliases (short forms) for cases like "ps", "1cor", "filip".
+    // Only adds books not already matched, and only on prefix.
+    Object.keys(BOOK_INDEX).forEach(function (alias) {
+      var book = BOOK_INDEX[alias];
+      if (!book || seen[book.slug]) return;
+      if (alias.indexOf(q) === 0) {
+        seen[book.slug] = true;
+        hits.push({ book: book, score: 1.5, matchedName: book.display });
+      }
+    });
+
+    hits.sort(function (a, b) {
+      if (a.score !== b.score) return a.score - b.score;
+      return BIBLE_BOOKS.indexOf(a.book) - BIBLE_BOOKS.indexOf(b.book);
+    });
+    return hits.slice(0, limit);
   }
 
   // ============================================================
@@ -276,6 +367,82 @@
   // Rendering: browse panel (OT + NT chips)
   // ============================================================
 
+  // ============================================================
+  // Recent sermons (home page block, optional — degrades silently)
+  // ============================================================
+
+  function renderRecentSermons() {
+    if (!els.recentList) return;
+    fetch(SERMONS_URL)
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) {
+        var sermons = (data && data.sermons) || [];
+        if (!sermons.length) return;
+        var html = sermons.map(function (s) {
+          var date = formatPublishDate(s.publish_date);
+          var passageGuess = extractPassageFromTitle(s.title);
+          var ytUrl = s.url || ('https://www.youtube.com/watch?v=' + s.video_id);
+          var readBtn = passageGuess
+            ? '<a class="refv-recent-btn refv-recent-btn-read" href="#' +
+                encodeURIComponent(passageGuess.book.slug) + '/' +
+                passageGuess.chapter + '">Read ' + escapeHtml(passageGuess.label) + '</a>'
+            : '';
+          return '<li class="refv-recent-item">' +
+            '<div class="refv-recent-meta">' +
+              (date ? '<span class="refv-recent-date">' + date + '</span>' : '') +
+            '</div>' +
+            '<div class="refv-recent-title">' + escapeHtml(s.title || 'Sermon') + '</div>' +
+            '<div class="refv-recent-actions">' +
+              readBtn +
+              '<button type="button" class="refv-recent-btn" data-action="transcript" ' +
+                'data-video="' + escapeAttr(s.video_id) + '" data-ts="0" ' +
+                'data-title="' + escapeAttr(s.title || 'Sermon') + '">Read transcript</button>' +
+              '<a class="refv-recent-btn" href="' + escapeAttr(ytUrl) +
+                '" target="_blank" rel="noopener">YouTube ↗</a>' +
+            '</div>' +
+          '</li>';
+        }).join('');
+        els.recentList.innerHTML = html;
+        els.recentSection.hidden = false;
+        // Wire transcript buttons (same handler shape as occurrence cards).
+        Array.prototype.forEach.call(
+          els.recentList.querySelectorAll('[data-action="transcript"]'),
+          function (btn) {
+            btn.addEventListener('click', function () {
+              openTranscriptModal(
+                btn.getAttribute('data-video'),
+                parseFloat(btn.getAttribute('data-ts')) || 0,
+                btn.getAttribute('data-title')
+              );
+            });
+          }
+        );
+      })
+      .catch(function () {
+        // API down or hasn't redeployed yet — just leave section hidden.
+      });
+  }
+
+  // Try to pull a passage citation out of a sermon title. Pastor's titles
+  // typically end with the passage, e.g.  '"To Save Sinners" 1 Timothy 1:12-17'
+  // → returns {book, chapter, label}. Returns null on no match.
+  function extractPassageFromTitle(title) {
+    if (!title) return null;
+    // Strip leading "quoted" portion + trim
+    var s = title.replace(/^[^"]*"[^"]*"\s*/, '').trim();
+    if (!s) s = title;
+    // Match BookName (with optional leading number) + chapter + optional verse range
+    var m = s.match(/((?:[IiVv]+\s+|[123]\s+)?[A-Z][a-zA-Z]+(?:\s+of\s+[A-Z][a-zA-Z]+)?)\s+(\d+)(?::\d+(?:-\d+)?)?/);
+    if (!m) return null;
+    var bookKey = m[1].trim().toLowerCase().replace(/\s+/g, '');
+    // Handle Roman numeral prefixes
+    bookKey = bookKey.replace(/^i(?=[a-z])/, '1').replace(/^ii(?=[a-z])/, '2').replace(/^iii(?=[a-z])/, '3');
+    var book = BOOK_INDEX[bookKey];
+    if (!book) return null;
+    var chapter = parseInt(m[2], 10);
+    return { book: book, chapter: chapter, label: book.display + ' ' + chapter };
+  }
+
   function renderBrowse() {
     var s = state.stats || {};
     var counts = s.books_count || {};
@@ -289,12 +456,19 @@
     function render(list, target) {
       var html = list.map(function (book) {
         var c = countFor(book);
-        return '<li><button class="refv-book-chip" data-book="' + book.slug + '" type="button">' +
-          '<span>' + book.display + '</span>' +
-          '<span class="refv-book-chip-count">' + (c ? c + ' refs' : '—') + '</span>' +
+        var refClass = c > 0 ? ' has-refs' : ' no-refs';
+        var countLabel = c > 0 ? (c + (c === 1 ? ' ref' : ' refs')) : 'no refs yet';
+        var aria = book.display + ', ' + countLabel;
+        return '<li><button class="refv-book-chip' + refClass + '" data-book="' + book.slug +
+          '" type="button" aria-label="' + escapeAttr(aria) + '">' +
+          '<span class="refv-book-chip-name">' + escapeHtml(book.display) + '</span>' +
+          '<span class="refv-book-chip-count" aria-hidden="true">' +
+            (c > 0 ? c : '·') +
+          '</span>' +
           '</button></li>';
       }).join('');
       target.innerHTML = html;
+      target.setAttribute('aria-busy', 'false');
       Array.prototype.forEach.call(target.querySelectorAll('.refv-book-chip'), function (el) {
         el.addEventListener('click', function () {
           var slug = el.getAttribute('data-book');
@@ -315,12 +489,16 @@
     els.detail.hidden = true;
     els.heroSection.hidden = false;
     els.browseSection.hidden = false;
+    if (els.recentSection && els.recentList && els.recentList.children.length) {
+      els.recentSection.hidden = false;
+    }
     window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
   }
 
   function showDetail(book, chapter, verse) {
     els.heroSection.hidden = true;
     els.browseSection.hidden = true;
+    if (els.recentSection) els.recentSection.hidden = true;
     els.detail.hidden = false;
     els.verseTextBlock.hidden = true;
     els.occurrences.innerHTML = '<div class="refv-loading">Loading…</div>';
@@ -396,14 +574,23 @@
       return;
     }
 
-    // Whole-chapter view: read the KJV chapter, with badges on preached verses
-    // and sermon cards grouped by verse below.
+    // Whole-chapter view: load KJV + headings + red-letter overlays in
+    // parallel, then render. Overlays degrade gracefully — if the file's
+    // missing the page just renders without that layer.
     els.occurrences.innerHTML = '<div class="refv-loading">Loading chapter…</div>';
-    loadKjvBook(book).then(function (kjvData) {
+    Promise.all([
+      loadKjvBook(book),
+      loadHeadings(book),
+      loadRedLetter(book)
+    ]).then(function (results) {
+      var kjvData = results[0];
+      var headings = results[1];
+      var redLetter = results[2];
       var kjvChapter = readKjvChapter(kjvData, chapter);
-      renderChapterReading(book, chapter, refs, kjvChapter);
+      var chHeadings = (headings && headings[String(chapter)]) || [];
+      var chRedLetter = (redLetter && redLetter[String(chapter)]) || [];
+      renderChapterReading(book, chapter, refs, kjvChapter, chHeadings, chRedLetter);
     }).catch(function () {
-      // KJV unavailable; degrade to a flat sermon list.
       if (!refs.length) {
         els.occurrences.innerHTML = '<div class="refv-empty">No sermons in the library reference ' +
           book.display + ' ' + chapter + ' yet.</div>';
@@ -434,7 +621,7 @@
     });
   }
 
-  function renderChapterReading(book, chapter, refs, kjvChapter) {
+  function renderChapterReading(book, chapter, refs, kjvChapter, headings, redLetter) {
     // Group refs by verse. Verse-less refs land in a "chapter-level" bucket.
     var byVerse = {};
     refs.forEach(function (r) {
@@ -454,12 +641,14 @@
 
     var hasAnyRefs = refs.length > 0;
 
-    // The chapter itself, in paragraph flow.
+    // The chapter itself, in paragraph flow. Section headings (if any)
+    // break the flow into editor-style sections; Jesus's spoken words
+    // (if any) render in red.
     var bibleHtml = '';
     if (kjvChapter && Array.isArray(kjvChapter.verses) && kjvChapter.verses.length) {
       bibleHtml = '<section class="refv-bible-reading" aria-label="' +
         escapeAttr(book.display + ' ' + chapter + ', King James Version') + '">';
-      bibleHtml += renderVersesAsParagraphs(kjvChapter.verses, byVerse);
+      bibleHtml += renderVersesAsParagraphs(kjvChapter.verses, byVerse, headings || [], redLetter || []);
       bibleHtml += '</section>';
     }
 
@@ -562,33 +751,113 @@
     '</button>';
   }
 
-  // Group verses into paragraphs of ~5, mimicking printed-Bible flow.
-  // Verse numbers ride inline as quiet superscripts; verses with sermon refs
-  // become clickable (number + small bullet) without disrupting the prose.
-  function renderVersesAsParagraphs(verses, byVerse) {
+  // Walk verses inserting (a) section headings at their `before_verse`
+  // anchors, (b) red-letter spans around Jesus's spoken-word substrings,
+  // and (c) paragraph breaks every ~5 verses within a heading-section.
+  // Headings always start a new paragraph block (printed-Bible feel).
+  function renderVersesAsParagraphs(verses, byVerse, headings, redLetter) {
     var GROUP_SIZE = 5;
-    var paragraphs = [];
-    for (var i = 0; i < verses.length; i += GROUP_SIZE) {
-      paragraphs.push(verses.slice(i, i + GROUP_SIZE));
+    var headingAt = {};
+    (headings || []).forEach(function (h) { headingAt[h.before_verse] = h.title; });
+    var redAt = {};
+    (redLetter || []).forEach(function (r) { redAt[r.verse] = r.segments; });
+
+    var out = [];
+    var currentPara = [];
+    var sinceHeading = 0;
+
+    function flushPara() {
+      if (currentPara.length) {
+        out.push('<p class="refv-bible-para">' + currentPara.join(' ') + '</p>');
+        currentPara = [];
+      }
     }
-    return paragraphs.map(function (group) {
-      var inner = group.map(function (v) {
-        var n = parseInt(v.verse, 10);
-        var hits = byVerse[n];
-        var has = hits && hits.length > 0;
-        var label = 'Verse ' + n + (has ? ' — ' + hits.length +
-          (hits.length === 1 ? ' sermon' : ' sermons') : '');
-        if (has) {
-          return '<sup class="refv-vnum has-refs" data-verse="' + n +
-            '" role="button" tabindex="0" aria-label="' + escapeAttr(label) + '">' +
-            n + '<span class="refv-vdot" aria-hidden="true"></span></sup> ' +
-            escapeHtml(v.text || '');
-        }
-        return '<sup class="refv-vnum" id="verse-' + n + '">' + n + '</sup> ' +
-          escapeHtml(v.text || '');
-      }).join(' ');
-      return '<p class="refv-bible-para">' + inner + '</p>';
-    }).join('');
+
+    verses.forEach(function (v) {
+      var n = parseInt(v.verse, 10);
+
+      // Insert heading before this verse if there is one.
+      if (headingAt[n]) {
+        flushPara();
+        out.push('<h3 class="refv-bible-heading">' + escapeHtml(headingAt[n]) + '</h3>');
+        sinceHeading = 0;
+      }
+
+      // Verse number element (quiet sup; burgundy + dot when has sermons).
+      var hits = byVerse[n];
+      var has = hits && hits.length > 0;
+      var numEl;
+      if (has) {
+        var label = 'Verse ' + n + ' — ' + hits.length +
+          (hits.length === 1 ? ' sermon' : ' sermons');
+        numEl = '<sup class="refv-vnum has-refs" data-verse="' + n +
+          '" role="button" tabindex="0" aria-label="' + escapeAttr(label) + '">' +
+          n + '<span class="refv-vdot" aria-hidden="true"></span></sup>';
+      } else {
+        numEl = '<sup class="refv-vnum" id="verse-' + n + '">' + n + '</sup>';
+      }
+
+      // Verse text — apply red-letter wrapping if Jesus speaks here.
+      var textHtml = redAt[n]
+        ? renderVerseTextWithRedLetter(v.text || '', redAt[n])
+        : escapeHtml(v.text || '');
+
+      currentPara.push(numEl + ' ' + textHtml);
+      sinceHeading += 1;
+
+      // Within a heading-section, group ~5 verses per paragraph.
+      if (sinceHeading >= GROUP_SIZE) {
+        flushPara();
+        sinceHeading = 0;
+      }
+    });
+    flushPara();
+    return out.join('');
+  }
+
+  // Wrap each speech segment in a red-letter span, leaving narrative intro
+  // text in regular type. Segments are {intro, speech}; we locate `speech`
+  // as a substring of the verse text and split around it.
+  function renderVerseTextWithRedLetter(text, segments) {
+    if (!segments || !segments.length || !text) return escapeHtml(text);
+    var positions = [];
+    segments.forEach(function (seg) {
+      var sp = (seg && seg.speech || '').trim();
+      if (!sp) return;
+      var idx = text.indexOf(sp);
+      if (idx === -1) {
+        // Try whitespace-normalized fallback (model may have collapsed spaces)
+        var spNorm = sp.replace(/\s+/g, ' ');
+        var textNorm = text.replace(/\s+/g, ' ');
+        var normIdx = textNorm.indexOf(spNorm);
+        if (normIdx === -1) return;
+        // Translate normalized index back is tricky; just skip in this case.
+        return;
+      }
+      positions.push({ start: idx, end: idx + sp.length });
+    });
+    if (!positions.length) return escapeHtml(text);
+    positions.sort(function (a, b) { return a.start - b.start; });
+    // Merge any overlapping spans.
+    var merged = [positions[0]];
+    for (var i = 1; i < positions.length; i++) {
+      var prev = merged[merged.length - 1];
+      var cur = positions[i];
+      if (cur.start <= prev.end) {
+        prev.end = Math.max(prev.end, cur.end);
+      } else {
+        merged.push(cur);
+      }
+    }
+    var out = '';
+    var cursor = 0;
+    merged.forEach(function (p) {
+      if (p.start > cursor) out += escapeHtml(text.substring(cursor, p.start));
+      out += '<span class="refv-red">' + escapeHtml(text.substring(p.start, p.end)) + '</span>';
+      cursor = p.end;
+    });
+    if (cursor < text.length) out += escapeHtml(text.substring(cursor));
+    return out;
   }
 
   // ---- Sermons modal ----
@@ -739,15 +1008,41 @@
       });
   }
 
-  function loadKjvBook(book) {
+  function kjvSlugFor(book) {
     // Bible-kjv-master uses CamelCase ("1Corinthians.json", "SongofSolomon.json").
-    var kjvSlug = book.dataSlug ? book.dataSlug.replace(/_/g, '') : book.slug;
-    if (state.kjvCache[kjvSlug]) {
-      return Promise.resolve(state.kjvCache[kjvSlug]);
+    return book.dataSlug ? book.dataSlug.replace(/_/g, '') : book.slug;
+  }
+
+  function loadKjvBook(book) {
+    var slug = kjvSlugFor(book);
+    if (state.kjvCache[slug]) {
+      return Promise.resolve(state.kjvCache[slug]);
     }
-    return fetch(KJV_URL(kjvSlug))
+    return fetch(KJV_URL(slug))
       .then(function (r) { if (!r.ok) throw new Error('not ok'); return r.json(); })
-      .then(function (d) { state.kjvCache[kjvSlug] = d; return d; });
+      .then(function (d) { state.kjvCache[slug] = d; return d; });
+  }
+
+  function loadHeadings(book) {
+    var slug = kjvSlugFor(book);
+    if (state.headingsCache[slug] !== undefined) {
+      return Promise.resolve(state.headingsCache[slug]);
+    }
+    return fetch(HEADINGS_URL(slug))
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (d) { state.headingsCache[slug] = d || {}; return state.headingsCache[slug]; })
+      .catch(function () { state.headingsCache[slug] = {}; return {}; });
+  }
+
+  function loadRedLetter(book) {
+    var slug = kjvSlugFor(book);
+    if (state.redLetterCache[slug] !== undefined) {
+      return Promise.resolve(state.redLetterCache[slug]);
+    }
+    return fetch(RED_LETTER_URL(slug))
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (d) { state.redLetterCache[slug] = d || {}; return state.redLetterCache[slug]; })
+      .catch(function () { state.redLetterCache[slug] = {}; return {}; });
   }
 
   function readKjvVerse(data, chapter, verse) {
@@ -943,22 +1238,198 @@
   // ============================================================
 
   function wireLookup() {
+    var activeIndex = -1;
+    var lastSuggestions = [];
+
+    function navigateTo(book, chapter, verse) {
+      els.lookupHint.textContent = '';
+      els.lookupHint.classList.remove('is-error');
+      var parts = [book.slug];
+      if (chapter) parts.push(chapter);
+      if (verse) parts.push(verse);
+      setHash(parts);
+      applyRoute();
+    }
+
+    function closeSuggestions() {
+      activeIndex = -1;
+      lastSuggestions = [];
+      els.lookupSuggestions.hidden = true;
+      els.lookupSuggestions.innerHTML = '';
+      els.lookupInput.setAttribute('aria-expanded', 'false');
+      els.lookupInput.removeAttribute('aria-activedescendant');
+    }
+
+    function highlightMatch(name, queryRaw) {
+      var q = (queryRaw || '').trim();
+      if (!q) return escapeHtml(name);
+      // Match against the name ignoring spaces in the query.
+      var qStrip = q.replace(/\s+/g, '').toLowerCase();
+      var nameStrip = name.toLowerCase().replace(/\s+/g, '');
+      var idx = nameStrip.indexOf(qStrip);
+      if (idx < 0) return escapeHtml(name);
+      // Walk the original name and mark the corresponding characters.
+      var marked = '';
+      var consumed = 0;
+      var inMark = false;
+      for (var i = 0; i < name.length; i++) {
+        var ch = name.charAt(i);
+        var isSpace = /\s/.test(ch);
+        var pos = consumed;
+        if (!isSpace) consumed++;
+        var shouldMark = !isSpace && pos >= idx && pos < idx + qStrip.length;
+        if (shouldMark && !inMark) { marked += '<mark>'; inMark = true; }
+        if (!shouldMark && inMark) { marked += '</mark>'; inMark = false; }
+        marked += escapeHtml(ch);
+      }
+      if (inMark) marked += '</mark>';
+      return marked;
+    }
+
+    function renderSuggestions(suggestions, parts) {
+      lastSuggestions = suggestions;
+      activeIndex = -1;
+      if (!suggestions.length) {
+        els.lookupSuggestions.hidden = true;
+        els.lookupSuggestions.innerHTML = '';
+        els.lookupInput.setAttribute('aria-expanded', 'false');
+        els.lookupInput.removeAttribute('aria-activedescendant');
+        return;
+      }
+      var trailingRef = parts.chapter
+        ? parts.chapter + (parts.verse ? ':' + parts.verse : '')
+        : '';
+      var html = suggestions.map(function (s, i) {
+        var nameHtml = highlightMatch(s.book.display, parts.bookPart);
+        var target = trailingRef
+          ? '<span class="refv-lookup-suggestion-target">' + escapeHtml(trailingRef) + ' &rarr;</span>'
+          : '';
+        return '<li id="lookup-sg-' + i + '" class="refv-lookup-suggestion" role="option"' +
+          ' data-index="' + i + '" aria-selected="false">' +
+          '<span class="refv-lookup-suggestion-name">' + nameHtml + '</span>' +
+          target +
+          '</li>';
+      }).join('');
+      els.lookupSuggestions.innerHTML = html;
+      els.lookupSuggestions.hidden = false;
+      els.lookupInput.setAttribute('aria-expanded', 'true');
+    }
+
+    function setActive(idx) {
+      var items = els.lookupSuggestions.querySelectorAll('.refv-lookup-suggestion');
+      if (!items.length) return;
+      if (idx < 0) idx = items.length - 1;
+      if (idx >= items.length) idx = 0;
+      activeIndex = idx;
+      Array.prototype.forEach.call(items, function (el, i) {
+        var active = i === idx;
+        el.classList.toggle('is-active', active);
+        el.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (active) {
+          els.lookupInput.setAttribute('aria-activedescendant', el.id);
+          if (el.scrollIntoView) el.scrollIntoView({ block: 'nearest' });
+        }
+      });
+    }
+
+    function pickSuggestion(idx) {
+      var pick = lastSuggestions[idx];
+      if (!pick) return false;
+      var parts = splitLookup(els.lookupInput.value) || { bookPart: '', chapter: null, verse: null };
+      if (parts.chapter) {
+        navigateTo(pick.book, parts.chapter, parts.verse);
+        closeSuggestions();
+      } else {
+        // Complete the book name; let the user keep typing (e.g. a chapter).
+        els.lookupInput.value = pick.book.display + ' ';
+        closeSuggestions();
+        els.lookupInput.focus();
+      }
+      return true;
+    }
+
+    function updateSuggestions() {
+      var raw = els.lookupInput.value;
+      var parts = splitLookup(raw);
+      if (!parts || !parts.bookPart || parts.bookPart.length < 1) {
+        closeSuggestions();
+        return;
+      }
+      var hits = searchBooks(parts.bookPart, 6);
+      renderSuggestions(hits, parts);
+    }
+
+    els.lookupInput.addEventListener('input', updateSuggestions);
+    els.lookupInput.addEventListener('focus', function () {
+      if (els.lookupInput.value.trim()) updateSuggestions();
+    });
+
+    els.lookupInput.addEventListener('keydown', function (e) {
+      var open = !els.lookupSuggestions.hidden && lastSuggestions.length;
+      if (e.key === 'ArrowDown') {
+        if (!open) { updateSuggestions(); return; }
+        e.preventDefault();
+        setActive(activeIndex + 1);
+      } else if (e.key === 'ArrowUp') {
+        if (!open) return;
+        e.preventDefault();
+        setActive(activeIndex - 1);
+      } else if (e.key === 'Enter') {
+        if (open && activeIndex >= 0) {
+          e.preventDefault();
+          pickSuggestion(activeIndex);
+        }
+        // else: let the form submit normally (uses parseLookup fuzzy fallback).
+      } else if (e.key === 'Escape') {
+        if (open) { e.preventDefault(); closeSuggestions(); }
+      } else if (e.key === 'Tab') {
+        if (open && activeIndex >= 0) {
+          // Complete the active suggestion in-place; don't navigate yet.
+          var pick = lastSuggestions[activeIndex];
+          if (pick) {
+            var parts = splitLookup(els.lookupInput.value) || { chapter: null, verse: null };
+            var v = pick.book.display +
+              (parts.chapter ? ' ' + parts.chapter + (parts.verse ? ':' + parts.verse : '') : ' ');
+            els.lookupInput.value = v;
+            closeSuggestions();
+            e.preventDefault();
+          }
+        }
+      }
+    });
+
+    els.lookupSuggestions.addEventListener('mousedown', function (e) {
+      // mousedown (not click) so the input's blur doesn't race-close the list.
+      var li = e.target.closest('.refv-lookup-suggestion');
+      if (!li) return;
+      e.preventDefault();
+      var idx = parseInt(li.getAttribute('data-index'), 10);
+      pickSuggestion(idx);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (els.lookupSuggestions.hidden) return;
+      if (e.target === els.lookupInput) return;
+      if (els.lookupSuggestions.contains(e.target)) return;
+      closeSuggestions();
+    });
+
     els.lookupForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      // If a suggestion is highlighted, treat Enter as picking it.
+      if (!els.lookupSuggestions.hidden && activeIndex >= 0) {
+        pickSuggestion(activeIndex);
+        return;
+      }
       var raw = els.lookupInput.value;
       var parsed = parseLookup(raw);
       if (!parsed) {
-        els.lookupHint.textContent = 'Sorry — couldn\'t parse "' + raw + '". Try "Romans 8" or "John 3:16".';
+        els.lookupHint.textContent = 'Try "Romans 8" or "John 3:16" — start typing for suggestions.';
         els.lookupHint.classList.add('is-error');
         return;
       }
-      els.lookupHint.textContent = '';
-      els.lookupHint.classList.remove('is-error');
-      var parts = [parsed.book.slug];
-      if (parsed.chapter) parts.push(parsed.chapter);
-      if (parsed.verse) parts.push(parsed.verse);
-      setHash(parts);
-      applyRoute();
+      closeSuggestions();
+      navigateTo(parsed.book, parsed.chapter, parsed.verse);
     });
   }
 
@@ -1040,6 +1511,10 @@
         renderBrowse();
         applyRoute();
       });
+
+    // Recent sermons load independently — non-blocking, fails silently
+    // if the API isn't ready yet.
+    renderRecentSermons();
   }
 
   if (document.readyState === 'loading') {

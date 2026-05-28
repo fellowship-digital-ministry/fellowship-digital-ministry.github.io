@@ -7,39 +7,49 @@ custom_js: reference-viewer
 
 <div class="refv">
 
-  <!-- Hero: reading-focused entry. Lookup is the main "into the Word" door. -->
   <section class="refv-hero">
-    <h1 class="refv-title">Read the Bible.<br>See what's been preached.</h1>
-    <p class="refv-tagline">
-      Open any chapter to read the King James text. Verses marked with a burgundy dot have been preached at Fellowship — tap to see the sermons.
-    </p>
+    <h1 class="refv-title">Bible References</h1>
+    <p class="refv-tagline">Browse any book, or jump straight to a passage.</p>
 
     <form class="refv-lookup" id="lookup-form" autocomplete="off" role="search">
       <label for="lookup-input" class="visually-hidden">Go to a passage</label>
-      <input type="text" id="lookup-input"
-             placeholder="Go to a passage  —  e.g. Romans 8, John 3:16, 1 Cor 13"
-             spellcheck="false" />
+      <div class="refv-lookup-combo">
+        <input type="text" id="lookup-input"
+               placeholder="e.g. Romans 8, John 3:16, 1 Cor 13"
+               spellcheck="false"
+               autocapitalize="words"
+               role="combobox"
+               aria-expanded="false"
+               aria-controls="lookup-suggestions"
+               aria-autocomplete="list" />
+        <ul id="lookup-suggestions" class="refv-lookup-suggestions" role="listbox" aria-label="Matching books" hidden></ul>
+      </div>
       <button type="submit" class="refv-lookup-go" aria-label="Look up passage">→</button>
     </form>
     <p class="refv-lookup-hint" id="lookup-hint" aria-live="polite"></p>
   </section>
 
-  <!-- Browse all books — primary entry below the lookup. Open by default
-       so the page isn't empty under the fold. -->
-  <section class="refv-section refv-browse">
-    <details open>
-      <summary><span class="refv-section-title">All books</span></summary>
-      <div class="refv-browse-body">
-        <div class="refv-testament">
-          <h3 class="refv-testament-title">Old Testament</h3>
-          <ul class="refv-books-grid" id="ot-list"><li class="refv-loading">Loading…</li></ul>
-        </div>
-        <div class="refv-testament">
-          <h3 class="refv-testament-title">New Testament</h3>
-          <ul class="refv-books-grid" id="nt-list"><li class="refv-loading">Loading…</li></ul>
-        </div>
+  <section class="refv-section refv-recent" id="recent-section" hidden>
+    <h2 class="refv-section-title">Recent sermons</h2>
+    <p class="refv-section-sub">The most recent messages in the library.</p>
+    <ul class="refv-recent-list" id="recent-list"></ul>
+  </section>
+
+  <section class="refv-section refv-browse" aria-labelledby="browse-heading">
+    <div class="refv-browse-head">
+      <h2 id="browse-heading" class="refv-section-title">Or browse by book</h2>
+      <p class="refv-section-sub">Burgundy dots inside a chapter mark verses preached at Fellowship.</p>
+    </div>
+    <div class="refv-browse-body">
+      <div class="refv-testament">
+        <h3 class="refv-testament-title">Old Testament</h3>
+        <ul class="refv-books-grid" id="ot-list" aria-busy="true"><li class="refv-loading">Loading…</li></ul>
       </div>
-    </details>
+      <div class="refv-testament">
+        <h3 class="refv-testament-title">New Testament</h3>
+        <ul class="refv-books-grid" id="nt-list" aria-busy="true"><li class="refv-loading">Loading…</li></ul>
+      </div>
+    </div>
   </section>
 
   <!-- Detail panel: shown when user picks a passage. Hidden via [hidden] + CSS. -->
