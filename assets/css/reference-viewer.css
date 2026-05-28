@@ -1314,9 +1314,17 @@ html { scroll-behavior: smooth; }
   .refv-picker-modal { padding: 2rem 1rem; align-items: center; }
   .refv-picker-modal-card {
     border-radius: var(--refv-radius);
-    height: auto;
-    max-height: calc(100vh - 4rem);
-    max-height: calc(100dvh - 4rem);
+    /* Definite height — NOT height:auto + max-height. Firefox/Safari size a
+       flex-column card that has only max-height to its CONTENT, so the full
+       66-book list overflowed the viewport. Centered (align-items:center),
+       the header + filter bar + top of the list were pushed above the top of
+       the screen, leaving the mid-list (~Micah, book 33 of 66) visible with
+       no way to scroll up — the card is overflow:hidden and the body is
+       scroll-locked. A definite height makes every engine cap the card so the
+       inner panes (overflow-y:auto) own the scroll. Same reasoning as the
+       mobile rule above. */
+    height: calc(100vh - 4rem);
+    height: calc(100dvh - 4rem);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
   }
 }
