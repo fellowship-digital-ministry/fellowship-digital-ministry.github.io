@@ -253,12 +253,8 @@
     els.videoModalFrame = $('video-modal-frame');
     els.videoModalTitle = $('video-modal-title');
     els.videoModalClose = $('video-modal-close');
-    els.transcriptModal = $('transcript-modal');
-    els.transcriptModalBody = $('transcript-modal-body');
-    els.transcriptModalTitle = $('transcript-modal-title');
-    els.transcriptModalSub = $('transcript-modal-sub');
-    els.transcriptModalClose = $('transcript-modal-close');
-    els.transcriptModalTop = $('transcript-modal-top');
+    // Transcript modal removed — transcript reading is now its own page at
+    // /transcript.html. openTranscriptModal() just navigates there.
     els.sermonsModal = $('sermons-modal');
     els.sermonsModalBody = $('sermons-modal-body');
     els.sermonsModalTitle = $('sermons-modal-title');
@@ -1295,126 +1291,14 @@
   // Transcript modal
   // ============================================================
 
+  // Transcript reading lives on its own page (/transcript.html) so iOS gets
+  // native page scroll instead of a modal-trapped scroll container. Same-tab
+  // navigation; browser back returns to the chapter the reader was on.
   function openTranscriptModal(videoId, startSec, title) {
     if (!videoId) return;
-    state.currentTranscript = { videoId: videoId, title: title, startSec: startSec };
-    els.transcriptModalTitle.textContent = title || 'Sermon';
-    els.transcriptModalSub.textContent = 'Loading…';
-    els.transcriptModal.hidden = false;
-    els.transcriptModal.setAttribute('aria-hidden', 'false');
-    lockBody();
-
-    var renderAndScroll = function (data) {
-      renderTranscript(data, startSec, videoId);
-      // Defer scroll so the layout has settled.
-      requestAnimationFrame(function () {
-        var target = els.transcriptModalBody.querySelector('.refv-transcript-segment.is-current');
-        if (target && target.scrollIntoView) {
-          target.scrollIntoView({ block: 'center', behavior: 'instant' in window ? 'instant' : 'auto' });
-        }
-      });
-    };
-
-    if (state.transcriptCache[videoId]) {
-      renderAndScroll(state.transcriptCache[videoId]);
-      return;
-    }
-    els.transcriptModalBody.innerHTML = '<p class="refv-loading">Loading transcript…</p>';
-    fetch(TRANSCRIPT_URL(videoId))
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) {
-        state.transcriptCache[videoId] = data;
-        renderAndScroll(data);
-      })
-      .catch(function (err) {
-        els.transcriptModalSub.textContent = '';
-        els.transcriptModalBody.innerHTML = '<div class="refv-empty">Transcript not available yet for this sermon.' +
-          ' (' + escapeHtml(err.message) + ')</div>';
-      });
-  }
-
-  function renderTranscript(data, focusSec, videoId) {
-    var segments = (data && data.segments) || [];
-    // Update sub-header with sermon metadata (date, duration, jump-position).
-    var subBits = [];
-    if (data && data.publish_date) {
-      subBits.push(formatPublishDate(data.publish_date));
-    }
-    if (segments.length) {
-      var last = segments[segments.length - 1];
-      var dur = last.end_time != null ? last.end_time : last.end;
-      if (dur) subBits.push(formatDuration(dur) + ' sermon');
-    }
-    subBits.push('starting at ' + formatTimestamp(focusSec));
-    els.transcriptModalSub.textContent = subBits.join(' · ');
-
-    if (!segments.length) {
-      els.transcriptModalBody.innerHTML = '<div class="refv-empty">No transcript segments found.</div>';
-      return;
-    }
-    // Group micro-segments into ~30s paragraphs for readability.
-    var paragraphs = [];
-    var current = null;
-    var GROUP_SECS = 30;
-    segments.forEach(function (seg) {
-      var startVal = seg.start_time != null ? seg.start_time : seg.start;
-      var endVal = seg.end_time != null ? seg.end_time : seg.end;
-      var text = (seg.text || '').trim();
-      if (!text) return;
-      if (!current || (startVal - current.start) >= GROUP_SECS) {
-        current = { start: startVal, end: endVal, text: text };
-        paragraphs.push(current);
-      } else {
-        current.end = endVal;
-        current.text += ' ' + text;
-      }
-    });
-
-    var focusTs = focusSec || 0;
-    var html = paragraphs.map(function (p) {
-      var isCurrent = focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
-      var classes = 'refv-transcript-segment' + (isCurrent ? ' is-current' : '');
-      var ytHref = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId) +
-        '&t=' + Math.floor(p.start);
-      return '<p class="' + classes + '" data-start="' + p.start + '">' +
-        '<a class="refv-transcript-ts" href="' + ytHref +
-          '" target="_blank" rel="noopener" title="Jump to ' + formatTimestamp(p.start) + ' on YouTube">' +
-          formatTimestamp(p.start) +
-        '</a> ' +
-        escapeHtml(p.text) +
-      '</p>';
-    }).join('');
-    els.transcriptModalBody.innerHTML = html;
-  }
-
-  function formatDuration(sec) {
-    sec = Math.floor(sec || 0);
-    var m = Math.round(sec / 60);
-    if (m >= 60) {
-      var h = Math.floor(m / 60);
-      var mm = m % 60;
-      return h + 'h' + (mm ? ' ' + mm + 'm' : '');
-    }
-    return m + ' min';
-  }
-
-  function formatPublishDate(raw) {
-    // Backend gives YYYYMMDD as int. Format as e.g. "May 25, 2025".
-    var s = String(raw);
-    if (!/^\d{8}$/.test(s)) return '';
-    var y = s.slice(0, 4), m = parseInt(s.slice(4, 6), 10), d = parseInt(s.slice(6, 8), 10);
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    if (m < 1 || m > 12) return '';
-    return months[m - 1] + ' ' + d + ', ' + y;
-  }
-
-  function closeTranscriptModal() {
-    els.transcriptModal.hidden = true;
-    els.transcriptModal.setAttribute('aria-hidden', 'true');
-    unlockBody();
+    var url = '/transcript.html?v=' + encodeURIComponent(videoId) +
+      '&t=' + Math.floor(startSec || 0);
+    window.location.href = url;
   }
 
   // ============================================================
@@ -1660,23 +1544,6 @@
         if (e.target === els.videoModal) closeVideoModal();
       });
     }
-    if (els.transcriptModalClose) {
-      els.transcriptModalClose.addEventListener('click', closeTranscriptModal);
-    }
-    if (els.transcriptModal) {
-      els.transcriptModal.addEventListener('click', function (e) {
-        if (e.target === els.transcriptModal) closeTranscriptModal();
-      });
-    }
-    if (els.transcriptModalTop) {
-      els.transcriptModalTop.addEventListener('click', function () {
-        // Scroll the transcript body to the top so the reader can study the
-        // whole sermon from the beginning, not just from the citation point.
-        if (els.transcriptModalBody) {
-          els.transcriptModalBody.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-    }
     if (els.sermonsModalClose) {
       els.sermonsModalClose.addEventListener('click', closeSermonsModal);
     }
@@ -1701,7 +1568,6 @@
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
       if (!els.pickerModal.hidden) { closePicker(); return; }
-      if (!els.transcriptModal.hidden) { closeTranscriptModal(); return; }
       if (!els.sermonsModal.hidden) { closeSermonsModal(); return; }
       if (!els.videoModal.hidden) { closeVideoModal(); return; }
     });

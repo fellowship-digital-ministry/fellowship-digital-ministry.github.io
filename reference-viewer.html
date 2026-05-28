@@ -117,22 +117,6 @@ custom_js: reference-viewer
   </div>
 </div>
 
-<!-- Transcript modal (read view; auto-scrolls to the timestamp). -->
-<div id="transcript-modal" class="refv-transcript-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="transcript-modal-title">
-  <div class="refv-transcript-modal-card">
-    <header class="refv-transcript-modal-head">
-      <div class="refv-transcript-modal-head-text">
-        <h3 id="transcript-modal-title">Sermon transcript</h3>
-        <p class="refv-transcript-modal-sub" id="transcript-modal-sub"></p>
-      </div>
-      <div class="refv-transcript-modal-head-actions">
-        <button id="transcript-modal-top" class="refv-transcript-modal-action" type="button"
-                aria-label="Jump to start of transcript">Read from start</button>
-        <button id="transcript-modal-close" class="refv-transcript-modal-close" aria-label="Close transcript">&times;</button>
-      </div>
-    </header>
-    <div class="refv-transcript-modal-body" id="transcript-modal-body">
-      <p class="refv-loading">Loading transcript…</p>
-    </div>
-  </div>
-</div>
+<!-- Transcript reading lives on /transcript.html?v=…&t=… (own page, native
+     scroll). The old modal markup that used to live here was removed
+     because iOS Safari kept fighting the scroll lock. -->
