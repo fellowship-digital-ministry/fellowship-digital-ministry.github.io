@@ -59,7 +59,11 @@
           '<div class="sx-card-meta">' +
             '<span class="sx-card-date">' + escapeHTML(formatDate(s.date)) + '</span>' +
           '</div>' +
-          '<h2 class="sx-card-title">' + escapeHTML(cleanTitle(s.title)) + '</h2>' +
+          '<h2 class="sx-card-title">' +
+            (window.boldBibleReference
+              ? window.boldBibleReference(cleanTitle(s.title))
+              : escapeHTML(cleanTitle(s.title))) +
+          '</h2>' +
           desc +
         '</a>'
       );

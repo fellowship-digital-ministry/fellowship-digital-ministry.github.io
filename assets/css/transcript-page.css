@@ -282,3 +282,6 @@ body.transcript-page {
   border-radius: 4px;
   padding: 0.1rem 0.45rem;
 }
+
+/* Scripture reference inside a title: bold, but never a link. */
+.tx-title .scripture-ref { font-weight: 700; white-space: nowrap; }

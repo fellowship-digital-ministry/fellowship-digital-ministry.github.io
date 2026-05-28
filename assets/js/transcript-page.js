@@ -64,7 +64,13 @@
 
     // Header
     document.title = (data.title ? data.title + ' (Transcript)' : 'Sermon transcript');
-    els.title.textContent = data.title || 'Sermon transcript';
+    // Title: bold the scripture reference, but do not link it (a heading reads
+    // cleaner unlinked, and on the list the title is already a link).
+    if (data.title && window.boldBibleReference) {
+      els.title.innerHTML = window.boldBibleReference(data.title);
+    } else {
+      els.title.textContent = data.title || 'Sermon transcript';
+    }
 
     var metaBits = [];
     if (data.publish_date) metaBits.push(formatPublishDate(data.publish_date));
@@ -119,6 +125,7 @@
       '</p>';
     }).join('');
     els.body.innerHTML = html;
+    if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.body);
 
     // Defer scroll-to-current until after layout so the position is correct.
     requestAnimationFrame(function () {
@@ -172,6 +179,8 @@
         '</div>' +
       '</details>';
     els.notes.hidden = false;
+    // Link any passages mentioned in the overview (Roman numerals included).
+    if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.notes);
   }
 
   function loadNotes(videoId) {

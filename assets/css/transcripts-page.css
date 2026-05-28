@@ -138,3 +138,6 @@
   margin: 0 0 1rem;
 }
 .sx-defer a { color: var(--primary-color, #641c14); }
+
+/* Scripture reference inside a card title: bold, not a link. */
+.sx-card-title .scripture-ref { font-weight: 700; white-space: nowrap; }
