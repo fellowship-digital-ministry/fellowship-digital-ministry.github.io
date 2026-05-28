@@ -1,4 +1,4 @@
-/* Sermons page — browsable static archive. Reuses the site's CSS variables
+/* Sermons page, browsable static archive. Reuses the site's CSS variables
    with safe fallbacks so it stays on-palette without depending on exact names. */
 
 .sx {
@@ -130,3 +130,11 @@
   .sx-title { font-size: 1.6rem; }
   .sx-card-title { font-size: 1.02rem; }
 }
+
+/* Deferential pointer back to the church's own resources. */
+.sx-defer {
+  font-size: 0.85rem;
+  color: var(--text-light, #777);
+  margin: 0 0 1rem;
+}
+.sx-defer a { color: var(--primary-color, #641c14); }

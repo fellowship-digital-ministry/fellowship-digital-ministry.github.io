@@ -11,7 +11,7 @@
   // Static catalog (built by sermon-library/tools/build_sermon_catalog.py).
   // We read the generated study notes for this sermon from here so the card
   // works without an API call. At full scale, if the catalog grows large, move
-  // notes into the /transcript API response or per-sermon files — this lookup
+  // notes into the /transcript API response or per-sermon files, this lookup
   // is keyed by video_id, so that swap is localized to loadNotes().
   var CATALOG_URL = '/assets/data/sermons_catalog.json';
 
@@ -63,7 +63,7 @@
     var segments = (data && data.segments) || [];
 
     // Header
-    document.title = (data.title ? data.title + ' — Transcript' : 'Sermon transcript');
+    document.title = (data.title ? data.title + ' (Transcript)' : 'Sermon transcript');
     els.title.textContent = data.title || 'Sermon transcript';
 
     var metaBits = [];
@@ -124,7 +124,7 @@
     requestAnimationFrame(function () {
       var target = els.body.querySelector('.tx-segment.is-current');
       if (target && target.scrollIntoView) {
-        // Native page scroll on the document — works on every browser.
+        // Native page scroll on the document, works on every browser.
         var rect = target.getBoundingClientRect();
         var y = window.scrollY + rect.top - 80; // leave room above for the header
         window.scrollTo({ top: y, behavior: 'instant' in window ? 'instant' : 'auto' });
@@ -132,44 +132,45 @@
     });
   }
 
-  // Render the four-section study-notes card from a catalog entry's `notes`.
-  // Outline points come as "Header — explanation"; we bold the header and mute
-  // the explanation. Application is shown only when the preacher gave one.
+  // Render the catalog-style overview from a sermon's `notes`: Introduction,
+  // Outline, and subject Themes. Deliberately collapsed and de-emphasized, and
+  // it carries no Conclusion/Application: it is descriptive metadata to help
+  // someone find and orient to the sermon, not a substitute for engaging it.
   function renderNotes(notes) {
     if (!notes || !els.notes) return;
 
     var parts = [];
-    parts.push('<p class="tx-notes-label">Study notes generated from the sermon transcript</p>');
-
     if (notes.introduction) {
-      parts.push('<div class="tx-notes-section"><h2>Introduction</h2><p>' +
+      parts.push('<div class="tx-notes-section"><h3>Introduction</h3><p>' +
         escapeHtml(notes.introduction) + '</p></div>');
     }
-
     if (Array.isArray(notes.outline) && notes.outline.length) {
       var items = notes.outline.map(function (pt) {
-        var m = String(pt).split(/\s+—\s+|\s+-\s+/);
-        var head = m.shift();
-        var detail = m.join(' — ');
-        return '<li><span class="tx-notes-pt-head">' + escapeHtml(head) + '</span>' +
-          (detail ? '<span class="tx-notes-pt-detail"> — ' + escapeHtml(detail) + '</span>' : '') +
-          '</li>';
+        return '<li>' + escapeHtml(pt) + '</li>';
       }).join('');
-      parts.push('<div class="tx-notes-section"><h2>Outline</h2><ol class="tx-notes-outline">' +
-        items + '</ol></div>');
+      parts.push('<div class="tx-notes-section"><h3>Outline</h3>' +
+        '<ol class="tx-notes-outline">' + items + '</ol></div>');
     }
-
-    if (notes.conclusion) {
-      parts.push('<div class="tx-notes-section"><h2>Conclusion</h2><p>' +
-        escapeHtml(notes.conclusion) + '</p></div>');
+    if (Array.isArray(notes.themes) && notes.themes.length) {
+      var tags = notes.themes.map(function (t) {
+        return '<span class="tx-notes-theme">' + escapeHtml(t) + '</span>';
+      }).join('');
+      parts.push('<div class="tx-notes-section"><h3>Themes</h3>' +
+        '<div class="tx-notes-themes">' + tags + '</div></div>');
     }
+    if (!parts.length) return;
 
-    if (notes.application) {
-      parts.push('<div class="tx-notes-section"><h2>Application</h2><p>' +
-        escapeHtml(notes.application) + '</p></div>');
-    }
-
-    els.notes.innerHTML = parts.join('');
+    // <details> gives native, accessible collapse, closed by default so the
+    // transcript stays the focus.
+    els.notes.innerHTML =
+      '<details class="tx-notes-details">' +
+        '<summary class="tx-notes-summary">Overview</summary>' +
+        '<div class="tx-notes-body">' +
+          '<p class="tx-notes-note">Auto-generated from the transcript to aid ' +
+          'searching and study. A starting point, not a substitute for the sermon.</p>' +
+          parts.join('') +
+        '</div>' +
+      '</details>';
     els.notes.hidden = false;
   }
 

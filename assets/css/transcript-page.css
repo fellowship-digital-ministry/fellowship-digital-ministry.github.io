@@ -207,34 +207,60 @@ body.transcript-page {
   .tx-totop.is-visible { transform: none; }
 }
 
-/* ===== Study-notes card (AI-generated, four-section sermon notes) ===== */
+/* ===== Overview (auto-generated catalog metadata) =====
+   Deliberately quiet and collapsed by default so the transcript stays the
+   focus. This is descriptive metadata, not a verdict, so it does not look
+   like a prominent answer card. */
 .tx-notes {
-  background: var(--tx-bg-soft);
+  margin-bottom: 1.5rem;
+}
+.tx-notes-details {
   border: 1px solid var(--tx-border);
-  border-radius: var(--tx-radius);
-  padding: 1.1rem 1.25rem 1.25rem;
-  margin-bottom: 2rem;
+  border-radius: var(--tx-radius-sm);
+  background: var(--tx-bg-soft);
 }
-.tx-notes-label {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--tx-text-muted);
-  margin: 0 0 0.9rem;
-}
-.tx-notes-section { margin-bottom: 0.9rem; }
-.tx-notes-section:last-child { margin-bottom: 0; }
-.tx-notes-section h2 {
+.tx-notes-summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.55rem 0.85rem;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--tx-primary-dark);
+  color: var(--tx-text-muted);
+  user-select: none;
+}
+.tx-notes-summary::-webkit-details-marker { display: none; }
+.tx-notes-summary::before {
+  content: '\25B8';  /* right-pointing triangle */
+  display: inline-block;
+  margin-right: 0.45rem;
+  transition: transform 0.12s ease;
+}
+.tx-notes-details[open] .tx-notes-summary::before { transform: rotate(90deg); }
+.tx-notes-details[open] .tx-notes-summary {
+  border-bottom: 1px solid var(--tx-border);
+}
+.tx-notes-body { padding: 0.85rem 0.95rem 1rem; }
+.tx-notes-note {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--tx-text-muted);
+  margin: 0 0 0.85rem;
+}
+.tx-notes-section { margin-bottom: 0.85rem; }
+.tx-notes-section:last-child { margin-bottom: 0; }
+.tx-notes-section h3 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--tx-text-muted);
   margin: 0 0 0.3rem;
+  font-weight: 600;
 }
 .tx-notes-section p {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: var(--tx-text);
 }
 .tx-notes-outline {
@@ -242,9 +268,17 @@ body.transcript-page {
   padding-left: 1.2rem;
 }
 .tx-notes-outline li {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--tx-text);
+  margin-bottom: 0.3rem;
 }
-.tx-notes-pt-head { font-weight: 600; color: var(--tx-text); }
-.tx-notes-pt-detail { color: var(--tx-text-muted); }
+.tx-notes-themes { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.tx-notes-theme {
+  font-size: 0.78rem;
+  color: var(--tx-text-muted);
+  background: var(--tx-bg);
+  border: 1px solid var(--tx-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+}

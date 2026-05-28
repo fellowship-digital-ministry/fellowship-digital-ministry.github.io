@@ -1,0 +1,34 @@
+---
+layout: default
+title: Sermon Transcripts
+custom_class: transcripts-page
+custom_css: transcripts-page
+custom_js: transcripts-page
+hero_description: An unofficial, searchable archive of transcripts from Fellowship Baptist Church's publicly available sermons.
+---
+
+<article class="sx">
+  <header class="sx-head">
+    <h1 class="sx-title">Sermon Transcripts</h1>
+    <p class="sx-intro">
+      An unofficial, searchable archive of transcripts from Fellowship Baptist
+      Church's publicly available sermons. This is a study companion, not a
+      replacement for the sermons themselves. Open any one to read the
+      transcript or watch the original on YouTube.
+    </p>
+    <p class="sx-defer">
+      For the church's own sermons and resources, please visit the
+      <a href="{{ site.church_website }}" target="_blank" rel="noopener">church website</a>.
+    </p>
+    <div class="sx-filter-wrap">
+      <input type="text" class="sx-filter" id="sx-filter"
+             placeholder="Search by title, topic, or theme…"
+             aria-label="Search transcripts by title, topic, or theme" autocomplete="off">
+    </div>
+    <p class="sx-count" id="sx-count" aria-live="polite"></p>
+  </header>
+
+  <div class="sx-list" id="sx-list">
+    <p class="sx-loading">Loading transcripts…</p>
+  </div>
+</article>
