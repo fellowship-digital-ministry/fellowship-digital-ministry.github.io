@@ -1450,9 +1450,20 @@ html { scroll-behavior: smooth; }
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
+  /* Plain block flow — NOT display:flex/column. A flex-column used as the
+     content of an overflow:auto scroll container makes Firefox under-report
+     scrollHeight (it counted ~1210px for the 66-book list whose real height
+     is ~2330px). The unaccounted top half (Genesis..Amos) rendered above the
+     scroll origin with no way to scroll up — the list opened pinned to Micah
+     (book 33, the midpoint) on desktop Firefox. This is the actual cause of
+     the "can't scroll past Micah" bug; the earlier definite-height fixes on
+     the card never touched it. Block flow reports scrollHeight correctly. */
+  display: block;
+}
+/* 1px inter-row gap that flexbox's gap used to provide. Scoped to book rows
+   so it doesn't override the OT/NT divider's own margin-top. */
+.refv-picker-book-list > li:not(.refv-picker-divider) + li:not(.refv-picker-divider) {
+  margin-top: 1px;
 }
 .refv-picker-book {
   display: flex;
