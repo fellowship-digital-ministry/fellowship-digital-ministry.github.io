@@ -1193,14 +1193,18 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
    When inactive: visibility:hidden + pointer-events:none keeps it
    non-interactive while preserving the opacity fade-in/out animation
    defined on .claude-overlay. The delayed visibility transition makes
-   sure it stays visible until the fade-out completes. */
-#infoSection.claude-overlay {
+   sure it stays visible until the fade-out completes.
+   The BYOK modal needs the exact same treatment — without these rules
+   the transparent overlay sits at z-index 1000 and eats every click. */
+#infoSection.claude-overlay,
+#byokSection.claude-overlay {
   visibility: hidden;
   pointer-events: none;
   transition: opacity var(--transition-speed) ease,
               visibility 0s linear var(--transition-speed);
 }
-#infoSection.claude-overlay.active {
+#infoSection.claude-overlay.active,
+#byokSection.claude-overlay.active {
   visibility: visible;
   pointer-events: auto;
   transition: opacity var(--transition-speed) ease,
