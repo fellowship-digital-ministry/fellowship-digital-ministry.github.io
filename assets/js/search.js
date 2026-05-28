@@ -523,9 +523,11 @@ const SermonSearch = (function() {
   }
 
   function updateByokIndicator() {
-    if (!elements.byokIndicator) return;
     const hasKey = !!BYOK.get();
-    elements.byokIndicator.hidden = !hasKey;
+    if (elements.byokIndicator) elements.byokIndicator.hidden = !hasKey;
+    // The nudge is the inverse of the indicator — it disappears once
+    // a key is in place since the indicator pill covers that state.
+    if (elements.byokNudge) elements.byokNudge.hidden = hasKey;
   }
 
   function handleByokSave() {
@@ -3450,6 +3452,7 @@ Would you like me to search for sermon content on any of these topics instead?`;
       byokError: getElement('byokError'),
       byokIndicator: getElement('byokIndicator'),
       byokRemove: getElement('byokRemove'),
+      byokNudge: getElement('byokNudge'),
     };
     
     // Create backdrop for mobile sources panel
@@ -3788,6 +3791,11 @@ Would you like me to search for sermon content on any of these topics instead?`;
     // BYOK indicator's remove button.
     if (elements.byokRemove) {
       elements.byokRemove.addEventListener('click', handleByokRemove);
+    }
+    // Modest nudge below the input opens the BYOK modal without waiting
+    // for the cap to be hit — gives daily users an opt-in entry point.
+    if (elements.byokNudge) {
+      elements.byokNudge.addEventListener('click', () => openByokModal());
     }
     // Show indicator on initial load if a key is already stored.
     updateByokIndicator();

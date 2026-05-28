@@ -38,10 +38,10 @@ custom_class: search-page
         <div class="claude-input-area">
           <form id="chatForm">
             <div class="claude-input-container">
-              <textarea 
-                id="queryInput" 
-                class="claude-input" 
-                placeholder="Ask a question about the sermons..." 
+              <textarea
+                id="queryInput"
+                class="claude-input"
+                placeholder="Ask a question about the sermons..."
                 rows="1"
                 aria-label="Type your question here"></textarea>
               <button type="submit" class="claude-submit-button" aria-label="Send message">
@@ -51,6 +51,11 @@ custom_class: search-page
               </button>
             </div>
           </form>
+          <!-- Modest nudge toward BYOK for daily users. Hidden by JS once a
+               key is stored (the indicator pill takes over from there). -->
+          <button id="byokNudge" type="button" class="byok-nudge">
+            Daily user? Bring your own OpenRouter key &rarr;
+          </button>
           <div class="conversation-controls">
             <!-- Mode toggle — Ask uses AI synthesis, Find lists sermons without analysis -->
             <div class="mode-toggle" role="radiogroup" aria-label="Search mode">
