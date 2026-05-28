@@ -37,7 +37,23 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
           <a href="{{ '/reference-viewer.html' | relative_url }}" class="btn feature-btn">Browse References</a>
         </div>
       </div>
-      
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+        </div>
+        <h3>Sermon Transcripts</h3>
+        <p>Read or skim the full text of any sermon, with study notes and timestamped links back to the video.</p>
+        <div class="feature-btn-container">
+          <a href="{{ '/transcripts.html' | relative_url }}" class="btn feature-btn">Browse Transcripts</a>
+        </div>
+      </div>
+
       <div class="feature-card">
         <div class="feature-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -161,7 +177,9 @@ quote_text: "Exalting our Saviour ~ Edifying the Believer ~ Evangelizing the Wor
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Balanced 2x2 on desktop (4 cards). Collapses to one column on mobile via
+     the max-width:768px rule below. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   margin: 3rem 0;
 }
