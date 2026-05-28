@@ -978,32 +978,39 @@
       var key = book.display.toLowerCase().replace(/\s+/g, '');
       return key.indexOf(f) !== -1;
     }
-    function sectionHtml(label, list) {
-      if (!list.length) return '';
-      var lis = list.map(function (b) {
-        var n = CHAPTER_COUNTS[b.slug] || 0;
-        var classes = 'refv-picker-book' +
-          (state.pickerSelectedBook && state.pickerSelectedBook.slug === b.slug ? ' is-active' : '') +
-          (state.pickerBook && state.pickerBook.slug === b.slug ? ' is-current' : '');
-        return '<li><button type="button" class="' + classes +
-          '" data-slug="' + b.slug + '">' +
-          '<span class="refv-picker-book-name">' + escapeHtml(b.display) + '</span>' +
-          '<span class="refv-picker-book-count">' + n + '</span>' +
-        '</button></li>';
-      }).join('');
-      return '<div class="refv-picker-section">' +
-        '<h4 class="refv-picker-section-title">' + label + '</h4>' +
-        '<ul class="refv-picker-book-list">' + lis + '</ul>' +
-      '</div>';
-    }
-    var ot = BIBLE_BOOKS.filter(function (b) { return b.testament === 'OT' && matchBook(b); });
-    var nt = BIBLE_BOOKS.filter(function (b) { return b.testament === 'NT' && matchBook(b); });
-    if (!ot.length && !nt.length) {
+    var matches = BIBLE_BOOKS.filter(matchBook);
+    if (!matches.length) {
       els.pickerBooks.innerHTML = '<p class="refv-picker-empty">No books match "' +
         escapeHtml(filter) + '".</p>';
       return;
     }
-    els.pickerBooks.innerHTML = sectionHtml('Old Testament', ot) + sectionHtml('New Testament', nt);
+    // Single flat list — no <h4> section headers (they were colliding with
+    // global style.css h-rules and producing overlap). The Old/New Testament
+    // boundary is marked by a thin "New Testament" divider row injected
+    // before the first NT book, only when the list actually crosses it.
+    var rows = [];
+    var ntDividerPlaced = false;
+    matches.forEach(function (b) {
+      if (b.testament === 'NT' && !ntDividerPlaced) {
+        rows.push('<li class="refv-picker-divider" aria-hidden="true">New Testament</li>');
+        ntDividerPlaced = true;
+      }
+      var n = CHAPTER_COUNTS[b.slug] || 0;
+      var classes = 'refv-picker-book' +
+        (state.pickerSelectedBook && state.pickerSelectedBook.slug === b.slug ? ' is-active' : '') +
+        (state.pickerBook && state.pickerBook.slug === b.slug ? ' is-current' : '');
+      rows.push(
+        '<li><button type="button" class="' + classes + '" data-slug="' + b.slug + '">' +
+          '<span class="refv-picker-book-name">' + escapeHtml(b.display) + '</span>' +
+          '<span class="refv-picker-book-count">' + n + '</span>' +
+        '</button></li>'
+      );
+    });
+    // If results begin with NT (e.g., filter "joh" matches both Job and John,
+    // both start with J — Job is OT — divider lands correctly above John).
+    // If results are NT-only, divider still fires before the first row,
+    // which provides a useful "New Testament" header on its own.
+    els.pickerBooks.innerHTML = '<ul class="refv-picker-book-list">' + rows.join('') + '</ul>';
     Array.prototype.forEach.call(
       els.pickerBooks.querySelectorAll('.refv-picker-book'),
       function (btn) {
@@ -1012,7 +1019,6 @@
           var book = BOOK_INDEX[slug.toLowerCase()];
           if (!book) return;
           state.pickerSelectedBook = book;
-          // Re-render to update active highlight + chapters pane.
           renderPickerBooks(els.pickerSearch.value);
           renderPickerChapters(book);
         });

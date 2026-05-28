@@ -1271,6 +1271,12 @@ html { scroll-behavior: smooth; }
   display: flex;
   flex-direction: column;
   max-height: 100vh;
+  /* Picker modal lives outside .refv in the DOM, so it doesn't inherit the
+     page's font-family / line-height. Lock both here so the picker reads
+     consistently and the global h-tag rules in style.css don't drift in. */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--refv-text);
+  line-height: 1.45;
 }
 @media (min-width: 720px) {
   .refv-picker-modal { padding: 2rem 1rem; align-items: center; }
@@ -1370,15 +1376,24 @@ html { scroll-behavior: smooth; }
   }
 }
 
-.refv-picker-section + .refv-picker-section { margin-top: 0.85rem; }
-.refv-picker-section-title {
+/* Inline OT/NT divider — single row inside the book list, no <h4>.
+   Avoids cascading conflicts with global h-tag styles in style.css. */
+.refv-picker-divider {
+  font-family: inherit;
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--refv-text-muted);
-  margin: 0.4rem 0 0.4rem;
-  padding-bottom: 0.3rem;
+  padding: 0.85rem 0.6rem 0.35rem;
+  margin-top: 0.6rem;
+  border-top: 1px solid var(--refv-border);
+  list-style: none;
+}
+.refv-picker-divider:first-child {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0.25rem;
 }
 .refv-picker-book-list {
   list-style: none;
