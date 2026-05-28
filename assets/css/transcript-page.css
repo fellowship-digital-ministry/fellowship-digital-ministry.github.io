@@ -163,3 +163,46 @@ body.transcript-page {
   .tx-title { font-size: 1.85rem; }
   .tx-segment { font-size: 1.12rem; line-height: 1.8; }
 }
+
+/* Floating back-to-top button. Hidden until scrolled down; visibility:hidden
+   (not just opacity) drops it from the tab order while off-screen. The
+   safe-area inset keeps it clear of the iOS home indicator. */
+.tx-totop {
+  position: fixed;
+  right: 1.25rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--tx-primary);
+  background: var(--tx-primary);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s, background 0.12s ease;
+}
+.tx-totop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.tx-totop:hover,
+.tx-totop:focus-visible {
+  background: var(--tx-primary-dark);
+  border-color: var(--tx-primary-dark);
+  outline: none;
+}
+.tx-totop svg { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tx-totop,
+  .tx-totop.is-visible { transform: none; }
+}

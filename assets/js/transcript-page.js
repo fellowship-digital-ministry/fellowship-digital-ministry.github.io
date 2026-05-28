@@ -134,6 +134,7 @@
     els.back = $('tx-back');
     els.actions = $('tx-actions');
     els.watch = $('tx-watch');
+    els.toTop = $('tx-totop');
   }
 
   function wire() {
@@ -146,6 +147,23 @@
           window.location.href = '/reference-viewer.html';
         }
       });
+    }
+
+    // Floating back-to-top: show once scrolled roughly a screenful down.
+    if (els.toTop) {
+      els.toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      var SHOW_AFTER = 600;
+      var ticking = false;
+      function syncToTop() {
+        ticking = false;
+        els.toTop.classList.toggle('is-visible', window.scrollY > SHOW_AFTER);
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(syncToTop); }
+      }, { passive: true });
+      syncToTop();
     }
   }
 
