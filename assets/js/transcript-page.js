@@ -8,6 +8,12 @@
   'use strict';
 
   var API_BASE = 'https://sermon-search-api-8fok.onrender.com';
+  // Static catalog (built by sermon-library/tools/build_sermon_catalog.py).
+  // We read the generated study notes for this sermon from here so the card
+  // works without an API call. At full scale, if the catalog grows large, move
+  // notes into the /transcript API response or per-sermon files — this lookup
+  // is keyed by video_id, so that swap is localized to loadNotes().
+  var CATALOG_URL = '/assets/data/sermons_catalog.json';
 
   var els = {};
   function $(id) { return document.getElementById(id); }
@@ -126,10 +132,63 @@
     });
   }
 
+  // Render the four-section study-notes card from a catalog entry's `notes`.
+  // Outline points come as "Header — explanation"; we bold the header and mute
+  // the explanation. Application is shown only when the preacher gave one.
+  function renderNotes(notes) {
+    if (!notes || !els.notes) return;
+
+    var parts = [];
+    parts.push('<p class="tx-notes-label">Study notes generated from the sermon transcript</p>');
+
+    if (notes.introduction) {
+      parts.push('<div class="tx-notes-section"><h2>Introduction</h2><p>' +
+        escapeHtml(notes.introduction) + '</p></div>');
+    }
+
+    if (Array.isArray(notes.outline) && notes.outline.length) {
+      var items = notes.outline.map(function (pt) {
+        var m = String(pt).split(/\s+—\s+|\s+-\s+/);
+        var head = m.shift();
+        var detail = m.join(' — ');
+        return '<li><span class="tx-notes-pt-head">' + escapeHtml(head) + '</span>' +
+          (detail ? '<span class="tx-notes-pt-detail"> — ' + escapeHtml(detail) + '</span>' : '') +
+          '</li>';
+      }).join('');
+      parts.push('<div class="tx-notes-section"><h2>Outline</h2><ol class="tx-notes-outline">' +
+        items + '</ol></div>');
+    }
+
+    if (notes.conclusion) {
+      parts.push('<div class="tx-notes-section"><h2>Conclusion</h2><p>' +
+        escapeHtml(notes.conclusion) + '</p></div>');
+    }
+
+    if (notes.application) {
+      parts.push('<div class="tx-notes-section"><h2>Application</h2><p>' +
+        escapeHtml(notes.application) + '</p></div>');
+    }
+
+    els.notes.innerHTML = parts.join('');
+    els.notes.hidden = false;
+  }
+
+  function loadNotes(videoId) {
+    if (!els.notes) return;
+    fetch(CATALOG_URL)
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (catalog) {
+        var entry = (catalog || []).find(function (e) { return e.video_id === videoId; });
+        if (entry && entry.notes) renderNotes(entry.notes);
+      })
+      .catch(function () { /* notes are a nice-to-have; never block the page */ });
+  }
+
   function bindElements() {
     els.title = $('tx-title');
     els.eyebrow = $('tx-eyebrow');
     els.meta = $('tx-meta');
+    els.notes = $('tx-notes');
     els.body = $('tx-body');
     els.back = $('tx-back');
     els.actions = $('tx-actions');
@@ -179,6 +238,8 @@
       els.body.innerHTML = '<div class="tx-empty">Please open a transcript from a sermon link.</div>';
       return;
     }
+
+    loadNotes(videoId);  // study-notes card (static catalog; independent of the transcript fetch)
 
     fetch(API_BASE + '/transcript/' + encodeURIComponent(videoId))
       .then(function (r) {

@@ -206,3 +206,45 @@ body.transcript-page {
   .tx-totop,
   .tx-totop.is-visible { transform: none; }
 }
+
+/* ===== Study-notes card (AI-generated, four-section sermon notes) ===== */
+.tx-notes {
+  background: var(--tx-bg-soft);
+  border: 1px solid var(--tx-border);
+  border-radius: var(--tx-radius);
+  padding: 1.1rem 1.25rem 1.25rem;
+  margin-bottom: 2rem;
+}
+.tx-notes-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tx-text-muted);
+  margin: 0 0 0.9rem;
+}
+.tx-notes-section { margin-bottom: 0.9rem; }
+.tx-notes-section:last-child { margin-bottom: 0; }
+.tx-notes-section h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--tx-primary-dark);
+  margin: 0 0 0.3rem;
+}
+.tx-notes-section p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--tx-text);
+}
+.tx-notes-outline {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.tx-notes-outline li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.35rem;
+}
+.tx-notes-pt-head { font-weight: 600; color: var(--tx-text); }
+.tx-notes-pt-detail { color: var(--tx-text-muted); }
