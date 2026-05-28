@@ -1184,7 +1184,7 @@ address {
   margin-top: 0.5rem;
 }
 
-/* Hide "Chat about Sermons" banner on subpages */
+/* Hide the Ask About Sermons banner on subpages */
 body:not(.home) .chat-banner {
   display: none;
 }
