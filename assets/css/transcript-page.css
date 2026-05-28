@@ -207,80 +207,34 @@ body.transcript-page {
   .tx-totop.is-visible { transform: none; }
 }
 
-/* ===== Overview (auto-generated catalog metadata) =====
-   Deliberately quiet and collapsed by default so the transcript stays the
-   focus. This is descriptive metadata, not a verdict, so it does not look
-   like a prominent answer card. */
+/* ===== Sermon metadata (description + themes) =====
+   Shown openly under the header and styled as quiet catalog metadata: a short
+   description (reads like an abstract) and a row of subject-theme keywords. */
 .tx-notes {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
-.tx-notes-details {
-  border: 1px solid var(--tx-border);
-  border-radius: var(--tx-radius-sm);
-  background: var(--tx-bg-soft);
+.tx-overview-desc {
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--tx-text-muted);
+  margin: 0 0 0.8rem;
 }
-.tx-notes-summary {
-  cursor: pointer;
+.tx-overview-themes {
   list-style: none;
-  padding: 0.55rem 0.85rem;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--tx-text-muted);
-  user-select: none;
-}
-.tx-notes-summary::-webkit-details-marker { display: none; }
-.tx-notes-summary::before {
-  content: '\25B8';  /* right-pointing triangle */
-  display: inline-block;
-  margin-right: 0.45rem;
-  transition: transform 0.12s ease;
-}
-.tx-notes-details[open] .tx-notes-summary::before { transform: rotate(90deg); }
-.tx-notes-details[open] .tx-notes-summary {
-  border-bottom: 1px solid var(--tx-border);
-}
-.tx-notes-body { padding: 0.85rem 0.95rem 1rem; }
-.tx-notes-note {
-  font-size: 0.78rem;
-  font-style: italic;
-  color: var(--tx-text-muted);
-  margin: 0 0 0.85rem;
-}
-.tx-notes-section { margin-bottom: 0.85rem; }
-.tx-notes-section:last-child { margin-bottom: 0; }
-.tx-notes-section h3 {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--tx-text-muted);
-  margin: 0 0 0.3rem;
-  font-weight: 600;
-}
-.tx-notes-section p {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--tx-text);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
-.tx-notes-outline {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-.tx-notes-outline li {
-  font-size: 0.9rem;
-  line-height: 1.45;
-  color: var(--tx-text);
-  margin-bottom: 0.3rem;
-}
-.tx-notes-themes { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.tx-notes-theme {
-  font-size: 0.78rem;
+.tx-overview-themes li {
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
   color: var(--tx-text-muted);
-  background: var(--tx-bg);
-  border: 1px solid var(--tx-border);
-  border-radius: 4px;
-  padding: 0.1rem 0.45rem;
+  background: var(--tx-bg-soft);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
 }
 
 /* Scripture reference inside a title: bold, but never a link. */

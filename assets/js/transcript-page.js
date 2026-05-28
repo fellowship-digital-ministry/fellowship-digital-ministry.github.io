@@ -156,33 +156,24 @@
     });
   }
 
-  // Render the collapsed Overview card: a catalog-style Introduction and the
-  // subject Themes. Quiet, de-emphasized metadata; the section headers in the
-  // transcript itself carry the scanning structure.
+  // Render the sermon's metadata under the header: a catalog-style description
+  // and the subject themes. Shown openly (not collapsed) and styled to read as
+  // quiet metadata, not an interactive widget.
   function renderNotes(notes) {
     if (!notes || !els.notes) return;
 
-    var parts = [];
+    var html = '';
     if (notes.introduction) {
-      parts.push('<div class="tx-notes-section"><h3>Introduction</h3><p>' +
-        escapeHtml(notes.introduction) + '</p></div>');
+      html += '<p class="tx-overview-desc">' + escapeHtml(notes.introduction) + '</p>';
     }
     if (Array.isArray(notes.themes) && notes.themes.length) {
-      var tags = notes.themes.map(function (t) {
-        return '<span class="tx-notes-theme">' + escapeHtml(t) + '</span>';
-      }).join('');
-      parts.push('<div class="tx-notes-section"><h3>Themes</h3>' +
-        '<div class="tx-notes-themes">' + tags + '</div></div>');
+      html += '<ul class="tx-overview-themes">' +
+        notes.themes.map(function (t) { return '<li>' + escapeHtml(t) + '</li>'; }).join('') +
+        '</ul>';
     }
-    if (!parts.length) return;
+    if (!html) return;
 
-    // <details> gives native, accessible collapse, closed by default so the
-    // transcript stays the focus.
-    els.notes.innerHTML =
-      '<details class="tx-notes-details">' +
-        '<summary class="tx-notes-summary">Overview</summary>' +
-        '<div class="tx-notes-body">' + parts.join('') + '</div>' +
-      '</details>';
+    els.notes.innerHTML = html;
     els.notes.hidden = false;
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.notes);
   }
