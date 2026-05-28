@@ -973,6 +973,17 @@
     els.pickerModal.hidden = false;
     els.pickerModal.setAttribute('aria-hidden', 'false');
     lockBody();
+    // Always open the books pane scrolled to the top (Genesis) — the picker
+    // is a global "Jump to" entry point, not a continuation of where you
+    // were. Belt + braces: do it sync now AND after the next paint, since
+    // some iOS Safari versions retain scrollTop across innerHTML resets.
+    if (els.pickerBooks) {
+      els.pickerBooks.scrollTop = 0;
+      requestAnimationFrame(function () {
+        if (els.pickerBooks) els.pickerBooks.scrollTop = 0;
+      });
+    }
+    if (els.pickerChapters) els.pickerChapters.scrollTop = 0;
     // Auto-focus the search input on desktop only. On touch devices this
     // triggers the on-screen keyboard, which collapses the visible viewport
     // and leaves only 2-3 rows of books visible — making it look like the
@@ -1563,6 +1574,9 @@
     if (els.pickerSearch) {
       els.pickerSearch.addEventListener('input', function () {
         renderPickerBooks(els.pickerSearch.value);
+        // Snap to the top of the filtered list — otherwise a previous scroll
+        // position can leave the user stranded mid-alphabet on the new results.
+        if (els.pickerBooks) els.pickerBooks.scrollTop = 0;
       });
     }
     document.addEventListener('keydown', function (e) {
