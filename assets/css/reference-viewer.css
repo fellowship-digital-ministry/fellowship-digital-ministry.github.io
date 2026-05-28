@@ -385,12 +385,6 @@
   text-transform: uppercase;
   color: var(--refv-text-muted);
 }
-.refv-bible-gateway {
-  font-size: 0.85rem;
-  color: var(--refv-primary);
-  text-decoration: none;
-}
-.refv-bible-gateway:hover { text-decoration: underline; }
 .refv-verse-text-body {
   margin: 0;
   font-family: 'PT Serif', Georgia, 'Times New Roman', serif;

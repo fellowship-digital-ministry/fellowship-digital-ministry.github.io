@@ -8,7 +8,6 @@ const BibleSourcesPanel = (function() {
     const config = {
       apiBaseUrl: 'https://sermon-search-api-8fok.onrender.com',
       youtubeBaseUrl: 'https://www.youtube.com/watch?v=',
-      bibleGatewayBaseUrl: 'https://www.biblegateway.com/passage/?search=',
       bibleVersion: 'KJV'
     };
     

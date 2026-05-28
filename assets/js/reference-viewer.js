@@ -222,7 +222,6 @@
     els.detailSub = $('detail-sub');
     els.verseTextBlock = $('verse-text-block');
     els.verseTextBody = $('verse-text-body');
-    els.bibleGatewayLink = $('bible-gateway-link');
     els.occurrences = $('occurrences');
     els.heroSection = document.querySelector('.refv-hero');
     els.browseSection = document.querySelector('.refv-browse');
@@ -1141,9 +1140,6 @@
   }
 
   function renderVerseText(book, chapter, verse) {
-    var gatewayBook = encodeURIComponent(book.display);
-    els.bibleGatewayLink.href = 'https://www.biblegateway.com/passage/?search=' +
-      gatewayBook + '+' + chapter + ':' + verse + '&version=KJV';
     els.verseTextBlock.hidden = false;
     els.verseTextBody.textContent = 'Loading…';
 

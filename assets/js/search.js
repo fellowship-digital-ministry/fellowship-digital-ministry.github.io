@@ -472,13 +472,6 @@ const SermonSearch = (function() {
     }
   };
 
-  // Bible website configurations for different languages
-  const bibleWebsites = {
-    en: { site: "https://www.biblegateway.com/passage/", version: "KJV" },
-    es: { site: "https://www.biblegateway.com/passage/", version: "RVR1960" },
-    zh: { site: "https://www.biblegateway.com/passage/", version: "CUVS" }
-  };
-
   // Bible reference regex for different languages
   const bibleRefRegexByLanguage = {
     en: /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi,
@@ -595,24 +588,15 @@ const SermonSearch = (function() {
   }
 
   /**
-   * Open a Bible reference. Routes English refs to our reference viewer
-   * (deep-linked into the chapter/verse); falls back to Bible Gateway for
-   * other languages or unparseable strings.
+   * Open a Bible reference inside our own reference viewer. Parseable English
+   * refs deep-link straight into the chapter/verse; anything else (Spanish /
+   * Chinese book names, malformed text) lands on the reference-viewer home
+   * where the user can browse or use the lookup.
    */
   function openBibleReference(refText) {
-    if (state.currentLanguage === 'en') {
-      const localUrl = referenceViewerUrlFor(refText);
-      if (localUrl) {
-        window.open(localUrl, '_blank', 'noopener');
-        return;
-      }
-    }
-    const bibleConfig = bibleWebsites[state.currentLanguage] || bibleWebsites.en;
-    window.open(
-      `${bibleConfig.site}?search=${encodeURIComponent(refText)}&version=${bibleConfig.version}`,
-      '_blank',
-      'noopener'
-    );
+    const localUrl = referenceViewerUrlFor(refText) ||
+      new URL('reference-viewer.html', document.baseURI).pathname;
+    window.open(localUrl, '_blank', 'noopener');
   }
 
   /**
