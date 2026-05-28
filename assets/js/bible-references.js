@@ -10,6 +10,16 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Regular expression to match Bible references
   const bibleRefRegex = /\b(Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|1 Samuel|2 Samuel|1 Kings|2 Kings|1 Chronicles|2 Chronicles|Ezra|Nehemiah|Esther|Job|Psalms|Psalm|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|1 Corinthians|2 Corinthians|Galatians|Ephesians|Philippians|Colossians|1 Thessalonians|2 Thessalonians|1 Timothy|2 Timothy|Titus|Philemon|Hebrews|James|1 Peter|2 Peter|1 John|2 John|3 John|Jude|Revelation)\s+\d+(?::\d+(?:-\d+)?)?/gi;
+
+  // Build the reference-viewer hash for a parsed ref ("Romans 8:28" → "#Romans/8/28").
+  function refViewerHashFor(refText) {
+    const m = refText.trim().match(/^([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+){0,2})\s+(\d+)(?:\s*:\s*(\d+))?/);
+    if (!m) return '';
+    const slug = m[1].replace(/\s+/g, '');
+    let hash = '#' + slug + '/' + m[2];
+    if (m[3]) hash += '/' + m[3];
+    return hash;
+  }
   
   // Find all text nodes in the document
   const walker = document.createTreeWalker(
@@ -66,13 +76,14 @@ document.addEventListener('DOMContentLoaded', function() {
         ));
       }
       
-      // Create a link for the Bible reference
+      // Create a link for the Bible reference — deep-link into the chapter so
+      // clicking lands on the actual passage view, not the home grid.
       const reference = match[0];
       const link = document.createElement('a');
-      link.href = `/reference-viewer.html?reference=${encodeURIComponent(reference)}`;
+      link.href = '/reference-viewer.html' + refViewerHashFor(reference);
       link.className = 'bible-reference';
       link.textContent = reference;
-      link.title = `See all occurrences of ${reference} in sermons`;
+      link.title = `Open ${reference} in the reference viewer`;
       
       // Add the link to the fragment
       fragment.appendChild(link);

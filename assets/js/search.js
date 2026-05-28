@@ -561,6 +561,61 @@ const SermonSearch = (function() {
   }
 
   /**
+   * Parse an English Bible reference ("Romans 8:28", "1 Cor 13", "John 3:16-17",
+   * "Psalm 23") into the slug + chapter + verse the reference viewer's hash router
+   * understands (see assets/js/reference-viewer.js).
+   * Returns null if the reference isn't parseable in English (e.g. Spanish / Chinese
+   * book names) — caller should fall back to the external Bible link.
+   */
+  function parseEnglishBibleReference(refText) {
+    if (!refText) return null;
+    // Book name: optional 1-3 prefix (Samuel/Kings/etc), then 1-3 word name
+    // (covers "Song of Solomon"). Captures chapter and optional starting verse.
+    const m = refText.trim().match(/^([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+){0,2})\s+(\d+)(?:\s*:\s*(\d+))?/);
+    if (!m) return null;
+    const slug = m[1].replace(/\s+/g, '');
+    return {
+      slug: slug,
+      chapter: parseInt(m[2], 10),
+      verse: m[3] ? parseInt(m[3], 10) : null
+    };
+  }
+
+  /**
+   * Build a same-origin URL into the reference viewer for a given English ref text.
+   * Returns null if the ref can't be parsed.
+   */
+  function referenceViewerUrlFor(refText) {
+    const parsed = parseEnglishBibleReference(refText);
+    if (!parsed) return null;
+    let hash = '#' + parsed.slug + '/' + parsed.chapter;
+    if (parsed.verse) hash += '/' + parsed.verse;
+    const u = new URL('reference-viewer.html' + hash, document.baseURI);
+    return u.pathname + u.hash;
+  }
+
+  /**
+   * Open a Bible reference. Routes English refs to our reference viewer
+   * (deep-linked into the chapter/verse); falls back to Bible Gateway for
+   * other languages or unparseable strings.
+   */
+  function openBibleReference(refText) {
+    if (state.currentLanguage === 'en') {
+      const localUrl = referenceViewerUrlFor(refText);
+      if (localUrl) {
+        window.open(localUrl, '_blank', 'noopener');
+        return;
+      }
+    }
+    const bibleConfig = bibleWebsites[state.currentLanguage] || bibleWebsites.en;
+    window.open(
+      `${bibleConfig.site}?search=${encodeURIComponent(refText)}&version=${bibleConfig.version}`,
+      '_blank',
+      'noopener'
+    );
+  }
+
+  /**
    * Format timestamp to MM:SS
    */
   function formatTimestamp(seconds) {
@@ -1116,12 +1171,9 @@ function updateSuggestions() {
       ref.setAttribute('tabindex', '0');
       ref.setAttribute('aria-label', `Open Bible reference: ${ref.textContent.trim()}`);
 
-      // Add click handler
+      // Add click handler — routes English refs to our reference viewer.
       ref.addEventListener('click', function() {
-        const reference = this.textContent.trim();
-        const bibleConfig = bibleWebsites[state.currentLanguage] || bibleWebsites.en;
-
-        window.open(`${bibleConfig.site}?search=${encodeURIComponent(reference)}&version=${bibleConfig.version}`, '_blank');
+        openBibleReference(this.textContent.trim());
       });
 
       // Add keyboard handler
@@ -1180,7 +1232,12 @@ function updateSuggestions() {
 
       const chip = document.createElement('a');
       chip.className = 'bible-ref-count';
-      chip.href = new URL('reference-viewer.html', document.baseURI).pathname;
+      // Deep-link the chip into the same chapter so it lands on the
+      // sermons-for-this-passage view, not the reference-viewer home.
+      const refUrl = referenceViewerUrlFor(refEl.textContent.trim());
+      chip.href = refUrl || new URL('reference-viewer.html', document.baseURI).pathname;
+      chip.target = '_blank';
+      chip.rel = 'noopener';
       const noun = count === 1 ? 'sermon' : 'sermons';
       chip.title = `${count} ${noun} reference ${key}`;
       chip.textContent = `${count} ${noun}`;
@@ -1202,10 +1259,7 @@ function updateSuggestions() {
       bibleRefs.forEach(ref => {
         // Update the click handler to use the current language
         ref.addEventListener('click', function() {
-          const reference = this.textContent.trim();
-          const bibleConfig = bibleWebsites[state.currentLanguage] || bibleWebsites.en;
-          
-          window.open(`${bibleConfig.site}?search=${encodeURIComponent(reference)}&version=${bibleConfig.version}`, '_blank');
+          openBibleReference(this.textContent.trim());
         });
       });
     });
