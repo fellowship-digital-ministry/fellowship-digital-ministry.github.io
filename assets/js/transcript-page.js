@@ -134,7 +134,6 @@
     els.back = $('tx-back');
     els.actions = $('tx-actions');
     els.watch = $('tx-watch');
-    els.top = $('tx-top');
   }
 
   function wire() {
@@ -146,11 +145,6 @@
           e.preventDefault();
           window.location.href = '/reference-viewer.html';
         }
-      });
-    }
-    if (els.top) {
-      els.top.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
