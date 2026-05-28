@@ -2469,15 +2469,17 @@ function createSourceElement(source, index) {
             suggestedQueries = data.suggested_queries || [];
 
             // Add sources panel + toggle button (mirrors displayAnswer's logic).
-            // Also suppress sources when the backend's OFF-TOPIC POLICY fires:
-            // weak Pinecone matches above the 0.6 floor can still slip through
-            // for tangential queries, and showing them next to a refusal reads
-            // as "here's the answer hidden in these sermons" — exactly the
-            // wrong signal.
+            // Also suppress sources when the backend's OFF-TOPIC POLICY fires.
+            // Use broad substring matches the model can't easily paraphrase
+            // away — "this tool" and "outside the scope" essentially never
+            // appear in a legitimate sermon answer (which talks about what
+            // the preacher said, not about the tool's capabilities).
+            const lower = accumulatedText.toLowerCase();
             const isNoResults = accumulatedText.includes(translate('no-results')) ||
                                 accumulatedText.includes("I couldn't find sermon content") ||
-                                accumulatedText.includes('this tool can answer questions about what was preached') ||
-                                accumulatedText.includes('outside the scope of what I can help');
+                                lower.includes('this tool can') ||
+                                lower.includes('this tool addresses') ||
+                                lower.includes('outside the scope');
             if (sourcesData.length > 0 && !isNoResults) {
               populateSourcesPanelAndAddToggle(contentEl, sourcesData);
             }
@@ -2833,14 +2835,16 @@ function displayAnswer(data) {
   // Check if there are any sermon sources - STRICT CHECK
   const hasSermonContent = data.sources && Array.isArray(data.sources) && data.sources.length > 0;
   
-  // Detect a "no results" or off-topic refusal response by checking for
-  // specific phrases. Off-topic phrasing is sourced from the backend's
-  // OFF-TOPIC POLICY block so suppressing the sources panel stays in sync
-  // with the model's refusal language.
+  // Detect a "no results" or off-topic refusal response. Off-topic checks
+  // use broad substrings ("this tool", "outside the scope") that the model
+  // can't easily paraphrase away — legitimate sermon answers talk about
+  // what the preacher said, never about the tool's capabilities.
+  const answerLower = data.answer.toLowerCase();
   const isNoResultsResponse = data.answer.includes(translate('no-results')) ||
                              data.answer.includes("I couldn't find sermon content") ||
-                             data.answer.includes('this tool can answer questions about what was preached') ||
-                             data.answer.includes('outside the scope of what I can help');
+                             answerLower.includes('this tool can') ||
+                             answerLower.includes('this tool addresses') ||
+                             answerLower.includes('outside the scope');
   
   // If no sermon content but we have conversation history, use the fallback logic
   if (!hasSermonContent && isNoResultsResponse && state.conversationHistory.length > 0) {
