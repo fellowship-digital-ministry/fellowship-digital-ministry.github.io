@@ -1271,6 +1271,7 @@ html { scroll-behavior: smooth; }
 .refv-picker-search {
   width: 100%;
   padding: 0.55rem 0.85rem;
+  font-family: inherit;
   font-size: 0.95rem;
   border: 1px solid var(--refv-border);
   border-radius: var(--refv-radius-sm);
@@ -1343,13 +1344,19 @@ html { scroll-behavior: smooth; }
   justify-content: space-between;
   gap: 0.5rem;
   width: 100%;
+  box-sizing: border-box;
   text-align: left;
   background: transparent;
   border: none;
   padding: 0.45rem 0.6rem;
   border-radius: var(--refv-radius-sm);
   color: var(--refv-text);
+  /* Buttons don't inherit font/line by default in all browsers — be explicit
+     so the book names don't shrink/stretch into the system <button> font. */
+  font-family: inherit;
   font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.3;
   cursor: pointer;
   transition: background 0.1s ease, color 0.1s ease;
 }
@@ -1363,16 +1370,27 @@ html { scroll-behavior: smooth; }
   color: var(--refv-primary);
   font-weight: 600;
 }
-.refv-picker-book.is-current::before {
+.refv-picker-book-name {
+  /* Allow the name to grow and own the "currently reading" bullet via
+     a leading inline marker (not a pseudo-element on the flex parent,
+     which broke the row layout by adding a third spaced-between child). */
+  flex: 1;
+  min-width: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+}
+.refv-picker-book.is-current .refv-picker-book-name::before {
   content: "•";
   color: var(--refv-primary);
-  margin-right: 0.4em;
-  margin-left: -0.2em;
+  font-weight: 700;
+  line-height: 1;
 }
 .refv-picker-book-count {
   color: var(--refv-text-muted);
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
 }
 
 .refv-picker-chapters-head {
@@ -1409,6 +1427,7 @@ html { scroll-behavior: smooth; }
   background: white;
   border: 1px solid var(--refv-border);
   border-radius: var(--refv-radius-sm);
+  font-family: inherit;
   font-size: 0.92rem;
   font-variant-numeric: tabular-nums;
   color: var(--refv-text);
