@@ -946,13 +946,13 @@
   max-width: 760px;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: 100vh; max-height: 100dvh;
 }
 @media (min-width: 720px) {
   .refv-sermons-modal { padding: 2rem 1rem; align-items: center; }
   .refv-sermons-modal-card {
     border-radius: var(--refv-radius);
-    max-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem); max-height: calc(100dvh - 4rem);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
     overflow: hidden;
   }
@@ -1022,13 +1022,13 @@ html { scroll-behavior: smooth; }
   border-radius: 0;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: 100vh; max-height: 100dvh;
 }
 @media (min-width: 720px) {
   .refv-transcript-modal { padding: 2rem 1rem; align-items: center; }
   .refv-transcript-modal-card {
     border-radius: var(--refv-radius);
-    max-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem); max-height: calc(100dvh - 4rem);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
   }
 }
@@ -1289,7 +1289,7 @@ html { scroll-behavior: smooth; }
   max-width: 860px;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: 100vh; max-height: 100dvh;
   /* Picker modal lives outside .refv in the DOM, so it doesn't inherit the
      page's font-family / line-height. Lock both here so the picker reads
      consistently and the global h-tag rules in style.css don't drift in. */
@@ -1301,7 +1301,7 @@ html { scroll-behavior: smooth; }
   .refv-picker-modal { padding: 2rem 1rem; align-items: center; }
   .refv-picker-modal-card {
     border-radius: var(--refv-radius);
-    max-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem); max-height: calc(100dvh - 4rem);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
     overflow: hidden;
   }
