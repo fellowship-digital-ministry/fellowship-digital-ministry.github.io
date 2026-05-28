@@ -700,6 +700,15 @@
     if (kjvChapter && Array.isArray(kjvChapter.verses) && kjvChapter.verses.length) {
       bibleHtml = '<section class="refv-bible-reading" aria-label="' +
         escapeAttr(book.display + ' ' + chapter + ', King James Version') + '">';
+      // Legend explaining the convention — only shown when the chapter
+      // actually has preached verses, so it doesn't appear for chapters
+      // with zero refs.
+      if (hasAnyRefs) {
+        bibleHtml += '<p class="refv-bible-legend">' +
+          'Verses with an <strong>underlined number</strong> have been preached at Fellowship. ' +
+          'Tap the number to see the sermons.' +
+        '</p>';
+      }
       bibleHtml += renderVersesAsParagraphs(kjvChapter.verses, byVerse, headings || [], redLetter || []);
       bibleHtml += '</section>';
     }
