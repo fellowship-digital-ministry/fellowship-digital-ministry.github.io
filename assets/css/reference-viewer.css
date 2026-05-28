@@ -476,13 +476,56 @@
   line-height: 1.55;
   color: var(--refv-text);
 }
-.refv-occ-summary-note {
-  display: block;
-  margin-top: 0.4rem;
+.refv-occ-summary-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.65rem;
+  margin-top: 0.5rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 0.72rem;
   color: var(--refv-text-muted);
+}
+.refv-occ-summary-note {
   font-style: italic;
+}
+/* "Show original quote" disclosure — collapsed by default; expands the raw
+   transcript snippet underneath for readers who want to verify the summary
+   against the actual words spoken. */
+.refv-occ-quote-toggle {
+  width: 100%;
+}
+.refv-occ-quote-toggle > summary {
+  display: inline-flex;
+  align-items: center;
+  list-style: none;
+  cursor: pointer;
+  color: var(--refv-primary);
+  font-weight: 500;
+  user-select: none;
+  padding: 1px 0;
+}
+.refv-occ-quote-toggle > summary::-webkit-details-marker { display: none; }
+.refv-occ-quote-toggle > summary::after {
+  content: "▾";
+  margin-left: 0.25em;
+  font-size: 0.85em;
+  transition: transform 0.15s ease;
+}
+.refv-occ-quote-toggle[open] > summary::after {
+  transform: rotate(180deg);
+}
+.refv-occ-quote-toggle > summary:hover,
+.refv-occ-quote-toggle > summary:focus-visible {
+  color: var(--refv-primary-dark);
+  outline: none;
+}
+.refv-occ-quote-toggle .refv-occ-quote-toggle-hide { display: none; }
+.refv-occ-quote-toggle[open] .refv-occ-quote-toggle-show { display: none; }
+.refv-occ-quote-toggle[open] .refv-occ-quote-toggle-hide { display: inline; }
+.refv-occ-quote-toggle .refv-occ-context {
+  margin: 0.55rem 0 0;
+  background: white;
 }
 
 .refv-occ-context {

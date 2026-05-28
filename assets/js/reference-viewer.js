@@ -1082,17 +1082,33 @@
 
     // Optional AI footnote summary (study-Bible-style one-liner). Stored on
     // the ref as `point_summary` by tools/generate_reference_summaries.py.
+    // When present, the summary replaces the raw transcript snippet as the
+    // primary content — but the snippet stays available behind a "Show
+    // original quote" disclosure so readers can verify the summary.
     var summary = (ref.point_summary || '').trim();
     var summaryHtml = '';
     if (summary) {
+      var quoteToggle = ctx
+        ? '<details class="refv-occ-quote-toggle">' +
+            '<summary><span class="refv-occ-quote-toggle-show">Show original quote</span>' +
+            '<span class="refv-occ-quote-toggle-hide">Hide original quote</span></summary>' +
+            '<blockquote class="refv-occ-context">' + highlighted + '</blockquote>' +
+          '</details>'
+        : '';
       summaryHtml = '<div class="refv-occ-summary">' +
         '<span class="refv-occ-summary-label">In this sermon</span>' +
         '<span class="refv-occ-summary-text">' + escapeHtml(summary) + '</span>' +
-        '<span class="refv-occ-summary-note">' +
-          'AI-generated · always verify in the transcript or video below' +
-        '</span>' +
+        '<div class="refv-occ-summary-footer">' +
+          '<span class="refv-occ-summary-note">AI-generated</span>' +
+          quoteToggle +
+        '</div>' +
       '</div>';
     }
+
+    // Only show the bare snippet when there's no AI summary (fallback).
+    var snippetHtml = (!summary && ctx)
+      ? '<blockquote class="refv-occ-context">' + highlighted + '</blockquote>'
+      : '';
 
     return '<article class="refv-occ">' +
       '<h3 class="refv-occ-title">' + sermonTitle + '</h3>' +
@@ -1101,7 +1117,7 @@
         implicitTag +
       '</div>' +
       summaryHtml +
-      (ctx ? '<blockquote class="refv-occ-context">' + highlighted + '</blockquote>' : '') +
+      snippetHtml +
       '<div class="refv-occ-actions">' +
         '<button class="refv-occ-btn is-primary" data-action="watch" data-video="' + escapeAttr(ref.video_id) +
           '" data-ts="' + (ref.start_time || 0) + '" data-title="' + escapeAttr(ref.sermon_title || 'Sermon') + '" type="button">' +
