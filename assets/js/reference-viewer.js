@@ -138,6 +138,7 @@
       'rom': 'Romans', 'ro': 'Romans', 'rm': 'Romans',
       '1cor': '1 Corinthians', '1co': '1 Corinthians', '2cor': '2 Corinthians', '2co': '2 Corinthians',
       'gal': 'Galatians', 'eph': 'Ephesians', 'phil': 'Philippians', 'php': 'Philippians',
+      'filip': 'Philippians', 'filipi': 'Philippians', 'filipians': 'Philippians', 'filippians': 'Philippians',
       'col': 'Colossians',
       '1thess': '1 Thessalonians', '1th': '1 Thessalonians', '2thess': '2 Thessalonians', '2th': '2 Thessalonians',
       '1tim': '1 Timothy', '1ti': '1 Timothy', '2tim': '2 Timothy', '2ti': '2 Timothy',
@@ -145,7 +146,9 @@
       'heb': 'Hebrews', 'jas': 'James', 'jm': 'James',
       '1pet': '1 Peter', '1pt': '1 Peter', '2pet': '2 Peter', '2pt': '2 Peter',
       '1jn': '1 John', '1jhn': '1 John', '2jn': '2 John', '3jn': '3 John',
-      'jud': 'Jude', 'jude': 'Jude', 'rev': 'Revelation', 're': 'Revelation', 'rv': 'Revelation'
+      'jud': 'Jude', 'jude': 'Jude', 'rev': 'Revelation', 'revelations': 'Revelation', 're': 'Revelation', 'rv': 'Revelation',
+      'eccle': 'Ecclesiastes', 'ecclesiastics': 'Ecclesiastes',
+      'songs': 'Song of Solomon', 'songofsongs': 'Song of Solomon'
     };
     Object.keys(aliases).forEach(function (k) {
       var b = BIBLE_BOOKS.find(function (x) { return x.display === aliases[k]; });
