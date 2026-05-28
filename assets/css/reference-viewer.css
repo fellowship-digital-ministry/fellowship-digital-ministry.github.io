@@ -978,7 +978,9 @@
 }
 .refv-sermons-modal-body {
   flex: 1;
+  min-height: 0; /* essential — without this a flex column child won't actually constrain its overflow on iOS */
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 1.1rem;
   -webkit-overflow-scrolling: touch;
 }
@@ -1082,7 +1084,9 @@ html { scroll-behavior: smooth; }
 }
 .refv-transcript-modal-body {
   flex: 1;
+  min-height: 0; /* lets overflow-y actually scroll inside a flex column on iOS */
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 1.5rem 1.25rem 2.5rem;
   -webkit-overflow-scrolling: touch;
   max-width: 65ch;
@@ -1358,14 +1362,19 @@ html { scroll-behavior: smooth; }
 .refv-picker-books {
   flex: 0 0 auto;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0.5rem 0.85rem 0.85rem;
   max-height: 40vh;
   border-bottom: 1px solid var(--refv-border);
+  -webkit-overflow-scrolling: touch;
 }
 .refv-picker-chapters {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0.85rem 1.1rem 1.5rem;
+  -webkit-overflow-scrolling: touch;
 }
 @media (min-width: 720px) {
   .refv-picker-books {

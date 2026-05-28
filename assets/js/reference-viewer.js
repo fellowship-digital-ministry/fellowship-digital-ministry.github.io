@@ -202,8 +202,42 @@
     kjvCache: {},
     transcriptCache: {},
     headingsCache: {},
-    redLetterCache: {}
+    redLetterCache: {},
+    bodyLockCount: 0,
+    bodyLockScrollY: 0
   };
+
+  // iOS-friendly body scroll lock. `overflow: hidden` alone doesn't stop
+  // touch-scroll from chaining to the page underneath any open modal — the
+  // page just keeps scrolling. Pinning body to position:fixed at the current
+  // scroll offset is the standard workaround. Reference-counted so nested
+  // modal opens (e.g., Watch from inside Sermons) don't unlock prematurely.
+  function lockBody() {
+    if (state.bodyLockCount === 0) {
+      state.bodyLockScrollY = window.scrollY || window.pageYOffset || 0;
+      var b = document.body;
+      b.style.position = 'fixed';
+      b.style.top = -state.bodyLockScrollY + 'px';
+      b.style.left = '0';
+      b.style.right = '0';
+      b.style.width = '100%';
+      b.style.overflow = 'hidden';
+    }
+    state.bodyLockCount++;
+  }
+  function unlockBody() {
+    state.bodyLockCount = Math.max(0, state.bodyLockCount - 1);
+    if (state.bodyLockCount === 0) {
+      var b = document.body;
+      b.style.position = '';
+      b.style.top = '';
+      b.style.left = '';
+      b.style.right = '';
+      b.style.width = '';
+      b.style.overflow = '';
+      window.scrollTo(0, state.bodyLockScrollY);
+    }
+  }
 
   var els = {};
 
@@ -930,14 +964,14 @@
     els.sermonsModalBody.scrollTop = 0;
     els.sermonsModal.hidden = false;
     els.sermonsModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    lockBody();
     wireOccurrenceButtons(els.sermonsModalBody);
   }
 
   function closeSermonsModal() {
     els.sermonsModal.hidden = true;
     els.sermonsModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    unlockBody();
   }
 
   // ============================================================
@@ -954,7 +988,7 @@
     els.pickerSearch.value = '';
     els.pickerModal.hidden = false;
     els.pickerModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    lockBody();
     // Focus the search after the modal paints so keyboard users can type-to-filter.
     requestAnimationFrame(function () {
       if (els.pickerSearch && els.pickerSearch.focus) {
@@ -967,7 +1001,7 @@
     if (!els.pickerModal) return;
     els.pickerModal.hidden = true;
     els.pickerModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    unlockBody();
   }
 
   function renderPickerBooks(filter) {
@@ -1247,14 +1281,14 @@
       '?start=' + start + '&autoplay=1" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe>';
     els.videoModal.hidden = false;
     els.videoModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    lockBody();
   }
 
   function closeVideoModal() {
     els.videoModal.hidden = true;
     els.videoModal.setAttribute('aria-hidden', 'true');
     els.videoModalFrame.innerHTML = '';
-    document.body.style.overflow = '';
+    unlockBody();
   }
 
   // ============================================================
@@ -1268,7 +1302,7 @@
     els.transcriptModalSub.textContent = 'Loading…';
     els.transcriptModal.hidden = false;
     els.transcriptModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    lockBody();
 
     var renderAndScroll = function (data) {
       renderTranscript(data, startSec, videoId);
@@ -1380,7 +1414,7 @@
   function closeTranscriptModal() {
     els.transcriptModal.hidden = true;
     els.transcriptModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    unlockBody();
   }
 
   // ============================================================
