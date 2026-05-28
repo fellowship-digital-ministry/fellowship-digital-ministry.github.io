@@ -1,0 +1,746 @@
+{
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "Moses and Aaron Before Pharaoh"
+    },
+    {
+      "before_verse": 6,
+      "title": "Pharaoh Increases the Israelites' Burden"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Officers Appeal to Pharaoh"
+    },
+    {
+      "before_verse": 20,
+      "title": "Moses and Aaron Blamed"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "God Renews His Promise to Moses"
+    },
+    {
+      "before_verse": 10,
+      "title": "Moses Sent Again to Pharaoh"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Genealogy of Moses and Aaron"
+    },
+    {
+      "before_verse": 28,
+      "title": "Moses Objects Again"
+    }
+  ],
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "Israel Multiplies in Egypt"
+    },
+    {
+      "before_verse": 8,
+      "title": "Pharaoh Oppresses Israel"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Midwives Defy Pharaoh"
+    },
+    {
+      "before_verse": 22,
+      "title": "Pharaoh Orders Infant Boys Killed"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "Moses Born and Hidden"
+    },
+    {
+      "before_verse": 5,
+      "title": "Moses Rescued by Pharaoh's Daughter"
+    },
+    {
+      "before_verse": 11,
+      "title": "Moses Flees to Midian"
+    },
+    {
+      "before_verse": 23,
+      "title": "Israel's Cry Heard by God"
+    }
+  ],
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "The Burning Bush"
+    },
+    {
+      "before_verse": 7,
+      "title": "God Announces the Deliverance of Israel"
+    },
+    {
+      "before_verse": 11,
+      "title": "Moses Objects; God Reveals His Name"
+    },
+    {
+      "before_verse": 16,
+      "title": "Instructions for Moses and the Elders"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "The Plague of Frogs"
+    },
+    {
+      "before_verse": 8,
+      "title": "Pharaoh Bargains with Moses"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Plague of Lice"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Plague of Flies"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "The Plague of Locusts Announced"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Locusts Descend"
+    },
+    {
+      "before_verse": 16,
+      "title": "Pharaoh Pleads for Relief"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Plague of Darkness"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "Moses and Aaron Commissioned"
+    },
+    {
+      "before_verse": 8,
+      "title": "Aaron's Rod Becomes a Serpent"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Plague of Blood"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "The Fifth Plague: Livestock Die"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Sixth Plague: Boils"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Seventh Plague: Hail"
+    },
+    {
+      "before_verse": 27,
+      "title": "Pharaoh Summons Moses"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "Three Signs Given to Moses"
+    },
+    {
+      "before_verse": 10,
+      "title": "Moses Objects; Aaron Appointed"
+    },
+    {
+      "before_verse": 18,
+      "title": "Moses Departs for Egypt"
+    },
+    {
+      "before_verse": 24,
+      "title": "Zipporah Circumcises Her Son"
+    },
+    {
+      "before_verse": 27,
+      "title": "Aaron Meets Moses; Israel Believes"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "The Final Plague Announced"
+    },
+    {
+      "before_verse": 2,
+      "title": "Israel Asks Gifts of Egypt"
+    },
+    {
+      "before_verse": 4,
+      "title": "Moses Warns of the Firstborn's Death"
+    },
+    {
+      "before_verse": 9,
+      "title": "Pharaoh's Heart Hardened"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "The Passover Instituted"
+    },
+    {
+      "before_verse": 21,
+      "title": "Moses Instructs the Elders"
+    },
+    {
+      "before_verse": 29,
+      "title": "The Firstborn Slain; Israel Departs"
+    },
+    {
+      "before_verse": 43,
+      "title": "Ordinances of the Passover"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "The Song of Moses"
+    },
+    {
+      "before_verse": 20,
+      "title": "Miriam Leads the Women in Song"
+    },
+    {
+      "before_verse": 22,
+      "title": "Bitter Waters at Marah"
+    },
+    {
+      "before_verse": 27,
+      "title": "The Camp at Elim"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "Israel Encamps by the Sea"
+    },
+    {
+      "before_verse": 5,
+      "title": "Pharaoh Pursues Israel"
+    },
+    {
+      "before_verse": 10,
+      "title": "Israel's Fear and Moses' Answer"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Sea Divided"
+    },
+    {
+      "before_verse": 26,
+      "title": "The Egyptians Overwhelmed"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "The Firstborn Consecrated"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Feast of Unleavened Bread"
+    },
+    {
+      "before_verse": 11,
+      "title": "Law of the Firstborn"
+    },
+    {
+      "before_verse": 17,
+      "title": "Israel Led into the Wilderness"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "Israel Murmurs for Food"
+    },
+    {
+      "before_verse": 4,
+      "title": "The LORD Promises Bread from Heaven"
+    },
+    {
+      "before_verse": 13,
+      "title": "Quail and Manna Provided"
+    },
+    {
+      "before_verse": 22,
+      "title": "The Sabbath Rule for Manna"
+    },
+    {
+      "before_verse": 32,
+      "title": "An Omer of Manna Preserved"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "No Water at Rephidim"
+    },
+    {
+      "before_verse": 5,
+      "title": "Water from the Rock"
+    },
+    {
+      "before_verse": 8,
+      "title": "Israel Fights Amalek"
+    },
+    {
+      "before_verse": 14,
+      "title": "The LORD Commands a Memorial"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "Jethro Brings Moses His Family"
+    },
+    {
+      "before_verse": 8,
+      "title": "Moses Recounts God's Deeds"
+    },
+    {
+      "before_verse": 13,
+      "title": "Jethro Observes Moses Judging"
+    },
+    {
+      "before_verse": 17,
+      "title": "Jethro Counsels Moses to Delegate"
+    },
+    {
+      "before_verse": 24,
+      "title": "Moses Appoints Judges"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "Laws Concerning Servants"
+    },
+    {
+      "before_verse": 12,
+      "title": "Laws Concerning Personal Injury"
+    },
+    {
+      "before_verse": 28,
+      "title": "Laws Concerning Livestock"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "Israel Camps at Sinai"
+    },
+    {
+      "before_verse": 3,
+      "title": "The LORD Speaks to Moses"
+    },
+    {
+      "before_verse": 10,
+      "title": "The People Consecrated"
+    },
+    {
+      "before_verse": 16,
+      "title": "The LORD Descends on Sinai"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "The Ten Commandments"
+    },
+    {
+      "before_verse": 18,
+      "title": "The People's Fear at Sinai"
+    },
+    {
+      "before_verse": 22,
+      "title": "Laws Concerning Idols and Altars"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "Laws of Theft and Restitution"
+    },
+    {
+      "before_verse": 7,
+      "title": "Laws of Deposits and Borrowed Property"
+    },
+    {
+      "before_verse": 16,
+      "title": "Laws on Seduction, Sorcery, and Idolatry"
+    },
+    {
+      "before_verse": 21,
+      "title": "Protection of the Vulnerable"
+    },
+    {
+      "before_verse": 28,
+      "title": "Duties to God and Rulers"
+    }
+  ],
+  "23": [
+    {
+      "before_verse": 1,
+      "title": "Laws of Justice and Honesty"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Sabbath Year and Day"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Three Annual Feasts"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Angel and the Conquest of Canaan"
+    }
+  ],
+  "25": [
+    {
+      "before_verse": 1,
+      "title": "Offerings for the Sanctuary"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Ark of the Testimony"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Table of Showbread"
+    },
+    {
+      "before_verse": 31,
+      "title": "The Golden Lampstand"
+    }
+  ],
+  "26": [
+    {
+      "before_verse": 1,
+      "title": "The Linen Curtains"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Goat Hair Covering"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Boards and Sockets"
+    },
+    {
+      "before_verse": 26,
+      "title": "The Bars and Overlaying"
+    },
+    {
+      "before_verse": 31,
+      "title": "The Veil and the Screen"
+    }
+  ],
+  "27": [
+    {
+      "before_verse": 1,
+      "title": "The Bronze Altar"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Court of the Tabernacle"
+    },
+    {
+      "before_verse": 20,
+      "title": "Oil for the Lamp"
+    }
+  ],
+  "24": [
+    {
+      "before_verse": 1,
+      "title": "Israel Summoned to Worship"
+    },
+    {
+      "before_verse": 3,
+      "title": "The People Pledge Obedience"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Covenant Ratified"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Elders See God"
+    },
+    {
+      "before_verse": 12,
+      "title": "Moses Ascends into the Cloud"
+    }
+  ],
+  "31": [
+    {
+      "before_verse": 1,
+      "title": "Bezaleel and Aholiab Appointed"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Sabbath Commanded"
+    },
+    {
+      "before_verse": 18,
+      "title": "Moses Receives the Stone Tablets"
+    }
+  ],
+  "28": [
+    {
+      "before_verse": 1,
+      "title": "Aaron and His Sons Set Apart"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Ephod and Its Stones"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Breastplate of Judgment"
+    },
+    {
+      "before_verse": 31,
+      "title": "The Robe, Mitre, and Golden Plate"
+    },
+    {
+      "before_verse": 40,
+      "title": "Garments for Aaron's Sons"
+    }
+  ],
+  "32": [
+    {
+      "before_verse": 1,
+      "title": "The Golden Calf Made"
+    },
+    {
+      "before_verse": 7,
+      "title": "The LORD Informs Moses"
+    },
+    {
+      "before_verse": 11,
+      "title": "Moses Intercedes for Israel"
+    },
+    {
+      "before_verse": 15,
+      "title": "Moses Descends and Destroys the Calf"
+    },
+    {
+      "before_verse": 30,
+      "title": "Moses Pleads Before the LORD"
+    }
+  ],
+  "30": [
+    {
+      "before_verse": 1,
+      "title": "The Altar of Incense"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Census Tax"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Bronze Laver"
+    },
+    {
+      "before_verse": 22,
+      "title": "The Anointing Oil"
+    },
+    {
+      "before_verse": 34,
+      "title": "The Sacred Incense"
+    }
+  ],
+  "33": [
+    {
+      "before_verse": 1,
+      "title": "The LORD Refuses to Go with Israel"
+    },
+    {
+      "before_verse": 4,
+      "title": "The People Mourn and Remove Their Ornaments"
+    },
+    {
+      "before_verse": 7,
+      "title": "Moses Pitches the Tabernacle Outside the Camp"
+    },
+    {
+      "before_verse": 12,
+      "title": "Moses Pleads for the LORD's Presence"
+    },
+    {
+      "before_verse": 18,
+      "title": "Moses Asks to See the LORD's Glory"
+    }
+  ],
+  "29": [
+    {
+      "before_verse": 1,
+      "title": "Garments and Offerings for Consecration"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Bullock and Two Rams Offered"
+    },
+    {
+      "before_verse": 29,
+      "title": "The Priestly Garments Inherited"
+    },
+    {
+      "before_verse": 38,
+      "title": "The Daily Burnt Offering"
+    }
+  ],
+  "34": [
+    {
+      "before_verse": 1,
+      "title": "Moses Commanded to Cut New Tablets"
+    },
+    {
+      "before_verse": 5,
+      "title": "The LORD Proclaims His Name"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Covenant Renewed"
+    },
+    {
+      "before_verse": 29,
+      "title": "The Face of Moses Shines"
+    }
+  ],
+  "37": [
+    {
+      "before_verse": 1,
+      "title": "The Ark and Mercy Seat Made"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Table Made"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Candlestick Made"
+    },
+    {
+      "before_verse": 25,
+      "title": "The Incense Altar Made"
+    }
+  ],
+  "38": [
+    {
+      "before_verse": 1,
+      "title": "The Altar of Burnt Offering"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Laver and the Court"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Craftsmen Named"
+    },
+    {
+      "before_verse": 24,
+      "title": "Inventory of Materials Used"
+    }
+  ],
+  "36": [
+    {
+      "before_verse": 1,
+      "title": "The Craftsmen Begin Work"
+    },
+    {
+      "before_verse": 3,
+      "title": "Offerings Exceed What Is Needed"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Linen and Goat Hair Curtains Made"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Boards, Bars, and Sockets Made"
+    },
+    {
+      "before_verse": 35,
+      "title": "The Veil and Door Hanging Made"
+    }
+  ],
+  "39": [
+    {
+      "before_verse": 1,
+      "title": "The Ephod Made"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Breastplate Made"
+    },
+    {
+      "before_verse": 22,
+      "title": "The Robe and Other Priestly Garments Made"
+    },
+    {
+      "before_verse": 32,
+      "title": "The Completed Work Brought to Moses"
+    }
+  ],
+  "35": [
+    {
+      "before_verse": 1,
+      "title": "The Sabbath Commanded"
+    },
+    {
+      "before_verse": 4,
+      "title": "Moses Calls for Offerings"
+    },
+    {
+      "before_verse": 20,
+      "title": "The People Bring Offerings"
+    },
+    {
+      "before_verse": 30,
+      "title": "Bezaleel and Aholiab Appointed"
+    }
+  ],
+  "40": [
+    {
+      "before_verse": 1,
+      "title": "The LORD Commands Moses to Erect the Tabernacle"
+    },
+    {
+      "before_verse": 16,
+      "title": "Moses Erects and Furnishes the Tabernacle"
+    },
+    {
+      "before_verse": 34,
+      "title": "The Glory of the LORD Fills the Tabernacle"
+    }
+  ]
+}

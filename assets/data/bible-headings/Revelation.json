@@ -1,0 +1,378 @@
+{
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "The Letter to Sardis"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Letter to Philadelphia"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Letter to Laodicea"
+    }
+  ],
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "The Sealed Book"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Lamb Takes the Book"
+    },
+    {
+      "before_verse": 8,
+      "title": "Worship of the Lamb"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "The Letter to Ephesus"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Letter to Smyrna"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Letter to Pergamos"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Letter to Thyatira"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "The First Four Seals Opened"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Fifth Seal: Martyred Souls"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Sixth Seal: Cosmic Upheaval"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "John Called Up to Heaven"
+    },
+    {
+      "before_verse": 2,
+      "title": "The Throne in Heaven"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Four Living Creatures"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Elders Worship"
+    }
+  ],
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "Prologue and Salutation"
+    },
+    {
+      "before_verse": 9,
+      "title": "John on Patmos"
+    },
+    {
+      "before_verse": 12,
+      "title": "John's Vision of the Glorified Christ"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Command to Write"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "The Mighty Angel and the Little Book"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Seven Thunders Sealed"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Angel's Oath"
+    },
+    {
+      "before_verse": 8,
+      "title": "John Eats the Little Book"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "The Seventh Seal Opened"
+    },
+    {
+      "before_verse": 2,
+      "title": "The Seven Trumpets Given"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Angel with the Censer"
+    },
+    {
+      "before_verse": 7,
+      "title": "The First Four Trumpets Sound"
+    },
+    {
+      "before_verse": 13,
+      "title": "An Angel Announces Three Woes"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "The Temple Measured"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Two Witnesses"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Witnesses Killed and Raised"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Seventh Trumpet"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "The Four Winds Restrained"
+    },
+    {
+      "before_verse": 4,
+      "title": "The 144,000 Sealed"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Great Multitude Before the Throne"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Elder Identifies the Multitude"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "The Woman and the Dragon"
+    },
+    {
+      "before_verse": 7,
+      "title": "War in Heaven"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Dragon Pursues the Woman"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "The Beast from the Sea"
+    },
+    {
+      "before_verse": 9,
+      "title": "A Call to Endurance"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Beast from the Earth"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Mark of the Beast"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "The Fifth Trumpet: Locusts from the Pit"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Appearance of the Locusts"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Sixth Trumpet: The Four Angels Loosed"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Survivors Refuse to Repent"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "The Lamb and the 144,000 on Mount Zion"
+    },
+    {
+      "before_verse": 6,
+      "title": "Three Angels Proclaim Judgment"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Harvest of the Earth"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "The Great Whore Shown to John"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Angel Explains the Mystery"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Beast Turns on the Whore"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "The Seven Vials Poured Out"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Sixth Vial: Euphrates Dried Up"
+    },
+    {
+      "before_verse": 13,
+      "title": "Spirits Gather Kings to Armageddon"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Seventh Vial: Earth Shaken"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "An Angel Announces Babylon's Fall"
+    },
+    {
+      "before_verse": 4,
+      "title": "A Voice Calls God's People Out"
+    },
+    {
+      "before_verse": 9,
+      "title": "Kings and Merchants Mourn Babylon"
+    },
+    {
+      "before_verse": 21,
+      "title": "An Angel Declares Babylon's Final Desolation"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "Heaven Praises God"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Marriage of the Lamb"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Rider on the White Horse"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Beast and His Armies Destroyed"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "Satan Bound a Thousand Years"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Reign of the Saints"
+    },
+    {
+      "before_verse": 7,
+      "title": "Satan Released and Defeated"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Great White Throne Judgment"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "The New Heaven and Earth"
+    },
+    {
+      "before_verse": 3,
+      "title": "God Dwells with Men"
+    },
+    {
+      "before_verse": 9,
+      "title": "The New Jerusalem Described"
+    },
+    {
+      "before_verse": 22,
+      "title": "The City's Light and Gates"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "The Sign of the Seven Angels"
+    },
+    {
+      "before_verse": 2,
+      "title": "The Victors Sing Before the Throne"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Seven Vials Distributed"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "The River and Tree of Life"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Angel's Closing Words"
+    },
+    {
+      "before_verse": 8,
+      "title": "John Rebuked for Worship"
+    },
+    {
+      "before_verse": 12,
+      "title": "Christ's Coming Announced"
+    },
+    {
+      "before_verse": 18,
+      "title": "Warning and Benediction"
+    }
+  ]
+}

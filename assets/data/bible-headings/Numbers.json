@@ -1,0 +1,714 @@
+{
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "The Unclean Put Outside the Camp"
+    },
+    {
+      "before_verse": 5,
+      "title": "Restitution for Trespass"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Law of Jealousy"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "The Arrangement of the Camps"
+    },
+    {
+      "before_verse": 3,
+      "title": "The East Camp: Judah"
+    },
+    {
+      "before_verse": 10,
+      "title": "The South Camp: Reuben"
+    },
+    {
+      "before_verse": 18,
+      "title": "The West Camp: Ephraim"
+    },
+    {
+      "before_verse": 25,
+      "title": "The North Camp: Dan"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "The Nazarite Vow"
+    },
+    {
+      "before_verse": 9,
+      "title": "Defilement and Cleansing of the Nazarite"
+    },
+    {
+      "before_verse": 13,
+      "title": "Completion of the Nazarite Vow"
+    },
+    {
+      "before_verse": 22,
+      "title": "The Priestly Blessing"
+    }
+  ],
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "The Census Commanded"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Tribal Leaders Named"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Count by Tribe"
+    },
+    {
+      "before_verse": 47,
+      "title": "The Levites Exempted"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "The Kohathites Numbered and Assigned"
+    },
+    {
+      "before_verse": 5,
+      "title": "Packing the Holy Things for Transport"
+    },
+    {
+      "before_verse": 17,
+      "title": "Instructions for the Kohathites' Safety"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Gershonites and Merarites Assigned"
+    },
+    {
+      "before_verse": 34,
+      "title": "The Census of the Levitical Clans"
+    }
+  ],
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "The Sons of Aaron"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Levites Assigned to Aaron"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Census and Duties of the Levites"
+    },
+    {
+      "before_verse": 40,
+      "title": "The Firstborn Numbered and Redeemed"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "The Passover Commanded"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Unclean Men's Inquiry"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Second Passover Provision"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Cloud over the Tabernacle"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "The Lamps of the Candlestick"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Cleansing and Consecration of the Levites"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Levites Enter Their Service"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Age of Levitical Service"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "The Princes Bring Offerings"
+    },
+    {
+      "before_verse": 4,
+      "title": "Wagons and Oxen Distributed to the Levites"
+    },
+    {
+      "before_verse": 10,
+      "title": "Each Prince Offers on His Day"
+    },
+    {
+      "before_verse": 84,
+      "title": "Total of the Dedication Offerings"
+    },
+    {
+      "before_verse": 89,
+      "title": "Moses Hears the Voice from the Mercy Seat"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "The Silver Trumpets"
+    },
+    {
+      "before_verse": 11,
+      "title": "Israel Departs Sinai"
+    },
+    {
+      "before_verse": 14,
+      "title": "Order of the March"
+    },
+    {
+      "before_verse": 29,
+      "title": "Moses Invites Hobab"
+    },
+    {
+      "before_verse": 33,
+      "title": "The Ark Leads the Way"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "Miriam and Aaron Oppose Moses"
+    },
+    {
+      "before_verse": 4,
+      "title": "The LORD Rebukes Aaron and Miriam"
+    },
+    {
+      "before_verse": 10,
+      "title": "Miriam Struck with Leprosy"
+    },
+    {
+      "before_verse": 13,
+      "title": "Moses Intercedes for Miriam"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "Fire at Taberah"
+    },
+    {
+      "before_verse": 4,
+      "title": "The People Crave Meat"
+    },
+    {
+      "before_verse": 11,
+      "title": "Moses Complains to the LORD"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Seventy Elders Appointed"
+    },
+    {
+      "before_verse": 31,
+      "title": "Quail and Plague at Kibroth-hattaavah"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "Spies Sent into Canaan"
+    },
+    {
+      "before_verse": 4,
+      "title": "Names of the Twelve Spies"
+    },
+    {
+      "before_verse": 17,
+      "title": "Moses Instructs the Spies"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Land Searched"
+    },
+    {
+      "before_verse": 26,
+      "title": "The Spies Report to Moses"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "Laws of Offerings and Drink Offerings"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Heave Offering of Firstfruits"
+    },
+    {
+      "before_verse": 22,
+      "title": "Offerings for Sins of Ignorance"
+    },
+    {
+      "before_verse": 30,
+      "title": "The Sabbath-Breaker Stoned"
+    },
+    {
+      "before_verse": 37,
+      "title": "The Law of Fringes"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "The Twelve Rods Presented"
+    },
+    {
+      "before_verse": 8,
+      "title": "Aaron's Rod Buds"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Rod Preserved as a Sign"
+    },
+    {
+      "before_verse": 12,
+      "title": "Israel's Cry of Fear"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "Duties of Priests and Levites"
+    },
+    {
+      "before_verse": 8,
+      "title": "Portions Assigned to the Priests"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Tithe Given to the Levites"
+    },
+    {
+      "before_verse": 25,
+      "title": "The Levites' Offering from the Tithe"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "Arad Attacks Israel"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Bronze Serpent"
+    },
+    {
+      "before_verse": 10,
+      "title": "Israel's Journey to Moab"
+    },
+    {
+      "before_verse": 21,
+      "title": "Sihon and Og Defeated"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "Korah, Dathan, and Abiram Rebel"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Test of the Censers"
+    },
+    {
+      "before_verse": 31,
+      "title": "The Earth Swallows the Rebels"
+    },
+    {
+      "before_verse": 36,
+      "title": "The Censers Made into a Memorial"
+    },
+    {
+      "before_verse": 41,
+      "title": "The Congregation Murmurs; a Plague Begins and Is Stayed"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "The People Weep and Murmur"
+    },
+    {
+      "before_verse": 6,
+      "title": "Caleb and Joshua Urge the People"
+    },
+    {
+      "before_verse": 11,
+      "title": "Moses Intercedes for Israel"
+    },
+    {
+      "before_verse": 26,
+      "title": "The LORD Sentences the Generation"
+    },
+    {
+      "before_verse": 40,
+      "title": "Israel's Defeat at Hormah"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "The Red Heifer Ordinance"
+    },
+    {
+      "before_verse": 11,
+      "title": "Uncleanness from Contact with the Dead"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Rite of Purification"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "Israel Camps in Moab"
+    },
+    {
+      "before_verse": 2,
+      "title": "Balak Sends for Balaam"
+    },
+    {
+      "before_verse": 9,
+      "title": "God Speaks to Balaam"
+    },
+    {
+      "before_verse": 22,
+      "title": "Balaam's Ass and the Angel"
+    },
+    {
+      "before_verse": 36,
+      "title": "Balak Meets Balaam"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "The Death of Miriam"
+    },
+    {
+      "before_verse": 2,
+      "title": "The People Contend for Water"
+    },
+    {
+      "before_verse": 7,
+      "title": "Water from the Rock"
+    },
+    {
+      "before_verse": 14,
+      "title": "Edom Refuses Israel Passage"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Death of Aaron"
+    }
+  ],
+  "23": [
+    {
+      "before_verse": 1,
+      "title": "Balak and Balaam Prepare Sacrifices"
+    },
+    {
+      "before_verse": 7,
+      "title": "Balaam's First Oracle"
+    },
+    {
+      "before_verse": 13,
+      "title": "Balak Brings Balaam to Pisgah"
+    },
+    {
+      "before_verse": 18,
+      "title": "Balaam's Second Oracle"
+    },
+    {
+      "before_verse": 27,
+      "title": "Balak Brings Balaam to Peor"
+    }
+  ],
+  "25": [
+    {
+      "before_verse": 1,
+      "title": "Israel Whores with Moab"
+    },
+    {
+      "before_verse": 4,
+      "title": "The LORD Commands Judgment"
+    },
+    {
+      "before_verse": 7,
+      "title": "Phinehas Stays the Plague"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Covenant of Priesthood Given to Phinehas"
+    },
+    {
+      "before_verse": 16,
+      "title": "The LORD Commands War on Midian"
+    }
+  ],
+  "26": [
+    {
+      "before_verse": 1,
+      "title": "A Second Census Commanded"
+    },
+    {
+      "before_verse": 5,
+      "title": "Census of the Twelve Tribes"
+    },
+    {
+      "before_verse": 52,
+      "title": "Land Divided by Lot"
+    },
+    {
+      "before_verse": 57,
+      "title": "Census of the Levites"
+    },
+    {
+      "before_verse": 63,
+      "title": "None Remain from the Sinai Census"
+    }
+  ],
+  "27": [
+    {
+      "before_verse": 1,
+      "title": "The Daughters of Zelophehad Petition Moses"
+    },
+    {
+      "before_verse": 6,
+      "title": "The LORD Rules on Inheritance"
+    },
+    {
+      "before_verse": 12,
+      "title": "Moses Told of His Coming Death"
+    },
+    {
+      "before_verse": 15,
+      "title": "Joshua Appointed as Moses's Successor"
+    }
+  ],
+  "29": [
+    {
+      "before_verse": 1,
+      "title": "Feast of Trumpets Offerings"
+    },
+    {
+      "before_verse": 7,
+      "title": "Day of Atonement Offerings"
+    },
+    {
+      "before_verse": 12,
+      "title": "Feast of Tabernacles Offerings"
+    },
+    {
+      "before_verse": 35,
+      "title": "The Solemn Assembly"
+    },
+    {
+      "before_verse": 39,
+      "title": "Moses Instructs Israel"
+    }
+  ],
+  "28": [
+    {
+      "before_verse": 1,
+      "title": "The Daily Burnt Offering"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Sabbath Offering"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Monthly Offering"
+    },
+    {
+      "before_verse": 16,
+      "title": "Passover and Unleavened Bread Offerings"
+    },
+    {
+      "before_verse": 26,
+      "title": "The Day of Firstfruits Offering"
+    }
+  ],
+  "24": [
+    {
+      "before_verse": 1,
+      "title": "Balaam's Third Oracle"
+    },
+    {
+      "before_verse": 10,
+      "title": "Balak Rebukes Balaam"
+    },
+    {
+      "before_verse": 14,
+      "title": "Balaam's Fourth Oracle"
+    },
+    {
+      "before_verse": 20,
+      "title": "Oracles Against the Nations"
+    },
+    {
+      "before_verse": 25,
+      "title": "Balaam and Balak Depart"
+    }
+  ],
+  "30": [
+    {
+      "before_verse": 1,
+      "title": "Vows of Men"
+    },
+    {
+      "before_verse": 3,
+      "title": "Vows of Daughters"
+    },
+    {
+      "before_verse": 6,
+      "title": "Vows of Wives"
+    },
+    {
+      "before_verse": 9,
+      "title": "Vows of Widows and Divorcées"
+    }
+  ],
+  "32": [
+    {
+      "before_verse": 1,
+      "title": "Gad and Reuben Request Land East of Jordan"
+    },
+    {
+      "before_verse": 6,
+      "title": "Moses Rebukes Their Request"
+    },
+    {
+      "before_verse": 16,
+      "title": "Gad and Reuben Pledge to Fight"
+    },
+    {
+      "before_verse": 20,
+      "title": "Moses Grants the Land on Condition"
+    },
+    {
+      "before_verse": 33,
+      "title": "Settlement of the Eastern Tribes"
+    }
+  ],
+  "31": [
+    {
+      "before_verse": 1,
+      "title": "War Against Midian"
+    },
+    {
+      "before_verse": 13,
+      "title": "Moses Rebukes the Officers"
+    },
+    {
+      "before_verse": 19,
+      "title": "Purification of the Warriors"
+    },
+    {
+      "before_verse": 25,
+      "title": "Division of the Spoil"
+    },
+    {
+      "before_verse": 48,
+      "title": "The Officers' Offering"
+    }
+  ],
+  "34": [
+    {
+      "before_verse": 1,
+      "title": "Borders of Canaan Defined"
+    },
+    {
+      "before_verse": 13,
+      "title": "Land Assigned to Nine and a Half Tribes"
+    },
+    {
+      "before_verse": 16,
+      "title": "Leaders Appointed to Divide the Land"
+    }
+  ],
+  "33": [
+    {
+      "before_verse": 1,
+      "title": "Israel's Journeys Listed"
+    },
+    {
+      "before_verse": 3,
+      "title": "From Egypt to Sinai"
+    },
+    {
+      "before_verse": 16,
+      "title": "From Sinai to Kadesh"
+    },
+    {
+      "before_verse": 37,
+      "title": "From Kadesh to the Plains of Moab"
+    },
+    {
+      "before_verse": 50,
+      "title": "Commands for Entering Canaan"
+    }
+  ],
+  "35": [
+    {
+      "before_verse": 1,
+      "title": "Cities Assigned to the Levites"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Six Cities of Refuge"
+    },
+    {
+      "before_verse": 16,
+      "title": "Laws Distinguishing Murder from Manslaughter"
+    },
+    {
+      "before_verse": 30,
+      "title": "Statutes Concerning Witnesses and Blood Guilt"
+    }
+  ],
+  "36": [
+    {
+      "before_verse": 1,
+      "title": "Gilead's Leaders Raise a Concern"
+    },
+    {
+      "before_verse": 5,
+      "title": "The LORD's Ruling on Heiresses"
+    },
+    {
+      "before_verse": 10,
+      "title": "Zelophehad's Daughters Comply"
+    }
+  ]
+}

@@ -1,0 +1,974 @@
+{
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "The Generations of Adam"
+    },
+    {
+      "before_verse": 21,
+      "title": "Enoch Taken by God"
+    },
+    {
+      "before_verse": 28,
+      "title": "The Birth of Noah"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "Corruption of Mankind"
+    },
+    {
+      "before_verse": 8,
+      "title": "Noah Found Righteous"
+    },
+    {
+      "before_verse": 13,
+      "title": "God Commands the Ark"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "Cain and Abel Born"
+    },
+    {
+      "before_verse": 3,
+      "title": "Cain Slays Abel"
+    },
+    {
+      "before_verse": 9,
+      "title": "Cain Cursed and Marked"
+    },
+    {
+      "before_verse": 17,
+      "title": "The Line of Cain"
+    },
+    {
+      "before_verse": 25,
+      "title": "Seth Born to Adam"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "The Seventh Day"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Formation of Man"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Garden of Eden"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Command and the Prohibition"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Creation of Woman"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "The Flood Waters Recede"
+    },
+    {
+      "before_verse": 6,
+      "title": "Noah Sends Out Birds"
+    },
+    {
+      "before_verse": 15,
+      "title": "God Commands Noah to Leave the Ark"
+    },
+    {
+      "before_verse": 20,
+      "title": "Noah's Burnt Offering"
+    }
+  ],
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "The Creation of Heaven and Earth"
+    },
+    {
+      "before_verse": 14,
+      "title": "Lights in the Firmament"
+    },
+    {
+      "before_verse": 20,
+      "title": "Sea Creatures, Birds, and Land Animals Created"
+    },
+    {
+      "before_verse": 26,
+      "title": "Man Created and Blessed"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "The Generations of Noah's Sons"
+    },
+    {
+      "before_verse": 2,
+      "title": "The Sons of Japheth"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Sons of Ham"
+    },
+    {
+      "before_verse": 21,
+      "title": "The Sons of Shem"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "God Blesses Noah and His Sons"
+    },
+    {
+      "before_verse": 8,
+      "title": "God's Covenant with Noah"
+    },
+    {
+      "before_verse": 18,
+      "title": "Noah's Drunkenness and the Cursing of Canaan"
+    },
+    {
+      "before_verse": 28,
+      "title": "The Death of Noah"
+    }
+  ],
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "The Serpent Tempts the Woman"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Man and Woman Eat the Forbidden Fruit"
+    },
+    {
+      "before_verse": 9,
+      "title": "God Questions Adam and Eve"
+    },
+    {
+      "before_verse": 14,
+      "title": "The LORD God Pronounces Curses"
+    },
+    {
+      "before_verse": 22,
+      "title": "Adam and Eve Expelled from Eden"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "Noah Commanded to Enter the Ark"
+    },
+    {
+      "before_verse": 7,
+      "title": "Noah and His Family Enter the Ark"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Flood Begins"
+    },
+    {
+      "before_verse": 21,
+      "title": "All Land Life Destroyed"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "The Tower of Babel"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Descendants of Shem"
+    },
+    {
+      "before_verse": 27,
+      "title": "The Family of Terah"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "The Call of Abram"
+    },
+    {
+      "before_verse": 4,
+      "title": "Abram Departs for Canaan"
+    },
+    {
+      "before_verse": 10,
+      "title": "Abram and Sarai in Egypt"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "Abram Returns to Canaan"
+    },
+    {
+      "before_verse": 5,
+      "title": "Strife Between Abram and Lot"
+    },
+    {
+      "before_verse": 8,
+      "title": "Abram and Lot Separate"
+    },
+    {
+      "before_verse": 14,
+      "title": "God Renews His Promise to Abram"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "Sarai Gives Hagar to Abram"
+    },
+    {
+      "before_verse": 4,
+      "title": "Hagar Conceives and Flees"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Angel Appears to Hagar"
+    },
+    {
+      "before_verse": 15,
+      "title": "Ishmael Born to Abram"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "The LORD Appears to Abram"
+    },
+    {
+      "before_verse": 2,
+      "title": "Abram Questions His Heir"
+    },
+    {
+      "before_verse": 7,
+      "title": "The LORD Promises the Land"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Covenant Ceremony"
+    },
+    {
+      "before_verse": 13,
+      "title": "The LORD Foretells the Bondage and the Covenant"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "God Appears to Abram"
+    },
+    {
+      "before_verse": 4,
+      "title": "Abram Renamed Abraham"
+    },
+    {
+      "before_verse": 10,
+      "title": "Circumcision Commanded"
+    },
+    {
+      "before_verse": 15,
+      "title": "Sarai Renamed Sarah"
+    },
+    {
+      "before_verse": 23,
+      "title": "Abraham and His Household Circumcised"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "War of the Kings"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Battle of Siddim"
+    },
+    {
+      "before_verse": 13,
+      "title": "Abram Rescues Lot"
+    },
+    {
+      "before_verse": 17,
+      "title": "Melchizedek Blesses Abram"
+    },
+    {
+      "before_verse": 21,
+      "title": "Abram Refuses the Spoils"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "The Angels Arrive in Sodom"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Men of Sodom Surround Lot's House"
+    },
+    {
+      "before_verse": 12,
+      "title": "Lot and His Family Flee"
+    },
+    {
+      "before_verse": 24,
+      "title": "Sodom and Gomorrah Destroyed"
+    },
+    {
+      "before_verse": 30,
+      "title": "Lot's Daughters Bear Sons"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "Abraham and Sarah in Gerar"
+    },
+    {
+      "before_verse": 3,
+      "title": "God Warns Abimelech"
+    },
+    {
+      "before_verse": 9,
+      "title": "Abimelech Confronts Abraham"
+    },
+    {
+      "before_verse": 14,
+      "title": "Abimelech Restores Sarah"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "The Birth of Isaac"
+    },
+    {
+      "before_verse": 9,
+      "title": "Hagar and Ishmael Sent Away"
+    },
+    {
+      "before_verse": 17,
+      "title": "God Rescues Hagar and Ishmael"
+    },
+    {
+      "before_verse": 22,
+      "title": "Abraham and Abimelech's Covenant at Beersheba"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "The LORD Visits Abraham"
+    },
+    {
+      "before_verse": 9,
+      "title": "A Son Promised to Sarah"
+    },
+    {
+      "before_verse": 16,
+      "title": "The LORD Reveals His Purpose Toward Sodom"
+    },
+    {
+      "before_verse": 23,
+      "title": "Abraham Intercedes for Sodom"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "God Commands Abraham to Sacrifice Isaac"
+    },
+    {
+      "before_verse": 9,
+      "title": "Abraham Binds Isaac on the Altar"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Angel Stays Abraham's Hand"
+    },
+    {
+      "before_verse": 15,
+      "title": "The LORD Renews His Oath to Abraham"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Children of Nahor"
+    }
+  ],
+  "23": [
+    {
+      "before_verse": 1,
+      "title": "The Death of Sarah"
+    },
+    {
+      "before_verse": 3,
+      "title": "Abraham Seeks a Burial Site"
+    },
+    {
+      "before_verse": 10,
+      "title": "Abraham Purchases the Cave of Machpelah"
+    },
+    {
+      "before_verse": 19,
+      "title": "Sarah Buried at Machpelah"
+    }
+  ],
+  "24": [
+    {
+      "before_verse": 1,
+      "title": "Abraham Charges His Servant"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Servant's Journey to Mesopotamia"
+    },
+    {
+      "before_verse": 28,
+      "title": "Rebekah's Family Receives the Servant"
+    },
+    {
+      "before_verse": 54,
+      "title": "Rebekah Departs and Meets Isaac"
+    }
+  ],
+  "25": [
+    {
+      "before_verse": 1,
+      "title": "The Sons of Keturah"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Death of Abraham"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Descendants of Ishmael"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Birth of Esau and Jacob"
+    },
+    {
+      "before_verse": 29,
+      "title": "Esau Sells His Birthright"
+    }
+  ],
+  "26": [
+    {
+      "before_verse": 1,
+      "title": "The LORD Appears to Isaac"
+    },
+    {
+      "before_verse": 7,
+      "title": "Isaac Deceives Abimelech"
+    },
+    {
+      "before_verse": 12,
+      "title": "Isaac's Prosperity and Expulsion"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Wells Reopened and Contested"
+    },
+    {
+      "before_verse": 26,
+      "title": "Isaac's Covenant with Abimelech"
+    }
+  ],
+  "29": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Arrives in Haran"
+    },
+    {
+      "before_verse": 9,
+      "title": "Jacob Meets Rachel"
+    },
+    {
+      "before_verse": 15,
+      "title": "Jacob Serves Laban for Rachel"
+    },
+    {
+      "before_verse": 21,
+      "title": "Laban Deceives Jacob"
+    },
+    {
+      "before_verse": 31,
+      "title": "Leah Bears Sons"
+    }
+  ],
+  "31": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Departs from Laban"
+    },
+    {
+      "before_verse": 4,
+      "title": "Jacob Addresses Rachel and Leah"
+    },
+    {
+      "before_verse": 22,
+      "title": "Laban Pursues Jacob"
+    },
+    {
+      "before_verse": 36,
+      "title": "Jacob Rebukes Laban"
+    },
+    {
+      "before_verse": 44,
+      "title": "Jacob and Laban Make a Covenant"
+    }
+  ],
+  "27": [
+    {
+      "before_verse": 1,
+      "title": "Isaac Prepares to Bless Esau"
+    },
+    {
+      "before_verse": 6,
+      "title": "Rebekah and Jacob's Deception"
+    },
+    {
+      "before_verse": 18,
+      "title": "Jacob Receives Isaac's Blessing"
+    },
+    {
+      "before_verse": 30,
+      "title": "Esau Returns; Isaac Trembles"
+    },
+    {
+      "before_verse": 41,
+      "title": "Esau Threatens Jacob; Rebekah Sends Jacob Away"
+    }
+  ],
+  "28": [
+    {
+      "before_verse": 1,
+      "title": "Isaac Sends Jacob to Padanaram"
+    },
+    {
+      "before_verse": 6,
+      "title": "Esau Takes a Daughter of Ishmael"
+    },
+    {
+      "before_verse": 10,
+      "title": "Jacob's Dream at Bethel"
+    },
+    {
+      "before_verse": 16,
+      "title": "Jacob's Vow at Bethel"
+    }
+  ],
+  "30": [
+    {
+      "before_verse": 1,
+      "title": "Rachel and Leah Compete for Children"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Mandrakes Bargain"
+    },
+    {
+      "before_verse": 25,
+      "title": "Jacob Asks to Depart"
+    },
+    {
+      "before_verse": 31,
+      "title": "Jacob's Wage Agreement with Laban"
+    },
+    {
+      "before_verse": 37,
+      "title": "Jacob's Scheme with the Flocks"
+    }
+  ],
+  "33": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Meets Esau"
+    },
+    {
+      "before_verse": 8,
+      "title": "Jacob's Gift Accepted"
+    },
+    {
+      "before_verse": 12,
+      "title": "Jacob and Esau Part"
+    },
+    {
+      "before_verse": 17,
+      "title": "Jacob Settles at Shechem"
+    }
+  ],
+  "34": [
+    {
+      "before_verse": 1,
+      "title": "Dinah Violated by Shechem"
+    },
+    {
+      "before_verse": 6,
+      "title": "Hamor Negotiates with Jacob's Sons"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Sons of Jacob Demand Circumcision"
+    },
+    {
+      "before_verse": 25,
+      "title": "Simeon and Levi Destroy the City"
+    },
+    {
+      "before_verse": 30,
+      "title": "Jacob Rebukes His Sons"
+    }
+  ],
+  "35": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Returns to Bethel"
+    },
+    {
+      "before_verse": 9,
+      "title": "God Appears to Jacob Again"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Death of Rachel"
+    },
+    {
+      "before_verse": 22,
+      "title": "The Sons of Jacob Listed"
+    },
+    {
+      "before_verse": 27,
+      "title": "The Death of Isaac"
+    }
+  ],
+  "37": [
+    {
+      "before_verse": 1,
+      "title": "Joseph and His Brothers"
+    },
+    {
+      "before_verse": 5,
+      "title": "Joseph's Dreams"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Brothers Plot Against Joseph"
+    },
+    {
+      "before_verse": 29,
+      "title": "Jacob Mourns Joseph"
+    }
+  ],
+  "36": [
+    {
+      "before_verse": 1,
+      "title": "Esau's Wives and Sons"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Dukes of Edom"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Sons of Seir the Horite"
+    },
+    {
+      "before_verse": 31,
+      "title": "The Kings of Edom"
+    }
+  ],
+  "39": [
+    {
+      "before_verse": 1,
+      "title": "Joseph in Potiphar's House"
+    },
+    {
+      "before_verse": 7,
+      "title": "Potiphar's Wife Tempts Joseph"
+    },
+    {
+      "before_verse": 13,
+      "title": "Joseph Falsely Accused"
+    },
+    {
+      "before_verse": 20,
+      "title": "Joseph Imprisoned"
+    }
+  ],
+  "38": [
+    {
+      "before_verse": 1,
+      "title": "Judah and His Sons"
+    },
+    {
+      "before_verse": 6,
+      "title": "Er, Onan, and Tamar"
+    },
+    {
+      "before_verse": 12,
+      "title": "Tamar Deceives Judah"
+    },
+    {
+      "before_verse": 24,
+      "title": "Tamar Vindicated"
+    },
+    {
+      "before_verse": 27,
+      "title": "The Birth of Pharez and Zarah"
+    }
+  ],
+  "32": [
+    {
+      "before_verse": 1,
+      "title": "Angels Meet Jacob at Mahanaim"
+    },
+    {
+      "before_verse": 3,
+      "title": "Jacob Sends Messengers to Esau"
+    },
+    {
+      "before_verse": 9,
+      "title": "Jacob's Prayer for Deliverance"
+    },
+    {
+      "before_verse": 13,
+      "title": "Jacob Prepares a Gift for Esau"
+    },
+    {
+      "before_verse": 24,
+      "title": "Jacob Wrestles at Peniel"
+    }
+  ],
+  "40": [
+    {
+      "before_verse": 1,
+      "title": "The Butler and Baker Imprisoned"
+    },
+    {
+      "before_verse": 5,
+      "title": "Two Dreams in Prison"
+    },
+    {
+      "before_verse": 12,
+      "title": "Joseph Interprets the Dreams"
+    },
+    {
+      "before_verse": 20,
+      "title": "Pharaoh Restores the Butler, Hangs the Baker"
+    }
+  ],
+  "41": [
+    {
+      "before_verse": 1,
+      "title": "Pharaoh's Two Dreams"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Butler Remembers Joseph"
+    },
+    {
+      "before_verse": 14,
+      "title": "Joseph Interprets the Dreams"
+    },
+    {
+      "before_verse": 37,
+      "title": "Joseph Appointed Over Egypt"
+    },
+    {
+      "before_verse": 47,
+      "title": "The Years of Plenty and Famine"
+    }
+  ],
+  "42": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Sends His Sons to Egypt"
+    },
+    {
+      "before_verse": 6,
+      "title": "Joseph's Brothers Bow Before Him"
+    },
+    {
+      "before_verse": 18,
+      "title": "Simeon Held as Hostage"
+    },
+    {
+      "before_verse": 27,
+      "title": "Money Found in the Sacks"
+    },
+    {
+      "before_verse": 29,
+      "title": "The Brothers Report to Jacob"
+    }
+  ],
+  "43": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Sends Benjamin to Egypt"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Brothers Arrive Before Joseph"
+    },
+    {
+      "before_verse": 26,
+      "title": "Joseph Dines with His Brothers"
+    }
+  ],
+  "44": [
+    {
+      "before_verse": 1,
+      "title": "Joseph's Cup Hidden in Benjamin's Sack"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Brothers Accused and Searched"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Brothers Return to Joseph"
+    },
+    {
+      "before_verse": 18,
+      "title": "Judah Pleads for Benjamin"
+    }
+  ],
+  "47": [
+    {
+      "before_verse": 1,
+      "title": "Jacob's Family Settled in Goshen"
+    },
+    {
+      "before_verse": 7,
+      "title": "Jacob Before Pharaoh"
+    },
+    {
+      "before_verse": 13,
+      "title": "Joseph Administers the Famine"
+    },
+    {
+      "before_verse": 27,
+      "title": "Jacob's Final Years and Last Request"
+    }
+  ],
+  "45": [
+    {
+      "before_verse": 1,
+      "title": "Joseph Reveals Himself to His Brothers"
+    },
+    {
+      "before_verse": 9,
+      "title": "Joseph Sends for His Father"
+    },
+    {
+      "before_verse": 16,
+      "title": "Pharaoh Invites Jacob's Household to Egypt"
+    },
+    {
+      "before_verse": 25,
+      "title": "Jacob Hears That Joseph Lives"
+    }
+  ],
+  "46": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Journeys to Egypt"
+    },
+    {
+      "before_verse": 2,
+      "title": "God Speaks to Jacob at Beersheba"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Families of Israel Who Came to Egypt"
+    },
+    {
+      "before_verse": 28,
+      "title": "Joseph Meets Jacob in Goshen"
+    },
+    {
+      "before_verse": 31,
+      "title": "Joseph Instructs His Family Before Pharaoh"
+    }
+  ],
+  "49": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Summons His Sons"
+    },
+    {
+      "before_verse": 3,
+      "title": "Jacob Speaks Over Each Son"
+    },
+    {
+      "before_verse": 28,
+      "title": "Jacob Commands His Burial"
+    },
+    {
+      "before_verse": 33,
+      "title": "The Death of Jacob"
+    }
+  ],
+  "48": [
+    {
+      "before_verse": 1,
+      "title": "Joseph Brings His Sons to Jacob"
+    },
+    {
+      "before_verse": 3,
+      "title": "Jacob Adopts Ephraim and Manasseh"
+    },
+    {
+      "before_verse": 8,
+      "title": "Jacob Blesses Joseph's Sons"
+    },
+    {
+      "before_verse": 17,
+      "title": "Ephraim Placed Before Manasseh"
+    },
+    {
+      "before_verse": 21,
+      "title": "Jacob's Parting Words to Joseph"
+    }
+  ],
+  "50": [
+    {
+      "before_verse": 1,
+      "title": "Jacob Embalmed and Mourned"
+    },
+    {
+      "before_verse": 4,
+      "title": "Joseph Seeks Leave to Bury Jacob"
+    },
+    {
+      "before_verse": 7,
+      "title": "Jacob Buried in Canaan"
+    },
+    {
+      "before_verse": 15,
+      "title": "Joseph Reassures His Brothers"
+    },
+    {
+      "before_verse": 22,
+      "title": "The Death of Joseph"
+    }
+  ]
+}

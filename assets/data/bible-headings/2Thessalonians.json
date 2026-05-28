@@ -1,0 +1,48 @@
+{
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "Request for Prayer"
+    },
+    {
+      "before_verse": 6,
+      "title": "Warning Against Idleness"
+    },
+    {
+      "before_verse": 16,
+      "title": "Closing Blessing and Greeting"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "The Day of the Lord Not Yet Come"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Man of Sin Revealed"
+    },
+    {
+      "before_verse": 13,
+      "title": "Thanksgiving and Exhortation"
+    }
+  ],
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "Salutation"
+    },
+    {
+      "before_verse": 3,
+      "title": "Thanksgiving for the Thessalonians"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Coming Judgment and Relief"
+    },
+    {
+      "before_verse": 11,
+      "title": "Paul's Prayer for the Church"
+    }
+  ]
+}

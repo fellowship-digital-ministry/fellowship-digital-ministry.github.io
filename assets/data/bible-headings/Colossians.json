@@ -1,0 +1,78 @@
+{
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "Salutation"
+    },
+    {
+      "before_verse": 3,
+      "title": "Paul's Prayer for the Colossians"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Preeminence of Christ"
+    },
+    {
+      "before_verse": 21,
+      "title": "Paul's Ministry to the Gentiles"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "Paul's Concern for the Colossians"
+    },
+    {
+      "before_verse": 6,
+      "title": "A Warning Against False Teaching"
+    },
+    {
+      "before_verse": 11,
+      "title": "Buried and Raised with Christ"
+    },
+    {
+      "before_verse": 16,
+      "title": "Warnings Against Human Ordinances"
+    }
+  ],
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "Seek the Things Above"
+    },
+    {
+      "before_verse": 5,
+      "title": "Put Off the Old Man"
+    },
+    {
+      "before_verse": 12,
+      "title": "Put On the New Man"
+    },
+    {
+      "before_verse": 18,
+      "title": "Household Duties"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "Duties of Masters"
+    },
+    {
+      "before_verse": 2,
+      "title": "Call to Prayer"
+    },
+    {
+      "before_verse": 7,
+      "title": "Tychicus and Onesimus Commended"
+    },
+    {
+      "before_verse": 10,
+      "title": "Greetings from Paul's Companions"
+    },
+    {
+      "before_verse": 18,
+      "title": "Paul's Closing Salutation"
+    }
+  ]
+}

@@ -1,0 +1,612 @@
+{
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "Elkanah and His Two Wives"
+    },
+    {
+      "before_verse": 9,
+      "title": "Hannah's Prayer and Vow"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Birth of Samuel"
+    },
+    {
+      "before_verse": 24,
+      "title": "Samuel Presented at Shiloh"
+    }
+  ],
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "The Ark Brought to Ashdod"
+    },
+    {
+      "before_verse": 3,
+      "title": "Dagon Falls Before the Ark"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Philistines Struck with Plague"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Ark Moved from City to City"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "The Philistines Consult Their Priests"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Ark Sent Back on a Cart"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Ark Arrives at Bethshemesh"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Men of Bethshemesh Struck Down"
+    }
+  ],
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "The Lord Calls Samuel"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Lord's Word Against Eli's House"
+    },
+    {
+      "before_verse": 15,
+      "title": "Samuel Reports to Eli"
+    },
+    {
+      "before_verse": 19,
+      "title": "Samuel Established as Prophet"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "Israel Defeated at Ebenezer"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Ark Brought to the Camp"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Ark Taken; Hophni and Phinehas Slain"
+    },
+    {
+      "before_verse": 12,
+      "title": "The News Reaches Eli"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Death of Phinehas's Wife"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "Hannah's Prayer"
+    },
+    {
+      "before_verse": 11,
+      "title": "Eli's Sons Abuse the Priesthood"
+    },
+    {
+      "before_verse": 18,
+      "title": "Samuel's Faithful Service"
+    },
+    {
+      "before_verse": 22,
+      "title": "Eli Rebukes His Sons"
+    },
+    {
+      "before_verse": 27,
+      "title": "A Man of God Pronounces Judgment on Eli's House"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "Samuel's Sons Judged Corruptly"
+    },
+    {
+      "before_verse": 4,
+      "title": "Israel Demands a King"
+    },
+    {
+      "before_verse": 10,
+      "title": "Samuel Warns the People"
+    },
+    {
+      "before_verse": 19,
+      "title": "The People Persist"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "The Ark Housed at Kirjath-jearim"
+    },
+    {
+      "before_verse": 3,
+      "title": "Samuel Calls Israel to Repentance"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Philistines Routed at Mizpeh"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Stone of Ebenezer"
+    },
+    {
+      "before_verse": 15,
+      "title": "Samuel Judges Israel"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "Saul Introduced"
+    },
+    {
+      "before_verse": 3,
+      "title": "Saul Seeks His Father's Asses"
+    },
+    {
+      "before_verse": 15,
+      "title": "The LORD Reveals Saul to Samuel"
+    },
+    {
+      "before_verse": 22,
+      "title": "Samuel Honors Saul at the Feast"
+    },
+    {
+      "before_verse": 25,
+      "title": "Samuel Prepares to Reveal God's Word"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "Nahash Threatens Jabesh-gilead"
+    },
+    {
+      "before_verse": 5,
+      "title": "Saul Rallies Israel"
+    },
+    {
+      "before_verse": 11,
+      "title": "Israel Defeats the Ammonites"
+    },
+    {
+      "before_verse": 14,
+      "title": "Saul Confirmed as King at Gilgal"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "Samuel Anoints Saul"
+    },
+    {
+      "before_verse": 2,
+      "title": "Three Signs Given to Saul"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Signs Fulfilled"
+    },
+    {
+      "before_verse": 17,
+      "title": "Saul Chosen by Lot at Mizpeh"
+    },
+    {
+      "before_verse": 25,
+      "title": "Samuel Dismisses the People"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "Samuel Declares His Integrity"
+    },
+    {
+      "before_verse": 6,
+      "title": "Samuel Reviews Israel's History"
+    },
+    {
+      "before_verse": 13,
+      "title": "Samuel Warns the People"
+    },
+    {
+      "before_verse": 16,
+      "title": "Thunder and Rain at Harvest"
+    },
+    {
+      "before_verse": 19,
+      "title": "Samuel Pledges to Pray for Israel"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "Samuel Sent to Bethlehem"
+    },
+    {
+      "before_verse": 6,
+      "title": "David Anointed King"
+    },
+    {
+      "before_verse": 14,
+      "title": "An Evil Spirit Troubles Saul"
+    },
+    {
+      "before_verse": 19,
+      "title": "David Brought to Saul's Court"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "The Philistines and Israel Face Off"
+    },
+    {
+      "before_verse": 4,
+      "title": "Goliath Challenges Israel"
+    },
+    {
+      "before_verse": 12,
+      "title": "David Sent to the Camp"
+    },
+    {
+      "before_verse": 32,
+      "title": "David Volunteers to Fight"
+    },
+    {
+      "before_verse": 41,
+      "title": "David Kills Goliath"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "Jonathan Attacks the Philistine Garrison"
+    },
+    {
+      "before_verse": 15,
+      "title": "Panic and Rout of the Philistines"
+    },
+    {
+      "before_verse": 24,
+      "title": "Saul's Rash Oath and Jonathan's Violation"
+    },
+    {
+      "before_verse": 36,
+      "title": "Jonathan Condemned and Rescued"
+    },
+    {
+      "before_verse": 47,
+      "title": "Saul's Wars and Family"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "The LORD Commands Saul to Destroy Amalek"
+    },
+    {
+      "before_verse": 4,
+      "title": "Saul's Campaign Against Amalek"
+    },
+    {
+      "before_verse": 10,
+      "title": "Samuel Confronts Saul's Disobedience"
+    },
+    {
+      "before_verse": 24,
+      "title": "Saul's Confession and Samuel's Rejection"
+    },
+    {
+      "before_verse": 32,
+      "title": "Samuel Kills Agag"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "Jonathan's Covenant with David"
+    },
+    {
+      "before_verse": 6,
+      "title": "Saul's Jealousy of David"
+    },
+    {
+      "before_verse": 10,
+      "title": "Saul Attempts to Kill David"
+    },
+    {
+      "before_verse": 17,
+      "title": "Saul Offers His Daughters to David"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "David Comes to Ahimelech at Nob"
+    },
+    {
+      "before_verse": 8,
+      "title": "David Receives Goliath's Sword"
+    },
+    {
+      "before_verse": 10,
+      "title": "David Feigns Madness Before Achish"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "Saul Musters His Army"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Philistines Advance"
+    },
+    {
+      "before_verse": 8,
+      "title": "Saul Offers the Burnt Offering"
+    },
+    {
+      "before_verse": 13,
+      "title": "Samuel Rebukes Saul"
+    },
+    {
+      "before_verse": 19,
+      "title": "Israel Without Weapons"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "David Appeals to Jonathan"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Arrow Signal Arranged"
+    },
+    {
+      "before_verse": 24,
+      "title": "Saul's Rage at the New Moon Feast"
+    },
+    {
+      "before_verse": 35,
+      "title": "Jonathan Warns David and They Part"
+    }
+  ],
+  "23": [
+    {
+      "before_verse": 1,
+      "title": "David Rescues Keilah"
+    },
+    {
+      "before_verse": 7,
+      "title": "Saul Pursues David to Keilah"
+    },
+    {
+      "before_verse": 16,
+      "title": "Jonathan Encourages David"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Ziphites Betray David"
+    },
+    {
+      "before_verse": 25,
+      "title": "Saul Surrounds David at Maon"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "Saul Seeks to Kill David"
+    },
+    {
+      "before_verse": 4,
+      "title": "Jonathan Intercedes for David"
+    },
+    {
+      "before_verse": 9,
+      "title": "Saul Attacks David Again"
+    },
+    {
+      "before_verse": 11,
+      "title": "Michal Helps David Escape"
+    },
+    {
+      "before_verse": 18,
+      "title": "Saul's Messengers Prophesy at Ramah"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "David at the Cave of Adullam"
+    },
+    {
+      "before_verse": 3,
+      "title": "David's Parents Sheltered in Moab"
+    },
+    {
+      "before_verse": 6,
+      "title": "Saul Accuses His Servants"
+    },
+    {
+      "before_verse": 9,
+      "title": "Doeg Betrays Ahimelech; the Priests of Nob Slain"
+    },
+    {
+      "before_verse": 20,
+      "title": "Abiathar Escapes to David"
+    }
+  ],
+  "24": [
+    {
+      "before_verse": 1,
+      "title": "Saul Pursues David at Engedi"
+    },
+    {
+      "before_verse": 3,
+      "title": "David Spares Saul in the Cave"
+    },
+    {
+      "before_verse": 8,
+      "title": "David Pleads His Innocence"
+    },
+    {
+      "before_verse": 16,
+      "title": "Saul Acknowledges David's Righteousness"
+    }
+  ],
+  "27": [
+    {
+      "before_verse": 1,
+      "title": "David Flees to Gath"
+    },
+    {
+      "before_verse": 5,
+      "title": "Achish Grants David Ziklag"
+    },
+    {
+      "before_verse": 8,
+      "title": "David Raids Neighboring Peoples"
+    },
+    {
+      "before_verse": 10,
+      "title": "David Deceives Achish"
+    }
+  ],
+  "26": [
+    {
+      "before_verse": 1,
+      "title": "The Ziphites Betray David"
+    },
+    {
+      "before_verse": 5,
+      "title": "David Enters Saul's Camp by Night"
+    },
+    {
+      "before_verse": 13,
+      "title": "David Rebukes Abner"
+    },
+    {
+      "before_verse": 17,
+      "title": "David and Saul Speak"
+    }
+  ],
+  "28": [
+    {
+      "before_verse": 1,
+      "title": "David Joins the Philistine Army"
+    },
+    {
+      "before_verse": 3,
+      "title": "Saul Fears the Philistines"
+    },
+    {
+      "before_verse": 7,
+      "title": "Saul Seeks the Witch of Endor"
+    },
+    {
+      "before_verse": 15,
+      "title": "Samuel's Word to Saul"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Woman Feeds Saul"
+    }
+  ],
+  "25": [
+    {
+      "before_verse": 1,
+      "title": "The Death of Samuel"
+    },
+    {
+      "before_verse": 2,
+      "title": "Nabal Refuses David's Request"
+    },
+    {
+      "before_verse": 14,
+      "title": "Abigail Intercedes for Her Household"
+    },
+    {
+      "before_verse": 36,
+      "title": "Nabal's Death and David's Marriage to Abigail"
+    }
+  ],
+  "29": [
+    {
+      "before_verse": 1,
+      "title": "Philistines Muster for Battle"
+    },
+    {
+      "before_verse": 3,
+      "title": "Philistine Princes Object to David"
+    },
+    {
+      "before_verse": 6,
+      "title": "Achish Dismisses David"
+    }
+  ],
+  "30": [
+    {
+      "before_verse": 1,
+      "title": "The Amalekites Raid Ziklag"
+    },
+    {
+      "before_verse": 7,
+      "title": "David Inquires of the Lord"
+    },
+    {
+      "before_verse": 11,
+      "title": "An Egyptian Guides David to the Amalekites"
+    },
+    {
+      "before_verse": 17,
+      "title": "David Defeats the Amalekites and Recovers the Captives"
+    },
+    {
+      "before_verse": 21,
+      "title": "David Divides the Spoil"
+    }
+  ],
+  "31": [
+    {
+      "before_verse": 1,
+      "title": "Israel Routed at Gilboa"
+    },
+    {
+      "before_verse": 4,
+      "title": "Saul's Death"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Philistines Desecrate Saul's Body"
+    },
+    {
+      "before_verse": 11,
+      "title": "Men of Jabesh-Gilead Bury Saul"
+    }
+  ]
+}

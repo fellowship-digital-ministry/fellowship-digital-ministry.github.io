@@ -1,0 +1,500 @@
+{
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "The Burnt Offering Introduced"
+    },
+    {
+      "before_verse": 3,
+      "title": "Offerings from the Herd"
+    },
+    {
+      "before_verse": 10,
+      "title": "Offerings from the Flock"
+    },
+    {
+      "before_verse": 14,
+      "title": "Offerings of Fowls"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "The Grain Offering of Fine Flour"
+    },
+    {
+      "before_verse": 4,
+      "title": "Grain Offerings Baked or Fried"
+    },
+    {
+      "before_verse": 11,
+      "title": "Leaven, Honey, and Salt Regulations"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Grain Offering of Firstfruits"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "The Law of Trespass Offerings"
+    },
+    {
+      "before_verse": 9,
+      "title": "The Law of the Burnt Offering"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Law of the Grain Offering"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Offering of the Anointed Priest"
+    },
+    {
+      "before_verse": 25,
+      "title": "The Law of the Sin Offering"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "Sin Offerings for Unintentional Sin"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Anointed Priest's Offering"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Congregation's Offering"
+    },
+    {
+      "before_verse": 22,
+      "title": "A Ruler's Offering"
+    },
+    {
+      "before_verse": 27,
+      "title": "A Common Person's Offering"
+    }
+  ],
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "Four Cases of Unintentional Sin"
+    },
+    {
+      "before_verse": 5,
+      "title": "Confession and the Trespass Offering"
+    },
+    {
+      "before_verse": 7,
+      "title": "Offerings for the Poor"
+    },
+    {
+      "before_verse": 14,
+      "title": "Trespass Against Holy Things"
+    }
+  ],
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "Peace Offering from the Herd"
+    },
+    {
+      "before_verse": 6,
+      "title": "Peace Offering from the Flock"
+    },
+    {
+      "before_verse": 12,
+      "title": "Peace Offering of a Goat"
+    },
+    {
+      "before_verse": 17,
+      "title": "Fat and Blood Forbidden"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "Purification Laws After Childbirth"
+    },
+    {
+      "before_verse": 6,
+      "title": "Offerings for Purification"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "The Law of the Trespass Offering"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Law of the Peace Offering"
+    },
+    {
+      "before_verse": 22,
+      "title": "Prohibitions Against Fat and Blood"
+    },
+    {
+      "before_verse": 28,
+      "title": "The Priests' Portion of the Peace Offerings"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "Aaron Commanded to Offer Sacrifices"
+    },
+    {
+      "before_verse": 8,
+      "title": "Aaron Offers His Own Sacrifices"
+    },
+    {
+      "before_verse": 15,
+      "title": "Aaron Offers the People's Sacrifices"
+    },
+    {
+      "before_verse": 22,
+      "title": "The Glory of the LORD Appears"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "Moses Consecrates Aaron and His Sons"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Washing and Robing of the Priests"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Anointing of the Tabernacle and Aaron"
+    },
+    {
+      "before_verse": 14,
+      "title": "The Sin Offering, Burnt Offering, and Ram of Consecration"
+    },
+    {
+      "before_verse": 31,
+      "title": "Instructions for the Seven Days of Consecration"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "Clean and Unclean Animals"
+    },
+    {
+      "before_verse": 9,
+      "title": "Clean and Unclean Water Creatures"
+    },
+    {
+      "before_verse": 13,
+      "title": "Forbidden Birds and Flying Creatures"
+    },
+    {
+      "before_verse": 24,
+      "title": "Uncleanness from Contact with Carcasses"
+    },
+    {
+      "before_verse": 46,
+      "title": "Summary of the Law"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "Nadab and Abihu Struck Dead"
+    },
+    {
+      "before_verse": 6,
+      "title": "Moses Instructs Aaron and His Sons"
+    },
+    {
+      "before_verse": 8,
+      "title": "Wine Forbidden to Priests on Duty"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Priestly Portions Assigned"
+    },
+    {
+      "before_verse": 16,
+      "title": "Moses Rebukes Eleazar and Ithamar"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "Diagnosing Leprosy in the Skin"
+    },
+    {
+      "before_verse": 18,
+      "title": "Leprosy Arising from Boils and Burns"
+    },
+    {
+      "before_verse": 29,
+      "title": "Leprosy of the Head and Beard"
+    },
+    {
+      "before_verse": 45,
+      "title": "The Leper's Conduct and Isolation"
+    },
+    {
+      "before_verse": 47,
+      "title": "Leprosy in Garments"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "Slaughter Only at the Tabernacle"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Prohibition of Eating Blood"
+    },
+    {
+      "before_verse": 15,
+      "title": "Eating Animals Found Dead"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "Cleansing Rites for the Leper"
+    },
+    {
+      "before_verse": 10,
+      "title": "Offerings at the Tabernacle"
+    },
+    {
+      "before_verse": 21,
+      "title": "Provision for the Poor Leper"
+    },
+    {
+      "before_verse": 33,
+      "title": "Leprosy in a House"
+    },
+    {
+      "before_verse": 54,
+      "title": "Summary of the Law of Leprosy"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "The Law of Male Bodily Discharge"
+    },
+    {
+      "before_verse": 13,
+      "title": "Cleansing Rites for the Discharged Man"
+    },
+    {
+      "before_verse": 16,
+      "title": "The Law of Seminal Emission"
+    },
+    {
+      "before_verse": 19,
+      "title": "The Law of Female Bodily Discharge"
+    },
+    {
+      "before_verse": 28,
+      "title": "Cleansing Rites for the Discharged Woman"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "Aaron Warned from the Holy Place"
+    },
+    {
+      "before_verse": 3,
+      "title": "Garments and Offerings Prescribed"
+    },
+    {
+      "before_verse": 11,
+      "title": "The Rites of the Day of Atonement"
+    },
+    {
+      "before_verse": 29,
+      "title": "The Annual Statute Established"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "Israel Warned Against Pagan Practices"
+    },
+    {
+      "before_verse": 6,
+      "title": "Forbidden Sexual Relations"
+    },
+    {
+      "before_verse": 24,
+      "title": "Warning Against Defiling the Land"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "The Call to Holiness"
+    },
+    {
+      "before_verse": 3,
+      "title": "Various Laws Given"
+    },
+    {
+      "before_verse": 33,
+      "title": "Laws Concerning Strangers and Just Weights"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "Penalty for Sacrificing to Molech"
+    },
+    {
+      "before_verse": 6,
+      "title": "Penalty for Consulting Familiar Spirits"
+    },
+    {
+      "before_verse": 9,
+      "title": "Penalties for Sexual Offenses"
+    },
+    {
+      "before_verse": 22,
+      "title": "Call to Obedience and Separation"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "Holiness Rules for Priests"
+    },
+    {
+      "before_verse": 10,
+      "title": "Special Rules for the High Priest"
+    },
+    {
+      "before_verse": 17,
+      "title": "Blemished Priests Barred from Offering"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "Priests Restricted from Holy Things While Unclean"
+    },
+    {
+      "before_verse": 10,
+      "title": "Who May Eat the Holy Things"
+    },
+    {
+      "before_verse": 17,
+      "title": "Unblemished Animals Required for Offerings"
+    },
+    {
+      "before_verse": 26,
+      "title": "Rules Concerning Young Animals and Thanksgiving Offerings"
+    }
+  ],
+  "24": [
+    {
+      "before_verse": 1,
+      "title": "The Lamp and the Showbread"
+    },
+    {
+      "before_verse": 10,
+      "title": "A Blasphemer Brought to Moses"
+    },
+    {
+      "before_verse": 13,
+      "title": "Laws of Blasphemy and Injury"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Blasphemer Stoned"
+    }
+  ],
+  "23": [
+    {
+      "before_verse": 1,
+      "title": "The Appointed Feasts Introduced"
+    },
+    {
+      "before_verse": 5,
+      "title": "Passover and Unleavened Bread"
+    },
+    {
+      "before_verse": 9,
+      "title": "Firstfruits and the Feast of Weeks"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Feast of Trumpets and the Day of Atonement"
+    },
+    {
+      "before_verse": 33,
+      "title": "The Feast of Tabernacles"
+    }
+  ],
+  "25": [
+    {
+      "before_verse": 1,
+      "title": "The Sabbath Year"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Year of Jubilee"
+    },
+    {
+      "before_verse": 23,
+      "title": "Redemption of Land"
+    },
+    {
+      "before_verse": 35,
+      "title": "Treatment of the Poor and Servants"
+    }
+  ],
+  "26": [
+    {
+      "before_verse": 1,
+      "title": "Idolatry Forbidden; Sabbaths Commanded"
+    },
+    {
+      "before_verse": 3,
+      "title": "Blessings for Obedience"
+    },
+    {
+      "before_verse": 14,
+      "title": "Curses for Disobedience"
+    },
+    {
+      "before_verse": 40,
+      "title": "Promise of Restoration upon Confession"
+    }
+  ],
+  "27": [
+    {
+      "before_verse": 1,
+      "title": "Valuation of Persons Vowed to the LORD"
+    },
+    {
+      "before_verse": 9,
+      "title": "Valuation of Vowed Animals and Houses"
+    },
+    {
+      "before_verse": 16,
+      "title": "Valuation of Vowed Fields"
+    },
+    {
+      "before_verse": 26,
+      "title": "Firstlings, Devoted Things, and Tithes"
+    }
+  ]
+}

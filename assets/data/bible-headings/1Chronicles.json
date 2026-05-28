@@ -1,0 +1,536 @@
+{
+  "3": [
+    {
+      "before_verse": 1,
+      "title": "Sons of David Born in Hebron"
+    },
+    {
+      "before_verse": 5,
+      "title": "Sons of David Born in Jerusalem"
+    },
+    {
+      "before_verse": 10,
+      "title": "The Line of Solomon to Josiah"
+    },
+    {
+      "before_verse": 17,
+      "title": "Descendants of Jeconiah"
+    }
+  ],
+  "2": [
+    {
+      "before_verse": 1,
+      "title": "The Sons of Israel"
+    },
+    {
+      "before_verse": 3,
+      "title": "The Line of Judah to David"
+    },
+    {
+      "before_verse": 18,
+      "title": "The Descendants of Caleb and Hezron"
+    },
+    {
+      "before_verse": 25,
+      "title": "The Descendants of Jerahmeel"
+    },
+    {
+      "before_verse": 42,
+      "title": "Further Descendants of Caleb"
+    }
+  ],
+  "5": [
+    {
+      "before_verse": 1,
+      "title": "Reuben's Descendants"
+    },
+    {
+      "before_verse": 11,
+      "title": "Gad's Descendants"
+    },
+    {
+      "before_verse": 18,
+      "title": "War Against the Hagarites"
+    },
+    {
+      "before_verse": 23,
+      "title": "Half-Tribe of Manasseh"
+    },
+    {
+      "before_verse": 25,
+      "title": "The Tribes Carried into Captivity"
+    }
+  ],
+  "4": [
+    {
+      "before_verse": 1,
+      "title": "Descendants of Judah"
+    },
+    {
+      "before_verse": 9,
+      "title": "Jabez and His Prayer"
+    },
+    {
+      "before_verse": 11,
+      "title": "Further Families of Judah"
+    },
+    {
+      "before_verse": 24,
+      "title": "Descendants of Simeon"
+    },
+    {
+      "before_verse": 39,
+      "title": "Simeonite Settlements and Conquests"
+    }
+  ],
+  "1": [
+    {
+      "before_verse": 1,
+      "title": "Adam to Noah"
+    },
+    {
+      "before_verse": 5,
+      "title": "Sons of Japheth, Ham, and Shem"
+    },
+    {
+      "before_verse": 24,
+      "title": "Shem to Abraham"
+    },
+    {
+      "before_verse": 28,
+      "title": "Sons of Abraham, Esau, and Seir"
+    },
+    {
+      "before_verse": 43,
+      "title": "Kings and Dukes of Edom"
+    }
+  ],
+  "6": [
+    {
+      "before_verse": 1,
+      "title": "The Sons of Levi"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Line of Aaron to the Captivity"
+    },
+    {
+      "before_verse": 31,
+      "title": "The Temple Musicians Appointed by David"
+    },
+    {
+      "before_verse": 49,
+      "title": "The Duties of Aaron and His Sons"
+    },
+    {
+      "before_verse": 54,
+      "title": "Cities Allotted to the Levites"
+    }
+  ],
+  "8": [
+    {
+      "before_verse": 1,
+      "title": "The Sons of Benjamin"
+    },
+    {
+      "before_verse": 6,
+      "title": "Descendants of Ehud and Shaharaim"
+    },
+    {
+      "before_verse": 28,
+      "title": "Benjaminites in Jerusalem and Gibeon"
+    },
+    {
+      "before_verse": 33,
+      "title": "The Line of Saul"
+    }
+  ],
+  "9": [
+    {
+      "before_verse": 1,
+      "title": "The Exiles Return to Their Cities"
+    },
+    {
+      "before_verse": 3,
+      "title": "Settlers in Jerusalem"
+    },
+    {
+      "before_verse": 14,
+      "title": "Levites and Gatekeepers Listed"
+    },
+    {
+      "before_verse": 35,
+      "title": "The Genealogy of Saul"
+    }
+  ],
+  "7": [
+    {
+      "before_verse": 1,
+      "title": "The Sons of Issachar"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Sons of Benjamin"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Sons of Naphtali and Manasseh"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Sons of Ephraim"
+    },
+    {
+      "before_verse": 30,
+      "title": "The Sons of Asher"
+    }
+  ],
+  "11": [
+    {
+      "before_verse": 1,
+      "title": "David Anointed King over Israel"
+    },
+    {
+      "before_verse": 4,
+      "title": "David Takes Jerusalem"
+    },
+    {
+      "before_verse": 10,
+      "title": "David's Mighty Men"
+    },
+    {
+      "before_verse": 26,
+      "title": "The Thirty Listed"
+    }
+  ],
+  "12": [
+    {
+      "before_verse": 1,
+      "title": "Warriors Who Joined David at Ziklag"
+    },
+    {
+      "before_verse": 8,
+      "title": "Gadites Who Came to David in the Wilderness"
+    },
+    {
+      "before_verse": 16,
+      "title": "Men of Benjamin and Judah Come to David"
+    },
+    {
+      "before_verse": 23,
+      "title": "The Armed Hosts Who Came to Hebron"
+    },
+    {
+      "before_verse": 39,
+      "title": "Israel Feasts at Hebron"
+    }
+  ],
+  "13": [
+    {
+      "before_verse": 1,
+      "title": "David Proposes to Bring the Ark"
+    },
+    {
+      "before_verse": 5,
+      "title": "The Ark Carried from Kirjath-jearim"
+    },
+    {
+      "before_verse": 9,
+      "title": "Uzza Struck Dead"
+    },
+    {
+      "before_verse": 12,
+      "title": "The Ark Left at Obed-edom's House"
+    }
+  ],
+  "15": [
+    {
+      "before_verse": 1,
+      "title": "David Prepares for the Ark"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Levites Assembled"
+    },
+    {
+      "before_verse": 16,
+      "title": "Musicians and Singers Appointed"
+    },
+    {
+      "before_verse": 25,
+      "title": "The Ark Brought to Jerusalem"
+    }
+  ],
+  "16": [
+    {
+      "before_verse": 1,
+      "title": "The Ark Installed and the People Blessed"
+    },
+    {
+      "before_verse": 4,
+      "title": "Levites Appointed for Worship"
+    },
+    {
+      "before_verse": 7,
+      "title": "David's Psalm of Thanksgiving"
+    },
+    {
+      "before_verse": 37,
+      "title": "Ministers Assigned to the Ark and Tabernacle"
+    }
+  ],
+  "10": [
+    {
+      "before_verse": 1,
+      "title": "Israel Routed at Gilboa"
+    },
+    {
+      "before_verse": 4,
+      "title": "The Death of Saul"
+    },
+    {
+      "before_verse": 8,
+      "title": "The Philistines Dishonor Saul"
+    },
+    {
+      "before_verse": 11,
+      "title": "Jabesh-Gilead Buries Saul"
+    },
+    {
+      "before_verse": 13,
+      "title": "The Reason for Saul's Death"
+    }
+  ],
+  "14": [
+    {
+      "before_verse": 1,
+      "title": "Hiram Builds David a House"
+    },
+    {
+      "before_verse": 3,
+      "title": "David's Wives and Children"
+    },
+    {
+      "before_verse": 8,
+      "title": "David Defeats the Philistines Twice"
+    },
+    {
+      "before_verse": 17,
+      "title": "David's Fame Spreads"
+    }
+  ],
+  "17": [
+    {
+      "before_verse": 1,
+      "title": "David Proposes to Build a Temple"
+    },
+    {
+      "before_verse": 3,
+      "title": "God's Message to Nathan"
+    },
+    {
+      "before_verse": 16,
+      "title": "David's Prayer of Thanksgiving"
+    }
+  ],
+  "18": [
+    {
+      "before_verse": 1,
+      "title": "David's Military Victories"
+    },
+    {
+      "before_verse": 9,
+      "title": "Tou of Hamath Sends Tribute"
+    },
+    {
+      "before_verse": 11,
+      "title": "Spoils Dedicated to the Lord"
+    },
+    {
+      "before_verse": 14,
+      "title": "David's Officials Listed"
+    }
+  ],
+  "20": [
+    {
+      "before_verse": 1,
+      "title": "Joab Captures Rabbah"
+    },
+    {
+      "before_verse": 2,
+      "title": "David Takes the Spoil"
+    },
+    {
+      "before_verse": 4,
+      "title": "Wars Against the Philistines"
+    }
+  ],
+  "19": [
+    {
+      "before_verse": 1,
+      "title": "David's Envoys Humiliated"
+    },
+    {
+      "before_verse": 6,
+      "title": "Ammon Hires Syrian Allies"
+    },
+    {
+      "before_verse": 8,
+      "title": "Joab Defeats Ammon and Syria"
+    },
+    {
+      "before_verse": 16,
+      "title": "David Routs the Syrians"
+    }
+  ],
+  "21": [
+    {
+      "before_verse": 1,
+      "title": "David Numbers Israel"
+    },
+    {
+      "before_verse": 7,
+      "title": "God Sends Pestilence"
+    },
+    {
+      "before_verse": 15,
+      "title": "The Angel over Jerusalem"
+    },
+    {
+      "before_verse": 18,
+      "title": "David Buys Ornan's Threshing Floor"
+    }
+  ],
+  "24": [
+    {
+      "before_verse": 1,
+      "title": "The Divisions of Aaron's Sons"
+    },
+    {
+      "before_verse": 7,
+      "title": "The Twenty-Four Lots Cast"
+    },
+    {
+      "before_verse": 20,
+      "title": "The Remaining Levites Enrolled"
+    }
+  ],
+  "25": [
+    {
+      "before_verse": 1,
+      "title": "The Musicians Appointed"
+    },
+    {
+      "before_verse": 8,
+      "title": "Lots Cast for Their Divisions"
+    }
+  ],
+  "26": [
+    {
+      "before_verse": 1,
+      "title": "The Divisions of the Gatekeepers"
+    },
+    {
+      "before_verse": 13,
+      "title": "Gates Assigned by Lot"
+    },
+    {
+      "before_verse": 20,
+      "title": "Levites over the Treasuries"
+    },
+    {
+      "before_verse": 29,
+      "title": "Officers and Judges over Israel"
+    }
+  ],
+  "22": [
+    {
+      "before_verse": 1,
+      "title": "David Designates the Temple Site"
+    },
+    {
+      "before_verse": 2,
+      "title": "David Gathers Materials for the Temple"
+    },
+    {
+      "before_verse": 6,
+      "title": "David Charges Solomon to Build the Temple"
+    },
+    {
+      "before_verse": 17,
+      "title": "David Commands the Princes to Aid Solomon"
+    }
+  ],
+  "23": [
+    {
+      "before_verse": 1,
+      "title": "Solomon Made King; Levites Numbered"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Levites Divided by Clan"
+    },
+    {
+      "before_verse": 25,
+      "title": "David's Charge and the Levites' Duties"
+    }
+  ],
+  "29": [
+    {
+      "before_verse": 1,
+      "title": "David Addresses the Congregation"
+    },
+    {
+      "before_verse": 6,
+      "title": "The Leaders Offer Willingly"
+    },
+    {
+      "before_verse": 10,
+      "title": "David's Prayer of Thanksgiving"
+    },
+    {
+      "before_verse": 21,
+      "title": "Solomon Crowned and David's Death"
+    }
+  ],
+  "27": [
+    {
+      "before_verse": 1,
+      "title": "The Twelve Monthly Divisions"
+    },
+    {
+      "before_verse": 16,
+      "title": "Rulers over the Tribes"
+    },
+    {
+      "before_verse": 23,
+      "title": "David's Census Incomplete"
+    },
+    {
+      "before_verse": 25,
+      "title": "Overseers of Royal Property"
+    },
+    {
+      "before_verse": 32,
+      "title": "David's Counselors and Officers"
+    }
+  ],
+  "28": [
+    {
+      "before_verse": 1,
+      "title": "David Addresses the Assembly"
+    },
+    {
+      "before_verse": 2,
+      "title": "David's Speech: Solomon Chosen to Build the Temple"
+    },
+    {
+      "before_verse": 11,
+      "title": "David Gives Solomon the Temple Plans"
+    },
+    {
+      "before_verse": 20,
+      "title": "David Charges Solomon"
+    }
+  ]
+}
