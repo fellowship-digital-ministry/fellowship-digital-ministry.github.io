@@ -2063,6 +2063,94 @@ body.keyboard-open .claude-messages {
   font-style: italic;
 }
 
+/* "across N moments" note in the results header — quieter than the count. */
+.find-results-moments {
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* One-line plain-language note explaining that this is a meaning-based
+   search, so people can interpret the results instead of guessing. */
+.find-results-intro {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+/* Sermon group — one card per sermon, its matching moments nested inside. */
+.find-sermon-group {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+.find-sermon-group-head {
+  padding: 0.75rem 0.9rem;
+  background: var(--secondary-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.find-sermon-group-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.3;
+}
+.find-sermon-group-sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+.find-sermon-group-momentcount {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+/* Moments live inside the group's white body, padded in from the head. */
+.find-sermon-group-moments {
+  padding: 0.25rem 0.9rem 0.5rem;
+}
+.find-sermon-group-moments .claude-source-item {
+  margin: 0;
+  padding: 0.9rem 0;
+}
+
+/* Match-strength pill — replaces the misleading raw "NN% match". Colours
+   are muted tints (no alarming red/green) so they read as a calm signal. */
+.claude-source-match {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.claude-source-match.is-strong {
+  background: rgba(100, 28, 20, 0.1);   /* burgundy tint */
+  color: var(--primary-color);
+}
+.claude-source-match.is-good {
+  background: rgba(100, 28, 20, 0.05);
+  color: var(--primary-color);
+}
+.claude-source-match.is-loose {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-light);
+}
+[data-theme="dark"] .claude-source-match.is-strong,
+[data-theme="dark"] .claude-source-match.is-good {
+  background: rgba(179, 138, 130, 0.18);
+  color: var(--primary-color);
+}
+[data-theme="dark"] .claude-source-match.is-loose {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-light);
+}
+
 /* ============================================================
    Bottom controls layout — clean rhythm, no overlap on mobile.
    On wider screens: mode toggle on left, About + Clear group on right.

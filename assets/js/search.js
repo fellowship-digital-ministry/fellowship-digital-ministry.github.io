@@ -1533,17 +1533,16 @@ function updateSuggestions() {
   /**
  * Create a source element
  */
-function createSourceElement(source, index) {
+function createSourceElement(source, index, opts) {
+  opts = opts || {};
   const sourceElement = document.createElement('div');
   sourceElement.className = 'claude-source-item';
   sourceElement.setAttribute('data-video-id', source.video_id);
-  
+
   // Add ARIA attributes for accessibility
   sourceElement.setAttribute('role', 'region');
   sourceElement.setAttribute('aria-label', 'Sermon source ' + (index + 1));
-  
-  const similarity = Math.round(source.similarity * 100);
-  
+
   // Format title and date for display
   const formattedTitle = formatSermonTitle(source.title);
   let formattedDate = 'Date unknown';
@@ -1574,11 +1573,10 @@ function createSourceElement(source, index) {
   const textPreview = document.createElement('div');
   textPreview.className = 'claude-source-text-preview';
   
-  // Get a short preview of the text (first 100 characters + ellipsis)
-  const previewText = source.text.length > 100 ? 
-    source.text.substring(0, 100) + '...' : 
-    source.text;
-  
+  // A readable excerpt (~2–3 sentences) gives enough context to judge
+  // relevance; the old 100-char cut stopped mid-word and told you little.
+  const previewText = buildExcerpt(source.text, 300);
+
   textPreview.innerHTML = `"${formatText(previewText)}"`;
   
   // Create "View full text" button that opens modal
@@ -1614,11 +1612,16 @@ function createSourceElement(source, index) {
     <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   </svg> ${formatTimestamp(source.start_time)}`;
   
+  // Plain-language strength instead of a raw similarity percentage, which
+  // read as "barely relevant" even when the semantic match was strong. The
+  // exact figure stays available on hover via the title attribute.
+  const strength = matchStrength(source.similarity);
   const match = document.createElement('div');
-  match.className = 'claude-source-match';
+  match.className = 'claude-source-match ' + strength.cls;
+  match.title = strength.pct + '% similarity';
   match.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px">
     <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg> ${similarity}% ${translate('match') || 'match'}`;
+  </svg> ${strength.label}`;
   
   meta.appendChild(timestamp);
   meta.appendChild(match);
@@ -1682,9 +1685,11 @@ function createSourceElement(source, index) {
   content.appendChild(meta);
   content.appendChild(actions);
   
-  sourceElement.appendChild(header);
+  // Inside a grouped sermon card the title/date already show once on the
+  // group header, so callers pass { hideHeader: true } to drop the repeat.
+  if (!opts.hideHeader) sourceElement.appendChild(header);
   sourceElement.appendChild(content);
-  
+
   return sourceElement;
 }
 
@@ -2781,9 +2786,48 @@ function populateSourcesPanelAndAddToggle(messageContent, sources) {
 }
 
 /**
- * Render a "Find sermons" result list as a bot bubble — no AI synthesis,
- * just the matching sermons as cards. Reuses createSourceElement so the
- * cards look identical to the source cards shown alongside chat answers.
+ * Map a raw embedding-similarity score (0–1 cosine) to a plain-language
+ * strength. A bare percentage misled people — a ~58% cosine match is a
+ * genuinely strong semantic hit, but "58%" reads as "barely relevant."
+ * Buckets give an honest at-a-glance signal; the exact figure is kept for
+ * the hover tooltip. Cutoffs sit above the backend's 0.5–0.55 filter.
+ */
+function matchStrength(similarity) {
+  const s = similarity || 0;
+  const pct = Math.round(s * 100);
+  if (s >= 0.72) return { label: 'Strong match', cls: 'is-strong', pct };
+  if (s >= 0.62) return { label: 'Good match', cls: 'is-good', pct };
+  return { label: 'Loose match', cls: 'is-loose', pct };
+}
+
+/**
+ * Build a readable excerpt from a transcript chunk. The old 100-char cut
+ * stopped mid-word and gave too little context to judge relevance. Aim for
+ * ~2–3 sentences, ending on a sentence boundary when one falls past the
+ * halfway mark, otherwise on the last whole word.
+ */
+function buildExcerpt(text, maxLen) {
+  const t = (text || '').trim();
+  const limit = maxLen || 300;
+  if (t.length <= limit) return t;
+  const slice = t.slice(0, limit);
+  const sentenceEnd = Math.max(
+    slice.lastIndexOf('. '), slice.lastIndexOf('! '), slice.lastIndexOf('? ')
+  );
+  if (sentenceEnd > limit * 0.5) return slice.slice(0, sentenceEnd + 1) + ' …';
+  const lastSpace = slice.lastIndexOf(' ');
+  return slice.slice(0, lastSpace > 0 ? lastSpace : limit) + ' …';
+}
+
+/**
+ * Render a "Find sermons" result list as a bot bubble — no AI synthesis.
+ *
+ * Results come back as individual transcript moments, and one sermon often
+ * matches in several places. We group by sermon so each appears once with
+ * its strongest moments nested underneath — an honest count and far easier
+ * to scan than a flat list that repeats the same title. Each moment reuses
+ * createSourceElement (with hideHeader) so it keeps the watch/transcript
+ * actions and looks consistent with the chat source cards.
  */
 function displaySearchResults(data, query) {
   const results = (data && data.results) || [];
@@ -2801,16 +2845,65 @@ function displaySearchResults(data, query) {
     return messageElement;
   }
 
+  // Group transcript moments by sermon (video_id), tracking the best score.
+  const groups = [];
+  const byKey = {};
+  results.forEach((r) => {
+    const key = r.video_id || r.title || ('row-' + groups.length);
+    let g = byKey[key];
+    if (!g) {
+      g = { videoId: r.video_id, title: r.title, publish_date: r.publish_date, moments: [], best: 0 };
+      byKey[key] = g;
+      groups.push(g);
+    }
+    g.moments.push(r);
+    if ((r.similarity || 0) > g.best) g.best = r.similarity || 0;
+  });
+  groups.sort((a, b) => b.best - a.best);
+  groups.forEach((g) => g.moments.sort((a, b) => (b.similarity || 0) - (a.similarity || 0)));
+
+  const totalMoments = results.length;
   const header = document.createElement('div');
   header.className = 'find-results-header';
-  header.innerHTML = `<span class="find-results-count">${results.length}</span> sermon${results.length === 1 ? '' : 's'} matching <strong>${escapeHTML(query)}</strong>`;
+  const sermonNoun = groups.length === 1 ? 'sermon' : 'sermons';
+  const momentNote = totalMoments > groups.length
+    ? ` <span class="find-results-moments">across ${totalMoments} moments</span>`
+    : '';
+  header.innerHTML = `<span class="find-results-count">${groups.length}</span> ${sermonNoun} matching <strong>${escapeHTML(query)}</strong>${momentNote}`;
   contentEl.appendChild(header);
+
+  const intro = document.createElement('p');
+  intro.className = 'find-results-intro';
+  intro.textContent = 'Searches by meaning across sermon transcripts, so a match may not use your exact words. Tap a moment to watch it in context.';
+  contentEl.appendChild(intro);
 
   const list = document.createElement('div');
   list.className = 'find-results-list';
-  results.forEach((source, index) => {
-    const card = createSourceElement(source, index);
-    list.appendChild(card);
+  groups.forEach((g, gi) => {
+    const groupEl = document.createElement('div');
+    groupEl.className = 'find-sermon-group';
+
+    const head = document.createElement('div');
+    head.className = 'find-sermon-group-head';
+    const strength = matchStrength(g.best);
+    const dateText = g.publish_date ? formatSermonDate(g.publish_date) : 'Date unknown';
+    const n = g.moments.length;
+    head.innerHTML =
+      `<div class="find-sermon-group-title">${escapeHTML(formatSermonTitle(g.title))}</div>` +
+      `<div class="find-sermon-group-sub">` +
+        `<span class="find-sermon-group-date">${escapeHTML(dateText)}</span>` +
+        `<span class="claude-source-match ${strength.cls}" title="${strength.pct}% similarity">${strength.label}</span>` +
+        `<span class="find-sermon-group-momentcount">${n} moment${n === 1 ? '' : 's'}</span>` +
+      `</div>`;
+    groupEl.appendChild(head);
+
+    const moments = document.createElement('div');
+    moments.className = 'find-sermon-group-moments';
+    g.moments.forEach((m, mi) => {
+      moments.appendChild(createSourceElement(m, gi * 100 + mi, { hideHeader: true }));
+    });
+    groupEl.appendChild(moments);
+    list.appendChild(groupEl);
   });
   contentEl.appendChild(list);
 
