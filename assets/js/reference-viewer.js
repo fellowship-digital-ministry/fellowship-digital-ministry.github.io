@@ -1279,6 +1279,13 @@
 
   function openVideoModal(videoId, startSec, title) {
     if (!videoId) return;
+    // Audio-only church sermons have no YouTube video — open the transcript page
+    // (which has an audio player) rather than embedding a broken iframe.
+    if (videoId.indexOf('fbc-') === 0) {
+      window.location.href = '/transcript.html?v=' + encodeURIComponent(videoId) +
+        '&t=' + Math.floor(startSec || 0);
+      return;
+    }
     els.videoModalTitle.textContent = title || 'Sermon';
     var start = Math.floor(startSec || 0);
     els.videoModalFrame.innerHTML =

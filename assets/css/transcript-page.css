@@ -275,3 +275,11 @@ body.transcript-page {
   color: var(--tx-text-muted);
   margin: 0 0 1.1rem;
 }
+
+/* Inline audio player for audio-only church sermons (no YouTube video).
+   Sits in the actions row; timestamps in the transcript seek it. */
+.tx-audio {
+  display: block;
+  width: 100%;
+  margin-top: 0.75rem;
+}

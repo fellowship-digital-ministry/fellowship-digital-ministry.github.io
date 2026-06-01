@@ -1846,6 +1846,13 @@ function createSourceElement(source, index, opts) {
    * Open video overlay
    */
   function openVideoOverlay(videoId, startTime, title) {
+    // Audio-only church sermons have no YouTube video — send to the transcript
+    // page (which has an audio player) instead of embedding a broken iframe.
+    if (videoId && videoId.indexOf('fbc-') === 0) {
+      window.location.href = '/transcript.html?v=' + encodeURIComponent(videoId) +
+        '&t=' + Math.floor(startTime || 0);
+      return;
+    }
     const overlayContainer = ensureOverlayContainer();
     
     // Create overlay structure

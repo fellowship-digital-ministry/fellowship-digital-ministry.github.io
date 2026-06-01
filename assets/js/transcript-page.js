@@ -58,9 +58,16 @@
     return months[m - 1] + ' ' + d + ', ' + y;
   }
 
-  function render(data, focusSec, notes) {
+  function render(data, focusSec, entry) {
+    var notes = entry && entry.notes;
     var videoId = data.video_id;
     var segments = (data && data.segments) || [];
+    // Audio-only church sermons (no YouTube video) are flagged source==="website"
+    // in the catalog and carry an audio_url. The `fbc-` id prefix is a fallback
+    // signal if the catalog entry didn't load.
+    var isWeb = (entry && entry.source === 'website') ||
+                (videoId && videoId.indexOf('fbc-') === 0);
+    var audioUrl = entry && entry.audio_url;
 
     // Header
     document.title = (data.title ? data.title + ' (Transcript)' : 'Sermon transcript');
@@ -82,9 +89,27 @@
     if (focusSec) metaBits.push('starting at ' + formatTimestamp(focusSec));
     els.meta.textContent = metaBits.join(' · ');
 
-    // Actions
-    els.watch.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId) +
-      '&t=' + Math.floor(focusSec || 0);
+    // Actions. YouTube sermons link out to the video; audio-only church sermons
+    // get a "Listen" link plus an inline player the timestamps below can seek.
+    var audioEl = null;
+    if (isWeb) {
+      if (audioUrl) {
+        els.watch.textContent = '▶ Listen (church audio)';
+        els.watch.href = audioUrl;
+        els.watch.removeAttribute('target');
+        audioEl = document.createElement('audio');
+        audioEl.className = 'tx-audio';
+        audioEl.controls = true;
+        audioEl.preload = 'none';
+        audioEl.src = audioUrl;
+        els.actions.appendChild(audioEl);
+      } else {
+        els.watch.hidden = true; // no video and no audio url: don't show a broken link
+      }
+    } else {
+      els.watch.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId) +
+        '&t=' + Math.floor(focusSec || 0);
+    }
     els.actions.hidden = false;
 
     if (!segments.length) {
@@ -131,19 +156,35 @@
       }
       var isCurrent = focusTs > 0 && focusTs >= p.start && focusTs <= (p.end || (p.start + GROUP_SECS));
       var classes = 'tx-segment' + (isCurrent ? ' is-current' : '');
-      var ytHref = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId) +
-        '&t=' + Math.floor(p.start);
+      var tsStart = Math.floor(p.start);
+      var tsLabel = formatTimestamp(p.start);
+      // Audio sermons: timestamp seeks the inline player. YouTube sermons: deep link.
+      var tsAnchor = isWeb
+        ? '<a class="tx-ts" href="#" data-seek="' + tsStart +
+            '" title="Play from ' + tsLabel + '">' + tsLabel + '</a>'
+        : '<a class="tx-ts" href="' + escapeAttr('https://www.youtube.com/watch?v=' +
+            encodeURIComponent(videoId) + '&t=' + tsStart) +
+            '" target="_blank" rel="noopener" title="Jump to ' + tsLabel + ' on YouTube">' +
+            tsLabel + '</a>';
       parts.push('<p class="' + classes + '" data-start="' + p.start + '">' +
-        '<a class="tx-ts" href="' + escapeAttr(ytHref) +
-          '" target="_blank" rel="noopener" title="Jump to ' + formatTimestamp(p.start) + ' on YouTube">' +
-          formatTimestamp(p.start) +
-        '</a> ' +
-        escapeHtml(p.text) +
+        tsAnchor + ' ' + escapeHtml(p.text) +
       '</p>');
     });
     // Clear "this is where the recording starts" marker at the top of the body.
     els.body.innerHTML = '<div class="tx-start">Transcript begins</div>' + resumed + parts.join('');
     if (window.linkifyBibleReferences) window.linkifyBibleReferences(els.body);
+
+    // For audio sermons, clicking a timestamp seeks the inline player.
+    if (isWeb && audioEl) {
+      els.body.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a.tx-ts[data-seek]');
+        if (!a) return;
+        e.preventDefault();
+        var t = parseFloat(a.getAttribute('data-seek')) || 0;
+        try { audioEl.currentTime = t; audioEl.play(); } catch (err) {}
+        if (audioEl.scrollIntoView) audioEl.scrollIntoView({ block: 'nearest' });
+      });
+    }
 
     renderNotes(notes);
 
@@ -261,7 +302,7 @@
       .then(function (results) {
         var data = results[0];
         var entry = results[1];
-        render(data, startSec, entry && entry.notes);
+        render(data, startSec, entry);
       })
       .catch(function (err) {
         els.title.textContent = 'Transcript unavailable';
