@@ -1674,11 +1674,19 @@ function createSourceElement(source, index, opts) {
     window.open(`https://www.youtube.com/watch?v=${source.video_id}&t=${Math.floor(source.start_time)}`, '_blank');
   };
   
+  // Audio-only church sermons (fbc- id) have no YouTube video: relabel the primary
+  // button "Listen" (it routes to the transcript page's audio player) and drop the
+  // YouTube button, which would lead nowhere for these.
+  var isWeb = source.video_id && source.video_id.indexOf('fbc-') === 0;
+  if (isWeb) {
+    watchButton.textContent = translate('listen-audio') || 'Listen';
+  }
+
   // Add buttons to actions
   actions.appendChild(watchButton);
   actions.appendChild(transcriptButton);
-  actions.appendChild(youtubeButton);
-  
+  if (!isWeb) actions.appendChild(youtubeButton);
+
   // Assemble all components
   content.appendChild(textPreview);
   content.appendChild(viewFullButton);
