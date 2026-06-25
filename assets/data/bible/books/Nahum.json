@@ -1,1 +1,40 @@
-{"book":"Nahum","total_references":1,"chapters":{"1":[{"book":"Nahum","chapter":1,"verse":7,"reference_text":"Nahum 1:7","context":"the Lord is good, a stronghold in the day of trouble and he knoweth them that trust in him","is_implicit":false,"video_id":"-oec2OYFv2I","start_time":791.6400146484375,"end_time":854.8000183105469,"point_summary":"God's goodness serves as a stronghold specifically in the day of trouble, grounding the sermon's distinction between deliverance from trouble and deliverance through it.","point_summary_model":"anthropic/claude-sonnet-4.6","sermon_title":"\"The Day Of Trouble\" Psalm 50:15","url":"https://www.youtube.com/watch?v=-oec2OYFv2I&t=791"}]},"references":[{"book":"Nahum","chapter":1,"verse":7,"reference_text":"Nahum 1:7","context":"the Lord is good, a stronghold in the day of trouble and he knoweth them that trust in him","is_implicit":false,"video_id":"-oec2OYFv2I","start_time":791.6400146484375,"end_time":854.8000183105469,"point_summary":"God's goodness serves as a stronghold specifically in the day of trouble, grounding the sermon's distinction between deliverance from trouble and deliverance through it.","point_summary_model":"anthropic/claude-sonnet-4.6","sermon_title":"\"The Day Of Trouble\" Psalm 50:15","url":"https://www.youtube.com/watch?v=-oec2OYFv2I&t=791"}]}
+{
+  "book": "Nahum",
+  "total_references": 1,
+  "chapters": {
+    "1": [
+      {
+        "book": "Nahum",
+        "chapter": 1,
+        "verse": 7,
+        "reference_text": "Nahum 1:7",
+        "context": "the Lord is good, a stronghold in the day of trouble and he knoweth them that trust in him",
+        "is_implicit": false,
+        "video_id": "-oec2OYFv2I",
+        "start_time": 791.6400146484375,
+        "end_time": 854.8000183105469,
+        "point_summary": "God's goodness serves as a stronghold specifically in the day of trouble, grounding the sermon's distinction between deliverance from trouble and deliverance through it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Day Of Trouble\" Psalm 50:15",
+        "url": "https://www.youtube.com/watch?v=-oec2OYFv2I&t=791"
+      }
+    ]
+  },
+  "references": [
+    {
+      "book": "Nahum",
+      "chapter": 1,
+      "verse": 7,
+      "reference_text": "Nahum 1:7",
+      "context": "the Lord is good, a stronghold in the day of trouble and he knoweth them that trust in him",
+      "is_implicit": false,
+      "video_id": "-oec2OYFv2I",
+      "start_time": 791.6400146484375,
+      "end_time": 854.8000183105469,
+      "point_summary": "God's goodness serves as a stronghold specifically in the day of trouble, grounding the sermon's distinction between deliverance from trouble and deliverance through it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Day Of Trouble\" Psalm 50:15",
+      "url": "https://www.youtube.com/watch?v=-oec2OYFv2I&t=791"
+    }
+  ]
+}
