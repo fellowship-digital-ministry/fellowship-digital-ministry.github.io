@@ -20,25 +20,36 @@ API_BASE_URL = os.environ.get("API_URL", "https://sermon-search-api-8fok.onrende
 OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "assets/data/bible")
 BOOKS_DIR = os.path.join(OUTPUT_DIR, "books")
 REQUEST_TIMEOUT = 60.0  # Seconds
+# The API runs on a free tier that cold-starts and rejects request bursts.
+# Firing all ~67 book requests at once made most of them fail, so the saved
+# data silently went stale/partial. Bound concurrency and retry transient
+# failures so a refresh reliably fetches every book.
+CONCURRENCY = int(os.environ.get("FETCH_CONCURRENCY", "5"))
+MAX_RETRIES = int(os.environ.get("FETCH_MAX_RETRIES", "4"))
+RETRY_BACKOFF = 3.0  # Seconds, multiplied by the attempt number (linear backoff)
 
 # Ensure output directories exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(BOOKS_DIR, exist_ok=True)
 
 async def fetch_data(client, endpoint):
-    """Fetch data from the API endpoint"""
+    """Fetch data from the API endpoint, retrying transient failures."""
     url = f"{API_BASE_URL}/{endpoint}"
     print(f"Fetching data from {url}")
-    try:
-        response = await client.get(url, timeout=REQUEST_TIMEOUT)
-        response.raise_for_status()
-        return response.json()
-    except httpx.RequestError as e:
-        print(f"Error fetching {url}: {str(e)}")
-        return None
-    except httpx.HTTPStatusError as e:
-        print(f"HTTP error fetching {url}: {e.response.status_code}")
-        return None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            response = await client.get(url, timeout=REQUEST_TIMEOUT)
+            response.raise_for_status()
+            return response.json()
+        except (httpx.RequestError, httpx.HTTPStatusError) as e:
+            detail = getattr(getattr(e, "response", None), "status_code", None) or str(e)
+            if attempt < MAX_RETRIES:
+                wait = RETRY_BACKOFF * attempt
+                print(f"Attempt {attempt}/{MAX_RETRIES} failed for {url} ({detail}); retrying in {wait:.0f}s")
+                await asyncio.sleep(wait)
+            else:
+                print(f"Giving up on {url} after {MAX_RETRIES} attempts ({detail})")
+                return None
 
 async def fetch_and_save_bible_stats():
     """Fetch overall Bible reference statistics"""
@@ -64,28 +75,35 @@ async def fetch_and_save_bible_books():
             return data.get("books", [])
         return []
 
-async def fetch_and_save_book_references(book):
-    """Fetch and save references for a specific book"""
+async def fetch_and_save_book_references(client, book):
+    """Fetch and save references for a specific book using a shared client."""
     book_name = book["book"]
-    async with httpx.AsyncClient() as client:
-        data = await fetch_data(client, f"bible/books/{book_name}")
-        if data:
-            output_path = os.path.join(BOOKS_DIR, f"{book_name}.json")
-            with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-            print(f"Saved {book_name} references to {output_path}")
-            return True
-        return False
+    data = await fetch_data(client, f"bible/books/{book_name}")
+    if data:
+        output_path = os.path.join(BOOKS_DIR, f"{book_name}.json")
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"Saved {book_name} references to {output_path}")
+        return True
+    return False
 
 async def fetch_all_book_references(books):
-    """Fetch references for all books"""
-    tasks = []
-    for book in books:
-        tasks.append(fetch_and_save_book_references(book))
-    
-    results = await asyncio.gather(*tasks)
+    """Fetch references for all books with bounded concurrency."""
+    semaphore = asyncio.Semaphore(CONCURRENCY)
+
+    async with httpx.AsyncClient() as client:
+        async def worker(book):
+            async with semaphore:
+                return await fetch_and_save_book_references(client, book)
+
+        results = await asyncio.gather(*(worker(b) for b in books))
+
     success_count = sum(1 for r in results if r)
     print(f"Successfully fetched references for {success_count} out of {len(books)} books")
+    if success_count < len(books):
+        print(f"WARNING: {len(books) - success_count} book(s) failed to fetch; "
+              f"their saved data was left unchanged.")
+    return success_count
 
 async def main():
     """Main function to coordinate fetching all Bible reference data"""
