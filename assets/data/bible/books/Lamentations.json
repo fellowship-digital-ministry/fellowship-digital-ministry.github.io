@@ -1,6 +1,6 @@
 {
   "book": "Lamentations",
-  "total_references": 62,
+  "total_references": 65,
   "chapters": {
     "3": [
       {
@@ -907,6 +907,51 @@
       }
     ],
     "1": [
+      {
+        "book": "Lamentations",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "Lamentations 1",
+        "context": "Lamentations chapter 1",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1073.8399658203125,
+        "end_time": 1132.5199584960938,
+        "point_summary": "Lamentations is cited as direct biblical evidence that Jerusalem's ruin—broken walls, burned gates, captivity—was the consequence of sin, confirming Proverbs 14:34's principle that sin brings reproach upon a people.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1073"
+      },
+      {
+        "book": "Lamentations",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "Lamentations 1:8",
+        "context": "Jerusalem hath grievously sinned. Therefore, she is removed. All that honored her despise her, because they have seen her nakedness",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1132.5199584960938,
+        "end_time": 1209.4000000953674,
+        "point_summary": "Jerusalem's catastrophic fall — her walls broken, her gates burned, her people in reproach — is traced directly to her grievous sin, confirming that national judgment follows national unrighteousness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1132"
+      },
+      {
+        "book": "Lamentations",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "Lamentations 1:8",
+        "context": "Jerusalem",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2506.7000122070312,
+        "end_time": 2563.260009765625,
+        "point_summary": "Sin's reproach upon a nation is confirmed in Lamentations, where Jeremiah describes Jerusalem's disobedience and grievous sin, paralleling Nehemiah's own confession of corrupt dealing against God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2506"
+      },
       {
         "book": "Lamentations",
         "chapter": 1,
@@ -1871,6 +1916,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Ponder The Promises",
       "url": "https://www.youtube.com/watch?v=fbc-2024-05-01mw-ponder-the-promises&t=546"
+    },
+    {
+      "book": "Lamentations",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Lamentations 1",
+      "context": "Lamentations chapter 1",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1073.8399658203125,
+      "end_time": 1132.5199584960938,
+      "point_summary": "Lamentations is cited as direct biblical evidence that Jerusalem's ruin—broken walls, burned gates, captivity—was the consequence of sin, confirming Proverbs 14:34's principle that sin brings reproach upon a people.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1073"
+    },
+    {
+      "book": "Lamentations",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Lamentations 1:8",
+      "context": "Jerusalem hath grievously sinned. Therefore, she is removed. All that honored her despise her, because they have seen her nakedness",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1132.5199584960938,
+      "end_time": 1209.4000000953674,
+      "point_summary": "Jerusalem's catastrophic fall — her walls broken, her gates burned, her people in reproach — is traced directly to her grievous sin, confirming that national judgment follows national unrighteousness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1132"
+    },
+    {
+      "book": "Lamentations",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Lamentations 1:8",
+      "context": "Jerusalem",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2506.7000122070312,
+      "end_time": 2563.260009765625,
+      "point_summary": "Sin's reproach upon a nation is confirmed in Lamentations, where Jeremiah describes Jerusalem's disobedience and grievous sin, paralleling Nehemiah's own confession of corrupt dealing against God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2506"
     }
   ]
 }
