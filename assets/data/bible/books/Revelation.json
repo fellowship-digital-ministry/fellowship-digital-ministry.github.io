@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1575,
+  "total_references": 1576,
   "chapters": {
     "3": [
       {
@@ -1997,6 +1997,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Ungodly Line Of Cain",
         "url": "https://www.youtube.com/watch?v=fbc-2019-10-06pm-the-ungodly-line-of-cain&t=2123"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 3,
+        "verse": 17,
+        "reference_text": "Revelation 3:17",
+        "context": "we are living in a time and a place that we're increased with goods and have need of nothing like the Laodiceans",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1964.780014038086,
+        "end_time": 2033.4800109863281,
+        "point_summary": "America's spiritual condition mirrors the Laodicean church of Revelation 3:17—materially prosperous and self-sufficient, yet that very abundance has produced dangerous apathy and indifference toward the souls of humanity.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1964"
       },
       {
         "book": "Revelation",
@@ -47301,6 +47316,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Compelled By Calvary\"  Luke 23:33",
       "url": "https://www.youtube.com/watch?v=Tzzte7ZXQ_E&t=1349"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 3,
+      "verse": 17,
+      "reference_text": "Revelation 3:17",
+      "context": "we are living in a time and a place that we're increased with goods and have need of nothing like the Laodiceans",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1964.780014038086,
+      "end_time": 2033.4800109863281,
+      "point_summary": "America's spiritual condition mirrors the Laodicean church of Revelation 3:17—materially prosperous and self-sufficient, yet that very abundance has produced dangerous apathy and indifference toward the souls of humanity.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1964"
     }
   ]
 }

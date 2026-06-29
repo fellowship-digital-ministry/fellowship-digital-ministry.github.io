@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 1981,
+  "total_references": 1988,
   "chapters": {
     "12": [
       {
@@ -377,6 +377,51 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Rapha",
         "url": "https://www.youtube.com/watch?v=fbc-2025-04-09mw-jehovah-rapha&t=1093"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": null,
+        "reference_text": "Hebrews 12",
+        "context": "it brought me directly to Hebrews chapter number 12",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 523.1400146484375,
+        "end_time": 584.739990234375,
+        "point_summary": "Hebrews 12:1's call to lay aside every weight and competing entanglement grounds the sermon's point that the Father, as husbandman, eliminates the dividing, competing branches in a believer's life.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=523"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": null,
+        "reference_text": "Hebrews 12",
+        "context": "the truth of Hebrews 12 when we think about those competing branches and we think about that weight which doth so easily beset us",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1977.6800231933594,
+        "end_time": 2047.3600311279297,
+        "point_summary": "Hebrews 12's call to lay aside every weight is invoked as a parallel to John 15's pruning, identifying competing branches as the burdens that hinder fruitbearing and must be eliminated by God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1977"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": null,
+        "reference_text": "Hebrews 12",
+        "context": "You told us there in Hebrews 12 that we're to lay aside every weight",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1977.6800231933594,
+        "end_time": 2047.3600311279297,
+        "point_summary": "Hebrews 12's call to lay aside every weight is invoked as a parallel to John 15's pruning—both describing the removal of competing hindrances so the believer may bear more fruit.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1977"
       },
       {
         "book": "Hebrews",
@@ -902,6 +947,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Gods Judgement Announced",
         "url": "https://www.youtube.com/watch?v=fbc-081119pm-gods-judgement-announced&t=870"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": 1,
+        "reference_text": "Hebrews 12:1",
+        "context": "wherefore seeing we also are compassed about with so great a cloud of witnesses... let us lay aside every weight and the sin which doth so easily beset us and let us run with patience the race that is set before us",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 584.739990234375,
+        "end_time": 653.4599990844727,
+        "point_summary": "Hebrews 12:1's distinction between \"weight\" and \"sin\" establishes that not every competing branch in a believer's life is sinful — yet both must be laid aside to run effectively.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=584"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": 1,
+        "reference_text": "Hebrews 12:1",
+        "context": "that weight which doth so easily beset us",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1977.6800231933594,
+        "end_time": 2047.3600311279297,
+        "point_summary": "Hebrews 12:1's call to lay aside every weight is applied as a parallel to John 15's pruning, identifying competing branches as the encumbrances that hinder fruitbearing.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1977"
       },
       {
         "book": "Hebrews",
@@ -2912,6 +2987,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "They Hearkened Not",
         "url": "https://www.youtube.com/watch?v=fbc-2025-12-10mw-they-hearkened-not&t=1559"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": 6,
+        "reference_text": "whom the Lord loveth, he chasteneth",
+        "context": "the Bible does teach us that whom the Lord loveth, he chasteneth",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1226.4600143432617,
+        "end_time": 1296.8000183105469,
+        "point_summary": "Hebrews 12:6 is cited briefly to distinguish chastisement—God's corrective discipline toward those He loves—from purging, which serves fruitfulness rather than punishment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1226"
       },
       {
         "book": "Hebrews",
@@ -20776,6 +20866,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
         "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=119"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 4,
+        "verse": 12,
+        "reference_text": "Hebrews 4:12",
+        "context": "the Word of God is quick and powerful and sharper than any two-edged sword",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 901.5400085449219,
+        "end_time": 966.2200012207031,
+        "point_summary": "God's Word is the sharp, purging instrument the Vinedresser uses to identify and eliminate competing branches that drain the believer's spiritual fruitfulness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=901"
       },
       {
         "book": "Hebrews",
@@ -59461,6 +59566,111 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
       "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=119"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": null,
+      "reference_text": "Hebrews 12",
+      "context": "it brought me directly to Hebrews chapter number 12",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 523.1400146484375,
+      "end_time": 584.739990234375,
+      "point_summary": "Hebrews 12:1's call to lay aside every weight and competing entanglement grounds the sermon's point that the Father, as husbandman, eliminates the dividing, competing branches in a believer's life.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=523"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": 1,
+      "reference_text": "Hebrews 12:1",
+      "context": "wherefore seeing we also are compassed about with so great a cloud of witnesses... let us lay aside every weight and the sin which doth so easily beset us and let us run with patience the race that is set before us",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 584.739990234375,
+      "end_time": 653.4599990844727,
+      "point_summary": "Hebrews 12:1's distinction between \"weight\" and \"sin\" establishes that not every competing branch in a believer's life is sinful — yet both must be laid aside to run effectively.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=584"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 4,
+      "verse": 12,
+      "reference_text": "Hebrews 4:12",
+      "context": "the Word of God is quick and powerful and sharper than any two-edged sword",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 901.5400085449219,
+      "end_time": 966.2200012207031,
+      "point_summary": "God's Word is the sharp, purging instrument the Vinedresser uses to identify and eliminate competing branches that drain the believer's spiritual fruitfulness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=901"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": 6,
+      "reference_text": "whom the Lord loveth, he chasteneth",
+      "context": "the Bible does teach us that whom the Lord loveth, he chasteneth",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1226.4600143432617,
+      "end_time": 1296.8000183105469,
+      "point_summary": "Hebrews 12:6 is cited briefly to distinguish chastisement—God's corrective discipline toward those He loves—from purging, which serves fruitfulness rather than punishment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1226"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": null,
+      "reference_text": "Hebrews 12",
+      "context": "the truth of Hebrews 12 when we think about those competing branches and we think about that weight which doth so easily beset us",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1977.6800231933594,
+      "end_time": 2047.3600311279297,
+      "point_summary": "Hebrews 12's call to lay aside every weight is invoked as a parallel to John 15's pruning, identifying competing branches as the burdens that hinder fruitbearing and must be eliminated by God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1977"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": null,
+      "reference_text": "Hebrews 12",
+      "context": "You told us there in Hebrews 12 that we're to lay aside every weight",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1977.6800231933594,
+      "end_time": 2047.3600311279297,
+      "point_summary": "Hebrews 12's call to lay aside every weight is invoked as a parallel to John 15's pruning—both describing the removal of competing hindrances so the believer may bear more fruit.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1977"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": 1,
+      "reference_text": "Hebrews 12:1",
+      "context": "that weight which doth so easily beset us",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1977.6800231933594,
+      "end_time": 2047.3600311279297,
+      "point_summary": "Hebrews 12:1's call to lay aside every weight is applied as a parallel to John 15's pruning, identifying competing branches as the encumbrances that hinder fruitbearing.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1977"
     }
   ]
 }

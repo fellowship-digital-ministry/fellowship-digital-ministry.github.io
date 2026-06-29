@@ -1,6 +1,6 @@
 {
   "book": "Daniel",
-  "total_references": 237,
+  "total_references": 240,
   "chapters": {
     "6": [
       {
@@ -1058,6 +1058,21 @@
       {
         "book": "Daniel",
         "chapter": 3,
+        "verse": 18,
+        "reference_text": "Daniel 3 - fiery furnace",
+        "context": "there are some guys that are gonna go to a fiery furnace, and they made a decision based on principle",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2319.4600219726562,
+        "end_time": 2380.760009765625,
+        "point_summary": "Decisions grounded in biblical principle—not emotional reaction—endure under pressure, as the three Hebrew men demonstrated by refusing to bow regardless of consequence.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2319"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 3,
         "verse": 19,
         "reference_text": "Daniel 3:19",
         "context": "Nebuchadnezzar was full of fury in verse number 19. The form of his visage was changed.",
@@ -1315,6 +1330,21 @@
       {
         "book": "Daniel",
         "chapter": 4,
+        "verse": null,
+        "reference_text": "Daniel 4",
+        "context": "I was reading through the book of Daniel this morning",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1613.4800109863281,
+        "end_time": 1682.6799926757812,
+        "point_summary": "Nebuchadnezzar's boast over Babylon and his subsequent humiliation stand as the biblical precedent that God abases the proud, a warning applied directly to contemporary national leaders.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1613"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 4,
         "verse": 17,
         "reference_text": "Daniel 4:17",
         "context": "The Bible says this matter is by the decree of the watchers and the demand by the word of the holy ones to the intent that the living may know.",
@@ -1461,6 +1491,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"We Ought To Walk Humbly\" Romans 12:3",
         "url": "https://www.youtube.com/watch?v=8OgJllM8BSQ&t=712"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 4,
+        "verse": 37,
+        "reference_text": "Daniel 4:37",
+        "context": "God is able to abase",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1613.4800109863281,
+        "end_time": 1682.6799926757812,
+        "point_summary": "National pride that exalts human achievement above God invites divine humbling, as Nebuchadnezzar's own confession in Daniel 4 demonstrates that God is able to abase the proudest rulers on earth.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1613"
       }
     ],
     "9": [
@@ -7141,6 +7186,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"In Heaven - Part One\"   Revelation 4:2-11",
       "url": "https://www.youtube.com/watch?v=p7s9XgLeAg0&t=1568"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 4,
+      "verse": null,
+      "reference_text": "Daniel 4",
+      "context": "I was reading through the book of Daniel this morning",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1613.4800109863281,
+      "end_time": 1682.6799926757812,
+      "point_summary": "Nebuchadnezzar's boast over Babylon and his subsequent humiliation stand as the biblical precedent that God abases the proud, a warning applied directly to contemporary national leaders.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1613"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 4,
+      "verse": 37,
+      "reference_text": "Daniel 4:37",
+      "context": "God is able to abase",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1613.4800109863281,
+      "end_time": 1682.6799926757812,
+      "point_summary": "National pride that exalts human achievement above God invites divine humbling, as Nebuchadnezzar's own confession in Daniel 4 demonstrates that God is able to abase the proudest rulers on earth.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1613"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 3,
+      "verse": 18,
+      "reference_text": "Daniel 3 - fiery furnace",
+      "context": "there are some guys that are gonna go to a fiery furnace, and they made a decision based on principle",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2319.4600219726562,
+      "end_time": 2380.760009765625,
+      "point_summary": "Decisions grounded in biblical principle—not emotional reaction—endure under pressure, as the three Hebrew men demonstrated by refusing to bow regardless of consequence.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2319"
     }
   ]
 }

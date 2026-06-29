@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 1380,
+  "total_references": 1385,
   "chapters": {
     "2": [
       {
@@ -17129,6 +17129,36 @@
       {
         "book": "Ephesians",
         "chapter": 4,
+        "verse": 30,
+        "reference_text": "Ephesians 4:30",
+        "context": "we have been sealed unto the day of redemption",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 197.1199951171875,
+        "end_time": 256.44000244140625,
+        "point_summary": "Believers' security in Christ is grounded in the sealing of the Holy Spirit unto the day of redemption, establishing that the branches addressed in John 15 are genuinely saved.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=197"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 4,
+        "verse": 30,
+        "reference_text": "grieve not the Spirit",
+        "context": "the Bible says that we're to grieve not the Spirit",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1752.8200073242188,
+        "end_time": 1832.1200256347656,
+        "point_summary": "Grieving the Holy Spirit (Eph. 4:30) is cited as evidence that God does not force sanctification—believers retain the freedom to resist or yield to the Spirit's convicting work.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1752"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 4,
         "verse": 31,
         "reference_text": "Ephesians 4:31",
         "context": "Let all bitterness and wrath and anger and clamor and evil speaking be put away.",
@@ -17787,6 +17817,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Heaven - Part Two\"  Revelation 4:2-11",
         "url": "https://www.youtube.com/watch?v=jrB0HUzN1FE&t=587"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 5,
+        "verse": null,
+        "reference_text": "Ephesians 5",
+        "context": "look at Ephesians chapter 5 if you will and notice what the Bible says in Ephesians chapter number 5",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1027.7000122070312,
+        "end_time": 1089.260009765625,
+        "point_summary": "Ephesians 5:25–26 is cited to show that God's ordained instrument for cleansing and sanctifying relationships—specifically in the home—is the Word of God itself.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1027"
       },
       {
         "book": "Ephesians",
@@ -19711,6 +19756,21 @@
       {
         "book": "Ephesians",
         "chapter": 5,
+        "verse": 22,
+        "reference_text": "Ephesians 5:22",
+        "context": "here in Ephesians 5 you begin to see some of that instruction beginning in verse 22",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1089.6199951171875,
+        "end_time": 1159.2999877929688,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1089"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 5,
         "verse": 23,
         "reference_text": "Ephesians 5:23",
         "context": "as unto the Lord",
@@ -20157,6 +20217,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Heaven - Part Two\"  Revelation 4:2-11",
         "url": "https://www.youtube.com/watch?v=jrB0HUzN1FE&t=645"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 5,
+        "verse": 25,
+        "reference_text": "Ephesians 5:25",
+        "context": "in verse number 25 He says husbands love your wives Even as Christ also loved the church and gave himself for it that he might sanctify and cleanse it notice what it says with the washing of water by the Word",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1089.6199951171875,
+        "end_time": 1159.2999877929688,
+        "point_summary": "Christ's sanctifying and cleansing of the church \"with the washing of water by the Word\" illustrates that Scripture is the instrument God uses to comfort, convict, and change believers.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1089"
       },
       {
         "book": "Ephesians",
@@ -41417,6 +41492,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Make Known Thy Truth\"  Isaiah 38:19",
       "url": "https://www.youtube.com/watch?v=Ltup8ewKTuo&t=2199"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 4,
+      "verse": 30,
+      "reference_text": "Ephesians 4:30",
+      "context": "we have been sealed unto the day of redemption",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 197.1199951171875,
+      "end_time": 256.44000244140625,
+      "point_summary": "Believers' security in Christ is grounded in the sealing of the Holy Spirit unto the day of redemption, establishing that the branches addressed in John 15 are genuinely saved.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=197"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 5,
+      "verse": null,
+      "reference_text": "Ephesians 5",
+      "context": "look at Ephesians chapter 5 if you will and notice what the Bible says in Ephesians chapter number 5",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1027.7000122070312,
+      "end_time": 1089.260009765625,
+      "point_summary": "Ephesians 5:25–26 is cited to show that God's ordained instrument for cleansing and sanctifying relationships—specifically in the home—is the Word of God itself.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1027"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 5,
+      "verse": 22,
+      "reference_text": "Ephesians 5:22",
+      "context": "here in Ephesians 5 you begin to see some of that instruction beginning in verse 22",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1089.6199951171875,
+      "end_time": 1159.2999877929688,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1089"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 5,
+      "verse": 25,
+      "reference_text": "Ephesians 5:25",
+      "context": "in verse number 25 He says husbands love your wives Even as Christ also loved the church and gave himself for it that he might sanctify and cleanse it notice what it says with the washing of water by the Word",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1089.6199951171875,
+      "end_time": 1159.2999877929688,
+      "point_summary": "Christ's sanctifying and cleansing of the church \"with the washing of water by the Word\" illustrates that Scripture is the instrument God uses to comfort, convict, and change believers.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1089"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 4,
+      "verse": 30,
+      "reference_text": "grieve not the Spirit",
+      "context": "the Bible says that we're to grieve not the Spirit",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1752.8200073242188,
+      "end_time": 1832.1200256347656,
+      "point_summary": "Grieving the Holy Spirit (Eph. 4:30) is cited as evidence that God does not force sanctification—believers retain the freedom to resist or yield to the Spirit's convicting work.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1752"
     }
   ]
 }

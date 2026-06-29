@@ -1,6 +1,6 @@
 {
   "book": "1_John",
-  "total_references": 1102,
+  "total_references": 1107,
   "chapters": {
     "2": [
       {
@@ -977,6 +977,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=2219"
+      },
+      {
+        "book": "1 John",
+        "chapter": 2,
+        "verse": 1,
+        "reference_text": "1 John 2:1",
+        "context": "we have an advocate with the Father, Jesus, Christ Jesus, the righteous",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2448.4600143432617,
+        "end_time": 2506.7000122070312,
+        "point_summary": "When sin is confessed, Christ stands as advocate before the Father—not pleading the believer's innocence, but declaring that He Himself has already paid the penalty.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2448"
       },
       {
         "book": "1 John",
@@ -14969,6 +14984,51 @@
       {
         "book": "1 John",
         "chapter": 1,
+        "verse": 8,
+        "reference_text": "1 John 1:8",
+        "context": "if we say that we have no sin",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2448.4600143432617,
+        "end_time": 2506.7000122070312,
+        "point_summary": "Denying personal sin is not a neutral error but a self-deception that calls God a liar, making honest confession before Him—as Nehemiah modeled—both necessary and urgent.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2448"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "1 John 1:8",
+        "context": "if we say that we have no sin, then we are, the truth is not in us and we make him, God, a liar",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2506.7000122070312,
+        "end_time": 2563.260009765625,
+        "point_summary": "Denying personal sin makes God a liar, so genuine confession—modeled by Nehemiah's own acknowledgment of shared guilt—is the only honest and God-honoring response.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2506"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "1 John 1:8",
+        "context": "if we say that we have no sin then His truth is not in us and we make God a liar",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 653.4599990844727,
+        "end_time": 718.2599945068359,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=653"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
         "verse": 9,
         "reference_text": "1 John 1:9",
         "context": "if we confess, according to 1 John 1 and verse number 9, he promises to cleanse us and to forgive us",
@@ -15925,6 +15985,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=2219"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
+        "verse": 9,
+        "reference_text": "1 John 1:9",
+        "context": "if we confess our sins, he is faithful and just to forgive us and to cleanse us from all unrighteousness",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2448.4600143432617,
+        "end_time": 2506.7000122070312,
+        "point_summary": "Confession of sin—including one's own, not merely others'—finds its gracious answer in 1 John 1:9's promise that God is faithful and just to forgive and cleanse all who confess.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2448"
       },
       {
         "book": "1 John",
@@ -33077,6 +33152,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The World's Greatest Needs\"  Matthew 9:35-38",
       "url": "https://www.youtube.com/watch?v=-k3b8eQMkzM&t=738"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 9,
+      "reference_text": "1 John 1:9",
+      "context": "if we confess our sins, he is faithful and just to forgive us and to cleanse us from all unrighteousness",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2448.4600143432617,
+      "end_time": 2506.7000122070312,
+      "point_summary": "Confession of sin—including one's own, not merely others'—finds its gracious answer in 1 John 1:9's promise that God is faithful and just to forgive and cleanse all who confess.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2448"
+    },
+    {
+      "book": "1 John",
+      "chapter": 2,
+      "verse": 1,
+      "reference_text": "1 John 2:1",
+      "context": "we have an advocate with the Father, Jesus, Christ Jesus, the righteous",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2448.4600143432617,
+      "end_time": 2506.7000122070312,
+      "point_summary": "When sin is confessed, Christ stands as advocate before the Father—not pleading the believer's innocence, but declaring that He Himself has already paid the penalty.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2448"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "1 John 1:8",
+      "context": "if we say that we have no sin",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2448.4600143432617,
+      "end_time": 2506.7000122070312,
+      "point_summary": "Denying personal sin is not a neutral error but a self-deception that calls God a liar, making honest confession before Him—as Nehemiah modeled—both necessary and urgent.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2448"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "1 John 1:8",
+      "context": "if we say that we have no sin, then we are, the truth is not in us and we make him, God, a liar",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2506.7000122070312,
+      "end_time": 2563.260009765625,
+      "point_summary": "Denying personal sin makes God a liar, so genuine confession—modeled by Nehemiah's own acknowledgment of shared guilt—is the only honest and God-honoring response.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2506"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "1 John 1:8",
+      "context": "if we say that we have no sin then His truth is not in us and we make God a liar",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 653.4599990844727,
+      "end_time": 718.2599945068359,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=653"
     }
   ]
 }

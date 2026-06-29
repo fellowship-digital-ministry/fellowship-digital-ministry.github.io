@@ -1,6 +1,6 @@
 {
   "book": "Psalms",
-  "total_references": 2666,
+  "total_references": 2669,
   "chapters": {
     "90": [
       {
@@ -1915,6 +1915,21 @@
       {
         "book": "Psalms",
         "chapter": 19,
+        "verse": 1,
+        "reference_text": "Psalm 19",
+        "context": "the Bible tells us in Psalm 19",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1159.7000122070312,
+        "end_time": 1226.4600143432617,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1159"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 19,
         "verse": 7,
         "reference_text": "Psalm 19:7",
         "context": "We think about the simple here, and he talks about how the testimonies of the Lord is sure, making wise the simple.",
@@ -2275,6 +2290,21 @@
       {
         "book": "Psalms",
         "chapter": 19,
+        "verse": 10,
+        "reference_text": "Psalm 19:10",
+        "context": "more to be desired are they than gold? Yea, then much fine gold sweeter also than honey and the honeycomb",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1159.7000122070312,
+        "end_time": 1226.4600143432617,
+        "point_summary": "God's Word is more valuable than gold and sweeter than honey, and by it the servant is warned — underscoring the Word's role as the purging instrument in the believer's life.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1159"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 19,
         "verse": 11,
         "reference_text": "Psalm 19:11",
         "context": "Psalms, you don't have to turn there, but in Psalm 19, in verse number 11, as the psalmist",
@@ -2496,6 +2526,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Loveth A Cheerful Giver\"  II Corinthians 9:1-15",
         "url": "https://www.youtube.com/watch?v=m6f-OuI_HiA&t=3058"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 19,
+        "verse": 11,
+        "reference_text": "Psalm 19:11",
+        "context": "moreover by them them is thy servant warned, and in keeping of them there is great reward",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1159.7000122070312,
+        "end_time": 1226.4600143432617,
+        "point_summary": "God's Word both warns the servant and promises great reward in obedience, illustrating the dual function of Scripture as a tool God uses to comfort, convict, and change His people.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1159"
       },
       {
         "book": "Psalms",
@@ -80217,6 +80262,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Truths Concerning Our Treasures\"  Matthew 6:19-21",
       "url": "https://www.youtube.com/watch?v=CXg_STSF1ug&t=1272"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 19,
+      "verse": 1,
+      "reference_text": "Psalm 19",
+      "context": "the Bible tells us in Psalm 19",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1159.7000122070312,
+      "end_time": 1226.4600143432617,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1159"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 19,
+      "verse": 10,
+      "reference_text": "Psalm 19:10",
+      "context": "more to be desired are they than gold? Yea, then much fine gold sweeter also than honey and the honeycomb",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1159.7000122070312,
+      "end_time": 1226.4600143432617,
+      "point_summary": "God's Word is more valuable than gold and sweeter than honey, and by it the servant is warned — underscoring the Word's role as the purging instrument in the believer's life.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1159"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 19,
+      "verse": 11,
+      "reference_text": "Psalm 19:11",
+      "context": "moreover by them them is thy servant warned, and in keeping of them there is great reward",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1159.7000122070312,
+      "end_time": 1226.4600143432617,
+      "point_summary": "God's Word both warns the servant and promises great reward in obedience, illustrating the dual function of Scripture as a tool God uses to comfort, convict, and change His people.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1159"
     }
   ]
 }

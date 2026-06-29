@@ -1,6 +1,6 @@
 {
   "book": "Exodus",
-  "total_references": 924,
+  "total_references": 925,
   "chapters": {
     "14": [
       {
@@ -9289,6 +9289,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Fourth Day",
         "url": "https://www.youtube.com/watch?v=fbc-041419pm-the-fourth-day&t=1741"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 20,
+        "verse": 3,
+        "reference_text": "Exodus 20:3",
+        "context": "Thou shalt have no other gods before me",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2319.4600219726562,
+        "end_time": 2380.760009765625,
+        "point_summary": "Exodus 20:3's prohibition against other gods supplied the biblical principle—not emotional reaction—that enabled the three Hebrew men to refuse Nebuchadnezzar's image and sustain that refusal under intensified pressure.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2319"
       },
       {
         "book": "Exodus",
@@ -27801,6 +27816,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Gods Judgement Announced",
       "url": "https://www.youtube.com/watch?v=fbc-081119pm-gods-judgement-announced&t=934"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 20,
+      "verse": 3,
+      "reference_text": "Exodus 20:3",
+      "context": "Thou shalt have no other gods before me",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2319.4600219726562,
+      "end_time": 2380.760009765625,
+      "point_summary": "Exodus 20:3's prohibition against other gods supplied the biblical principle—not emotional reaction—that enabled the three Hebrew men to refuse Nebuchadnezzar's image and sustain that refusal under intensified pressure.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2319"
     }
   ]
 }

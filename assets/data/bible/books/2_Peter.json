@@ -1,6 +1,6 @@
 {
   "book": "2_Peter",
-  "total_references": 413,
+  "total_references": 414,
   "chapters": {
     "3": [
       {
@@ -5359,6 +5359,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Let Me Not Wander From Thy Commandments",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-22pm-let-me-not-wander-from-thy-commandments&t=766"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 1,
+        "verse": 21,
+        "reference_text": "2 Peter 1:21",
+        "context": "holy men of old spake as they were moved by the Holy Ghost",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 65.08000183105469,
+        "end_time": 123.44000244140625,
+        "point_summary": "Scripture's divine inspiration — affirmed by 2 Peter 1:21 — establishes that Solomon wrote Proverbs 14:34 not on his own initiative but as he was moved by the Holy Ghost, making its words timelessly authoritative.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=65"
       },
       {
         "book": "2 Peter",
@@ -12401,6 +12416,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Compelled By Calvary\"  Luke 23:33",
       "url": "https://www.youtube.com/watch?v=Tzzte7ZXQ_E&t=1274"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 1,
+      "verse": 21,
+      "reference_text": "2 Peter 1:21",
+      "context": "holy men of old spake as they were moved by the Holy Ghost",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 65.08000183105469,
+      "end_time": 123.44000244140625,
+      "point_summary": "Scripture's divine inspiration — affirmed by 2 Peter 1:21 — establishes that Solomon wrote Proverbs 14:34 not on his own initiative but as he was moved by the Holy Ghost, making its words timelessly authoritative.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=65"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Leviticus",
-  "total_references": 201,
+  "total_references": 205,
   "chapters": {
     "19": [
       {
@@ -402,6 +402,21 @@
       {
         "book": "Leviticus",
         "chapter": 26,
+        "verse": null,
+        "reference_text": "Leviticus 26",
+        "context": "We looked at Leviticus 26, or I referenced it in Leviticus 26",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2563.8200073242188,
+        "end_time": 2625.500015258789,
+        "point_summary": "Nehemiah's confession draws directly on Leviticus 26's covenant warning that Israel's disobedience would result in being scattered among the nations — the very condition Nehemiah was lamenting.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2563"
+      },
+      {
+        "book": "Leviticus",
+        "chapter": 26,
         "verse": 1,
         "reference_text": "Leviticus 26:1",
         "context": "...Ye shall make you no idols or a graven image, neither rear you up a standing image, neither shall you set up any image of stone in your land to bow down unto it, for I am the Lord your God.",
@@ -492,6 +507,21 @@
       {
         "book": "Leviticus",
         "chapter": 26,
+        "verse": 3,
+        "reference_text": "Leviticus 26:3-4",
+        "context": "if you walk in my statutes and keep my commandments and do them, then I will do this. Chapter 26, verse 3 and verse 4",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1209.4000000953674,
+        "end_time": 1271.7200012207031,
+        "point_summary": "Leviticus 26 is cited as the foundational covenant framework—obedience bringing divine blessing, disobedience bringing divine judgment—against which Jerusalem's sin and removal in Lamentations 1:8 must be understood.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1209"
+      },
+      {
+        "book": "Leviticus",
+        "chapter": 26,
         "verse": 4,
         "reference_text": "Leviticus 26:4",
         "context": "Then I will give you rain in due season, and the land shall yield her increase, and the trees of the field shall yield their fruit.",
@@ -533,6 +563,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Joy Is Withered Away\" Joel 1:1-14",
         "url": "https://www.youtube.com/watch?v=Gtm8IYhepio&t=1074"
+      },
+      {
+        "book": "Leviticus",
+        "chapter": 26,
+        "verse": 4,
+        "reference_text": "Leviticus 26:4",
+        "context": "Chapter 26, verse 3 and verse 4 all the way down",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1209.4000000953674,
+        "end_time": 1271.7200012207031,
+        "point_summary": "Leviticus 26 is cited as the foundational covenant framework—obedience bringing divine blessing, disobedience bringing divine judgment—against which Jerusalem's sin and removal in Lamentations 1:8 must be understood.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1209"
       },
       {
         "book": "Leviticus",
@@ -668,6 +713,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Third Seal Opened\"  Revelation 6:5-6",
         "url": "https://www.youtube.com/watch?v=EmHoC0CRw6w&t=573"
+      },
+      {
+        "book": "Leviticus",
+        "chapter": 26,
+        "verse": 14,
+        "reference_text": "Leviticus 26:14",
+        "context": "but if you will not hearken unto me and will not do all these commandments and if you shall despise my statutes or if your soul abhor my judgments so that you will not do all my commandments but that you break my covenant",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1271.7200012207031,
+        "end_time": 1326.9400024414062,
+        "point_summary": "Leviticus 26:14 marks the turning point in the chapter from promised blessing to promised judgment, establishing that national disobedience to God's commandments brings divine consequences rather than divine favor.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1271"
       },
       {
         "book": "Leviticus",
@@ -6067,6 +6127,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Opportunity That Wasn't Missed In Missions\"  Philippians 4:15-19",
       "url": "https://www.youtube.com/watch?v=THOg22UDO9w&t=1532"
+    },
+    {
+      "book": "Leviticus",
+      "chapter": 26,
+      "verse": 3,
+      "reference_text": "Leviticus 26:3-4",
+      "context": "if you walk in my statutes and keep my commandments and do them, then I will do this. Chapter 26, verse 3 and verse 4",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1209.4000000953674,
+      "end_time": 1271.7200012207031,
+      "point_summary": "Leviticus 26 is cited as the foundational covenant framework—obedience bringing divine blessing, disobedience bringing divine judgment—against which Jerusalem's sin and removal in Lamentations 1:8 must be understood.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1209"
+    },
+    {
+      "book": "Leviticus",
+      "chapter": 26,
+      "verse": 4,
+      "reference_text": "Leviticus 26:4",
+      "context": "Chapter 26, verse 3 and verse 4 all the way down",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1209.4000000953674,
+      "end_time": 1271.7200012207031,
+      "point_summary": "Leviticus 26 is cited as the foundational covenant framework—obedience bringing divine blessing, disobedience bringing divine judgment—against which Jerusalem's sin and removal in Lamentations 1:8 must be understood.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1209"
+    },
+    {
+      "book": "Leviticus",
+      "chapter": 26,
+      "verse": 14,
+      "reference_text": "Leviticus 26:14",
+      "context": "but if you will not hearken unto me and will not do all these commandments and if you shall despise my statutes or if your soul abhor my judgments so that you will not do all my commandments but that you break my covenant",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1271.7200012207031,
+      "end_time": 1326.9400024414062,
+      "point_summary": "Leviticus 26:14 marks the turning point in the chapter from promised blessing to promised judgment, establishing that national disobedience to God's commandments brings divine consequences rather than divine favor.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1271"
+    },
+    {
+      "book": "Leviticus",
+      "chapter": 26,
+      "verse": null,
+      "reference_text": "Leviticus 26",
+      "context": "We looked at Leviticus 26, or I referenced it in Leviticus 26",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2563.8200073242188,
+      "end_time": 2625.500015258789,
+      "point_summary": "Nehemiah's confession draws directly on Leviticus 26's covenant warning that Israel's disobedience would result in being scattered among the nations — the very condition Nehemiah was lamenting.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2563"
     }
   ]
 }

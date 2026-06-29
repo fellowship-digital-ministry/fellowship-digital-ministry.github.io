@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 659,
+  "total_references": 660,
   "chapters": {
     "2": [
       {
@@ -6518,6 +6518,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Were All Filled With The Holy Ghost\"  Acts 4:31",
         "url": "https://www.youtube.com/watch?v=zIV9O3o8Ckg&t=2623"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
+        "verse": 22,
+        "reference_text": "Galatians 5:22",
+        "context": "the fruit of the Spirit",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1550.5600280761719,
+        "end_time": 1618.5600280761719,
+        "point_summary": "The fruit listed in Galatians 5:22 belongs to the Spirit, not the believer's own effort—it is what the Spirit produces in a person as they walk in Him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1550"
       },
       {
         "book": "Galatians",
@@ -19787,6 +19802,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
       "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=888"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": 22,
+      "reference_text": "Galatians 5:22",
+      "context": "the fruit of the Spirit",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1550.5600280761719,
+      "end_time": 1618.5600280761719,
+      "point_summary": "The fruit listed in Galatians 5:22 belongs to the Spirit, not the believer's own effort—it is what the Spirit produces in a person as they walk in Him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1550"
     }
   ]
 }

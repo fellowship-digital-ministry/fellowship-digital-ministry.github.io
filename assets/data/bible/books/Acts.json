@@ -1,6 +1,6 @@
 {
   "book": "Acts",
-  "total_references": 2211,
+  "total_references": 2212,
   "chapters": {
     "12": [
       {
@@ -2389,6 +2389,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=518"
+      },
+      {
+        "book": "Acts",
+        "chapter": 20,
+        "verse": null,
+        "reference_text": "Acts 20",
+        "context": "The Bible says in Acts chapter number 20",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1899.4200134277344,
+        "end_time": 1964.780014038086,
+        "point_summary": "Paul's ministry of weeping day and night, cited from Acts 20, illustrates the kind of tearful burden for people's condition that Nehemiah modeled and that God's servants are called to share.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1899"
       },
       {
         "book": "Acts",
@@ -66393,6 +66408,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
       "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=1598"
+    },
+    {
+      "book": "Acts",
+      "chapter": 20,
+      "verse": null,
+      "reference_text": "Acts 20",
+      "context": "The Bible says in Acts chapter number 20",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1899.4200134277344,
+      "end_time": 1964.780014038086,
+      "point_summary": "Paul's ministry of weeping day and night, cited from Acts 20, illustrates the kind of tearful burden for people's condition that Nehemiah modeled and that God's servants are called to share.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1899"
     }
   ]
 }

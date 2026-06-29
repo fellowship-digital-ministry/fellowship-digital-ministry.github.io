@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 952,
+  "total_references": 957,
   "chapters": {
     "3": [
       {
@@ -2567,6 +2567,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "What Can The Righteous Do",
         "url": "https://www.youtube.com/watch?v=fbc-2025-01-15mw-what-can-the-righteous-do&t=988"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 3,
+        "verse": 13,
+        "reference_text": "2 Timothy 3:13",
+        "context": "evil men and seducers shall wax worse and worse, deceiving and being deceived",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1613.4800109863281,
+        "end_time": 1682.6799926757812,
+        "point_summary": "The escalating moral decline visible in national statistics on abortion and murder is cited as fulfillment of Paul's warning that evil men and seducers will grow worse and worse, deceiving and being deceived.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1613"
       },
       {
         "book": "2 Timothy",
@@ -5496,6 +5511,21 @@
       {
         "book": "2 Timothy",
         "chapter": 3,
+        "verse": 16,
+        "reference_text": "2 Timothy 3:16",
+        "context": "all scriptures given by inspiration of God",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 65.08000183105469,
+        "end_time": 123.44000244140625,
+        "point_summary": "Scripture's divine inspiration—affirmed by 2 Timothy 3:16—establishes that Solomon's words in Proverbs 14:34 carry timeless authority, written some 2,700 years before America's founding yet directly applicable to the nation today.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=65"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 3,
         "verse": 17,
         "reference_text": "2 Timothy 3:17",
         "context": "You see in verse 17 that the man of God might be perfect, throughly furnished unto all good works.",
@@ -7024,6 +7054,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Noah Walked With God",
         "url": "https://www.youtube.com/watch?v=fbc-2019-11-10pm-noah-walked-with-god&t=2362"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 4,
+        "verse": 3,
+        "reference_text": "2 Timothy 4:3",
+        "context": "they want someone to itch, tickle their ears and give them something that they want to hear",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1271.7200012207031,
+        "end_time": 1326.9400024414062,
+        "point_summary": "A nation's appetite for comfortable messages over hard truth—illustrated by Israel's repeated rejection of Jeremiah's unchanged warning—reflects the ear-tickling Paul warned Timothy was coming.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1271"
       },
       {
         "book": "2 Timothy",
@@ -12507,6 +12552,21 @@
       {
         "book": "2 Timothy",
         "chapter": 2,
+        "verse": 2,
+        "reference_text": "2 Timothy 2:2",
+        "context": "the truth of 2nd Timothy 2 in verse number 2 and the things of which thou hast learned of me among many witnesses the same commit thou to Faithful men who shall be able to teach others also",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 966.2200012207031,
+        "end_time": 1027.5,
+        "point_summary": "Time is a finite resource, and 2 Timothy 2:2's call to commit truth to faithful men illustrates why purging competing branches is necessary—one cannot steward that commission without guarding how time is spent.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=966"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 2,
         "verse": 3,
         "reference_text": "2 Timothy 2:3",
         "context": "as you look in 2 Timothy chapter number 2, as we'll be dealing with it next week, verse number 3, thou therefore endure hardness as a good soldier of Jesus Christ.",
@@ -13973,6 +14033,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Profitable For The Ministry",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08am-profitable-for-the-ministry&t=2131"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 2,
+        "verse": 21,
+        "reference_text": "2 Timothy 2:21",
+        "context": "vessels that are meat for the master's use, clean and easily to be used",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 3033.119997024536,
+        "end_time": 3088.680000305176,
+        "point_summary": "Vessels fit for the Master's use — drawn from 2 Timothy 2:21 — frame the closing prayer's appeal that God's people be clean and readily usable instruments for revival in the nation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=3033"
       },
       {
         "book": "2 Timothy",
@@ -28575,6 +28650,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Make Known Thy Truth\"  Isaiah 38:19",
       "url": "https://www.youtube.com/watch?v=Ltup8ewKTuo&t=2199"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 3,
+      "verse": 16,
+      "reference_text": "2 Timothy 3:16",
+      "context": "all scriptures given by inspiration of God",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 65.08000183105469,
+      "end_time": 123.44000244140625,
+      "point_summary": "Scripture's divine inspiration—affirmed by 2 Timothy 3:16—establishes that Solomon's words in Proverbs 14:34 carry timeless authority, written some 2,700 years before America's founding yet directly applicable to the nation today.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=65"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 4,
+      "verse": 3,
+      "reference_text": "2 Timothy 4:3",
+      "context": "they want someone to itch, tickle their ears and give them something that they want to hear",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1271.7200012207031,
+      "end_time": 1326.9400024414062,
+      "point_summary": "A nation's appetite for comfortable messages over hard truth—illustrated by Israel's repeated rejection of Jeremiah's unchanged warning—reflects the ear-tickling Paul warned Timothy was coming.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1271"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 3,
+      "verse": 13,
+      "reference_text": "2 Timothy 3:13",
+      "context": "evil men and seducers shall wax worse and worse, deceiving and being deceived",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1613.4800109863281,
+      "end_time": 1682.6799926757812,
+      "point_summary": "The escalating moral decline visible in national statistics on abortion and murder is cited as fulfillment of Paul's warning that evil men and seducers will grow worse and worse, deceiving and being deceived.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1613"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 2,
+      "verse": 21,
+      "reference_text": "2 Timothy 2:21",
+      "context": "vessels that are meat for the master's use, clean and easily to be used",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 3033.119997024536,
+      "end_time": 3088.680000305176,
+      "point_summary": "Vessels fit for the Master's use — drawn from 2 Timothy 2:21 — frame the closing prayer's appeal that God's people be clean and readily usable instruments for revival in the nation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=3033"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 2,
+      "verse": 2,
+      "reference_text": "2 Timothy 2:2",
+      "context": "the truth of 2nd Timothy 2 in verse number 2 and the things of which thou hast learned of me among many witnesses the same commit thou to Faithful men who shall be able to teach others also",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 966.2200012207031,
+      "end_time": 1027.5,
+      "point_summary": "Time is a finite resource, and 2 Timothy 2:2's call to commit truth to faithful men illustrates why purging competing branches is necessary—one cannot steward that commission without guarding how time is spent.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=966"
     }
   ]
 }

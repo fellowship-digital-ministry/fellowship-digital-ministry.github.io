@@ -1,6 +1,6 @@
 {
   "book": "Mark",
-  "total_references": 411,
+  "total_references": 413,
   "chapters": {
     "1": [
       {
@@ -2123,6 +2123,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
         "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=754"
+      },
+      {
+        "book": "Mark",
+        "chapter": 8,
+        "verse": 36,
+        "reference_text": "Mark 8:36",
+        "context": "What shall it profit a man if he gained the whole world, but loses his own soul? Mark eight.",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 1964.780014038086,
+        "end_time": 2033.4800109863281,
+        "point_summary": "Material prosperity and a healthy economy cannot offset the loss of souls, and preoccupation with personal wealth breeds the spiritual apathy that blinds God's people to the true condition of humanity around them.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1964"
       },
       {
         "book": "Mark",
@@ -4574,6 +4589,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Because Of Your Unbelief",
         "url": "https://www.youtube.com/watch?v=fbc-2026-02-18mw-because-of-your-unbelief&t=1716"
+      },
+      {
+        "book": "Mark",
+        "chapter": 9,
+        "verse": 29,
+        "reference_text": "Mark 9:29",
+        "context": "this kind cometh forth by nothing but by prayer and fasting",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2106.3800048828125,
+        "end_time": 2175.6600036621094,
+        "point_summary": "Fasting, as cited from Mark 9:29, is presented here as fundamentally spiritual—a deliberate self-denial that demonstrates to God the seriousness of one's heart in prayer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2106"
       },
       {
         "book": "Mark",
@@ -12367,6 +12397,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
       "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=888"
+    },
+    {
+      "book": "Mark",
+      "chapter": 8,
+      "verse": 36,
+      "reference_text": "Mark 8:36",
+      "context": "What shall it profit a man if he gained the whole world, but loses his own soul? Mark eight.",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 1964.780014038086,
+      "end_time": 2033.4800109863281,
+      "point_summary": "Material prosperity and a healthy economy cannot offset the loss of souls, and preoccupation with personal wealth breeds the spiritual apathy that blinds God's people to the true condition of humanity around them.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1964"
+    },
+    {
+      "book": "Mark",
+      "chapter": 9,
+      "verse": 29,
+      "reference_text": "Mark 9:29",
+      "context": "this kind cometh forth by nothing but by prayer and fasting",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2106.3800048828125,
+      "end_time": 2175.6600036621094,
+      "point_summary": "Fasting, as cited from Mark 9:29, is presented here as fundamentally spiritual—a deliberate self-denial that demonstrates to God the seriousness of one's heart in prayer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2106"
     }
   ]
 }

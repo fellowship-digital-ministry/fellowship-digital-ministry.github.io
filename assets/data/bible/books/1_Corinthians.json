@@ -1,6 +1,6 @@
 {
   "book": "1_Corinthians",
-  "total_references": 1550,
+  "total_references": 1554,
   "chapters": {
     "10": [
       {
@@ -10630,6 +10630,21 @@
       {
         "book": "1 Corinthians",
         "chapter": 11,
+        "verse": 27,
+        "reference_text": "1 Corinthians 11",
+        "context": "the portion of Scripture in 1 Corinthians 11 that we'll read briefly this evening with regard to the Lord's Supper",
+        "is_implicit": false,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1226.4600143432617,
+        "end_time": 1296.8000183105469,
+        "point_summary": "Chastisement in 1 Corinthians 11 is cited as a distinct category from purging—divine judgment for sin—to clarify that John 15 pruning serves health and productivity, not punishment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1226"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 11,
         "verse": 28,
         "reference_text": "1 Corinthians 11:28",
         "context": "But let a man examine himself, and so let him eat of that bread, and drink of that cup.",
@@ -11016,6 +11031,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing For Forgiveness",
         "url": "https://www.youtube.com/watch?v=fbc-2025-10-15mw-a-longing-for-forgiveness&t=1175"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 11,
+        "verse": 28,
+        "reference_text": "1 Corinthians 11:28",
+        "context": "let a man examine himself",
+        "is_implicit": true,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2951.8200073242188,
+        "end_time": 3033.119997024536,
+        "point_summary": "Self-examination before the Lord's Supper, not scrutiny of others, is what 1 Corinthians 11:28 commands, invoked here as a model for the personal confession Nehemiah-like repentance requires.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2951"
       },
       {
         "book": "1 Corinthians",
@@ -17917,6 +17947,21 @@
       {
         "book": "1 Corinthians",
         "chapter": 3,
+        "verse": 6,
+        "reference_text": "1 Corinthians 3:6",
+        "context": "some plant some water, but God gives the increase",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 1550.5600280761719,
+        "end_time": 1618.5600280761719,
+        "point_summary": "Fruit-bearing is entirely God's work — he plants, he waters, he gives the increase — and the believer's role is simply to abide as the branch through which that fruit comes.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1550"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 3,
         "verse": 7,
         "reference_text": "1 Corinthians 3:7",
         "context": "watereth but God that giveth the increase",
@@ -18528,6 +18573,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Judgment Seat Of Christ\"  II Corinthians 5:10-13",
         "url": "https://www.youtube.com/watch?v=iMFOWiAni18&t=1915"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 3,
+        "verse": 12,
+        "reference_text": "1 Corinthians 3:12",
+        "context": "at the judgment seat of Christ and first Corinthians that talks about the fact that They'll be tried by fire the things that are wood hay and stubble. They're gonna be burned up",
+        "is_implicit": true,
+        "video_id": "RNL62GTIeSE",
+        "start_time": 787.4199981689453,
+        "end_time": 840.8199920654297,
+        "point_summary": "The fire of 1 Corinthians 3 that burns wood, hay, and stubble is read as the judgment seat of Christ, not eternal damnation, illuminating why the withered branch cast into fire in John 15:6 need not signify hell.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+        "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=787"
       },
       {
         "book": "1 Corinthians",
@@ -46537,6 +46597,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
       "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=1717"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 11,
+      "verse": 28,
+      "reference_text": "1 Corinthians 11:28",
+      "context": "let a man examine himself",
+      "is_implicit": true,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2951.8200073242188,
+      "end_time": 3033.119997024536,
+      "point_summary": "Self-examination before the Lord's Supper, not scrutiny of others, is what 1 Corinthians 11:28 commands, invoked here as a model for the personal confession Nehemiah-like repentance requires.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2951"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 3,
+      "verse": 12,
+      "reference_text": "1 Corinthians 3:12",
+      "context": "at the judgment seat of Christ and first Corinthians that talks about the fact that They'll be tried by fire the things that are wood hay and stubble. They're gonna be burned up",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 787.4199981689453,
+      "end_time": 840.8199920654297,
+      "point_summary": "The fire of 1 Corinthians 3 that burns wood, hay, and stubble is read as the judgment seat of Christ, not eternal damnation, illuminating why the withered branch cast into fire in John 15:6 need not signify hell.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=787"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 11,
+      "verse": 27,
+      "reference_text": "1 Corinthians 11",
+      "context": "the portion of Scripture in 1 Corinthians 11 that we'll read briefly this evening with regard to the Lord's Supper",
+      "is_implicit": false,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1226.4600143432617,
+      "end_time": 1296.8000183105469,
+      "point_summary": "Chastisement in 1 Corinthians 11 is cited as a distinct category from purging—divine judgment for sin—to clarify that John 15 pruning serves health and productivity, not punishment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1226"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 3,
+      "verse": 6,
+      "reference_text": "1 Corinthians 3:6",
+      "context": "some plant some water, but God gives the increase",
+      "is_implicit": true,
+      "video_id": "RNL62GTIeSE",
+      "start_time": 1550.5600280761719,
+      "end_time": 1618.5600280761719,
+      "point_summary": "Fruit-bearing is entirely God's work — he plants, he waters, he gives the increase — and the believer's role is simply to abide as the branch through which that fruit comes.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
+      "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1550"
     }
   ]
 }

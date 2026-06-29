@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1700,
+  "total_references": 1701,
   "chapters": {
     "8": [
       {
@@ -15912,6 +15912,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "I Have Finished My Course",
         "url": "https://www.youtube.com/watch?v=fbc-2024-11-24am-i-have-finished-my-course&t=261"
+      },
+      {
+        "book": "Romans",
+        "chapter": 12,
+        "verse": 1,
+        "reference_text": "Romans 12:1",
+        "context": "We often use it in context of Romans 12, and we should, because in Romans 12, the apostle Paul says, I beseech you, therefore, brethren, by the mercies of God",
+        "is_implicit": false,
+        "video_id": "o0eFy1RDlXI",
+        "start_time": 2175.6600036621094,
+        "end_time": 2242.000030517578,
+        "point_summary": "The word \"beseech\" in Romans 12:1 is drawn in to illuminate Nehemiah's identical posture of urgent, pleading prayer, showing that both Paul and Nehemiah approach God with the same anguished seriousness of soul.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+        "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2175"
       },
       {
         "book": "Romans",
@@ -51037,6 +51052,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Compelled By Calvary\"  Luke 23:33",
       "url": "https://www.youtube.com/watch?v=Tzzte7ZXQ_E&t=1349"
+    },
+    {
+      "book": "Romans",
+      "chapter": 12,
+      "verse": 1,
+      "reference_text": "Romans 12:1",
+      "context": "We often use it in context of Romans 12, and we should, because in Romans 12, the apostle Paul says, I beseech you, therefore, brethren, by the mercies of God",
+      "is_implicit": false,
+      "video_id": "o0eFy1RDlXI",
+      "start_time": 2175.6600036621094,
+      "end_time": 2242.000030517578,
+      "point_summary": "The word \"beseech\" in Romans 12:1 is drawn in to illuminate Nehemiah's identical posture of urgent, pleading prayer, showing that both Paul and Nehemiah approach God with the same anguished seriousness of soul.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
+      "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2175"
     }
   ]
 }
