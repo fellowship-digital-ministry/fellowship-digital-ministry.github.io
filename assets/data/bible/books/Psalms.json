@@ -1,6 +1,6 @@
 {
   "book": "Psalms",
-  "total_references": 2669,
+  "total_references": 2670,
   "chapters": {
     "90": [
       {
@@ -39369,6 +39369,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Sin Must Be Addressed\" II Corinthians 12:20-21",
         "url": "https://www.youtube.com/watch?v=G4Un3pWAQf0&t=2095"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 101,
+        "verse": 3,
+        "reference_text": "Psalms 101:3",
+        "context": "I will set no wicked thing before mine eyes",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 2399.4199829101562,
+        "end_time": 2465.4199829101562,
+        "point_summary": "Psalm 101:3 is cited as a ready, targeted scriptural response to temptation, illustrating the skill of wielding the Word of God against specific sins rather than applying one verse indiscriminately.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2399"
       }
     ],
     "39": [
@@ -80307,6 +80322,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
       "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1159"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 101,
+      "verse": 3,
+      "reference_text": "Psalms 101:3",
+      "context": "I will set no wicked thing before mine eyes",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 2399.4199829101562,
+      "end_time": 2465.4199829101562,
+      "point_summary": "Psalm 101:3 is cited as a ready, targeted scriptural response to temptation, illustrating the skill of wielding the Word of God against specific sins rather than applying one verse indiscriminately.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2399"
     }
   ]
 }

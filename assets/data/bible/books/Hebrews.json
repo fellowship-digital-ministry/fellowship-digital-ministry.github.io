@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 1988,
+  "total_references": 1989,
   "chapters": {
     "12": [
       {
@@ -16632,6 +16632,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part One",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=999"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 11,
+        "verse": 6,
+        "reference_text": "without faith, it's impossible to please him",
+        "context": "without faith, it's impossible to please him",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 2156.8399963378906,
+        "end_time": 2223.300018310547,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2156"
       },
       {
         "book": "Hebrews",
@@ -59671,6 +59686,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
       "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1977"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 11,
+      "verse": 6,
+      "reference_text": "without faith, it's impossible to please him",
+      "context": "without faith, it's impossible to please him",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 2156.8399963378906,
+      "end_time": 2223.300018310547,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2156"
     }
   ]
 }

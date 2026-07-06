@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1812,
+  "total_references": 1816,
   "chapters": {
     "4": [
       {
@@ -857,6 +857,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Restoring Strained Relationships\" II Corinthians 7:2-16",
         "url": "https://www.youtube.com/watch?v=odsyejJ4a-0&t=2417"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 4,
+        "verse": 1,
+        "reference_text": "2 Corinthians chapter number four",
+        "context": "the Apostle Paul in 2 Corinthians chapter number four, he talks about having this ministry but we faint not",
+        "is_implicit": false,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1229.3199882507324,
+        "end_time": 1300.6799850463867,
+        "point_summary": "Though the outward man perishes, the inward man is renewed day by day—a spiritual strength that sustains believers in battle not through physical capacity but through God's power.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1229"
       },
       {
         "book": "2 Corinthians",
@@ -3347,6 +3362,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Five Tips For A Successful Year",
         "url": "https://www.youtube.com/watch?v=fbc-2025-12-28pm-five-tips-for-a-successful-year&t=143"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 4,
+        "verse": 16,
+        "reference_text": "2 Corinthians 4:16",
+        "context": "the outward man perishing but the inward man is renewed day by day",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1229.3199882507324,
+        "end_time": 1300.6799850463867,
+        "point_summary": "Though the outward man perishes, the inward man's daily renewal by God supplies the spiritual strength believers need for the battle they cannot win in their own flesh.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1229"
       },
       {
         "book": "2 Corinthians",
@@ -11704,6 +11734,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Heaven - Part Two\"  Revelation 4:2-11",
         "url": "https://www.youtube.com/watch?v=jrB0HUzN1FE&t=1066"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
+        "verse": 21,
+        "reference_text": "2 Corinthians 5:21",
+        "context": "he hath made him to be sin for us who knew no sin that we might be made the righteousness of God in him",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1905.4800109863281,
+        "end_time": 1969.1200103759766,
+        "point_summary": "Christ's imputed righteousness—not personal merit—forms the believer's breastplate, grounded in God making him who knew no sin to be sin so we might become the righteousness of God in him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1905"
       }
     ],
     "6": [
@@ -20221,6 +20266,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "What Can The Righteous Do",
         "url": "https://www.youtube.com/watch?v=fbc-2025-01-15mw-what-can-the-righteous-do&t=70"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 12,
+        "verse": 9,
+        "reference_text": "2 Corinthians 12:9",
+        "context": "my grace is sufficient for thee, for my strength is made perfect in weakness",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1300.6799850463867,
+        "end_time": 1369.259994506836,
+        "point_summary": "God's strength made perfect in weakness, as declared to Paul regarding his thorn in the flesh, is the divine provision underlying the Ephesians 6:10 command to \"be strong in the Lord and in the power of his might.\"",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1300"
       },
       {
         "book": "2 Corinthians",
@@ -54393,6 +54453,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
       "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=953"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "2 Corinthians 4:16",
+      "context": "the outward man perishing but the inward man is renewed day by day",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1229.3199882507324,
+      "end_time": 1300.6799850463867,
+      "point_summary": "Though the outward man perishes, the inward man's daily renewal by God supplies the spiritual strength believers need for the battle they cannot win in their own flesh.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1229"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 4,
+      "verse": 1,
+      "reference_text": "2 Corinthians chapter number four",
+      "context": "the Apostle Paul in 2 Corinthians chapter number four, he talks about having this ministry but we faint not",
+      "is_implicit": false,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1229.3199882507324,
+      "end_time": 1300.6799850463867,
+      "point_summary": "Though the outward man perishes, the inward man is renewed day by day—a spiritual strength that sustains believers in battle not through physical capacity but through God's power.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1229"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "verse": 9,
+      "reference_text": "2 Corinthians 12:9",
+      "context": "my grace is sufficient for thee, for my strength is made perfect in weakness",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1300.6799850463867,
+      "end_time": 1369.259994506836,
+      "point_summary": "God's strength made perfect in weakness, as declared to Paul regarding his thorn in the flesh, is the divine provision underlying the Ephesians 6:10 command to \"be strong in the Lord and in the power of his might.\"",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1300"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 21,
+      "reference_text": "2 Corinthians 5:21",
+      "context": "he hath made him to be sin for us who knew no sin that we might be made the righteousness of God in him",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1905.4800109863281,
+      "end_time": 1969.1200103759766,
+      "point_summary": "Christ's imputed righteousness—not personal merit—forms the believer's breastplate, grounded in God making him who knew no sin to be sin so we might become the righteousness of God in him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1905"
     }
   ]
 }

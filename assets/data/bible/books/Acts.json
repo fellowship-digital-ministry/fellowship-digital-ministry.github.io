@@ -1,6 +1,6 @@
 {
   "book": "Acts",
-  "total_references": 2212,
+  "total_references": 2213,
   "chapters": {
     "12": [
       {
@@ -8963,6 +8963,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Truths Concerning Our Treasures\"  Matthew 6:19-21",
         "url": "https://www.youtube.com/watch?v=CXg_STSF1ug&t=900"
+      },
+      {
+        "book": "Acts",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "Acts 1:8",
+        "context": "ye shall receive power after that the Holy Ghost has come upon you. And ye shall be witnesses unto me, both in Jerusalem and all Judea and Samaria and under the uttermost part of the earth",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1229.3199882507324,
+        "end_time": 1300.6799850463867,
+        "point_summary": "The power promised in Acts 1:8 — the Holy Spirit coming upon believers — is cited as God's provision of strength for spiritual battle, not human flesh.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1229"
       },
       {
         "book": "Acts",
@@ -66423,6 +66438,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1899"
+    },
+    {
+      "book": "Acts",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Acts 1:8",
+      "context": "ye shall receive power after that the Holy Ghost has come upon you. And ye shall be witnesses unto me, both in Jerusalem and all Judea and Samaria and under the uttermost part of the earth",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1229.3199882507324,
+      "end_time": 1300.6799850463867,
+      "point_summary": "The power promised in Acts 1:8 — the Holy Spirit coming upon believers — is cited as God's provision of strength for spiritual battle, not human flesh.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1229"
     }
   ]
 }

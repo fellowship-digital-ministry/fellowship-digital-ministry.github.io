@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 933,
+  "total_references": 934,
   "chapters": {
     "1": [
       {
@@ -10011,6 +10011,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jacob Blesses His Sons Part 3",
         "url": "https://www.youtube.com/watch?v=fbc-2024-04-07pm-jacob-blesses-his-sons-part-3&t=1134"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
+        "verse": 8,
+        "reference_text": "1 Peter 5:8",
+        "context": "be sober, be vigilant, because your adversary, the devil, he walketh about as a roaring lion, seeking whom he may devour",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 625.7999877929688,
+        "end_time": 687.2999877929688,
+        "point_summary": "Christians face a real and active enemy in the devil, who prowls as a roaring lion seeking to devour, making the ability to stand against his wiles the very purpose of God's armor.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=625"
       },
       {
         "book": "1 Peter",
@@ -28005,6 +28020,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2380"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 8,
+      "reference_text": "1 Peter 5:8",
+      "context": "be sober, be vigilant, because your adversary, the devil, he walketh about as a roaring lion, seeking whom he may devour",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 625.7999877929688,
+      "end_time": 687.2999877929688,
+      "point_summary": "Christians face a real and active enemy in the devil, who prowls as a roaring lion seeking to devour, making the ability to stand against his wiles the very purpose of God's armor.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=625"
     }
   ]
 }

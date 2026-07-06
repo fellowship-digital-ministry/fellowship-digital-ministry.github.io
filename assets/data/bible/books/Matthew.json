@@ -1,6 +1,6 @@
 {
   "book": "Matthew",
-  "total_references": 1455,
+  "total_references": 1458,
   "chapters": {
     "16": [
       {
@@ -677,6 +677,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Beware Of Dogs\"  II Corinthians 11:1-15",
         "url": "https://www.youtube.com/watch?v=kbJhtRYV7uE&t=307"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 16,
+        "verse": 13,
+        "reference_text": "Matthew 16:13-15",
+        "context": "Jesus asked this, he took his disciples to Caesarea Philippi and he said, whom do men say that I am? And then he said, who do you say that I am?",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1829.9600067138672,
+        "end_time": 1903.4400100708008,
+        "point_summary": "Jesus's question at Caesarea Philippi — \"Who do you say that I am?\" — is presented as the defining question every person must answer, and the one cult members evaded with deceptive half-truths.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1829"
       },
       {
         "book": "Matthew",
@@ -14102,6 +14117,21 @@
       {
         "book": "Matthew",
         "chapter": 4,
+        "verse": 1,
+        "reference_text": "Matthew 4:1-11",
+        "context": "the record of the Lord Jesus Christ being tempted in the wilderness",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 2341.6199951171875,
+        "end_time": 2399.4199829101562,
+        "point_summary": "Christ's wilderness temptations demonstrate that effective spiritual warfare requires knowing Scripture with enough precision to match the specific word of God to the specific temptation being faced.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2341"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 4,
         "verse": 2,
         "reference_text": "Matthew 4:2",
         "context": "When He had fasted 40 days and 40 nights, He was afterward and hungered.",
@@ -17935,6 +17965,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Preservation Reveals The Greatness Of God\" Psalm 12:6-7",
         "url": "https://www.youtube.com/watch?v=yKUQA_1zUE4&t=2088"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 24,
+        "verse": 35,
+        "reference_text": "Matthew 24:35",
+        "context": "the heaven and earth will pass, but not one jot or tittle will pass",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 823.2999877929688,
+        "end_time": 896.2999877929688,
+        "point_summary": "The permanence of God's Word—heaven and earth passing while not one jot or tittle fails—grounds the call for believers to withstand and not compromise in the evil day.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=823"
       },
       {
         "book": "Matthew",
@@ -43713,6 +43758,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
       "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=431"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 24,
+      "verse": 35,
+      "reference_text": "Matthew 24:35",
+      "context": "the heaven and earth will pass, but not one jot or tittle will pass",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 823.2999877929688,
+      "end_time": 896.2999877929688,
+      "point_summary": "The permanence of God's Word—heaven and earth passing while not one jot or tittle fails—grounds the call for believers to withstand and not compromise in the evil day.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=823"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 16,
+      "verse": 13,
+      "reference_text": "Matthew 16:13-15",
+      "context": "Jesus asked this, he took his disciples to Caesarea Philippi and he said, whom do men say that I am? And then he said, who do you say that I am?",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1829.9600067138672,
+      "end_time": 1903.4400100708008,
+      "point_summary": "Jesus's question at Caesarea Philippi — \"Who do you say that I am?\" — is presented as the defining question every person must answer, and the one cult members evaded with deceptive half-truths.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1829"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 4,
+      "verse": 1,
+      "reference_text": "Matthew 4:1-11",
+      "context": "the record of the Lord Jesus Christ being tempted in the wilderness",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 2341.6199951171875,
+      "end_time": 2399.4199829101562,
+      "point_summary": "Christ's wilderness temptations demonstrate that effective spiritual warfare requires knowing Scripture with enough precision to match the specific word of God to the specific temptation being faced.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2341"
     }
   ]
 }

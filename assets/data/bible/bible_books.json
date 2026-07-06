@@ -6,55 +6,55 @@
     },
     {
       "book": "John",
-      "count": 2855
+      "count": 2862
     },
     {
       "book": "Psalms",
-      "count": 2669
+      "count": 2670
     },
     {
       "book": "Acts",
-      "count": 2212
+      "count": 2213
     },
     {
       "book": "Hebrews",
-      "count": 1988
+      "count": 1989
     },
     {
       "book": "2_Corinthians",
-      "count": 1812
+      "count": 1816
     },
     {
       "book": "Romans",
-      "count": 1701
+      "count": 1706
     },
     {
       "book": "Revelation",
-      "count": 1576
+      "count": 1578
     },
     {
       "book": "1_Corinthians",
-      "count": 1554
+      "count": 1556
     },
     {
       "book": "Matthew",
-      "count": 1455
+      "count": 1458
     },
     {
       "book": "Ephesians",
-      "count": 1385
+      "count": 1437
     },
     {
       "book": "1_John",
-      "count": 1107
+      "count": 1111
     },
     {
       "book": "2_Timothy",
-      "count": 957
+      "count": 967
     },
     {
       "book": "1_Peter",
-      "count": 933
+      "count": 934
     },
     {
       "book": "Exodus",
@@ -66,7 +66,7 @@
     },
     {
       "book": "Luke",
-      "count": 819
+      "count": 820
     },
     {
       "book": "1_Thessalonians",
@@ -90,7 +90,7 @@
     },
     {
       "book": "Proverbs",
-      "count": 579
+      "count": 580
     },
     {
       "book": "Psalm",
@@ -106,7 +106,7 @@
     },
     {
       "book": "2_Peter",
-      "count": 414
+      "count": 416
     },
     {
       "book": "Mark",
@@ -114,7 +114,7 @@
     },
     {
       "book": "1_Samuel",
-      "count": 390
+      "count": 392
     },
     {
       "book": "Deuteronomy",
@@ -122,7 +122,7 @@
     },
     {
       "book": "Jeremiah",
-      "count": 353
+      "count": 354
     },
     {
       "book": "Joshua",
@@ -162,7 +162,7 @@
     },
     {
       "book": "Titus",
-      "count": 179
+      "count": 180
     },
     {
       "book": "Judges",
@@ -174,18 +174,18 @@
     },
     {
       "book": "Jude",
-      "count": 92
+      "count": 93
     },
     {
       "book": "Hosea",
       "count": 91
     },
     {
-      "book": "Malachi",
+      "book": "1_Chronicles",
       "count": 88
     },
     {
-      "book": "1_Chronicles",
+      "book": "Malachi",
       "count": 88
     },
     {
@@ -193,11 +193,11 @@
       "count": 81
     },
     {
-      "book": "Ezra",
+      "book": "2_Samuel",
       "count": 70
     },
     {
-      "book": "2_Samuel",
+      "book": "Ezra",
       "count": 70
     },
     {
@@ -245,20 +245,16 @@
       "count": 13
     },
     {
-      "book": "Obadiah",
+      "book": "Haggai",
       "count": 8
     },
     {
-      "book": "Haggai",
+      "book": "Obadiah",
       "count": 8
     },
     {
       "book": "2_John",
       "count": 3
-    },
-    {
-      "book": "Nahum",
-      "count": 1
     },
     {
       "book": "Song_of_Solomon",
@@ -267,8 +263,12 @@
     {
       "book": "Zephaniah",
       "count": 1
+    },
+    {
+      "book": "Nahum",
+      "count": 1
     }
   ],
   "total_books": 67,
-  "total_references": 40126
+  "total_references": 40228
 }

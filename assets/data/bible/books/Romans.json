@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1701,
+  "total_references": 1706,
   "chapters": {
     "8": [
       {
@@ -2897,6 +2897,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jacob Blesses His Sons Part 3",
         "url": "https://www.youtube.com/watch?v=fbc-2024-04-07pm-jacob-blesses-his-sons-part-3&t=2288"
+      },
+      {
+        "book": "Romans",
+        "chapter": 8,
+        "verse": 37,
+        "reference_text": "Romans 8:37",
+        "context": "we are more than conquerors through Christ",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 969.2999877929688,
+        "end_time": 1028.2999877929688,
+        "point_summary": "Christians are not defeated but are \"more than conquerors through Christ,\" standing and advancing rather than retreating in the evil day.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=969"
       },
       {
         "book": "Romans",
@@ -6094,6 +6109,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Go And Share The Gospel\"  Mark 16:9-20",
         "url": "https://www.youtube.com/watch?v=9fRZbfoVgGY&t=1010"
+      },
+      {
+        "book": "Romans",
+        "chapter": 1,
+        "verse": 16,
+        "reference_text": "Romans 1:16",
+        "context": "For I am not ashamed of the gospel of Christ, for it is the power of God unto salvation to everyone that believe it, to the Jew first and also to the Greek",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 2027.0800018310547,
+        "end_time": 2084.6799926757812,
+        "point_summary": "Readiness to preach the gospel without shame, as Paul declares in Romans 1:16, is the animating purpose behind having one's feet shod with the preparation of the gospel of peace—driving believers to offensive, outward gospel proclamation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2027"
       },
       {
         "book": "Romans",
@@ -13478,6 +13508,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=1060"
+      },
+      {
+        "book": "Romans",
+        "chapter": 6,
+        "verse": 23,
+        "reference_text": "Romans 6:23",
+        "context": "The Bible says the wages of sin is death, but the gift of God is eternal life through Jesus Christ, our Lord",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 306.70001220703125,
+        "end_time": 364.8599853515625,
+        "point_summary": "Sin's penalty — death — is contrasted with God's gift of eternal life through Christ, establishing that the Ephesian believers, like all the saved, have trusted the One who paid that price.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=306"
       }
     ],
     "3": [
@@ -20206,6 +20251,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Compelled By Calvary\"  Luke 23:33",
         "url": "https://www.youtube.com/watch?v=Tzzte7ZXQ_E&t=1349"
+      },
+      {
+        "book": "Romans",
+        "chapter": 10,
+        "verse": 13,
+        "reference_text": "Romans 10:13",
+        "context": "for whosoever shall call upon the name of the Lord shall be saved",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 364.8599853515625,
+        "end_time": 428.82000732421875,
+        "point_summary": "Salvation is open to all without exception, as the universal promise \"whosoever shall call upon the name of the Lord shall be saved\" is cited to define what it means to be among the saved people comprising the Ephesian church.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=364"
+      },
+      {
+        "book": "Romans",
+        "chapter": 10,
+        "verse": 13,
+        "reference_text": "Romans 10:13",
+        "context": "Jesus, God told us in his word for whose service shall call upon the name of the Lord shall be saved",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 2284.8600158691406,
+        "end_time": 2341.6199951171875,
+        "point_summary": "Calling on the name of the Lord guarantees salvation, and the helmet of salvation guards the believer's mind against the enemy's strategy of inducing doubt about that secured standing in Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2284"
       },
       {
         "book": "Romans",
@@ -51067,6 +51142,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2175"
+    },
+    {
+      "book": "Romans",
+      "chapter": 6,
+      "verse": 23,
+      "reference_text": "Romans 6:23",
+      "context": "The Bible says the wages of sin is death, but the gift of God is eternal life through Jesus Christ, our Lord",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 306.70001220703125,
+      "end_time": 364.8599853515625,
+      "point_summary": "Sin's penalty — death — is contrasted with God's gift of eternal life through Christ, establishing that the Ephesian believers, like all the saved, have trusted the One who paid that price.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=306"
+    },
+    {
+      "book": "Romans",
+      "chapter": 10,
+      "verse": 13,
+      "reference_text": "Romans 10:13",
+      "context": "for whosoever shall call upon the name of the Lord shall be saved",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 364.8599853515625,
+      "end_time": 428.82000732421875,
+      "point_summary": "Salvation is open to all without exception, as the universal promise \"whosoever shall call upon the name of the Lord shall be saved\" is cited to define what it means to be among the saved people comprising the Ephesian church.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=364"
+    },
+    {
+      "book": "Romans",
+      "chapter": 8,
+      "verse": 37,
+      "reference_text": "Romans 8:37",
+      "context": "we are more than conquerors through Christ",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 969.2999877929688,
+      "end_time": 1028.2999877929688,
+      "point_summary": "Christians are not defeated but are \"more than conquerors through Christ,\" standing and advancing rather than retreating in the evil day.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=969"
+    },
+    {
+      "book": "Romans",
+      "chapter": 1,
+      "verse": 16,
+      "reference_text": "Romans 1:16",
+      "context": "For I am not ashamed of the gospel of Christ, for it is the power of God unto salvation to everyone that believe it, to the Jew first and also to the Greek",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 2027.0800018310547,
+      "end_time": 2084.6799926757812,
+      "point_summary": "Readiness to preach the gospel without shame, as Paul declares in Romans 1:16, is the animating purpose behind having one's feet shod with the preparation of the gospel of peace—driving believers to offensive, outward gospel proclamation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2027"
+    },
+    {
+      "book": "Romans",
+      "chapter": 10,
+      "verse": 13,
+      "reference_text": "Romans 10:13",
+      "context": "Jesus, God told us in his word for whose service shall call upon the name of the Lord shall be saved",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 2284.8600158691406,
+      "end_time": 2341.6199951171875,
+      "point_summary": "Calling on the name of the Lord guarantees salvation, and the helmet of salvation guards the believer's mind against the enemy's strategy of inducing doubt about that secured standing in Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2284"
     }
   ]
 }
