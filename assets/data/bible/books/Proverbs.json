@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 579,
+  "total_references": 580,
   "chapters": {
     "3": [
       {
@@ -3605,6 +3605,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Come And Help",
         "url": "https://www.youtube.com/watch?v=fbc-2025-10-12pm-come-and-help&t=1717"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 30,
+        "verse": 5,
+        "reference_text": "Proverbs 30:5",
+        "context": "Every word of God is pure",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 0.0,
+        "end_time": 57.5,
+        "point_summary": "Every word of God is pure — a truth grounding the sermon's confidence that Scripture, providentially preserved, gives believers exactly what they need to stand in the evil day.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=0"
       },
       {
         "book": "Proverbs",
@@ -17431,6 +17446,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
       "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1226"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 30,
+      "verse": 5,
+      "reference_text": "Proverbs 30:5",
+      "context": "Every word of God is pure",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 0.0,
+      "end_time": 57.5,
+      "point_summary": "Every word of God is pure — a truth grounding the sermon's confidence that Scripture, providentially preserved, gives believers exactly what they need to stand in the evil day.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=0"
     }
   ]
 }

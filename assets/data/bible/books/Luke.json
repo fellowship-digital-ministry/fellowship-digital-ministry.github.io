@@ -1,6 +1,6 @@
 {
   "book": "Luke",
-  "total_references": 819,
+  "total_references": 820,
   "chapters": {
     "10": [
       {
@@ -7353,6 +7353,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Direction And Deliverance\" Luke 11:4",
         "url": "https://www.youtube.com/watch?v=nS3pAoxKMb4&t=370"
+      },
+      {
+        "book": "Luke",
+        "chapter": 4,
+        "verse": 1,
+        "reference_text": "Luke 4:1-13",
+        "context": "the record of the Lord Jesus Christ being tempted in the wilderness",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 2341.6199951171875,
+        "end_time": 2399.4199829101562,
+        "point_summary": "Skill in wielding Scripture against temptation requires knowing specific verses matched to specific temptations, as Christ's wilderness responses demonstrate.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2341"
       },
       {
         "book": "Luke",
@@ -24617,6 +24632,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Compelled By Calvary\"  Luke 23:33",
       "url": "https://www.youtube.com/watch?v=Tzzte7ZXQ_E&t=500"
+    },
+    {
+      "book": "Luke",
+      "chapter": 4,
+      "verse": 1,
+      "reference_text": "Luke 4:1-13",
+      "context": "the record of the Lord Jesus Christ being tempted in the wilderness",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 2341.6199951171875,
+      "end_time": 2399.4199829101562,
+      "point_summary": "Skill in wielding Scripture against temptation requires knowing specific verses matched to specific temptations, as Christ's wilderness responses demonstrate.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2341"
     }
   ]
 }

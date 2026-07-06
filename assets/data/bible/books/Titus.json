@@ -1,6 +1,6 @@
 {
   "book": "Titus",
-  "total_references": 179,
+  "total_references": 180,
   "chapters": {
     "1": [
       {
@@ -1249,6 +1249,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "El Roi",
         "url": "https://www.youtube.com/watch?v=fbc-2025-08-27mw-el-roi&t=875"
+      },
+      {
+        "book": "Titus",
+        "chapter": 2,
+        "verse": 11,
+        "reference_text": "Titus 2:11",
+        "context": "for the grace of God that bringeth salvation hath appeared to all men, teaching us that denying ungodliness and worldly lusts, we should live soberly, righteously, and godly in this present world",
+        "is_implicit": false,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1969.1200103759766,
+        "end_time": 2027.0800018310547,
+        "point_summary": "God's grace, which brings salvation, also teaches believers to live righteously and godly, grounding the breastplate of righteousness in grace rather than personal works.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1969"
       },
       {
         "book": "Titus",
@@ -5383,6 +5398,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "By Faith Abel",
       "url": "https://www.youtube.com/watch?v=fbc-2026-04-01mw-by-faith-abel&t=1557"
+    },
+    {
+      "book": "Titus",
+      "chapter": 2,
+      "verse": 11,
+      "reference_text": "Titus 2:11",
+      "context": "for the grace of God that bringeth salvation hath appeared to all men, teaching us that denying ungodliness and worldly lusts, we should live soberly, righteously, and godly in this present world",
+      "is_implicit": false,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1969.1200103759766,
+      "end_time": 2027.0800018310547,
+      "point_summary": "God's grace, which brings salvation, also teaches believers to live righteously and godly, grounding the breastplate of righteousness in grace rather than personal works.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1969"
     }
   ]
 }

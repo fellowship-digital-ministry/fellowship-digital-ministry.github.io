@@ -1,6 +1,6 @@
 {
   "book": "2_Peter",
-  "total_references": 414,
+  "total_references": 416,
   "chapters": {
     "3": [
       {
@@ -3593,6 +3593,21 @@
       {
         "book": "2 Peter",
         "chapter": 1,
+        "verse": null,
+        "reference_text": "2 Peter 1",
+        "context": "from the record of 2 Peter chapter 1, that he's given us all things that pertain unto life and godliness",
+        "is_implicit": false,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1028.2999877929688,
+        "end_time": 1099.2999877929688,
+        "point_summary": "God's provision for his people is total — he has given all things that pertain unto life and godliness, leaving believers without excuse to stand rather than retreat in the evil day.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1028"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 1,
         "verse": 1,
         "reference_text": "2nd Peter",
         "context": "I've said this at the end of 2nd Peter, it talks about that if we suffer for a season.",
@@ -3769,6 +3784,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Conquering Doubt",
         "url": "https://www.youtube.com/watch?v=fbc-2026-03-25mw-conquering-doubt&t=1866"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 1,
+        "verse": 3,
+        "reference_text": "2 Peter 1:3",
+        "context": "as Peter would say it in 2 Peter, that God hath given to us all things that pertain unto life and godliness",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 120.0999984741211,
+        "end_time": 185.4600067138672,
+        "point_summary": "Because God is eternal and omniscient, He foreknew the spiritual battles and deceptions of the last days and has already provided His people with everything needed for life and godliness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=120"
       },
       {
         "book": "2 Peter",
@@ -12431,6 +12461,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=65"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 1,
+      "verse": 3,
+      "reference_text": "2 Peter 1:3",
+      "context": "as Peter would say it in 2 Peter, that God hath given to us all things that pertain unto life and godliness",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 120.0999984741211,
+      "end_time": 185.4600067138672,
+      "point_summary": "Because God is eternal and omniscient, He foreknew the spiritual battles and deceptions of the last days and has already provided His people with everything needed for life and godliness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=120"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "2 Peter 1",
+      "context": "from the record of 2 Peter chapter 1, that he's given us all things that pertain unto life and godliness",
+      "is_implicit": false,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1028.2999877929688,
+      "end_time": 1099.2999877929688,
+      "point_summary": "God's provision for his people is total — he has given all things that pertain unto life and godliness, leaving believers without excuse to stand rather than retreat in the evil day.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1028"
     }
   ]
 }

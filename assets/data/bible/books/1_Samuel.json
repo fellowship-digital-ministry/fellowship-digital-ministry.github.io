@@ -1,6 +1,6 @@
 {
   "book": "1_Samuel",
-  "total_references": 390,
+  "total_references": 392,
   "chapters": {
     "16": [
       {
@@ -2924,6 +2924,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing For Peace",
         "url": "https://www.youtube.com/watch?v=fbc-2025-10-01mw-a-longing-for-peace&t=466"
+      },
+      {
+        "book": "1 Samuel",
+        "chapter": 17,
+        "verse": null,
+        "reference_text": "1 Samuel 17",
+        "context": "David in 1 Samuel chapter 17 when he's going to go and fight against Goliath",
+        "is_implicit": false,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1615.8999938964844,
+        "end_time": 1686.9599914550781,
+        "point_summary": "David's refusal of Saul's untested armor in 1 Samuel 17 serves as a physical-world analogy illustrating why every believer must personally put on the specific armor God has provided—no one else can do it for them.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1615"
+      },
+      {
+        "book": "1 Samuel",
+        "chapter": 17,
+        "verse": null,
+        "reference_text": "1 Samuel 17",
+        "context": "we think about that example in 1 Samuel 17 and we look here",
+        "is_implicit": false,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1615.8999938964844,
+        "end_time": 1686.9599914550781,
+        "point_summary": "David's refusal of Saul's untested armor in 1 Samuel 17 serves as a physical analogy illustrating why every believer must personally put on the whole armor God has specifically provided.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1615"
       },
       {
         "book": "1 Samuel",
@@ -11753,6 +11783,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "What Can The Righteous Do",
       "url": "https://www.youtube.com/watch?v=fbc-2025-01-15mw-what-can-the-righteous-do&t=1055"
+    },
+    {
+      "book": "1 Samuel",
+      "chapter": 17,
+      "verse": null,
+      "reference_text": "1 Samuel 17",
+      "context": "David in 1 Samuel chapter 17 when he's going to go and fight against Goliath",
+      "is_implicit": false,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1615.8999938964844,
+      "end_time": 1686.9599914550781,
+      "point_summary": "David's refusal of Saul's untested armor in 1 Samuel 17 serves as a physical-world analogy illustrating why every believer must personally put on the specific armor God has provided—no one else can do it for them.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1615"
+    },
+    {
+      "book": "1 Samuel",
+      "chapter": 17,
+      "verse": null,
+      "reference_text": "1 Samuel 17",
+      "context": "we think about that example in 1 Samuel 17 and we look here",
+      "is_implicit": false,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1615.8999938964844,
+      "end_time": 1686.9599914550781,
+      "point_summary": "David's refusal of Saul's untested armor in 1 Samuel 17 serves as a physical analogy illustrating why every believer must personally put on the whole armor God has specifically provided.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1615"
     }
   ]
 }

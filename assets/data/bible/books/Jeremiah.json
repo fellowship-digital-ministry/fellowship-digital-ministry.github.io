@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 353,
+  "total_references": 354,
   "chapters": {
     "31": [
       {
@@ -934,6 +934,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part Two",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-14mw-a-longing-to-see-god-work-part-two&t=1519"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 33,
+        "verse": 3,
+        "reference_text": "Jeremiah 33:3",
+        "context": "call unto me and I will answer thee and show thee great and mighty things which thou knowest not",
+        "is_implicit": true,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 2522.4399795532227,
+        "end_time": 2590.8799896240234,
+        "point_summary": "Prayer is presented as a vital weapon in spiritual warfare, with Jeremiah 33:3's promise that God hears and answers serving as assurance that believers can stand rather than retreat in the evil day.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2522"
       }
     ],
     "1": [
@@ -10655,6 +10670,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Rapture\"  Revelation 4:1",
       "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=2338"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 33,
+      "verse": 3,
+      "reference_text": "Jeremiah 33:3",
+      "context": "call unto me and I will answer thee and show thee great and mighty things which thou knowest not",
+      "is_implicit": true,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 2522.4399795532227,
+      "end_time": 2590.8799896240234,
+      "point_summary": "Prayer is presented as a vital weapon in spiritual warfare, with Jeremiah 33:3's promise that God hears and answers serving as assurance that believers can stand rather than retreat in the evil day.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2522"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Jude",
-  "total_references": 92,
+  "total_references": 93,
   "chapters": {
     "1": [
       {
@@ -887,6 +887,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Stoned Stephen\"  Acts 6:8 - 7:60",
         "url": "https://www.youtube.com/watch?v=e396uX_Hgc0&t=3027"
+      },
+      {
+        "book": "Jude",
+        "chapter": 1,
+        "verse": 9,
+        "reference_text": "Jude 1:9",
+        "context": "Michael disputing with the devil, he said, Lord rebuke thee",
+        "is_implicit": false,
+        "video_id": "IRL8UsBTrPc",
+        "start_time": 1155.2999877929688,
+        "end_time": 1229.3199882507324,
+        "point_summary": "Even the archangel Michael refused to confront Satan in his own strength, illustrating that no creature—however mighty—is a match for the devil apart from divine power.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+        "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1155"
       },
       {
         "book": "Jude",
@@ -2767,6 +2782,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Make Known Thy Truth\"  Isaiah 38:19",
       "url": "https://www.youtube.com/watch?v=Ltup8ewKTuo&t=2078"
+    },
+    {
+      "book": "Jude",
+      "chapter": 1,
+      "verse": 9,
+      "reference_text": "Jude 1:9",
+      "context": "Michael disputing with the devil, he said, Lord rebuke thee",
+      "is_implicit": false,
+      "video_id": "IRL8UsBTrPc",
+      "start_time": 1155.2999877929688,
+      "end_time": 1229.3199882507324,
+      "point_summary": "Even the archangel Michael refused to confront Satan in his own strength, illustrating that no creature—however mighty—is a match for the devil apart from divine power.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
+      "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1155"
     }
   ]
 }
