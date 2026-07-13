@@ -1,6 +1,6 @@
 {
   "book": "Psalms",
-  "total_references": 2670,
+  "total_references": 2673,
   "chapters": {
     "90": [
       {
@@ -6325,6 +6325,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Why Scripture Assembly",
         "url": "https://www.youtube.com/watch?v=fbc-2023-10-18mw-why-scripture-assembly&t=1742"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 119,
+        "verse": 130,
+        "reference_text": "Psalms 119:130",
+        "context": "the entrance of thy words giveth light",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1743.6400146484375,
+        "end_time": 1797.6400146484375,
+        "point_summary": "Psalm 119:130's declaration that God's word gives light undergirds the confidence that even a briefly encountered gospel tract can work in a person's heart, since Scripture does not return void.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1743"
       },
       {
         "book": "Psalms",
@@ -28415,6 +28430,21 @@
       {
         "book": "Psalms",
         "chapter": 103,
+        "verse": 14,
+        "reference_text": "Psalms 103:14",
+        "context": "God knows our frame",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 65.76000213623047,
+        "end_time": 137.83999633789062,
+        "point_summary": "God's knowledge of human frailty (\"God knows our frame\") grounds the assurance that the overwhelming demands of life are met with divine care, sustenance, and comfort.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=65"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 103,
         "verse": 15,
         "reference_text": "Psalm 103:15",
         "context": "As for man, his days are as grass, as a flower the field, so he flourisheth.",
@@ -30701,6 +30731,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Faith Through Trials\"  Hebrews 11:17-19",
         "url": "https://www.youtube.com/watch?v=B7qA98qbh00&t=118"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 107,
+        "verse": 27,
+        "reference_text": "Psalms 107:27",
+        "context": "as the book of Psalms will talk about there, their wit's end",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1002.0800170898438,
+        "end_time": 1066.0800170898438,
+        "point_summary": "Weariness in parenting is likened to the Psalmist's \"wit's end,\" illustrating how sustained faithfulness is required even when results are delayed and doubt sets in.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1002"
       },
       {
         "book": "Psalms",
@@ -80337,6 +80382,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2399"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 103,
+      "verse": 14,
+      "reference_text": "Psalms 103:14",
+      "context": "God knows our frame",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 65.76000213623047,
+      "end_time": 137.83999633789062,
+      "point_summary": "God's knowledge of human frailty (\"God knows our frame\") grounds the assurance that the overwhelming demands of life are met with divine care, sustenance, and comfort.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=65"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 107,
+      "verse": 27,
+      "reference_text": "Psalms 107:27",
+      "context": "as the book of Psalms will talk about there, their wit's end",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1002.0800170898438,
+      "end_time": 1066.0800170898438,
+      "point_summary": "Weariness in parenting is likened to the Psalmist's \"wit's end,\" illustrating how sustained faithfulness is required even when results are delayed and doubt sets in.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1002"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 119,
+      "verse": 130,
+      "reference_text": "Psalms 119:130",
+      "context": "the entrance of thy words giveth light",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1743.6400146484375,
+      "end_time": 1797.6400146484375,
+      "point_summary": "Psalm 119:130's declaration that God's word gives light undergirds the confidence that even a briefly encountered gospel tract can work in a person's heart, since Scripture does not return void.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1743"
     }
   ]
 }

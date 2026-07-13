@@ -1,6 +1,6 @@
 {
   "book": "Acts",
-  "total_references": 2213,
+  "total_references": 2216,
   "chapters": {
     "12": [
       {
@@ -2404,6 +2404,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
         "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1899"
+      },
+      {
+        "book": "Acts",
+        "chapter": 20,
+        "verse": null,
+        "reference_text": "Acts 20",
+        "context": "In Acts chapter number 20 he makes it very plain that he received this ministry from the Lord",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 394.1600036621094,
+        "end_time": 470.1600036621094,
+        "point_summary": "Acts 20 is cited briefly to establish that Paul received his ministry from the Lord, grounding the 2 Corinthians 4 claim that mercy-given ministry is the basis for not fainting.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=394"
       },
       {
         "book": "Acts",
@@ -25530,6 +25545,21 @@
       {
         "book": "Acts",
         "chapter": 13,
+        "verse": 2,
+        "reference_text": "Acts 13:2",
+        "context": "When the Holy Spirit came to the church at Antioch and said separate unto me Saul and Barnabas for the work whereunto I have called them",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 137.83999633789062,
+        "end_time": 198.55999755859375,
+        "point_summary": "The Holy Spirit's commissioning of Paul and Barnabas at Antioch (Acts 13:2) is cited as the founding moment of the Galatian churches Paul addresses in this letter, establishing the missionary context behind his appeal.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=137"
+      },
+      {
+        "book": "Acts",
+        "chapter": 13,
         "verse": 3,
         "reference_text": "Acts 13:3",
         "context": "that the Bible said in verse number 3 of Acts 13, that when they had fasted and prayed and laid their hands on them, they sent them away.",
@@ -26970,6 +27000,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Profitable For The Ministry",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08am-profitable-for-the-ministry&t=1282"
+      },
+      {
+        "book": "Acts",
+        "chapter": 15,
+        "verse": null,
+        "reference_text": "Acts 15",
+        "context": "Acts chapter number 15 records the council at Jerusalem",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1066.0800170898438,
+        "end_time": 1129.0800170898438,
+        "point_summary": "Acts 15's Jerusalem Council is cited as the historical backdrop to the Judaizer controversy in Galatia, where false teachers insisted circumcision under Mosaic law was necessary for salvation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1066"
       },
       {
         "book": "Acts",
@@ -66453,6 +66498,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1229"
+    },
+    {
+      "book": "Acts",
+      "chapter": 13,
+      "verse": 2,
+      "reference_text": "Acts 13:2",
+      "context": "When the Holy Spirit came to the church at Antioch and said separate unto me Saul and Barnabas for the work whereunto I have called them",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 137.83999633789062,
+      "end_time": 198.55999755859375,
+      "point_summary": "The Holy Spirit's commissioning of Paul and Barnabas at Antioch (Acts 13:2) is cited as the founding moment of the Galatian churches Paul addresses in this letter, establishing the missionary context behind his appeal.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=137"
+    },
+    {
+      "book": "Acts",
+      "chapter": 20,
+      "verse": null,
+      "reference_text": "Acts 20",
+      "context": "In Acts chapter number 20 he makes it very plain that he received this ministry from the Lord",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 394.1600036621094,
+      "end_time": 470.1600036621094,
+      "point_summary": "Acts 20 is cited briefly to establish that Paul received his ministry from the Lord, grounding the 2 Corinthians 4 claim that mercy-given ministry is the basis for not fainting.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=394"
+    },
+    {
+      "book": "Acts",
+      "chapter": 15,
+      "verse": null,
+      "reference_text": "Acts 15",
+      "context": "Acts chapter number 15 records the council at Jerusalem",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1066.0800170898438,
+      "end_time": 1129.0800170898438,
+      "point_summary": "Acts 15's Jerusalem Council is cited as the historical backdrop to the Judaizer controversy in Galatia, where false teachers insisted circumcision under Mosaic law was necessary for salvation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1066"
     }
   ]
 }

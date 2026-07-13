@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 1989,
+  "total_references": 1992,
   "chapters": {
     "12": [
       {
@@ -2042,6 +2042,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=2010"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": 2,
+        "reference_text": "Hebrews 12:2",
+        "context": "looking unto Jesus, the author and finisher of our faith",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 2433.099983215332,
+        "end_time": 2500.259979248047,
+        "point_summary": "Fixing eyes on Jesus rather than on visible results is presented as the antidote to weariness, drawing on the Hebrews 12:2 call to look to the author and finisher of faith.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
       },
       {
         "book": "Hebrews",
@@ -8348,6 +8363,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Presence Of My Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-14mw-the-presence-of-my-shepherd&t=1894"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
+        "verse": 5,
+        "reference_text": "Hebrews 13:5",
+        "context": "I'll never leave thee nor forsake thee",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1862.559986114502,
+        "end_time": 1923.7599868774414,
+        "point_summary": "God's promise \"I will never leave thee nor forsake thee\" is cited as an example of a promise that must be not merely known but personally embraced, especially when difficulty tempts believers to grow weary and quit.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1862"
       },
       {
         "book": "Hebrews",
@@ -21916,6 +21946,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing For Forgiveness",
         "url": "https://www.youtube.com/watch?v=fbc-2025-10-15mw-a-longing-for-forgiveness&t=2093"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 4,
+        "verse": 16,
+        "reference_text": "Hebrews 4:16",
+        "context": "evening from Hebrews 4 and verse 16, to help in the time of need",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1540.3600158691406,
+        "end_time": 1603.4400024414062,
+        "point_summary": "Grace available through Christ is the resource that enables believers to resist weariness in well-doing, providing mercy and help precisely in the time of need.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1540"
       }
     ],
     "8": [
@@ -59701,6 +59746,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2156"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "Hebrews 4:16",
+      "context": "evening from Hebrews 4 and verse 16, to help in the time of need",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1540.3600158691406,
+      "end_time": 1603.4400024414062,
+      "point_summary": "Grace available through Christ is the resource that enables believers to resist weariness in well-doing, providing mercy and help precisely in the time of need.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1540"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 5,
+      "reference_text": "Hebrews 13:5",
+      "context": "I'll never leave thee nor forsake thee",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1862.559986114502,
+      "end_time": 1923.7599868774414,
+      "point_summary": "God's promise \"I will never leave thee nor forsake thee\" is cited as an example of a promise that must be not merely known but personally embraced, especially when difficulty tempts believers to grow weary and quit.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1862"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": 2,
+      "reference_text": "Hebrews 12:2",
+      "context": "looking unto Jesus, the author and finisher of our faith",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 2433.099983215332,
+      "end_time": 2500.259979248047,
+      "point_summary": "Fixing eyes on Jesus rather than on visible results is presented as the antidote to weariness, drawing on the Hebrews 12:2 call to look to the author and finisher of faith.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
     }
   ]
 }

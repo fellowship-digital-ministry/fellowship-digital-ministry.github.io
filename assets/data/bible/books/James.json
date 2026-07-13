@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 883,
+  "total_references": 884,
   "chapters": {
     "4": [
       {
@@ -3184,6 +3184,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Ponder The Promises",
         "url": "https://www.youtube.com/watch?v=fbc-2024-05-01mw-ponder-the-promises&t=822"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 1,
+        "reference_text": "James 1",
+        "context": "the Bible says in James 1 even as we've been studying on Sunday mornings",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 590.4000244140625,
+        "end_time": 664.0800170898438,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=590"
       },
       {
         "book": "James",
@@ -26507,6 +26522,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Opportunity That Wasn't Missed In Missions\"  Philippians 4:15-19",
       "url": "https://www.youtube.com/watch?v=THOg22UDO9w&t=2368"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 1,
+      "reference_text": "James 1",
+      "context": "the Bible says in James 1 even as we've been studying on Sunday mornings",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 590.4000244140625,
+      "end_time": 664.0800170898438,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=590"
     }
   ]
 }

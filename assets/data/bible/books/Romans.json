@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1706,
+  "total_references": 1708,
   "chapters": {
     "8": [
       {
@@ -10373,6 +10373,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"How To Be Revival Ready\"  Psalm 85:6",
         "url": "https://www.youtube.com/watch?v=8V9UQjw1Da8&t=1990"
+      },
+      {
+        "book": "Romans",
+        "chapter": 6,
+        "verse": 9,
+        "reference_text": "Romans 6:9",
+        "context": "sin shall no longer have dominion over us",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1862.559986114502,
+        "end_time": 1923.7599868774414,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1862"
       },
       {
         "book": "Romans",
@@ -22595,6 +22610,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Good Tidings Of Great Joy\"  Luke 2:8-20",
         "url": "https://www.youtube.com/watch?v=_-nwuxfV8gI&t=2092"
+      },
+      {
+        "book": "Romans",
+        "chapter": 7,
+        "verse": 7,
+        "reference_text": "Romans 7:7",
+        "context": "I would not have known covetousness except the law says thou shalt not covet",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1129.0800170898438,
+        "end_time": 1202.0800170898438,
+        "point_summary": "Romans 7:7 is cited to illustrate that the law's purpose is to expose sin—revealing covetousness, not conferring life or righteousness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1129"
       },
       {
         "book": "Romans",
@@ -51217,6 +51247,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2284"
+    },
+    {
+      "book": "Romans",
+      "chapter": 7,
+      "verse": 7,
+      "reference_text": "Romans 7:7",
+      "context": "I would not have known covetousness except the law says thou shalt not covet",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1129.0800170898438,
+      "end_time": 1202.0800170898438,
+      "point_summary": "Romans 7:7 is cited to illustrate that the law's purpose is to expose sin—revealing covetousness, not conferring life or righteousness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1129"
+    },
+    {
+      "book": "Romans",
+      "chapter": 6,
+      "verse": 9,
+      "reference_text": "Romans 6:9",
+      "context": "sin shall no longer have dominion over us",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1862.559986114502,
+      "end_time": 1923.7599868774414,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1862"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Isaiah",
-  "total_references": 476,
+  "total_references": 477,
   "chapters": {
     "6": [
       {
@@ -5361,6 +5361,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Thou Art My God And I Will Praise Thee\"  Psalm 118:1-29",
         "url": "https://www.youtube.com/watch?v=5A_N3nhEQeU&t=2226"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 55,
+        "verse": 11,
+        "reference_text": "Isaiah 55:11",
+        "context": "God said his word shall not return void",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1743.6400146484375,
+        "end_time": 1797.6400146484375,
+        "point_summary": "God's word will not return void, so even a brief, rejected encounter with Scripture can work in a person's heart—making the harvest of Galatians 6:9 certain regardless of visible results.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1743"
       }
     ],
     "29": [
@@ -14365,6 +14380,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Make Known Thy Truth\"  Isaiah 38:19",
       "url": "https://www.youtube.com/watch?v=Ltup8ewKTuo&t=2258"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 55,
+      "verse": 11,
+      "reference_text": "Isaiah 55:11",
+      "context": "God said his word shall not return void",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1743.6400146484375,
+      "end_time": 1797.6400146484375,
+      "point_summary": "God's word will not return void, so even a brief, rejected encounter with Scripture can work in a person's heart—making the harvest of Galatians 6:9 certain regardless of visible results.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1743"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Psalm",
-  "total_references": 493,
+  "total_references": 494,
   "chapters": {
     "90": [
       {
@@ -4573,6 +4573,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Doctrine Of The Trinity\" I John 5:7",
         "url": "https://www.youtube.com/watch?v=cRs01nZR7xE&t=408"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 103,
+        "verse": 14,
+        "reference_text": "Psalm 103:14",
+        "context": "God knows our frame. He knows we're frail. He knows we're but dust",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 2205.7999877929688,
+        "end_time": 2301.5799865722656,
+        "point_summary": "God's knowledge of human frailty — that we are but dust — grounds the call not to grow weary, since he does not demand results only we cannot produce.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2205"
       },
       {
         "book": "Psalm",
@@ -14953,6 +14968,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Make Known Thy Truth\"  Isaiah 38:19",
       "url": "https://www.youtube.com/watch?v=Ltup8ewKTuo&t=2258"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 103,
+      "verse": 14,
+      "reference_text": "Psalm 103:14",
+      "context": "God knows our frame. He knows we're frail. He knows we're but dust",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 2205.7999877929688,
+      "end_time": 2301.5799865722656,
+      "point_summary": "God's knowledge of human frailty — that we are but dust — grounds the call not to grow weary, since he does not demand results only we cannot produce.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2205"
     }
   ]
 }

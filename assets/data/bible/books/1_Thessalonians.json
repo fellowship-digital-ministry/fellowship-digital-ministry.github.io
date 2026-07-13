@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 739,
+  "total_references": 740,
   "chapters": {
     "5": [
       {
@@ -4414,6 +4414,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Rapture\"  Revelation 4:1",
         "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=1224"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "1 Thessalonians 1",
+        "context": "according to 1 Thessalonians chapter number one that from them sounded forth the word of the Lord",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 266.9599914550781,
+        "end_time": 324.55999755859375,
+        "point_summary": "Even a model church actively sounding forth the word of the Lord still needed the apostolic warning not to grow weary in well-doing.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=266"
       },
       {
         "book": "1 Thessalonians",
@@ -22185,6 +22200,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
       "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1752"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "1 Thessalonians 1",
+      "context": "according to 1 Thessalonians chapter number one that from them sounded forth the word of the Lord",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 266.9599914550781,
+      "end_time": 324.55999755859375,
+      "point_summary": "Even a model church actively sounding forth the word of the Lord still needed the apostolic warning not to grow weary in well-doing.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=266"
     }
   ]
 }
