@@ -1,6 +1,6 @@
 {
   "book": "Titus",
-  "total_references": 180,
+  "total_references": 181,
   "chapters": {
     "1": [
       {
@@ -2693,6 +2693,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - October 14, 2020 (Mid-Week Service)",
         "url": "https://www.youtube.com/watch?v=BhyhczSVZM0&t=690"
+      },
+      {
+        "book": "Titus",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Titus",
+        "context": "Remember in the book of Titus that Paul talks about the fact that we're to be zealous of good works",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 1202.0800170898438,
+        "end_time": 1267.000015258789,
+        "point_summary": "Zeal for good works, as Paul urges in Titus, flows from salvation already received—not as a means to obtain or maintain it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1202"
       }
     ],
     "0": [
@@ -5413,6 +5428,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1969"
+    },
+    {
+      "book": "Titus",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Titus",
+      "context": "Remember in the book of Titus that Paul talks about the fact that we're to be zealous of good works",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 1202.0800170898438,
+      "end_time": 1267.000015258789,
+      "point_summary": "Zeal for good works, as Paul urges in Titus, flows from salvation already received—not as a means to obtain or maintain it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1202"
     }
   ]
 }

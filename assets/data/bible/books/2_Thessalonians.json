@@ -1,6 +1,6 @@
 {
   "book": "2_Thessalonians",
-  "total_references": 191,
+  "total_references": 196,
   "chapters": {
     "3": [
       {
@@ -197,6 +197,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Totality Of Scripture",
         "url": "https://www.youtube.com/watch?v=fbc-2024-07-03mw-the-totality-of-scripture&t=51"
+      },
+      {
+        "book": "2 Thessalonians",
+        "chapter": 3,
+        "verse": null,
+        "reference_text": "2 Thessalonians 3",
+        "context": "look at 2 Thessalonians if you will chapter number three",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 266.9599914550781,
+        "end_time": 324.55999755859375,
+        "point_summary": "Paul's exhortation to the Thessalonians — a model, active church nonetheless facing opposition — that they \"be not weary in well-doing\" confirms the universal danger of weariness, applying even to faithful, fruitful congregations.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=266"
       },
       {
         "book": "2 Thessalonians",
@@ -1007,6 +1022,51 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Restoration vs Excommunication\" II Thessalonians 3:14-15",
         "url": "https://www.youtube.com/watch?v=R9LB-ChokfQ&t=409"
+      },
+      {
+        "book": "2 Thessalonians",
+        "chapter": 3,
+        "verse": 13,
+        "reference_text": "2 Thessalonians 3:13",
+        "context": "but ye brethren be not weary in well-doing",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 324.55999755859375,
+        "end_time": 394.1600036621094,
+        "point_summary": "Paul's repeated command to a faithful, active church — \"be not weary in well-doing\" — establishes that the danger of growing weary is not unique to struggling congregations but confronts even model churches doing genuine gospel work.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=324"
+      },
+      {
+        "book": "2 Thessalonians",
+        "chapter": 3,
+        "verse": 13,
+        "reference_text": "2 Thessalonians",
+        "context": "over there in the passage that we saw in 2 Thessalonians",
+        "is_implicit": false,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 2205.7999877929688,
+        "end_time": 2301.5799865722656,
+        "point_summary": "Parallel to Galatians 6:9, Paul's identical command in 2 Thessalonians 3:13 reinforces that the call not to grow weary in well-doing is a consistent, cross-contextual charge to persevere in ministry work.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2205"
+      },
+      {
+        "book": "2 Thessalonians",
+        "chapter": 3,
+        "verse": 13,
+        "reference_text": "2 Thessalonians 3:13",
+        "context": "not grow weary in well-doing",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 2433.099983215332,
+        "end_time": 2500.259979248047,
+        "point_summary": "Addressed to a church congregation rather than to individual ministers, the command not to grow weary belongs to every believer engaged in the work of the ministry.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
       },
       {
         "book": "2 Thessalonians",
@@ -2858,6 +2918,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "When They Had Fasted And Prayed",
         "url": "https://www.youtube.com/watch?v=fbc-2025-08-06mw-when-they-had-fasted-and-prayed&t=1456"
+      },
+      {
+        "book": "2 Thessalonians",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "2 Thessalonians",
+        "context": "in the book of second Thessalonians. It means the same thing to be weary to grow faint",
+        "is_implicit": true,
+        "video_id": "S1o4pyCcW3Q",
+        "start_time": 394.1600036621094,
+        "end_time": 470.1600036621094,
+        "point_summary": "Paul's repeated command to active, working churches — \"be not weary in well-doing\" (2 Thess. 3:13) — establishes that the danger of growing weary is a real and recurring threat even among faithful congregations.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+        "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=394"
       }
     ],
     "4": [
@@ -5743,6 +5818,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Rapture\"  Revelation 4:1",
       "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=2139"
+    },
+    {
+      "book": "2 Thessalonians",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "2 Thessalonians 3",
+      "context": "look at 2 Thessalonians if you will chapter number three",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 266.9599914550781,
+      "end_time": 324.55999755859375,
+      "point_summary": "Paul's exhortation to the Thessalonians — a model, active church nonetheless facing opposition — that they \"be not weary in well-doing\" confirms the universal danger of weariness, applying even to faithful, fruitful congregations.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=266"
+    },
+    {
+      "book": "2 Thessalonians",
+      "chapter": 3,
+      "verse": 13,
+      "reference_text": "2 Thessalonians 3:13",
+      "context": "but ye brethren be not weary in well-doing",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 324.55999755859375,
+      "end_time": 394.1600036621094,
+      "point_summary": "Paul's repeated command to a faithful, active church — \"be not weary in well-doing\" — establishes that the danger of growing weary is not unique to struggling congregations but confronts even model churches doing genuine gospel work.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=324"
+    },
+    {
+      "book": "2 Thessalonians",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "2 Thessalonians",
+      "context": "in the book of second Thessalonians. It means the same thing to be weary to grow faint",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 394.1600036621094,
+      "end_time": 470.1600036621094,
+      "point_summary": "Paul's repeated command to active, working churches — \"be not weary in well-doing\" (2 Thess. 3:13) — establishes that the danger of growing weary is a real and recurring threat even among faithful congregations.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=394"
+    },
+    {
+      "book": "2 Thessalonians",
+      "chapter": 3,
+      "verse": 13,
+      "reference_text": "2 Thessalonians",
+      "context": "over there in the passage that we saw in 2 Thessalonians",
+      "is_implicit": false,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 2205.7999877929688,
+      "end_time": 2301.5799865722656,
+      "point_summary": "Parallel to Galatians 6:9, Paul's identical command in 2 Thessalonians 3:13 reinforces that the call not to grow weary in well-doing is a consistent, cross-contextual charge to persevere in ministry work.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2205"
+    },
+    {
+      "book": "2 Thessalonians",
+      "chapter": 3,
+      "verse": 13,
+      "reference_text": "2 Thessalonians 3:13",
+      "context": "not grow weary in well-doing",
+      "is_implicit": true,
+      "video_id": "S1o4pyCcW3Q",
+      "start_time": 2433.099983215332,
+      "end_time": 2500.259979248047,
+      "point_summary": "Addressed to a church congregation rather than to individual ministers, the command not to grow weary belongs to every believer engaged in the work of the ministry.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
+      "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
     }
   ]
 }
