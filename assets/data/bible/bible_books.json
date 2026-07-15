@@ -181,11 +181,11 @@
       "count": 91
     },
     {
-      "book": "Malachi",
+      "book": "1_Chronicles",
       "count": 88
     },
     {
-      "book": "1_Chronicles",
+      "book": "Malachi",
       "count": 88
     },
     {
@@ -193,11 +193,11 @@
       "count": 81
     },
     {
-      "book": "Ezra",
+      "book": "2_Samuel",
       "count": 70
     },
     {
-      "book": "2_Samuel",
+      "book": "Ezra",
       "count": 70
     },
     {
@@ -245,11 +245,11 @@
       "count": 13
     },
     {
-      "book": "Obadiah",
+      "book": "Haggai",
       "count": 8
     },
     {
-      "book": "Haggai",
+      "book": "Obadiah",
       "count": 8
     },
     {
@@ -257,15 +257,15 @@
       "count": 3
     },
     {
-      "book": "Nahum",
-      "count": 1
-    },
-    {
       "book": "Song_of_Solomon",
       "count": 1
     },
     {
       "book": "Zephaniah",
+      "count": 1
+    },
+    {
+      "book": "Nahum",
       "count": 1
     }
   ],
