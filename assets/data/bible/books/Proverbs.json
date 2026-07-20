@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 580,
+  "total_references": 583,
   "chapters": {
     "3": [
       {
@@ -62,6 +62,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA June 21, 2020 (Morning Worship)",
         "url": "https://www.youtube.com/watch?v=w16vXRlvXV0&t=680"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 3,
+        "verse": 1,
+        "reference_text": "Proverbs 3",
+        "context": "We read in Proverbs 3, a very familiar verse and passage of scripture",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1746.0999755859375,
+        "end_time": 1814.3399753570557,
+        "point_summary": "Immersion in God's Word builds the trust in him that keeps the mind stayed on him and sustains the perfect peace Isaiah 26:3 promises.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1746"
       },
       {
         "book": "Proverbs",
@@ -542,6 +557,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "We Will Remember The Name Of Our God",
         "url": "https://www.youtube.com/watch?v=fbc-2025-09-24mw-we-will-remember-the-name-of-our-god&t=2360"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 3,
+        "verse": 5,
+        "reference_text": "Proverbs 3:5",
+        "context": "Trust in the Lord with all thine heart",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1746.0999755859375,
+        "end_time": 1814.3399753570557,
+        "point_summary": "Trusting God with all the heart, as Proverbs 3:5 commands, is sustained by immersion in Scripture, which builds confidence in a God who never fails or falters.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1746"
       },
       {
         "book": "Proverbs",
@@ -5848,6 +5878,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - June 28, 2020 (Evening Worship)",
         "url": "https://www.youtube.com/watch?v=zZ4UTRQP2jE&t=389"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 4,
+        "verse": 23,
+        "reference_text": "Proverbs 4:23",
+        "context": "keep thy heart with all diligence for out of it are the issues of life",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2407.1399998664856,
+        "end_time": 2476.720001220703,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2407"
       },
       {
         "book": "Proverbs",
@@ -17461,6 +17506,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=0"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 3,
+      "verse": 5,
+      "reference_text": "Proverbs 3:5",
+      "context": "Trust in the Lord with all thine heart",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1746.0999755859375,
+      "end_time": 1814.3399753570557,
+      "point_summary": "Trusting God with all the heart, as Proverbs 3:5 commands, is sustained by immersion in Scripture, which builds confidence in a God who never fails or falters.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1746"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 3,
+      "verse": 1,
+      "reference_text": "Proverbs 3",
+      "context": "We read in Proverbs 3, a very familiar verse and passage of scripture",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1746.0999755859375,
+      "end_time": 1814.3399753570557,
+      "point_summary": "Immersion in God's Word builds the trust in him that keeps the mind stayed on him and sustains the perfect peace Isaiah 26:3 promises.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1746"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 4,
+      "verse": 23,
+      "reference_text": "Proverbs 4:23",
+      "context": "keep thy heart with all diligence for out of it are the issues of life",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2407.1399998664856,
+      "end_time": 2476.720001220703,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2407"
     }
   ]
 }

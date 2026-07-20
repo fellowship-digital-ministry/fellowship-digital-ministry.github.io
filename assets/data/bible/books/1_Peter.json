@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 935,
+  "total_references": 937,
   "chapters": {
     "1": [
       {
@@ -7915,6 +7915,21 @@
       {
         "book": "1 Peter",
         "chapter": 5,
+        "verse": 0,
+        "reference_text": "1 Peter 5",
+        "context": "As he's writing in 1 Peter chapter 5 and talking about being eyewitnesses of the sufferings of Christ",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1201.0999755859375,
+        "end_time": 1271.0999755859375,
+        "point_summary": "Peter's description of the disciples as eyewitnesses of Christ's sufferings illustrates that true peace is not found in the absence of trouble but in the presence of Jesus, who grants peace amid difficult days.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1201"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
         "verse": 1,
         "reference_text": "1 Peter 5:1",
         "context": "Notice in chapter five in verse number one. 1 Peter five in verse number one. The Bible says, the elders which are among you I exhort.",
@@ -10041,6 +10056,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=625"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
+        "verse": 8,
+        "reference_text": "1 Peter 5:8",
+        "context": "we're to be sober and to be vigilant. Why? Because we have an adversary, the devil, that walketh about as a roaring lion seeking whom he may devour",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2554.6000061035156,
+        "end_time": 2619.960006713867,
+        "point_summary": "Because the devil prowls as a roaring lion seeking to devour, 1 Peter 5:8 establishes the real danger of hostile spiritual invasion that makes God's guarding peace so urgently necessary.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2554"
       },
       {
         "book": "1 Peter",
@@ -28065,6 +28095,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1993"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 0,
+      "reference_text": "1 Peter 5",
+      "context": "As he's writing in 1 Peter chapter 5 and talking about being eyewitnesses of the sufferings of Christ",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1201.0999755859375,
+      "end_time": 1271.0999755859375,
+      "point_summary": "Peter's description of the disciples as eyewitnesses of Christ's sufferings illustrates that true peace is not found in the absence of trouble but in the presence of Jesus, who grants peace amid difficult days.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1201"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 8,
+      "reference_text": "1 Peter 5:8",
+      "context": "we're to be sober and to be vigilant. Why? Because we have an adversary, the devil, that walketh about as a roaring lion seeking whom he may devour",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2554.6000061035156,
+      "end_time": 2619.960006713867,
+      "point_summary": "Because the devil prowls as a roaring lion seeking to devour, 1 Peter 5:8 establishes the real danger of hostile spiritual invasion that makes God's guarding peace so urgently necessary.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2554"
     }
   ]
 }

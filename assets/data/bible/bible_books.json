@@ -6,11 +6,11 @@
     },
     {
       "book": "John",
-      "count": 2863
+      "count": 2892
     },
     {
       "book": "Psalms",
-      "count": 2673
+      "count": 2684
     },
     {
       "book": "Acts",
@@ -18,15 +18,15 @@
     },
     {
       "book": "Hebrews",
-      "count": 1992
+      "count": 1998
     },
     {
       "book": "2_Corinthians",
-      "count": 1820
+      "count": 1821
     },
     {
       "book": "Romans",
-      "count": 1708
+      "count": 1710
     },
     {
       "book": "Revelation",
@@ -42,7 +42,7 @@
     },
     {
       "book": "Ephesians",
-      "count": 1439
+      "count": 1447
     },
     {
       "book": "1_John",
@@ -50,11 +50,11 @@
     },
     {
       "book": "2_Timothy",
-      "count": 967
+      "count": 968
     },
     {
       "book": "1_Peter",
-      "count": 935
+      "count": 937
     },
     {
       "book": "Exodus",
@@ -62,19 +62,19 @@
     },
     {
       "book": "James",
-      "count": 884
+      "count": 886
     },
     {
       "book": "Luke",
       "count": 820
     },
     {
-      "book": "1_Thessalonians",
-      "count": 740
+      "book": "Philippians",
+      "count": 750
     },
     {
-      "book": "Philippians",
-      "count": 732
+      "book": "1_Thessalonians",
+      "count": 740
     },
     {
       "book": "Galatians",
@@ -82,7 +82,7 @@
     },
     {
       "book": "Colossians",
-      "count": 687
+      "count": 691
     },
     {
       "book": "1_Timothy",
@@ -90,15 +90,15 @@
     },
     {
       "book": "Proverbs",
-      "count": 580
+      "count": 583
     },
     {
       "book": "Psalm",
-      "count": 494
+      "count": 496
     },
     {
       "book": "Isaiah",
-      "count": 477
+      "count": 490
     },
     {
       "book": "2_Kings",
@@ -122,7 +122,7 @@
     },
     {
       "book": "Jeremiah",
-      "count": 354
+      "count": 355
     },
     {
       "book": "Joshua",
@@ -170,7 +170,7 @@
     },
     {
       "book": "Job",
-      "count": 119
+      "count": 120
     },
     {
       "book": "Jude",
@@ -182,7 +182,7 @@
     },
     {
       "book": "Malachi",
-      "count": 88
+      "count": 89
     },
     {
       "book": "1_Chronicles",
@@ -270,5 +270,5 @@
     }
   ],
   "total_books": 67,
-  "total_references": 40302
+  "total_references": 40407
 }

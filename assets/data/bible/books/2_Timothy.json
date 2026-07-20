@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 967,
+  "total_references": 968,
   "chapters": {
     "3": [
       {
@@ -11001,6 +11001,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "We Will Remember The Name Of Our God",
         "url": "https://www.youtube.com/watch?v=fbc-2025-09-24mw-we-will-remember-the-name-of-our-god&t=1587"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 1,
+        "verse": 7,
+        "reference_text": "2 Timothy 1:7",
+        "context": "God has not given us the spirit of fear",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 512.0,
+        "end_time": 573.0,
+        "point_summary": "God has not given believers a spirit of fear, cited as scriptural grounding for why troubled hearts can receive Christ's peace amid the anxiety and turmoil prevalent today.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=512"
       },
       {
         "book": "2 Timothy",
@@ -29025,6 +29040,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2341"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 1,
+      "verse": 7,
+      "reference_text": "2 Timothy 1:7",
+      "context": "God has not given us the spirit of fear",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 512.0,
+      "end_time": 573.0,
+      "point_summary": "God has not given believers a spirit of fear, cited as scriptural grounding for why troubled hearts can receive Christ's peace amid the anxiety and turmoil prevalent today.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=512"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 884,
+  "total_references": 886,
   "chapters": {
     "4": [
       {
@@ -4598,6 +4598,21 @@
       {
         "book": "James",
         "chapter": 1,
+        "verse": 5,
+        "reference_text": "James 1:5",
+        "context": "If any man lack wisdom, let him ask of God",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 636.2400016784668,
+        "end_time": 714.8600006103516,
+        "point_summary": "God's gift of wisdom to those who ask (James 1:5) is invoked to identify Christ as the divine Counselor of Isaiah 9:6, the all-wise God who meets every human need.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=636"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
         "verse": 6,
         "reference_text": "James 1:6",
         "context": "Notice verse number six, it says this, but let him ask how? In faith. Nothing wavering, for he that wavereth is like a wave of the sea driven with the wind and tossed",
@@ -8164,6 +8179,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Opportunity That Wasn't Missed In Missions\"  Philippians 4:15-19",
         "url": "https://www.youtube.com/watch?v=THOg22UDO9w&t=2368"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "James 1:22",
+        "context": "be doers of the word and not hearers only",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2982.5,
+        "end_time": 3028.6000213623047,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2982"
       },
       {
         "book": "James",
@@ -26537,6 +26567,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=590"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 5,
+      "reference_text": "James 1:5",
+      "context": "If any man lack wisdom, let him ask of God",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 636.2400016784668,
+      "end_time": 714.8600006103516,
+      "point_summary": "God's gift of wisdom to those who ask (James 1:5) is invoked to identify Christ as the divine Counselor of Isaiah 9:6, the all-wise God who meets every human need.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=636"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "James 1:22",
+      "context": "be doers of the word and not hearers only",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2982.5,
+      "end_time": 3028.6000213623047,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2982"
     }
   ]
 }

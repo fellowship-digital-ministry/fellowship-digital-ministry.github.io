@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1820,
+  "total_references": 1821,
   "chapters": {
     "4": [
       {
@@ -25074,6 +25074,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Unto The Church In Smyrna",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08pm-unto-the-church-in-smyrna&t=1782"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 8,
+        "verse": 9,
+        "reference_text": "2 Corinthians 8:9",
+        "context": "He was rich, but he became poor for our sakes",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 636.2400016784668,
+        "end_time": 714.8600006103516,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=636"
       },
       {
         "book": "2 Corinthians",
@@ -54633,6 +54648,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=470"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 8,
+      "verse": 9,
+      "reference_text": "2 Corinthians 8:9",
+      "context": "He was rich, but he became poor for our sakes",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 636.2400016784668,
+      "end_time": 714.8600006103516,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=636"
     }
   ]
 }

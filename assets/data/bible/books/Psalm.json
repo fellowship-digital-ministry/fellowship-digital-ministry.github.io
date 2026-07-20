@@ -1,6 +1,6 @@
 {
   "book": "Psalm",
-  "total_references": 494,
+  "total_references": 496,
   "chapters": {
     "90": [
       {
@@ -2447,6 +2447,21 @@
       {
         "book": "Psalm",
         "chapter": 119,
+        "verse": null,
+        "reference_text": "Psalm 119",
+        "context": "great peace",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1670.0999755859375,
+        "end_time": 1746.0999755859375,
+        "point_summary": "Loving God's law produces a great peace so firm that nothing can cause the believer to stumble or fall, because Scripture saturates and stabilizes the life.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1670"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 119,
         "verse": 1,
         "reference_text": "Psalm 119",
         "context": "Let's look at Psalm 119 as we kind of finish up this evening",
@@ -3088,6 +3103,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Grace, Mercy And Peace\" II Timothy 1:1-2",
         "url": "https://www.youtube.com/watch?v=bLIlrTCCUAY&t=1422"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 119,
+        "verse": 165,
+        "reference_text": "Psalm 119:165",
+        "context": "great peace have they which love thy word and nothing shall offend them",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2861.9400024414062,
+        "end_time": 2924.3800048828125,
+        "point_summary": "Great peace belongs to those who love God's word — a condition the sermon presents as the pathway to the unshakeable peace that nothing can offend or overthrow.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2861"
       }
     ],
     "34": [
@@ -14983,6 +15013,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2205"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 119,
+      "verse": null,
+      "reference_text": "Psalm 119",
+      "context": "great peace",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1670.0999755859375,
+      "end_time": 1746.0999755859375,
+      "point_summary": "Loving God's law produces a great peace so firm that nothing can cause the believer to stumble or fall, because Scripture saturates and stabilizes the life.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1670"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 119,
+      "verse": 165,
+      "reference_text": "Psalm 119:165",
+      "context": "great peace have they which love thy word and nothing shall offend them",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2861.9400024414062,
+      "end_time": 2924.3800048828125,
+      "point_summary": "Great peace belongs to those who love God's word — a condition the sermon presents as the pathway to the unshakeable peace that nothing can offend or overthrow.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2861"
     }
   ]
 }

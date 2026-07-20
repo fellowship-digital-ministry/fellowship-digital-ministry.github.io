@@ -1,6 +1,6 @@
 {
   "book": "Colossians",
-  "total_references": 687,
+  "total_references": 691,
   "chapters": {
     "3": [
       {
@@ -2192,6 +2192,66 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Shalom",
         "url": "https://www.youtube.com/watch?v=fbc-2025-07-02mw-jehovah-shalom&t=1888"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 3,
+        "verse": 15,
+        "reference_text": "Colossians 3:15",
+        "context": "Colossians three in verse number 15, when he says, and the peace of God",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 930.760009765625,
+        "end_time": 996.9200134277344,
+        "point_summary": "Colossians 3:15's phrase \"the peace of God\" is paired with Philippians 4:7 to identify Jesus as the divine source of the peace that is to rule in believers' hearts.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=930"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 3,
+        "verse": 15,
+        "reference_text": "let the peace of God rule in your heart",
+        "context": "he wants you to allow his peace to rule in your heart",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2794.1199951171875,
+        "end_time": 2861.8999938964844,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2794"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 3,
+        "verse": 15,
+        "reference_text": "Colossians 3:15",
+        "context": "I'm going to let the peace of God rule in my heart",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2861.9400024414062,
+        "end_time": 2924.3800048828125,
+        "point_summary": "God's peace is not passive but is meant to actively \"rule\" in the believer's heart, governing what the mind focuses on amid trouble.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2861"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 3,
+        "verse": 15,
+        "reference_text": "Colossians 3:15",
+        "context": "allow His peace to rule in your heart",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 3028.6000213623047,
+        "end_time": 3036.4400215148926,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=3028"
       },
       {
         "book": "Colossians",
@@ -20623,6 +20683,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
       "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=2615"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 3,
+      "verse": 15,
+      "reference_text": "Colossians 3:15",
+      "context": "Colossians three in verse number 15, when he says, and the peace of God",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 930.760009765625,
+      "end_time": 996.9200134277344,
+      "point_summary": "Colossians 3:15's phrase \"the peace of God\" is paired with Philippians 4:7 to identify Jesus as the divine source of the peace that is to rule in believers' hearts.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=930"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 3,
+      "verse": 15,
+      "reference_text": "let the peace of God rule in your heart",
+      "context": "he wants you to allow his peace to rule in your heart",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2794.1199951171875,
+      "end_time": 2861.8999938964844,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2794"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 3,
+      "verse": 15,
+      "reference_text": "Colossians 3:15",
+      "context": "I'm going to let the peace of God rule in my heart",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2861.9400024414062,
+      "end_time": 2924.3800048828125,
+      "point_summary": "God's peace is not passive but is meant to actively \"rule\" in the believer's heart, governing what the mind focuses on amid trouble.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2861"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 3,
+      "verse": 15,
+      "reference_text": "Colossians 3:15",
+      "context": "allow His peace to rule in your heart",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 3028.6000213623047,
+      "end_time": 3036.4400215148926,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=3028"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 1992,
+  "total_references": 1998,
   "chapters": {
     "12": [
       {
@@ -2057,6 +2057,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": 2,
+        "reference_text": "Hebrews 12:2",
+        "context": "my eyes are looking unto Jesus, the author and finisher of my faith",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1670.0999755859375,
+        "end_time": 1746.0999755859375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1670"
       },
       {
         "book": "Hebrews",
@@ -5333,6 +5348,21 @@
       {
         "book": "Hebrews",
         "chapter": 7,
+        "verse": 25,
+        "reference_text": "Hebrews 7:25",
+        "context": "he ever liveth to make intercession for us",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 267.0,
+        "end_time": 340.0,
+        "point_summary": "Christ's ascension and ongoing heavenly ministry — that he \"ever liveth to make intercession for us\" — grounds the comfort offered to troubled hearts in John 14.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=267"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 7,
         "verse": 26,
         "reference_text": "Hebrews 7:26",
         "context": "For such a high priest became us, who was holy, harmless, undefiled, separate from sinners, and made higher than the heavens",
@@ -8382,6 +8412,21 @@
       {
         "book": "Hebrews",
         "chapter": 13,
+        "verse": 5,
+        "reference_text": "Hebrews 13:5",
+        "context": "I will never leave thee, nor forsake thee",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2204.8399658203125,
+        "end_time": 2263.679962158203,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2204"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
         "verse": 6,
         "reference_text": "Hebrews 13:6",
         "context": "so that we may boldly say, the Lord is my helper and I will not fear what man shall do unto me",
@@ -10182,6 +10227,21 @@
       {
         "book": "Hebrews",
         "chapter": 13,
+        "verse": 20,
+        "reference_text": "Hebrews 13:20",
+        "context": "Hebrews chapter 13 in verse number 20",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 996.9200134277344,
+        "end_time": 1067.5400085449219,
+        "point_summary": "God is identified in Hebrews 13:20 as \"the God of peace,\" a title that, alongside Christ as Prince of Peace and giver of peace, establishes the divine source of the peace the sermon is tracing.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=996"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
         "verse": 21,
         "reference_text": "Hebrews 13:21",
         "context": "Notice with me from Hebrews 13 verses 20 and 21, that he is that great shepherd of the sheep.",
@@ -10373,6 +10433,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jesus Our Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-21mw-jesus-our-shepherd&t=803"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
+        "verse": 21,
+        "reference_text": "Hebrews 13:21",
+        "context": "verse 21, make you perfect in every good work to do his will, working in you that which is well pleasing in his sight through Jesus Christ to whom be glory forever and ever",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 996.9200134277344,
+        "end_time": 1067.5400085449219,
+        "point_summary": "God is identified as \"the God of peace\" in Hebrews 13:20–21, establishing that the source of the believer's peace and perfecting work is God himself, through Jesus Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=996"
       },
       {
         "book": "Hebrews",
@@ -21421,6 +21496,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Unto The Church In Smyrna",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08pm-unto-the-church-in-smyrna&t=1455"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 4,
+        "verse": 15,
+        "reference_text": "Hebrews 4:15",
+        "context": "We have not an high priest which cannot be touched with the feeling of our infirmities, but was in all points tempted like as we are yet without sin",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1954.5799713134766,
+        "end_time": 2023.739974975586,
+        "point_summary": "Christ's peace is uniquely his own to give because, as fully God and fully man, he was tempted in all points yet without sin and therefore truly understands human infirmity.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1954"
       },
       {
         "book": "Hebrews",
@@ -59791,6 +59881,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 7,
+      "verse": 25,
+      "reference_text": "Hebrews 7:25",
+      "context": "he ever liveth to make intercession for us",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 267.0,
+      "end_time": 340.0,
+      "point_summary": "Christ's ascension and ongoing heavenly ministry — that he \"ever liveth to make intercession for us\" — grounds the comfort offered to troubled hearts in John 14.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=267"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 20,
+      "reference_text": "Hebrews 13:20",
+      "context": "Hebrews chapter 13 in verse number 20",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 996.9200134277344,
+      "end_time": 1067.5400085449219,
+      "point_summary": "God is identified in Hebrews 13:20 as \"the God of peace,\" a title that, alongside Christ as Prince of Peace and giver of peace, establishes the divine source of the peace the sermon is tracing.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=996"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 21,
+      "reference_text": "Hebrews 13:21",
+      "context": "verse 21, make you perfect in every good work to do his will, working in you that which is well pleasing in his sight through Jesus Christ to whom be glory forever and ever",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 996.9200134277344,
+      "end_time": 1067.5400085449219,
+      "point_summary": "God is identified as \"the God of peace\" in Hebrews 13:20–21, establishing that the source of the believer's peace and perfecting work is God himself, through Jesus Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=996"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": 2,
+      "reference_text": "Hebrews 12:2",
+      "context": "my eyes are looking unto Jesus, the author and finisher of my faith",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1670.0999755859375,
+      "end_time": 1746.0999755859375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1670"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 4,
+      "verse": 15,
+      "reference_text": "Hebrews 4:15",
+      "context": "We have not an high priest which cannot be touched with the feeling of our infirmities, but was in all points tempted like as we are yet without sin",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1954.5799713134766,
+      "end_time": 2023.739974975586,
+      "point_summary": "Christ's peace is uniquely his own to give because, as fully God and fully man, he was tempted in all points yet without sin and therefore truly understands human infirmity.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1954"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 5,
+      "reference_text": "Hebrews 13:5",
+      "context": "I will never leave thee, nor forsake thee",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2204.8399658203125,
+      "end_time": 2263.679962158203,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2204"
     }
   ]
 }

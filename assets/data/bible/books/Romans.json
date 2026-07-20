@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1708,
+  "total_references": 1710,
   "chapters": {
     "8": [
       {
@@ -7165,6 +7165,21 @@
       {
         "book": "Romans",
         "chapter": 5,
+        "verse": null,
+        "reference_text": "Romans 5",
+        "context": "Romans five makes that abundantly clear",
+        "is_implicit": false,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 930.760009765625,
+        "end_time": 996.9200134277344,
+        "point_summary": "Peace with God comes exclusively through Jesus Christ, a truth Romans 5 is said to make \"abundantly clear\" in this sermon's distinction between peace *with* God and the peace *of* God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=930"
+      },
+      {
+        "book": "Romans",
+        "chapter": 5,
         "verse": 1,
         "reference_text": "Romans 5:1",
         "context": "therefore being justified, we read of that in verse number nine, by his blood, notice by faith, we have peace with God through our Lord Jesus Christ.",
@@ -13538,6 +13553,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=306"
+      },
+      {
+        "book": "Romans",
+        "chapter": 6,
+        "verse": 23,
+        "reference_text": "Romans 6:23",
+        "context": "the wage of sin is death",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 855.9199981689453,
+        "end_time": 930.760009765625,
+        "point_summary": "Sin's wage of death once left the unsaved separated from God and bound for the lake of fire, but Christ's blood brings the formerly far-off near and becomes their peace.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=855"
       }
     ],
     "3": [
@@ -51277,6 +51307,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1862"
+    },
+    {
+      "book": "Romans",
+      "chapter": 6,
+      "verse": 23,
+      "reference_text": "Romans 6:23",
+      "context": "the wage of sin is death",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 855.9199981689453,
+      "end_time": 930.760009765625,
+      "point_summary": "Sin's wage of death once left the unsaved separated from God and bound for the lake of fire, but Christ's blood brings the formerly far-off near and becomes their peace.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=855"
+    },
+    {
+      "book": "Romans",
+      "chapter": 5,
+      "verse": null,
+      "reference_text": "Romans 5",
+      "context": "Romans five makes that abundantly clear",
+      "is_implicit": false,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 930.760009765625,
+      "end_time": 996.9200134277344,
+      "point_summary": "Peace with God comes exclusively through Jesus Christ, a truth Romans 5 is said to make \"abundantly clear\" in this sermon's distinction between peace *with* God and the peace *of* God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=930"
     }
   ]
 }
