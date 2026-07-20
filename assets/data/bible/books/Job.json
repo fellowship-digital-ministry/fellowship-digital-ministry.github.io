@@ -1,6 +1,6 @@
 {
   "book": "Job",
-  "total_references": 119,
+  "total_references": 120,
   "chapters": {
     "16": [
       {
@@ -912,6 +912,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Thou Called I Answered",
         "url": "https://www.youtube.com/watch?v=fbc-2025-11-12mw-thou-called-i-answered&t=118"
+      },
+      {
+        "book": "Job",
+        "chapter": 14,
+        "verse": 1,
+        "reference_text": "Job 14:1",
+        "context": "man that is born of woman is a few days and full of trouble",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1132.9400024414062,
+        "end_time": 1201.0999755859375,
+        "point_summary": "Human life is inherently marked by trouble, as Job's words confirm, meaning peace cannot be located in trouble's absence but only in the person of Jesus Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1132"
       }
     ],
     "23": [
@@ -3605,6 +3620,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Jehovah Shalom",
       "url": "https://www.youtube.com/watch?v=fbc-2025-07-02mw-jehovah-shalom&t=1204"
+    },
+    {
+      "book": "Job",
+      "chapter": 14,
+      "verse": 1,
+      "reference_text": "Job 14:1",
+      "context": "man that is born of woman is a few days and full of trouble",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1132.9400024414062,
+      "end_time": 1201.0999755859375,
+      "point_summary": "Human life is inherently marked by trouble, as Job's words confirm, meaning peace cannot be located in trouble's absence but only in the person of Jesus Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1132"
     }
   ]
 }

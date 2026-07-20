@@ -1,6 +1,6 @@
 {
   "book": "Malachi",
-  "total_references": 88,
+  "total_references": 89,
   "chapters": {
     "3": [
       {
@@ -317,6 +317,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Look What God Has Done\"  Acts 14:25-28",
         "url": "https://www.youtube.com/watch?v=nVKSqmkaEKc&t=1213"
+      },
+      {
+        "book": "Malachi",
+        "chapter": 3,
+        "verse": 6,
+        "reference_text": "Malachi 3:6",
+        "context": "I'm the Lord, I change not",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 1478.0999755859375,
+        "end_time": 1536.0999755859375,
+        "point_summary": "God's immutability — \"I am the Lord, I change not\" — is cited as one example of how every true thing known about God is derived from Scripture rather than from nature alone.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1478"
       },
       {
         "book": "Malachi",
@@ -2649,6 +2664,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "By Faith Abel",
       "url": "https://www.youtube.com/watch?v=fbc-2026-04-01mw-by-faith-abel&t=1372"
+    },
+    {
+      "book": "Malachi",
+      "chapter": 3,
+      "verse": 6,
+      "reference_text": "Malachi 3:6",
+      "context": "I'm the Lord, I change not",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 1478.0999755859375,
+      "end_time": 1536.0999755859375,
+      "point_summary": "God's immutability — \"I am the Lord, I change not\" — is cited as one example of how every true thing known about God is derived from Scripture rather than from nature alone.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1478"
     }
   ]
 }

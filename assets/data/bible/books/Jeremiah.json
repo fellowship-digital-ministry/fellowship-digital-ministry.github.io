@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 354,
+  "total_references": 355,
   "chapters": {
     "31": [
       {
@@ -1583,6 +1583,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Totality Of Scripture",
         "url": "https://www.youtube.com/watch?v=fbc-2024-07-03mw-the-totality-of-scripture&t=1665"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 17,
+        "verse": 9,
+        "reference_text": "Jeremiah 17:9",
+        "context": "your heart and my heart is deceitful. It's desperately wicked",
+        "is_implicit": true,
+        "video_id": "BVKCM6yyZSM",
+        "start_time": 2407.1399998664856,
+        "end_time": 2476.720001220703,
+        "point_summary": "Human hearts are deceitful and untrustworthy (Jer. 17:9), which is why God's peace must actively guard and keep them rather than believers following their own hearts.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Peace Of God\"  John 14:27",
+        "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2407"
       },
       {
         "book": "Jeremiah",
@@ -10685,6 +10700,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2522"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 17,
+      "verse": 9,
+      "reference_text": "Jeremiah 17:9",
+      "context": "your heart and my heart is deceitful. It's desperately wicked",
+      "is_implicit": true,
+      "video_id": "BVKCM6yyZSM",
+      "start_time": 2407.1399998664856,
+      "end_time": 2476.720001220703,
+      "point_summary": "Human hearts are deceitful and untrustworthy (Jer. 17:9), which is why God's peace must actively guard and keep them rather than believers following their own hearts.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Peace Of God\"  John 14:27",
+      "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2407"
     }
   ]
 }
