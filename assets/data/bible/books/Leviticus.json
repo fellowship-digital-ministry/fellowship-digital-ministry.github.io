@@ -1,6 +1,6 @@
 {
   "book": "Leviticus",
-  "total_references": 205,
+  "total_references": 206,
   "chapters": {
     "19": [
       {
@@ -291,6 +291,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Heaven - Part Three\"   Revelation 4:6-8",
         "url": "https://www.youtube.com/watch?v=HG36S98Hbgk&t=1451"
+      },
+      {
+        "book": "Leviticus",
+        "chapter": 11,
+        "verse": 44,
+        "reference_text": "Leviticus 11:44",
+        "context": "the Bible tells us in the book of Leviticus and then repeated for us in the New Testament as well",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2021.8400268554688,
+        "end_time": 2096.1600341796875,
+        "point_summary": "Holiness as God's own character—\"Be holy, for I am holy\"—is presented as the foundational principle that guards against seduction and sin.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2021"
       }
     ],
     "26": [
@@ -6187,6 +6202,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2563"
+    },
+    {
+      "book": "Leviticus",
+      "chapter": 11,
+      "verse": 44,
+      "reference_text": "Leviticus 11:44",
+      "context": "the Bible tells us in the book of Leviticus and then repeated for us in the New Testament as well",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2021.8400268554688,
+      "end_time": 2096.1600341796875,
+      "point_summary": "Holiness as God's own character—\"Be holy, for I am holy\"—is presented as the foundational principle that guards against seduction and sin.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2021"
     }
   ]
 }

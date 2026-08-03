@@ -1,6 +1,6 @@
 {
   "book": "Titus",
-  "total_references": 181,
+  "total_references": 183,
   "chapters": {
     "1": [
       {
@@ -1264,6 +1264,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1969"
+      },
+      {
+        "book": "Titus",
+        "chapter": 2,
+        "verse": 11,
+        "reference_text": "Titus 2:11",
+        "context": "for the grace of God that bringeth salvation hath appeared to all men",
+        "is_implicit": false,
+        "video_id": "kys_Aov71eo",
+        "start_time": 564.1799926757812,
+        "end_time": 624.4599933624268,
+        "point_summary": "God's saving grace, once received, continues its work by actively teaching believers how to live — salvation is not the end of grace's instruction but the beginning.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=564"
+      },
+      {
+        "book": "Titus",
+        "chapter": 2,
+        "verse": 11,
+        "reference_text": "Titus 2:11",
+        "context": "His grace hath appeared to all men",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 624.4599933624268,
+        "end_time": 685.4199905395508,
+        "point_summary": "Saving grace, the sermon argues, does not end at conversion but continues its work by actively teaching the believer to deny ungodliness and live soberly, righteously, and godly in this present world.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=624"
       },
       {
         "book": "Titus",
@@ -5443,6 +5473,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1202"
+    },
+    {
+      "book": "Titus",
+      "chapter": 2,
+      "verse": 11,
+      "reference_text": "Titus 2:11",
+      "context": "for the grace of God that bringeth salvation hath appeared to all men",
+      "is_implicit": false,
+      "video_id": "kys_Aov71eo",
+      "start_time": 564.1799926757812,
+      "end_time": 624.4599933624268,
+      "point_summary": "God's saving grace, once received, continues its work by actively teaching believers how to live — salvation is not the end of grace's instruction but the beginning.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=564"
+    },
+    {
+      "book": "Titus",
+      "chapter": 2,
+      "verse": 11,
+      "reference_text": "Titus 2:11",
+      "context": "His grace hath appeared to all men",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 624.4599933624268,
+      "end_time": 685.4199905395508,
+      "point_summary": "Saving grace, the sermon argues, does not end at conversion but continues its work by actively teaching the believer to deny ungodliness and live soberly, righteously, and godly in this present world.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=624"
     }
   ]
 }

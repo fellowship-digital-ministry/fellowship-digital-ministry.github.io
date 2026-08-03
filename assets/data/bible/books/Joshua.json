@@ -1,6 +1,6 @@
 {
   "book": "Joshua",
-  "total_references": 325,
+  "total_references": 327,
   "chapters": {
     "19": [
       {
@@ -1810,6 +1810,21 @@
       {
         "book": "Joshua",
         "chapter": 1,
+        "verse": 8,
+        "reference_text": "Joshua 1:8",
+        "context": "This book of the law shall not depart out of thy mouth. Thou shalt meditate therein how often day and night. Joshua 1 and verse 8",
+        "is_implicit": false,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2096.1600341796875,
+        "end_time": 2173.040008544922,
+        "point_summary": "Meditating on God's Word day and night, as commanded in Joshua 1:8, is the source of the biblical principles that guard against seduction and moral failure.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2096"
+      },
+      {
+        "book": "Joshua",
+        "chapter": 1,
         "verse": 9,
         "reference_text": "Joshua 1:9",
         "context": "Have not I commanded thee? Be strong and of a good courage.",
@@ -2382,6 +2397,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Stand In Awe, And Sin Not\"  Psalm 4:4",
         "url": "https://www.youtube.com/watch?v=bmFntBlBAtY&t=1378"
+      },
+      {
+        "book": "Joshua",
+        "chapter": 7,
+        "verse": 1,
+        "reference_text": "Joshua chapter number 7",
+        "context": "And what happens in Joshua chapter number 7, God says to Joshua, there's sin in the camp.",
+        "is_implicit": false,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1415.040023803711,
+        "end_time": 1476.7200317382812,
+        "point_summary": "Achan's hidden sin in Joshua 7 illustrates that secret transgression cannot be concealed from God, who exposed it and withheld blessing until the camp dealt with it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1415"
       },
       {
         "book": "Joshua",
@@ -9795,6 +9825,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Consequences Of Doubt",
       "url": "https://www.youtube.com/watch?v=fbc-2026-03-18mw-consequences-of-doubt&t=2090"
+    },
+    {
+      "book": "Joshua",
+      "chapter": 7,
+      "verse": 1,
+      "reference_text": "Joshua chapter number 7",
+      "context": "And what happens in Joshua chapter number 7, God says to Joshua, there's sin in the camp.",
+      "is_implicit": false,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1415.040023803711,
+      "end_time": 1476.7200317382812,
+      "point_summary": "Achan's hidden sin in Joshua 7 illustrates that secret transgression cannot be concealed from God, who exposed it and withheld blessing until the camp dealt with it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1415"
+    },
+    {
+      "book": "Joshua",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Joshua 1:8",
+      "context": "This book of the law shall not depart out of thy mouth. Thou shalt meditate therein how often day and night. Joshua 1 and verse 8",
+      "is_implicit": false,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2096.1600341796875,
+      "end_time": 2173.040008544922,
+      "point_summary": "Meditating on God's Word day and night, as commanded in Joshua 1:8, is the source of the biblical principles that guard against seduction and moral failure.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2096"
     }
   ]
 }

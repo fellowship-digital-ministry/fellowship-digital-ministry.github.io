@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 699,
+  "total_references": 704,
   "chapters": {
     "2": [
       {
@@ -992,6 +992,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
         "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=888"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 2,
+        "verse": 20,
+        "reference_text": "Galatians 2:20",
+        "context": "I am crucified with Christ",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 367.3800048828125,
+        "end_time": 434.3399963378906,
+        "point_summary": "Paul's declaration \"I am crucified with Christ\" is cited alongside Romans 6:14 and the put-off/put-on principle to show that believers have a basis for progressive victory over sin, even while the flesh remains.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 2,
+        "verse": 20,
+        "reference_text": "Galatians 2:20",
+        "context": "I pray, God help me to be crucified with Christ today",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 3092.3199920654297,
+        "end_time": 3168.1199951171875,
+        "point_summary": "Daily dependence on being crucified with Christ is presented as the practical means by which believers awake to righteousness and resist fulfilling the flesh's lusts.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3092"
       },
       {
         "book": "Galatians",
@@ -6312,6 +6342,21 @@
       {
         "book": "Galatians",
         "chapter": 5,
+        "verse": 16,
+        "reference_text": "Galatians 5:16",
+        "context": "Walk in the Spirit and ye shall not fulfill the lust of the flesh",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 3092.3199920654297,
+        "end_time": 3168.1199951171875,
+        "point_summary": "Walking in the Spirit is presented as the God-given means by which believers need not fulfill the flesh's lusts, though the flesh's desire itself remains.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3092"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
         "verse": 17,
         "reference_text": "Galatians 5:17",
         "context": "for the flesh lusteth against the Spirit, and the Spirit against the flesh, and these are contrary the one to the other, so that ye cannot do the things that ye would.",
@@ -6563,6 +6608,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Were All Filled With The Holy Ghost\"  Acts 4:31",
         "url": "https://www.youtube.com/watch?v=zIV9O3o8Ckg&t=2343"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
+        "verse": 17,
+        "reference_text": "Galatians 5:17",
+        "context": "the flesh and the spirit are at enmity one to the other",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 367.3800048828125,
+        "end_time": 434.3399963378906,
+        "point_summary": "The ongoing conflict between flesh and Spirit means believers, though freed from sin's dominion, must actively pursue righteousness rather than expect sinless perfection in this life.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
+        "verse": 17,
+        "reference_text": "Galatians 5:17",
+        "context": "The flesh and the spirit, they're at enmity one against the other",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1892.5800170898438,
+        "end_time": 1952.4600219726562,
+        "point_summary": "Flesh and spirit stand in active opposition, making the pull toward sin's temporary pleasure a serious internal conflict that requires actively seeking God's provided escape route rather than yielding.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1892"
       },
       {
         "book": "Galatians",
@@ -20987,6 +21062,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "Galatians 5:17",
+      "context": "the flesh and the spirit are at enmity one to the other",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 367.3800048828125,
+      "end_time": 434.3399963378906,
+      "point_summary": "The ongoing conflict between flesh and Spirit means believers, though freed from sin's dominion, must actively pursue righteousness rather than expect sinless perfection in this life.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 2,
+      "verse": 20,
+      "reference_text": "Galatians 2:20",
+      "context": "I am crucified with Christ",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 367.3800048828125,
+      "end_time": 434.3399963378906,
+      "point_summary": "Paul's declaration \"I am crucified with Christ\" is cited alongside Romans 6:14 and the put-off/put-on principle to show that believers have a basis for progressive victory over sin, even while the flesh remains.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "Galatians 5:17",
+      "context": "The flesh and the spirit, they're at enmity one against the other",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1892.5800170898438,
+      "end_time": 1952.4600219726562,
+      "point_summary": "Flesh and spirit stand in active opposition, making the pull toward sin's temporary pleasure a serious internal conflict that requires actively seeking God's provided escape route rather than yielding.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1892"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 2,
+      "verse": 20,
+      "reference_text": "Galatians 2:20",
+      "context": "I pray, God help me to be crucified with Christ today",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 3092.3199920654297,
+      "end_time": 3168.1199951171875,
+      "point_summary": "Daily dependence on being crucified with Christ is presented as the practical means by which believers awake to righteousness and resist fulfilling the flesh's lusts.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3092"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": 16,
+      "reference_text": "Galatians 5:16",
+      "context": "Walk in the Spirit and ye shall not fulfill the lust of the flesh",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 3092.3199920654297,
+      "end_time": 3168.1199951171875,
+      "point_summary": "Walking in the Spirit is presented as the God-given means by which believers need not fulfill the flesh's lusts, though the flesh's desire itself remains.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3092"
     }
   ]
 }

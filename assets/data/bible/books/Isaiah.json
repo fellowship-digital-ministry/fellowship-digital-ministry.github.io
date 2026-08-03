@@ -1,6 +1,6 @@
 {
   "book": "Isaiah",
-  "total_references": 490,
+  "total_references": 491,
   "chapters": {
     "6": [
       {
@@ -1187,6 +1187,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Adonai",
         "url": "https://www.youtube.com/watch?v=fbc-2025-02-26mw-adonai&t=655"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 6,
+        "verse": 5,
+        "reference_text": "Isaiah 6:5",
+        "context": "When Isaiah saw him high, holy, and lifted up, man, it had an impact on him, did it not? Woe is me, for I am unclean.",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2021.8400268554688,
+        "end_time": 2096.1600341796875,
+        "point_summary": "Beholding God's thrice-holy majesty, as Isaiah's undone cry of \"Woe is me\" illustrates, produces the reverent fear of God that guards against seduction and sin.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2021"
       },
       {
         "book": "Isaiah",
@@ -14785,6 +14800,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2861"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 6,
+      "verse": 5,
+      "reference_text": "Isaiah 6:5",
+      "context": "When Isaiah saw him high, holy, and lifted up, man, it had an impact on him, did it not? Woe is me, for I am unclean.",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2021.8400268554688,
+      "end_time": 2096.1600341796875,
+      "point_summary": "Beholding God's thrice-holy majesty, as Isaiah's undone cry of \"Woe is me\" illustrates, produces the reverent fear of God that guards against seduction and sin.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2021"
     }
   ]
 }

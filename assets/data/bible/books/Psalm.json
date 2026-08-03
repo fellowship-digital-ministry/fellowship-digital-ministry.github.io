@@ -1,6 +1,6 @@
 {
   "book": "Psalm",
-  "total_references": 496,
+  "total_references": 498,
   "chapters": {
     "90": [
       {
@@ -2927,6 +2927,21 @@
       {
         "book": "Psalm",
         "chapter": 119,
+        "verse": 97,
+        "reference_text": "Oh, how love I thy law",
+        "context": "The psalmist said, Oh, how love I thy law. It is my meditation all the day",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2096.1600341796875,
+        "end_time": 2173.040008544922,
+        "point_summary": "Loving and meditating on God's law—the psalmist's declaration in Psalm 119:97—is presented as the source of the principles that guard against seduction and moral compromise.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2096"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 119,
         "verse": 105,
         "reference_text": "Psalm 119:105",
         "context": "he gives us his word that is a light. It's a lamp",
@@ -4019,6 +4034,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Honorable Elders\" I Timothy 5:17-25",
         "url": "https://www.youtube.com/watch?v=hwLKY1FAuwU&t=2035"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 130,
+        "verse": 4,
+        "reference_text": "Psalm 130:4",
+        "context": "with thee is forgiveness",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1281.2400207519531,
+        "end_time": 1343.1200103759766,
+        "point_summary": "God's forgiveness is real and available, but the sermon grounds it in the recognition that sin is first and foremost an offense against God, not merely against other people.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1281"
       },
       {
         "book": "Psalm",
@@ -15043,6 +15073,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2861"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 130,
+      "verse": 4,
+      "reference_text": "Psalm 130:4",
+      "context": "with thee is forgiveness",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1281.2400207519531,
+      "end_time": 1343.1200103759766,
+      "point_summary": "God's forgiveness is real and available, but the sermon grounds it in the recognition that sin is first and foremost an offense against God, not merely against other people.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1281"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 119,
+      "verse": 97,
+      "reference_text": "Oh, how love I thy law",
+      "context": "The psalmist said, Oh, how love I thy law. It is my meditation all the day",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2096.1600341796875,
+      "end_time": 2173.040008544922,
+      "point_summary": "Loving and meditating on God's law—the psalmist's declaration in Psalm 119:97—is presented as the source of the principles that guard against seduction and moral compromise.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2096"
     }
   ]
 }

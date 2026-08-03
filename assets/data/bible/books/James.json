@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 886,
+  "total_references": 887,
   "chapters": {
     "4": [
       {
@@ -1562,6 +1562,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing For Forgiveness",
         "url": "https://www.youtube.com/watch?v=fbc-2025-10-15mw-a-longing-for-forgiveness&t=65"
+      },
+      {
+        "book": "James",
+        "chapter": 4,
+        "verse": 8,
+        "reference_text": "James 4:8",
+        "context": "draw nigh to God but then what? He draws nigh to us",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2553.6199951171875,
+        "end_time": 2619.6199951171875,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2553"
       },
       {
         "book": "James",
@@ -26597,6 +26612,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2982"
+    },
+    {
+      "book": "James",
+      "chapter": 4,
+      "verse": 8,
+      "reference_text": "James 4:8",
+      "context": "draw nigh to God but then what? He draws nigh to us",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2553.6199951171875,
+      "end_time": 2619.6199951171875,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2553"
     }
   ]
 }

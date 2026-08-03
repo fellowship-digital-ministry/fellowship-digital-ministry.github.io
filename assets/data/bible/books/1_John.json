@@ -1,6 +1,6 @@
 {
   "book": "1_John",
-  "total_references": 1111,
+  "total_references": 1114,
   "chapters": {
     "2": [
       {
@@ -13544,6 +13544,21 @@
       {
         "book": "1 John",
         "chapter": 1,
+        "verse": 1,
+        "reference_text": "1 John 1:1",
+        "context": "Just read 1 John chapter number one",
+        "is_implicit": false,
+        "video_id": "kys_Aov71eo",
+        "start_time": 434.3399963378906,
+        "end_time": 505.05999755859375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=434"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
         "verse": 2,
         "reference_text": "1 John 1:2",
         "context": "John giving this eyewitness account in 1 John, these first four verses that are our focus of study this morning",
@@ -15089,6 +15104,21 @@
       {
         "book": "1 John",
         "chapter": 1,
+        "verse": 8,
+        "reference_text": "1 John 1:8",
+        "context": "The Bible says if any man says that he does not have sin, he is a liar",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 434.3399963378906,
+        "end_time": 505.05999755859375,
+        "point_summary": "Claiming sinless perfection is self-deception that Scripture directly refutes, since 1 John 1:8 declares any man who denies having sin is a liar who makes God a liar.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=434"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
         "verse": 9,
         "reference_text": "1 John 1:9",
         "context": "if we confess, according to 1 John 1 and verse number 9, he promises to cleanse us and to forgive us",
@@ -16060,6 +16090,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
         "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2448"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
+        "verse": 9,
+        "reference_text": "1 John 1:9",
+        "context": "if we sin, we confess our sins that he is faithful and just to forgive us and to cleanse us from all unrighteousness",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1281.2400207519531,
+        "end_time": 1343.1200103759766,
+        "point_summary": "Confession and forsaking of sin bring mercy, because God—though never approving of sin or mistaking His longsuffering for approval—is faithful and just to forgive and cleanse from all unrighteousness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1281"
       },
       {
         "book": "1 John",
@@ -33347,6 +33392,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2156"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "1 John 1:8",
+      "context": "The Bible says if any man says that he does not have sin, he is a liar",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 434.3399963378906,
+      "end_time": 505.05999755859375,
+      "point_summary": "Claiming sinless perfection is self-deception that Scripture directly refutes, since 1 John 1:8 declares any man who denies having sin is a liar who makes God a liar.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=434"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 1,
+      "reference_text": "1 John 1:1",
+      "context": "Just read 1 John chapter number one",
+      "is_implicit": false,
+      "video_id": "kys_Aov71eo",
+      "start_time": 434.3399963378906,
+      "end_time": 505.05999755859375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=434"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 9,
+      "reference_text": "1 John 1:9",
+      "context": "if we sin, we confess our sins that he is faithful and just to forgive us and to cleanse us from all unrighteousness",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1281.2400207519531,
+      "end_time": 1343.1200103759766,
+      "point_summary": "Confession and forsaking of sin bring mercy, because God—though never approving of sin or mistaking His longsuffering for approval—is faithful and just to forgive and cleanse from all unrighteousness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1281"
     }
   ]
 }

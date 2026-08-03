@@ -1,6 +1,6 @@
 {
   "book": "Colossians",
-  "total_references": 691,
+  "total_references": 693,
   "chapters": {
     "3": [
       {
@@ -1382,6 +1382,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Stand In Awe, And Sin Not\"  Psalm 4:4",
         "url": "https://www.youtube.com/watch?v=bmFntBlBAtY&t=191"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 3,
+        "verse": 5,
+        "reference_text": "Colossians 3:5",
+        "context": "mortify their members",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 367.3800048828125,
+        "end_time": 434.3399963378906,
+        "point_summary": "Mortifying the flesh — the Colossians command to \"put off the old man\" — is presented as the believer's active, ongoing duty in the war against sin until glorification removes its very presence.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
       },
       {
         "book": "Colossians",
@@ -10375,6 +10390,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Were All Filled With The Holy Ghost\"  Acts 4:31",
         "url": "https://www.youtube.com/watch?v=zIV9O3o8Ckg&t=2283"
+      },
+      {
+        "book": "Colossians",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Colossians",
+        "context": "putting off the old man and putting on the new man",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 367.3800048828125,
+        "end_time": 434.3399963378906,
+        "point_summary": "Colossians supplies the principle of \"putting off the old man and putting on the new man,\" paired with the command to mortify the members, as the doctrinal grounding for the call to awake to righteousness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
       }
     ]
   },
@@ -20743,6 +20773,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=3028"
+    },
+    {
+      "book": "Colossians",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Colossians",
+      "context": "putting off the old man and putting on the new man",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 367.3800048828125,
+      "end_time": 434.3399963378906,
+      "point_summary": "Colossians supplies the principle of \"putting off the old man and putting on the new man,\" paired with the command to mortify the members, as the doctrinal grounding for the call to awake to righteousness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 3,
+      "verse": 5,
+      "reference_text": "Colossians 3:5",
+      "context": "mortify their members",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 367.3800048828125,
+      "end_time": 434.3399963378906,
+      "point_summary": "Mortifying the flesh — the Colossians command to \"put off the old man\" — is presented as the believer's active, ongoing duty in the war against sin until glorification removes its very presence.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
     }
   ]
 }
