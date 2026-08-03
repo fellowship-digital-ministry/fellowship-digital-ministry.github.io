@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1821,
+  "total_references": 1822,
   "chapters": {
     "4": [
       {
@@ -27103,6 +27103,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Examine Your Spiritual Maturity\" I John 2:12-14",
         "url": "https://www.youtube.com/watch?v=KkcM-CWB5g0&t=1565"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 2,
+        "verse": 11,
+        "reference_text": "2 Corinthians 2:11",
+        "context": "He tells us that we're not ignorant of his devices",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1098.6000061035156,
+        "end_time": 1155.1199951171875,
+        "point_summary": "Believers are not ignorant of Satan's devices, and that awareness — like Joseph's recognition of the seduction — is a God-given provision enabling vigilance against persistent temptation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1098"
       },
       {
         "book": "2 Corinthians",
@@ -54663,6 +54678,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=636"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 2,
+      "verse": 11,
+      "reference_text": "2 Corinthians 2:11",
+      "context": "He tells us that we're not ignorant of his devices",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1098.6000061035156,
+      "end_time": 1155.1199951171875,
+      "point_summary": "Believers are not ignorant of Satan's devices, and that awareness — like Joseph's recognition of the seduction — is a God-given provision enabling vigilance against persistent temptation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1098"
     }
   ]
 }

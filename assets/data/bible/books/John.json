@@ -1,6 +1,6 @@
 {
   "book": "John",
-  "total_references": 2892,
+  "total_references": 2895,
   "chapters": {
     "14": [
       {
@@ -9919,6 +9919,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Consequences Of Doubt",
         "url": "https://www.youtube.com/watch?v=fbc-2026-03-18mw-consequences-of-doubt&t=2164"
+      },
+      {
+        "book": "John",
+        "chapter": 3,
+        "verse": 30,
+        "reference_text": "John 3:30",
+        "context": "he must increase, and we must decrease",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 864.0199890136719,
+        "end_time": 923.6199951171875,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=864"
       },
       {
         "book": "John",
@@ -22653,6 +22668,21 @@
       {
         "book": "John",
         "chapter": 15,
+        "verse": 4,
+        "reference_text": "Abide in me",
+        "context": "Abide in me Jesus said",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2947.6199951171875,
+        "end_time": 3016.3799953460693,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2947"
+      },
+      {
+        "book": "John",
+        "chapter": 15,
         "verse": 5,
         "reference_text": "John 15:5",
         "context": "Without me, you can do nothing, John 15.",
@@ -23564,6 +23594,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
         "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=2047"
+      },
+      {
+        "book": "John",
+        "chapter": 15,
+        "verse": 5,
+        "reference_text": "John 15:5",
+        "context": "Jesus said without me you can do nothing",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2755.6199951171875,
+        "end_time": 2814.6199951171875,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2755"
       },
       {
         "book": "John",
@@ -86807,6 +86852,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2861"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 30,
+      "reference_text": "John 3:30",
+      "context": "he must increase, and we must decrease",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 864.0199890136719,
+      "end_time": 923.6199951171875,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=864"
+    },
+    {
+      "book": "John",
+      "chapter": 15,
+      "verse": 5,
+      "reference_text": "John 15:5",
+      "context": "Jesus said without me you can do nothing",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2755.6199951171875,
+      "end_time": 2814.6199951171875,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2755"
+    },
+    {
+      "book": "John",
+      "chapter": 15,
+      "verse": 4,
+      "reference_text": "Abide in me",
+      "context": "Abide in me Jesus said",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2947.6199951171875,
+      "end_time": 3016.3799953460693,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2947"
     }
   ]
 }

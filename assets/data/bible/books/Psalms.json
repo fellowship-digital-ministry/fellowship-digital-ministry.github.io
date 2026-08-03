@@ -1,6 +1,6 @@
 {
   "book": "Psalms",
-  "total_references": 2684,
+  "total_references": 2692,
   "chapters": {
     "90": [
       {
@@ -1941,6 +1941,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Peace Of God\"  John 14:27",
         "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1478"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 19,
+        "verse": 1,
+        "reference_text": "Psalm 19",
+        "context": "I'll be preaching this evening from Psalm 19",
+        "is_implicit": false,
+        "video_id": "kys_Aov71eo",
+        "start_time": 304.1400146484375,
+        "end_time": 367.3800048828125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=304"
       },
       {
         "book": "Psalms",
@@ -18766,6 +18781,21 @@
       {
         "book": "Psalms",
         "chapter": null,
+        "verse": null,
+        "reference_text": "Psalms",
+        "context": "this idea in the Psalms of stand in awe",
+        "is_implicit": false,
+        "video_id": "kys_Aov71eo",
+        "start_time": 748.0199890136719,
+        "end_time": 806.8999938964844,
+        "point_summary": "Standing in awe of God in His rightful place — high, holy, and lifted up — directly shapes how believers live, moving them toward righteousness and away from sin.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=748"
+      },
+      {
+        "book": "Psalms",
+        "chapter": null,
         "verse": 2,
         "reference_text": "Psalm 2",
         "context": "We find in verse 2, let Israel now say that His mercy endureth forever. Let the house of Aaron now say that His mercy endureth forever. Let them now that fear the Lord say that His mercy endureth forever.",
@@ -21156,6 +21186,21 @@
       {
         "book": "Psalms",
         "chapter": 116,
+        "verse": 11,
+        "reference_text": "Psalms 116:11",
+        "context": "the Bible says all men are liars",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1218.0000171661377,
+        "end_time": 1281.2400207519531,
+        "point_summary": "Human tendency to minimize sin as \"just a little white lie\" is rebuked by Scripture's own declaration that all men are liars, making every lie a serious offense against God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1218"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 116,
         "verse": 12,
         "reference_text": "What shall I render unto the Lord for all His benefits toward me?",
         "context": "But I want you to notice the question that the psalmist asks in verse number 12. What shall I render unto the Lord for all His benefits toward me?",
@@ -21589,6 +21634,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Let Me Not Wander From Thy Commandments",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-22pm-let-me-not-wander-from-thy-commandments&t=1087"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 16,
+        "verse": 11,
+        "reference_text": "Psalms 16:11",
+        "context": "in his presence is fullness of joy",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1952.4600219726562,
+        "end_time": 2021.8400268554688,
+        "point_summary": "In God's presence alone is found fullness of joy, making every sin that promises pleasure ultimately leave a person wanting, hurting, and filled with regret.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1952"
       }
     ],
     "25": [
@@ -33095,6 +33155,36 @@
       {
         "book": "Psalms",
         "chapter": 4,
+        "verse": 4,
+        "reference_text": "Psalm 4:4",
+        "context": "Psalm four, in verse number four, when he said stand in awe and sin not",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 434.3399963378906,
+        "end_time": 505.05999755859375,
+        "point_summary": "Psalm 4:4's \"stand in awe and sin not\" is cited as a parallel Old Testament voice confirming the New Testament call to ongoing vigilance against sin short of sinless perfection.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=434"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 4,
+        "verse": 4,
+        "reference_text": "Psalm 4:4",
+        "context": "we stand in awe of who? Of God and sin not",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1476.7200317382812,
+        "end_time": 1543.9200134277344,
+        "point_summary": "Standing in awe of God—as Psalm 4:4 calls for—is presented as the very posture that kept Joseph from sinning against a holy God rather than merely against Potiphar.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1476"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 4,
         "verse": 5,
         "reference_text": "Psalm 4:5",
         "context": "In Psalm 4 in verse number 5",
@@ -34971,6 +35061,21 @@
       {
         "book": "Psalms",
         "chapter": 66,
+        "verse": 18,
+        "reference_text": "Psalms 66:18",
+        "context": "if I regard iniquity in my heart, the Lord will not hear me",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 686.1799926757812,
+        "end_time": 748.0199890136719,
+        "point_summary": "Cherished iniquity in the heart blocks God's hearing of prayer, making unconfessed sin a direct hindrance to the believer's fellowship with God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=686"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 66,
         "verse": 19,
         "reference_text": "Psalm 66:19",
         "context": "But verily God hath heard me. He hath attended to the voice of my prayer",
@@ -35331,6 +35436,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Praise With Song",
         "url": "https://www.youtube.com/watch?v=fbc-2025-10-29mw-praise-with-song&t=1101"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 22,
+        "verse": 3,
+        "reference_text": "Psalms 22:3",
+        "context": "our God inhabits the praises of his people",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 2492.6199951171875,
+        "end_time": 2553.6199951171875,
+        "point_summary": "God's presence with Joseph in prison is grounded in the truth that God inhabits the praises of his people, making his nearness experiential and real even in suffering.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2492"
       },
       {
         "book": "Psalms",
@@ -80757,6 +80877,126 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2407"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 19,
+      "verse": 1,
+      "reference_text": "Psalm 19",
+      "context": "I'll be preaching this evening from Psalm 19",
+      "is_implicit": false,
+      "video_id": "kys_Aov71eo",
+      "start_time": 304.1400146484375,
+      "end_time": 367.3800048828125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=304"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 4,
+      "verse": 4,
+      "reference_text": "Psalm 4:4",
+      "context": "Psalm four, in verse number four, when he said stand in awe and sin not",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 434.3399963378906,
+      "end_time": 505.05999755859375,
+      "point_summary": "Psalm 4:4's \"stand in awe and sin not\" is cited as a parallel Old Testament voice confirming the New Testament call to ongoing vigilance against sin short of sinless perfection.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=434"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 66,
+      "verse": 18,
+      "reference_text": "Psalms 66:18",
+      "context": "if I regard iniquity in my heart, the Lord will not hear me",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 686.1799926757812,
+      "end_time": 748.0199890136719,
+      "point_summary": "Cherished iniquity in the heart blocks God's hearing of prayer, making unconfessed sin a direct hindrance to the believer's fellowship with God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=686"
+    },
+    {
+      "book": "Psalms",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Psalms",
+      "context": "this idea in the Psalms of stand in awe",
+      "is_implicit": false,
+      "video_id": "kys_Aov71eo",
+      "start_time": 748.0199890136719,
+      "end_time": 806.8999938964844,
+      "point_summary": "Standing in awe of God in His rightful place — high, holy, and lifted up — directly shapes how believers live, moving them toward righteousness and away from sin.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=748"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 116,
+      "verse": 11,
+      "reference_text": "Psalms 116:11",
+      "context": "the Bible says all men are liars",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1218.0000171661377,
+      "end_time": 1281.2400207519531,
+      "point_summary": "Human tendency to minimize sin as \"just a little white lie\" is rebuked by Scripture's own declaration that all men are liars, making every lie a serious offense against God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1218"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 4,
+      "verse": 4,
+      "reference_text": "Psalm 4:4",
+      "context": "we stand in awe of who? Of God and sin not",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1476.7200317382812,
+      "end_time": 1543.9200134277344,
+      "point_summary": "Standing in awe of God—as Psalm 4:4 calls for—is presented as the very posture that kept Joseph from sinning against a holy God rather than merely against Potiphar.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1476"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 16,
+      "verse": 11,
+      "reference_text": "Psalms 16:11",
+      "context": "in his presence is fullness of joy",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1952.4600219726562,
+      "end_time": 2021.8400268554688,
+      "point_summary": "In God's presence alone is found fullness of joy, making every sin that promises pleasure ultimately leave a person wanting, hurting, and filled with regret.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1952"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 22,
+      "verse": 3,
+      "reference_text": "Psalms 22:3",
+      "context": "our God inhabits the praises of his people",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 2492.6199951171875,
+      "end_time": 2553.6199951171875,
+      "point_summary": "God's presence with Joseph in prison is grounded in the truth that God inhabits the praises of his people, making his nearness experiential and real even in suffering.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2492"
     }
   ]
 }

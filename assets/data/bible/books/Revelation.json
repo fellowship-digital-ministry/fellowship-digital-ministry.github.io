@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1578,
+  "total_references": 1579,
   "chapters": {
     "3": [
       {
@@ -22869,6 +22869,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Desiring God's Approval\"  II Corinthians 10:1-18",
         "url": "https://www.youtube.com/watch?v=M2Y9NUNOjZA&t=2224"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 21,
+        "verse": 8,
+        "reference_text": "Revelation 21:8",
+        "context": "all liars shall have their part in the lake which burneth with fire and brimstone",
+        "is_implicit": true,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1218.0000171661377,
+        "end_time": 1281.2400207519531,
+        "point_summary": "Revelation 21:8 is cited to underscore that lying, however minimized as trivial, carries eternal consequence — \"all liars\" face the lake of fire — making sin an offense of genuine severity against a holy God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1218"
       },
       {
         "book": "Revelation",
@@ -47391,6 +47406,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2284"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 21,
+      "verse": 8,
+      "reference_text": "Revelation 21:8",
+      "context": "all liars shall have their part in the lake which burneth with fire and brimstone",
+      "is_implicit": true,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1218.0000171661377,
+      "end_time": 1281.2400207519531,
+      "point_summary": "Revelation 21:8 is cited to underscore that lying, however minimized as trivial, carries eternal consequence — \"all liars\" face the lake of fire — making sin an offense of genuine severity against a holy God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1218"
     }
   ]
 }

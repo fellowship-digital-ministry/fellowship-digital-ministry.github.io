@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 968,
+  "total_references": 969,
   "chapters": {
     "3": [
       {
@@ -14288,6 +14288,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Lord Was With Joseph - Part 2\" Genesis 39:7-19",
         "url": "https://www.youtube.com/watch?v=MdhI7Kwc2nw&t=1133"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 2,
+        "verse": 22,
+        "reference_text": "2 Timothy 2:22",
+        "context": "flee also youthful lust",
+        "is_implicit": false,
+        "video_id": "kys_Aov71eo",
+        "start_time": 1892.5800170898438,
+        "end_time": 1952.4600219726562,
+        "point_summary": "Fleeing youthful lusts, like fleeing fornication, is a literal command to physically remove oneself from sinful situations rather than negotiate with temptation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+        "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1892"
       },
       {
         "book": "2 Timothy",
@@ -29055,6 +29070,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=512"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 2,
+      "verse": 22,
+      "reference_text": "2 Timothy 2:22",
+      "context": "flee also youthful lust",
+      "is_implicit": false,
+      "video_id": "kys_Aov71eo",
+      "start_time": 1892.5800170898438,
+      "end_time": 1952.4600219726562,
+      "point_summary": "Fleeing youthful lusts, like fleeing fornication, is a literal command to physically remove oneself from sinful situations rather than negotiate with temptation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
+      "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1892"
     }
   ]
 }
