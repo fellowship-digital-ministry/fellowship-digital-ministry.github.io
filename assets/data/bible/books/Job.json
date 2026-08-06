@@ -1,6 +1,6 @@
 {
   "book": "Job",
-  "total_references": 120,
+  "total_references": 122,
   "chapters": {
     "16": [
       {
@@ -1064,6 +1064,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Have Ye Not Read?\"  Matthew 12:1-14",
         "url": "https://www.youtube.com/watch?v=xI5uCsuW9eg&t=2574"
+      },
+      {
+        "book": "Job",
+        "chapter": 23,
+        "verse": 12,
+        "reference_text": "Job 23:12",
+        "context": "Job said it this way in Job 23 in verse number 12",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 1075.7999877929688,
+        "end_time": 1149.8800048828125,
+        "point_summary": "Job's word being esteemed above necessary food illustrates, amid all his suffering, that Scripture is more to be desired than even gold or daily sustenance.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1075"
+      },
+      {
+        "book": "Job",
+        "chapter": 23,
+        "verse": 12,
+        "reference_text": "Job 23:12",
+        "context": "neither have I gone back from the commandment of his lips. I have esteemed the words of his mouth more than my necessary food",
+        "is_implicit": true,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 1075.7999877929688,
+        "end_time": 1149.8800048828125,
+        "point_summary": "Job's word being more precious than gold is reinforced by Job's own testimony that he esteemed Scripture above necessary food, illustrating that God's people should desire the Word above all earthly provision.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1075"
       }
     ],
     "13": [
@@ -3635,6 +3665,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1132"
+    },
+    {
+      "book": "Job",
+      "chapter": 23,
+      "verse": 12,
+      "reference_text": "Job 23:12",
+      "context": "Job said it this way in Job 23 in verse number 12",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 1075.7999877929688,
+      "end_time": 1149.8800048828125,
+      "point_summary": "Job's word being esteemed above necessary food illustrates, amid all his suffering, that Scripture is more to be desired than even gold or daily sustenance.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1075"
+    },
+    {
+      "book": "Job",
+      "chapter": 23,
+      "verse": 12,
+      "reference_text": "Job 23:12",
+      "context": "neither have I gone back from the commandment of his lips. I have esteemed the words of his mouth more than my necessary food",
+      "is_implicit": true,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 1075.7999877929688,
+      "end_time": 1149.8800048828125,
+      "point_summary": "Job's word being more precious than gold is reinforced by Job's own testimony that he esteemed Scripture above necessary food, illustrating that God's people should desire the Word above all earthly provision.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1075"
     }
   ]
 }
