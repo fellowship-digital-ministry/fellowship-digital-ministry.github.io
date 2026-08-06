@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 704,
+  "total_references": 705,
   "chapters": {
     "2": [
       {
@@ -4988,6 +4988,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Were All Filled With The Holy Ghost\"  Acts 4:31",
         "url": "https://www.youtube.com/watch?v=zIV9O3o8Ckg&t=2283"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
+        "verse": null,
+        "reference_text": "Galatians 5",
+        "context": "talking about liberty in the book of Galatians, you can read in chapter 5",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 1806.6399755477905,
+        "end_time": 1877.0399780273438,
+        "point_summary": "Galatians 5 is cited alongside Romans 6 to affirm that believers have been granted liberty from bondage to sin and must not be entangled in it again.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1806"
       },
       {
         "book": "Galatians",
@@ -21137,6 +21152,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3092"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": null,
+      "reference_text": "Galatians 5",
+      "context": "talking about liberty in the book of Galatians, you can read in chapter 5",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 1806.6399755477905,
+      "end_time": 1877.0399780273438,
+      "point_summary": "Galatians 5 is cited alongside Romans 6 to affirm that believers have been granted liberty from bondage to sin and must not be entangled in it again.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1806"
     }
   ]
 }

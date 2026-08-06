@@ -1,6 +1,6 @@
 {
   "book": "Joshua",
-  "total_references": 327,
+  "total_references": 329,
   "chapters": {
     "19": [
       {
@@ -955,6 +955,21 @@
       {
         "book": "Joshua",
         "chapter": 1,
+        "verse": null,
+        "reference_text": "Joshua 1",
+        "context": "Notice in Joshua 1 and I'll close with this in Joshua 1. Notice what the bible says in Joshua 1",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2262.0799865722656,
+        "end_time": 2326.239990234375,
+        "point_summary": "God's command to Joshua to meditate on the law day and night so as to observe and do all that is written therein is presented as the biblical pattern for humble, obedient leadership.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2262"
+      },
+      {
+        "book": "Joshua",
+        "chapter": 1,
         "verse": 1,
         "reference_text": "Joshua 1:1",
         "context": "In fact, in verse number one, the Bible says now after the death of Moses, now this is a simple question this evening, but who is the human penman for the first five books of the Bible? Moses,",
@@ -1821,6 +1836,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2096"
+      },
+      {
+        "book": "Joshua",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "Joshua 1:8",
+        "context": "This book of the law shall not depart out of thy mouth but thou shalt meditate therein day and night. Why? That thou mayest observe to do according to all that is written therein. All that is written therein. He says for then thou shalt make thy way prosperous and then thou shalt have good success.",
+        "is_implicit": true,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2326.239990234375,
+        "end_time": 2407.639992713928,
+        "point_summary": "Prosperity and success in Joshua 1:8 are presented as conditional outcomes—the \"then\"—that follow only after continual meditation on and obedience to God's Word.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2326"
       },
       {
         "book": "Joshua",
@@ -9855,6 +9885,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2096"
+    },
+    {
+      "book": "Joshua",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Joshua 1",
+      "context": "Notice in Joshua 1 and I'll close with this in Joshua 1. Notice what the bible says in Joshua 1",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2262.0799865722656,
+      "end_time": 2326.239990234375,
+      "point_summary": "God's command to Joshua to meditate on the law day and night so as to observe and do all that is written therein is presented as the biblical pattern for humble, obedient leadership.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2262"
+    },
+    {
+      "book": "Joshua",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Joshua 1:8",
+      "context": "This book of the law shall not depart out of thy mouth but thou shalt meditate therein day and night. Why? That thou mayest observe to do according to all that is written therein. All that is written therein. He says for then thou shalt make thy way prosperous and then thou shalt have good success.",
+      "is_implicit": true,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2326.239990234375,
+      "end_time": 2407.639992713928,
+      "point_summary": "Prosperity and success in Joshua 1:8 are presented as conditional outcomes—the \"then\"—that follow only after continual meditation on and obedience to God's Word.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2326"
     }
   ]
 }

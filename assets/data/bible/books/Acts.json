@@ -1,6 +1,6 @@
 {
   "book": "Acts",
-  "total_references": 2225,
+  "total_references": 2226,
   "chapters": {
     "12": [
       {
@@ -2419,6 +2419,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=394"
+      },
+      {
+        "book": "Acts",
+        "chapter": 20,
+        "verse": null,
+        "reference_text": "Acts 20",
+        "context": "Paul said in Acts 20 that he was going to serve the Lord in all humility, in all humility in Acts 20",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2262.0799865722656,
+        "end_time": 2326.239990234375,
+        "point_summary": "Paul's declaration in Acts 20 that he served the Lord with all humility is cited as evidence that true humility flows from a proper relationship to the Word of God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2262"
       },
       {
         "book": "Acts",
@@ -66813,6 +66828,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3016"
+    },
+    {
+      "book": "Acts",
+      "chapter": 20,
+      "verse": null,
+      "reference_text": "Acts 20",
+      "context": "Paul said in Acts 20 that he was going to serve the Lord in all humility, in all humility in Acts 20",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2262.0799865722656,
+      "end_time": 2326.239990234375,
+      "point_summary": "Paul's declaration in Acts 20 that he served the Lord with all humility is cited as evidence that true humility flows from a proper relationship to the Word of God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2262"
     }
   ]
 }

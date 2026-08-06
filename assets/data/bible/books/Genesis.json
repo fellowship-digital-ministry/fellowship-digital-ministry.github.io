@@ -1,6 +1,6 @@
 {
   "book": "Genesis",
-  "total_references": 4512,
+  "total_references": 4513,
   "chapters": {
     "37": [
       {
@@ -30614,6 +30614,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part One",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=931"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 1,
+        "verse": 1,
+        "reference_text": "Genesis",
+        "context": "write out the book of Genesis so you can have a copy of it",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2135.5999755859375,
+        "end_time": 2199.9199829101562,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2135"
       },
       {
         "book": "Genesis",
@@ -135467,6 +135482,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3016"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 1,
+      "verse": 1,
+      "reference_text": "Genesis",
+      "context": "write out the book of Genesis so you can have a copy of it",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2135.5999755859375,
+      "end_time": 2199.9199829101562,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2135"
     }
   ]
 }

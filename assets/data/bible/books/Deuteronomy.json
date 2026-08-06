@@ -1,6 +1,6 @@
 {
   "book": "Deuteronomy",
-  "total_references": 370,
+  "total_references": 375,
   "chapters": {
     "33": [
       {
@@ -914,6 +914,21 @@
       {
         "book": "Deuteronomy",
         "chapter": 17,
+        "verse": null,
+        "reference_text": "Deuteronomy chapter 17",
+        "context": "I want you to look in Deuteronomy chapter 17. Deuteronomy chapter 17 is a passage of scripture that is written as they're preparing to go into the land that God had prepared for them.",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2004.719970703125,
+        "end_time": 2071.2799682617188,
+        "point_summary": "Deuteronomy 17's instructions for Israel's future kings illustrate that God, foreknowing his people's desires, provided guardrails against conforming to surrounding nations' ways.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2004"
+      },
+      {
+        "book": "Deuteronomy",
+        "chapter": 17,
         "verse": 1,
         "reference_text": "Deuteronomy 17:1",
         "context": "thou shalt not sacrifice unto the Lord thy God any bullock or sheep wherein is blemish or any evil favoredness, for that is an abomination to the Lord thy God",
@@ -1064,6 +1079,21 @@
       {
         "book": "Deuteronomy",
         "chapter": 17,
+        "verse": 14,
+        "reference_text": "Deuteronomy 17:14",
+        "context": "verse 14 says that but I want you to notice what God tells us in verse 18 and 19",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2071.2799682617188,
+        "end_time": 2135.5999755859375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2071"
+      },
+      {
+        "book": "Deuteronomy",
+        "chapter": 17,
         "verse": 15,
         "reference_text": "Deuteronomy 17:15",
         "context": "Thou shalt in any wise set him king over thee, whom the Lord thy God shall choose. One from among the brethren shalt thou set king over thee, thou mayest not set a stranger over thee, which is not thy brother.",
@@ -1154,6 +1184,21 @@
       {
         "book": "Deuteronomy",
         "chapter": 17,
+        "verse": 18,
+        "reference_text": "Deuteronomy 17:18",
+        "context": "And it shall be in verse 18 of Deuteronomy 17 and it shall be when he sitteth upon the throne of his kingdom",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2071.2799682617188,
+        "end_time": 2135.5999755859375,
+        "point_summary": "The king's personal obligation to hand-copy the law illustrates that God's Word is a defense precisely because it must be individually internalized, not merely delegated to another.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2071"
+      },
+      {
+        "book": "Deuteronomy",
+        "chapter": 17,
         "verse": 19,
         "reference_text": "Deuteronomy 17:19",
         "context": "In chapter 17 in verse number 19 of the book of Deuteronomy, it's so often repeated I could look at a whole host of verses throughout the entirety of the book of Deuteronomy. It's repeated over and over, but look at this one as our final one this evening. In Deuteronomy 17 in verse number 19, the Bible says, and it shall be with him and he shall read therein all the days of his life that he may learn to fear the Lord his God, to keep all the words of this law and these statutes, to do them.",
@@ -1165,6 +1210,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Two Purposes For Learning\" Matthew 7:29",
         "url": "https://www.youtube.com/watch?v=33dEESPc4gk&t=552"
+      },
+      {
+        "book": "Deuteronomy",
+        "chapter": 17,
+        "verse": 19,
+        "reference_text": "Deuteronomy 17:19",
+        "context": "but I want you to notice what God tells us in verse 18 and 19 with regard to this thought tonight that the Word of God is our defense",
+        "is_implicit": false,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2071.2799682617188,
+        "end_time": 2135.5999755859375,
+        "point_summary": "God's Word serves as a defense against sin, illustrated by the command that Israel's king personally write out a copy of the law so that its truth would be deeply impressed upon him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2071"
+      },
+      {
+        "book": "Deuteronomy",
+        "chapter": 17,
+        "verse": 19,
+        "reference_text": "Deuteronomy 17:19",
+        "context": "it shall be with him and he shall read there in all the days of his life that he may learn to fear the Lord his God to keep all the words of this law in these statutes to do them",
+        "is_implicit": true,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2135.5999755859375,
+        "end_time": 2199.9199829101562,
+        "point_summary": "God's command that Israel's king personally write and daily read the law demonstrates that Scripture is meant to be the constant, humbling guide that keeps leaders from pride and deviation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2135"
       }
     ],
     "6": [
@@ -11149,6 +11224,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Wilt Thou Hearken",
       "url": "https://www.youtube.com/watch?v=fbc-2025-12-03mw-wilt-thou-hearken&t=128"
+    },
+    {
+      "book": "Deuteronomy",
+      "chapter": 17,
+      "verse": null,
+      "reference_text": "Deuteronomy chapter 17",
+      "context": "I want you to look in Deuteronomy chapter 17. Deuteronomy chapter 17 is a passage of scripture that is written as they're preparing to go into the land that God had prepared for them.",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2004.719970703125,
+      "end_time": 2071.2799682617188,
+      "point_summary": "Deuteronomy 17's instructions for Israel's future kings illustrate that God, foreknowing his people's desires, provided guardrails against conforming to surrounding nations' ways.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2004"
+    },
+    {
+      "book": "Deuteronomy",
+      "chapter": 17,
+      "verse": 14,
+      "reference_text": "Deuteronomy 17:14",
+      "context": "verse 14 says that but I want you to notice what God tells us in verse 18 and 19",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2071.2799682617188,
+      "end_time": 2135.5999755859375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2071"
+    },
+    {
+      "book": "Deuteronomy",
+      "chapter": 17,
+      "verse": 18,
+      "reference_text": "Deuteronomy 17:18",
+      "context": "And it shall be in verse 18 of Deuteronomy 17 and it shall be when he sitteth upon the throne of his kingdom",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2071.2799682617188,
+      "end_time": 2135.5999755859375,
+      "point_summary": "The king's personal obligation to hand-copy the law illustrates that God's Word is a defense precisely because it must be individually internalized, not merely delegated to another.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2071"
+    },
+    {
+      "book": "Deuteronomy",
+      "chapter": 17,
+      "verse": 19,
+      "reference_text": "Deuteronomy 17:19",
+      "context": "but I want you to notice what God tells us in verse 18 and 19 with regard to this thought tonight that the Word of God is our defense",
+      "is_implicit": false,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2071.2799682617188,
+      "end_time": 2135.5999755859375,
+      "point_summary": "God's Word serves as a defense against sin, illustrated by the command that Israel's king personally write out a copy of the law so that its truth would be deeply impressed upon him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2071"
+    },
+    {
+      "book": "Deuteronomy",
+      "chapter": 17,
+      "verse": 19,
+      "reference_text": "Deuteronomy 17:19",
+      "context": "it shall be with him and he shall read there in all the days of his life that he may learn to fear the Lord his God to keep all the words of this law in these statutes to do them",
+      "is_implicit": true,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2135.5999755859375,
+      "end_time": 2199.9199829101562,
+      "point_summary": "God's command that Israel's king personally write and daily read the law demonstrates that Scripture is meant to be the constant, humbling guide that keeps leaders from pride and deviation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2135"
     }
   ]
 }

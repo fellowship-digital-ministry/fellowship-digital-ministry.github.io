@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 583,
+  "total_references": 584,
   "chapters": {
     "3": [
       {
@@ -6767,6 +6767,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Restoring Strained Relationships\" II Corinthians 7:2-16",
         "url": "https://www.youtube.com/watch?v=odsyejJ4a-0&t=2859"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 13,
+        "verse": 10,
+        "reference_text": "Proverbs 13:10",
+        "context": "Only by pride cometh contention",
+        "is_implicit": true,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 2199.9199829101562,
+        "end_time": 2262.0799865722656,
+        "point_summary": "Pride's destructive power is underscored by Proverbs 13:10 (\"only by pride cometh contention\"), as the king's command to personally copy and read the law is presented as the safeguard against a lifted heart.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2199"
       },
       {
         "book": "Proverbs",
@@ -17551,6 +17566,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2407"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 13,
+      "verse": 10,
+      "reference_text": "Proverbs 13:10",
+      "context": "Only by pride cometh contention",
+      "is_implicit": true,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 2199.9199829101562,
+      "end_time": 2262.0799865722656,
+      "point_summary": "Pride's destructive power is underscored by Proverbs 13:10 (\"only by pride cometh contention\"), as the king's command to personally copy and read the law is presented as the safeguard against a lifted heart.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2199"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Exodus",
-  "total_references": 925,
+  "total_references": 926,
   "chapters": {
     "14": [
       {
@@ -9934,6 +9934,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Crucify Your Flesh\" Colossians 3:5-7",
         "url": "https://www.youtube.com/watch?v=QuP5gIgrnmo&t=1426"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 20,
+        "verse": 17,
+        "reference_text": "Exodus 20:17",
+        "context": "I wouldn't know that I was guilty of covetousness unless the law said thou shalt not covet",
+        "is_implicit": true,
+        "video_id": "IN5r7ZtpkKY",
+        "start_time": 1604.5999755859375,
+        "end_time": 1670.5999755859375,
+        "point_summary": "Covetousness, cited from the tenth commandment, illustrates Paul's point in Romans 7 that the law reveals sin — without it, one would not recognize guilt.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+        "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1604"
       }
     ],
     "34": [
@@ -27831,6 +27846,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2319"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 20,
+      "verse": 17,
+      "reference_text": "Exodus 20:17",
+      "context": "I wouldn't know that I was guilty of covetousness unless the law said thou shalt not covet",
+      "is_implicit": true,
+      "video_id": "IN5r7ZtpkKY",
+      "start_time": 1604.5999755859375,
+      "end_time": 1670.5999755859375,
+      "point_summary": "Covetousness, cited from the tenth commandment, illustrates Paul's point in Romans 7 that the law reveals sin — without it, one would not recognize guilt.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
+      "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1604"
     }
   ]
 }
