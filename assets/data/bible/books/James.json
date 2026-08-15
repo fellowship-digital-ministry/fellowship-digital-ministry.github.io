@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 888,
+  "total_references": 891,
   "chapters": {
     "4": [
       {
@@ -1037,6 +1037,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
         "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2199"
+      },
+      {
+        "book": "James",
+        "chapter": 4,
+        "verse": 6,
+        "reference_text": "James 4:6",
+        "context": "God resisteth the proud, but giveth grace unto the humble",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1516.47998046875,
+        "end_time": 1586.3599853515625,
+        "point_summary": "God resists the proud but gives grace to the humble (James 4:6), cited as scriptural confirmation that the God Mary magnifies in Luke 1:52 is just in exalting the lowly and putting down the mighty.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1516"
       },
       {
         "book": "James",
@@ -3229,6 +3244,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=590"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 1,
+        "reference_text": "James",
+        "context": "we've been going through the book of James",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1516.47998046875,
+        "end_time": 1586.3599853515625,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1516"
       },
       {
         "book": "James",
@@ -8224,6 +8254,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Peace Of God\"  John 14:27",
         "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2982"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "James 1:22",
+        "context": "and not hearers only",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 3047.459945678711,
+        "end_time": 3096.4999465942383,
+        "point_summary": "Obedience to Scripture—being doers of the word and not hearers only—is the standard by which the congregation is called to respond to what they have heard this morning.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=3047"
       },
       {
         "book": "James",
@@ -26657,6 +26702,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2199"
+    },
+    {
+      "book": "James",
+      "chapter": 4,
+      "verse": 6,
+      "reference_text": "James 4:6",
+      "context": "God resisteth the proud, but giveth grace unto the humble",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1516.47998046875,
+      "end_time": 1586.3599853515625,
+      "point_summary": "God resists the proud but gives grace to the humble (James 4:6), cited as scriptural confirmation that the God Mary magnifies in Luke 1:52 is just in exalting the lowly and putting down the mighty.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1516"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 1,
+      "reference_text": "James",
+      "context": "we've been going through the book of James",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1516.47998046875,
+      "end_time": 1586.3599853515625,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1516"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "James 1:22",
+      "context": "and not hearers only",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 3047.459945678711,
+      "end_time": 3096.4999465942383,
+      "point_summary": "Obedience to Scripture—being doers of the word and not hearers only—is the standard by which the congregation is called to respond to what they have heard this morning.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=3047"
     }
   ]
 }

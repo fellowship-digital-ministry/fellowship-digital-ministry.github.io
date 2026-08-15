@@ -1,6 +1,6 @@
 {
   "book": "1_Timothy",
-  "total_references": 595,
+  "total_references": 598,
   "chapters": {
     "2": [
       {
@@ -1352,6 +1352,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Compelled By Calvary\"  Luke 23:33",
         "url": "https://www.youtube.com/watch?v=Tzzte7ZXQ_E&t=1349"
+      },
+      {
+        "book": "1 Timothy",
+        "chapter": 2,
+        "verse": 4,
+        "reference_text": "1 Timothy 2:4",
+        "context": "His will is that all men would be saved and come to the knowledge of truth",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1899.1199645996094,
+        "end_time": 1971.1599578857422,
+        "point_summary": "God's universal provision for salvation is affirmed—His will that all men be saved and come to the knowledge of truth—yet salvation becomes personal only when each individual can say \"my Savior.\"",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1899"
       },
       {
         "book": "1 Timothy",
@@ -4446,6 +4461,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "They Beckoned Unto Their Partners",
         "url": "https://www.youtube.com/watch?v=fbc-2023-09-24pm-they-beckoned-unto-their-partners&t=461"
+      },
+      {
+        "book": "1 Timothy",
+        "chapter": 1,
+        "verse": 12,
+        "reference_text": "1 Timothy 1:12",
+        "context": "the Bible in first Timothy chapter one and verse number 12, the Bible says this, Paul is rehearsing and he says I thank Christ Jesus our Lord",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 225.47999572753906,
+        "end_time": 293.3999938964844,
+        "point_summary": "Faithfulness to God's call is confirmed when Christ himself counts a servant faithful and enables them for ministry, as Paul declares in this verse claimed as a personal life verse.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=225"
+      },
+      {
+        "book": "1 Timothy",
+        "chapter": 1,
+        "verse": 12,
+        "reference_text": "1 Timothy 1:12",
+        "context": "who hath enabled me for that he counted me faithful putting me into the ministry",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 293.3999938964844,
+        "end_time": 352.9599914550781,
+        "point_summary": "Gratitude for being counted faithful and placed in ministry—voiced here as a personal testimony—grounds the broader point that every believer, not only Paul, has a God-given ministry to fulfill.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=293"
       },
       {
         "book": "1 Timothy",
@@ -17869,6 +17914,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Truths Concerning Our Treasures\"  Matthew 6:19-21",
       "url": "https://www.youtube.com/watch?v=CXg_STSF1ug&t=658"
+    },
+    {
+      "book": "1 Timothy",
+      "chapter": 1,
+      "verse": 12,
+      "reference_text": "1 Timothy 1:12",
+      "context": "the Bible in first Timothy chapter one and verse number 12, the Bible says this, Paul is rehearsing and he says I thank Christ Jesus our Lord",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 225.47999572753906,
+      "end_time": 293.3999938964844,
+      "point_summary": "Faithfulness to God's call is confirmed when Christ himself counts a servant faithful and enables them for ministry, as Paul declares in this verse claimed as a personal life verse.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=225"
+    },
+    {
+      "book": "1 Timothy",
+      "chapter": 1,
+      "verse": 12,
+      "reference_text": "1 Timothy 1:12",
+      "context": "who hath enabled me for that he counted me faithful putting me into the ministry",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 293.3999938964844,
+      "end_time": 352.9599914550781,
+      "point_summary": "Gratitude for being counted faithful and placed in ministry—voiced here as a personal testimony—grounds the broader point that every believer, not only Paul, has a God-given ministry to fulfill.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=293"
+    },
+    {
+      "book": "1 Timothy",
+      "chapter": 2,
+      "verse": 4,
+      "reference_text": "1 Timothy 2:4",
+      "context": "His will is that all men would be saved and come to the knowledge of truth",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1899.1199645996094,
+      "end_time": 1971.1599578857422,
+      "point_summary": "God's universal provision for salvation is affirmed—His will that all men be saved and come to the knowledge of truth—yet salvation becomes personal only when each individual can say \"my Savior.\"",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1899"
     }
   ]
 }

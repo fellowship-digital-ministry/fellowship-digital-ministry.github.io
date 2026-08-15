@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 942,
+  "total_references": 945,
   "chapters": {
     "1": [
       {
@@ -9640,6 +9640,21 @@
       {
         "book": "1 Peter",
         "chapter": 5,
+        "verse": 7,
+        "reference_text": "1 Peter 5:7",
+        "context": "casting all your care upon him for he careth for you",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 2086.3599548339844,
+        "end_time": 2144.8399658203125,
+        "point_summary": "God's intimate knowledge of human frailty grounds the invitation of 1 Peter 5:7—because He knows every care and promises to sustain, believers are called to cast their burdens upon Him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2086"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
         "verse": 8,
         "reference_text": "1 Peter 5:8",
         "context": "Remember, Peter says that in 1 Peter 5, when he likens the enemy to a lion who walketh about seeking whom he may devour.",
@@ -10478,6 +10493,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Coats Of Skins",
         "url": "https://www.youtube.com/watch?v=fbc-081819pm-coats-of-skins&t=1050"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "1 Peter",
+        "context": "Peter would then state that again in his epistle in first Peter, that we as the people of God are to be holy because our God is holy",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1058.2200012207031,
+        "end_time": 1121.6799926757812,
+        "point_summary": "The call to holiness in 1 Peter echoes Leviticus and grounds Mary's praise of God's holy name: God's people must be holy because God himself is holy.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1058"
       }
     ],
     "2": [
@@ -12025,6 +12055,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Consecrated For Service",
         "url": "https://www.youtube.com/watch?v=fbc-2024-09-01pm-consecrated-for-service&t=322"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 2,
+        "verse": 7,
+        "reference_text": "1 Peter 2:7",
+        "context": "Peter would say this in first Peter two, the beginning part of verse number seven, he would say unto you therefore which believe, he is precious",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 225.47999572753906,
+        "end_time": 293.3999938964844,
+        "point_summary": "Christ is precious to all who believe — a truth Peter affirms in the first part of 1 Peter 2:7, cited here as personal testimony that saving faith makes Jesus precious to the believer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=225"
       },
       {
         "book": "1 Peter",
@@ -28275,6 +28320,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1271"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 2,
+      "verse": 7,
+      "reference_text": "1 Peter 2:7",
+      "context": "Peter would say this in first Peter two, the beginning part of verse number seven, he would say unto you therefore which believe, he is precious",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 225.47999572753906,
+      "end_time": 293.3999938964844,
+      "point_summary": "Christ is precious to all who believe — a truth Peter affirms in the first part of 1 Peter 2:7, cited here as personal testimony that saving faith makes Jesus precious to the believer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=225"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "1 Peter",
+      "context": "Peter would then state that again in his epistle in first Peter, that we as the people of God are to be holy because our God is holy",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1058.2200012207031,
+      "end_time": 1121.6799926757812,
+      "point_summary": "The call to holiness in 1 Peter echoes Leviticus and grounds Mary's praise of God's holy name: God's people must be holy because God himself is holy.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1058"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 7,
+      "reference_text": "1 Peter 5:7",
+      "context": "casting all your care upon him for he careth for you",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 2086.3599548339844,
+      "end_time": 2144.8399658203125,
+      "point_summary": "God's intimate knowledge of human frailty grounds the invitation of 1 Peter 5:7—because He knows every care and promises to sustain, believers are called to cast their burdens upon Him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2086"
     }
   ]
 }

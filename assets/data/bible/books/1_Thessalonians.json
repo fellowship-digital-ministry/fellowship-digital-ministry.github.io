@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 742,
+  "total_references": 743,
   "chapters": {
     "5": [
       {
@@ -3977,6 +3977,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Ponder The Promises",
         "url": "https://www.youtube.com/watch?v=fbc-2024-05-01mw-ponder-the-promises&t=1866"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 5,
+        "verse": 24,
+        "reference_text": "First Thessalonians five and verse 24",
+        "context": "First Thessalonians five and verse 24, faithful is he who calleth you who also will do it",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 169.1199951171875,
+        "end_time": 225.47999572753906,
+        "point_summary": "God's faithfulness to call is inseparable from His faithfulness to fulfill, a truth claimed here as a personal life verse anchoring decades of pastoral obedience to divine leading.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=169"
       },
       {
         "book": "1 Thessalonians",
@@ -22275,6 +22290,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=564"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 5,
+      "verse": 24,
+      "reference_text": "First Thessalonians five and verse 24",
+      "context": "First Thessalonians five and verse 24, faithful is he who calleth you who also will do it",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 169.1199951171875,
+      "end_time": 225.47999572753906,
+      "point_summary": "God's faithfulness to call is inseparable from His faithfulness to fulfill, a truth claimed here as a personal life verse anchoring decades of pastoral obedience to divine leading.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=169"
     }
   ]
 }

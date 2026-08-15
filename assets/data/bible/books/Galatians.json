@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 705,
+  "total_references": 707,
   "chapters": {
     "2": [
       {
@@ -6372,6 +6372,21 @@
       {
         "book": "Galatians",
         "chapter": 5,
+        "verse": 16,
+        "reference_text": "Galatians 5:16",
+        "context": "walk in the Spirit and you shall not fulfill the lust of the flesh",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1836.5599632263184,
+        "end_time": 1899.1199645996094,
+        "point_summary": "Walking in the Spirit, cited as God's spiritual provision alongside Scripture and the indwelling Holy Spirit, is presented as a gift that enables believers to overcome the flesh.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
         "verse": 17,
         "reference_text": "Galatians 5:17",
         "context": "for the flesh lusteth against the Spirit, and the Spirit against the flesh, and these are contrary the one to the other, so that ye cannot do the things that ye would.",
@@ -8260,6 +8275,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1603"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 4,
+        "verse": 4,
+        "reference_text": "Galatians 4:4",
+        "context": "at the right time, right? We find that God sent forth his son when the fullness of time was come, God sent forth his son",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 352.9599914550781,
+        "end_time": 414.32000732421875,
+        "point_summary": "God's sovereign timing in the incarnation is underscored by Galatians 4:4's \"fullness of time\" language, framing Mary's reception of the angel's word as the moment God's long-appointed plan arrived.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=352"
       },
       {
         "book": "Galatians",
@@ -21167,6 +21197,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1806"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 4,
+      "verse": 4,
+      "reference_text": "Galatians 4:4",
+      "context": "at the right time, right? We find that God sent forth his son when the fullness of time was come, God sent forth his son",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 352.9599914550781,
+      "end_time": 414.32000732421875,
+      "point_summary": "God's sovereign timing in the incarnation is underscored by Galatians 4:4's \"fullness of time\" language, framing Mary's reception of the angel's word as the moment God's long-appointed plan arrived.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=352"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": 16,
+      "reference_text": "Galatians 5:16",
+      "context": "walk in the Spirit and you shall not fulfill the lust of the flesh",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1836.5599632263184,
+      "end_time": 1899.1199645996094,
+      "point_summary": "Walking in the Spirit, cited as God's spiritual provision alongside Scripture and the indwelling Holy Spirit, is presented as a gift that enables believers to overcome the flesh.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 752,
+  "total_references": 753,
   "chapters": {
     "2": [
       {
@@ -5751,6 +5751,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Peace Of God\"  John 14:27",
         "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2141"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
+        "verse": 6,
+        "reference_text": "Philippians 4:6",
+        "context": "the Bible says be careful for nothing",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1306.859977722168,
+        "end_time": 1372.47998046875,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1306"
       },
       {
         "book": "Philippians",
@@ -22573,6 +22588,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=934"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": 6,
+      "reference_text": "Philippians 4:6",
+      "context": "the Bible says be careful for nothing",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1306.859977722168,
+      "end_time": 1372.47998046875,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1306"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Titus",
-  "total_references": 183,
+  "total_references": 184,
   "chapters": {
     "1": [
       {
@@ -2496,6 +2496,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Adonai",
         "url": "https://www.youtube.com/watch?v=fbc-2025-02-26mw-adonai&t=1269"
+      },
+      {
+        "book": "Titus",
+        "chapter": 3,
+        "verse": 5,
+        "reference_text": "Titus 3:5",
+        "context": "not by works of righteousness which we have done but according to his mercy he hath begotten us",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 2020.0799560546875,
+        "end_time": 2086.3599548339844,
+        "point_summary": "Salvation rests entirely on God's mercy, not human works, so that no assurance can be found in personal merit but only in Christ's provision.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
       },
       {
         "book": "Titus",
@@ -5503,6 +5518,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=624"
+    },
+    {
+      "book": "Titus",
+      "chapter": 3,
+      "verse": 5,
+      "reference_text": "Titus 3:5",
+      "context": "not by works of righteousness which we have done but according to his mercy he hath begotten us",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 2020.0799560546875,
+      "end_time": 2086.3599548339844,
+      "point_summary": "Salvation rests entirely on God's mercy, not human works, so that no assurance can be found in personal merit but only in Christ's provision.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
     }
   ]
 }

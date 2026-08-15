@@ -1,6 +1,6 @@
 {
   "book": "Numbers",
-  "total_references": 253,
+  "total_references": 255,
   "chapters": {
     "11": [
       {
@@ -197,6 +197,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"When The People Complained\" Numbers 11:1-3",
         "url": "https://www.youtube.com/watch?v=-sLfVr4caDI&t=172"
+      },
+      {
+        "book": "Numbers",
+        "chapter": 11,
+        "verse": 5,
+        "reference_text": "Numbers 11:5",
+        "context": "Oh I remember when we were back in Egypt and we had fish and we had garlic and leeks and onions.",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1776.5599975585938,
+        "end_time": 1836.5599632263184,
+        "point_summary": "Israel's complaint in the wilderness — despising manna while longing for Egypt's fish, garlic, and leeks — illustrates how people can loathe and despise God's miraculous provision rather than receive it with gratitude.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
+      },
+      {
+        "book": "Numbers",
+        "chapter": 11,
+        "verse": 20,
+        "reference_text": "Numbers 11:20",
+        "context": "In our soul doth loathe. It means to hate, to despise.",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1776.5599975585938,
+        "end_time": 1836.5599632263184,
+        "point_summary": "Complaining about God's miraculous provision—as Israel despised the manna, calling it loathsome—warns against ingratitude toward what God supplies, however it differs from what we desire.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
       }
     ],
     "21": [
@@ -7637,6 +7667,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "The Deceitfulness Of Alcohol",
       "url": "https://www.youtube.com/watch?v=fbc-010817pm-the-deceitfulness-of-alcohol&t=1359"
+    },
+    {
+      "book": "Numbers",
+      "chapter": 11,
+      "verse": 5,
+      "reference_text": "Numbers 11:5",
+      "context": "Oh I remember when we were back in Egypt and we had fish and we had garlic and leeks and onions.",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1776.5599975585938,
+      "end_time": 1836.5599632263184,
+      "point_summary": "Israel's complaint in the wilderness — despising manna while longing for Egypt's fish, garlic, and leeks — illustrates how people can loathe and despise God's miraculous provision rather than receive it with gratitude.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
+    },
+    {
+      "book": "Numbers",
+      "chapter": 11,
+      "verse": 20,
+      "reference_text": "Numbers 11:20",
+      "context": "In our soul doth loathe. It means to hate, to despise.",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1776.5599975585938,
+      "end_time": 1836.5599632263184,
+      "point_summary": "Complaining about God's miraculous provision—as Israel despised the manna, calling it loathsome—warns against ingratitude toward what God supplies, however it differs from what we desire.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Leviticus",
-  "total_references": 206,
+  "total_references": 207,
   "chapters": {
     "19": [
       {
@@ -1859,6 +1859,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Opportunity That Wasn't Missed In Missions\"  Philippians 4:15-19",
         "url": "https://www.youtube.com/watch?v=THOg22UDO9w&t=1532"
+      },
+      {
+        "book": "Leviticus",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Leviticus",
+        "context": "as you look in the book of Leviticus, that God is teaching his people that they are to be holy",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1058.2200012207031,
+        "end_time": 1121.6799926757812,
+        "point_summary": "Leviticus grounds the sermon's claim that God's people are called to holiness precisely because God himself is holy—a standard Peter later reaffirms in his epistle.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1058"
       }
     ],
     "25": [
@@ -6217,6 +6232,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2021"
+    },
+    {
+      "book": "Leviticus",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Leviticus",
+      "context": "as you look in the book of Leviticus, that God is teaching his people that they are to be holy",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1058.2200012207031,
+      "end_time": 1121.6799926757812,
+      "point_summary": "Leviticus grounds the sermon's claim that God's people are called to holiness precisely because God himself is holy—a standard Peter later reaffirms in his epistle.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1058"
     }
   ]
 }

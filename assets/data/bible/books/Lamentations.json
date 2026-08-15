@@ -1,6 +1,6 @@
 {
   "book": "Lamentations",
-  "total_references": 65,
+  "total_references": 67,
   "chapters": {
     "3": [
       {
@@ -351,6 +351,21 @@
       {
         "book": "Lamentations",
         "chapter": 3,
+        "verse": 22,
+        "reference_text": "Lamentations 3:22",
+        "context": "his mercies are new every morning, Jeremiah tells us in the book of Lamentations",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1121.6799926757812,
+        "end_time": 1184.5199584960938,
+        "point_summary": "God's mercies being new every morning (Lamentations 3:22) is cited as scriptural grounding for the sermon's affirmation that God is merciful from generation to generation, echoing Mary's praise in Luke 1:50.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1121"
+      },
+      {
+        "book": "Lamentations",
+        "chapter": 3,
         "verse": 23,
         "reference_text": "Lamentations 3:23",
         "context": "They are new every morning, great is thy faithfulness.",
@@ -512,6 +527,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Profitable For The Ministry",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08am-profitable-for-the-ministry&t=1986"
+      },
+      {
+        "book": "Lamentations",
+        "chapter": 3,
+        "verse": 23,
+        "reference_text": "Lamentations 3:23",
+        "context": "Great is thy faithfulness",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 169.1199951171875,
+        "end_time": 225.47999572753906,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=169"
       },
       {
         "book": "Lamentations",
@@ -1961,6 +1991,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2506"
+    },
+    {
+      "book": "Lamentations",
+      "chapter": 3,
+      "verse": 23,
+      "reference_text": "Lamentations 3:23",
+      "context": "Great is thy faithfulness",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 169.1199951171875,
+      "end_time": 225.47999572753906,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=169"
+    },
+    {
+      "book": "Lamentations",
+      "chapter": 3,
+      "verse": 22,
+      "reference_text": "Lamentations 3:22",
+      "context": "his mercies are new every morning, Jeremiah tells us in the book of Lamentations",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1121.6799926757812,
+      "end_time": 1184.5199584960938,
+      "point_summary": "God's mercies being new every morning (Lamentations 3:22) is cited as scriptural grounding for the sermon's affirmation that God is merciful from generation to generation, echoing Mary's praise in Luke 1:50.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1121"
     }
   ]
 }
