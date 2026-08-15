@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 1455,
+  "total_references": 1461,
   "chapters": {
     "2": [
       {
@@ -1832,6 +1832,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=1188"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 2,
+        "verse": 4,
+        "reference_text": "Ephesians 2:4",
+        "context": "In Ephesians chapter two in verse number four, the Bible says, but God who is rich in mercy for his great love wherewith he has loved us.",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1121.6799926757812,
+        "end_time": 1184.5199584960938,
+        "point_summary": "God's richness in mercy, cited from Ephesians 2:4, grounds the sermon's third reason to magnify the Lord alongside His might and holiness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1121"
       },
       {
         "book": "Ephesians",
@@ -3842,6 +3857,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=624"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 2,
+        "verse": 8,
+        "reference_text": "Ephesians 2:8-9",
+        "context": "For by grace are you saved through faith and that not of your not of yourselves sorry and not of works lest any man should boast",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 2020.0799560546875,
+        "end_time": 2086.3599548339844,
+        "point_summary": "Salvation rests entirely on God's grace through faith, not human works, so that genuine assurance is possible and boasting is excluded.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
       },
       {
         "book": "Ephesians",
@@ -8108,6 +8138,21 @@
       {
         "book": "Ephesians",
         "chapter": 3,
+        "verse": 20,
+        "reference_text": "Ephesians 3:20",
+        "context": "the wonderful prayer promise in Ephesians three and verse number 20. Now unto him which is able to do exceeding, abundantly above all that we ask or think",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 878.239990234375,
+        "end_time": 939.6999816894531,
+        "point_summary": "God's omnipotence—affirmed by El Shaddai's self-revelation to Abraham and echoed in Luke 1:49—finds its New Testament doxological expression in Ephesians 3:20 as the ground for magnifying the Lord.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=878"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 3,
         "verse": 21,
         "reference_text": "Ephesians 3:21",
         "context": "unto him be glory in the church by Christ Jesus throughout all ages, world without end, amen",
@@ -9831,6 +9876,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1099"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 1,
+        "verse": 14,
+        "reference_text": "Ephesians 1:14",
+        "context": "the Spirit of God is the earnest of our inheritance",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1836.5599632263184,
+        "end_time": 1899.1199645996094,
+        "point_summary": "The Holy Spirit's role as the \"earnest of our inheritance\" is cited as part of God's spiritual provision to believers, alongside salvation and Scripture.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
       },
       {
         "book": "Ephesians",
@@ -16199,6 +16259,21 @@
       {
         "book": "Ephesians",
         "chapter": 4,
+        "verse": 11,
+        "reference_text": "Ephesians 4:11",
+        "context": "God has given to the church as a gift, pastors and teachers",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 293.3999938964844,
+        "end_time": 352.9599914550781,
+        "point_summary": "God has given pastors and teachers to the church as gifts for equipping believers, and every Christian therefore shares in the work of ministry.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=293"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 4,
         "verse": 12,
         "reference_text": "Ephesians 4:12",
         "context": "for the perfecting of the saints, for the work of the ministry, for the edifying of the body of Christ",
@@ -16405,6 +16480,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Profitable For The Ministry",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08am-profitable-for-the-ministry&t=1791"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 4,
+        "verse": 12,
+        "reference_text": "Ephesians 4:12",
+        "context": "for the edifying of the believers for the work of the ministry",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 293.3999938964844,
+        "end_time": 352.9599914550781,
+        "point_summary": "Ephesians 4:12 is cited to affirm that God gifts the church with pastors and teachers for the work of ministry, and that every believer therefore shares in that ministry.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=293"
       },
       {
         "book": "Ephesians",
@@ -43667,6 +43757,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2755"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 4,
+      "verse": 11,
+      "reference_text": "Ephesians 4:11",
+      "context": "God has given to the church as a gift, pastors and teachers",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 293.3999938964844,
+      "end_time": 352.9599914550781,
+      "point_summary": "God has given pastors and teachers to the church as gifts for equipping believers, and every Christian therefore shares in the work of ministry.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=293"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 4,
+      "verse": 12,
+      "reference_text": "Ephesians 4:12",
+      "context": "for the edifying of the believers for the work of the ministry",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 293.3999938964844,
+      "end_time": 352.9599914550781,
+      "point_summary": "Ephesians 4:12 is cited to affirm that God gifts the church with pastors and teachers for the work of ministry, and that every believer therefore shares in that ministry.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=293"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 3,
+      "verse": 20,
+      "reference_text": "Ephesians 3:20",
+      "context": "the wonderful prayer promise in Ephesians three and verse number 20. Now unto him which is able to do exceeding, abundantly above all that we ask or think",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 878.239990234375,
+      "end_time": 939.6999816894531,
+      "point_summary": "God's omnipotence—affirmed by El Shaddai's self-revelation to Abraham and echoed in Luke 1:49—finds its New Testament doxological expression in Ephesians 3:20 as the ground for magnifying the Lord.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=878"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 2,
+      "verse": 4,
+      "reference_text": "Ephesians 2:4",
+      "context": "In Ephesians chapter two in verse number four, the Bible says, but God who is rich in mercy for his great love wherewith he has loved us.",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1121.6799926757812,
+      "end_time": 1184.5199584960938,
+      "point_summary": "God's richness in mercy, cited from Ephesians 2:4, grounds the sermon's third reason to magnify the Lord alongside His might and holiness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1121"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 1,
+      "verse": 14,
+      "reference_text": "Ephesians 1:14",
+      "context": "the Spirit of God is the earnest of our inheritance",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1836.5599632263184,
+      "end_time": 1899.1199645996094,
+      "point_summary": "The Holy Spirit's role as the \"earnest of our inheritance\" is cited as part of God's spiritual provision to believers, alongside salvation and Scripture.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 2,
+      "verse": 8,
+      "reference_text": "Ephesians 2:8-9",
+      "context": "For by grace are you saved through faith and that not of your not of yourselves sorry and not of works lest any man should boast",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 2020.0799560546875,
+      "end_time": 2086.3599548339844,
+      "point_summary": "Salvation rests entirely on God's grace through faith, not human works, so that genuine assurance is possible and boasting is excluded.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
     }
   ]
 }

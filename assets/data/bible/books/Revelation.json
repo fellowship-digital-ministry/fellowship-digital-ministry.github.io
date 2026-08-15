@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1579,
+  "total_references": 1580,
   "chapters": {
     "3": [
       {
@@ -11245,6 +11245,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=57"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "Revelation 1:8",
+        "context": "our God is Alpha and Omega",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1184.5199584960938,
+        "end_time": 1250.5999794006348,
+        "point_summary": "God's eternality—having no beginning and no ending, existing outside of time as Alpha and Omega—is the theological ground drawn from Revelation 1:8 to anchor Mary's praise across generations.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1184"
       },
       {
         "book": "Revelation",
@@ -47421,6 +47436,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=1218"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Revelation 1:8",
+      "context": "our God is Alpha and Omega",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1184.5199584960938,
+      "end_time": 1250.5999794006348,
+      "point_summary": "God's eternality—having no beginning and no ending, existing outside of time as Alpha and Omega—is the theological ground drawn from Revelation 1:8 to anchor Mary's praise across generations.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1184"
     }
   ]
 }

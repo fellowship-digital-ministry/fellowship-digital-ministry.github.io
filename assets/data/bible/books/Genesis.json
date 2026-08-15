@@ -1,6 +1,6 @@
 {
   "book": "Genesis",
-  "total_references": 4513,
+  "total_references": 4518,
   "chapters": {
     "37": [
       {
@@ -9069,6 +9069,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "God Remembered Noah",
         "url": "https://www.youtube.com/watch?v=fbc-2019-12-08pm-god-remembered-noah&t=178"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 17,
+        "verse": 1,
+        "reference_text": "Genesis 17:1",
+        "context": "in Genesis, he comes to Abraham and he says to him, I'm the Lord God Almighty. That Hebrew word is El Shaddai",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 812.5599822998047,
+        "end_time": 878.239990234375,
+        "point_summary": "God's self-revelation to Abraham as El Shaddai—\"Lord God Almighty\"—establishes his omnipotence as the foundation for the claim in Luke 1:49 that \"he that is mighty\" has done great things.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=812"
       },
       {
         "book": "Genesis",
@@ -19431,6 +19446,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Through Faith Sara",
         "url": "https://www.youtube.com/watch?v=fbc-2026-05-13mw-through-faith-sara&t=2190"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 18,
+        "verse": 14,
+        "reference_text": "Genesis 18:14",
+        "context": "is anything too hard for the Lord?",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 812.5599822998047,
+        "end_time": 878.239990234375,
+        "point_summary": "God's rhetorical question to Abraham in Genesis 18:14 — \"Is anything too hard for the Lord?\" — is presented as divine self-testimony to His omnipotence, grounding Mary's declaration that \"he that is mighty\" has done great things.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=812"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 18,
+        "verse": 14,
+        "reference_text": "Genesis 18:14",
+        "context": "is anything too hard for me?",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1372.47998046875,
+        "end_time": 1439.3199768066406,
+        "point_summary": "God's rhetorical question to Abraham in Genesis 18:14 is cited as an example of God not merely declaring his omnipotence but visibly demonstrating it by giving a son to a hundred-year-old man and his ninety-year-old wife.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1372"
       },
       {
         "book": "Genesis",
@@ -32699,6 +32744,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part One",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=129"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 1,
+        "verse": 16,
+        "reference_text": "Genesis 1:16",
+        "context": "when you think about the record of Genesis, that it's just five words, he made the stars also",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 939.6999816894531,
+        "end_time": 996.5,
+        "point_summary": "The vastness of stellar creation — noted in Genesis almost as an aside, \"he made the stars also\" — underscores God's omnipotence as the foundation for Mary's declaration that \"he that is mighty\" is worthy of magnification.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=939"
       },
       {
         "book": "Genesis",
@@ -58724,6 +58784,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "God Remembered Noah",
         "url": "https://www.youtube.com/watch?v=fbc-2019-12-08pm-god-remembered-noah&t=1293"
+      },
+      {
+        "book": "Genesis",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Genesis",
+        "context": "it's just almost just a passing statement in the Genesis record of creation",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 996.5,
+        "end_time": 1058.2200012207031,
+        "point_summary": "Genesis records the creation of stars in just five words — \"he made the stars also\" — treating as almost a passing remark what represents an act of incomprehensible power, underscoring God's almighty nature.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=996"
       },
       {
         "book": "Genesis",
@@ -135497,6 +135572,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2135"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 17,
+      "verse": 1,
+      "reference_text": "Genesis 17:1",
+      "context": "in Genesis, he comes to Abraham and he says to him, I'm the Lord God Almighty. That Hebrew word is El Shaddai",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 812.5599822998047,
+      "end_time": 878.239990234375,
+      "point_summary": "God's self-revelation to Abraham as El Shaddai—\"Lord God Almighty\"—establishes his omnipotence as the foundation for the claim in Luke 1:49 that \"he that is mighty\" has done great things.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=812"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 18,
+      "verse": 14,
+      "reference_text": "Genesis 18:14",
+      "context": "is anything too hard for the Lord?",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 812.5599822998047,
+      "end_time": 878.239990234375,
+      "point_summary": "God's rhetorical question to Abraham in Genesis 18:14 — \"Is anything too hard for the Lord?\" — is presented as divine self-testimony to His omnipotence, grounding Mary's declaration that \"he that is mighty\" has done great things.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=812"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 1,
+      "verse": 16,
+      "reference_text": "Genesis 1:16",
+      "context": "when you think about the record of Genesis, that it's just five words, he made the stars also",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 939.6999816894531,
+      "end_time": 996.5,
+      "point_summary": "The vastness of stellar creation — noted in Genesis almost as an aside, \"he made the stars also\" — underscores God's omnipotence as the foundation for Mary's declaration that \"he that is mighty\" is worthy of magnification.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=939"
+    },
+    {
+      "book": "Genesis",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Genesis",
+      "context": "it's just almost just a passing statement in the Genesis record of creation",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 996.5,
+      "end_time": 1058.2200012207031,
+      "point_summary": "Genesis records the creation of stars in just five words — \"he made the stars also\" — treating as almost a passing remark what represents an act of incomprehensible power, underscoring God's almighty nature.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=996"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 18,
+      "verse": 14,
+      "reference_text": "Genesis 18:14",
+      "context": "is anything too hard for me?",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1372.47998046875,
+      "end_time": 1439.3199768066406,
+      "point_summary": "God's rhetorical question to Abraham in Genesis 18:14 is cited as an example of God not merely declaring his omnipotence but visibly demonstrating it by giving a son to a hundred-year-old man and his ninety-year-old wife.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1372"
     }
   ]
 }

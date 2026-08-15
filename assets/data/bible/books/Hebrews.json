@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 2003,
+  "total_references": 2005,
   "chapters": {
     "12": [
       {
@@ -2087,6 +2087,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3298"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 12,
+        "verse": 2,
+        "reference_text": "Looking unto Jesus, the author and finisher of our faith",
+        "context": "Looking unto Jesus, the author and finisher of our faith",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 682.9599914550781,
+        "end_time": 745.2799835205078,
+        "point_summary": "Fixing one's focus on the person of Jesus — \"the author and finisher of our faith\" — is presented as the foundational act that produces magnification of the Lord in a believer's life.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=682"
       },
       {
         "book": "Hebrews",
@@ -22111,6 +22126,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1540"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 4,
+        "verse": 16,
+        "reference_text": "Hebrews 4:16",
+        "context": "we looked there at the passage in Hebrews four in verse number 16, and that were to come boldly into the throne of grace, that we may obtain mercy and find grace to help in time of need",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1184.5199584960938,
+        "end_time": 1250.5999794006348,
+        "point_summary": "Hebrews 4:16 is cited to define mercy as God withholding deserved judgment, grounding the believer's bold approach to the throne of grace to obtain that mercy in time of need.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1184"
       }
     ],
     "8": [
@@ -60121,6 +60151,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1334"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 12,
+      "verse": 2,
+      "reference_text": "Looking unto Jesus, the author and finisher of our faith",
+      "context": "Looking unto Jesus, the author and finisher of our faith",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 682.9599914550781,
+      "end_time": 745.2799835205078,
+      "point_summary": "Fixing one's focus on the person of Jesus — \"the author and finisher of our faith\" — is presented as the foundational act that produces magnification of the Lord in a believer's life.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=682"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "Hebrews 4:16",
+      "context": "we looked there at the passage in Hebrews four in verse number 16, and that were to come boldly into the throne of grace, that we may obtain mercy and find grace to help in time of need",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1184.5199584960938,
+      "end_time": 1250.5999794006348,
+      "point_summary": "Hebrews 4:16 is cited to define mercy as God withholding deserved judgment, grounding the believer's bold approach to the throne of grace to obtain that mercy in time of need.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1184"
     }
   ]
 }

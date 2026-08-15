@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1715,
+  "total_references": 1716,
   "chapters": {
     "8": [
       {
@@ -797,6 +797,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Thou Art With Me\" Psalm 23:4",
         "url": "https://www.youtube.com/watch?v=RNHeQGD_erM&t=948"
+      },
+      {
+        "book": "Romans",
+        "chapter": 8,
+        "verse": 16,
+        "reference_text": "Romans 8:16",
+        "context": "His Spirit communes with our spirit",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1836.5599632263184,
+        "end_time": 1899.1199645996094,
+        "point_summary": "The indwelling Spirit's communion with the believer's spirit is cited as part of God's spiritual provision, grounding the call to walk in the Spirit rather than the flesh.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
       },
       {
         "book": "Romans",
@@ -51487,6 +51502,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1941"
+    },
+    {
+      "book": "Romans",
+      "chapter": 8,
+      "verse": 16,
+      "reference_text": "Romans 8:16",
+      "context": "His Spirit communes with our spirit",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1836.5599632263184,
+      "end_time": 1899.1199645996094,
+      "point_summary": "The indwelling Spirit's communion with the believer's spirit is cited as part of God's spiritual provision, grounding the call to walk in the Spirit rather than the flesh.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
     }
   ]
 }

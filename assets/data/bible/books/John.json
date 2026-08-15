@@ -1,6 +1,6 @@
 {
   "book": "John",
-  "total_references": 2895,
+  "total_references": 2901,
   "chapters": {
     "14": [
       {
@@ -6233,6 +6233,21 @@
       {
         "book": "John",
         "chapter": 3,
+        "verse": 3,
+        "reference_text": "John 3:3",
+        "context": "as Jesus said to Nicodemus you must be born",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 2020.0799560546875,
+        "end_time": 2086.3599548339844,
+        "point_summary": "New birth, not works, is the prerequisite for salvation assurance, as Jesus' words to Nicodemus are invoked to urge any without certainty of salvation to trust Christ that day.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
+      },
+      {
+        "book": "John",
+        "chapter": 3,
         "verse": 4,
         "reference_text": "John 3:4",
         "context": "And Nicodemus says, I don't understand what this thing means to be born again. Can I enter into my mother's womb a second time?",
@@ -9934,6 +9949,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=864"
+      },
+      {
+        "book": "John",
+        "chapter": 3,
+        "verse": 30,
+        "reference_text": "John 3:30",
+        "context": "John the Baptist said this, he must increase, I must decrease.",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 614.6799879074097,
+        "end_time": 682.9599914550781,
+        "point_summary": "John 3:30 is invoked to frame the entire sermon's call: magnifying the Lord requires self-decrease, because the Christian life is not about making a name for oneself but exalting Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=614"
       },
       {
         "book": "John",
@@ -16859,6 +16889,21 @@
       {
         "book": "John",
         "chapter": 17,
+        "verse": 16,
+        "reference_text": "John 17:16",
+        "context": "Jesus said that we're in the world, but we're not of the world",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 556.2000122070312,
+        "end_time": 614.6799879074097,
+        "point_summary": "Being in the world but not of it (John 17:16) frames the danger of magnifying problems over God amid life's trials and troubles.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=556"
+      },
+      {
+        "book": "John",
+        "chapter": 17,
         "verse": 17,
         "reference_text": "John 17:17",
         "context": "Sanctify them through thy truth, thy word is truth.",
@@ -23613,6 +23658,21 @@
       {
         "book": "John",
         "chapter": 15,
+        "verse": 5,
+        "reference_text": "John 15:5",
+        "context": "without him, we can do nothing.",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 614.6799879074097,
+        "end_time": 682.9599914550781,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=614"
+      },
+      {
+        "book": "John",
+        "chapter": 15,
         "verse": 6,
         "reference_text": "John 15:6",
         "context": "If a man abide not in me, he is cast forth as a branch, and is withered",
@@ -29846,6 +29906,21 @@
       {
         "book": "John",
         "chapter": 1,
+        "verse": null,
+        "reference_text": "John 1",
+        "context": "in John chapter number 1, as he's going through and he's talking about the deity of Christ, the person of Christ, and he's making some comments there with regard to John the Baptist",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1250.5999794006348,
+        "end_time": 1306.859977722168,
+        "point_summary": "John the Baptist's declaration that Christ was \"preferred above me because he was before me\" is cited to confirm Christ's eternality, transcending the chronological fact that John was born first.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1250"
+      },
+      {
+        "book": "John",
+        "chapter": 1,
         "verse": 1,
         "reference_text": "John 1:1",
         "context": "the Bible says in the beginning was the word, and the word was with God, and the word was God",
@@ -33112,6 +33187,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "El Olam",
         "url": "https://www.youtube.com/watch?v=fbc-2025-09-03mw-el-olam&t=1522"
+      },
+      {
+        "book": "John",
+        "chapter": 1,
+        "verse": 15,
+        "reference_text": "John 1:15",
+        "context": "John the Baptist could accurately say that Jesus was before him because he is eternal",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1306.859977722168,
+        "end_time": 1372.47998046875,
+        "point_summary": "John the Baptist's chronological priority over Jesus by birth is overridden by Christ's eternal pre-existence, so that \"he was before me\" is a statement of deity, not sequence.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1306"
       },
       {
         "book": "John",
@@ -86897,6 +86987,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2947"
+    },
+    {
+      "book": "John",
+      "chapter": 17,
+      "verse": 16,
+      "reference_text": "John 17:16",
+      "context": "Jesus said that we're in the world, but we're not of the world",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 556.2000122070312,
+      "end_time": 614.6799879074097,
+      "point_summary": "Being in the world but not of it (John 17:16) frames the danger of magnifying problems over God amid life's trials and troubles.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=556"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 30,
+      "reference_text": "John 3:30",
+      "context": "John the Baptist said this, he must increase, I must decrease.",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 614.6799879074097,
+      "end_time": 682.9599914550781,
+      "point_summary": "John 3:30 is invoked to frame the entire sermon's call: magnifying the Lord requires self-decrease, because the Christian life is not about making a name for oneself but exalting Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=614"
+    },
+    {
+      "book": "John",
+      "chapter": 15,
+      "verse": 5,
+      "reference_text": "John 15:5",
+      "context": "without him, we can do nothing.",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 614.6799879074097,
+      "end_time": 682.9599914550781,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=614"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "John 1",
+      "context": "in John chapter number 1, as he's going through and he's talking about the deity of Christ, the person of Christ, and he's making some comments there with regard to John the Baptist",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1250.5999794006348,
+      "end_time": 1306.859977722168,
+      "point_summary": "John the Baptist's declaration that Christ was \"preferred above me because he was before me\" is cited to confirm Christ's eternality, transcending the chronological fact that John was born first.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1250"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": 15,
+      "reference_text": "John 1:15",
+      "context": "John the Baptist could accurately say that Jesus was before him because he is eternal",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1306.859977722168,
+      "end_time": 1372.47998046875,
+      "point_summary": "John the Baptist's chronological priority over Jesus by birth is overridden by Christ's eternal pre-existence, so that \"he was before me\" is a statement of deity, not sequence.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1306"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 3,
+      "reference_text": "John 3:3",
+      "context": "as Jesus said to Nicodemus you must be born",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 2020.0799560546875,
+      "end_time": 2086.3599548339844,
+      "point_summary": "New birth, not works, is the prerequisite for salvation assurance, as Jesus' words to Nicodemus are invoked to urge any without certainty of salvation to trust Christ that day.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
     }
   ]
 }

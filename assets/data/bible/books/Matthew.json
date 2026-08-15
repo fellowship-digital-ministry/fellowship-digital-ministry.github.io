@@ -1,6 +1,6 @@
 {
   "book": "Matthew",
-  "total_references": 1458,
+  "total_references": 1460,
   "chapters": {
     "16": [
       {
@@ -11709,6 +11709,21 @@
       {
         "book": "Matthew",
         "chapter": 5,
+        "verse": 6,
+        "reference_text": "Matthew chapter number five and verse number six",
+        "context": "Blessed are they which do hunger and thirst after righteousness. And then notice what it says for they shall be filled.",
+        "is_implicit": false,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 2482.2199478149414,
+        "end_time": 2557.3199462890625,
+        "point_summary": "Hunger and thirst after righteousness, drawn from the Beatitudes, is presented as the spiritual dimension underlying Luke 1:53's promise that God fills the hungry with good things.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2482"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 5,
         "verse": 10,
         "reference_text": "Matthew 5:10-12",
         "context": "I want you to notice particularly verses ten through twelve",
@@ -17241,6 +17256,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Wilt Thou Hearken",
         "url": "https://www.youtube.com/watch?v=fbc-2025-12-03mw-wilt-thou-hearken&t=1506"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 6,
+        "verse": 31,
+        "reference_text": "Matthew 6:31",
+        "context": "we don't have to give thought for all of these things",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1712.719970703125,
+        "end_time": 1776.5599975585938,
+        "point_summary": "Anxiety over material needs is countered by the assurance that God already knows what his people require and will provide, freeing believers to magnify him rather than worry.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1712"
       },
       {
         "book": "Matthew",
@@ -43803,6 +43833,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2341"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 6,
+      "verse": 31,
+      "reference_text": "Matthew 6:31",
+      "context": "we don't have to give thought for all of these things",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1712.719970703125,
+      "end_time": 1776.5599975585938,
+      "point_summary": "Anxiety over material needs is countered by the assurance that God already knows what his people require and will provide, freeing believers to magnify him rather than worry.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1712"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 5,
+      "verse": 6,
+      "reference_text": "Matthew chapter number five and verse number six",
+      "context": "Blessed are they which do hunger and thirst after righteousness. And then notice what it says for they shall be filled.",
+      "is_implicit": false,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 2482.2199478149414,
+      "end_time": 2557.3199462890625,
+      "point_summary": "Hunger and thirst after righteousness, drawn from the Beatitudes, is presented as the spiritual dimension underlying Luke 1:53's promise that God fills the hungry with good things.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2482"
     }
   ]
 }

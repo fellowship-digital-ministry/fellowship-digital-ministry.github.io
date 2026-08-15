@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1823,
+  "total_references": 1827,
   "chapters": {
     "4": [
       {
@@ -9424,6 +9424,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
         "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=953"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
+        "verse": 17,
+        "reference_text": "2 Corinthians 5:17",
+        "context": "If any man be in Christ, he is a new creature. Old things are passed away, behold, all things are become new.",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 54.08000183105469,
+        "end_time": 112.23999786376953,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=54"
       },
       {
         "book": "2 Corinthians",
@@ -20360,6 +20375,36 @@
       {
         "book": "2 Corinthians",
         "chapter": 12,
+        "verse": 9,
+        "reference_text": "2 Corinthians 12:9",
+        "context": "my grace is sufficient for thee",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1372.47998046875,
+        "end_time": 1439.3199768066406,
+        "point_summary": "God's strength is demonstrated, not merely declared — as Paul's thorn shows, divine power is perfected precisely in human weakness, making weakness itself a ground for glorying.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1372"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 12,
+        "verse": 9,
+        "reference_text": "2 Corinthians 12:9",
+        "context": "most gladly therefore will I rather glory in my infirmities that the power of Christ may rest upon me",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1439.3199768066406,
+        "end_time": 1516.47998046875,
+        "point_summary": "God's strength is made perfect in human weakness, so that Paul's boasting in infirmities becomes the very means by which the power of Christ rests upon him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1439"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 12,
         "verse": 10,
         "reference_text": "2 Corinthians 12:10",
         "context": "most gladly therefore will I rather glory in my infirmities that the power of Christ may rest upon me. Therefore, I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake. For when I am weak, then am I strong.",
@@ -20701,6 +20746,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Priority On Humility\"  II Corinthians 12:1-10",
         "url": "https://www.youtube.com/watch?v=4drpBDG7hOw&t=454"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 12,
+        "verse": 10,
+        "reference_text": "2 Corinthians 12:10",
+        "context": "Therefore, I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake. For when I am weak, then am I strong",
+        "is_implicit": true,
+        "video_id": "0ddFDZGUSg8",
+        "start_time": 1439.3199768066406,
+        "end_time": 1516.47998046875,
+        "point_summary": "God's strength is made perfect in human weakness, so that boasting in infirmities becomes the means by which the power of Christ rests upon the believer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+        "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1439"
       },
       {
         "book": "2 Corinthians",
@@ -54723,6 +54783,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1941"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "2 Corinthians 5:17",
+      "context": "If any man be in Christ, he is a new creature. Old things are passed away, behold, all things are become new.",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 54.08000183105469,
+      "end_time": 112.23999786376953,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=54"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "verse": 9,
+      "reference_text": "2 Corinthians 12:9",
+      "context": "my grace is sufficient for thee",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1372.47998046875,
+      "end_time": 1439.3199768066406,
+      "point_summary": "God's strength is demonstrated, not merely declared — as Paul's thorn shows, divine power is perfected precisely in human weakness, making weakness itself a ground for glorying.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1372"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "verse": 9,
+      "reference_text": "2 Corinthians 12:9",
+      "context": "most gladly therefore will I rather glory in my infirmities that the power of Christ may rest upon me",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1439.3199768066406,
+      "end_time": 1516.47998046875,
+      "point_summary": "God's strength is made perfect in human weakness, so that Paul's boasting in infirmities becomes the very means by which the power of Christ rests upon him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1439"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "verse": 10,
+      "reference_text": "2 Corinthians 12:10",
+      "context": "Therefore, I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake. For when I am weak, then am I strong",
+      "is_implicit": true,
+      "video_id": "0ddFDZGUSg8",
+      "start_time": 1439.3199768066406,
+      "end_time": 1516.47998046875,
+      "point_summary": "God's strength is made perfect in human weakness, so that boasting in infirmities becomes the means by which the power of Christ rests upon the believer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
+      "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1439"
     }
   ]
 }
