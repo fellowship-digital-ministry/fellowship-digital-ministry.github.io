@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1580,
+  "total_references": 1581,
   "chapters": {
     "3": [
       {
@@ -22719,6 +22719,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Rapha",
         "url": "https://www.youtube.com/watch?v=fbc-2025-04-09mw-jehovah-rapha&t=1727"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 21,
+        "verse": 4,
+        "reference_text": "Revelation 21:4",
+        "context": "no more sorrow, no more death, no more tears",
+        "is_implicit": true,
+        "video_id": "xTkB01-htp0",
+        "start_time": 494.79998779296875,
+        "end_time": 556.9199829101562,
+        "point_summary": "The future promise of no more sorrow, death, or tears grounds the present encouragement that God sees his people even now in the midst of their storms.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
       },
       {
         "book": "Revelation",
@@ -47451,6 +47466,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1184"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 21,
+      "verse": 4,
+      "reference_text": "Revelation 21:4",
+      "context": "no more sorrow, no more death, no more tears",
+      "is_implicit": true,
+      "video_id": "xTkB01-htp0",
+      "start_time": 494.79998779296875,
+      "end_time": 556.9199829101562,
+      "point_summary": "The future promise of no more sorrow, death, or tears grounds the present encouragement that God sees his people even now in the midst of their storms.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
     }
   ]
 }

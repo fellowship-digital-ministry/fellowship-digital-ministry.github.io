@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1716,
+  "total_references": 1717,
   "chapters": {
     "8": [
       {
@@ -20401,6 +20401,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2284"
+      },
+      {
+        "book": "Romans",
+        "chapter": 10,
+        "verse": 13,
+        "reference_text": "Romans 10:13",
+        "context": "For whosoever shall call upon the name of the Lord shall be saved",
+        "is_implicit": true,
+        "video_id": "xTkB01-htp0",
+        "start_time": 1763.0400390625,
+        "end_time": 1817.4000272750854,
+        "point_summary": "Salvation, like Christ's help in the storm, is freely offered but never coerced — \"whosoever shall call\" reflects a standing invitation that each person must willingly receive.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1763"
       },
       {
         "book": "Romans",
@@ -51517,6 +51532,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
+    },
+    {
+      "book": "Romans",
+      "chapter": 10,
+      "verse": 13,
+      "reference_text": "Romans 10:13",
+      "context": "For whosoever shall call upon the name of the Lord shall be saved",
+      "is_implicit": true,
+      "video_id": "xTkB01-htp0",
+      "start_time": 1763.0400390625,
+      "end_time": 1817.4000272750854,
+      "point_summary": "Salvation, like Christ's help in the storm, is freely offered but never coerced — \"whosoever shall call\" reflects a standing invitation that each person must willingly receive.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1763"
     }
   ]
 }

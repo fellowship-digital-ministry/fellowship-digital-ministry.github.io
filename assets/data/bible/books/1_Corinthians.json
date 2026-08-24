@@ -1,6 +1,6 @@
 {
   "book": "1_Corinthians",
-  "total_references": 1579,
+  "total_references": 1581,
   "chapters": {
     "10": [
       {
@@ -6413,6 +6413,21 @@
       {
         "book": "1 Corinthians",
         "chapter": 15,
+        "verse": 52,
+        "reference_text": "1 Corinthians 15:52",
+        "context": "we're gonna be changed in a moment",
+        "is_implicit": true,
+        "video_id": "xTkB01-htp0",
+        "start_time": 494.79998779296875,
+        "end_time": 556.9199829101562,
+        "point_summary": "The resurrection promise that mortality will be swallowed up in immortality anchors present suffering in future glory, contrasting the coming cloudless eternity with the storms believers face now.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 15,
         "verse": 53,
         "reference_text": "this mortal shall put on immortality, that this corruption shall put on incorruption",
         "context": "...this mortal shall put on immortality, that this corruption shall put on incorruption...",
@@ -6814,6 +6829,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Rapha",
         "url": "https://www.youtube.com/watch?v=fbc-2025-04-09mw-jehovah-rapha&t=1931"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 15,
+        "verse": 53,
+        "reference_text": "1 Corinthians 15:53",
+        "context": "this corruption shall put on incorruption",
+        "is_implicit": true,
+        "video_id": "xTkB01-htp0",
+        "start_time": 494.79998779296875,
+        "end_time": 556.9199829101562,
+        "point_summary": "The future bodily resurrection — this mortal putting on immortality and corruption putting on incorruption — is invoked as the believer's certain hope that contrasts with present earthly suffering and storms.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
       },
       {
         "book": "1 Corinthians",
@@ -47407,6 +47437,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=627"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "verse": 53,
+      "reference_text": "1 Corinthians 15:53",
+      "context": "this corruption shall put on incorruption",
+      "is_implicit": true,
+      "video_id": "xTkB01-htp0",
+      "start_time": 494.79998779296875,
+      "end_time": 556.9199829101562,
+      "point_summary": "The future bodily resurrection — this mortal putting on immortality and corruption putting on incorruption — is invoked as the believer's certain hope that contrasts with present earthly suffering and storms.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "verse": 52,
+      "reference_text": "1 Corinthians 15:52",
+      "context": "we're gonna be changed in a moment",
+      "is_implicit": true,
+      "video_id": "xTkB01-htp0",
+      "start_time": 494.79998779296875,
+      "end_time": 556.9199829101562,
+      "point_summary": "The resurrection promise that mortality will be swallowed up in immortality anchors present suffering in future glory, contrasting the coming cloudless eternity with the storms believers face now.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
     }
   ]
 }

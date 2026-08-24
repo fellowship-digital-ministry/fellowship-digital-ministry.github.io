@@ -2,15 +2,15 @@
   "books": [
     {
       "book": "Genesis",
-      "count": 4518
+      "count": 4519
     },
     {
       "book": "John",
-      "count": 2901
+      "count": 2906
     },
     {
       "book": "Psalms",
-      "count": 2735
+      "count": 2755
     },
     {
       "book": "Acts",
@@ -18,31 +18,31 @@
     },
     {
       "book": "Hebrews",
-      "count": 2005
+      "count": 2010
     },
     {
       "book": "2_Corinthians",
-      "count": 1827
+      "count": 1828
     },
     {
       "book": "Romans",
-      "count": 1716
-    },
-    {
-      "book": "Revelation",
-      "count": 1580
+      "count": 1717
     },
     {
       "book": "1_Corinthians",
-      "count": 1579
+      "count": 1581
     },
     {
-      "book": "Ephesians",
-      "count": 1461
+      "book": "Revelation",
+      "count": 1581
     },
     {
       "book": "Matthew",
-      "count": 1460
+      "count": 1471
+    },
+    {
+      "book": "Ephesians",
+      "count": 1462
     },
     {
       "book": "1_John",
@@ -54,7 +54,7 @@
     },
     {
       "book": "1_Peter",
-      "count": 945
+      "count": 946
     },
     {
       "book": "Exodus",
@@ -62,7 +62,7 @@
     },
     {
       "book": "James",
-      "count": 891
+      "count": 892
     },
     {
       "book": "Luke",
@@ -90,15 +90,19 @@
     },
     {
       "book": "Proverbs",
-      "count": 584
+      "count": 586
     },
     {
       "book": "Psalm",
-      "count": 503
+      "count": 505
     },
     {
       "book": "Isaiah",
-      "count": 495
+      "count": 503
+    },
+    {
+      "book": "Mark",
+      "count": 434
     },
     {
       "book": "2_Peter",
@@ -107,10 +111,6 @@
     {
       "book": "2_Kings",
       "count": 420
-    },
-    {
-      "book": "Mark",
-      "count": 413
     },
     {
       "book": "1_Samuel",
@@ -122,7 +122,7 @@
     },
     {
       "book": "Jeremiah",
-      "count": 355
+      "count": 356
     },
     {
       "book": "Joshua",
@@ -270,5 +270,5 @@
     }
   ],
   "total_books": 67,
-  "total_references": 40685
+  "total_references": 40769
 }

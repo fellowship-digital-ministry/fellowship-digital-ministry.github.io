@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 1461,
+  "total_references": 1462,
   "chapters": {
     "2": [
       {
@@ -3872,6 +3872,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 2,
+        "verse": 8,
+        "reference_text": "Ephesians 2:8-9",
+        "context": "For by grace are you saved through faith. And that not of yourselves, it is the gift of God, not of works, lest any man should boast.",
+        "is_implicit": true,
+        "video_id": "xTkB01-htp0",
+        "start_time": 2273.260040283203,
+        "end_time": 2330.6600341796875,
+        "point_summary": "Salvation by grace through faith alone is humanity's greatest need, and only Jesus — who came to where his disciples were — can meet it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2273"
       },
       {
         "book": "Ephesians",
@@ -43847,6 +43862,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 2,
+      "verse": 8,
+      "reference_text": "Ephesians 2:8-9",
+      "context": "For by grace are you saved through faith. And that not of yourselves, it is the gift of God, not of works, lest any man should boast.",
+      "is_implicit": true,
+      "video_id": "xTkB01-htp0",
+      "start_time": 2273.260040283203,
+      "end_time": 2330.6600341796875,
+      "point_summary": "Salvation by grace through faith alone is humanity's greatest need, and only Jesus — who came to where his disciples were — can meet it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2273"
     }
   ]
 }

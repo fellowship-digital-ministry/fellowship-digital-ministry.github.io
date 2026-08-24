@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1827,
+  "total_references": 1828,
   "chapters": {
     "4": [
       {
@@ -20401,6 +20401,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1439"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 12,
+        "verse": 9,
+        "reference_text": "2 Corinthians 12:9",
+        "context": "He said to Paul, my grace is sufficient for thee",
+        "is_implicit": true,
+        "video_id": "xTkB01-htp0",
+        "start_time": 2708.240020751953,
+        "end_time": 2781.1200256347656,
+        "point_summary": "Christ's promise to Paul — \"my grace is sufficient for thee\" — is extended here as a universal assurance that Jesus knows and meets every believer's need in their storm.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2708"
       },
       {
         "book": "2 Corinthians",
@@ -54843,6 +54858,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1439"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "verse": 9,
+      "reference_text": "2 Corinthians 12:9",
+      "context": "He said to Paul, my grace is sufficient for thee",
+      "is_implicit": true,
+      "video_id": "xTkB01-htp0",
+      "start_time": 2708.240020751953,
+      "end_time": 2781.1200256347656,
+      "point_summary": "Christ's promise to Paul — \"my grace is sufficient for thee\" — is extended here as a universal assurance that Jesus knows and meets every believer's need in their storm.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2708"
     }
   ]
 }
