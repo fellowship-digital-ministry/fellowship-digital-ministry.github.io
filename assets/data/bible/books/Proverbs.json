@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 584,
+  "total_references": 586,
   "chapters": {
     "3": [
       {
@@ -8240,6 +8240,21 @@
       {
         "book": "Proverbs",
         "chapter": 15,
+        "verse": 3,
+        "reference_text": "Proverbs 15:3",
+        "context": "the eyes of the Lord are in every place, beholding the evil and the good",
+        "is_implicit": false,
+        "video_id": "xTkB01-htp0",
+        "start_time": 799.6000213623047,
+        "end_time": 860.760009765625,
+        "point_summary": "God's omnipresence, illustrated by Proverbs 15:3's declaration that the Lord's eyes behold every place, grounds the comfort that no believer is ever unseen, even in the storm.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=799"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 15,
         "verse": 20,
         "reference_text": "Proverbs 15:20",
         "context": "In chapter 15 and verse number 20, the Bible says this with regard to this truth of walking in wisdom, a wise son maketh a glad father, but a foolish man, notice what it says, despiseth his mother, a foolish son.",
@@ -8741,6 +8756,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Noah Walked With God",
         "url": "https://www.youtube.com/watch?v=fbc-2019-11-10pm-noah-walked-with-god&t=326"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 5,
+        "verse": 21,
+        "reference_text": "Proverbs 5:21",
+        "context": "for the ways of man are before the eyes of the Lord, and he pondereth all his goings",
+        "is_implicit": true,
+        "video_id": "xTkB01-htp0",
+        "start_time": 736.7600250244141,
+        "end_time": 799.6000213623047,
+        "point_summary": "God's omniscience—that \"the ways of man are before the eyes of the Lord\"—grounds the comfort that God sees and ponders every believer's situation, even when his hand seems hidden.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=736"
       }
     ],
     "26": [
@@ -17581,6 +17611,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2199"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 5,
+      "verse": 21,
+      "reference_text": "Proverbs 5:21",
+      "context": "for the ways of man are before the eyes of the Lord, and he pondereth all his goings",
+      "is_implicit": true,
+      "video_id": "xTkB01-htp0",
+      "start_time": 736.7600250244141,
+      "end_time": 799.6000213623047,
+      "point_summary": "God's omniscience—that \"the ways of man are before the eyes of the Lord\"—grounds the comfort that God sees and ponders every believer's situation, even when his hand seems hidden.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=736"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 15,
+      "verse": 3,
+      "reference_text": "Proverbs 15:3",
+      "context": "the eyes of the Lord are in every place, beholding the evil and the good",
+      "is_implicit": false,
+      "video_id": "xTkB01-htp0",
+      "start_time": 799.6000213623047,
+      "end_time": 860.760009765625,
+      "point_summary": "God's omnipresence, illustrated by Proverbs 15:3's declaration that the Lord's eyes behold every place, grounds the comfort that no believer is ever unseen, even in the storm.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=799"
     }
   ]
 }

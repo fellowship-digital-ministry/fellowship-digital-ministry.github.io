@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 355,
+  "total_references": 356,
   "chapters": {
     "31": [
       {
@@ -981,6 +981,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Presence Of My Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-14mw-the-presence-of-my-shepherd&t=1083"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "Jeremiah 1",
+        "context": "He tells him that in chapter number 1",
+        "is_implicit": false,
+        "video_id": "xTkB01-htp0",
+        "start_time": 799.6000213623047,
+        "end_time": 860.760009765625,
+        "point_summary": "Jeremiah 1 is cited as confirmation that God's omnipresence brings assurance to those facing difficult assignments, as God promised Jeremiah \"I'm gonna be with you.\"",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+        "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=799"
       },
       {
         "book": "Jeremiah",
@@ -10715,6 +10730,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Peace Of God\"  John 14:27",
       "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2407"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Jeremiah 1",
+      "context": "He tells him that in chapter number 1",
+      "is_implicit": false,
+      "video_id": "xTkB01-htp0",
+      "start_time": 799.6000213623047,
+      "end_time": 860.760009765625,
+      "point_summary": "Jeremiah 1 is cited as confirmation that God's omnipresence brings assurance to those facing difficult assignments, as God promised Jeremiah \"I'm gonna be with you.\"",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
+      "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=799"
     }
   ]
 }
