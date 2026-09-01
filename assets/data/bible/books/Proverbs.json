@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 586,
+  "total_references": 588,
   "chapters": {
     "3": [
       {
@@ -4376,6 +4376,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Truths Concerning Our Treasures\"  Matthew 6:19-21",
         "url": "https://www.youtube.com/watch?v=CXg_STSF1ug&t=1173"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 23,
+        "verse": 5,
+        "reference_text": "Proverbs 23:5",
+        "context": "the Bible tells us in the book of Proverbs that riches make wings and they fly away",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 605.260009765625,
+        "end_time": 670.1000061035156,
+        "point_summary": "Riches are fleeting and ultimately unsatisfying, illustrated by the image of wealth sprouting wings and flying away, underscoring why Zacchaeus's possessions left him empty.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=605"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 23,
+        "verse": 5,
+        "reference_text": "Proverbs 23:5",
+        "context": "like Proverbs said, riches make wings and they fly away",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 670.1000061035156,
+        "end_time": 729.8800048828125,
+        "point_summary": "Riches are fleeting by nature—Proverbs 23:5's image of wealth sprouting wings and flying away illustrates why Zacchaeus's possessions and position left him empty and still seeking.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=670"
       },
       {
         "book": "Proverbs",
@@ -17641,6 +17671,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=799"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 23,
+      "verse": 5,
+      "reference_text": "Proverbs 23:5",
+      "context": "the Bible tells us in the book of Proverbs that riches make wings and they fly away",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 605.260009765625,
+      "end_time": 670.1000061035156,
+      "point_summary": "Riches are fleeting and ultimately unsatisfying, illustrated by the image of wealth sprouting wings and flying away, underscoring why Zacchaeus's possessions left him empty.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=605"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 23,
+      "verse": 5,
+      "reference_text": "Proverbs 23:5",
+      "context": "like Proverbs said, riches make wings and they fly away",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 670.1000061035156,
+      "end_time": 729.8800048828125,
+      "point_summary": "Riches are fleeting by nature—Proverbs 23:5's image of wealth sprouting wings and flying away illustrates why Zacchaeus's possessions and position left him empty and still seeking.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=670"
     }
   ]
 }

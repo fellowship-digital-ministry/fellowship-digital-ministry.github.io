@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 707,
+  "total_references": 709,
   "chapters": {
     "2": [
       {
@@ -1292,6 +1292,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1129"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 2,
+        "verse": 21,
+        "reference_text": "Galatians 2:21",
+        "context": "I do not frustrate the grace of God, for if righteousness come by the law, then Christ is dead in vain",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2285.740020751953,
+        "end_time": 2350.6400146484375,
+        "point_summary": "Salvation cannot come through good works or law-keeping — if righteousness were achievable that way, Christ's death would have been meaningless and in vain.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2285"
       }
     ],
     "6": [
@@ -10302,6 +10317,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah",
         "url": "https://www.youtube.com/watch?v=fbc-2025-03-26mw-jehovah&t=766"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 3,
+        "verse": 24,
+        "reference_text": "Galatians 3:24",
+        "context": "it's a schoolmaster",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2285.740020751953,
+        "end_time": 2350.6400146484375,
+        "point_summary": "The law's role is not to save but to condemn and expose sin, thereby driving sinners to Christ as the only one who can give life.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2285"
       },
       {
         "book": "Galatians",
@@ -21227,6 +21257,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1836"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 2,
+      "verse": 21,
+      "reference_text": "Galatians 2:21",
+      "context": "I do not frustrate the grace of God, for if righteousness come by the law, then Christ is dead in vain",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2285.740020751953,
+      "end_time": 2350.6400146484375,
+      "point_summary": "Salvation cannot come through good works or law-keeping — if righteousness were achievable that way, Christ's death would have been meaningless and in vain.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2285"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 3,
+      "verse": 24,
+      "reference_text": "Galatians 3:24",
+      "context": "it's a schoolmaster",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2285.740020751953,
+      "end_time": 2350.6400146484375,
+      "point_summary": "The law's role is not to save but to condemn and expose sin, thereby driving sinners to Christ as the only one who can give life.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2285"
     }
   ]
 }

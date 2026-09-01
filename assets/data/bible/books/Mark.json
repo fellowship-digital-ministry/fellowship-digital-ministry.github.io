@@ -1,6 +1,6 @@
 {
   "book": "Mark",
-  "total_references": 434,
+  "total_references": 436,
   "chapters": {
     "1": [
       {
@@ -2761,6 +2761,21 @@
       {
         "book": "Mark",
         "chapter": 2,
+        "verse": 1,
+        "reference_text": "Mark chapter number two",
+        "context": "as you look at Mark chapter number two, that there's so many people that they can't even get the man into the door",
+        "is_implicit": false,
+        "video_id": "bLroMQe43GY",
+        "start_time": 388.32000732421875,
+        "end_time": 454.9599914550781,
+        "point_summary": "The crowd at Capernaum was so large no one could enter the door, yet Jesus's attention fixed on one paralyzed individual — illustrating that God's love for the world is always expressed toward specific persons.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=388"
+      },
+      {
+        "book": "Mark",
+        "chapter": 2,
         "verse": 2,
         "reference_text": "Mark 2:2",
         "context": "Notice verse number one continues and says, and it was noised that he, Christ, was in the house. And straightway many were gathered together in so much that there was no room to receive them.",
@@ -4908,6 +4923,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
         "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2073"
+      },
+      {
+        "book": "Mark",
+        "chapter": 6,
+        "verse": null,
+        "reference_text": "Mark 6",
+        "context": "Mark chapter number six, that he saw them",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 1135.260009765625,
+        "end_time": 1200.9000244140625,
+        "point_summary": "Drawing on the previous week's sermon from Mark 6, the willingness to receive Jesus—as the disciples received him into the ship—is presented as the decisive parallel to Zacchaeus's ready response to Christ's invitation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1135"
       },
       {
         "book": "Mark",
@@ -13057,6 +13087,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2512"
+    },
+    {
+      "book": "Mark",
+      "chapter": 2,
+      "verse": 1,
+      "reference_text": "Mark chapter number two",
+      "context": "as you look at Mark chapter number two, that there's so many people that they can't even get the man into the door",
+      "is_implicit": false,
+      "video_id": "bLroMQe43GY",
+      "start_time": 388.32000732421875,
+      "end_time": 454.9599914550781,
+      "point_summary": "The crowd at Capernaum was so large no one could enter the door, yet Jesus's attention fixed on one paralyzed individual — illustrating that God's love for the world is always expressed toward specific persons.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=388"
+    },
+    {
+      "book": "Mark",
+      "chapter": 6,
+      "verse": null,
+      "reference_text": "Mark 6",
+      "context": "Mark chapter number six, that he saw them",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 1135.260009765625,
+      "end_time": 1200.9000244140625,
+      "point_summary": "Drawing on the previous week's sermon from Mark 6, the willingness to receive Jesus—as the disciples received him into the ship—is presented as the decisive parallel to Zacchaeus's ready response to Christ's invitation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1135"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "2_John",
-  "total_references": 4,
+  "total_references": 5,
   "chapters": {
     "1": [
       {
@@ -17,6 +17,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=556"
+      },
+      {
+        "book": "2 John",
+        "chapter": 1,
+        "verse": 1,
+        "reference_text": "2 John",
+        "context": "we've been dealing with this on Wednesday evenings looking through the book of 2 John",
+        "is_implicit": false,
+        "video_id": "bLroMQe43GY",
+        "start_time": 1485.9000244140625,
+        "end_time": 1554.9000244140625,
+        "point_summary": "Because God is love, He gave humanity truth — and 2 John grounds the claim that God's love and His truth are inseparable motivations for revealing Scripture to sinners.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1485"
       },
       {
         "book": "2 John",
@@ -125,6 +140,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=556"
+    },
+    {
+      "book": "2 John",
+      "chapter": 1,
+      "verse": 1,
+      "reference_text": "2 John",
+      "context": "we've been dealing with this on Wednesday evenings looking through the book of 2 John",
+      "is_implicit": false,
+      "video_id": "bLroMQe43GY",
+      "start_time": 1485.9000244140625,
+      "end_time": 1554.9000244140625,
+      "point_summary": "Because God is love, He gave humanity truth — and 2 John grounds the claim that God's love and His truth are inseparable motivations for revealing Scripture to sinners.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1485"
     }
   ]
 }

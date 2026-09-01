@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 892,
+  "total_references": 893,
   "chapters": {
     "4": [
       {
@@ -8284,6 +8284,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=3047"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "James 1:22",
+        "context": "doers of the word",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2775.0400390625,
+        "end_time": 2836.1800537109375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2775"
       },
       {
         "book": "James",
@@ -26777,6 +26792,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2200"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "James 1:22",
+      "context": "doers of the word",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2775.0400390625,
+      "end_time": 2836.1800537109375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2775"
     }
   ]
 }
