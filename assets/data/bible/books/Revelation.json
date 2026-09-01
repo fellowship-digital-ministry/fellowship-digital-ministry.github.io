@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1581,
+  "total_references": 1582,
   "chapters": {
     "3": [
       {
@@ -7566,6 +7566,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Come Into The Ark",
         "url": "https://www.youtube.com/watch?v=fbc-2019-12-01pm-come-into-the-ark&t=2391"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 20,
+        "verse": 14,
+        "reference_text": "Revelation 20:14-15",
+        "context": "Revelation chapter 20. You can read verses 14 and 15",
+        "is_implicit": false,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2031.9000244140625,
+        "end_time": 2090.9400329589844,
+        "point_summary": "Dying without Christ means facing the great white throne judgment and eternity in the lake of fire, making the timing of one's confession of Jesus as Lord eternally decisive.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2031"
       },
       {
         "book": "Revelation",
@@ -47481,6 +47496,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 20,
+      "verse": 14,
+      "reference_text": "Revelation 20:14-15",
+      "context": "Revelation chapter 20. You can read verses 14 and 15",
+      "is_implicit": false,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2031.9000244140625,
+      "end_time": 2090.9400329589844,
+      "point_summary": "Dying without Christ means facing the great white throne judgment and eternity in the lake of fire, making the timing of one's confession of Jesus as Lord eternally decisive.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2031"
     }
   ]
 }

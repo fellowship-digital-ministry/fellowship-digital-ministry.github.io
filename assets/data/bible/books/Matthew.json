@@ -1,6 +1,6 @@
 {
   "book": "Matthew",
-  "total_references": 1471,
+  "total_references": 1473,
   "chapters": {
     "16": [
       {
@@ -362,6 +362,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Beware Of Dogs\"  II Corinthians 11:1-15",
         "url": "https://www.youtube.com/watch?v=kbJhtRYV7uE&t=374"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 16,
+        "verse": null,
+        "reference_text": "Matthew 16",
+        "context": "Matthew chapter number 16 when He's speaking to His disciples. Whom do men say that I am?",
+        "is_implicit": false,
+        "video_id": "bLroMQe43GY",
+        "start_time": 1337.9000244140625,
+        "end_time": 1409.9000244140625,
+        "point_summary": "The question Jesus posed to His disciples — \"Whom do men say that I am?\" — frames Zacchaeus's curiosity as a search for Christ's identity, not merely His miraculous power.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1337"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 16,
+        "verse": null,
+        "reference_text": "Matthew 16:16",
+        "context": "Peter stands up and he says, thou art the Christ, the Son of the living God",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 1337.9000244140625,
+        "end_time": 1409.9000244140625,
+        "point_summary": "The question Jesus posed to His disciples — \"Whom do men say that I am?\" — frames Zacchaeus's curiosity as a search for Christ's identity, not merely His miraculous power.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1337"
       },
       {
         "book": "Matthew",
@@ -44193,6 +44223,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1873"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 16,
+      "verse": null,
+      "reference_text": "Matthew 16",
+      "context": "Matthew chapter number 16 when He's speaking to His disciples. Whom do men say that I am?",
+      "is_implicit": false,
+      "video_id": "bLroMQe43GY",
+      "start_time": 1337.9000244140625,
+      "end_time": 1409.9000244140625,
+      "point_summary": "The question Jesus posed to His disciples — \"Whom do men say that I am?\" — frames Zacchaeus's curiosity as a search for Christ's identity, not merely His miraculous power.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1337"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 16,
+      "verse": null,
+      "reference_text": "Matthew 16:16",
+      "context": "Peter stands up and he says, thou art the Christ, the Son of the living God",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 1337.9000244140625,
+      "end_time": 1409.9000244140625,
+      "point_summary": "The question Jesus posed to His disciples — \"Whom do men say that I am?\" — frames Zacchaeus's curiosity as a search for Christ's identity, not merely His miraculous power.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1337"
     }
   ]
 }

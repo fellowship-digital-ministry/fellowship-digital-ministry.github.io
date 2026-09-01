@@ -1,6 +1,6 @@
 {
   "book": "Genesis",
-  "total_references": 4519,
+  "total_references": 4521,
   "chapters": {
     "37": [
       {
@@ -23562,6 +23562,21 @@
       {
         "book": "Genesis",
         "chapter": 3,
+        "verse": 7,
+        "reference_text": "Genesis 3:7",
+        "context": "their eyes were opened. And you know what they tried to do? They tried to cover their nakedness",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 1485.9000244140625,
+        "end_time": 1554.9000244140625,
+        "point_summary": "The self-made coverings of Adam and Eve after the Fall illustrate humanity's futile attempt to address sin through its own works, which salvation by grace alone exposes as wholly insufficient.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1485"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
         "verse": "8-13",
         "reference_text": "Genesis 3:8-13",
         "context": "as we look at verses 8 through 13, we'll couple verse 7 in there",
@@ -41300,6 +41315,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Wickedness Of Man Was Great",
         "url": "https://www.youtube.com/watch?v=fbc-2019-11-03pm-the-wickedness-of-man-was-great&t=46"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 6,
+        "verse": 3,
+        "reference_text": "Genesis 6:3",
+        "context": "he preached for 120 years",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2775.0400390625,
+        "end_time": 2836.1800537109375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2775"
       },
       {
         "book": "Genesis",
@@ -135677,6 +135707,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2636"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 7,
+      "reference_text": "Genesis 3:7",
+      "context": "their eyes were opened. And you know what they tried to do? They tried to cover their nakedness",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 1485.9000244140625,
+      "end_time": 1554.9000244140625,
+      "point_summary": "The self-made coverings of Adam and Eve after the Fall illustrate humanity's futile attempt to address sin through its own works, which salvation by grace alone exposes as wholly insufficient.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1485"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 6,
+      "verse": 3,
+      "reference_text": "Genesis 6:3",
+      "context": "he preached for 120 years",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2775.0400390625,
+      "end_time": 2836.1800537109375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2775"
     }
   ]
 }

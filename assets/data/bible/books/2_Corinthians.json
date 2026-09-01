@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1828,
+  "total_references": 1835,
   "chapters": {
     "4": [
       {
@@ -6503,6 +6503,21 @@
       {
         "book": "2 Corinthians",
         "chapter": 5,
+        "verse": 8,
+        "reference_text": "2 Corinthians 5:8",
+        "context": "to be absent from the body is to be present with the Lord",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2031.9000244140625,
+        "end_time": 2090.9400329589844,
+        "point_summary": "To be absent from the body is to be present with the Lord, meaning death for the believer brings immediate entrance into heaven—making the timing of one's confession of Christ eternally decisive.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2031"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
         "verse": 9,
         "reference_text": "2 Corinthians 5:9",
         "context": "Wherefore we labor, that whether present or absent we may be accepted of him.",
@@ -7973,6 +7988,21 @@
       {
         "book": "2 Corinthians",
         "chapter": 5,
+        "verse": 15,
+        "reference_text": "Second Corinthians chapter five, verse 15",
+        "context": "he died for all that they which live should not henceforth live unto themselves, but unto him which loved them and gave himself for them",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2638.580047607422,
+        "end_time": 2704.9000549316406,
+        "point_summary": "Salvation's purpose extends beyond rescue: those whom Christ died for are called not to live for themselves but wholly for him who loved them and gave himself for them.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2638"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
         "verse": 16,
         "reference_text": "2 Corinthians 5:16",
         "context": "2 Corinthians chapter 5, verses 14 through 16",
@@ -9439,6 +9469,51 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=54"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
+        "verse": 17,
+        "reference_text": "2 Corinthians 5:17",
+        "context": "therefore if any man be in Christ, he is a new creature. Old things are passed away, behold, all things are become new.",
+        "is_implicit": false,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2156.1400146484375,
+        "end_time": 2223.1400146484375,
+        "point_summary": "Zacchaeus's radical generosity in Luke 19:8 is presented as evidence, not cause, of his salvation—proof that he had become a new creature in Christ, with old things passed away.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2156"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
+        "verse": 17,
+        "reference_text": "2 Corinthians 5:17",
+        "context": "he was a new creature",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2223.1400146484375,
+        "end_time": 2285.740020751953,
+        "point_summary": "Zacchaeus's changed conduct in verse 8 is presented as evidence of genuine conversion, illustrating that the new creature of 2 Corinthians 5:17 produces observable life transformation, not the means of salvation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2223"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
+        "verse": 17,
+        "reference_text": "Second Corinthians chapter five, verse 17",
+        "context": "Second Corinthians chapter five, verse 17, I mentioned a few moments ago",
+        "is_implicit": false,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2638.580047607422,
+        "end_time": 2704.9000549316406,
+        "point_summary": "Salvation received obligates the saved to live not for themselves but for Christ who died for them, making active witness the expected response of those already assured of heaven.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2638"
       },
       {
         "book": "2 Corinthians",
@@ -11824,6 +11899,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1905"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
+        "verse": 21,
+        "reference_text": "2 Corinthians 5:21",
+        "context": "he who knew no sin, he took our place",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 792.7200164794922,
+        "end_time": 859.0800170898438,
+        "point_summary": "Christ's sinlessness—\"he who knew no sin\"—is invoked as the sole exception to the universal human condition of sin, grounding his substitutionary death on behalf of all.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=792"
       }
     ],
     "6": [
@@ -12636,6 +12726,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Compelled By Calvary\"  Luke 23:33",
         "url": "https://www.youtube.com/watch?v=Tzzte7ZXQ_E&t=1754"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 6,
+        "verse": 2,
+        "reference_text": "2 Corinthians 6:2",
+        "context": "today is the day of salvation",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 2564.280044555664,
+        "end_time": 2638.580047607422,
+        "point_summary": "Salvation is urgently personal and cannot be inherited or deferred — today is the appointed day for each individual to receive Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2564"
       },
       {
         "book": "2 Corinthians",
@@ -54873,6 +54978,111 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2708"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 21,
+      "reference_text": "2 Corinthians 5:21",
+      "context": "he who knew no sin, he took our place",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 792.7200164794922,
+      "end_time": 859.0800170898438,
+      "point_summary": "Christ's sinlessness—\"he who knew no sin\"—is invoked as the sole exception to the universal human condition of sin, grounding his substitutionary death on behalf of all.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=792"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 8,
+      "reference_text": "2 Corinthians 5:8",
+      "context": "to be absent from the body is to be present with the Lord",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2031.9000244140625,
+      "end_time": 2090.9400329589844,
+      "point_summary": "To be absent from the body is to be present with the Lord, meaning death for the believer brings immediate entrance into heaven—making the timing of one's confession of Christ eternally decisive.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2031"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "2 Corinthians 5:17",
+      "context": "therefore if any man be in Christ, he is a new creature. Old things are passed away, behold, all things are become new.",
+      "is_implicit": false,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2156.1400146484375,
+      "end_time": 2223.1400146484375,
+      "point_summary": "Zacchaeus's radical generosity in Luke 19:8 is presented as evidence, not cause, of his salvation—proof that he had become a new creature in Christ, with old things passed away.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2156"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "2 Corinthians 5:17",
+      "context": "he was a new creature",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2223.1400146484375,
+      "end_time": 2285.740020751953,
+      "point_summary": "Zacchaeus's changed conduct in verse 8 is presented as evidence of genuine conversion, illustrating that the new creature of 2 Corinthians 5:17 produces observable life transformation, not the means of salvation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2223"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 6,
+      "verse": 2,
+      "reference_text": "2 Corinthians 6:2",
+      "context": "today is the day of salvation",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2564.280044555664,
+      "end_time": 2638.580047607422,
+      "point_summary": "Salvation is urgently personal and cannot be inherited or deferred — today is the appointed day for each individual to receive Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2564"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 15,
+      "reference_text": "Second Corinthians chapter five, verse 15",
+      "context": "he died for all that they which live should not henceforth live unto themselves, but unto him which loved them and gave himself for them",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2638.580047607422,
+      "end_time": 2704.9000549316406,
+      "point_summary": "Salvation's purpose extends beyond rescue: those whom Christ died for are called not to live for themselves but wholly for him who loved them and gave himself for them.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2638"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "Second Corinthians chapter five, verse 17",
+      "context": "Second Corinthians chapter five, verse 17, I mentioned a few moments ago",
+      "is_implicit": false,
+      "video_id": "bLroMQe43GY",
+      "start_time": 2638.580047607422,
+      "end_time": 2704.9000549316406,
+      "point_summary": "Salvation received obligates the saved to live not for themselves but for Christ who died for them, making active witness the expected response of those already assured of heaven.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2638"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Psalms",
-  "total_references": 2755,
+  "total_references": 2756,
   "chapters": {
     "90": [
       {
@@ -1956,6 +1956,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=304"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 19,
+        "verse": 1,
+        "reference_text": "Psalms 19:1",
+        "context": "The Bible tells us that the heavens declare the glory of God. The firmament showeth forth his handiwork",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 1623.9000244140625,
+        "end_time": 1691.9000244140625,
+        "point_summary": "Creation itself testifies to God's existence, making atheism a position that requires more faith than belief, given the overwhelming evidence surrounding us.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1623"
       },
       {
         "book": "Psalms",
@@ -82887,6 +82902,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2851"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 19,
+      "verse": 1,
+      "reference_text": "Psalms 19:1",
+      "context": "The Bible tells us that the heavens declare the glory of God. The firmament showeth forth his handiwork",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 1623.9000244140625,
+      "end_time": 1691.9000244140625,
+      "point_summary": "Creation itself testifies to God's existence, making atheism a position that requires more faith than belief, given the overwhelming evidence surrounding us.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1623"
     }
   ]
 }

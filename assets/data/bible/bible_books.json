@@ -2,15 +2,15 @@
   "books": [
     {
       "book": "Genesis",
-      "count": 4519
+      "count": 4521
     },
     {
       "book": "John",
-      "count": 2906
+      "count": 2916
     },
     {
       "book": "Psalms",
-      "count": 2755
+      "count": 2756
     },
     {
       "book": "Acts",
@@ -18,31 +18,31 @@
     },
     {
       "book": "Hebrews",
-      "count": 2010
+      "count": 2011
     },
     {
       "book": "2_Corinthians",
-      "count": 1828
+      "count": 1835
     },
     {
       "book": "Romans",
-      "count": 1717
+      "count": 1724
+    },
+    {
+      "book": "Revelation",
+      "count": 1582
     },
     {
       "book": "1_Corinthians",
       "count": 1581
     },
     {
-      "book": "Revelation",
-      "count": 1581
-    },
-    {
       "book": "Matthew",
-      "count": 1471
+      "count": 1473
     },
     {
       "book": "Ephesians",
-      "count": 1462
+      "count": 1464
     },
     {
       "book": "1_John",
@@ -62,15 +62,15 @@
     },
     {
       "book": "James",
-      "count": 892
+      "count": 893
     },
     {
       "book": "Luke",
-      "count": 847
+      "count": 886
     },
     {
       "book": "Philippians",
-      "count": 753
+      "count": 761
     },
     {
       "book": "1_Thessalonians",
@@ -78,7 +78,7 @@
     },
     {
       "book": "Galatians",
-      "count": 707
+      "count": 709
     },
     {
       "book": "Colossians",
@@ -90,7 +90,7 @@
     },
     {
       "book": "Proverbs",
-      "count": 586
+      "count": 588
     },
     {
       "book": "Psalm",
@@ -102,7 +102,7 @@
     },
     {
       "book": "Mark",
-      "count": 434
+      "count": 436
     },
     {
       "book": "2_Peter",
@@ -254,7 +254,7 @@
     },
     {
       "book": "2_John",
-      "count": 4
+      "count": 5
     },
     {
       "book": "Nahum",
@@ -270,5 +270,5 @@
     }
   ],
   "total_books": 67,
-  "total_references": 40769
+  "total_references": 40857
 }

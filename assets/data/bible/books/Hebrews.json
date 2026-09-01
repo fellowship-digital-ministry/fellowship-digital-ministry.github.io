@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 2010,
+  "total_references": 2011,
   "chapters": {
     "12": [
       {
@@ -13255,6 +13255,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Make Known Thy Truth\"  Isaiah 38:19",
         "url": "https://www.youtube.com/watch?v=Ltup8ewKTuo&t=237"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 9,
+        "verse": 27,
+        "reference_text": "Hebrews 9:27",
+        "context": "As it is appointed unto man once to die, after this the judgment",
+        "is_implicit": true,
+        "video_id": "bLroMQe43GY",
+        "start_time": 1968.3000183105469,
+        "end_time": 2031.9000244140625,
+        "point_summary": "Hebrews 9:27's declaration that death is appointed for every person grounds the urgent \"when\" question: confessing Christ as Lord before that final breath is what makes all the difference.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+        "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1968"
       },
       {
         "book": "Hebrews",
@@ -60331,6 +60346,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2708"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 9,
+      "verse": 27,
+      "reference_text": "Hebrews 9:27",
+      "context": "As it is appointed unto man once to die, after this the judgment",
+      "is_implicit": true,
+      "video_id": "bLroMQe43GY",
+      "start_time": 1968.3000183105469,
+      "end_time": 2031.9000244140625,
+      "point_summary": "Hebrews 9:27's declaration that death is appointed for every person grounds the urgent \"when\" question: confessing Christ as Lord before that final breath is what makes all the difference.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
+      "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1968"
     }
   ]
 }
