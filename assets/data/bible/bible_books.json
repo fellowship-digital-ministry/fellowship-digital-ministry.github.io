@@ -2,19 +2,19 @@
   "books": [
     {
       "book": "Genesis",
-      "count": 4521
+      "count": 4527
     },
     {
       "book": "John",
-      "count": 2916
+      "count": 2919
     },
     {
       "book": "Psalms",
-      "count": 2756
+      "count": 2759
     },
     {
       "book": "Acts",
-      "count": 2226
+      "count": 2233
     },
     {
       "book": "Hebrews",
@@ -22,47 +22,47 @@
     },
     {
       "book": "2_Corinthians",
-      "count": 1835
+      "count": 1841
     },
     {
       "book": "Romans",
-      "count": 1724
+      "count": 1735
     },
     {
       "book": "Revelation",
-      "count": 1582
+      "count": 1676
     },
     {
       "book": "1_Corinthians",
-      "count": 1581
+      "count": 1586
     },
     {
       "book": "Matthew",
-      "count": 1473
+      "count": 1500
     },
     {
       "book": "Ephesians",
-      "count": 1464
+      "count": 1474
     },
     {
       "book": "1_John",
-      "count": 1114
+      "count": 1123
     },
     {
       "book": "2_Timothy",
-      "count": 974
+      "count": 975
     },
     {
       "book": "1_Peter",
-      "count": 946
-    },
-    {
-      "book": "Exodus",
-      "count": 927
+      "count": 949
     },
     {
       "book": "James",
-      "count": 893
+      "count": 943
+    },
+    {
+      "book": "Exodus",
+      "count": 928
     },
     {
       "book": "Luke",
@@ -74,7 +74,7 @@
     },
     {
       "book": "1_Thessalonians",
-      "count": 743
+      "count": 745
     },
     {
       "book": "Galatians",
@@ -82,7 +82,7 @@
     },
     {
       "book": "Colossians",
-      "count": 693
+      "count": 694
     },
     {
       "book": "1_Timothy",
@@ -90,7 +90,7 @@
     },
     {
       "book": "Proverbs",
-      "count": 588
+      "count": 590
     },
     {
       "book": "Psalm",
@@ -98,15 +98,15 @@
     },
     {
       "book": "Isaiah",
-      "count": 503
+      "count": 504
     },
     {
       "book": "Mark",
-      "count": 436
+      "count": 438
     },
     {
       "book": "2_Peter",
-      "count": 423
+      "count": 424
     },
     {
       "book": "2_Kings",
@@ -134,7 +134,7 @@
     },
     {
       "book": "Daniel",
-      "count": 240
+      "count": 243
     },
     {
       "book": "1_Kings",
@@ -154,11 +154,11 @@
     },
     {
       "book": "2_Thessalonians",
-      "count": 196
+      "count": 197
     },
     {
       "book": "Ezekiel",
-      "count": 195
+      "count": 196
     },
     {
       "book": "Titus",
@@ -229,12 +229,12 @@
       "count": 32
     },
     {
-      "book": "Ruth",
+      "book": "Habakkuk",
       "count": 29
     },
     {
-      "book": "Habakkuk",
-      "count": 27
+      "book": "Ruth",
+      "count": 29
     },
     {
       "book": "Philemon",
@@ -254,14 +254,14 @@
     },
     {
       "book": "2_John",
-      "count": 5
-    },
-    {
-      "book": "Zephaniah",
-      "count": 1
+      "count": 6
     },
     {
       "book": "Song_of_Solomon",
+      "count": 1
+    },
+    {
+      "book": "Zephaniah",
       "count": 1
     },
     {
@@ -270,5 +270,5 @@
     }
   ],
   "total_books": 67,
-  "total_references": 40857
+  "total_references": 41110
 }

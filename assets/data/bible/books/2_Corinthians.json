@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1835,
+  "total_references": 1841,
   "chapters": {
     "4": [
       {
@@ -4838,6 +4838,21 @@
       {
         "book": "2 Corinthians",
         "chapter": 5,
+        "verse": null,
+        "reference_text": "2 Corinthians 5",
+        "context": "2 Corinthians chapter number 5 the fact that we've been given this ministry of reconciliation",
+        "is_implicit": false,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1291.640037536621,
+        "end_time": 1364.6000366210938,
+        "point_summary": "The ministry of reconciliation entrusted to believers (2 Cor. 5) makes intra-church strife a direct contradiction of the gospel message Christians are commissioned to proclaim.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1291"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
         "verse": 1,
         "reference_text": "2 Corinthians 5:1",
         "context": "as we've studied in this fifth chapter of the book of 2 Corinthians",
@@ -9518,6 +9533,21 @@
       {
         "book": "2 Corinthians",
         "chapter": 5,
+        "verse": 17,
+        "reference_text": "2 Corinthians 5:17",
+        "context": "if any man be in Christ, he is a new creature. Old things are passed away, behold, all things are become new",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1877.3600387573242,
+        "end_time": 1945.780044555664,
+        "point_summary": "Regeneration in Christ means believers are genuinely new creatures, so ethnic temperament or old patterns of conflict cannot excuse worldly behavior in the saved.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1877"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
         "verse": 18,
         "reference_text": "2 Corinthians 5:18",
         "context": "And it reminds us just a couple of verses earlier that God said this, that all things are of God who hath reconciled us to himself by Jesus Christ and hath given to us the ministry of reconciliation.",
@@ -12250,6 +12280,21 @@
       {
         "book": "2 Corinthians",
         "chapter": 6,
+        "verse": 1,
+        "reference_text": "2 Corinthians 6:1-7:1",
+        "context": "2 Corinthians chapter six, you read through the end of the chapter, the beginning of chapter seven",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 2210.6600341796875,
+        "end_time": 2269.9000244140625,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2210"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 6,
         "verse": 2,
         "reference_text": "2 Corinthians 6:2",
         "context": "Paul says to the believers in Corinth, he says, today is the day of salvation.",
@@ -13731,6 +13776,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Biblical Separation\"   II Corinthians 6:11-7:1",
         "url": "https://www.youtube.com/watch?v=cPlriQ1DHTs&t=3218"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 6,
+        "verse": 17,
+        "reference_text": "2 Corinthians 6:17",
+        "context": "come out from among them and be separate saith the Lord",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1746.2400512695312,
+        "end_time": 1808.6000394821167,
+        "point_summary": "Separation from the world is grounded in the identity of God's people as those called out to be distinct, unable to divide loyalty between God and worldly ways.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1746"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 6,
+        "verse": 17,
+        "reference_text": "2 Corinthians 6:17",
+        "context": "come out from among them and be you separate, sayeth the Lord",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 2210.6600341796875,
+        "end_time": 2269.9000244140625,
+        "point_summary": "Separation from worldly conformity is God's direct command — \"come out from among them and be ye separate\" — making the church's attempt to imitate the world both unbiblical and unnecessary.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2210"
       },
       {
         "book": "2 Corinthians",
@@ -20521,6 +20596,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
         "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=2708"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 12,
+        "verse": 9,
+        "reference_text": "2 Corinthians 12:9",
+        "context": "my grace is sufficient for thee",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 133.60000610351562,
+        "end_time": 195.0399932861328,
+        "point_summary": "God's grace, cited through Paul's \"my grace is sufficient for thee,\" is presented as the sustaining, enabling grace given day by day beyond saving grace.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=133"
       },
       {
         "book": "2 Corinthians",
@@ -55083,6 +55173,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2638"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "verse": 9,
+      "reference_text": "2 Corinthians 12:9",
+      "context": "my grace is sufficient for thee",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 133.60000610351562,
+      "end_time": 195.0399932861328,
+      "point_summary": "God's grace, cited through Paul's \"my grace is sufficient for thee,\" is presented as the sustaining, enabling grace given day by day beyond saving grace.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=133"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": null,
+      "reference_text": "2 Corinthians 5",
+      "context": "2 Corinthians chapter number 5 the fact that we've been given this ministry of reconciliation",
+      "is_implicit": false,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1291.640037536621,
+      "end_time": 1364.6000366210938,
+      "point_summary": "The ministry of reconciliation entrusted to believers (2 Cor. 5) makes intra-church strife a direct contradiction of the gospel message Christians are commissioned to proclaim.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1291"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 6,
+      "verse": 17,
+      "reference_text": "2 Corinthians 6:17",
+      "context": "come out from among them and be separate saith the Lord",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1746.2400512695312,
+      "end_time": 1808.6000394821167,
+      "point_summary": "Separation from the world is grounded in the identity of God's people as those called out to be distinct, unable to divide loyalty between God and worldly ways.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1746"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "2 Corinthians 5:17",
+      "context": "if any man be in Christ, he is a new creature. Old things are passed away, behold, all things are become new",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1877.3600387573242,
+      "end_time": 1945.780044555664,
+      "point_summary": "Regeneration in Christ means believers are genuinely new creatures, so ethnic temperament or old patterns of conflict cannot excuse worldly behavior in the saved.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1877"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 6,
+      "verse": 17,
+      "reference_text": "2 Corinthians 6:17",
+      "context": "come out from among them and be you separate, sayeth the Lord",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 2210.6600341796875,
+      "end_time": 2269.9000244140625,
+      "point_summary": "Separation from worldly conformity is God's direct command — \"come out from among them and be ye separate\" — making the church's attempt to imitate the world both unbiblical and unnecessary.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2210"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 6,
+      "verse": 1,
+      "reference_text": "2 Corinthians 6:1-7:1",
+      "context": "2 Corinthians chapter six, you read through the end of the chapter, the beginning of chapter seven",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 2210.6600341796875,
+      "end_time": 2269.9000244140625,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2210"
     }
   ]
 }

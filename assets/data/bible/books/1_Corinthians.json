@@ -1,6 +1,6 @@
 {
   "book": "1_Corinthians",
-  "total_references": 1581,
+  "total_references": 1586,
   "chapters": {
     "10": [
       {
@@ -7973,6 +7973,21 @@
       {
         "book": "1 Corinthians",
         "chapter": 15,
+        "verse": 57,
+        "reference_text": "1 Corinthians 15:57",
+        "context": "thanks be to God which giveth us the victory through our Lord Jesus Christ",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 2148.780029296875,
+        "end_time": 2210.6600341796875,
+        "point_summary": "Victory over sin through Christ is cited as the ground for no longer being bound by sin, reinforcing the call to renew the mind rather than conform to the world.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2148"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 15,
         "verse": 58,
         "reference_text": "1 Corinthians 15:58",
         "context": "therefore my beloved brethren be",
@@ -11376,6 +11391,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
         "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2951"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 11,
+        "verse": 28,
+        "reference_text": "First Corinthians 11",
+        "context": "let a man examine himself. First Corinthians 11",
+        "is_implicit": false,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 2968.320068359375,
+        "end_time": 3044.400047302246,
+        "point_summary": "Self-examination before God (\"let a man examine himself\") is presented as the practical expression of humility that opens the door to grace, confession, and reconciliation in conflict.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2968"
       },
       {
         "book": "1 Corinthians",
@@ -16124,6 +16154,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Biblical Separation\"   II Corinthians 6:11-7:1",
         "url": "https://www.youtube.com/watch?v=cPlriQ1DHTs&t=2267"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 6,
+        "verse": 20,
+        "reference_text": "1 Corinthians 6:20",
+        "context": "you're bought with a price",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1222.600019454956,
+        "end_time": 1285.8800201416016,
+        "point_summary": "Bought completely by Christ, the believer belongs entirely to him, making the Holy Spirit's claim on all of a Christian's life both rightful and reasonable.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1222"
       }
     ],
     "12": [
@@ -19869,6 +19914,21 @@
       {
         "book": "1 Corinthians",
         "chapter": 1,
+        "verse": 11,
+        "reference_text": "1 Corinthians 1:11",
+        "context": "Paul says it's reported and I believe it",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1104.1400146484375,
+        "end_time": 1166.7000122070312,
+        "point_summary": "Carnal divisions in the Corinthian church serve as a parallel illustration of the destructive conflicts James describes among believers who reject God's offered wisdom.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1104"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 1,
         "verse": 12,
         "reference_text": "1 Corinthians 1:12",
         "context": "Now this I say, that every one of you saith, I am of Paul; and I of Apollos; and I of Cephas; and I of Christ.",
@@ -21067,6 +21127,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
         "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=57"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "1 Corinthians",
+        "context": "First Corinthians, talking about a church. A church is made up of believers.",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1234.0400352478027,
+        "end_time": 1291.640037536621,
+        "point_summary": "The church context of 1 Corinthians is invoked to establish that conflicts among believers—like those in James 4—are an internal problem among God's own people, not outsiders.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1234"
       }
     ],
     "7": [
@@ -47467,6 +47542,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=494"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 6,
+      "verse": 20,
+      "reference_text": "1 Corinthians 6:20",
+      "context": "you're bought with a price",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1222.600019454956,
+      "end_time": 1285.8800201416016,
+      "point_summary": "Bought completely by Christ, the believer belongs entirely to him, making the Holy Spirit's claim on all of a Christian's life both rightful and reasonable.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1222"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 1,
+      "verse": 11,
+      "reference_text": "1 Corinthians 1:11",
+      "context": "Paul says it's reported and I believe it",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1104.1400146484375,
+      "end_time": 1166.7000122070312,
+      "point_summary": "Carnal divisions in the Corinthian church serve as a parallel illustration of the destructive conflicts James describes among believers who reject God's offered wisdom.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1104"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "1 Corinthians",
+      "context": "First Corinthians, talking about a church. A church is made up of believers.",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1234.0400352478027,
+      "end_time": 1291.640037536621,
+      "point_summary": "The church context of 1 Corinthians is invoked to establish that conflicts among believers—like those in James 4—are an internal problem among God's own people, not outsiders.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1234"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "verse": 57,
+      "reference_text": "1 Corinthians 15:57",
+      "context": "thanks be to God which giveth us the victory through our Lord Jesus Christ",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 2148.780029296875,
+      "end_time": 2210.6600341796875,
+      "point_summary": "Victory over sin through Christ is cited as the ground for no longer being bound by sin, reinforcing the call to renew the mind rather than conform to the world.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2148"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 11,
+      "verse": 28,
+      "reference_text": "First Corinthians 11",
+      "context": "let a man examine himself. First Corinthians 11",
+      "is_implicit": false,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 2968.320068359375,
+      "end_time": 3044.400047302246,
+      "point_summary": "Self-examination before God (\"let a man examine himself\") is presented as the practical expression of humility that opens the door to grace, confession, and reconciliation in conflict.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2968"
     }
   ]
 }

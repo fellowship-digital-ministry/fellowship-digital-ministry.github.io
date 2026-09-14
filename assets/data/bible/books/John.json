@@ -1,6 +1,6 @@
 {
   "book": "John",
-  "total_references": 2916,
+  "total_references": 2919,
   "chapters": {
     "14": [
       {
@@ -8933,6 +8933,21 @@
       {
         "book": "John",
         "chapter": 3,
+        "verse": 16,
+        "reference_text": "John 3:16",
+        "context": "Jesus died for the sins of the world",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1926.4600448608398,
+        "end_time": 1988.4600524902344,
+        "point_summary": "The innumerable, global multitude of Revelation 7 illustrates that Christ's death for \"the sins of the world\" (John 3:16) extends to every nation, kindred, people, and tongue—grounding the church's missionary mandate.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1926"
+      },
+      {
+        "book": "John",
+        "chapter": 3,
         "verse": 17,
         "reference_text": "John 3:17",
         "context": "God sent not a son into the world to condemn the world, but the world through him might be saved",
@@ -17005,6 +17020,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=556"
+      },
+      {
+        "book": "John",
+        "chapter": 17,
+        "verse": 16,
+        "reference_text": "John 17:16",
+        "context": "we're in the world but we're not of the world",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1746.2400512695312,
+        "end_time": 1808.6000394821167,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1746"
       },
       {
         "book": "John",
@@ -32122,6 +32152,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
         "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1705"
+      },
+      {
+        "book": "John",
+        "chapter": 1,
+        "verse": 11,
+        "reference_text": "John 1:11-12",
+        "context": "he came to his own, his own received him not, but as many as received him, to them gave he power to become the sons of God, even to them that believe on his name",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1159.7000122070312,
+        "end_time": 1222.600019454956,
+        "point_summary": "Not all who hear the gospel receive it, but those who do are sealed with the Holy Spirit — a contrast the sermon uses to highlight the privilege of belonging to Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1159"
       },
       {
         "book": "John",
@@ -87527,6 +87572,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2564"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": 11,
+      "reference_text": "John 1:11-12",
+      "context": "he came to his own, his own received him not, but as many as received him, to them gave he power to become the sons of God, even to them that believe on his name",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1159.7000122070312,
+      "end_time": 1222.600019454956,
+      "point_summary": "Not all who hear the gospel receive it, but those who do are sealed with the Holy Spirit — a contrast the sermon uses to highlight the privilege of belonging to Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1159"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 16,
+      "reference_text": "John 3:16",
+      "context": "Jesus died for the sins of the world",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1926.4600448608398,
+      "end_time": 1988.4600524902344,
+      "point_summary": "The innumerable, global multitude of Revelation 7 illustrates that Christ's death for \"the sins of the world\" (John 3:16) extends to every nation, kindred, people, and tongue—grounding the church's missionary mandate.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1926"
+    },
+    {
+      "book": "John",
+      "chapter": 17,
+      "verse": 16,
+      "reference_text": "John 17:16",
+      "context": "we're in the world but we're not of the world",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1746.2400512695312,
+      "end_time": 1808.6000394821167,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1746"
     }
   ]
 }
