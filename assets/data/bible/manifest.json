@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "complete": true,
+  "updated_at": "2026-09-14T21:08:30Z",
+  "source": "https://sermon-search-api-8fok.onrender.com",
+  "books": 67,
+  "total_references": 41110,
+  "content_sha256": "23c4dc26940620f51863d8c77355fa83bb68e0a36b2614e9a6111f1b198a3520"
+}
