@@ -7,9 +7,12 @@ plugins: []
 markdown: kramdown
 
 # Custom settings
-api_url: "https://sermon-search-api-8fok.onrender.com"  # Make sure this URL is correct and without trailing slash
+# NOTE: api_url is not read by any template or script. The API base URL is
+# hard-coded in assets/js/search.js, transcript-page.js and
+# reference-viewer.js (and in the two workflows); change it there.
+api_url: "https://sermon-search-api-8fok.onrender.com"
 church_website: "https://fbcministries.net/"
 
-# CORS settings - these are applied in Jekyll's front matter processing
-# but you'll need to ensure your API allows these origins
+# NOTE: not read by anything. CORS is configured on the API server
+# (sermon-library/api/app.py), not by this static site.
 cors_enabled: true
