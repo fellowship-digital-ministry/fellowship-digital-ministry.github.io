@@ -61,7 +61,8 @@ custom_class: search-page
                  ask-a-question only, so the old Ask/Find mode toggle is retired. -->
             <div class="conversation-controls-right">
               <!-- BYOK indicator — hidden by default, shown by search.js when a
-                   key is stored in localStorage. -->
+                   key is stored for this tab (sessionStorage) or this device
+                   (localStorage). "remove" deletes it from both. -->
               <span id="byokIndicator" class="byok-indicator" hidden>
                 <span class="byok-indicator-icon" aria-hidden="true">&#x1F511;</span>
                 <span class="byok-indicator-text">Using your key</span>
@@ -88,8 +89,11 @@ custom_class: search-page
   </div>
 
   <!-- BYOK modal — shown when the daily shared quota is exhausted. Lets
-       motivated users continue with their own OpenRouter key. Key lives
-       in localStorage only, never sent to any server but OpenRouter. -->
+       motivated users continue with their own OpenRouter key. The key is
+       stored only in the browser (sessionStorage, or localStorage if the
+       user ticks "Remember"), and is sent with each question to the
+       sermon API backend, which forwards it to OpenRouter for that
+       request. See README "Your own OpenRouter key". -->
   <div id="byokSection" class="claude-overlay" role="dialog" aria-modal="true"
        aria-labelledby="byokHeading" aria-hidden="true">
     <div class="claude-overlay-content">
@@ -105,8 +109,10 @@ custom_class: search-page
           about 2 cents per question, no subscription.
         </p>
         <p class="byok-safety">
-          <strong>Is this safe?</strong> Yes, your key stays in your
-          web browser and we never see or store it. When you create the key
+          <strong>Is this safe?</strong> Your key is kept in this browser
+          tab, or on this device if you tick "Remember". Each question sends
+          it to this site's sermon server, which uses it only to ask OpenRouter
+          for that answer and does not save it. When you create the key
           on OpenRouter, set the spending limit to $5 so it can never be
           charged more than that.
         </p>
@@ -143,6 +149,10 @@ custom_class: search-page
                 Save and use my key
               </button>
             </div>
+            <label class="byok-remember">
+              <input type="checkbox" id="byokRemember" />
+              Remember on this device (otherwise it is forgotten when you close this tab)
+            </label>
             <div id="byokError" class="byok-error" role="alert" aria-live="polite"></div>
           </li>
         </ol>

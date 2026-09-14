@@ -15,25 +15,64 @@ const API_CONFIG = {
  * BYOK (Bring Your Own OpenRouter Key)
  *
  * When the shared daily cap is hit, motivated users can paste in their
- * own OpenRouter key. The key lives in localStorage only — we never
- * send it anywhere except OpenRouter (via the X-OpenRouter-Key header
- * on the answer endpoints, which the backend forwards without logging
- * or persisting).
+ * own OpenRouter key. Where the key goes:
+ *
+ * - Stored only in this browser: sessionStorage by default (gone when the
+ *   tab closes), or localStorage if the user ticks "Remember on this
+ *   device" (kept until removed). Keys saved by earlier versions of this
+ *   page are in localStorage and count as remembered. If storage is
+ *   blocked, the key is held in memory until the page is reloaded.
+ * - Sent with every answer request in the X-OpenRouter-Key header to the
+ *   sermon API backend (sermon-library, hosted on Render). The backend
+ *   uses it to call OpenRouter for that request. The browser does NOT
+ *   talk to OpenRouter directly, so the backend necessarily receives it.
+ * - Never logged by this page. "remove" deletes it from every store.
  */
 const BYOK_STORAGE_KEY = 'fellowship-openrouter-key-v1';
 
+let byokMemoryKey = '';
+
+function byokStorage(kind) {
+  try { return kind === 'local' ? window.localStorage : window.sessionStorage; }
+  catch (e) { return null; }
+}
+
 const BYOK = {
   get() {
-    try { return localStorage.getItem(BYOK_STORAGE_KEY) || ''; }
-    catch (e) { return ''; }
+    for (const kind of ['session', 'local']) {
+      try {
+        const store = byokStorage(kind);
+        const value = store && store.getItem(BYOK_STORAGE_KEY);
+        if (value) return value;
+      } catch (e) {}
+    }
+    return byokMemoryKey;
   },
-  set(key) {
-    try { localStorage.setItem(BYOK_STORAGE_KEY, key); }
-    catch (e) {}
+  isRemembered() {
+    try {
+      const store = byokStorage('local');
+      return !!(store && store.getItem(BYOK_STORAGE_KEY));
+    } catch (e) { return false; }
+  },
+  set(key, remember) {
+    this.clear();
+    byokMemoryKey = key;
+    try {
+      const store = byokStorage(remember ? 'local' : 'session');
+      if (store) {
+        store.setItem(BYOK_STORAGE_KEY, key);
+        byokMemoryKey = '';
+      }
+    } catch (e) {}
   },
   clear() {
-    try { localStorage.removeItem(BYOK_STORAGE_KEY); }
-    catch (e) {}
+    byokMemoryKey = '';
+    for (const kind of ['session', 'local']) {
+      try {
+        const store = byokStorage(kind);
+        if (store) store.removeItem(BYOK_STORAGE_KEY);
+      } catch (e) {}
+    }
   },
   isValidShape(key) {
     // Real validation happens server-side on first use; this is just a
@@ -455,7 +494,7 @@ const SermonSearch = (function() {
       <div class="cap-hit-message" role="alert">
         <strong>Today's question quota is used up</strong>
         <p>${capDetail && capDetail.message ? escapeHtml(capDetail.message) : "This is a personal-volunteer project running on a small daily budget, and it's been used up for today. The site will work again tomorrow."}</p>
-        <p>Want to keep exploring now? You can use your own OpenRouter key — about 2 cents per question, stays in your browser only.</p>
+        <p>Want to keep exploring now? You can use your own OpenRouter key — about 2 cents per question, kept in your browser and not saved on our server.</p>
         <div class="cap-hit-actions">
           <button type="button" class="cap-hit-primary" data-cap-action="byok">Use my own key</button>
           <button type="button" class="cap-hit-secondary" data-cap-action="dismiss">Maybe tomorrow</button>
@@ -524,7 +563,12 @@ const SermonSearch = (function() {
 
   function updateByokIndicator() {
     const hasKey = !!BYOK.get();
-    if (elements.byokIndicator) elements.byokIndicator.hidden = !hasKey;
+    if (elements.byokIndicator) {
+      elements.byokIndicator.hidden = !hasKey;
+      elements.byokIndicator.title = BYOK.isRemembered()
+        ? 'Your key is saved on this device until you remove it'
+        : 'Your key is kept until you close this tab';
+    }
     // The nudge is the inverse of the indicator — it disappears once
     // a key is in place since the indicator pill covers that state.
     if (elements.byokNudge) elements.byokNudge.hidden = hasKey;
@@ -540,8 +584,10 @@ const SermonSearch = (function() {
       }
       return;
     }
-    BYOK.set(raw);
+    const remember = !!(elements.byokRemember && elements.byokRemember.checked);
+    BYOK.set(raw, remember);
     elements.byokKeyInput.value = '';
+    if (elements.byokRemember) elements.byokRemember.checked = false;
     if (elements.byokError) elements.byokError.textContent = '';
     updateByokIndicator();
     closeByokModal();
@@ -3549,6 +3595,7 @@ Would you like me to search for sermon content on any of these topics instead?`;
       byokSection: getElement('byokSection'),
       closeByokSection: getElement('closeByokSection'),
       byokKeyInput: getElement('byokKeyInput'),
+      byokRemember: getElement('byokRemember'),
       byokSaveButton: getElement('byokSaveButton'),
       byokError: getElement('byokError'),
       byokIndicator: getElement('byokIndicator'),
