@@ -1,0 +1,12 @@
+{
+  "name": "fellowship-site-js-checks",
+  "private": true,
+  "description": "Node checks for the static site's JavaScript (not used by the site itself).",
+  "scripts": {
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "jsdom": "25.0.1",
+    "marked": "12.0.2"
+  }
+}

@@ -904,27 +904,28 @@ const SermonSearch = (function() {
    * Bible references like "Romans 3:23" still need to become clickable
    * spans. We post-process the rendered HTML's text nodes only (not tag
    * attributes) to wrap them in <span class="bible-reference">.
+   *
+   * Model output is untrusted: SafeMarkdown (assets/js/safe-markdown.js)
+   * sanitizes the Markdown render before anything parses it, and the
+   * finished HTML is sanitized again before it is returned for innerHTML.
    */
   function formatResponse(text) {
     if (!text) return '';
 
-    // Fallback if marked failed to load (CDN blocked, offline, etc.)
-    let html;
-    if (typeof marked !== 'undefined') {
-      html = marked.parse(text, { breaks: true, gfm: true });
-    } else {
-      // Minimal fallback: escape + line breaks + bold
-      html = escapeHTML(text)
-        .replace(/\n/g, '<br>')
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // If the sanitizer script failed to load, show plain escaped text.
+    if (!window.SafeMarkdown) {
+      return escapeHTML(text).replace(/\n/g, '<br>');
     }
+
+    let html = SafeMarkdown.renderMarkdown(text);
 
     // Wrap the trailing "Bible-Based Questions You Might Find Helpful"
     // block in its own div so CSS can style it as a quieter, distinct
     // affordance (separated from the main answer).
     html = wrapSuggestionsBlock(html);
 
-    return highlightBibleReferences(html);
+    html = SafeMarkdown.highlightText(html, getBibleReferenceRegex(), 'bible-reference');
+    return SafeMarkdown.sanitizeHtml(html);
   }
 
   /**
@@ -962,35 +963,6 @@ const SermonSearch = (function() {
     }
 
     return container.innerHTML;
-  }
-
-  /**
-   * Walk an HTML string's text nodes and wrap Bible references in spans.
-   * Done DOM-side rather than via string regex so we never corrupt tag
-   * attributes or break existing <a href> markup.
-   */
-  function highlightBibleReferences(html) {
-    const regex = getBibleReferenceRegex();
-    const wrapper = document.createElement('div');
-    wrapper.innerHTML = html;
-
-    const walker = document.createTreeWalker(wrapper, NodeFilter.SHOW_TEXT, null);
-    const textNodes = [];
-    let node;
-    while ((node = walker.nextNode())) textNodes.push(node);
-
-    for (const textNode of textNodes) {
-      const original = textNode.nodeValue;
-      if (!regex.test(original)) continue;
-      // Reset lastIndex since /g regexes are stateful
-      regex.lastIndex = 0;
-      const replaced = original.replace(regex, '<span class="bible-reference">$&</span>');
-      if (replaced === original) continue;
-      const span = document.createElement('span');
-      span.innerHTML = replaced;
-      textNode.replaceWith(...span.childNodes);
-    }
-    return wrapper.innerHTML;
   }
 
   /**
@@ -1073,8 +1045,13 @@ function addMessage(text, sender, isError = false) {
     } 
     else if (text.startsWith('<div class="error-container">') || 
              text.startsWith('<div class="connection-error">')) {
-      // For pre-formatted HTML error content
-      messageContent.innerHTML = text;
+      // For pre-formatted HTML error content. Sanitized too: a model answer
+      // that happens to start with this markup must not bypass the boundary.
+      if (window.SafeMarkdown) {
+        messageContent.innerHTML = SafeMarkdown.sanitizeHtml(text);
+      } else {
+        messageContent.textContent = text;
+      }
     } 
     else {
       // Regular text responses - NEVER add sources button here
@@ -2018,7 +1995,7 @@ function createSourceElement(source, index, opts) {
     if (data.note) {
       const noteElement = document.createElement('div');
       noteElement.className = 'claude-transcript-note';
-      noteElement.innerHTML = `<p><em>${data.note}</em></p>`;
+      noteElement.innerHTML = `<p><em>${escapeHTML(data.note)}</em></p>`;
       container.appendChild(noteElement);
     }
     
@@ -2526,7 +2503,7 @@ function createSourceElement(source, index, opts) {
             smoothScrollToBottom(elements.messagesContainer);
           },
           onError: (msg) => {
-            contentEl.innerHTML = `<div class="error-container"><p>Error: ${msg}</p></div>`;
+            contentEl.innerHTML = `<div class="error-container"><p>Error: ${escapeHTML(msg)}</p></div>`;
           },
         });
       } else {
@@ -2555,7 +2532,7 @@ function createSourceElement(source, index, opts) {
         // Generic error path (network failure, unexpected 5xx, etc.)
         const errorMsg = `
           <div class="error-container">
-            <p>Sorry, an error occurred: ${error.message}</p>
+            <p>Sorry, an error occurred: ${escapeHTML(error.message)}</p>
             <button class="retry-button">${translate('try-again')}</button>
           </div>
         `;
@@ -3669,7 +3646,7 @@ Would you like me to search for sermon content on any of these topics instead?`;
           // Show error to user
           const errorMsg = `
             <div class="error-container">
-              <p>Sorry, an error occurred: ${error.message}</p>
+              <p>Sorry, an error occurred: ${escapeHTML(error.message)}</p>
             </div>
           `;
           addMessage(errorMsg, 'bot', true);

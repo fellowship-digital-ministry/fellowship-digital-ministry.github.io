@@ -98,6 +98,10 @@
   <!-- Bible reference linking script - makes Bible references clickable -->
   <script src="{{ '/assets/js/bible-references.js' | relative_url }}?v={{ cache_bust }}"></script>
   <script src="{{ '/assets/js/mobile-header.js' | relative_url }}?v={{ cache_bust }}"></script>
+  <!-- Sanitization boundary for AI answers: DOMPurify (vendored, Apache-2.0/MPL-2.0)
+       then SafeMarkdown. Must load before search.js. -->
+  <script src="{{ '/assets/js/lib/purify.min.js' | relative_url }}?v={{ cache_bust }}"></script>
+  <script src="{{ '/assets/js/safe-markdown.js' | relative_url }}?v={{ cache_bust }}"></script>
   <script src="{{ '/assets/js/search.js' | relative_url }}?v={{ cache_bust }}"></script>
 
 </body>
