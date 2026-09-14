@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 974,
+  "total_references": 975,
   "chapters": {
     "3": [
       {
@@ -5672,6 +5672,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
         "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=379"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 3,
+        "verse": 16,
+        "reference_text": "2 Timothy 3:16",
+        "context": "God's word is given to us the Bible says that it's profitable for doctrine and I'm thankful for that but it's also profitable for reproof",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 390.6400146484375,
+        "end_time": 451.67999267578125,
+        "point_summary": "Scripture's profitability for reproof is cited to establish that God's word provides the correction His people need, framing the sermon's examination of the carnality James addresses.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=390"
       },
       {
         "book": "2 Timothy",
@@ -29235,6 +29250,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=508"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 3,
+      "verse": 16,
+      "reference_text": "2 Timothy 3:16",
+      "context": "God's word is given to us the Bible says that it's profitable for doctrine and I'm thankful for that but it's also profitable for reproof",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 390.6400146484375,
+      "end_time": 451.67999267578125,
+      "point_summary": "Scripture's profitability for reproof is cited to establish that God's word provides the correction His people need, framing the sermon's examination of the carnality James addresses.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=390"
     }
   ]
 }

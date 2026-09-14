@@ -1,6 +1,6 @@
 {
   "book": "Isaiah",
-  "total_references": 503,
+  "total_references": 504,
   "chapters": {
     "6": [
       {
@@ -2513,6 +2513,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Shalom",
         "url": "https://www.youtube.com/watch?v=fbc-2025-07-02mw-jehovah-shalom&t=1271"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Isaiah (circle of the earth)",
+        "context": "Isaiah makes it very clear that the sphere of the circle of the earth",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 779.1799926757812,
+        "end_time": 839.8800048828125,
+        "point_summary": "Isaiah's reference to \"the circle of the earth\" is cited to affirm the earth's spherical shape against flat-earth teaching, not to support a literal four-cornered geography.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=779"
       }
     ],
     "30": [
@@ -15175,6 +15190,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1258"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Isaiah (circle of the earth)",
+      "context": "Isaiah makes it very clear that the sphere of the circle of the earth",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 779.1799926757812,
+      "end_time": 839.8800048828125,
+      "point_summary": "Isaiah's reference to \"the circle of the earth\" is cited to affirm the earth's spherical shape against flat-earth teaching, not to support a literal four-cornered geography.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=779"
     }
   ]
 }

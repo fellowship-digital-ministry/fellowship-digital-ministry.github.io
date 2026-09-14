@@ -1,6 +1,6 @@
 {
   "book": "Exodus",
-  "total_references": 927,
+  "total_references": 928,
   "chapters": {
     "14": [
       {
@@ -10236,6 +10236,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Noah Worshipped The Lord",
         "url": "https://www.youtube.com/watch?v=fbc-2019-12-15pm-noah-worshipped-the-lord&t=765"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 34,
+        "verse": 14,
+        "reference_text": "Exodus 34:14",
+        "context": "our God is a jealous God",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1746.2400512695312,
+        "end_time": 1808.6000394821167,
+        "point_summary": "God's jealousy, rooted in the Exodus declaration that He will not share His people with rivals, grounds the New Testament warning that friendship with the world constitutes enmity toward Him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1746"
       },
       {
         "book": "Exodus",
@@ -27891,6 +27906,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 34,
+      "verse": 14,
+      "reference_text": "Exodus 34:14",
+      "context": "our God is a jealous God",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1746.2400512695312,
+      "end_time": 1808.6000394821167,
+      "point_summary": "God's jealousy, rooted in the Exodus declaration that He will not share His people with rivals, grounds the New Testament warning that friendship with the world constitutes enmity toward Him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1746"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "2_John",
-  "total_references": 5,
+  "total_references": 6,
   "chapters": {
     "1": [
       {
@@ -47,6 +47,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Is Love\" I John 4:7-10",
         "url": "https://www.youtube.com/watch?v=0c9STAI-vWI&t=2106"
+      },
+      {
+        "book": "2 John",
+        "chapter": 1,
+        "verse": 6,
+        "reference_text": "2 John 1:6",
+        "context": "we are to walk in love that we're to love one another",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 329.0400085449219,
+        "end_time": 390.6400146484375,
+        "point_summary": "The New Testament's repeated call to walk in love, including in 2 John, sharpens the heartache of James 4's portrait of division and carnality among believers.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=329"
       },
       {
         "book": "2 John",
@@ -155,6 +170,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1485"
+    },
+    {
+      "book": "2 John",
+      "chapter": 1,
+      "verse": 6,
+      "reference_text": "2 John 1:6",
+      "context": "we are to walk in love that we're to love one another",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 329.0400085449219,
+      "end_time": 390.6400146484375,
+      "point_summary": "The New Testament's repeated call to walk in love, including in 2 John, sharpens the heartache of James 4's portrait of division and carnality among believers.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=329"
     }
   ]
 }

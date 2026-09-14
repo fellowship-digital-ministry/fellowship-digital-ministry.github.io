@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 743,
+  "total_references": 745,
   "chapters": {
     "5": [
       {
@@ -3212,6 +3212,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
         "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1752"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 5,
+        "verse": 19,
+        "reference_text": "1 Thessalonians 5:19",
+        "context": "quench not the spirit",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 2754.320037841797,
+        "end_time": 2821.7000427246094,
+        "point_summary": "Loving the world grieves and quenches the Holy Spirit, who, though fully indwelling every believer, desires complete surrender and yielding in return.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2754"
       },
       {
         "book": "1 Thessalonians",
@@ -10223,6 +10238,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jesus Our Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-21mw-jesus-our-shepherd&t=1868"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": 17,
+        "reference_text": "1 Thessalonians 4:17",
+        "context": "we're gonna meet him in the clouds if we're here during the rapture and we'll be with him forever",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1286.7200164794922,
+        "end_time": 1345.280014038086,
+        "point_summary": "The Holy Spirit's sealing of believers is the \"earnest\" of a future inheritance that will be fully realized when the redeemed meet Christ and are with him forever.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1286"
       },
       {
         "book": "1 Thessalonians",
@@ -22305,6 +22335,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=169"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 17,
+      "reference_text": "1 Thessalonians 4:17",
+      "context": "we're gonna meet him in the clouds if we're here during the rapture and we'll be with him forever",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1286.7200164794922,
+      "end_time": 1345.280014038086,
+      "point_summary": "The Holy Spirit's sealing of believers is the \"earnest\" of a future inheritance that will be fully realized when the redeemed meet Christ and are with him forever.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1286"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 5,
+      "verse": 19,
+      "reference_text": "1 Thessalonians 5:19",
+      "context": "quench not the spirit",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 2754.320037841797,
+      "end_time": 2821.7000427246094,
+      "point_summary": "Loving the world grieves and quenches the Holy Spirit, who, though fully indwelling every believer, desires complete surrender and yielding in return.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2754"
     }
   ]
 }

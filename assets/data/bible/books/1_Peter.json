@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 946,
+  "total_references": 949,
   "chapters": {
     "1": [
       {
@@ -1322,6 +1322,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1993"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 1,
+        "verse": 4,
+        "reference_text": "1 Peter 1:4",
+        "context": "to an inheritance incorruptible and undefiled and that fadeth not away reserved in heaven for you",
+        "is_implicit": false,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1286.7200164794922,
+        "end_time": 1345.280014038086,
+        "point_summary": "The Holy Spirit's sealing of believers is the earnest money—a down payment guaranteeing the incorruptible, undefiled inheritance reserved in heaven that 1 Peter 1:4 promises.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1286"
       },
       {
         "book": "1 Peter",
@@ -5147,6 +5162,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
         "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=446"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 1,
+        "verse": 23,
+        "reference_text": "1 Peter 1:23",
+        "context": "we're born again, not of corruptible seed, but of incorruptible by the word of God which liveth and abideth forever",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 582.1599731445312,
+        "end_time": 651.100025177002,
+        "point_summary": "1 Peter 1:23 is cited in passing to affirm that regeneration comes through the incorruptible word of God, distinguishing that salvation point from James 1:21's later call to receive the word for sanctifying benefit.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=582"
       },
       {
         "book": "1 Peter",
@@ -13150,6 +13180,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jesus Our Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-21mw-jesus-our-shepherd&t=58"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 2,
+        "verse": 23,
+        "reference_text": "1 Peter 2:23",
+        "context": "when he was reviled, the Bible says he reviled not again",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1877.3600387573242,
+        "end_time": 1945.780044555664,
+        "point_summary": "Christ's example of not retaliating when reviled is held up as the standard that distinguishes the new creature's response to conflict from the worldly patterns of the unregenerate.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1877"
       },
       {
         "book": "1 Peter",
@@ -28395,6 +28440,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1322"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 1,
+      "verse": 4,
+      "reference_text": "1 Peter 1:4",
+      "context": "to an inheritance incorruptible and undefiled and that fadeth not away reserved in heaven for you",
+      "is_implicit": false,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1286.7200164794922,
+      "end_time": 1345.280014038086,
+      "point_summary": "The Holy Spirit's sealing of believers is the earnest money—a down payment guaranteeing the incorruptible, undefiled inheritance reserved in heaven that 1 Peter 1:4 promises.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1286"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 1,
+      "verse": 23,
+      "reference_text": "1 Peter 1:23",
+      "context": "we're born again, not of corruptible seed, but of incorruptible by the word of God which liveth and abideth forever",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 582.1599731445312,
+      "end_time": 651.100025177002,
+      "point_summary": "1 Peter 1:23 is cited in passing to affirm that regeneration comes through the incorruptible word of God, distinguishing that salvation point from James 1:21's later call to receive the word for sanctifying benefit.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=582"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 2,
+      "verse": 23,
+      "reference_text": "1 Peter 2:23",
+      "context": "when he was reviled, the Bible says he reviled not again",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1877.3600387573242,
+      "end_time": 1945.780044555664,
+      "point_summary": "Christ's example of not retaliating when reviled is held up as the standard that distinguishes the new creature's response to conflict from the worldly patterns of the unregenerate.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1877"
     }
   ]
 }

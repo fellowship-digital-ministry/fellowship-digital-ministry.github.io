@@ -1,6 +1,6 @@
 {
   "book": "Colossians",
-  "total_references": 693,
+  "total_references": 694,
   "chapters": {
     "3": [
       {
@@ -7131,6 +7131,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Shalom",
         "url": "https://www.youtube.com/watch?v=fbc-2025-07-02mw-jehovah-shalom&t=1681"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 1,
+        "verse": 18,
+        "reference_text": "Colossians 1:18",
+        "context": "in all things he might have the preeminence",
+        "is_implicit": false,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 1670.2000427246094,
+        "end_time": 1746.2400512695312,
+        "point_summary": "Anything that displaces God from His rightful position of preeminence—as declared in Colossians 1:18—constitutes idolatry, however different modern idols may look from ancient ones.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1670"
       },
       {
         "book": "Colossians",
@@ -20803,6 +20818,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
       "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 1,
+      "verse": 18,
+      "reference_text": "Colossians 1:18",
+      "context": "in all things he might have the preeminence",
+      "is_implicit": false,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 1670.2000427246094,
+      "end_time": 1746.2400512695312,
+      "point_summary": "Anything that displaces God from His rightful position of preeminence—as declared in Colossians 1:18—constitutes idolatry, however different modern idols may look from ancient ones.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1670"
     }
   ]
 }

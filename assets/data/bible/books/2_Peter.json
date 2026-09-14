@@ -1,6 +1,6 @@
 {
   "book": "2_Peter",
-  "total_references": 423,
+  "total_references": 424,
   "chapters": {
     "3": [
       {
@@ -2717,6 +2717,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1899"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 3,
+        "verse": 9,
+        "reference_text": "2 Peter 3:9",
+        "context": "God is not willing that any should perish, but that all should come to repentance",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1926.4600448608398,
+        "end_time": 1988.4600524902344,
+        "point_summary": "God's unwillingness that any should perish grounds the innumerable size of the tribulation saints multitude, confirming that his grace is both sufficient and unlimited.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1926"
       },
       {
         "book": "2 Peter",
@@ -12701,6 +12716,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1899"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 3,
+      "verse": 9,
+      "reference_text": "2 Peter 3:9",
+      "context": "God is not willing that any should perish, but that all should come to repentance",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1926.4600448608398,
+      "end_time": 1988.4600524902344,
+      "point_summary": "God's unwillingness that any should perish grounds the innumerable size of the tribulation saints multitude, confirming that his grace is both sufficient and unlimited.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1926"
     }
   ]
 }

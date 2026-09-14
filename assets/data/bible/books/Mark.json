@@ -1,6 +1,6 @@
 {
   "book": "Mark",
-  "total_references": 436,
+  "total_references": 438,
   "chapters": {
     "1": [
       {
@@ -1178,6 +1178,21 @@
       {
         "book": "Mark",
         "chapter": 16,
+        "verse": 15,
+        "reference_text": "preach the gospel to every creature",
+        "context": "obedient to the instruction to preach the gospel to every creature",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1089.6000061035156,
+        "end_time": 1159.7000122070312,
+        "point_summary": "The command to preach the gospel to every creature (Mark 16:15) is the obedience that makes personal salvation possible, as someone must be faithful to proclaim it before anyone can hear and trust Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1089"
+      },
+      {
+        "book": "Mark",
+        "chapter": 16,
         "verse": 16,
         "reference_text": "Mark 16:16",
         "context": "He that believeth and is baptized shall be saved, but he that believeth not shall be damned.",
@@ -1763,6 +1778,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"An Example Worth Following\"  I Corinthians 11:1",
         "url": "https://www.youtube.com/watch?v=D2z46EI7Kt4&t=688"
+      },
+      {
+        "book": "Mark",
+        "chapter": 8,
+        "verse": null,
+        "reference_text": "Mark 8",
+        "context": "Mark chapter eight",
+        "is_implicit": true,
+        "video_id": "9QrzAwkFXhE",
+        "start_time": 2754.320037841797,
+        "end_time": 2821.7000427246094,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+        "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2754"
       },
       {
         "book": "Mark",
@@ -13117,6 +13147,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1135"
+    },
+    {
+      "book": "Mark",
+      "chapter": 16,
+      "verse": 15,
+      "reference_text": "preach the gospel to every creature",
+      "context": "obedient to the instruction to preach the gospel to every creature",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1089.6000061035156,
+      "end_time": 1159.7000122070312,
+      "point_summary": "The command to preach the gospel to every creature (Mark 16:15) is the obedience that makes personal salvation possible, as someone must be faithful to proclaim it before anyone can hear and trust Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1089"
+    },
+    {
+      "book": "Mark",
+      "chapter": 8,
+      "verse": null,
+      "reference_text": "Mark 8",
+      "context": "Mark chapter eight",
+      "is_implicit": true,
+      "video_id": "9QrzAwkFXhE",
+      "start_time": 2754.320037841797,
+      "end_time": 2821.7000427246094,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
+      "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2754"
     }
   ]
 }

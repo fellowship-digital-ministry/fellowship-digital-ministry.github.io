@@ -1,6 +1,6 @@
 {
   "book": "Daniel",
-  "total_references": 240,
+  "total_references": 243,
   "chapters": {
     "6": [
       {
@@ -1872,6 +1872,21 @@
       {
         "book": "Daniel",
         "chapter": 9,
+        "verse": 1,
+        "reference_text": "Daniel 9",
+        "context": "Daniel chapter number 9 gives abundantly clear details with regard to the 70 weeks and all that's going to happen in that 70th week",
+        "is_implicit": false,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 528.0,
+        "end_time": 599.0,
+        "point_summary": "Daniel 9's prophecy of the 70 weeks provides the framework for identifying the abomination of desolation as the midpoint event of the tribulation, when Antichrist breaks his peace treaty with Israel and demands worship.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=528"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 9,
         "verse": 3,
         "reference_text": "Daniel 9:3",
         "context": "in verse three, he begins to seek the face of the Lord",
@@ -2168,6 +2183,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Rapture\"  Revelation 4:1",
         "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=1605"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 9,
+        "verse": 24,
+        "reference_text": "69th and 70th week of Daniel",
+        "context": "the clock has been stopped, if you will, right, between the 69th and 70th week of Daniel",
+        "is_implicit": false,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 2784.4800720214844,
+        "end_time": 2848.0000610351562,
+        "point_summary": "The church age occupies the prophetic pause between Daniel's 69th and 70th weeks, with the tribulation clock set to restart at the rapture, grounding the call for urgent evangelism in the present moment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=2784"
       },
       {
         "book": "Daniel",
@@ -3440,6 +3470,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Rapture\"  Revelation 4:1",
         "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=553"
+      },
+      {
+        "book": "Daniel",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Daniel (prophet)",
+        "context": "spoken of by Daniel the prophet",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 599.0,
+        "end_time": 656.0800018310547,
+        "point_summary": "Daniel 9's prophecy of the 70 weeks provides the chronological framework identifying the abomination of desolation as the midpoint breach of Antichrist's peace treaty with Israel.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=599"
       }
     ],
     "70": [
@@ -7231,6 +7276,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2319"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 9,
+      "verse": 1,
+      "reference_text": "Daniel 9",
+      "context": "Daniel chapter number 9 gives abundantly clear details with regard to the 70 weeks and all that's going to happen in that 70th week",
+      "is_implicit": false,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 528.0,
+      "end_time": 599.0,
+      "point_summary": "Daniel 9's prophecy of the 70 weeks provides the framework for identifying the abomination of desolation as the midpoint event of the tribulation, when Antichrist breaks his peace treaty with Israel and demands worship.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=528"
+    },
+    {
+      "book": "Daniel",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Daniel (prophet)",
+      "context": "spoken of by Daniel the prophet",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 599.0,
+      "end_time": 656.0800018310547,
+      "point_summary": "Daniel 9's prophecy of the 70 weeks provides the chronological framework identifying the abomination of desolation as the midpoint breach of Antichrist's peace treaty with Israel.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=599"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 9,
+      "verse": 24,
+      "reference_text": "69th and 70th week of Daniel",
+      "context": "the clock has been stopped, if you will, right, between the 69th and 70th week of Daniel",
+      "is_implicit": false,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 2784.4800720214844,
+      "end_time": 2848.0000610351562,
+      "point_summary": "The church age occupies the prophetic pause between Daniel's 69th and 70th weeks, with the tribulation clock set to restart at the rapture, grounding the call for urgent evangelism in the present moment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=2784"
     }
   ]
 }

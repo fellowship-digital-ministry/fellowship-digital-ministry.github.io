@@ -1,6 +1,6 @@
 {
   "book": "Habakkuk",
-  "total_references": 27,
+  "total_references": 29,
   "chapters": {
     "2": [
       {
@@ -305,6 +305,36 @@
       }
     ],
     "3": [
+      {
+        "book": "Habakkuk",
+        "chapter": 3,
+        "verse": null,
+        "reference_text": "Habakkuk 3",
+        "context": "you'll be in Habakkuk chapter number 3",
+        "is_implicit": false,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 0.0,
+        "end_time": 55.0,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=0"
+      },
+      {
+        "book": "Habakkuk",
+        "chapter": 3,
+        "verse": 2,
+        "reference_text": "Habakkuk 3:2",
+        "context": "I've titled the message specifically from Habakkuk three in verse number two, in wrath, remember mercy",
+        "is_implicit": true,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 656.0999984741211,
+        "end_time": 720.7799987792969,
+        "point_summary": "Habakkuk 3:2's cry — \"in wrath, remember mercy\" — supplies the sermon's title and interpretive lens for reading Revelation 7's two redeemed groups amid the tribulation's judgments.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=656"
+      },
       {
         "book": "Habakkuk",
         "chapter": 3,
@@ -819,6 +849,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "By Faith Abel",
       "url": "https://www.youtube.com/watch?v=fbc-2026-04-01mw-by-faith-abel&t=328"
+    },
+    {
+      "book": "Habakkuk",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "Habakkuk 3",
+      "context": "you'll be in Habakkuk chapter number 3",
+      "is_implicit": false,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 0.0,
+      "end_time": 55.0,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=0"
+    },
+    {
+      "book": "Habakkuk",
+      "chapter": 3,
+      "verse": 2,
+      "reference_text": "Habakkuk 3:2",
+      "context": "I've titled the message specifically from Habakkuk three in verse number two, in wrath, remember mercy",
+      "is_implicit": true,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 656.0999984741211,
+      "end_time": 720.7799987792969,
+      "point_summary": "Habakkuk 3:2's cry — \"in wrath, remember mercy\" — supplies the sermon's title and interpretive lens for reading Revelation 7's two redeemed groups amid the tribulation's judgments.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=656"
     }
   ]
 }

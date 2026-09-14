@@ -1,6 +1,6 @@
 {
   "book": "2_Thessalonians",
-  "total_references": 196,
+  "total_references": 197,
   "chapters": {
     "3": [
       {
@@ -1791,6 +1791,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Rapture\"  Revelation 4:1",
         "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=1944"
+      },
+      {
+        "book": "2 Thessalonians",
+        "chapter": 2,
+        "verse": null,
+        "reference_text": "2 Thessalonians chapter 2",
+        "context": "according to 2 Thessalonians chapter 2",
+        "is_implicit": false,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1783.7200317382812,
+        "end_time": 1871.6600494384766,
+        "point_summary": "Those who heard and rejected the gospel before the tribulation will not receive a second chance to believe, being given over instead to a lie, according to 2 Thessalonians 2.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1783"
       },
       {
         "book": "2 Thessalonians",
@@ -5893,6 +5908,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
       "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=2433"
+    },
+    {
+      "book": "2 Thessalonians",
+      "chapter": 2,
+      "verse": null,
+      "reference_text": "2 Thessalonians chapter 2",
+      "context": "according to 2 Thessalonians chapter 2",
+      "is_implicit": false,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1783.7200317382812,
+      "end_time": 1871.6600494384766,
+      "point_summary": "Those who heard and rejected the gospel before the tribulation will not receive a second chance to believe, being given over instead to a lie, according to 2 Thessalonians 2.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1783"
     }
   ]
 }

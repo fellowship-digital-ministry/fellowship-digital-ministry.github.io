@@ -1,6 +1,6 @@
 {
   "book": "Ezekiel",
-  "total_references": 195,
+  "total_references": 196,
   "chapters": {
     "33": [
       {
@@ -682,6 +682,21 @@
       }
     ],
     "48": [
+      {
+        "book": "Ezekiel",
+        "chapter": 48,
+        "verse": null,
+        "reference_text": "Ezekiel 48",
+        "context": "if you look at Ezekiel 48, which we won't go there and look, but you'll find that Dan is actually included in Ezekiel 48",
+        "is_implicit": false,
+        "video_id": "_8XP2rmYkx8",
+        "start_time": 1534.8600158691406,
+        "end_time": 1595.8600158691406,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+        "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1534"
+      },
       {
         "book": "Ezekiel",
         "chapter": 48,
@@ -5889,6 +5904,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
       "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=2734"
+    },
+    {
+      "book": "Ezekiel",
+      "chapter": 48,
+      "verse": null,
+      "reference_text": "Ezekiel 48",
+      "context": "if you look at Ezekiel 48, which we won't go there and look, but you'll find that Dan is actually included in Ezekiel 48",
+      "is_implicit": false,
+      "video_id": "_8XP2rmYkx8",
+      "start_time": 1534.8600158691406,
+      "end_time": 1595.8600158691406,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
+      "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1534"
     }
   ]
 }
