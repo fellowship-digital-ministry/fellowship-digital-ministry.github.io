@@ -1,0 +1,12 @@
+# Python dependencies for the data scripts in scripts/.
+# The website itself is static (Jekyll / GitHub Pages) and needs none of this.
+#
+#   python -m venv .venv
+#   .venv/bin/pip install -r requirements.txt
+#
+# fetch_bible_data.py and process_existing_metadata.py
+httpx>=0.27,<1
+
+# generate_bible_overlays.py is a one-off, metered (OpenAI) tool and is not
+# run by any schedule. Install its extras only when you mean to run it:
+#   pip install "openai>=1.0,<3" "tqdm>=4,<5"

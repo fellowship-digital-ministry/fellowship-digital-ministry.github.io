@@ -10,6 +10,17 @@ vendor/
 
 # Environment files
 .env
+.env.*
+
+# Python virtual environments and caches (use requirements.txt instead)
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Node tooling for the JavaScript checks in tests/js
+node_modules/
 
 # OS specific files
 .DS_Store
