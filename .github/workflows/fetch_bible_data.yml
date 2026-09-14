@@ -1,14 +1,23 @@
 name: Fetch Bible Reference Data
 
+# Refreshes the static Bible-reference snapshot in assets/data/bible/ from the
+# sermon API. The primary refresh now runs from the local ingest in the
+# sermon-library repository (bin/run_ingest.sh); this workflow is the backup
+# path. GitHub disables scheduled workflows in repositories without recent
+# activity, so re-enable it from the Actions tab if you rely on it.
+#
+# Safety: scripts/fetch_bible_data.py writes nothing and exits non-zero unless
+# it fetched and validated a complete snapshot, so a failed or partial fetch
+# fails this job instead of committing a mix of old and new files.
+
 on:
   schedule:
-    # Run once a day at 1 AM UTC
+    # Once a day at 08:00 UTC
     - cron: '0 8 * * *'
   workflow_dispatch:
-    # Allow manual trigger from GitHub UI
     inputs:
       force_refresh:
-        description: 'Force refresh all Bible data'
+        description: 'Accept a snapshot smaller than the current one (skips the shrink guard)'
         required: false
         default: 'false'
         type: choice
@@ -16,73 +25,61 @@ on:
           - 'true'
           - 'false'
 
+concurrency:
+  group: fetch-bible-data
+  cancel-in-progress: false
+
 jobs:
   fetch-bible-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push
       contents: write
-    
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          # Fetch all history for all branches and tags
           fetch-depth: 0
-        
+
       - name: Configure Git
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-          
+          python-version: '3.12'
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install httpx asyncio
+          pip install -r requirements.txt
 
-      - name: Create output directories
-        run: |
-          mkdir -p assets/data/bible
-          mkdir -p assets/data/bible/books
-      
-      - name: Run Bible data fetcher
+      - name: Fetch and validate a complete snapshot
         env:
           API_URL: ${{ secrets.API_URL || 'https://sermon-search-api-8fok.onrender.com' }}
-          FORCE_REFRESH: ${{ github.event.inputs.force_refresh || 'false' }}
+          FETCH_ALLOW_SHRINK: ${{ github.event.inputs.force_refresh || 'false' }}
+        run: python scripts/fetch_bible_data.py
+
+      - name: Commit and push the snapshot
         run: |
-          # If force_refresh is true, delete existing data
-          if [ "$FORCE_REFRESH" = "true" ]; then
-            echo "Forcing full refresh of Bible reference data"
-            rm -rf assets/data/bible/*
-          fi
-          
-          # Run the data fetcher script
-          python scripts/fetch_bible_data.py
-          
-      - name: Commit and push if changes
+          bash scripts/commit_data_snapshot.sh assets/data/bible \
+            "Update Bible reference data: $(date -u +%Y-%m-%d) [skip ci]"
+
+      - name: Report snapshot freshness
+        if: always()
         run: |
-          # Stash any existing changes
-          git stash
-          
-          # Pull the latest changes from remote
-          git pull --rebase origin main
-          
-          git add assets/data/bible
-          
-          # Check if there are changes to commit
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update Bible reference data [skip ci]"
-            
-            # Push changes
-            git push
-          fi
-          
-          # Restore stashed changes if any
-          git stash list | grep -q "stash" && git stash pop || echo "No stashed changes"
+          {
+            echo "### Bible reference snapshot"
+            if [ -f assets/data/bible/manifest.json ]; then
+              echo '```json'
+              cat assets/data/bible/manifest.json
+              echo
+              echo '```'
+            else
+              echo "No manifest.json present."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
