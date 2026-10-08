@@ -1,6 +1,6 @@
 {
   "book": "Exodus",
-  "total_references": 928,
+  "total_references": 931,
   "chapters": {
     "14": [
       {
@@ -422,6 +422,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part One",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=1140"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 14,
+        "verse": null,
+        "reference_text": "Exodus 14",
+        "context": "every time I ever come to Exodus 14 I ought to marvel at our God",
+        "is_implicit": false,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1650.3399658203125,
+        "end_time": 1728.3399658203125,
+        "point_summary": "Familiarity with a miracle as well-known as the Red Sea crossing can dull the wonder it should always produce, so that even repeated encounter with Exodus 14 demands fresh marveling at God's power and wisdom.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1650"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 14,
+        "verse": null,
+        "reference_text": "Exodus 14",
+        "context": "every time I read my Bible and open it up to Exodus 14, I want to have that same feeling for the hundredth time of reading about the crossing of the Red Sea",
+        "is_implicit": false,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 2334.5999755859375,
+        "end_time": 2411.539951324463,
+        "point_summary": "Familiarity with Scripture can dull wonder, and the goal is to read Exodus 14's Red Sea account with the same fresh awe on the hundredth reading as on the first.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=2334"
       },
       {
         "book": "Exodus",
@@ -9889,6 +9919,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"I'm Not Who I Used To Be\" - Galatians 1:23",
         "url": "https://www.youtube.com/watch?v=p8WzCmELTPU&t=2564"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 20,
+        "verse": 16,
+        "reference_text": "Thou shalt not bear false witness",
+        "context": "Thou shalt not bear false witness. It's still in the book.",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1405.9199981689453,
+        "end_time": 1477.239990234375,
+        "point_summary": "Minimizing lying as a \"white lie\" or \"fib\" is exposed as self-deception, since the ninth commandment stands unchanged and any falsehood remains sin before a holy God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1405"
       },
       {
         "book": "Exodus",
@@ -27921,6 +27966,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1746"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 20,
+      "verse": 16,
+      "reference_text": "Thou shalt not bear false witness",
+      "context": "Thou shalt not bear false witness. It's still in the book.",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1405.9199981689453,
+      "end_time": 1477.239990234375,
+      "point_summary": "Minimizing lying as a \"white lie\" or \"fib\" is exposed as self-deception, since the ninth commandment stands unchanged and any falsehood remains sin before a holy God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1405"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 14,
+      "verse": null,
+      "reference_text": "Exodus 14",
+      "context": "every time I ever come to Exodus 14 I ought to marvel at our God",
+      "is_implicit": false,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1650.3399658203125,
+      "end_time": 1728.3399658203125,
+      "point_summary": "Familiarity with a miracle as well-known as the Red Sea crossing can dull the wonder it should always produce, so that even repeated encounter with Exodus 14 demands fresh marveling at God's power and wisdom.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1650"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 14,
+      "verse": null,
+      "reference_text": "Exodus 14",
+      "context": "every time I read my Bible and open it up to Exodus 14, I want to have that same feeling for the hundredth time of reading about the crossing of the Red Sea",
+      "is_implicit": false,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 2334.5999755859375,
+      "end_time": 2411.539951324463,
+      "point_summary": "Familiarity with Scripture can dull wonder, and the goal is to read Exodus 14's Red Sea account with the same fresh awe on the hundredth reading as on the first.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=2334"
     }
   ]
 }

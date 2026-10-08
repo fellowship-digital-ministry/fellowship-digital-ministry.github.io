@@ -1,6 +1,6 @@
 {
   "book": "Genesis",
-  "total_references": 4527,
+  "total_references": 4528,
   "chapters": {
     "37": [
       {
@@ -66366,6 +66366,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=3016"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 39,
+        "verse": 9,
+        "reference_text": "Genesis 39:9",
+        "context": "Joseph said, how can I do this great wickedness and sin against God?",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1326.9599914550781,
+        "end_time": 1405.9199981689453,
+        "point_summary": "Joseph's cry in Genesis 39:9 — \"How can I do this great wickedness and sin against God?\" — is held up as the true standard for measuring sin: not comparison to culture, but accountability before God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
       },
       {
         "book": "Genesis",
@@ -135917,6 +135932,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2968"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 39,
+      "verse": 9,
+      "reference_text": "Genesis 39:9",
+      "context": "Joseph said, how can I do this great wickedness and sin against God?",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1326.9599914550781,
+      "end_time": 1405.9199981689453,
+      "point_summary": "Joseph's cry in Genesis 39:9 — \"How can I do this great wickedness and sin against God?\" — is held up as the true standard for measuring sin: not comparison to culture, but accountability before God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
     }
   ]
 }

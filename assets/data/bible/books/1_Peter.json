@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 949,
+  "total_references": 955,
   "chapters": {
     "1": [
       {
@@ -3332,6 +3332,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Restoring Strained Relationships\" II Corinthians 7:2-16",
         "url": "https://www.youtube.com/watch?v=odsyejJ4a-0&t=747"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 1,
+        "verse": 15,
+        "reference_text": "1 Peter 1:15",
+        "context": "we're to be holy in all manner of conversation. Be holy as I am holy",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1326.9599914550781,
+        "end_time": 1405.9199981689453,
+        "point_summary": "God's standard for holiness—not cultural comparison—is the measure against which sin is exposed, producing the brokenness James calls believers to in self-examination.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
       },
       {
         "book": "1 Peter",
@@ -7990,6 +8005,21 @@
       {
         "book": "1 Peter",
         "chapter": 5,
+        "verse": null,
+        "reference_text": "1 Peter 5",
+        "context": "First Peter chapter number five, he's the chief shepherd",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1121.3399658203125,
+        "end_time": 1190.6199951171875,
+        "point_summary": "1 Peter 5 is cited to identify Jesus as the chief shepherd whose appearing is the believer's future hope, deepening the call to marvel at him as our shepherd.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
         "verse": 1,
         "reference_text": "1 Peter 5:1",
         "context": "Notice in chapter five in verse number one. 1 Peter five in verse number one. The Bible says, the elders which are among you I exhort.",
@@ -8811,6 +8841,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Raah",
         "url": "https://www.youtube.com/watch?v=fbc-2025-04-16mw-jehovah-raah&t=1692"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
+        "verse": 4,
+        "reference_text": "1 Peter 5:4",
+        "context": "when the chief shepherd shall appear",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1121.3399658203125,
+        "end_time": 1190.6199951171875,
+        "point_summary": "Christ as chief shepherd—drawn from 1 Peter 5:4—is cited alongside Psalm 23 and John 10 to underscore the personal wonder that the Lord himself is our shepherd.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
       },
       {
         "book": "1 Peter",
@@ -9696,6 +9741,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
         "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1322"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
+        "verse": 7,
+        "reference_text": "1 Peter 5:7",
+        "context": "casting all your care upon Him. Why? For He careth for you",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1728.3399658203125,
+        "end_time": 1810.4199657440186,
+        "point_summary": "Casting care on God (1 Pet. 5:7) grounds the call to marvel: when God answers prayer, the wonder is not merely that He acted but that He personally heard and cared for the one who prayed.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1728"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
+        "verse": 7,
+        "reference_text": "1 Peter 5:7",
+        "context": "cast that upon Me",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1810.4199657440186,
+        "end_time": 1898.3399658203125,
+        "point_summary": "Casting burdens on God is presented as an occasion for marvel, because His willingness to hear, care, and answer what no human can fully understand is itself cause for wonder.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1810"
       },
       {
         "book": "1 Peter",
@@ -14157,6 +14232,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Back To Calvary",
         "url": "https://www.youtube.com/watch?v=fbc-2025-11-09pm-back-to-calvary&t=1727"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 3,
+        "verse": 18,
+        "reference_text": "1 Peter 3:18",
+        "context": "The just for the unjust",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1477.239990234375,
+        "end_time": 1555.2599792480469,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1477"
       },
       {
         "book": "1 Peter",
@@ -28485,6 +28575,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1877"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 1,
+      "verse": 15,
+      "reference_text": "1 Peter 1:15",
+      "context": "we're to be holy in all manner of conversation. Be holy as I am holy",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1326.9599914550781,
+      "end_time": 1405.9199981689453,
+      "point_summary": "God's standard for holiness—not cultural comparison—is the measure against which sin is exposed, producing the brokenness James calls believers to in self-examination.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 3,
+      "verse": 18,
+      "reference_text": "1 Peter 3:18",
+      "context": "The just for the unjust",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1477.239990234375,
+      "end_time": 1555.2599792480469,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1477"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": null,
+      "reference_text": "1 Peter 5",
+      "context": "First Peter chapter number five, he's the chief shepherd",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1121.3399658203125,
+      "end_time": 1190.6199951171875,
+      "point_summary": "1 Peter 5 is cited to identify Jesus as the chief shepherd whose appearing is the believer's future hope, deepening the call to marvel at him as our shepherd.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 4,
+      "reference_text": "1 Peter 5:4",
+      "context": "when the chief shepherd shall appear",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1121.3399658203125,
+      "end_time": 1190.6199951171875,
+      "point_summary": "Christ as chief shepherd—drawn from 1 Peter 5:4—is cited alongside Psalm 23 and John 10 to underscore the personal wonder that the Lord himself is our shepherd.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 7,
+      "reference_text": "1 Peter 5:7",
+      "context": "casting all your care upon Him. Why? For He careth for you",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1728.3399658203125,
+      "end_time": 1810.4199657440186,
+      "point_summary": "Casting care on God (1 Pet. 5:7) grounds the call to marvel: when God answers prayer, the wonder is not merely that He acted but that He personally heard and cared for the one who prayed.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1728"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 7,
+      "reference_text": "1 Peter 5:7",
+      "context": "cast that upon Me",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1810.4199657440186,
+      "end_time": 1898.3399658203125,
+      "point_summary": "Casting burdens on God is presented as an occasion for marvel, because His willingness to hear, care, and answer what no human can fully understand is itself cause for wonder.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1810"
     }
   ]
 }

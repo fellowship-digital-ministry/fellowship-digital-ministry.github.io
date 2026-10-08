@@ -1,6 +1,6 @@
 {
   "book": "Colossians",
-  "total_references": 694,
+  "total_references": 695,
   "chapters": {
     "3": [
       {
@@ -527,6 +527,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Back To Calvary",
         "url": "https://www.youtube.com/watch?v=fbc-2025-11-09pm-back-to-calvary&t=1882"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 3,
+        "verse": 1,
+        "reference_text": "Colossians 3:1",
+        "context": "if ye then be risen with Christ seek those things which are above where Christ sitteth at the right hand of God",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 339.7200012207031,
+        "end_time": 406.8999938964844,
+        "point_summary": "Risen with Christ, believers are called to redirect their affections upward, reinforcing the sermon's call to draw near to God as the antidote to worldliness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=339"
       },
       {
         "book": "Colossians",
@@ -20833,6 +20848,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1670"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 3,
+      "verse": 1,
+      "reference_text": "Colossians 3:1",
+      "context": "if ye then be risen with Christ seek those things which are above where Christ sitteth at the right hand of God",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 339.7200012207031,
+      "end_time": 406.8999938964844,
+      "point_summary": "Risen with Christ, believers are called to redirect their affections upward, reinforcing the sermon's call to draw near to God as the antidote to worldliness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=339"
     }
   ]
 }

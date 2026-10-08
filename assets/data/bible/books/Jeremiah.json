@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 356,
+  "total_references": 357,
   "chapters": {
     "31": [
       {
@@ -949,6 +949,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2522"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 33,
+        "verse": 3,
+        "reference_text": "Jeremiah 33:3",
+        "context": "call unto me and I will answer thee and show thee great and mighty things which thou knowest not",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1728.3399658203125,
+        "end_time": 1810.4199657440186,
+        "point_summary": "Jeremiah 33:3 is cited as grounds for expectant, faith-filled prayer, with the marvel belonging not to the asking but to God's personal, caring answer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1728"
       }
     ],
     "1": [
@@ -10745,6 +10760,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=799"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 33,
+      "verse": 3,
+      "reference_text": "Jeremiah 33:3",
+      "context": "call unto me and I will answer thee and show thee great and mighty things which thou knowest not",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1728.3399658203125,
+      "end_time": 1810.4199657440186,
+      "point_summary": "Jeremiah 33:3 is cited as grounds for expectant, faith-filled prayer, with the marvel belonging not to the asking but to God's personal, caring answer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1728"
     }
   ]
 }

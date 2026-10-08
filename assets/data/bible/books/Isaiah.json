@@ -1,6 +1,6 @@
 {
   "book": "Isaiah",
-  "total_references": 504,
+  "total_references": 506,
   "chapters": {
     "6": [
       {
@@ -692,6 +692,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=2484"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 6,
+        "verse": 1,
+        "reference_text": "Isaiah 6:1",
+        "context": "Isaiah sees him in his rightful place, high holy and lifted up and his train had filled the temple and the angels were saying holy, holy, holy",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 904.2999877929688,
+        "end_time": 979.8199768066406,
+        "point_summary": "The holiness and majesty of God—seen in Isaiah's vision of the Lord high and lifted up, attended by angels crying \"holy, holy, holy\"—is presented as a defining attribute that should provoke ongoing marvel.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=904"
       },
       {
         "book": "Isaiah",
@@ -3903,6 +3918,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
         "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=627"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 5,
+        "verse": 20,
+        "reference_text": "Isaiah 5:20",
+        "context": "we live in a world that has completely lost its mind where they call evil good and good evil",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1326.9599914550781,
+        "end_time": 1405.9199981689453,
+        "point_summary": "Isaiah 5:20 is invoked to warn that a culture calling evil good and good evil becomes a false standard by which carnal believers minimize their own sin rather than measuring themselves by Scripture.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
       },
       {
         "book": "Isaiah",
@@ -15205,6 +15235,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
       "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=779"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 5,
+      "verse": 20,
+      "reference_text": "Isaiah 5:20",
+      "context": "we live in a world that has completely lost its mind where they call evil good and good evil",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1326.9599914550781,
+      "end_time": 1405.9199981689453,
+      "point_summary": "Isaiah 5:20 is invoked to warn that a culture calling evil good and good evil becomes a false standard by which carnal believers minimize their own sin rather than measuring themselves by Scripture.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 6,
+      "verse": 1,
+      "reference_text": "Isaiah 6:1",
+      "context": "Isaiah sees him in his rightful place, high holy and lifted up and his train had filled the temple and the angels were saying holy, holy, holy",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 904.2999877929688,
+      "end_time": 979.8199768066406,
+      "point_summary": "The holiness and majesty of God—seen in Isaiah's vision of the Lord high and lifted up, attended by angels crying \"holy, holy, holy\"—is presented as a defining attribute that should provoke ongoing marvel.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=904"
     }
   ]
 }

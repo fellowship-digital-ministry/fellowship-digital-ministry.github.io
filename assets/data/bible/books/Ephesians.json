@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 1474,
+  "total_references": 1477,
   "chapters": {
     "2": [
       {
@@ -8213,6 +8213,21 @@
       {
         "book": "Ephesians",
         "chapter": 3,
+        "verse": 20,
+        "reference_text": "Ephesians 3:20",
+        "context": "he's able to do exceeding abundantly above all that we ask",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1190.6199951171875,
+        "end_time": 1247.2199745178223,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1190"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 3,
         "verse": 21,
         "reference_text": "Ephesians 3:21",
         "context": "unto him be glory in the church by Christ Jesus throughout all ages, world without end, amen",
@@ -13283,6 +13298,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Peace Of God\"  John 14:27",
         "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2554"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 6,
+        "verse": 12,
+        "reference_text": "Ephesians 6:12",
+        "context": "we wrestle not against flesh and blood but against spiritual wickedness in high places",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 339.7200012207031,
+        "end_time": 406.8999938964844,
+        "point_summary": "Resisting the devil requires spiritual rather than physical warfare, as the battle is against spiritual wickedness in high places, not flesh and blood.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=339"
       },
       {
         "book": "Ephesians",
@@ -22124,6 +22154,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=367"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Ephesians",
+        "context": "the book of Ephesians speaks to us about God's word, cleansing",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 737.739990234375,
+        "end_time": 800.0599975585938,
+        "point_summary": "Ephesians is cited as the scriptural basis for the Word of God's cleansing function, specifically its power to expose and address sin in the believer's life.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=737"
       }
     ]
   },
@@ -44237,6 +44282,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2754"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 6,
+      "verse": 12,
+      "reference_text": "Ephesians 6:12",
+      "context": "we wrestle not against flesh and blood but against spiritual wickedness in high places",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 339.7200012207031,
+      "end_time": 406.8999938964844,
+      "point_summary": "Resisting the devil requires spiritual rather than physical warfare, as the battle is against spiritual wickedness in high places, not flesh and blood.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=339"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Ephesians",
+      "context": "the book of Ephesians speaks to us about God's word, cleansing",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 737.739990234375,
+      "end_time": 800.0599975585938,
+      "point_summary": "Ephesians is cited as the scriptural basis for the Word of God's cleansing function, specifically its power to expose and address sin in the believer's life.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=737"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 3,
+      "verse": 20,
+      "reference_text": "Ephesians 3:20",
+      "context": "he's able to do exceeding abundantly above all that we ask",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1190.6199951171875,
+      "end_time": 1247.2199745178223,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1190"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Nehemiah",
-  "total_references": 208,
+  "total_references": 214,
   "chapters": {
     "6": [
       {
@@ -968,6 +968,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Be Of Good Cheer\" John 16:33",
         "url": "https://www.youtube.com/watch?v=4ytTjjDvj2k&t=785"
+      },
+      {
+        "book": "Nehemiah",
+        "chapter": 8,
+        "verse": 10,
+        "reference_text": "Nehemiah 8:10",
+        "context": "The Bible says the joy of the Lord is my strength",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1209.3599925041199,
+        "end_time": 1274.639991760254,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1209"
       }
     ],
     "1": [
@@ -1195,6 +1210,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
         "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2951"
+      },
+      {
+        "book": "Nehemiah",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "Nehemiah chapter 1",
+        "context": "Nehemiah chapter number 1. Look at Nehemiah chapter 1.",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1555.2599792480469,
+        "end_time": 1616.3999938964844,
+        "point_summary": "Nehemiah's response to Jerusalem's devastation—weeping, fasting, and confessing corporate sin—is cited as a biblical illustration of the brokenness and mourning James 4:9 calls believers to.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1555"
       },
       {
         "book": "Nehemiah",
@@ -1634,6 +1664,21 @@
       {
         "book": "Nehemiah",
         "chapter": 1,
+        "verse": 4,
+        "reference_text": "Nehemiah 1:4",
+        "context": "and it came to pass when I heard these words that I sat down and wept and mourned certain days and fasted and prayed before the God of heaven",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1555.2599792480469,
+        "end_time": 1616.3999938964844,
+        "point_summary": "Nehemiah's response of weeping, mourning, fasting, and prayer upon hearing of Jerusalem's ruin illustrates the genuine brokenness over sin that James 4:9 calls believers to.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1555"
+      },
+      {
+        "book": "Nehemiah",
+        "chapter": 1,
         "verse": 5,
         "reference_text": "Nehemiah 1:5",
         "context": "I beseech thee, O Lord God of heaven, the great and terrible God that keepeth covenant and mercy for them that love him and observe his commandments.",
@@ -1690,6 +1735,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
         "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2175"
+      },
+      {
+        "book": "Nehemiah",
+        "chapter": 1,
+        "verse": 5,
+        "reference_text": "Nehemiah 1:5",
+        "context": "in verse number 5, it said, I beseech thee O Lord God of heaven, the great and terrible God that keepeth covenant and mercy for them that love him and observe his commandments",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1616.3999938964844,
+        "end_time": 1681.2799987792969,
+        "point_summary": "Nehemiah 1:5 is cited to show that genuine brokenness over sin moves naturally into humble, confessional prayer that includes oneself among the guilty.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1616"
       },
       {
         "book": "Nehemiah",
@@ -1754,6 +1814,21 @@
       {
         "book": "Nehemiah",
         "chapter": 1,
+        "verse": 7,
+        "reference_text": "Nehemiah 1:7",
+        "context": "in verse number 7. We have dealt very corruptly against thee and have not kept the commandments nor the statutes nor the judgments which thou commandest my servant Moses",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1616.3999938964844,
+        "end_time": 1681.2799987792969,
+        "point_summary": "Nehemiah 1:7 illustrates that genuine brokenness leads to specific, personal confession of sin—Nehemiah does not exempt himself but includes himself among those who have dealt corruptly and broken God's commandments.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1616"
+      },
+      {
+        "book": "Nehemiah",
+        "chapter": 1,
         "verse": 8,
         "reference_text": "Nehemiah 1:8",
         "context": "He had referenced that in verse number 8, according to the good hand of my God upon me",
@@ -1810,6 +1885,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Rapha",
         "url": "https://www.youtube.com/watch?v=fbc-2025-04-09mw-jehovah-rapha&t=912"
+      },
+      {
+        "book": "Nehemiah",
+        "chapter": 1,
+        "verse": 9,
+        "reference_text": "Nehemiah 1:9",
+        "context": "in verse number 9, afflicted, mourn, weep",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1616.3999938964844,
+        "end_time": 1681.2799987792969,
+        "point_summary": "Nehemiah's brokenness over Jerusalem's destruction—expressed through weeping, fasting, and confessing his own sin alongside Israel's—illustrates the mourning and humiliation James 4:9 calls believers to.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1616"
       },
       {
         "book": "Nehemiah",
@@ -6265,6 +6355,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
       "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=2951"
+    },
+    {
+      "book": "Nehemiah",
+      "chapter": 8,
+      "verse": 10,
+      "reference_text": "Nehemiah 8:10",
+      "context": "The Bible says the joy of the Lord is my strength",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1209.3599925041199,
+      "end_time": 1274.639991760254,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1209"
+    },
+    {
+      "book": "Nehemiah",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Nehemiah chapter 1",
+      "context": "Nehemiah chapter number 1. Look at Nehemiah chapter 1.",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1555.2599792480469,
+      "end_time": 1616.3999938964844,
+      "point_summary": "Nehemiah's response to Jerusalem's devastation—weeping, fasting, and confessing corporate sin—is cited as a biblical illustration of the brokenness and mourning James 4:9 calls believers to.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1555"
+    },
+    {
+      "book": "Nehemiah",
+      "chapter": 1,
+      "verse": 4,
+      "reference_text": "Nehemiah 1:4",
+      "context": "and it came to pass when I heard these words that I sat down and wept and mourned certain days and fasted and prayed before the God of heaven",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1555.2599792480469,
+      "end_time": 1616.3999938964844,
+      "point_summary": "Nehemiah's response of weeping, mourning, fasting, and prayer upon hearing of Jerusalem's ruin illustrates the genuine brokenness over sin that James 4:9 calls believers to.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1555"
+    },
+    {
+      "book": "Nehemiah",
+      "chapter": 1,
+      "verse": 9,
+      "reference_text": "Nehemiah 1:9",
+      "context": "in verse number 9, afflicted, mourn, weep",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1616.3999938964844,
+      "end_time": 1681.2799987792969,
+      "point_summary": "Nehemiah's brokenness over Jerusalem's destruction—expressed through weeping, fasting, and confessing his own sin alongside Israel's—illustrates the mourning and humiliation James 4:9 calls believers to.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1616"
+    },
+    {
+      "book": "Nehemiah",
+      "chapter": 1,
+      "verse": 5,
+      "reference_text": "Nehemiah 1:5",
+      "context": "in verse number 5, it said, I beseech thee O Lord God of heaven, the great and terrible God that keepeth covenant and mercy for them that love him and observe his commandments",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1616.3999938964844,
+      "end_time": 1681.2799987792969,
+      "point_summary": "Nehemiah 1:5 is cited to show that genuine brokenness over sin moves naturally into humble, confessional prayer that includes oneself among the guilty.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1616"
+    },
+    {
+      "book": "Nehemiah",
+      "chapter": 1,
+      "verse": 7,
+      "reference_text": "Nehemiah 1:7",
+      "context": "in verse number 7. We have dealt very corruptly against thee and have not kept the commandments nor the statutes nor the judgments which thou commandest my servant Moses",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1616.3999938964844,
+      "end_time": 1681.2799987792969,
+      "point_summary": "Nehemiah 1:7 illustrates that genuine brokenness leads to specific, personal confession of sin—Nehemiah does not exempt himself but includes himself among those who have dealt corruptly and broken God's commandments.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1616"
     }
   ]
 }

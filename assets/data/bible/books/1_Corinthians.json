@@ -1,6 +1,6 @@
 {
   "book": "1_Corinthians",
-  "total_references": 1586,
+  "total_references": 1587,
   "chapters": {
     "10": [
       {
@@ -11406,6 +11406,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
         "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2968"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 11,
+        "verse": 28,
+        "reference_text": "1 Corinthians 11:28",
+        "context": "let a man examine himself",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 474.5,
+        "end_time": 546.97998046875,
+        "point_summary": "Self-examination before the Lord's Supper (1 Cor. 11:28) is cited as the biblical pattern for the broader spiritual discipline of personal examination called for in James 4:8.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=474"
       },
       {
         "book": "1 Corinthians",
@@ -47617,6 +47632,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2968"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 11,
+      "verse": 28,
+      "reference_text": "1 Corinthians 11:28",
+      "context": "let a man examine himself",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 474.5,
+      "end_time": 546.97998046875,
+      "point_summary": "Self-examination before the Lord's Supper (1 Cor. 11:28) is cited as the biblical pattern for the broader spiritual discipline of personal examination called for in James 4:8.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=474"
     }
   ]
 }

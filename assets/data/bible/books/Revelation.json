@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1676,
+  "total_references": 1677,
   "chapters": {
     "3": [
       {
@@ -11455,6 +11455,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1184"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "Revelation 1:8",
+        "context": "he is alpha and omega",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 979.8199768066406,
+        "end_time": 1048.8999938964844,
+        "point_summary": "God's self-identification as Alpha and Omega grounds his eternality and immutability—attributes that, when genuinely considered, ought to produce marvel and awe in the believer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=979"
       },
       {
         "book": "Revelation",
@@ -50331,6 +50346,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
       "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=2848"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Revelation 1:8",
+      "context": "he is alpha and omega",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 979.8199768066406,
+      "end_time": 1048.8999938964844,
+      "point_summary": "God's self-identification as Alpha and Omega grounds his eternality and immutability—attributes that, when genuinely considered, ought to produce marvel and awe in the believer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=979"
     }
   ]
 }

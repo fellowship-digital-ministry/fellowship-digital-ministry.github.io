@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 709,
+  "total_references": 711,
   "chapters": {
     "2": [
       {
@@ -6402,6 +6402,21 @@
       {
         "book": "Galatians",
         "chapter": 5,
+        "verse": 16,
+        "reference_text": "Galatians 5:16",
+        "context": "walk in the spirit, and you shall not fulfill the lust of the flesh",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 2062.220001220703,
+        "end_time": 2150.220001220703,
+        "point_summary": "Walking in the Spirit is presented as the necessary and ongoing counter to the flesh's persistent lusts, which remain active even after salvation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=2062"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
         "verse": 17,
         "reference_text": "Galatians 5:17",
         "context": "for the flesh lusteth against the Spirit, and the Spirit against the flesh, and these are contrary the one to the other, so that ye cannot do the things that ye would.",
@@ -7178,6 +7193,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Husbandman Purgeth\" John 15:1-8",
         "url": "https://www.youtube.com/watch?v=RNL62GTIeSE&t=1550"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 5,
+        "verse": 22,
+        "reference_text": "Galatians 5:22",
+        "context": "the fruit of the Spirit is love, joy, peace, longsuffering, etc",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1209.3599925041199,
+        "end_time": 1274.639991760254,
+        "point_summary": "The fruit of the Spirit includes joy, but that joy is not a cover for unexamined sin — genuine brokenness over worldliness must precede it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1209"
       },
       {
         "book": "Galatians",
@@ -21287,6 +21317,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2285"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": 22,
+      "reference_text": "Galatians 5:22",
+      "context": "the fruit of the Spirit is love, joy, peace, longsuffering, etc",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1209.3599925041199,
+      "end_time": 1274.639991760254,
+      "point_summary": "The fruit of the Spirit includes joy, but that joy is not a cover for unexamined sin — genuine brokenness over worldliness must precede it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1209"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 5,
+      "verse": 16,
+      "reference_text": "Galatians 5:16",
+      "context": "walk in the spirit, and you shall not fulfill the lust of the flesh",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 2062.220001220703,
+      "end_time": 2150.220001220703,
+      "point_summary": "Walking in the Spirit is presented as the necessary and ongoing counter to the flesh's persistent lusts, which remain active even after salvation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=2062"
     }
   ]
 }

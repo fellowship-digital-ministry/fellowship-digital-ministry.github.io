@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 2011,
+  "total_references": 2018,
   "chapters": {
     "12": [
       {
@@ -5408,6 +5408,21 @@
       {
         "book": "Hebrews",
         "chapter": 7,
+        "verse": 25,
+        "reference_text": "Hebrews 7:25",
+        "context": "he ever liveth to make intercession for us",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1190.6199951171875,
+        "end_time": 1247.2199745178223,
+        "point_summary": "Christ's perpetual intercession for believers, referenced through Hebrews 7:25's \"he ever liveth to make intercession,\" is cited as grounds for marveling that he is both available and actively praying for his own.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1190"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 7,
         "verse": 26,
         "reference_text": "Hebrews 7:26",
         "context": "For such a high priest became us, who was holy, harmless, undefiled, separate from sinners, and made higher than the heavens",
@@ -7161,6 +7176,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Unto The Church In Smyrna",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08pm-unto-the-church-in-smyrna&t=1389"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 2,
+        "verse": 18,
+        "reference_text": "Hebrews 2:18",
+        "context": "he's able to succor, to help",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1121.3399658203125,
+        "end_time": 1190.6199951171875,
+        "point_summary": "Christ's qualification as great high priest rests on his having been tempted in all points as we are yet without sin, making him able to succor those who suffer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
       }
     ],
     "13": [
@@ -9443,6 +9473,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part One",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=1510"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
+        "verse": 8,
+        "reference_text": "Hebrews 13:8",
+        "context": "he's the same yesterday and today and forever",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 979.8199768066406,
+        "end_time": 1048.8999938964844,
+        "point_summary": "Christ's immutability — that he is the same yesterday, today, and forever — is presented as one of the divine attributes that ought to move believers to marvel at him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=979"
       },
       {
         "book": "Hebrews",
@@ -18346,6 +18391,21 @@
       {
         "book": "Hebrews",
         "chapter": 11,
+        "verse": 25,
+        "reference_text": "Hebrews 11:25",
+        "context": "the pleasure of sin for a season",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 2229.300018310547,
+        "end_time": 2301.6400146484375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=2229"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 11,
         "verse": 29,
         "reference_text": "Hebrews 11:29",
         "context": "as Moses stood on the bank of the Red Sea and he believed God, that God said, raise up your arm with that staff and that rod, that He would part the Red Sea",
@@ -21665,6 +21725,36 @@
       {
         "book": "Hebrews",
         "chapter": 4,
+        "verse": 15,
+        "reference_text": "Hebrews 4:15",
+        "context": "he's touched in all areas like as we are yet without sin",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1121.3399658203125,
+        "end_time": 1190.6199951171875,
+        "point_summary": "Christ's role as great high priest is magnified by his having been tempted in all points as we are, yet without sin, making him both able to sympathize with and succor his people.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 4,
+        "verse": 15,
+        "reference_text": "Hebrews 4:15",
+        "context": "we have an high priest which cannot be touched with the feeling of our infirmities but was in all points tempted like as we are yet without sin",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1121.3399658203125,
+        "end_time": 1190.6199951171875,
+        "point_summary": "Christ's role as great high priest is grounded in his having been tempted in all points as we are, yet without sin, making him able to sympathize with and help his people in their infirmities.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 4,
         "verse": 16,
         "reference_text": "Hebrews 4:16",
         "context": "The Bible says in verse 16, let us therefore come boldly under the throne of grace, the access that's been granted to you and I as His children",
@@ -23720,6 +23810,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah",
         "url": "https://www.youtube.com/watch?v=fbc-2025-03-26mw-jehovah&t=1830"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 10,
+        "verse": null,
+        "reference_text": "Hebrews 10",
+        "context": "Hebrews chapter 10 tells us that the law having a shadow of good things to come, but then talks about Jesus after he made one sacrifice for sin forever",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 737.739990234375,
+        "end_time": 800.0599975585938,
+        "point_summary": "Hebrews 10 is cited to contrast the repeated, shadow-only sacrifices of the Mosaic law with Christ's single, sufficient sacrifice that permanently fulfilled and ended that entire sacrificial system.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=737"
       },
       {
         "book": "Hebrews",
@@ -60361,6 +60466,111 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1968"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 10,
+      "verse": null,
+      "reference_text": "Hebrews 10",
+      "context": "Hebrews chapter 10 tells us that the law having a shadow of good things to come, but then talks about Jesus after he made one sacrifice for sin forever",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 737.739990234375,
+      "end_time": 800.0599975585938,
+      "point_summary": "Hebrews 10 is cited to contrast the repeated, shadow-only sacrifices of the Mosaic law with Christ's single, sufficient sacrifice that permanently fulfilled and ended that entire sacrificial system.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=737"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 11,
+      "verse": 25,
+      "reference_text": "Hebrews 11:25",
+      "context": "the pleasure of sin for a season",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 2229.300018310547,
+      "end_time": 2301.6400146484375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=2229"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 8,
+      "reference_text": "Hebrews 13:8",
+      "context": "he's the same yesterday and today and forever",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 979.8199768066406,
+      "end_time": 1048.8999938964844,
+      "point_summary": "Christ's immutability — that he is the same yesterday, today, and forever — is presented as one of the divine attributes that ought to move believers to marvel at him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=979"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 4,
+      "verse": 15,
+      "reference_text": "Hebrews 4:15",
+      "context": "he's touched in all areas like as we are yet without sin",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1121.3399658203125,
+      "end_time": 1190.6199951171875,
+      "point_summary": "Christ's role as great high priest is magnified by his having been tempted in all points as we are, yet without sin, making him both able to sympathize with and succor his people.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 4,
+      "verse": 15,
+      "reference_text": "Hebrews 4:15",
+      "context": "we have an high priest which cannot be touched with the feeling of our infirmities but was in all points tempted like as we are yet without sin",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1121.3399658203125,
+      "end_time": 1190.6199951171875,
+      "point_summary": "Christ's role as great high priest is grounded in his having been tempted in all points as we are, yet without sin, making him able to sympathize with and help his people in their infirmities.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 2,
+      "verse": 18,
+      "reference_text": "Hebrews 2:18",
+      "context": "he's able to succor, to help",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1121.3399658203125,
+      "end_time": 1190.6199951171875,
+      "point_summary": "Christ's qualification as great high priest rests on his having been tempted in all points as we are yet without sin, making him able to succor those who suffer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1121"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 7,
+      "verse": 25,
+      "reference_text": "Hebrews 7:25",
+      "context": "he ever liveth to make intercession for us",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1190.6199951171875,
+      "end_time": 1247.2199745178223,
+      "point_summary": "Christ's perpetual intercession for believers, referenced through Hebrews 7:25's \"he ever liveth to make intercession,\" is cited as grounds for marveling that he is both available and actively praying for his own.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1190"
     }
   ]
 }

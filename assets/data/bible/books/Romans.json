@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1735,
+  "total_references": 1740,
   "chapters": {
     "8": [
       {
@@ -9535,6 +9535,21 @@
       {
         "book": "Romans",
         "chapter": 5,
+        "verse": 20,
+        "reference_text": "Romans 5:20",
+        "context": "Where sin did abound, grace",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1810.4199657440186,
+        "end_time": 1898.3399658203125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1810"
+      },
+      {
+        "book": "Romans",
+        "chapter": 5,
         "verse": 21,
         "reference_text": "Romans 5:21",
         "context": "Notice Romans 5 in verse number 21. Notice what it said, that as sin hath reigned unto death, even so might grace reign through righteousness unto eternal life by Jesus Christ our Lord.",
@@ -10013,6 +10028,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=304"
+      },
+      {
+        "book": "Romans",
+        "chapter": 6,
+        "verse": 1,
+        "reference_text": "Romans 6:1",
+        "context": "Shall we continue in sin? God forbid",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1810.4199657440186,
+        "end_time": 1898.3399658203125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1810"
       },
       {
         "book": "Romans",
@@ -15190,6 +15220,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
         "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2012"
+      },
+      {
+        "book": "Romans",
+        "chapter": 3,
+        "verse": 23,
+        "reference_text": "Romans 3:23",
+        "context": "For all have sinned",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 2062.220001220703,
+        "end_time": 2150.220001220703,
+        "point_summary": "Universal sinfulness is treated as common ground already known to believers, invoked to remove the social barrier of shame that prevents open response to conviction.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=2062"
       }
     ],
     "12": [
@@ -15432,6 +15477,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
         "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=1945"
+      },
+      {
+        "book": "Romans",
+        "chapter": 12,
+        "verse": null,
+        "reference_text": "Romans 12:1-2",
+        "context": "Romans chapter 12, verses 1 and 2, verses that deal with our thoughts",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 936.6600036621094,
+        "end_time": 1001.260009765625,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=936"
       },
       {
         "book": "Romans",
@@ -16707,6 +16767,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
         "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2148"
+      },
+      {
+        "book": "Romans",
+        "chapter": 12,
+        "verse": 2,
+        "reference_text": "Romans 12:2",
+        "context": "not conformed to this world but were to be transformed by the renewing of our minds",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 141.75999450683594,
+        "end_time": 204.67999267578125,
+        "point_summary": "Nonconformity to the world and transformation by the renewing of the mind are presented as God's standing instruction for his people on how to live godly in the present age.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=141"
       },
       {
         "book": "Romans",
@@ -52087,6 +52162,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2821"
+    },
+    {
+      "book": "Romans",
+      "chapter": 12,
+      "verse": 2,
+      "reference_text": "Romans 12:2",
+      "context": "not conformed to this world but were to be transformed by the renewing of our minds",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 141.75999450683594,
+      "end_time": 204.67999267578125,
+      "point_summary": "Nonconformity to the world and transformation by the renewing of the mind are presented as God's standing instruction for his people on how to live godly in the present age.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=141"
+    },
+    {
+      "book": "Romans",
+      "chapter": 12,
+      "verse": null,
+      "reference_text": "Romans 12:1-2",
+      "context": "Romans chapter 12, verses 1 and 2, verses that deal with our thoughts",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 936.6600036621094,
+      "end_time": 1001.260009765625,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=936"
+    },
+    {
+      "book": "Romans",
+      "chapter": 3,
+      "verse": 23,
+      "reference_text": "Romans 3:23",
+      "context": "For all have sinned",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 2062.220001220703,
+      "end_time": 2150.220001220703,
+      "point_summary": "Universal sinfulness is treated as common ground already known to believers, invoked to remove the social barrier of shame that prevents open response to conviction.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=2062"
+    },
+    {
+      "book": "Romans",
+      "chapter": 6,
+      "verse": 1,
+      "reference_text": "Romans 6:1",
+      "context": "Shall we continue in sin? God forbid",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1810.4199657440186,
+      "end_time": 1898.3399658203125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1810"
+    },
+    {
+      "book": "Romans",
+      "chapter": 5,
+      "verse": 20,
+      "reference_text": "Romans 5:20",
+      "context": "Where sin did abound, grace",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1810.4199657440186,
+      "end_time": 1898.3399658203125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1810"
     }
   ]
 }

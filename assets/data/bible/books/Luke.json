@@ -1,6 +1,6 @@
 {
   "book": "Luke",
-  "total_references": 886,
+  "total_references": 888,
   "chapters": {
     "10": [
       {
@@ -9011,6 +9011,21 @@
       {
         "book": "Luke",
         "chapter": 22,
+        "verse": null,
+        "reference_text": "Luke 22",
+        "context": "In Luke chapter number 22, the Bible says this of Peter, that he went out and wept bitterly",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1681.8800048828125,
+        "end_time": 1739.9600219726562,
+        "point_summary": "Brokenness over sin leads to confession, illustrated by Peter's bitter weeping in Luke 22 after denying Christ and receiving the Lord's convicting gaze.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1681"
+      },
+      {
+        "book": "Luke",
+        "chapter": 22,
         "verse": 13,
         "reference_text": "Luke 22:13",
         "context": "and they went and found as he had said unto them, and they made ready the Passover",
@@ -9442,6 +9457,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - January 12, 2022 (Mid-Week Service)",
         "url": "https://www.youtube.com/watch?v=wb3Da9z0nOk&t=855"
+      },
+      {
+        "book": "Luke",
+        "chapter": 22,
+        "verse": 42,
+        "reference_text": "Luke 22:42",
+        "context": "for me it was in the garden, he prayed not my will, but thine",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 2077.3399658203125,
+        "end_time": 2162.199951171875,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=2077"
       },
       {
         "book": "Luke",
@@ -26627,6 +26657,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2892"
+    },
+    {
+      "book": "Luke",
+      "chapter": 22,
+      "verse": null,
+      "reference_text": "Luke 22",
+      "context": "In Luke chapter number 22, the Bible says this of Peter, that he went out and wept bitterly",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1681.8800048828125,
+      "end_time": 1739.9600219726562,
+      "point_summary": "Brokenness over sin leads to confession, illustrated by Peter's bitter weeping in Luke 22 after denying Christ and receiving the Lord's convicting gaze.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1681"
+    },
+    {
+      "book": "Luke",
+      "chapter": 22,
+      "verse": 42,
+      "reference_text": "Luke 22:42",
+      "context": "for me it was in the garden, he prayed not my will, but thine",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 2077.3399658203125,
+      "end_time": 2162.199951171875,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=2077"
     }
   ]
 }

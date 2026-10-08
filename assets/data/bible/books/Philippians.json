@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 761,
+  "total_references": 763,
   "chapters": {
     "2": [
       {
@@ -5380,6 +5380,21 @@
       {
         "book": "Philippians",
         "chapter": 4,
+        "verse": 4,
+        "reference_text": "Philippians 4:4",
+        "context": "the Bible says rejoice in the Lord always, and again I say rejoice",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1209.3599925041199,
+        "end_time": 1274.639991760254,
+        "point_summary": "Philippians 4:4's command to rejoice is raised as an apparent contradiction to James 4:9's call for mourning, only to be resolved by keeping both verses in their proper context.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1209"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
         "verse": 5,
         "reference_text": "Philippians 4:5",
         "context": "Let your moderation be made known unto all men, the Lord is at hand",
@@ -6936,6 +6951,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
         "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=934"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
+        "verse": 8,
+        "reference_text": "Philippians 4:8",
+        "context": "you might want to jot down Philippians 4 and verse number 8",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 936.6600036621094,
+        "end_time": 1001.260009765625,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=936"
       },
       {
         "book": "Philippians",
@@ -22843,6 +22873,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
       "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2090"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": 8,
+      "reference_text": "Philippians 4:8",
+      "context": "you might want to jot down Philippians 4 and verse number 8",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 936.6600036621094,
+      "end_time": 1001.260009765625,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=936"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": 4,
+      "reference_text": "Philippians 4:4",
+      "context": "the Bible says rejoice in the Lord always, and again I say rejoice",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1209.3599925041199,
+      "end_time": 1274.639991760254,
+      "point_summary": "Philippians 4:4's command to rejoice is raised as an apparent contradiction to James 4:9's call for mourning, only to be resolved by keeping both verses in their proper context.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1209"
     }
   ]
 }

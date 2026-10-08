@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 590,
+  "total_references": 592,
   "chapters": {
     "3": [
       {
@@ -5927,6 +5927,21 @@
       {
         "book": "Proverbs",
         "chapter": 4,
+        "verse": 23,
+        "reference_text": "Proverbs 4:23",
+        "context": "keep thy heart with all diligence, for out of it are the issues of life",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1001.260009765625,
+        "end_time": 1074.0799865722656,
+        "point_summary": "Guarding the heart with all diligence is essential because God is concerned with inward thoughts, not merely outward actions, since all of life's issues flow from it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1001"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 4,
         "verse": 24,
         "reference_text": "Proverbs 4:24",
         "context": "Consider with me the counsel that we see in Proverbs 4 and verse number 24",
@@ -6555,6 +6570,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Cain Slew Abel",
         "url": "https://www.youtube.com/watch?v=fbc-091519pm-cain-slew-abel&t=2193"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 28,
+        "verse": 13,
+        "reference_text": "Proverbs 28:13",
+        "context": "the Bible tells us that whoso covereth his sin shall not prosper, but whoso confesseth, we're going to have mercy.",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1739.9600219726562,
+        "end_time": 1805.3200097084045,
+        "point_summary": "Concealing sin leads to a failure to prosper, while confessing it opens the door to God's mercy and restoration.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1739"
       },
       {
         "book": "Proverbs",
@@ -17761,6 +17791,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2902"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 4,
+      "verse": 23,
+      "reference_text": "Proverbs 4:23",
+      "context": "keep thy heart with all diligence, for out of it are the issues of life",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1001.260009765625,
+      "end_time": 1074.0799865722656,
+      "point_summary": "Guarding the heart with all diligence is essential because God is concerned with inward thoughts, not merely outward actions, since all of life's issues flow from it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1001"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 28,
+      "verse": 13,
+      "reference_text": "Proverbs 28:13",
+      "context": "the Bible tells us that whoso covereth his sin shall not prosper, but whoso confesseth, we're going to have mercy.",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1739.9600219726562,
+      "end_time": 1805.3200097084045,
+      "point_summary": "Concealing sin leads to a failure to prosper, while confessing it opens the door to God's mercy and restoration.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1739"
     }
   ]
 }

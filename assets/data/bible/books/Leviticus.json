@@ -1,6 +1,6 @@
 {
   "book": "Leviticus",
-  "total_references": 207,
+  "total_references": 208,
   "chapters": {
     "19": [
       {
@@ -306,6 +306,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=2021"
+      },
+      {
+        "book": "Leviticus",
+        "chapter": 11,
+        "verse": 44,
+        "reference_text": "Leviticus 11:44",
+        "context": "Be holy as I am holy is what the Lord says. We read that repeatedly in the book of Leviticus",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1326.9599914550781,
+        "end_time": 1405.9199981689453,
+        "point_summary": "God's repeated command \"Be holy as I am holy\" establishes Scripture—not cultural comparison—as the unchanging standard against which sin must be measured, producing genuine brokenness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
       }
     ],
     "26": [
@@ -6247,6 +6262,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1058"
+    },
+    {
+      "book": "Leviticus",
+      "chapter": 11,
+      "verse": 44,
+      "reference_text": "Leviticus 11:44",
+      "context": "Be holy as I am holy is what the Lord says. We read that repeatedly in the book of Leviticus",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1326.9599914550781,
+      "end_time": 1405.9199981689453,
+      "point_summary": "God's repeated command \"Be holy as I am holy\" establishes Scripture—not cultural comparison—as the unchanging standard against which sin must be measured, producing genuine brokenness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
     }
   ]
 }

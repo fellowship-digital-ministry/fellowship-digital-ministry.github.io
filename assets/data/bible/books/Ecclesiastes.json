@@ -1,6 +1,6 @@
 {
   "book": "Ecclesiastes",
-  "total_references": 36,
+  "total_references": 37,
   "chapters": {
     "7": [
       {
@@ -370,6 +370,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Life And Death\" Genesis 35:16-29",
         "url": "https://www.youtube.com/watch?v=_fRtpMZRJGo&t=576"
+      },
+      {
+        "book": "Ecclesiastes",
+        "chapter": 3,
+        "verse": 4,
+        "reference_text": "Ecclesiastes 3:4",
+        "context": "there's a time to laugh, but there's a time to mourn",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1873.8400115966797,
+        "end_time": 1935.3800048828125,
+        "point_summary": "Ecclesiastes 3:4's recognition that there is \"a time to mourn\" grounds the call to treat sin with genuine grief and seriousness rather than casual indifference.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1873"
       }
     ],
     "2": [
@@ -1103,6 +1118,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Truths Concerning Our Treasures\"  Matthew 6:19-21",
       "url": "https://www.youtube.com/watch?v=CXg_STSF1ug&t=1353"
+    },
+    {
+      "book": "Ecclesiastes",
+      "chapter": 3,
+      "verse": 4,
+      "reference_text": "Ecclesiastes 3:4",
+      "context": "there's a time to laugh, but there's a time to mourn",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1873.8400115966797,
+      "end_time": 1935.3800048828125,
+      "point_summary": "Ecclesiastes 3:4's recognition that there is \"a time to mourn\" grounds the call to treat sin with genuine grief and seriousness rather than casual indifference.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1873"
     }
   ]
 }

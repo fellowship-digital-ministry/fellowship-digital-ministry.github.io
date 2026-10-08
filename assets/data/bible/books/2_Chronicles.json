@@ -1,6 +1,6 @@
 {
   "book": "2_Chronicles",
-  "total_references": 223,
+  "total_references": 224,
   "chapters": {
     "16": [
       {
@@ -1103,6 +1103,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Rapha",
         "url": "https://www.youtube.com/watch?v=fbc-2025-04-09mw-jehovah-rapha&t=415"
+      },
+      {
+        "book": "2 Chronicles",
+        "chapter": 7,
+        "verse": 14,
+        "reference_text": "2 Chronicles 7:14",
+        "context": "if my people which are called by my name shall humble themselves",
+        "is_implicit": false,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 1477.239990234375,
+        "end_time": 1555.2599792480469,
+        "point_summary": "Humbling oneself and mourning over sin, as called for in 2 Chronicles 7:14, is presented here as the essential pathway to revival and the mark of genuine brokenness before God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1477"
       },
       {
         "book": "2 Chronicles",
@@ -6739,6 +6754,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "We Will Remember The Name Of Our God",
       "url": "https://www.youtube.com/watch?v=fbc-2025-09-24mw-we-will-remember-the-name-of-our-god&t=1657"
+    },
+    {
+      "book": "2 Chronicles",
+      "chapter": 7,
+      "verse": 14,
+      "reference_text": "2 Chronicles 7:14",
+      "context": "if my people which are called by my name shall humble themselves",
+      "is_implicit": false,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 1477.239990234375,
+      "end_time": 1555.2599792480469,
+      "point_summary": "Humbling oneself and mourning over sin, as called for in 2 Chronicles 7:14, is presented here as the essential pathway to revival and the mark of genuine brokenness before God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1477"
     }
   ]
 }

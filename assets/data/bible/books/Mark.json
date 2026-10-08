@@ -1,6 +1,6 @@
 {
   "book": "Mark",
-  "total_references": 438,
+  "total_references": 442,
   "chapters": {
     "1": [
       {
@@ -1189,6 +1189,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
         "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1089"
+      },
+      {
+        "book": "Mark",
+        "chapter": 16,
+        "verse": 15,
+        "reference_text": "Mark 16:15",
+        "context": "go into all the world and preach the gospel to every creature",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 1247.2199745178223,
+        "end_time": 1315.7799758911133,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1247"
       },
       {
         "book": "Mark",
@@ -2761,6 +2776,21 @@
       {
         "book": "Mark",
         "chapter": 2,
+        "verse": null,
+        "reference_text": "Mark 2",
+        "context": "that whole scene, that's Mark chapter two",
+        "is_implicit": true,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 358.0,
+        "end_time": 415.2799987792969,
+        "point_summary": "Mark 2 supplies the fuller narrative detail—the four men lowering the paralytic through the roof—behind Matthew's compressed account, and confirms that the scribes' charge of blasphemy rested on the theologically correct premise that only God can forgive sins.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=358"
+      },
+      {
+        "book": "Mark",
+        "chapter": 2,
         "verse": 1,
         "reference_text": "Mark 2:1",
         "context": "The Bible says in verse number one, and again, he, speaking of the Lord Jesus Christ, entered into Capernaum after some days.",
@@ -3252,6 +3282,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Jesus Is All The World To Me - Part 1\" John 20:28-29",
         "url": "https://www.youtube.com/watch?v=otLjEpBz9Rk&t=745"
+      },
+      {
+        "book": "Mark",
+        "chapter": 2,
+        "verse": 12,
+        "reference_text": "Mark 2:12",
+        "context": "Mark's account ends it in verse number 12 by saying this, we never saw it on this fashion",
+        "is_implicit": false,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 483.5199890136719,
+        "end_time": 559.3599853515625,
+        "point_summary": "Mark 2:12's closing witness — \"we never saw it on this fashion\" — is cited to show that Christ's healing of the paralytic produced unprecedented marvel, confirming his divine power to forgive sins.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=483"
       },
       {
         "book": "Mark",
@@ -6191,6 +6236,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Were All Filled With The Holy Ghost\"  Acts 4:31",
         "url": "https://www.youtube.com/watch?v=zIV9O3o8Ckg&t=124"
+      },
+      {
+        "book": "Mark",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Mark's gospel",
+        "context": "I referenced Mark's gospel because Mark says that there's so many people, they can't get to the house",
+        "is_implicit": false,
+        "video_id": "BGQCm4jm-rE",
+        "start_time": 559.3599853515625,
+        "end_time": 624.7399826049805,
+        "point_summary": "Mark's account is cited specifically to establish the scale of the crowd—so many people that they could not reach the house—contextualizing why the subsequent healing of the paralytic produced such widespread marveling.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+        "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=559"
       }
     ],
     "10": [
@@ -13177,6 +13237,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2754"
+    },
+    {
+      "book": "Mark",
+      "chapter": 2,
+      "verse": null,
+      "reference_text": "Mark 2",
+      "context": "that whole scene, that's Mark chapter two",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 358.0,
+      "end_time": 415.2799987792969,
+      "point_summary": "Mark 2 supplies the fuller narrative detail—the four men lowering the paralytic through the roof—behind Matthew's compressed account, and confirms that the scribes' charge of blasphemy rested on the theologically correct premise that only God can forgive sins.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=358"
+    },
+    {
+      "book": "Mark",
+      "chapter": 2,
+      "verse": 12,
+      "reference_text": "Mark 2:12",
+      "context": "Mark's account ends it in verse number 12 by saying this, we never saw it on this fashion",
+      "is_implicit": false,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 483.5199890136719,
+      "end_time": 559.3599853515625,
+      "point_summary": "Mark 2:12's closing witness — \"we never saw it on this fashion\" — is cited to show that Christ's healing of the paralytic produced unprecedented marvel, confirming his divine power to forgive sins.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=483"
+    },
+    {
+      "book": "Mark",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Mark's gospel",
+      "context": "I referenced Mark's gospel because Mark says that there's so many people, they can't get to the house",
+      "is_implicit": false,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 559.3599853515625,
+      "end_time": 624.7399826049805,
+      "point_summary": "Mark's account is cited specifically to establish the scale of the crowd—so many people that they could not reach the house—contextualizing why the subsequent healing of the paralytic produced such widespread marveling.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=559"
+    },
+    {
+      "book": "Mark",
+      "chapter": 16,
+      "verse": 15,
+      "reference_text": "Mark 16:15",
+      "context": "go into all the world and preach the gospel to every creature",
+      "is_implicit": true,
+      "video_id": "BGQCm4jm-rE",
+      "start_time": 1247.2199745178223,
+      "end_time": 1315.7799758911133,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
+      "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1247"
     }
   ]
 }

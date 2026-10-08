@@ -1,6 +1,6 @@
 {
   "book": "Titus",
-  "total_references": 184,
+  "total_references": 186,
   "chapters": {
     "1": [
       {
@@ -1298,6 +1298,21 @@
       {
         "book": "Titus",
         "chapter": 2,
+        "verse": 11,
+        "reference_text": "Titus 2:11",
+        "context": "the grace of God that it bringeth salvation hath appeared to all men",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 141.75999450683594,
+        "end_time": 204.67999267578125,
+        "point_summary": "God's grace, which brings salvation to all men, also instructs believers in godly living within this present world.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=141"
+      },
+      {
+        "book": "Titus",
+        "chapter": 2,
         "verse": 12,
         "reference_text": "Titus 2:12",
         "context": "teaching us that denying ungodliness, not only that, but worldly lusts, we should live soberly, righteously and godly in this present world",
@@ -1474,6 +1489,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Beware Of Dogs\"  II Corinthians 11:1-15",
         "url": "https://www.youtube.com/watch?v=kbJhtRYV7uE&t=697"
+      },
+      {
+        "book": "Titus",
+        "chapter": 2,
+        "verse": 12,
+        "reference_text": "Titus 2:12",
+        "context": "teaches us how to live godly in this present world",
+        "is_implicit": true,
+        "video_id": "Z1UCPWdB4J4",
+        "start_time": 141.75999450683594,
+        "end_time": 204.67999267578125,
+        "point_summary": "Titus 2:12 is cited as scriptural evidence that God's grace, beyond saving, actively instructs believers in godly living within a present, worldly age.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=141"
       },
       {
         "book": "Titus",
@@ -5533,6 +5563,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=2020"
+    },
+    {
+      "book": "Titus",
+      "chapter": 2,
+      "verse": 11,
+      "reference_text": "Titus 2:11",
+      "context": "the grace of God that it bringeth salvation hath appeared to all men",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 141.75999450683594,
+      "end_time": 204.67999267578125,
+      "point_summary": "God's grace, which brings salvation to all men, also instructs believers in godly living within this present world.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=141"
+    },
+    {
+      "book": "Titus",
+      "chapter": 2,
+      "verse": 12,
+      "reference_text": "Titus 2:12",
+      "context": "teaches us how to live godly in this present world",
+      "is_implicit": true,
+      "video_id": "Z1UCPWdB4J4",
+      "start_time": 141.75999450683594,
+      "end_time": 204.67999267578125,
+      "point_summary": "Titus 2:12 is cited as scriptural evidence that God's grace, beyond saving, actively instructs believers in godly living within a present, worldly age.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=141"
     }
   ]
 }
