@@ -229,11 +229,11 @@
       "count": 32
     },
     {
-      "book": "Habakkuk",
+      "book": "Ruth",
       "count": 29
     },
     {
-      "book": "Ruth",
+      "book": "Habakkuk",
       "count": 29
     },
     {
@@ -257,15 +257,15 @@
       "count": 6
     },
     {
-      "book": "Nahum",
-      "count": 1
-    },
-    {
       "book": "Song_of_Solomon",
       "count": 1
     },
     {
       "book": "Zephaniah",
+      "count": 1
+    },
+    {
+      "book": "Nahum",
       "count": 1
     }
   ],
