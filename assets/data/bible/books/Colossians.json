@@ -1,6 +1,6 @@
 {
   "book": "Colossians",
-  "total_references": 695,
+  "total_references": 696,
   "chapters": {
     "3": [
       {
@@ -227,6 +227,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Sanctification\" I Thessalonians 5:23",
         "url": "https://www.youtube.com/watch?v=ZujHgHWwrXE&t=425"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 3,
+        "verse": null,
+        "reference_text": "Colossians 3",
+        "context": "we're to mortify our members according to Colossians chapter number three",
+        "is_implicit": true,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 2038.6199951171875,
+        "end_time": 2099.8200073242188,
+        "point_summary": "Colossians 3's command to mortify the members is cited as scriptural grounding for why the flesh, with its evil desires, must be put to death rather than indulged.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2038"
       },
       {
         "book": "Colossians",
@@ -20863,6 +20878,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
       "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=339"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "Colossians 3",
+      "context": "we're to mortify our members according to Colossians chapter number three",
+      "is_implicit": true,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 2038.6199951171875,
+      "end_time": 2099.8200073242188,
+      "point_summary": "Colossians 3's command to mortify the members is cited as scriptural grounding for why the flesh, with its evil desires, must be put to death rather than indulged.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2038"
     }
   ]
 }

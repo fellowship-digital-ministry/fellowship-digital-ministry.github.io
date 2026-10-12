@@ -1,6 +1,6 @@
 {
   "book": "Joshua",
-  "total_references": 329,
+  "total_references": 332,
   "chapters": {
     "19": [
       {
@@ -970,6 +970,21 @@
       {
         "book": "Joshua",
         "chapter": 1,
+        "verse": null,
+        "reference_text": "Joshua 1",
+        "context": "I'm reminded of what God tells Joshua in Joshua chapter number one and he repeats it throughout the passage of scripture",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 1074.7799682617188,
+        "end_time": 1143.7799682617188,
+        "point_summary": "God's repeated command to Joshua to \"be strong and very courageous\" is invoked as a biblical pattern showing that courage—to speak up and stand for truth—is a divine imperative for God's people.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1074"
+      },
+      {
+        "book": "Joshua",
+        "chapter": 1,
         "verse": 1,
         "reference_text": "Joshua 1:1",
         "context": "In fact, in verse number one, the Bible says now after the death of Moses, now this is a simple question this evening, but who is the human penman for the first five books of the Bible? Moses,",
@@ -1416,6 +1431,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Thou Art With Me\" Psalm 23:4",
         "url": "https://www.youtube.com/watch?v=RNHeQGD_erM&t=1657"
+      },
+      {
+        "book": "Joshua",
+        "chapter": 1,
+        "verse": 7,
+        "reference_text": "Joshua 1:7",
+        "context": "only be thou strong and very courageous, that thou mayest observe to do according to all the law which Moses, my servant, commanded thee. Turn not from it to the right hand or to the left, that thou mayest prosper whithersoever thou goest",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 1143.7799682617188,
+        "end_time": 1203.899973154068,
+        "point_summary": "God's command to Joshua to be \"strong and very courageous\" is invoked as a biblical pattern for the boldness God's people need to speak truth in a wicked world.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1143"
       },
       {
         "book": "Joshua",
@@ -1941,6 +1971,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "The Presence Of My Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-14mw-the-presence-of-my-shepherd&t=883"
+      },
+      {
+        "book": "Joshua",
+        "chapter": 1,
+        "verse": 9,
+        "reference_text": "Joshua 1:9",
+        "context": "have not I commanded thee be strong and of a good courage. Be not afraid, neither be thou dismayed, for the Lord thy God is with thee whithersoever thou goest",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 1143.7799682617188,
+        "end_time": 1203.899973154068,
+        "point_summary": "God's command to Joshua — \"be strong and of a good courage… for the Lord thy God is with thee\" — is invoked as the divine basis for the courage the little maid displayed and that God's people need today.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1143"
       }
     ],
     "16": [
@@ -9915,6 +9960,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=2326"
+    },
+    {
+      "book": "Joshua",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Joshua 1",
+      "context": "I'm reminded of what God tells Joshua in Joshua chapter number one and he repeats it throughout the passage of scripture",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 1074.7799682617188,
+      "end_time": 1143.7799682617188,
+      "point_summary": "God's repeated command to Joshua to \"be strong and very courageous\" is invoked as a biblical pattern showing that courage—to speak up and stand for truth—is a divine imperative for God's people.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1074"
+    },
+    {
+      "book": "Joshua",
+      "chapter": 1,
+      "verse": 7,
+      "reference_text": "Joshua 1:7",
+      "context": "only be thou strong and very courageous, that thou mayest observe to do according to all the law which Moses, my servant, commanded thee. Turn not from it to the right hand or to the left, that thou mayest prosper whithersoever thou goest",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 1143.7799682617188,
+      "end_time": 1203.899973154068,
+      "point_summary": "God's command to Joshua to be \"strong and very courageous\" is invoked as a biblical pattern for the boldness God's people need to speak truth in a wicked world.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1143"
+    },
+    {
+      "book": "Joshua",
+      "chapter": 1,
+      "verse": 9,
+      "reference_text": "Joshua 1:9",
+      "context": "have not I commanded thee be strong and of a good courage. Be not afraid, neither be thou dismayed, for the Lord thy God is with thee whithersoever thou goest",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 1143.7799682617188,
+      "end_time": 1203.899973154068,
+      "point_summary": "God's command to Joshua — \"be strong and of a good courage… for the Lord thy God is with thee\" — is invoked as the divine basis for the courage the little maid displayed and that God's people need today.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1143"
     }
   ]
 }

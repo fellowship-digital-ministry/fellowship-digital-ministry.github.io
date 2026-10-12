@@ -1,6 +1,6 @@
 {
   "book": "Daniel",
-  "total_references": 243,
+  "total_references": 244,
   "chapters": {
     "6": [
       {
@@ -1506,6 +1506,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Righteousness Exalteth A Nation\"  Proverbs 14:34; Nehemiah 1:1-7",
         "url": "https://www.youtube.com/watch?v=o0eFy1RDlXI&t=1613"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 4,
+        "verse": 37,
+        "reference_text": "Daniel 4:37",
+        "context": "and those that walk in pride, he is able to abase",
+        "is_implicit": false,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 2791.1799926757812,
+        "end_time": 2866.9400024414062,
+        "point_summary": "Nebuchadnezzar's firsthand experience of divine abasement illustrates that God is able to humble the proud, making voluntary self-humbling far preferable to being humbled by God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2791"
       }
     ],
     "9": [
@@ -7321,6 +7336,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
       "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=2784"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 4,
+      "verse": 37,
+      "reference_text": "Daniel 4:37",
+      "context": "and those that walk in pride, he is able to abase",
+      "is_implicit": false,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 2791.1799926757812,
+      "end_time": 2866.9400024414062,
+      "point_summary": "Nebuchadnezzar's firsthand experience of divine abasement illustrates that God is able to humble the proud, making voluntary self-humbling far preferable to being humbled by God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2791"
     }
   ]
 }

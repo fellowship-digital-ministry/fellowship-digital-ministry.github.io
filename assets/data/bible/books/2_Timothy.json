@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 975,
+  "total_references": 977,
   "chapters": {
     "3": [
       {
@@ -1112,6 +1112,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part One",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=662"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 3,
+        "verse": 2,
+        "reference_text": "2 Timothy 3:2",
+        "context": "Paul said it this way in 2 Timothy 3, in verse number two, for men shall be lovers of their own selves",
+        "is_implicit": false,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 341.82000732421875,
+        "end_time": 428.67999267578125,
+        "point_summary": "Pride is identified as a defining mark of the last days, with Paul's phrase \"lovers of their own selves\" in 2 Timothy 3:2 cited as its opening characteristic.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=341"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 3,
+        "verse": 2,
+        "reference_text": "2 Timothy 3:2",
+        "context": "it says that they're boasters. Think about that. Boasting, that's the manifestation of pride. He then says proud. And yes, it's contained right there in 2 Timothy 3 in verse number two. They're blasphemers. They curse God. They lift their hand against God. And we find that it says they're disobedient to parents, unthankful, unholy. That's how Paul begins to describe the last days in 2 Timothy 3 in verse number two.",
+        "is_implicit": false,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 428.67999267578125,
+        "end_time": 493.760009765625,
+        "point_summary": "Paul's list in 2 Timothy 3:2 — self-love, boasting, and pride — is presented as prophetic evidence that pride is a defining characteristic of the last days.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=428"
       },
       {
         "book": "2 Timothy",
@@ -29265,6 +29295,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=390"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 3,
+      "verse": 2,
+      "reference_text": "2 Timothy 3:2",
+      "context": "Paul said it this way in 2 Timothy 3, in verse number two, for men shall be lovers of their own selves",
+      "is_implicit": false,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 341.82000732421875,
+      "end_time": 428.67999267578125,
+      "point_summary": "Pride is identified as a defining mark of the last days, with Paul's phrase \"lovers of their own selves\" in 2 Timothy 3:2 cited as its opening characteristic.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=341"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 3,
+      "verse": 2,
+      "reference_text": "2 Timothy 3:2",
+      "context": "it says that they're boasters. Think about that. Boasting, that's the manifestation of pride. He then says proud. And yes, it's contained right there in 2 Timothy 3 in verse number two. They're blasphemers. They curse God. They lift their hand against God. And we find that it says they're disobedient to parents, unthankful, unholy. That's how Paul begins to describe the last days in 2 Timothy 3 in verse number two.",
+      "is_implicit": false,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 428.67999267578125,
+      "end_time": 493.760009765625,
+      "point_summary": "Paul's list in 2 Timothy 3:2 — self-love, boasting, and pride — is presented as prophetic evidence that pride is a defining characteristic of the last days.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=428"
     }
   ]
 }

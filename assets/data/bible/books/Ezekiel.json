@@ -1,6 +1,6 @@
 {
   "book": "Ezekiel",
-  "total_references": 196,
+  "total_references": 197,
   "chapters": {
     "33": [
       {
@@ -1030,6 +1030,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=2734"
+      },
+      {
+        "book": "Ezekiel",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Ezekiel",
+        "context": "as you were to read Isaiah and Ezekiel referencing that particular event",
+        "is_implicit": false,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 199.97999572753906,
+        "end_time": 274.6600036621094,
+        "point_summary": "Ezekiel, alongside Isaiah, is cited as a scriptural witness to the pride at the heart of Lucifer's rebellion and his consequent casting out of heaven.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=199"
       }
     ],
     "18": [
@@ -5919,6 +5934,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
       "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1534"
+    },
+    {
+      "book": "Ezekiel",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Ezekiel",
+      "context": "as you were to read Isaiah and Ezekiel referencing that particular event",
+      "is_implicit": false,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 199.97999572753906,
+      "end_time": 274.6600036621094,
+      "point_summary": "Ezekiel, alongside Isaiah, is cited as a scriptural witness to the pride at the heart of Lucifer's rebellion and his consequent casting out of heaven.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=199"
     }
   ]
 }

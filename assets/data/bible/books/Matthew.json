@@ -1,6 +1,6 @@
 {
   "book": "Matthew",
-  "total_references": 1528,
+  "total_references": 1530,
   "chapters": {
     "16": [
       {
@@ -392,6 +392,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
         "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1337"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 16,
+        "verse": null,
+        "reference_text": "Matthew 16",
+        "context": "as I went to Matthew 16, and I said, the most important question is who is Jesus?",
+        "is_implicit": false,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 839.4199981689453,
+        "end_time": 908.9400024414062,
+        "point_summary": "A proper view of God—specifically the identity of Jesus as God rather than merely a great teacher—is essential to genuine humility, since humbling oneself must be done \"in the sight of the Lord.\"",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=839"
       },
       {
         "book": "Matthew",
@@ -15467,6 +15482,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - October 28, 2020 (Mid-Week Service)",
         "url": "https://www.youtube.com/watch?v=EOBB4xsyduY&t=1303"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 14,
+        "verse": 14,
+        "reference_text": "Matthew 14:14",
+        "context": "he was moved with compassion",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 941.3599853515625,
+        "end_time": 1010.0199890136719,
+        "point_summary": "Compassion that moves one to act—even toward an adversary—mirrors Christ himself, who, as the sermon notes, \"was moved with compassion.\"",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=941"
       },
       {
         "book": "Matthew",
@@ -45903,6 +45933,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1472"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 16,
+      "verse": null,
+      "reference_text": "Matthew 16",
+      "context": "as I went to Matthew 16, and I said, the most important question is who is Jesus?",
+      "is_implicit": false,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 839.4199981689453,
+      "end_time": 908.9400024414062,
+      "point_summary": "A proper view of God—specifically the identity of Jesus as God rather than merely a great teacher—is essential to genuine humility, since humbling oneself must be done \"in the sight of the Lord.\"",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=839"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 14,
+      "verse": 14,
+      "reference_text": "Matthew 14:14",
+      "context": "he was moved with compassion",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 941.3599853515625,
+      "end_time": 1010.0199890136719,
+      "point_summary": "Compassion that moves one to act—even toward an adversary—mirrors Christ himself, who, as the sermon notes, \"was moved with compassion.\"",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=941"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Jude",
-  "total_references": 93,
+  "total_references": 96,
   "chapters": {
     "1": [
       {
@@ -1247,6 +1247,51 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=1581"
+      },
+      {
+        "book": "Jude",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "Jude 1:22",
+        "context": "in the short epistle of the book of Jude, just one chapter, verse 22 says this, and of some have compassion making a difference",
+        "is_implicit": false,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 0.0,
+        "end_time": 70.5,
+        "point_summary": "Compassionate witness makes a difference, as Jude 1:22 frames the little maid's intercession for Naaman as an example of showing compassion that changes circumstances.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=0"
+      },
+      {
+        "book": "Jude",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "Jude 1:22",
+        "context": "As I mentioned in Jude verse 22, the Bible says and of some have compassion making a difference",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 814.8399810791016,
+        "end_time": 879.3799743652344,
+        "point_summary": "Compassion that \"makes a difference\" (Jude 22) is illustrated in the little maid's response to Naaman's leprosy—her awareness of his condition moved her to speak on his behalf.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=814"
+      },
+      {
+        "book": "Jude",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "Jude 1:22",
+        "context": "some have compassion making a difference",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 941.3599853515625,
+        "end_time": 1010.0199890136719,
+        "point_summary": "Compassion that crosses enemy lines—like the little maid's care for Naaman—fulfills Jude's call to \"have compassion, making a difference,\" reflecting the very character of Christ who was moved with compassion.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=941"
       },
       {
         "book": "Jude",
@@ -2797,6 +2842,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1155"
+    },
+    {
+      "book": "Jude",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "Jude 1:22",
+      "context": "in the short epistle of the book of Jude, just one chapter, verse 22 says this, and of some have compassion making a difference",
+      "is_implicit": false,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 0.0,
+      "end_time": 70.5,
+      "point_summary": "Compassionate witness makes a difference, as Jude 1:22 frames the little maid's intercession for Naaman as an example of showing compassion that changes circumstances.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=0"
+    },
+    {
+      "book": "Jude",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "Jude 1:22",
+      "context": "As I mentioned in Jude verse 22, the Bible says and of some have compassion making a difference",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 814.8399810791016,
+      "end_time": 879.3799743652344,
+      "point_summary": "Compassion that \"makes a difference\" (Jude 22) is illustrated in the little maid's response to Naaman's leprosy—her awareness of his condition moved her to speak on his behalf.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=814"
+    },
+    {
+      "book": "Jude",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "Jude 1:22",
+      "context": "some have compassion making a difference",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 941.3599853515625,
+      "end_time": 1010.0199890136719,
+      "point_summary": "Compassion that crosses enemy lines—like the little maid's care for Naaman—fulfills Jude's call to \"have compassion, making a difference,\" reflecting the very character of Christ who was moved with compassion.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=941"
     }
   ]
 }

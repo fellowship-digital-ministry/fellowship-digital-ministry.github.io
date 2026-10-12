@@ -1,6 +1,6 @@
 {
   "book": "1_Samuel",
-  "total_references": 392,
+  "total_references": 393,
   "chapters": {
     "16": [
       {
@@ -1868,6 +1868,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Let God Be Magnified\" Psalm 70:4",
         "url": "https://www.youtube.com/watch?v=6eUsQrWOpqo&t=2190"
+      },
+      {
+        "book": "1 Samuel",
+        "chapter": 15,
+        "verse": 17,
+        "reference_text": "1 Samuel 15:17",
+        "context": "when he was little in his sight, but then when he got full of himself",
+        "is_implicit": true,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 199.97999572753906,
+        "end_time": 274.6600036621094,
+        "point_summary": "Saul's trajectory from being \"little in his own sight\" to self-exaltation illustrates how pride leads to disobedience, shame, and ultimately divine rejection.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=199"
       },
       {
         "book": "1 Samuel",
@@ -11813,6 +11828,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
       "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=1615"
+    },
+    {
+      "book": "1 Samuel",
+      "chapter": 15,
+      "verse": 17,
+      "reference_text": "1 Samuel 15:17",
+      "context": "when he was little in his sight, but then when he got full of himself",
+      "is_implicit": true,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 199.97999572753906,
+      "end_time": 274.6600036621094,
+      "point_summary": "Saul's trajectory from being \"little in his own sight\" to self-exaltation illustrates how pride leads to disobedience, shame, and ultimately divine rejection.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=199"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1677,
+  "total_references": 1678,
   "chapters": {
     "3": [
       {
@@ -9098,6 +9098,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "What Can The Righteous Do",
         "url": "https://www.youtube.com/watch?v=fbc-2025-01-15mw-what-can-the-righteous-do&t=848"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 19,
+        "verse": 6,
+        "reference_text": "Revelation 19:6",
+        "context": "The Lord God omnipotent reigneth",
+        "is_implicit": true,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 1043.6400146484375,
+        "end_time": 1112.52001953125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1043"
       },
       {
         "book": "Revelation",
@@ -50361,6 +50376,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=979"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 19,
+      "verse": 6,
+      "reference_text": "Revelation 19:6",
+      "context": "The Lord God omnipotent reigneth",
+      "is_implicit": true,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 1043.6400146484375,
+      "end_time": 1112.52001953125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1043"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "1_John",
-  "total_references": 1137,
+  "total_references": 1138,
   "chapters": {
     "2": [
       {
@@ -12233,6 +12233,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=364"
+      },
+      {
+        "book": "1 John",
+        "chapter": 5,
+        "verse": 13,
+        "reference_text": "1 John 5:13",
+        "context": "These things have I written unto you that believe in the name of the Son of God that ye may know that ye have eternal life",
+        "is_implicit": false,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 1980.3800048828125,
+        "end_time": 2038.6199951171875,
+        "point_summary": "The assurance of salvation expressed in 1 John 5:13 — that believers may *know* they have eternal life — is cited as the proper use of the word \"know,\" before contrasting it with Paul's self-knowledge of his own fleshly corruption in Romans 7:18.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1980"
       },
       {
         "book": "1 John",
@@ -34127,6 +34142,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1316"
+    },
+    {
+      "book": "1 John",
+      "chapter": 5,
+      "verse": 13,
+      "reference_text": "1 John 5:13",
+      "context": "These things have I written unto you that believe in the name of the Son of God that ye may know that ye have eternal life",
+      "is_implicit": false,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 1980.3800048828125,
+      "end_time": 2038.6199951171875,
+      "point_summary": "The assurance of salvation expressed in 1 John 5:13 — that believers may *know* they have eternal life — is cited as the proper use of the word \"know,\" before contrasting it with Paul's self-knowledge of his own fleshly corruption in Romans 7:18.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1980"
     }
   ]
 }

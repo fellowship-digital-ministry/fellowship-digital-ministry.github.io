@@ -1,6 +1,6 @@
 {
   "book": "Philemon",
-  "total_references": 24,
+  "total_references": 26,
   "chapters": {
     "1": [
       {
@@ -242,6 +242,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Profitable For The Ministry",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08am-profitable-for-the-ministry&t=762"
+      },
+      {
+        "book": "Philemon",
+        "chapter": 1,
+        "verse": 10,
+        "reference_text": "Philemon 1:10",
+        "context": "We find it in Philemon and just one chapter but at verse number 10",
+        "is_implicit": false,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 680.2399749755859,
+        "end_time": 748.2799835205078,
+        "point_summary": "Paul's imprisonment, far from being a hindrance, became the very circumstance God used to bring Onesimus to faith, illustrating that adverse conditions can be divinely orchestrated opportunities for the gospel.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=680"
+      },
+      {
+        "book": "Philemon",
+        "chapter": 1,
+        "verse": 10,
+        "reference_text": "Philemon 1:10",
+        "context": "Paul is writing to Philemon and he says I beseech thee for my son Onesimus whom I have begotten in my bonds",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 748.2799835205078,
+        "end_time": 813.6799774169922,
+        "point_summary": "Paul's imprisonment, far from hindering the gospel, became the very circumstance God used to bring Onesimus to saving faith—illustrating that adverse circumstances can be divinely orchestrated appointments.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=748"
       },
       {
         "book": "Philemon",
@@ -727,6 +757,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Profitable For The Ministry",
       "url": "https://www.youtube.com/watch?v=fbc-2024-12-08am-profitable-for-the-ministry&t=898"
+    },
+    {
+      "book": "Philemon",
+      "chapter": 1,
+      "verse": 10,
+      "reference_text": "Philemon 1:10",
+      "context": "We find it in Philemon and just one chapter but at verse number 10",
+      "is_implicit": false,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 680.2399749755859,
+      "end_time": 748.2799835205078,
+      "point_summary": "Paul's imprisonment, far from being a hindrance, became the very circumstance God used to bring Onesimus to faith, illustrating that adverse conditions can be divinely orchestrated opportunities for the gospel.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=680"
+    },
+    {
+      "book": "Philemon",
+      "chapter": 1,
+      "verse": 10,
+      "reference_text": "Philemon 1:10",
+      "context": "Paul is writing to Philemon and he says I beseech thee for my son Onesimus whom I have begotten in my bonds",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 748.2799835205078,
+      "end_time": 813.6799774169922,
+      "point_summary": "Paul's imprisonment, far from hindering the gospel, became the very circumstance God used to bring Onesimus to saving faith—illustrating that adverse circumstances can be divinely orchestrated appointments.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=748"
     }
   ]
 }

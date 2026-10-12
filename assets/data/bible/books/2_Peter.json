@@ -1,6 +1,6 @@
 {
   "book": "2_Peter",
-  "total_references": 424,
+  "total_references": 425,
   "chapters": {
     "3": [
       {
@@ -2732,6 +2732,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
         "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1926"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 3,
+        "verse": 9,
+        "reference_text": "2 Peter 3:9",
+        "context": "He's not willing that any should perish, but it all should come to repentance",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 1660.3599853515625,
+        "end_time": 1721.0399780273438,
+        "point_summary": "God's willingness that none should perish grounds the confidence believers should have—like the little maid's confidence in Elisha—that no sinner lies beyond Christ's power to save.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1660"
       },
       {
         "book": "2 Peter",
@@ -12731,6 +12746,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
       "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1926"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 3,
+      "verse": 9,
+      "reference_text": "2 Peter 3:9",
+      "context": "He's not willing that any should perish, but it all should come to repentance",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 1660.3599853515625,
+      "end_time": 1721.0399780273438,
+      "point_summary": "God's willingness that none should perish grounds the confidence believers should have—like the little maid's confidence in Elisha—that no sinner lies beyond Christ's power to save.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1660"
     }
   ]
 }

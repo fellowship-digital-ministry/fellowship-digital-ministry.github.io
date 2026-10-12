@@ -1,6 +1,6 @@
 {
   "book": "Numbers",
-  "total_references": 255,
+  "total_references": 256,
   "chapters": {
     "11": [
       {
@@ -2465,6 +2465,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Consequences Of Doubt",
         "url": "https://www.youtube.com/watch?v=fbc-2026-03-18mw-consequences-of-doubt&t=1711"
+      },
+      {
+        "book": "Numbers",
+        "chapter": 14,
+        "verse": 33,
+        "reference_text": "Numbers 14:33",
+        "context": "I let the children of Israel walk for 40 years and things didn't wear out",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 2434.659984588623,
+        "end_time": 2494.0599822998047,
+        "point_summary": "The 40-year wilderness wandering, in which Israel's clothing and sandals did not wear out, is invoked as evidence that God governs even inconvenient circumstances to accomplish His purposes through surrendered lives.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=2434"
       }
     ],
     "13": [
@@ -7697,6 +7712,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
+    },
+    {
+      "book": "Numbers",
+      "chapter": 14,
+      "verse": 33,
+      "reference_text": "Numbers 14:33",
+      "context": "I let the children of Israel walk for 40 years and things didn't wear out",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 2434.659984588623,
+      "end_time": 2494.0599822998047,
+      "point_summary": "The 40-year wilderness wandering, in which Israel's clothing and sandals did not wear out, is invoked as evidence that God governs even inconvenient circumstances to accomplish His purposes through surrendered lives.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=2434"
     }
   ]
 }

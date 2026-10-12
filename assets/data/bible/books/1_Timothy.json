@@ -1,6 +1,6 @@
 {
   "book": "1_Timothy",
-  "total_references": 598,
+  "total_references": 600,
   "chapters": {
     "2": [
       {
@@ -3400,6 +3400,21 @@
       {
         "book": "1 Timothy",
         "chapter": 1,
+        "verse": null,
+        "reference_text": "1 Timothy 1",
+        "context": "1 Timothy chapter number 1",
+        "is_implicit": false,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 1789.0199584960938,
+        "end_time": 1852.46000289917,
+        "point_summary": "Paul's self-identification as \"chief of sinners\" in 1 Timothy 1 illustrates that God uses those who hold a proper, humble view of both God and themselves.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1789"
+      },
+      {
+        "book": "1 Timothy",
+        "chapter": 1,
         "verse": 1,
         "reference_text": "1 Timothy 1:1",
         "context": "Paul, an apostle of Jesus Christ by the commandment of God",
@@ -5706,6 +5721,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=1188"
+      },
+      {
+        "book": "1 Timothy",
+        "chapter": 1,
+        "verse": 15,
+        "reference_text": "1 Timothy 1:15",
+        "context": "Jesus came into the world to save sinners of whom I am chief",
+        "is_implicit": true,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 1852.46000289917,
+        "end_time": 1920.3800048828125,
+        "point_summary": "Paul's self-identification as \"chief of sinners\" in 1 Timothy 1:15 is cited as evidence that his greatness in ministry flowed directly from holding a proper, humble view of himself before God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1852"
       },
       {
         "book": "1 Timothy",
@@ -17959,6 +17989,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
       "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1899"
+    },
+    {
+      "book": "1 Timothy",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "1 Timothy 1",
+      "context": "1 Timothy chapter number 1",
+      "is_implicit": false,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 1789.0199584960938,
+      "end_time": 1852.46000289917,
+      "point_summary": "Paul's self-identification as \"chief of sinners\" in 1 Timothy 1 illustrates that God uses those who hold a proper, humble view of both God and themselves.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1789"
+    },
+    {
+      "book": "1 Timothy",
+      "chapter": 1,
+      "verse": 15,
+      "reference_text": "1 Timothy 1:15",
+      "context": "Jesus came into the world to save sinners of whom I am chief",
+      "is_implicit": true,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 1852.46000289917,
+      "end_time": 1920.3800048828125,
+      "point_summary": "Paul's self-identification as \"chief of sinners\" in 1 Timothy 1:15 is cited as evidence that his greatness in ministry flowed directly from holding a proper, humble view of himself before God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1852"
     }
   ]
 }

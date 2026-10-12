@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 1477,
+  "total_references": 1479,
   "chapters": {
     "2": [
       {
@@ -1997,6 +1997,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Redemption Through His Blood",
         "url": "https://www.youtube.com/watch?v=fbc-2024-08-11am-redemption-through-his-blood&t=1113"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 2,
+        "verse": 5,
+        "reference_text": "Ephesians 2:5",
+        "context": "when you were born again you were revived, you were made alive, you were quickened",
+        "is_implicit": true,
+        "video_id": "5WkuygO7LrM",
+        "start_time": 2100.9400024414062,
+        "end_time": 2167.1799926757812,
+        "point_summary": "Regeneration through new birth is the believer's relief from the flesh's dominion, as being quickened and made alive in Christ means the Christian is no longer operating in the flesh alone.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Humble Yourselves\"  James 4:10",
+        "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2100"
       },
       {
         "book": "Ephesians",
@@ -8224,6 +8239,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
         "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1190"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 3,
+        "verse": 20,
+        "reference_text": "Ephesians 3:20",
+        "context": "He's able to do exceeding abundantly above all that we ask or think",
+        "is_implicit": true,
+        "video_id": "Dhzx0Flx8mE",
+        "start_time": 1779.199951171875,
+        "end_time": 1839.3199882507324,
+        "point_summary": "God's ability to do \"exceeding abundantly above all that we ask or think\" grounds the call to speak the gospel with the same bold confidence the little maid showed in her adverse circumstances.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+        "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1779"
       },
       {
         "book": "Ephesians",
@@ -44327,6 +44357,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1190"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 2,
+      "verse": 5,
+      "reference_text": "Ephesians 2:5",
+      "context": "when you were born again you were revived, you were made alive, you were quickened",
+      "is_implicit": true,
+      "video_id": "5WkuygO7LrM",
+      "start_time": 2100.9400024414062,
+      "end_time": 2167.1799926757812,
+      "point_summary": "Regeneration through new birth is the believer's relief from the flesh's dominion, as being quickened and made alive in Christ means the Christian is no longer operating in the flesh alone.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Humble Yourselves\"  James 4:10",
+      "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2100"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 3,
+      "verse": 20,
+      "reference_text": "Ephesians 3:20",
+      "context": "He's able to do exceeding abundantly above all that we ask or think",
+      "is_implicit": true,
+      "video_id": "Dhzx0Flx8mE",
+      "start_time": 1779.199951171875,
+      "end_time": 1839.3199882507324,
+      "point_summary": "God's ability to do \"exceeding abundantly above all that we ask or think\" grounds the call to speak the gospel with the same bold confidence the little maid showed in her adverse circumstances.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
+      "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1779"
     }
   ]
 }
