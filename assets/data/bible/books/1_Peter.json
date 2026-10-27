@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 965,
+  "total_references": 967,
   "chapters": {
     "1": [
       {
@@ -2192,6 +2192,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "El Roi",
         "url": "https://www.youtube.com/watch?v=fbc-2025-08-27mw-el-roi&t=1426"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 1,
+        "verse": 6,
+        "reference_text": "1 Peter 1:6",
+        "context": "if need be for a season, you're in manifold temptations",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1520.3400268554688,
+        "end_time": 1590.7600402832031,
+        "point_summary": "Even in manifold trials and seasons of difficulty, rejoicing remains the commanded response because God is purposefully at work teaching, showing, and using the believer through that suffering.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
       },
       {
         "book": "1 Peter",
@@ -9246,6 +9261,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2867"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
+        "verse": 5,
+        "reference_text": "1 Peter 5:5",
+        "context": "he resisted the proud, but giveth grace into the humble, humble yourselves",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1122.2999877929688,
+        "end_time": 1195.260009765625,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1122"
       },
       {
         "book": "1 Peter",
@@ -28965,6 +28995,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2867"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": 5,
+      "reference_text": "1 Peter 5:5",
+      "context": "he resisted the proud, but giveth grace into the humble, humble yourselves",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1122.2999877929688,
+      "end_time": 1195.260009765625,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1122"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 1,
+      "verse": 6,
+      "reference_text": "1 Peter 1:6",
+      "context": "if need be for a season, you're in manifold temptations",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1520.3400268554688,
+      "end_time": 1590.7600402832031,
+      "point_summary": "Even in manifold trials and seasons of difficulty, rejoicing remains the commanded response because God is purposefully at work teaching, showing, and using the believer through that suffering.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
     }
   ]
 }

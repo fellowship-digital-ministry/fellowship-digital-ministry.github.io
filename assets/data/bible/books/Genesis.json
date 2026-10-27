@@ -1,6 +1,6 @@
 {
   "book": "Genesis",
-  "total_references": 4528,
+  "total_references": 4529,
   "chapters": {
     "37": [
       {
@@ -34844,6 +34844,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Gods Judgement Announced",
         "url": "https://www.youtube.com/watch?v=fbc-081119pm-gods-judgement-announced&t=1612"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 1,
+        "verse": 27,
+        "reference_text": "Genesis 1:27",
+        "context": "God, in the beginning, created them male and female",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1911.3600387573242,
+        "end_time": 1983.0800323486328,
+        "point_summary": "God's creation of humanity as male and female is invoked as the plain, unchanging biblical standard against which contemporary claims of multiple genders are measured as deception.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1911"
       },
       {
         "book": "Genesis",
@@ -135947,6 +135962,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
       "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1326"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 1,
+      "verse": 27,
+      "reference_text": "Genesis 1:27",
+      "context": "God, in the beginning, created them male and female",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1911.3600387573242,
+      "end_time": 1983.0800323486328,
+      "point_summary": "God's creation of humanity as male and female is invoked as the plain, unchanging biblical standard against which contemporary claims of multiple genders are measured as deception.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1911"
     }
   ]
 }

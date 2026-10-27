@@ -1,6 +1,6 @@
 {
   "book": "Luke",
-  "total_references": 888,
+  "total_references": 889,
   "chapters": {
     "10": [
       {
@@ -5905,6 +5905,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Restoring Strained Relationships\" II Corinthians 7:2-16",
         "url": "https://www.youtube.com/watch?v=odsyejJ4a-0&t=0"
+      },
+      {
+        "book": "Luke",
+        "chapter": 19,
+        "verse": 40,
+        "reference_text": "Luke 19:40",
+        "context": "if they hold their peace, the rocks will cry out",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1726.56005859375,
+        "end_time": 1788.6000366210938,
+        "point_summary": "When circumstances overwhelm, the righteous must not fall silent — for even the rocks stand ready to cry out in praise if God's people refuse their calling.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1726"
       }
     ],
     "2": [
@@ -26687,6 +26702,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=2077"
+    },
+    {
+      "book": "Luke",
+      "chapter": 19,
+      "verse": 40,
+      "reference_text": "Luke 19:40",
+      "context": "if they hold their peace, the rocks will cry out",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1726.56005859375,
+      "end_time": 1788.6000366210938,
+      "point_summary": "When circumstances overwhelm, the righteous must not fall silent — for even the rocks stand ready to cry out in praise if God's people refuse their calling.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1726"
     }
   ]
 }

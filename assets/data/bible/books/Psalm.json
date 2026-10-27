@@ -1,6 +1,6 @@
 {
   "book": "Psalm",
-  "total_references": 505,
+  "total_references": 507,
   "chapters": {
     "90": [
       {
@@ -2079,6 +2079,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Under Attack",
         "url": "https://www.youtube.com/watch?v=fbc-2025-01-08mw-under-attack&t=1389"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 11,
+        "verse": 1,
+        "reference_text": "Psalm 11:1",
+        "context": "In the Lord, put I my trust",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 64.44000244140625,
+        "end_time": 126.36000061035156,
+        "point_summary": "Psalm 11:1 opens the sermon by establishing David's declaration of trust in God as the foundational response to danger, contrasted with the counsel to flee that the same verse records.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=64"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 11,
+        "verse": 1,
+        "reference_text": "Psalm 11:1",
+        "context": "how say ye to my soul, flee as a bird to your mountain",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 64.44000244140625,
+        "end_time": 126.36000061035156,
+        "point_summary": "Psalm 11:1 opens the sermon by establishing David's declaration of trust in God as the foundational answer to every counsel urging flight from trouble.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=64"
       },
       {
         "book": "Psalm",
@@ -15313,6 +15343,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"He Saw Them\"  Mark 6:45-52",
       "url": "https://www.youtube.com/watch?v=xTkB01-htp0&t=1322"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 11,
+      "verse": 1,
+      "reference_text": "Psalm 11:1",
+      "context": "In the Lord, put I my trust",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 64.44000244140625,
+      "end_time": 126.36000061035156,
+      "point_summary": "Psalm 11:1 opens the sermon by establishing David's declaration of trust in God as the foundational response to danger, contrasted with the counsel to flee that the same verse records.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=64"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 11,
+      "verse": 1,
+      "reference_text": "Psalm 11:1",
+      "context": "how say ye to my soul, flee as a bird to your mountain",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 64.44000244140625,
+      "end_time": 126.36000061035156,
+      "point_summary": "Psalm 11:1 opens the sermon by establishing David's declaration of trust in God as the foundational answer to every counsel urging flight from trouble.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=64"
     }
   ]
 }

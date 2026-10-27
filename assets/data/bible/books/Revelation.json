@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1678,
+  "total_references": 1680,
   "chapters": {
     "3": [
       {
@@ -9117,6 +9117,21 @@
       {
         "book": "Revelation",
         "chapter": 19,
+        "verse": 6,
+        "reference_text": "Revelation",
+        "context": "And the Bible tells us the book of Revelation that the Lord God omnipotent reigneth.",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 196.27999877929688,
+        "end_time": 267.0,
+        "point_summary": "God's omnipotent reign—cited from Revelation 19:6—grounds the assurance that even when foundations crumble, the Lord remains on His throne and in control.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=196"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 19,
         "verse": 7,
         "reference_text": "Revelation 19:7",
         "context": "...and now we come to Revelation 19 in verse number 7 and the Bible says, let us be glad and rejoice and give honor to him for the marriage of the Lamb is come...",
@@ -11485,6 +11500,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
         "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=979"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 1,
+        "verse": 8,
+        "reference_text": "Revelation 1:8",
+        "context": "He's Alpha and Omega",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1983.0800323486328,
+        "end_time": 2053.560043334961,
+        "point_summary": "God's unchanging nature — He is Alpha and Omega, the same yesterday, today, and forever — grounds the righteous in confident praise amid cultural upheaval.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1983"
       },
       {
         "book": "Revelation",
@@ -50391,6 +50421,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1043"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 19,
+      "verse": 6,
+      "reference_text": "Revelation",
+      "context": "And the Bible tells us the book of Revelation that the Lord God omnipotent reigneth.",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 196.27999877929688,
+      "end_time": 267.0,
+      "point_summary": "God's omnipotent reign—cited from Revelation 19:6—grounds the assurance that even when foundations crumble, the Lord remains on His throne and in control.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=196"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 8,
+      "reference_text": "Revelation 1:8",
+      "context": "He's Alpha and Omega",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1983.0800323486328,
+      "end_time": 2053.560043334961,
+      "point_summary": "God's unchanging nature — He is Alpha and Omega, the same yesterday, today, and forever — grounds the righteous in confident praise amid cultural upheaval.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1983"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 745,
+  "total_references": 747,
   "chapters": {
     "5": [
       {
@@ -9717,6 +9717,21 @@
       {
         "book": "1 Thessalonians",
         "chapter": 4,
+        "verse": 16,
+        "reference_text": "1 Thessalonians 4:16",
+        "context": "the dead in Christ shall rise first",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 731.1800079345703,
+        "end_time": 792.3000183105469,
+        "point_summary": "The certainty of Christ's return — the dead rising, the living caught up — grounds the call to press on and continue faithfully rather than flee, because God remains sovereign regardless of earthly circumstances.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=731"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
         "verse": 17,
         "reference_text": "1 Thessalonians 4:17",
         "context": "Then we which are alive and remain shall be caught up together with them in the clouds to meet the Lord in the air and so shall we ever be with the Lord",
@@ -10253,6 +10268,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
         "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=1286"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": 17,
+        "reference_text": "1 Thessalonians 4:17",
+        "context": "we which are alive and remain shall be caught up together in the clouds to meet the Lord in the air and so shall we ever be with the Lord",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 731.1800079345703,
+        "end_time": 792.3000183105469,
+        "point_summary": "The certainty of the Lord's return — the dead rising, the living caught up to meet Him — grounds the call to press on and continue faithfully rather than flee amid perilous times.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=731"
       },
       {
         "book": "1 Thessalonians",
@@ -22365,6 +22395,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2754"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "1 Thessalonians 4:16",
+      "context": "the dead in Christ shall rise first",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 731.1800079345703,
+      "end_time": 792.3000183105469,
+      "point_summary": "The certainty of Christ's return — the dead rising, the living caught up — grounds the call to press on and continue faithfully rather than flee, because God remains sovereign regardless of earthly circumstances.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=731"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 17,
+      "reference_text": "1 Thessalonians 4:17",
+      "context": "we which are alive and remain shall be caught up together in the clouds to meet the Lord in the air and so shall we ever be with the Lord",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 731.1800079345703,
+      "end_time": 792.3000183105469,
+      "point_summary": "The certainty of the Lord's return — the dead rising, the living caught up to meet Him — grounds the call to press on and continue faithfully rather than flee amid perilous times.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=731"
     }
   ]
 }

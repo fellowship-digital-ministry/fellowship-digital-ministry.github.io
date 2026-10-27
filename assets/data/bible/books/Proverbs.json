@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 594,
+  "total_references": 596,
   "chapters": {
     "3": [
       {
@@ -572,6 +572,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Peace Of God\"  John 14:27",
         "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=1746"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 3,
+        "verse": 5,
+        "reference_text": "Proverbs 3:5-6",
+        "context": "trust in the Lord, how with all thine heart, lean not unto thine understanding and all thy ways acknowledge him and he shall direct thy paths",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 64.44000244140625,
+        "end_time": 126.36000061035156,
+        "point_summary": "Trusting in the Lord rather than one's own understanding, as Proverbs 3:5 commands, is offered as the foundation David models when he declares \"in the Lord put I my trust\" amid Saul's pursuit.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=64"
       },
       {
         "book": "Proverbs",
@@ -3168,6 +3183,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Faith Through Trials\"  Hebrews 11:17-19",
         "url": "https://www.youtube.com/watch?v=B7qA98qbh00&t=1953"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 21,
+        "verse": 1,
+        "reference_text": "Proverbs 21:1",
+        "context": "The Bible says in Proverbs 21 and verse number one, the king's heart is in the hand of the Lord.",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 985.1800231933594,
+        "end_time": 1053.7400207519531,
+        "point_summary": "God's sovereign control over the king's heart—turning it wherever He wills—is given as the foundational reason why prayer is the righteous person's most essential and powerful response to troubled times.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=985"
       },
       {
         "book": "Proverbs",
@@ -17881,6 +17911,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=493"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 3,
+      "verse": 5,
+      "reference_text": "Proverbs 3:5-6",
+      "context": "trust in the Lord, how with all thine heart, lean not unto thine understanding and all thy ways acknowledge him and he shall direct thy paths",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 64.44000244140625,
+      "end_time": 126.36000061035156,
+      "point_summary": "Trusting in the Lord rather than one's own understanding, as Proverbs 3:5 commands, is offered as the foundation David models when he declares \"in the Lord put I my trust\" amid Saul's pursuit.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=64"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 21,
+      "verse": 1,
+      "reference_text": "Proverbs 21:1",
+      "context": "The Bible says in Proverbs 21 and verse number one, the king's heart is in the hand of the Lord.",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 985.1800231933594,
+      "end_time": 1053.7400207519531,
+      "point_summary": "God's sovereign control over the king's heart—turning it wherever He wills—is given as the foundational reason why prayer is the righteous person's most essential and powerful response to troubled times.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=985"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 777,
+  "total_references": 779,
   "chapters": {
     "2": [
       {
@@ -2031,6 +2031,21 @@
       {
         "book": "Philippians",
         "chapter": 2,
+        "verse": 9,
+        "reference_text": "Philippians 2:9",
+        "context": "He's given a name which is above every name",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1520.3400268554688,
+        "end_time": 1590.7600402832031,
+        "point_summary": "God has given Jesus a name above every name, making Him uniquely worthy of the continual, joyful praise that sustains believers even through trials.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 2,
         "verse": 10,
         "reference_text": "Philippians 2:10",
         "context": "that at the name of Jesus, what does your Bible say? Every knee should bow of things in heaven and things in earth and things under the earth",
@@ -2417,6 +2432,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2599"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 2,
+        "verse": 10,
+        "reference_text": "Philippians 2:10",
+        "context": "Every tongue's going to confess, every knee is going to bow that Jesus Christ is Lord to the glory of the Father",
+        "is_implicit": true,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1520.3400268554688,
+        "end_time": 1590.7600402832031,
+        "point_summary": "Every knee bowing and every tongue confessing that Jesus Christ is Lord grounds the call to praise His name now, on earth, while we have opportunity.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
       },
       {
         "book": "Philippians",
@@ -23323,6 +23353,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
       "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=2555"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 2,
+      "verse": 9,
+      "reference_text": "Philippians 2:9",
+      "context": "He's given a name which is above every name",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1520.3400268554688,
+      "end_time": 1590.7600402832031,
+      "point_summary": "God has given Jesus a name above every name, making Him uniquely worthy of the continual, joyful praise that sustains believers even through trials.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 2,
+      "verse": 10,
+      "reference_text": "Philippians 2:10",
+      "context": "Every tongue's going to confess, every knee is going to bow that Jesus Christ is Lord to the glory of the Father",
+      "is_implicit": true,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1520.3400268554688,
+      "end_time": 1590.7600402832031,
+      "point_summary": "Every knee bowing and every tongue confessing that Jesus Christ is Lord grounds the call to praise His name now, on earth, while we have opportunity.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
     }
   ]
 }

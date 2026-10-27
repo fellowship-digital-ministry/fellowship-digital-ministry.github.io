@@ -1,6 +1,6 @@
 {
   "book": "Esther",
-  "total_references": 33,
+  "total_references": 34,
   "chapters": {
     "4": [
       {
@@ -124,6 +124,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Fourth Seal Opened\" Revelation 6:7-8",
         "url": "https://www.youtube.com/watch?v=gEWKQ2I0a2I&t=591"
+      },
+      {
+        "book": "Esther",
+        "chapter": 8,
+        "verse": null,
+        "reference_text": "Esther 8",
+        "context": "we can read over in the book of Esther and how in chapter number 8 when that counter decree",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 2053.560043334961,
+        "end_time": 2119.6800537109375,
+        "point_summary": "Esther 8's counter-decree—urgently distributed to every province and language—illustrates the mandate the righteous have to proclaim truth widely and without delay against the decrees of wickedness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=2053"
       },
       {
         "book": "Esther",
@@ -1007,6 +1022,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "We Will Remember The Name Of Our God",
       "url": "https://www.youtube.com/watch?v=fbc-2025-09-24mw-we-will-remember-the-name-of-our-god&t=1343"
+    },
+    {
+      "book": "Esther",
+      "chapter": 8,
+      "verse": null,
+      "reference_text": "Esther 8",
+      "context": "we can read over in the book of Esther and how in chapter number 8 when that counter decree",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 2053.560043334961,
+      "end_time": 2119.6800537109375,
+      "point_summary": "Esther 8's counter-decree—urgently distributed to every province and language—illustrates the mandate the righteous have to proclaim truth widely and without delay against the decrees of wickedness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=2053"
     }
   ]
 }

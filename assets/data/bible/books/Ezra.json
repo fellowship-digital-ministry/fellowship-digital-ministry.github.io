@@ -1,6 +1,6 @@
 {
   "book": "Ezra",
-  "total_references": 70,
+  "total_references": 71,
   "chapters": {
     "7": [
       {
@@ -542,6 +542,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - May 27, 2020 (Mid-Week Service)",
         "url": "https://www.youtube.com/watch?v=Y0-l4gNtmLw&t=501"
+      },
+      {
+        "book": "Ezra",
+        "chapter": 7,
+        "verse": 27,
+        "reference_text": "Ezra 7:27",
+        "context": "go to Ezra seven and verse 27",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1053.7400207519531,
+        "end_time": 1122.2999877929688,
+        "point_summary": "Ezra 7:27 is cited as a scriptural example confirming that God turns the hearts of kings, illustrating his sovereign ability to move those in authority in answer to prayer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1053"
       }
     ],
     "8": [
@@ -2113,6 +2128,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Because Of Your Unbelief",
       "url": "https://www.youtube.com/watch?v=fbc-2026-02-18mw-because-of-your-unbelief&t=1367"
+    },
+    {
+      "book": "Ezra",
+      "chapter": 7,
+      "verse": 27,
+      "reference_text": "Ezra 7:27",
+      "context": "go to Ezra seven and verse 27",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1053.7400207519531,
+      "end_time": 1122.2999877929688,
+      "point_summary": "Ezra 7:27 is cited as a scriptural example confirming that God turns the hearts of kings, illustrating his sovereign ability to move those in authority in answer to prayer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1053"
     }
   ]
 }

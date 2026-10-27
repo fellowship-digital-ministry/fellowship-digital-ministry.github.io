@@ -1,6 +1,6 @@
 {
   "book": "1_Samuel",
-  "total_references": 393,
+  "total_references": 395,
   "chapters": {
     "16": [
       {
@@ -2973,6 +2973,21 @@
       {
         "book": "1 Samuel",
         "chapter": 17,
+        "verse": null,
+        "reference_text": "1 Samuel 17",
+        "context": "1 Samuel 17 is when God used David to defeat Goliath",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 0.0,
+        "end_time": 64.44000244140625,
+        "point_summary": "The victory over Goliath in 1 Samuel 17 is identified as the historical backdrop that triggered Saul's jealousy and the persecution that likely gave rise to Psalm 11.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=0"
+      },
+      {
+        "book": "1 Samuel",
+        "chapter": 17,
         "verse": 8,
         "reference_text": "1 Samuel 17:8",
         "context": "and he stood and cried, this is Goliath,",
@@ -4659,6 +4674,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Under Attack",
         "url": "https://www.youtube.com/watch?v=fbc-2025-01-08mw-under-attack&t=1146"
+      },
+      {
+        "book": "1 Samuel",
+        "chapter": 18,
+        "verse": null,
+        "reference_text": "1 Samuel 18, 19",
+        "context": "most likely it's somewhere around 1 Samuel 18, 19, somewhere in that portion of David's life",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 0.0,
+        "end_time": 64.44000244140625,
+        "point_summary": "Psalm 11 is set against the backdrop of 1 Samuel 18–19, when Saul's murderous jealousy toward David provides the life circumstances from which David's declaration of trust in the Lord emerges.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=0"
       },
       {
         "book": "1 Samuel",
@@ -11843,6 +11873,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=199"
+    },
+    {
+      "book": "1 Samuel",
+      "chapter": 18,
+      "verse": null,
+      "reference_text": "1 Samuel 18, 19",
+      "context": "most likely it's somewhere around 1 Samuel 18, 19, somewhere in that portion of David's life",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 0.0,
+      "end_time": 64.44000244140625,
+      "point_summary": "Psalm 11 is set against the backdrop of 1 Samuel 18–19, when Saul's murderous jealousy toward David provides the life circumstances from which David's declaration of trust in the Lord emerges.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=0"
+    },
+    {
+      "book": "1 Samuel",
+      "chapter": 17,
+      "verse": null,
+      "reference_text": "1 Samuel 17",
+      "context": "1 Samuel 17 is when God used David to defeat Goliath",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 0.0,
+      "end_time": 64.44000244140625,
+      "point_summary": "The victory over Goliath in 1 Samuel 17 is identified as the historical backdrop that triggered Saul's jealousy and the persecution that likely gave rise to Psalm 11.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=0"
     }
   ]
 }

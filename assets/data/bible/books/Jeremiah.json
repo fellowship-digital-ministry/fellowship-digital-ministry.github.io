@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 357,
+  "total_references": 358,
   "chapters": {
     "31": [
       {
@@ -4703,6 +4703,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "El Roi",
         "url": "https://www.youtube.com/watch?v=fbc-2025-08-27mw-el-roi&t=1010"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Jeremiah",
+        "context": "if you go to the book of Jeremiah, God tells His people to pray for the land",
+        "is_implicit": false,
+        "video_id": "KYuUFAMK1Vk",
+        "start_time": 1195.260009765625,
+        "end_time": 1261.5800399780273,
+        "point_summary": "God's command to His exiled people in Jeremiah to pray for Babylon—because their welfare depended on its welfare—grounds the call for believers to pray for their nation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+        "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1195"
       }
     ],
     "44": [
@@ -10775,6 +10790,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1728"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Jeremiah",
+      "context": "if you go to the book of Jeremiah, God tells His people to pray for the land",
+      "is_implicit": false,
+      "video_id": "KYuUFAMK1Vk",
+      "start_time": 1195.260009765625,
+      "end_time": 1261.5800399780273,
+      "point_summary": "God's command to His exiled people in Jeremiah to pray for Babylon—because their welfare depended on its welfare—grounds the call for believers to pray for their nation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
+      "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1195"
     }
   ]
 }
