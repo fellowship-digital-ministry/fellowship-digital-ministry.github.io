@@ -153,11 +153,11 @@
       "count": 208
     },
     {
-      "book": "Ezekiel",
+      "book": "2_Thessalonians",
       "count": 197
     },
     {
-      "book": "2_Thessalonians",
+      "book": "Ezekiel",
       "count": 197
     },
     {
@@ -217,11 +217,11 @@
       "count": 35
     },
     {
-      "book": "Esther",
+      "book": "3_John",
       "count": 34
     },
     {
-      "book": "3_John",
+      "book": "Esther",
       "count": 34
     },
     {
@@ -245,11 +245,11 @@
       "count": 13
     },
     {
-      "book": "Haggai",
+      "book": "Obadiah",
       "count": 8
     },
     {
-      "book": "Obadiah",
+      "book": "Haggai",
       "count": 8
     },
     {
@@ -257,15 +257,15 @@
       "count": 6
     },
     {
+      "book": "Nahum",
+      "count": 1
+    },
+    {
       "book": "Song_of_Solomon",
       "count": 1
     },
     {
       "book": "Zephaniah",
-      "count": 1
-    },
-    {
-      "book": "Nahum",
       "count": 1
     }
   ],
