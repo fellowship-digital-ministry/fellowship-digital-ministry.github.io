@@ -1,6 +1,6 @@
 {
   "book": "2_Chronicles",
-  "total_references": 224,
+  "total_references": 225,
   "chapters": {
     "16": [
       {
@@ -2822,6 +2822,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "We Will Remember The Name Of Our God",
         "url": "https://www.youtube.com/watch?v=fbc-2025-09-24mw-we-will-remember-the-name-of-our-god&t=1657"
+      },
+      {
+        "book": "2 Chronicles",
+        "chapter": 20,
+        "verse": 12,
+        "reference_text": "2 Chronicles 20:12",
+        "context": "we don't have any might against this company. We don't know what to do, but our eyes are on thee",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 1312.0799942016602,
+        "end_time": 1374.520004272461,
+        "point_summary": "Jehoshaphat's confession—\"we have no might against this great company, neither know we what to do, but our eyes are upon thee\"—illustrates that resisting the devil requires dependence on God's power, not one's own.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1312"
       },
       {
         "book": "2 Chronicles",
@@ -6769,6 +6784,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
       "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1477"
+    },
+    {
+      "book": "2 Chronicles",
+      "chapter": 20,
+      "verse": 12,
+      "reference_text": "2 Chronicles 20:12",
+      "context": "we don't have any might against this company. We don't know what to do, but our eyes are on thee",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 1312.0799942016602,
+      "end_time": 1374.520004272461,
+      "point_summary": "Jehoshaphat's confession—\"we have no might against this great company, neither know we what to do, but our eyes are upon thee\"—illustrates that resisting the devil requires dependence on God's power, not one's own.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1312"
     }
   ]
 }

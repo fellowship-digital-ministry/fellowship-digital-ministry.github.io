@@ -1,6 +1,6 @@
 {
   "book": "Judges",
-  "total_references": 160,
+  "total_references": 161,
   "chapters": {
     "21": [
       {
@@ -1677,6 +1677,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Thou Called I Answered",
         "url": "https://www.youtube.com/watch?v=fbc-2025-11-12mw-thou-called-i-answered&t=1832"
+      },
+      {
+        "book": "Judges",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "book of Judges",
+        "context": "The book of Judges gives us all of the disobedience of the children of Israel",
+        "is_implicit": false,
+        "video_id": "fLU-33BSzYo",
+        "start_time": 816.6599884033203,
+        "end_time": 877.6600036621094,
+        "point_summary": "The book of Judges is cited briefly as a marker of Israel's disobedience and oppression between the conquest and the monarchy, providing historical context for the sermon's movement toward Jeremiah's commissioning.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+        "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=816"
       }
     ],
     "7": [
@@ -4827,6 +4842,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "A Longing To See God Work Part One",
       "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=1140"
+    },
+    {
+      "book": "Judges",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "book of Judges",
+      "context": "The book of Judges gives us all of the disobedience of the children of Israel",
+      "is_implicit": false,
+      "video_id": "fLU-33BSzYo",
+      "start_time": 816.6599884033203,
+      "end_time": 877.6600036621094,
+      "point_summary": "The book of Judges is cited briefly as a marker of Israel's disobedience and oppression between the conquest and the monarchy, providing historical context for the sermon's movement toward Jeremiah's commissioning.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+      "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=816"
     }
   ]
 }

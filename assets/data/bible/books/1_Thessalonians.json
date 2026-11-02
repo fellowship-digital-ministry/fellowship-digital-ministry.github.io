@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 747,
+  "total_references": 749,
   "chapters": {
     "5": [
       {
@@ -557,6 +557,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Rapture\"  Revelation 4:1",
         "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=1405"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 5,
+        "verse": 10,
+        "reference_text": "1 Thessalonians 5:10",
+        "context": "Prove all things in 1 Thessalonians chapter five",
+        "is_implicit": true,
+        "video_id": "spkzWGQNXlY",
+        "start_time": 2277.600067138672,
+        "end_time": 2348.320068359375,
+        "point_summary": "Genuine focus on proving and doing what is acceptable to God leaves a believer too occupied with his own obedience to spend time judging others.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+        "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=2277"
       },
       {
         "book": "1 Thessalonians",
@@ -11217,6 +11232,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Ponder The Promises",
         "url": "https://www.youtube.com/watch?v=fbc-2024-05-01mw-ponder-the-promises&t=971"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "1 Thessalonians",
+        "context": "Paul is writing to the church in Thessalonica that he speaks to them about this truth of brotherly love",
+        "is_implicit": true,
+        "video_id": "spkzWGQNXlY",
+        "start_time": 548.5999755859375,
+        "end_time": 605.2600145339966,
+        "point_summary": "Paul's exhortation to the Thessalonians on brotherly love—that it should increase more and more—is cited as the positive standard against which James's rebuke of fighting and evil-speaking among believers is measured.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+        "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=548"
       }
     ]
   },
@@ -22425,6 +22455,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
       "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=731"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "1 Thessalonians",
+      "context": "Paul is writing to the church in Thessalonica that he speaks to them about this truth of brotherly love",
+      "is_implicit": true,
+      "video_id": "spkzWGQNXlY",
+      "start_time": 548.5999755859375,
+      "end_time": 605.2600145339966,
+      "point_summary": "Paul's exhortation to the Thessalonians on brotherly love—that it should increase more and more—is cited as the positive standard against which James's rebuke of fighting and evil-speaking among believers is measured.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+      "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=548"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 5,
+      "verse": 10,
+      "reference_text": "1 Thessalonians 5:10",
+      "context": "Prove all things in 1 Thessalonians chapter five",
+      "is_implicit": true,
+      "video_id": "spkzWGQNXlY",
+      "start_time": 2277.600067138672,
+      "end_time": 2348.320068359375,
+      "point_summary": "Genuine focus on proving and doing what is acceptable to God leaves a believer too occupied with his own obedience to spend time judging others.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+      "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=2277"
     }
   ]
 }

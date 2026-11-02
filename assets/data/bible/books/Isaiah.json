@@ -1,6 +1,6 @@
 {
   "book": "Isaiah",
-  "total_references": 518,
+  "total_references": 522,
   "chapters": {
     "6": [
       {
@@ -797,6 +797,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1653"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 6,
+        "verse": 1,
+        "reference_text": "Isaiah 6:1",
+        "context": "Isaiah chapter number six",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 369.9800109863281,
+        "end_time": 437.4599914550781,
+        "point_summary": "A right view of God—seeing him as high, holy, and lifted up as Isaiah did—produces the humility that leads to genuine submission.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=369"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 6,
+        "verse": 1,
+        "reference_text": "Isaiah 6:1",
+        "context": "he saw God high, holy, and lifted up, and his train did fill the temple",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 369.9800109863281,
+        "end_time": 437.4599914550781,
+        "point_summary": "A right view of God—seeing him as Isaiah did, high, holy, and lifted up—produces the humility that leads to personal submission to him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=369"
       },
       {
         "book": "Isaiah",
@@ -5905,6 +5935,21 @@
       {
         "book": "Isaiah",
         "chapter": 55,
+        "verse": 8,
+        "reference_text": "Isaiah 55:8-9",
+        "context": "The Bible tells us that his ways are not our ways, and his thoughts are not our thoughts",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 437.4599914550781,
+        "end_time": 503.55999755859375,
+        "point_summary": "God's ways and thoughts transcending human comprehension (Isa. 55:8) grounds the call to submission: a right view of God's incomprehensible greatness corrects the inflated self-regard that breeds pride rather than reverence.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=437"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 55,
         "verse": 9,
         "reference_text": "Isaiah 55:9",
         "context": "for as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
@@ -7640,6 +7685,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"I The Lord\"  Isaiah 41:17-20",
         "url": "https://www.youtube.com/watch?v=l34E75PwB04&t=145"
+      },
+      {
+        "book": "Isaiah",
+        "chapter": 41,
+        "verse": 10,
+        "reference_text": "I am with thee",
+        "context": "He said, I am with thee",
+        "is_implicit": true,
+        "video_id": "fLU-33BSzYo",
+        "start_time": 1826.3599853515625,
+        "end_time": 1893.3599853515625,
+        "point_summary": "In every \"fear not\" passage surveyed, the singular reason God gives for not fearing is His promised presence—\"I will be with thee\"—not merely a command to suppress fear.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+        "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=1826"
       },
       {
         "book": "Isaiah",
@@ -15625,6 +15685,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1653"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 6,
+      "verse": 1,
+      "reference_text": "Isaiah 6:1",
+      "context": "Isaiah chapter number six",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 369.9800109863281,
+      "end_time": 437.4599914550781,
+      "point_summary": "A right view of God—seeing him as high, holy, and lifted up as Isaiah did—produces the humility that leads to genuine submission.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=369"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 6,
+      "verse": 1,
+      "reference_text": "Isaiah 6:1",
+      "context": "he saw God high, holy, and lifted up, and his train did fill the temple",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 369.9800109863281,
+      "end_time": 437.4599914550781,
+      "point_summary": "A right view of God—seeing him as Isaiah did, high, holy, and lifted up—produces the humility that leads to personal submission to him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=369"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 55,
+      "verse": 8,
+      "reference_text": "Isaiah 55:8-9",
+      "context": "The Bible tells us that his ways are not our ways, and his thoughts are not our thoughts",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 437.4599914550781,
+      "end_time": 503.55999755859375,
+      "point_summary": "God's ways and thoughts transcending human comprehension (Isa. 55:8) grounds the call to submission: a right view of God's incomprehensible greatness corrects the inflated self-regard that breeds pride rather than reverence.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=437"
+    },
+    {
+      "book": "Isaiah",
+      "chapter": 41,
+      "verse": 10,
+      "reference_text": "I am with thee",
+      "context": "He said, I am with thee",
+      "is_implicit": true,
+      "video_id": "fLU-33BSzYo",
+      "start_time": 1826.3599853515625,
+      "end_time": 1893.3599853515625,
+      "point_summary": "In every \"fear not\" passage surveyed, the singular reason God gives for not fearing is His promised presence—\"I will be with thee\"—not merely a command to suppress fear.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+      "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=1826"
     }
   ]
 }

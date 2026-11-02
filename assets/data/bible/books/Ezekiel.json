@@ -1,6 +1,6 @@
 {
   "book": "Ezekiel",
-  "total_references": 197,
+  "total_references": 198,
   "chapters": {
     "33": [
       {
@@ -1045,6 +1045,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=199"
+      },
+      {
+        "book": "Ezekiel",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Ezekiel (watchman passage)",
+        "context": "I've sent thee to be a watchman",
+        "is_implicit": true,
+        "video_id": "fLU-33BSzYo",
+        "start_time": 1440.9599609375,
+        "end_time": 1505.7399597167969,
+        "point_summary": "Paul's declaration \"your blood be upon your own heads\" draws on Ezekiel's watchman principle: the messenger who faithfully sounds the alarm is absolved of responsibility when his hearers refuse to listen.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+        "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=1440"
       }
     ],
     "18": [
@@ -5949,6 +5964,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=199"
+    },
+    {
+      "book": "Ezekiel",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Ezekiel (watchman passage)",
+      "context": "I've sent thee to be a watchman",
+      "is_implicit": true,
+      "video_id": "fLU-33BSzYo",
+      "start_time": 1440.9599609375,
+      "end_time": 1505.7399597167969,
+      "point_summary": "Paul's declaration \"your blood be upon your own heads\" draws on Ezekiel's watchman principle: the messenger who faithfully sounds the alarm is absolved of responsibility when his hearers refuse to listen.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+      "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=1440"
     }
   ]
 }

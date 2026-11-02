@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 779,
+  "total_references": 780,
   "chapters": {
     "2": [
       {
@@ -11528,6 +11528,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jesus Our Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-21mw-jesus-our-shepherd&t=1003"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 1,
+        "verse": 23,
+        "reference_text": "Philippians 1:23",
+        "context": "he was in a strait betwixt two, having a desire to depart to be with Christ, which is far better",
+        "is_implicit": true,
+        "video_id": "fLU-33BSzYo",
+        "start_time": 73.23999786376953,
+        "end_time": 134.9600067138672,
+        "point_summary": "Paul's declaration of desiring \"to depart and be with Christ, which is far better\" grounds the believer's confident hope of seeing the Savior face to face in the certain truth of Scripture, not wishful thinking.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+        "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=73"
       },
       {
         "book": "Philippians",
@@ -23383,6 +23398,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
       "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 1,
+      "verse": 23,
+      "reference_text": "Philippians 1:23",
+      "context": "he was in a strait betwixt two, having a desire to depart to be with Christ, which is far better",
+      "is_implicit": true,
+      "video_id": "fLU-33BSzYo",
+      "start_time": 73.23999786376953,
+      "end_time": 134.9600067138672,
+      "point_summary": "Paul's declaration of desiring \"to depart and be with Christ, which is far better\" grounds the believer's confident hope of seeing the Savior face to face in the certain truth of Scripture, not wishful thinking.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+      "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=73"
     }
   ]
 }

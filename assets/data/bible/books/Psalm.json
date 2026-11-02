@@ -1,6 +1,6 @@
 {
   "book": "Psalm",
-  "total_references": 507,
+  "total_references": 511,
   "chapters": {
     "90": [
       {
@@ -668,6 +668,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Stoned Stephen\"  Acts 6:8 - 7:60",
         "url": "https://www.youtube.com/watch?v=e396uX_Hgc0&t=1327"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 16,
+        "verse": 11,
+        "reference_text": "Psalm 16:11",
+        "context": "Psalm 1611, in his presence is fullness of joy",
+        "is_implicit": false,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 1882.380012512207,
+        "end_time": 1954.280014038086,
+        "point_summary": "Fullness of joy found in God's presence (Ps. 16:11) is cited as the motivating delight—not drudgery—that draws the believer near to God in the act of \"drawing nigh.\"",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1882"
       }
     ],
     "48": [
@@ -2049,6 +2064,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Because He Hath Known My Name",
         "url": "https://www.youtube.com/watch?v=fbc-2025-01-29mw-because-he-hath-known-my-name&t=1667"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 11,
+        "verse": null,
+        "reference_text": "Psalm 11",
+        "context": "we're there in Psalm chapter 11",
+        "is_implicit": false,
+        "video_id": "spkzWGQNXlY",
+        "start_time": 308.4800109863281,
+        "end_time": 369.67999267578125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+        "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=308"
       },
       {
         "book": "Psalm",
@@ -4997,6 +5027,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"A Family Reunion\" Genesis 46:1-34",
         "url": "https://www.youtube.com/watch?v=CHv-7-cvC0E&t=1095"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 73,
+        "verse": 28,
+        "reference_text": "Psalm 73:28",
+        "context": "in Psalm 73 and verse 28, notice how he says it, but it is good for me to draw near to God",
+        "is_implicit": false,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 1882.380012512207,
+        "end_time": 1954.280014038086,
+        "point_summary": "Drawing near to God is presented as the positive counterpart to resisting the devil—a deliberate, joyful cleaving to his presence that worldliness by definition forecloses.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1882"
       }
     ],
     "148": [
@@ -7037,6 +7082,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - June 7, 2020 (Morning Worship)",
         "url": "https://www.youtube.com/watch?v=v93DvI0bY10&t=1777"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 46,
+        "verse": 10,
+        "reference_text": "Psalm 46:10",
+        "context": "You know that verse that's hard for us in Psalm 46 and verse 10? Be still and know that I am God.",
+        "is_implicit": false,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 2021.8200073242188,
+        "end_time": 2096.4200134277344,
+        "point_summary": "Stillness before God — \"Be still and know that I am God\" — is presented as the posture of abiding, slowing to walk in step with him rather than racing ahead or lagging behind.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2021"
       }
     ],
     "52": [
@@ -15373,6 +15433,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
       "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=64"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 73,
+      "verse": 28,
+      "reference_text": "Psalm 73:28",
+      "context": "in Psalm 73 and verse 28, notice how he says it, but it is good for me to draw near to God",
+      "is_implicit": false,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 1882.380012512207,
+      "end_time": 1954.280014038086,
+      "point_summary": "Drawing near to God is presented as the positive counterpart to resisting the devil—a deliberate, joyful cleaving to his presence that worldliness by definition forecloses.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1882"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 16,
+      "verse": 11,
+      "reference_text": "Psalm 16:11",
+      "context": "Psalm 1611, in his presence is fullness of joy",
+      "is_implicit": false,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 1882.380012512207,
+      "end_time": 1954.280014038086,
+      "point_summary": "Fullness of joy found in God's presence (Ps. 16:11) is cited as the motivating delight—not drudgery—that draws the believer near to God in the act of \"drawing nigh.\"",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1882"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 46,
+      "verse": 10,
+      "reference_text": "Psalm 46:10",
+      "context": "You know that verse that's hard for us in Psalm 46 and verse 10? Be still and know that I am God.",
+      "is_implicit": false,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 2021.8200073242188,
+      "end_time": 2096.4200134277344,
+      "point_summary": "Stillness before God — \"Be still and know that I am God\" — is presented as the posture of abiding, slowing to walk in step with him rather than racing ahead or lagging behind.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2021"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 11,
+      "verse": null,
+      "reference_text": "Psalm 11",
+      "context": "we're there in Psalm chapter 11",
+      "is_implicit": false,
+      "video_id": "spkzWGQNXlY",
+      "start_time": 308.4800109863281,
+      "end_time": 369.67999267578125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+      "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=308"
     }
   ]
 }

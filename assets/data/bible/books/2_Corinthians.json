@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1854,
+  "total_references": 1857,
   "chapters": {
     "4": [
       {
@@ -6578,6 +6578,21 @@
       {
         "book": "2 Corinthians",
         "chapter": 5,
+        "verse": 8,
+        "reference_text": "2 Corinthians 5:8",
+        "context": "Paul said to be absent from the body is to be present with the Lord",
+        "is_implicit": true,
+        "video_id": "fLU-33BSzYo",
+        "start_time": 73.23999786376953,
+        "end_time": 134.9600067138672,
+        "point_summary": "Bodily death holds no terror for the believer because, as Paul declares, to be absent from the body is to be present with the Lord—a confident, Word-grounded hope, not wishful thinking.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+        "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=73"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
         "verse": 9,
         "reference_text": "2 Corinthians 5:9",
         "context": "Wherefore we labor, that whether present or absent we may be accepted of him.",
@@ -9619,6 +9634,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2405"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 5,
+        "verse": 17,
+        "reference_text": "2 Corinthians 5:17",
+        "context": "If any man being Christ is a new creature",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 1011.4199829101562,
+        "end_time": 1068.6199645996094,
+        "point_summary": "Regeneration in Christ does not eliminate the ongoing tension with the old nature, making daily, repeated submission to God a necessary discipline for the believer.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1011"
       },
       {
         "book": "2 Corinthians",
@@ -12891,6 +12921,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
         "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2564"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 6,
+        "verse": 2,
+        "reference_text": "2 Corinthians 6:2",
+        "context": "today is the day of salvation",
+        "is_implicit": true,
+        "video_id": "spkzWGQNXlY",
+        "start_time": 0.0,
+        "end_time": 65.5999984741211,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+        "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=0"
       },
       {
         "book": "2 Corinthians",
@@ -55653,6 +55698,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
       "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=2187"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 17,
+      "reference_text": "2 Corinthians 5:17",
+      "context": "If any man being Christ is a new creature",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 1011.4199829101562,
+      "end_time": 1068.6199645996094,
+      "point_summary": "Regeneration in Christ does not eliminate the ongoing tension with the old nature, making daily, repeated submission to God a necessary discipline for the believer.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1011"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 5,
+      "verse": 8,
+      "reference_text": "2 Corinthians 5:8",
+      "context": "Paul said to be absent from the body is to be present with the Lord",
+      "is_implicit": true,
+      "video_id": "fLU-33BSzYo",
+      "start_time": 73.23999786376953,
+      "end_time": 134.9600067138672,
+      "point_summary": "Bodily death holds no terror for the believer because, as Paul declares, to be absent from the body is to be present with the Lord—a confident, Word-grounded hope, not wishful thinking.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
+      "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=73"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 6,
+      "verse": 2,
+      "reference_text": "2 Corinthians 6:2",
+      "context": "today is the day of salvation",
+      "is_implicit": true,
+      "video_id": "spkzWGQNXlY",
+      "start_time": 0.0,
+      "end_time": 65.5999984741211,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+      "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=0"
     }
   ]
 }

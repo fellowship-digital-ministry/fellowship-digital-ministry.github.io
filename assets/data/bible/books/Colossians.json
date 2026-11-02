@@ -1,6 +1,6 @@
 {
   "book": "Colossians",
-  "total_references": 696,
+  "total_references": 697,
   "chapters": {
     "3": [
       {
@@ -4386,6 +4386,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Biblical Separation\"   II Corinthians 6:11-7:1",
         "url": "https://www.youtube.com/watch?v=cPlriQ1DHTs&t=820"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "Colossians 1",
+        "context": "according to Colossians chapter number one",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 2096.4200134277344,
+        "end_time": 2154.6600036621094,
+        "point_summary": "Christ's headship over the church (Colossians 1) is cited to underscore that he has rightful authority to enter, yet he chooses to knock rather than force fellowship.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2096"
       },
       {
         "book": "Colossians",
@@ -20893,6 +20908,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2038"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Colossians 1",
+      "context": "according to Colossians chapter number one",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 2096.4200134277344,
+      "end_time": 2154.6600036621094,
+      "point_summary": "Christ's headship over the church (Colossians 1) is cited to underscore that he has rightful authority to enter, yet he chooses to knock rather than force fellowship.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2096"
     }
   ]
 }

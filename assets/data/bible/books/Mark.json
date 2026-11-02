@@ -1,6 +1,6 @@
 {
   "book": "Mark",
-  "total_references": 442,
+  "total_references": 443,
   "chapters": {
     "1": [
       {
@@ -62,6 +62,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Faith And Obedience Of Abraham\" Genesis 22:1-24",
         "url": "https://www.youtube.com/watch?v=o5mEG3RptRs&t=1994"
+      },
+      {
+        "book": "Mark",
+        "chapter": 1,
+        "verse": 12,
+        "reference_text": "Mark 1:12-13",
+        "context": "Mark mentions it a little bit, but not as extensive",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 1574.0400085449219,
+        "end_time": 1634.3200073242188,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1574"
       },
       {
         "book": "Mark",
@@ -13297,6 +13312,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1247"
+    },
+    {
+      "book": "Mark",
+      "chapter": 1,
+      "verse": 12,
+      "reference_text": "Mark 1:12-13",
+      "context": "Mark mentions it a little bit, but not as extensive",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 1574.0400085449219,
+      "end_time": 1634.3200073242188,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1574"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 596,
+  "total_references": 597,
   "chapters": {
     "3": [
       {
@@ -947,6 +947,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"We Know That We Are Of God\" I John 5:16-21",
         "url": "https://www.youtube.com/watch?v=QRS13lJ0CSY&t=2668"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 3,
+        "verse": 34,
+        "reference_text": "Proverbs 3:34",
+        "context": "God resisteth the proud, but giveth grace unto the humble",
+        "is_implicit": true,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 127.62000274658203,
+        "end_time": 187.44000244140625,
+        "point_summary": "Humility functions as the structural bookend of James 4:6–10, with God's resistance of the proud and grace toward the humble (quoted from Proverbs 3:34) framing the entire biblical response to worldliness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=127"
       }
     ],
     "24": [
@@ -17941,6 +17956,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
       "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=985"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 3,
+      "verse": 34,
+      "reference_text": "Proverbs 3:34",
+      "context": "God resisteth the proud, but giveth grace unto the humble",
+      "is_implicit": true,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 127.62000274658203,
+      "end_time": 187.44000244140625,
+      "point_summary": "Humility functions as the structural bookend of James 4:6–10, with God's resistance of the proud and grace toward the humble (quoted from Proverbs 3:34) framing the entire biblical response to worldliness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=127"
     }
   ]
 }

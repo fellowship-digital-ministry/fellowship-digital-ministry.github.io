@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 967,
+  "total_references": 969,
   "chapters": {
     "1": [
       {
@@ -4551,6 +4551,21 @@
       {
         "book": "1 Peter",
         "chapter": 1,
+        "verse": 19,
+        "reference_text": "1 Peter 1:19",
+        "context": "but with the precious blood of Christ as of a Lamb without blemish and without spot",
+        "is_implicit": true,
+        "video_id": "spkzWGQNXlY",
+        "start_time": 0.0,
+        "end_time": 65.5999984741211,
+        "point_summary": "Christ's atoning work is framed through Peter's language of \"precious blood\" and the unblemished Lamb, underscoring the incorruptible, substitutionary price of redemption.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+        "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=0"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 1,
         "verse": 20,
         "reference_text": "1 Peter 1:20",
         "context": "who verily was for ordained before the foundation of the world, but was manifest in these last times for you",
@@ -8076,6 +8091,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=637"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 5,
+        "verse": null,
+        "reference_text": "1 Peter 5",
+        "context": "Peter says this in 1 Peter 5, that we're to be clothed in humility",
+        "is_implicit": false,
+        "video_id": "pguzDbTJCFM",
+        "start_time": 127.62000274658203,
+        "end_time": 187.44000244140625,
+        "point_summary": "Peter's command to \"be clothed in humility\" is cited to reinforce that humility functions as the structural bookend of James 4:6–10, framing the entire biblical response to worldliness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+        "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=127"
       },
       {
         "book": "1 Peter",
@@ -29025,6 +29055,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
       "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 5,
+      "verse": null,
+      "reference_text": "1 Peter 5",
+      "context": "Peter says this in 1 Peter 5, that we're to be clothed in humility",
+      "is_implicit": false,
+      "video_id": "pguzDbTJCFM",
+      "start_time": 127.62000274658203,
+      "end_time": 187.44000244140625,
+      "point_summary": "Peter's command to \"be clothed in humility\" is cited to reinforce that humility functions as the structural bookend of James 4:6–10, framing the entire biblical response to worldliness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
+      "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=127"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 1,
+      "verse": 19,
+      "reference_text": "1 Peter 1:19",
+      "context": "but with the precious blood of Christ as of a Lamb without blemish and without spot",
+      "is_implicit": true,
+      "video_id": "spkzWGQNXlY",
+      "start_time": 0.0,
+      "end_time": 65.5999984741211,
+      "point_summary": "Christ's atoning work is framed through Peter's language of \"precious blood\" and the unblemished Lamb, underscoring the incorruptible, substitutionary price of redemption.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+      "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=0"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "2_John",
-  "total_references": 6,
+  "total_references": 7,
   "chapters": {
     "1": [
       {
@@ -17,6 +17,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=556"
+      },
+      {
+        "book": "2 John",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "2 John",
+        "context": "that final message from 2 John",
+        "is_implicit": false,
+        "video_id": "spkzWGQNXlY",
+        "start_time": 1575.6000366210938,
+        "end_time": 1642.3200378417969,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+        "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=1575"
       },
       {
         "book": "2 John",
@@ -185,6 +200,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
       "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=329"
+    },
+    {
+      "book": "2 John",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "2 John",
+      "context": "that final message from 2 John",
+      "is_implicit": false,
+      "video_id": "spkzWGQNXlY",
+      "start_time": 1575.6000366210938,
+      "end_time": 1642.3200378417969,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Judging Or Doing\" James 4:11-12",
+      "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=1575"
     }
   ]
 }
