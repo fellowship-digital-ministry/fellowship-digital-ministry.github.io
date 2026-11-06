@@ -2757,7 +2757,7 @@ function printMessagePair(botMessageEl) {
   </div>
   ${questionText ? `<div class="question">${escape(questionText)}</div>` : ''}
   <div class="answer">${answerClone.innerHTML}</div>
-  <div class="footer">From the Fellowship Digital Ministry sermon search (unofficial study tool). Source sermons are publicly available on the church's YouTube channel.</div>
+  <div class="footer">From the Fellowship Digital Ministry sermon search. Watch the source sermons on the church's YouTube channel.</div>
 </body>
 </html>`);
   win.document.close();

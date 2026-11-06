@@ -1,11 +1,8 @@
 # Fellowship Digital Ministry
 
-An unofficial, independent project for exploring the publicly available
-sermons of Fellowship Baptist Church (Oakton, VA): ask questions about what
-has been preached, read full transcripts, and see where each Bible passage
-has come up. It was built independently by Ryan Wolfslayer for his church.
-It is not officially affiliated with or endorsed by Fellowship Baptist
-Church.
+A project by Ryan Wolfslayer for exploring sermons from Fellowship Baptist
+Church (Oakton, VA): ask questions about what has been preached, read full
+transcripts, and see where each Bible passage has come up.
 
 Live site: <https://fellowship-digital-ministry.github.io>
 
