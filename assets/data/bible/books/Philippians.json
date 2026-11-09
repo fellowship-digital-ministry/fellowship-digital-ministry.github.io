@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 780,
+  "total_references": 782,
   "chapters": {
     "2": [
       {
@@ -4508,6 +4508,21 @@
       {
         "book": "Philippians",
         "chapter": 3,
+        "verse": 13,
+        "reference_text": "Philippians 3:13",
+        "context": "the instruction that Paul gave for getting those things which are behind",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 295.32000732421875,
+        "end_time": 354.0799865722656,
+        "point_summary": "Forgetting what lies behind (Phil. 3:13) is invoked as Paul's corrective against living in the past, which the sermon warns cripples those who cannot move forward in the present.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=295"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 3,
         "verse": 14,
         "reference_text": "Philippians 3:14",
         "context": "I press, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
@@ -6081,6 +6096,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1306"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
+        "verse": 6,
+        "reference_text": "Philippians 4:6",
+        "context": "it says be careful for nothing",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 1766.1199951171875,
+        "end_time": 1824.3799591064453,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1766"
       },
       {
         "book": "Philippians",
@@ -23413,6 +23443,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
       "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=73"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 3,
+      "verse": 13,
+      "reference_text": "Philippians 3:13",
+      "context": "the instruction that Paul gave for getting those things which are behind",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 295.32000732421875,
+      "end_time": 354.0799865722656,
+      "point_summary": "Forgetting what lies behind (Phil. 3:13) is invoked as Paul's corrective against living in the past, which the sermon warns cripples those who cannot move forward in the present.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=295"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": 6,
+      "reference_text": "Philippians 4:6",
+      "context": "it says be careful for nothing",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 1766.1199951171875,
+      "end_time": 1824.3799591064453,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1766"
     }
   ]
 }

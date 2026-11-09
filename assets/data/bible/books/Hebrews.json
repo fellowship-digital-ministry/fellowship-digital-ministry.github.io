@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 2033,
+  "total_references": 2034,
   "chapters": {
     "12": [
       {
@@ -13480,6 +13480,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
         "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1968"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 9,
+        "verse": 27,
+        "reference_text": "Hebrews 9:27",
+        "context": "as it appointed unto man once to die. After this, the judgment",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 1426.499984741211,
+        "end_time": 1501.4999694824219,
+        "point_summary": "Hebrews 9:27's declaration that death is appointed for every person grounds the \"if the Lord will\" of James 4 as a genuine life principle, not a casual Christian phrase.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1426"
       },
       {
         "book": "Hebrews",
@@ -61021,6 +61036,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Judging Or Doing\" James 4:11-12",
       "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=2637"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 9,
+      "verse": 27,
+      "reference_text": "Hebrews 9:27",
+      "context": "as it appointed unto man once to die. After this, the judgment",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 1426.499984741211,
+      "end_time": 1501.4999694824219,
+      "point_summary": "Hebrews 9:27's declaration that death is appointed for every person grounds the \"if the Lord will\" of James 4 as a genuine life principle, not a casual Christian phrase.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1426"
     }
   ]
 }

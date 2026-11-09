@@ -1,6 +1,6 @@
 {
   "book": "2_Kings",
-  "total_references": 443,
+  "total_references": 444,
   "chapters": {
     "6": [
       {
@@ -6126,6 +6126,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Make Known Thy Truth\"  Isaiah 38:19",
         "url": "https://www.youtube.com/watch?v=Ltup8ewKTuo&t=237"
+      },
+      {
+        "book": "2 Kings",
+        "chapter": 20,
+        "verse": 1,
+        "reference_text": "2 Kings 20:1",
+        "context": "set thine house in order and he's told that he's going to die",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 853.9399719238281,
+        "end_time": 920.4999694824219,
+        "point_summary": "God's command to Hezekiah to \"set thine house in order\" before death is used to press the question of what priorities would change if one knew death was imminent.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=853"
       },
       {
         "book": "2 Kings",
@@ -13339,6 +13354,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
       "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=2235"
+    },
+    {
+      "book": "2 Kings",
+      "chapter": 20,
+      "verse": 1,
+      "reference_text": "2 Kings 20:1",
+      "context": "set thine house in order and he's told that he's going to die",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 853.9399719238281,
+      "end_time": 920.4999694824219,
+      "point_summary": "God's command to Hezekiah to \"set thine house in order\" before death is used to press the question of what priorities would change if one knew death was imminent.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=853"
     }
   ]
 }

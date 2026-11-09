@@ -1,6 +1,6 @@
 {
   "book": "1_John",
-  "total_references": 1138,
+  "total_references": 1140,
   "chapters": {
     "2": [
       {
@@ -3081,6 +3081,21 @@
       {
         "book": "1 John",
         "chapter": 2,
+        "verse": 15,
+        "reference_text": "1 John 2:15",
+        "context": "First John chapter two, in verse 15. We understand, he says, love not the world, neither the things that are in the world.",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 2230.6199645996094,
+        "end_time": 2297.479949951172,
+        "point_summary": "Loving the world is incompatible with an eternal perspective, because the world and its lusts are passing away while only the one who does God's will abides forever.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2230"
+      },
+      {
+        "book": "1 John",
+        "chapter": 2,
         "verse": 16,
         "reference_text": "1 John 2:16",
         "context": "For all that is in the world, the lust of the flesh and the lust of the eyes and the pride of life is not of the Father, but is of the world.",
@@ -3242,6 +3257,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
         "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=2148"
+      },
+      {
+        "book": "1 John",
+        "chapter": 2,
+        "verse": 16,
+        "reference_text": "1 John 2:16",
+        "context": "verse 16, for all that is in the world, the lust of the flesh and the lust of the eyes and the pride of life, it's not of the Father but of the world, and the world passeth away.",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 2230.6199645996094,
+        "end_time": 2297.479949951172,
+        "point_summary": "Worldly desires—lust of the flesh, lust of the eyes, and pride of life—belong to a passing world, contrasted with the eternal permanence of doing God's will, grounding the call to an eternal perspective.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2230"
       },
       {
         "book": "1 John",
@@ -34157,6 +34187,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1980"
+    },
+    {
+      "book": "1 John",
+      "chapter": 2,
+      "verse": 15,
+      "reference_text": "1 John 2:15",
+      "context": "First John chapter two, in verse 15. We understand, he says, love not the world, neither the things that are in the world.",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 2230.6199645996094,
+      "end_time": 2297.479949951172,
+      "point_summary": "Loving the world is incompatible with an eternal perspective, because the world and its lusts are passing away while only the one who does God's will abides forever.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2230"
+    },
+    {
+      "book": "1 John",
+      "chapter": 2,
+      "verse": 16,
+      "reference_text": "1 John 2:16",
+      "context": "verse 16, for all that is in the world, the lust of the flesh and the lust of the eyes and the pride of life, it's not of the Father but of the world, and the world passeth away.",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 2230.6199645996094,
+      "end_time": 2297.479949951172,
+      "point_summary": "Worldly desires—lust of the flesh, lust of the eyes, and pride of life—belong to a passing world, contrasted with the eternal permanence of doing God's will, grounding the call to an eternal perspective.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2230"
     }
   ]
 }

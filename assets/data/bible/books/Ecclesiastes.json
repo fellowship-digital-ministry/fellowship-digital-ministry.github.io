@@ -1,6 +1,6 @@
 {
   "book": "Ecclesiastes",
-  "total_references": 37,
+  "total_references": 40,
   "chapters": {
     "7": [
       {
@@ -107,6 +107,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Life And Death\" Genesis 35:16-29",
         "url": "https://www.youtube.com/watch?v=_fRtpMZRJGo&t=631"
+      },
+      {
+        "book": "Ecclesiastes",
+        "chapter": 7,
+        "verse": 2,
+        "reference_text": "Ecclesiastes 7:2",
+        "context": "Better go to the house of mourning than the house of feasting, for it's the end of all man.",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 2545.7599487304688,
+        "end_time": 2611.8799438476562,
+        "point_summary": "Attending a funeral—however long the deceased lived—always feels too soon, illustrating Solomon's point that the house of mourning confronts us with the brevity shared by all humanity.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2545"
       },
       {
         "book": "Ecclesiastes",
@@ -261,6 +276,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Five Tips For A Successful Year",
         "url": "https://www.youtube.com/watch?v=fbc-2025-12-28pm-five-tips-for-a-successful-year&t=348"
+      },
+      {
+        "book": "Ecclesiastes",
+        "chapter": 12,
+        "verse": 5,
+        "reference_text": "Ecclesiastes 12:5",
+        "context": "The Bible tells us in Ecclesiastes 12 in verse number 5 that man goeth to his long home",
+        "is_implicit": false,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 788.5799713134766,
+        "end_time": 853.9399719238281,
+        "point_summary": "The brevity of earthly life (\"man goeth to his long home\") is set against the vastness of eternity to press the listener toward rightly ordered priorities.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=788"
+      },
+      {
+        "book": "Ecclesiastes",
+        "chapter": 12,
+        "verse": 5,
+        "reference_text": "Ecclesiastes 12:5",
+        "context": "man goeth to his long home",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 2769.6399536132812,
+        "end_time": 2837.0599365234375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2769"
       },
       {
         "book": "Ecclesiastes",
@@ -1133,6 +1178,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
       "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=1873"
+    },
+    {
+      "book": "Ecclesiastes",
+      "chapter": 12,
+      "verse": 5,
+      "reference_text": "Ecclesiastes 12:5",
+      "context": "The Bible tells us in Ecclesiastes 12 in verse number 5 that man goeth to his long home",
+      "is_implicit": false,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 788.5799713134766,
+      "end_time": 853.9399719238281,
+      "point_summary": "The brevity of earthly life (\"man goeth to his long home\") is set against the vastness of eternity to press the listener toward rightly ordered priorities.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=788"
+    },
+    {
+      "book": "Ecclesiastes",
+      "chapter": 7,
+      "verse": 2,
+      "reference_text": "Ecclesiastes 7:2",
+      "context": "Better go to the house of mourning than the house of feasting, for it's the end of all man.",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 2545.7599487304688,
+      "end_time": 2611.8799438476562,
+      "point_summary": "Attending a funeral—however long the deceased lived—always feels too soon, illustrating Solomon's point that the house of mourning confronts us with the brevity shared by all humanity.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2545"
+    },
+    {
+      "book": "Ecclesiastes",
+      "chapter": 12,
+      "verse": 5,
+      "reference_text": "Ecclesiastes 12:5",
+      "context": "man goeth to his long home",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 2769.6399536132812,
+      "end_time": 2837.0599365234375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2769"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Colossians",
-  "total_references": 697,
+  "total_references": 699,
   "chapters": {
     "3": [
       {
@@ -4405,6 +4405,21 @@
       {
         "book": "Colossians",
         "chapter": 1,
+        "verse": null,
+        "reference_text": "Colossians 1",
+        "context": "I coupled that truth in James chapter 4 with this one in Colossians 1",
+        "is_implicit": false,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 1040.5799865722656,
+        "end_time": 1104.0999755859375,
+        "point_summary": "Because life is a vapor with no guaranteed tomorrow, Christ's preeminence over all things (Col. 1:15–18) becomes the governing standard for setting daily priorities.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1040"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 1,
         "verse": 1,
         "reference_text": "Colossians 1:1",
         "context": "Paul was rejoicing in their salvation, as he mentions in the first several verses of Colossians 1",
@@ -6411,6 +6426,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jehovah Shalom",
         "url": "https://www.youtube.com/watch?v=fbc-2025-07-02mw-jehovah-shalom&t=1611"
+      },
+      {
+        "book": "Colossians",
+        "chapter": 1,
+        "verse": 15,
+        "reference_text": "Colossians 1:15",
+        "context": "who is the image of the invisible God the firstborn of every creature for by him were all things created that are in heaven and they're in earth visible and invisible whether they be thrones or dominions or principalities or powers all things were created by him and for him and he is before all things and by him all things consist",
+        "is_implicit": false,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 980.9399719238281,
+        "end_time": 1040.5799865722656,
+        "point_summary": "Because life is a vapor that appears briefly and then vanishes, Christ—who created all things and is before all things—must have the preeminence as the highest priority in whatever time remains.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=980"
       },
       {
         "book": "Colossians",
@@ -20923,6 +20953,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
       "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2096"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 1,
+      "verse": 15,
+      "reference_text": "Colossians 1:15",
+      "context": "who is the image of the invisible God the firstborn of every creature for by him were all things created that are in heaven and they're in earth visible and invisible whether they be thrones or dominions or principalities or powers all things were created by him and for him and he is before all things and by him all things consist",
+      "is_implicit": false,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 980.9399719238281,
+      "end_time": 1040.5799865722656,
+      "point_summary": "Because life is a vapor that appears briefly and then vanishes, Christ—who created all things and is before all things—must have the preeminence as the highest priority in whatever time remains.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=980"
+    },
+    {
+      "book": "Colossians",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Colossians 1",
+      "context": "I coupled that truth in James chapter 4 with this one in Colossians 1",
+      "is_implicit": false,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 1040.5799865722656,
+      "end_time": 1104.0999755859375,
+      "point_summary": "Because life is a vapor with no guaranteed tomorrow, Christ's preeminence over all things (Col. 1:15–18) becomes the governing standard for setting daily priorities.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1040"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 749,
+  "total_references": 750,
   "chapters": {
     "5": [
       {
@@ -9743,6 +9743,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
         "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=731"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 4,
+        "verse": 16,
+        "reference_text": "1 Thessalonians 4:16",
+        "context": "The trumpet of the Lord shall sound",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 2611.8799438476562,
+        "end_time": 2690.5799560546875,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2611"
       },
       {
         "book": "1 Thessalonians",
@@ -22485,6 +22500,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Judging Or Doing\" James 4:11-12",
       "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=2277"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "1 Thessalonians 4:16",
+      "context": "The trumpet of the Lord shall sound",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 2611.8799438476562,
+      "end_time": 2690.5799560546875,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2611"
     }
   ]
 }

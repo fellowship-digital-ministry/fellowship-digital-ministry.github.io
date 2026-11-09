@@ -1,6 +1,6 @@
 {
   "book": "Luke",
-  "total_references": 892,
+  "total_references": 894,
   "chapters": {
     "10": [
       {
@@ -12244,6 +12244,21 @@
       {
         "book": "Luke",
         "chapter": 12,
+        "verse": 19,
+        "reference_text": "Luke 12:19",
+        "context": "I have all of these goods and I'm going to build and have greater barns and all these things and you know just drink and be merry",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 853.9399719238281,
+        "end_time": 920.4999694824219,
+        "point_summary": "The rich fool's declaration in Luke 12:19—storing goods and planning to eat, drink, and be merry—illustrates how misplaced priorities arise when a person forgets that this life is only a vapor.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=853"
+      },
+      {
+        "book": "Luke",
+        "chapter": 12,
         "verse": 20,
         "reference_text": "Luke 12:20",
         "context": "But God said unto him, Thou fool, this night thy soul shall be required of thee. Then who shall those things be which thou hast provided?",
@@ -12270,6 +12285,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Riches Make Wings\" James 1:9-11",
         "url": "https://www.youtube.com/watch?v=lReYV18RAeg&t=2487"
+      },
+      {
+        "book": "Luke",
+        "chapter": 12,
+        "verse": 20,
+        "reference_text": "Luke 12:20",
+        "context": "tonight, right this night, your soul is going to be acquired of thee",
+        "is_implicit": true,
+        "video_id": "AiH6dA61jsE",
+        "start_time": 853.9399719238281,
+        "end_time": 920.4999694824219,
+        "point_summary": "The rich fool's assumption that he could secure his future through accumulated wealth is used to illustrate how misplaced priorities reveal a failure to reckon with life's brevity and the soul's accountability to God.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+        "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=853"
       },
       {
         "book": "Luke",
@@ -26807,6 +26837,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
       "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2021"
+    },
+    {
+      "book": "Luke",
+      "chapter": 12,
+      "verse": 19,
+      "reference_text": "Luke 12:19",
+      "context": "I have all of these goods and I'm going to build and have greater barns and all these things and you know just drink and be merry",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 853.9399719238281,
+      "end_time": 920.4999694824219,
+      "point_summary": "The rich fool's declaration in Luke 12:19—storing goods and planning to eat, drink, and be merry—illustrates how misplaced priorities arise when a person forgets that this life is only a vapor.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=853"
+    },
+    {
+      "book": "Luke",
+      "chapter": 12,
+      "verse": 20,
+      "reference_text": "Luke 12:20",
+      "context": "tonight, right this night, your soul is going to be acquired of thee",
+      "is_implicit": true,
+      "video_id": "AiH6dA61jsE",
+      "start_time": 853.9399719238281,
+      "end_time": 920.4999694824219,
+      "point_summary": "The rich fool's assumption that he could secure his future through accumulated wealth is used to illustrate how misplaced priorities reveal a failure to reckon with life's brevity and the soul's accountability to God.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
+      "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=853"
     }
   ]
 }
