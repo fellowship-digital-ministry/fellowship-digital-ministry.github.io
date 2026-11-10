@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 999,
+  "total_references": 1002,
   "chapters": {
     "3": [
       {
@@ -2792,6 +2792,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
         "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=262"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 3,
+        "verse": 13,
+        "reference_text": "2 Timothy 3:13",
+        "context": "evil men and seducers shall wax worse and worse, deceiving and being deceived",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1280.7000122070312,
+        "end_time": 1351.8600158691406,
+        "point_summary": "Evil men and seducers growing worse and worse (2 Tim. 3:13) grounds the call to be wide-eyed and alert to the dire, uncertain circumstances believers will face in coming days.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1280"
       },
       {
         "book": "2 Timothy",
@@ -11466,6 +11481,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
         "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=2675"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 1,
+        "verse": 7,
+        "reference_text": "2 Timothy 1:7",
+        "context": "God hath not given us the spirit of fear",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1941.1799926757812,
+        "end_time": 2016.1799926757812,
+        "point_summary": "Fear is not God's gift to believers — a truth established in a prior sermon and recalled here to ground the prophet's deliberate choice to rejoice despite devastating circumstances.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1941"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 1,
+        "verse": 7,
+        "reference_text": "2 Timothy 1:7",
+        "context": "God hath not given us the spirit of fear",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2017.1799926757812,
+        "end_time": 2078.1799926757812,
+        "point_summary": "God's gift of a spirit free from fear, established the previous week through multiple scriptures, grounds the prophet's deliberate choice to rejoice rather than live \"under the circumstances.\"",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2017"
       },
       {
         "book": "2 Timothy",
@@ -29985,6 +30030,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Judging Or Doing\" James 4:11-12",
       "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=126"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 3,
+      "verse": 13,
+      "reference_text": "2 Timothy 3:13",
+      "context": "evil men and seducers shall wax worse and worse, deceiving and being deceived",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1280.7000122070312,
+      "end_time": 1351.8600158691406,
+      "point_summary": "Evil men and seducers growing worse and worse (2 Tim. 3:13) grounds the call to be wide-eyed and alert to the dire, uncertain circumstances believers will face in coming days.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1280"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 1,
+      "verse": 7,
+      "reference_text": "2 Timothy 1:7",
+      "context": "God hath not given us the spirit of fear",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1941.1799926757812,
+      "end_time": 2016.1799926757812,
+      "point_summary": "Fear is not God's gift to believers — a truth established in a prior sermon and recalled here to ground the prophet's deliberate choice to rejoice despite devastating circumstances.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1941"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 1,
+      "verse": 7,
+      "reference_text": "2 Timothy 1:7",
+      "context": "God hath not given us the spirit of fear",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2017.1799926757812,
+      "end_time": 2078.1799926757812,
+      "point_summary": "God's gift of a spirit free from fear, established the previous week through multiple scriptures, grounds the prophet's deliberate choice to rejoice rather than live \"under the circumstances.\"",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2017"
     }
   ]
 }

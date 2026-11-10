@@ -1,6 +1,6 @@
 {
   "book": "Obadiah",
-  "total_references": 8,
+  "total_references": 9,
   "chapters": {
     "1": [
       {
@@ -122,6 +122,23 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Elder Shall Serve The Younger\" Genesis 25:19-26",
         "url": "https://www.youtube.com/watch?v=1tNRCH4gQSE&t=1497"
+      }
+    ],
+    "None": [
+      {
+        "book": "Obadiah",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Obadiah",
+        "context": "you say, as I did this morning, Obadiah",
+        "is_implicit": false,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 0.0,
+        "end_time": 60.31999969482422,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=0"
       }
     ]
   },
@@ -245,6 +262,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Pride Of Thine Heart\" Obadiah 3-4",
       "url": "https://www.youtube.com/watch?v=kZ4u2Ljc7cU&t=1237"
+    },
+    {
+      "book": "Obadiah",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Obadiah",
+      "context": "you say, as I did this morning, Obadiah",
+      "is_implicit": false,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 0.0,
+      "end_time": 60.31999969482422,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=0"
     }
   ]
 }

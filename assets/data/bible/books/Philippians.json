@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 782,
+  "total_references": 785,
   "chapters": {
     "2": [
       {
@@ -5590,6 +5590,36 @@
       {
         "book": "Philippians",
         "chapter": 4,
+        "verse": 4,
+        "reference_text": "Philippians 4:4",
+        "context": "Yet, I will rejoice in the Lord",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1727.5,
+        "end_time": 1793.1400146484375,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1727"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
+        "verse": 4,
+        "reference_text": "Philippians 4:4",
+        "context": "we need to rejoice in the Lord",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2359.1799926757812,
+        "end_time": 2435.0999908447266,
+        "point_summary": "Rejoicing in the Lord, rather than in circumstances, is presented as the necessary corrective when one's \"joy meter\" rises and falls with uncontrollable situations.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2359"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
         "verse": 5,
         "reference_text": "Philippians 4:5",
         "context": "Let your moderation be made known unto all men, the Lord is at hand",
@@ -10388,6 +10418,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Who Are You Living For?\" Philippians 1:21",
         "url": "https://www.youtube.com/watch?v=M196IRZkKYY&t=847"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 1,
+        "verse": 18,
+        "reference_text": "Philippians 1:18",
+        "context": "what then, notwithstanding every way, whether in pretense or in truth, Christ is preached. And I therein do rejoice and will rejoice",
+        "is_implicit": false,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 784.6800079345703,
+        "end_time": 854.0400085449219,
+        "point_summary": "Paul's deliberate choice to rejoice despite surrounding opposition illustrates that rejoicing is an act of the will, not a response to favorable circumstances.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=784"
       },
       {
         "book": "Philippians",
@@ -23473,6 +23518,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1766"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 1,
+      "verse": 18,
+      "reference_text": "Philippians 1:18",
+      "context": "what then, notwithstanding every way, whether in pretense or in truth, Christ is preached. And I therein do rejoice and will rejoice",
+      "is_implicit": false,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 784.6800079345703,
+      "end_time": 854.0400085449219,
+      "point_summary": "Paul's deliberate choice to rejoice despite surrounding opposition illustrates that rejoicing is an act of the will, not a response to favorable circumstances.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=784"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": 4,
+      "reference_text": "Philippians 4:4",
+      "context": "Yet, I will rejoice in the Lord",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1727.5,
+      "end_time": 1793.1400146484375,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1727"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": 4,
+      "reference_text": "Philippians 4:4",
+      "context": "we need to rejoice in the Lord",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2359.1799926757812,
+      "end_time": 2435.0999908447266,
+      "point_summary": "Rejoicing in the Lord, rather than in circumstances, is presented as the necessary corrective when one's \"joy meter\" rises and falls with uncontrollable situations.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2359"
     }
   ]
 }

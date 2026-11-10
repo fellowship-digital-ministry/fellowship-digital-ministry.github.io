@@ -1,6 +1,6 @@
 {
   "book": "Psalm",
-  "total_references": 512,
+  "total_references": 514,
   "chapters": {
     "90": [
       {
@@ -7841,6 +7841,40 @@
         "sermon_title": "We Will Remember The Name Of Our God",
         "url": "https://www.youtube.com/watch?v=fbc-2025-09-24mw-we-will-remember-the-name-of-our-god&t=348"
       }
+    ],
+    "31": [
+      {
+        "book": "Psalm",
+        "chapter": 31,
+        "verse": 7,
+        "reference_text": "Psalm 31:7",
+        "context": "being born again in Psalm 31 and verse number seven. Again, the I will idea, I will be glad and rejoice. What does it say? In thy mercy.",
+        "is_implicit": false,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 444.6000061035156,
+        "end_time": 517.9600219726562,
+        "point_summary": "Rejoicing in God's mercy is grounded in the assurance that He has personally considered and knows the troubles and adversities His people face.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=444"
+      }
+    ],
+    "63": [
+      {
+        "book": "Psalm",
+        "chapter": 63,
+        "verse": 7,
+        "reference_text": "Psalm 63:7",
+        "context": "in Psalm 63 and verse number seven, because thou has been my help.",
+        "is_implicit": false,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 444.6000061035156,
+        "end_time": 517.9600219726562,
+        "point_summary": "Rejoicing is grounded in God's proven help, as the psalmist declares that because God has been his help, he will rejoice under the shadow of His wings.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=444"
+      }
     ]
   },
   "references": [
@@ -15523,6 +15557,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1973"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 31,
+      "verse": 7,
+      "reference_text": "Psalm 31:7",
+      "context": "being born again in Psalm 31 and verse number seven. Again, the I will idea, I will be glad and rejoice. What does it say? In thy mercy.",
+      "is_implicit": false,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 444.6000061035156,
+      "end_time": 517.9600219726562,
+      "point_summary": "Rejoicing in God's mercy is grounded in the assurance that He has personally considered and knows the troubles and adversities His people face.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=444"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 63,
+      "verse": 7,
+      "reference_text": "Psalm 63:7",
+      "context": "in Psalm 63 and verse number seven, because thou has been my help.",
+      "is_implicit": false,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 444.6000061035156,
+      "end_time": 517.9600219726562,
+      "point_summary": "Rejoicing is grounded in God's proven help, as the psalmist declares that because God has been his help, he will rejoice under the shadow of His wings.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=444"
     }
   ]
 }

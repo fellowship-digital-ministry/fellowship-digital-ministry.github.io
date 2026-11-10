@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 1499,
+  "total_references": 1503,
   "chapters": {
     "2": [
       {
@@ -6848,6 +6848,21 @@
       {
         "book": "Ephesians",
         "chapter": 3,
+        "verse": 17,
+        "reference_text": "Ephesians 3:17",
+        "context": "Being settled and grounded in the faith and the truth of God's word",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2219.1799926757812,
+        "end_time": 2290.1799926757812,
+        "point_summary": "Intimate, daily knowledge of God before trials arrive is the preparation that grounds believers in His strength, so they stand unmoved when storms come.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2219"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 3,
         "verse": 18,
         "reference_text": "Ephesians 3:18",
         "context": "rooted and grounded in love, may be able to comprehend with all saints what is the breadth and length and depth and height",
@@ -12267,6 +12282,21 @@
       {
         "book": "Ephesians",
         "chapter": 6,
+        "verse": 10,
+        "reference_text": "Ephesians 6:10",
+        "context": "Be strong in the Lord. And the power of His might.",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2290.1799926757812,
+        "end_time": 2359.1799926757812,
+        "point_summary": "Spiritual preparation for life's storms must happen before they arrive, through daily intimacy with God, so that when trials come one can stand firm in His strength, not one's own.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2290"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 6,
         "verse": 11,
         "reference_text": "Ephesians 6:11",
         "context": "Put on, notice what it says, the whole armor of God",
@@ -13853,6 +13883,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
         "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=1446"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 6,
+        "verse": 13,
+        "reference_text": "Ephesians 6:13",
+        "context": "I'm going to be able to stand in the evil day",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2219.1799926757812,
+        "end_time": 2290.1799926757812,
+        "point_summary": "Spiritual preparation for life's storms must happen before they arrive, so that when the evil day comes, one is already grounded to stand—not in personal strength, but in the Lord's.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2219"
       },
       {
         "book": "Ephesians",
@@ -17320,6 +17365,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "A Longing To See God Work Part One",
         "url": "https://www.youtube.com/watch?v=fbc-2026-01-07mw-a-longing-to-see-god-work-part-one&t=792"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 4,
+        "verse": 14,
+        "reference_text": "Ephesians 4:14",
+        "context": "I'm not going to be tossed to and fro with every wind of doctrine",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2219.1799926757812,
+        "end_time": 2290.1799926757812,
+        "point_summary": "Spiritual preparation before trials—knowing God intimately through daily walking with Him—is what keeps believers from being tossed by every wind of doctrine when storms arrive.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2219"
       },
       {
         "book": "Ephesians",
@@ -44987,6 +45047,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
       "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2425"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 4,
+      "verse": 14,
+      "reference_text": "Ephesians 4:14",
+      "context": "I'm not going to be tossed to and fro with every wind of doctrine",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2219.1799926757812,
+      "end_time": 2290.1799926757812,
+      "point_summary": "Spiritual preparation before trials—knowing God intimately through daily walking with Him—is what keeps believers from being tossed by every wind of doctrine when storms arrive.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2219"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 3,
+      "verse": 17,
+      "reference_text": "Ephesians 3:17",
+      "context": "Being settled and grounded in the faith and the truth of God's word",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2219.1799926757812,
+      "end_time": 2290.1799926757812,
+      "point_summary": "Intimate, daily knowledge of God before trials arrive is the preparation that grounds believers in His strength, so they stand unmoved when storms come.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2219"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 6,
+      "verse": 13,
+      "reference_text": "Ephesians 6:13",
+      "context": "I'm going to be able to stand in the evil day",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2219.1799926757812,
+      "end_time": 2290.1799926757812,
+      "point_summary": "Spiritual preparation for life's storms must happen before they arrive, so that when the evil day comes, one is already grounded to stand—not in personal strength, but in the Lord's.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2219"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 6,
+      "verse": 10,
+      "reference_text": "Ephesians 6:10",
+      "context": "Be strong in the Lord. And the power of His might.",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2290.1799926757812,
+      "end_time": 2359.1799926757812,
+      "point_summary": "Spiritual preparation for life's storms must happen before they arrive, through daily intimacy with God, so that when trials come one can stand firm in His strength, not one's own.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2290"
     }
   ]
 }

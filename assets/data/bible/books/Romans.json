@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1762,
+  "total_references": 1763,
   "chapters": {
     "8": [
       {
@@ -26389,6 +26389,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Are Your Feet Dirty?\" John 13:1-16",
         "url": "https://www.youtube.com/watch?v=ZMOJR5ueEkc&t=463"
+      },
+      {
+        "book": "Romans",
+        "chapter": 13,
+        "verse": 11,
+        "reference_text": "Romans 13:11",
+        "context": "It's high time that we awake out of sleep",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1280.7000122070312,
+        "end_time": 1351.8600158691406,
+        "point_summary": "Spiritual alertness is demanded by the hour, as Romans 13:11's call to \"awake out of sleep\" is invoked to urge believers to be wide-eyed and clear-headed about the dire circumstances surrounding them.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1280"
       },
       {
         "book": "Romans",
@@ -52899,6 +52914,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Judging Or Doing\" James 4:11-12",
       "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=0"
+    },
+    {
+      "book": "Romans",
+      "chapter": 13,
+      "verse": 11,
+      "reference_text": "Romans 13:11",
+      "context": "It's high time that we awake out of sleep",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1280.7000122070312,
+      "end_time": 1351.8600158691406,
+      "point_summary": "Spiritual alertness is demanded by the hour, as Romans 13:11's call to \"awake out of sleep\" is invoked to urge believers to be wide-eyed and clear-headed about the dire circumstances surrounding them.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1280"
     }
   ]
 }

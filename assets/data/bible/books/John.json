@@ -1,6 +1,6 @@
 {
   "book": "John",
-  "total_references": 2987,
+  "total_references": 2988,
   "chapters": {
     "14": [
       {
@@ -20277,6 +20277,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jesus Our Shepherd",
         "url": "https://www.youtube.com/watch?v=fbc-2025-05-21mw-jesus-our-shepherd&t=248"
+      },
+      {
+        "book": "John",
+        "chapter": 10,
+        "verse": 14,
+        "reference_text": "John 10:14",
+        "context": "Jesus said this in John chapter number 10, I know my sheep",
+        "is_implicit": false,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 387.3999938964844,
+        "end_time": 444.6000061035156,
+        "point_summary": "Eternal security—that Christ knows His sheep and guarantees they will never perish—grounds the believer's rejoicing in salvation beyond present circumstances.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=387"
       },
       {
         "book": "John",
@@ -89657,6 +89672,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2174"
+    },
+    {
+      "book": "John",
+      "chapter": 10,
+      "verse": 14,
+      "reference_text": "John 10:14",
+      "context": "Jesus said this in John chapter number 10, I know my sheep",
+      "is_implicit": false,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 387.3999938964844,
+      "end_time": 444.6000061035156,
+      "point_summary": "Eternal security—that Christ knows His sheep and guarantees they will never perish—grounds the believer's rejoicing in salvation beyond present circumstances.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=387"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1871,
+  "total_references": 1873,
   "chapters": {
     "4": [
       {
@@ -3482,6 +3482,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
         "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1636"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 4,
+        "verse": 16,
+        "reference_text": "2 Corinthians 4:16",
+        "context": "the outward man perished, but the inward man is renewed day by day",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2078.1799926757812,
+        "end_time": 2149.1799926757812,
+        "point_summary": "Even when outward circumstances deteriorate, the inward man is renewed day by day, and this renewal is the strength by which Habakkuk's choice to rejoice becomes possible.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2078"
       },
       {
         "book": "2 Corinthians",
@@ -21061,6 +21076,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Giveth More Grace\"  James 4:1-6",
         "url": "https://www.youtube.com/watch?v=9QrzAwkFXhE&t=133"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 12,
+        "verse": 9,
+        "reference_text": "2 Corinthians 12:9",
+        "context": "God's grace is sufficient. My strength is made perfect in weakness",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2078.1799926757812,
+        "end_time": 2149.1799926757812,
+        "point_summary": "God's grace being sufficient and strength made perfect in weakness (2 Cor. 12:9) grounds Habakkuk's resolve to rejoice not in favorable circumstances but in God as his strength.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2078"
       },
       {
         "book": "2 Corinthians",
@@ -56163,6 +56193,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2769"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "verse": 9,
+      "reference_text": "2 Corinthians 12:9",
+      "context": "God's grace is sufficient. My strength is made perfect in weakness",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2078.1799926757812,
+      "end_time": 2149.1799926757812,
+      "point_summary": "God's grace being sufficient and strength made perfect in weakness (2 Cor. 12:9) grounds Habakkuk's resolve to rejoice not in favorable circumstances but in God as his strength.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2078"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 4,
+      "verse": 16,
+      "reference_text": "2 Corinthians 4:16",
+      "context": "the outward man perished, but the inward man is renewed day by day",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2078.1799926757812,
+      "end_time": 2149.1799926757812,
+      "point_summary": "Even when outward circumstances deteriorate, the inward man is renewed day by day, and this renewal is the strength by which Habakkuk's choice to rejoice becomes possible.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2078"
     }
   ]
 }

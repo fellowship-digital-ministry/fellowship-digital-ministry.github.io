@@ -1,6 +1,6 @@
 {
   "book": "Matthew",
-  "total_references": 1551,
+  "total_references": 1553,
   "chapters": {
     "16": [
       {
@@ -18728,6 +18728,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Truths Concerning Our Treasures\"  Matthew 6:19-21",
         "url": "https://www.youtube.com/watch?v=CXg_STSF1ug&t=1173"
+      },
+      {
+        "book": "Matthew",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Matthew",
+        "context": "you say Matthew something",
+        "is_implicit": false,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 0.0,
+        "end_time": 60.31999969482422,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=0"
       }
     ],
     "24": [
@@ -19120,6 +19135,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Wrath Remember Mercy\"  Revelation 7:1-17",
         "url": "https://www.youtube.com/watch?v=_8XP2rmYkx8&t=406"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 24,
+        "verse": 6,
+        "reference_text": "Matthew 24:6",
+        "context": "we hear things and we hear of wars and rumors of wars",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1148.1000366210938,
+        "end_time": 1221.9000148773193,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1148"
       },
       {
         "book": "Matthew",
@@ -46593,6 +46623,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Judging Or Doing\" James 4:11-12",
       "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=2637"
+    },
+    {
+      "book": "Matthew",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Matthew",
+      "context": "you say Matthew something",
+      "is_implicit": false,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 0.0,
+      "end_time": 60.31999969482422,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=0"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 24,
+      "verse": 6,
+      "reference_text": "Matthew 24:6",
+      "context": "we hear things and we hear of wars and rumors of wars",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1148.1000366210938,
+      "end_time": 1221.9000148773193,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1148"
     }
   ]
 }

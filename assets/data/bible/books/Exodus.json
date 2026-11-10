@@ -1,6 +1,6 @@
 {
   "book": "Exodus",
-  "total_references": 931,
+  "total_references": 932,
   "chapters": {
     "14": [
       {
@@ -3261,6 +3261,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 16,
+        "verse": 4,
+        "reference_text": "Exodus 16:4",
+        "context": "Manna from heaven",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1870.1799926757812,
+        "end_time": 1941.1799926757812,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1870"
       },
       {
         "book": "Exodus",
@@ -28011,6 +28026,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
       "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=2334"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 16,
+      "verse": 4,
+      "reference_text": "Exodus 16:4",
+      "context": "Manna from heaven",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1870.1799926757812,
+      "end_time": 1941.1799926757812,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1870"
     }
   ]
 }

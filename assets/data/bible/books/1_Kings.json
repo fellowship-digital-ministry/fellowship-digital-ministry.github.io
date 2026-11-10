@@ -1,6 +1,6 @@
 {
   "book": "1_Kings",
-  "total_references": 232,
+  "total_references": 234,
   "chapters": {
     "19": [
       {
@@ -1724,6 +1724,21 @@
       {
         "book": "1 Kings",
         "chapter": 17,
+        "verse": 4,
+        "reference_text": "1 Kings 17:4",
+        "context": "There's not going to be any rain, I want you to go over to the brook, Cherith. And I've commanded the ravens to feed thee there",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1870.1799926757812,
+        "end_time": 1941.1799926757812,
+        "point_summary": "Even when natural provision fails completely, God remains able to supply His people's needs through unexpected means, as He commanded ravens to feed Elijah at the brook Cherith.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1870"
+      },
+      {
+        "book": "1 Kings",
+        "chapter": 17,
         "verse": 5,
         "reference_text": "1 Kings 17:5",
         "context": "So he went and did according unto the word of the Lord, for he went and dwelt by the brook Cherith, that is before Jordan",
@@ -1885,6 +1900,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Get Thee To Zarephath\" I Kings 17:8-16",
         "url": "https://www.youtube.com/watch?v=XEMRceIDqSo&t=323"
+      },
+      {
+        "book": "1 Kings",
+        "chapter": 17,
+        "verse": 9,
+        "reference_text": "1 Kings 17:9",
+        "context": "there's a widow over here in Zarephath, I want you to go over there and she's going to sustain thee",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 1870.1799926757812,
+        "end_time": 1941.1799926757812,
+        "point_summary": "Even when natural provision fails entirely, God remains able to supply through unexpected means—commanding ravens, directing Elijah to a widow at Zarephath—because He is never surprised by circumstances He ordained.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1870"
       },
       {
         "book": "1 Kings",
@@ -6989,6 +7019,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "Come Into The Ark",
       "url": "https://www.youtube.com/watch?v=fbc-2019-12-01pm-come-into-the-ark&t=1136"
+    },
+    {
+      "book": "1 Kings",
+      "chapter": 17,
+      "verse": 4,
+      "reference_text": "1 Kings 17:4",
+      "context": "There's not going to be any rain, I want you to go over to the brook, Cherith. And I've commanded the ravens to feed thee there",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1870.1799926757812,
+      "end_time": 1941.1799926757812,
+      "point_summary": "Even when natural provision fails completely, God remains able to supply His people's needs through unexpected means, as He commanded ravens to feed Elijah at the brook Cherith.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1870"
+    },
+    {
+      "book": "1 Kings",
+      "chapter": 17,
+      "verse": 9,
+      "reference_text": "1 Kings 17:9",
+      "context": "there's a widow over here in Zarephath, I want you to go over there and she's going to sustain thee",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 1870.1799926757812,
+      "end_time": 1941.1799926757812,
+      "point_summary": "Even when natural provision fails entirely, God remains able to supply through unexpected means—commanding ravens, directing Elijah to a widow at Zarephath—because He is never surprised by circumstances He ordained.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1870"
     }
   ]
 }

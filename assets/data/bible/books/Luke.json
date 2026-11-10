@@ -1,6 +1,6 @@
 {
   "book": "Luke",
-  "total_references": 894,
+  "total_references": 895,
   "chapters": {
     "10": [
       {
@@ -512,6 +512,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Heaven - Part One\"   Revelation 4:2-11",
         "url": "https://www.youtube.com/watch?v=p7s9XgLeAg0&t=1779"
+      },
+      {
+        "book": "Luke",
+        "chapter": 10,
+        "verse": 20,
+        "reference_text": "Luke 10:20",
+        "context": "rejoice not in this, rather rejoice that your name is written in heaven",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 387.3999938964844,
+        "end_time": 444.6000061035156,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=387"
       },
       {
         "book": "Luke",
@@ -26867,6 +26882,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=853"
+    },
+    {
+      "book": "Luke",
+      "chapter": 10,
+      "verse": 20,
+      "reference_text": "Luke 10:20",
+      "context": "rejoice not in this, rather rejoice that your name is written in heaven",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 387.3999938964844,
+      "end_time": 444.6000061035156,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=387"
     }
   ]
 }

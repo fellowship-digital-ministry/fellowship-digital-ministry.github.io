@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 2034,
+  "total_references": 2035,
   "chapters": {
     "12": [
       {
@@ -9023,6 +9023,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
         "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=1755"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
+        "verse": 6,
+        "reference_text": "Hebrews 13:6",
+        "context": "I'm not going to fear what man shall do unto me",
+        "is_implicit": true,
+        "video_id": "ks6EAPRsuLA",
+        "start_time": 2017.1799926757812,
+        "end_time": 2078.1799926757812,
+        "point_summary": "Choosing not to fear what man can do is grounded in God's presence, echoing the confession \"the Lord is my helper\" that Hebrews 13:6 frames as the believer's confident declaration.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+        "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2017"
       },
       {
         "book": "Hebrews",
@@ -61051,6 +61066,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1426"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 6,
+      "reference_text": "Hebrews 13:6",
+      "context": "I'm not going to fear what man shall do unto me",
+      "is_implicit": true,
+      "video_id": "ks6EAPRsuLA",
+      "start_time": 2017.1799926757812,
+      "end_time": 2078.1799926757812,
+      "point_summary": "Choosing not to fear what man can do is grounded in God's presence, echoing the confession \"the Lord is my helper\" that Hebrews 13:6 frames as the believer's confident declaration.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
+      "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2017"
     }
   ]
 }
