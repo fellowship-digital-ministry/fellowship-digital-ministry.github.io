@@ -221,11 +221,11 @@
       "count": 35
     },
     {
-      "book": "3_John",
+      "book": "Esther",
       "count": 34
     },
     {
-      "book": "Esther",
+      "book": "3_John",
       "count": 34
     },
     {
@@ -257,15 +257,15 @@
       "count": 7
     },
     {
-      "book": "Nahum",
-      "count": 1
-    },
-    {
       "book": "Song_of_Solomon",
       "count": 1
     },
     {
       "book": "Zephaniah",
+      "count": 1
+    },
+    {
+      "book": "Nahum",
       "count": 1
     }
   ],
