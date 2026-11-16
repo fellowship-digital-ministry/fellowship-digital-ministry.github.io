@@ -1,8 +1,23 @@
 {
   "book": "Ruth",
-  "total_references": 29,
+  "total_references": 30,
   "chapters": {
     "3": [
+      {
+        "book": "Ruth",
+        "chapter": 3,
+        "verse": 1,
+        "reference_text": "Ruth 3:1-4:1",
+        "context": "chapter 3 and then in the first several verses of chapter 4 where Boaz says, listen, it's true that I'm a kinsman, but there's one nearer",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 1229.3399658203125,
+        "end_time": 1284.3399658203125,
+        "point_summary": "Boaz's refusal to take a shortcut in Ruth 3–4 illustrates that doing good God's way requires first knowing God's law, just as believers must study Scripture to prove what is acceptable to the Lord.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1229"
+      },
       {
         "book": "Ruth",
         "chapter": 3,
@@ -881,6 +896,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Go And Tell\"  II Kings 7:3-11",
       "url": "https://www.youtube.com/watch?v=Y_zca3zo61U&t=2274"
+    },
+    {
+      "book": "Ruth",
+      "chapter": 3,
+      "verse": 1,
+      "reference_text": "Ruth 3:1-4:1",
+      "context": "chapter 3 and then in the first several verses of chapter 4 where Boaz says, listen, it's true that I'm a kinsman, but there's one nearer",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 1229.3399658203125,
+      "end_time": 1284.3399658203125,
+      "point_summary": "Boaz's refusal to take a shortcut in Ruth 3–4 illustrates that doing good God's way requires first knowing God's law, just as believers must study Scripture to prove what is acceptable to the Lord.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1229"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "1_Corinthians",
-  "total_references": 1630,
+  "total_references": 1631,
   "chapters": {
     "10": [
       {
@@ -13255,6 +13255,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Cattle Beasts And Creeping Things",
         "url": "https://www.youtube.com/watch?v=fbc-060219pm-cattle-beasts-and-creeping-things&t=1992"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 2,
+        "verse": 14,
+        "reference_text": "1 Corinthians 2:14",
+        "context": "the natural man receiveth not the things of the spirit of God for their foolishness unto him, neither can he know them because they're spiritually discerned",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 781.9999847412109,
+        "end_time": 843.5199737548828,
+        "point_summary": "Spiritual inability to receive God's truth is not an excuse for the believer, because the indwelling Holy Spirit serves as teacher, making the Word accessible and accountability therefore real.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=781"
       },
       {
         "book": "1 Corinthians",
@@ -48937,6 +48952,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=1162"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 2,
+      "verse": 14,
+      "reference_text": "1 Corinthians 2:14",
+      "context": "the natural man receiveth not the things of the spirit of God for their foolishness unto him, neither can he know them because they're spiritually discerned",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 781.9999847412109,
+      "end_time": 843.5199737548828,
+      "point_summary": "Spiritual inability to receive God's truth is not an excuse for the believer, because the indwelling Holy Spirit serves as teacher, making the Word accessible and accountability therefore real.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=781"
     }
   ]
 }

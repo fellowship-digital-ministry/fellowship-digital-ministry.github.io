@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1873,
+  "total_references": 1874,
   "chapters": {
     "4": [
       {
@@ -1427,6 +1427,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=1811"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 4,
+        "verse": 3,
+        "reference_text": "2 Corinthians 4:3",
+        "context": "If our gospel be hid, why would our gospel be hid?",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 1957.0399627685547,
+        "end_time": 2016.0399627685547,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1957"
       },
       {
         "book": "2 Corinthians",
@@ -56223,6 +56238,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2078"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 4,
+      "verse": 3,
+      "reference_text": "2 Corinthians 4:3",
+      "context": "If our gospel be hid, why would our gospel be hid?",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 1957.0399627685547,
+      "end_time": 2016.0399627685547,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1957"
     }
   ]
 }

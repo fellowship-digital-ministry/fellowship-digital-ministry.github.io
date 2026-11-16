@@ -1,6 +1,6 @@
 {
   "book": "Habakkuk",
-  "total_references": 46,
+  "total_references": 47,
   "chapters": {
     "2": [
       {
@@ -544,6 +544,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
         "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2017"
+      },
+      {
+        "book": "Habakkuk",
+        "chapter": 3,
+        "verse": 18,
+        "reference_text": "Habakkuk 3:18",
+        "context": "Yet I will rejoice. Why? Because God is my strength",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 1773.3399658203125,
+        "end_time": 1837.4199676513672,
+        "point_summary": "Rejoicing in God as one's strength—not in circumstances—is the motivating \"why\" behind the command to count trials all joy.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1773"
       },
       {
         "book": "Habakkuk",
@@ -1389,6 +1404,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2359"
+    },
+    {
+      "book": "Habakkuk",
+      "chapter": 3,
+      "verse": 18,
+      "reference_text": "Habakkuk 3:18",
+      "context": "Yet I will rejoice. Why? Because God is my strength",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 1773.3399658203125,
+      "end_time": 1837.4199676513672,
+      "point_summary": "Rejoicing in God as one's strength—not in circumstances—is the motivating \"why\" behind the command to count trials all joy.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1773"
     }
   ]
 }

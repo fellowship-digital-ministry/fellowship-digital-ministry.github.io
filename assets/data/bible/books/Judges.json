@@ -1,6 +1,6 @@
 {
   "book": "Judges",
-  "total_references": 161,
+  "total_references": 162,
   "chapters": {
     "21": [
       {
@@ -122,6 +122,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "They Hearkened Not",
         "url": "https://www.youtube.com/watch?v=fbc-2025-12-10mw-they-hearkened-not&t=1498"
+      },
+      {
+        "book": "Judges",
+        "chapter": 21,
+        "verse": 25,
+        "reference_text": "Judges 21:25",
+        "context": "every man did that which was right in his own sight",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 453.8800048828125,
+        "end_time": 515.4600219726562,
+        "point_summary": "The period of the judges, when every man did what was right in his own eyes, illustrates the moral chaos that results when people lack or reject God's revealed word as their standard.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=453"
       }
     ],
     "13": [
@@ -4857,6 +4872,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
       "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=816"
+    },
+    {
+      "book": "Judges",
+      "chapter": 21,
+      "verse": 25,
+      "reference_text": "Judges 21:25",
+      "context": "every man did that which was right in his own sight",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 453.8800048828125,
+      "end_time": 515.4600219726562,
+      "point_summary": "The period of the judges, when every man did what was right in his own eyes, illustrates the moral chaos that results when people lack or reject God's revealed word as their standard.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=453"
     }
   ]
 }

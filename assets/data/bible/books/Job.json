@@ -1,6 +1,6 @@
 {
   "book": "Job",
-  "total_references": 122,
+  "total_references": 123,
   "chapters": {
     "16": [
       {
@@ -368,6 +368,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Trials\" James 1:2-4",
         "url": "https://www.youtube.com/watch?v=LE1qkzND4b0&t=1261"
+      },
+      {
+        "book": "Job",
+        "chapter": 1,
+        "verse": 2,
+        "reference_text": "Job 1 and 2",
+        "context": "just read Job 1 and 2 and it will change your perspective in a hurry",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 2016.0399627685547,
+        "end_time": 2084.5199584960938,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2016"
       },
       {
         "book": "Job",
@@ -3695,6 +3710,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
       "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1075"
+    },
+    {
+      "book": "Job",
+      "chapter": 1,
+      "verse": 2,
+      "reference_text": "Job 1 and 2",
+      "context": "just read Job 1 and 2 and it will change your perspective in a hurry",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 2016.0399627685547,
+      "end_time": 2084.5199584960938,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2016"
     }
   ]
 }

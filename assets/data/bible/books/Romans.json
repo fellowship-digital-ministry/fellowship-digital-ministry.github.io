@@ -1,6 +1,6 @@
 {
   "book": "Romans",
-  "total_references": 1763,
+  "total_references": 1767,
   "chapters": {
     "8": [
       {
@@ -3874,6 +3874,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
         "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=1564"
+      },
+      {
+        "book": "Romans",
+        "chapter": 1,
+        "verse": null,
+        "reference_text": "Romans",
+        "context": "Romans deals with this, that they had the responsibility of the Jews to ensure that the word of God was sent forth",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 1025.8999633789062,
+        "end_time": 1093.8599853515625,
+        "point_summary": "Romans is cited briefly to note that the Jews bore a responsibility to send forth God's word, illustrating that God's people have always been accountable to disseminate Scripture—a duty now carried by the church.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1025"
       },
       {
         "book": "Romans",
@@ -16951,6 +16966,21 @@
       {
         "book": "Romans",
         "chapter": 12,
+        "verse": 2,
+        "reference_text": "Romans 12:2",
+        "context": "proven what is acceptable unto the Lord",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 1159.6199951171875,
+        "end_time": 1229.3399658203125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1159"
+      },
+      {
+        "book": "Romans",
+        "chapter": 12,
         "verse": 3,
         "reference_text": "Romans 12:3",
         "context": "In Romans chapter 12 beginning in verse number 3, the Bible says, for I say through the grace given unto me to every man that is among you, not to think of himself more highly than he ought to think, but to think soberly according as God hath dealt to every man the measure of faith.",
@@ -17652,6 +17682,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Fifth Seal Opened\" Revelation 6:9-11",
         "url": "https://www.youtube.com/watch?v=gJS2k2SH2Ko&t=1104"
+      },
+      {
+        "book": "Romans",
+        "chapter": 12,
+        "verse": 19,
+        "reference_text": "Romans 12:19",
+        "context": "For your obedience has come abroad unto all men. I am glad therefore on your behalf, but yet I would have you wise unto that which is good and simple concerning evil.",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 1343.3399658203125,
+        "end_time": 1415.3399658203125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1343"
       },
       {
         "book": "Romans",
@@ -25875,6 +25920,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Deception\" Mark 13:5-6",
         "url": "https://www.youtube.com/watch?v=I6K0V0ASzDE&t=339"
+      },
+      {
+        "book": "Romans",
+        "chapter": 16,
+        "verse": 19,
+        "reference_text": "Romans 16:19",
+        "context": "Look at Romans chapter 16 if you will... in Romans chapter 16, in verse number 19, notice what the Bible says here in this verse of Scripture",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 1284.3399658203125,
+        "end_time": 1343.3399658203125,
+        "point_summary": "Personal accountability before God requires knowing what is good, and Romans 16:19's call to be \"wise unto that which is good\" is fulfilled through the ongoing discipline of proving and studying Scripture.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1284"
       }
     ],
     "15": [
@@ -52929,6 +52989,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1280"
+    },
+    {
+      "book": "Romans",
+      "chapter": 1,
+      "verse": null,
+      "reference_text": "Romans",
+      "context": "Romans deals with this, that they had the responsibility of the Jews to ensure that the word of God was sent forth",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 1025.8999633789062,
+      "end_time": 1093.8599853515625,
+      "point_summary": "Romans is cited briefly to note that the Jews bore a responsibility to send forth God's word, illustrating that God's people have always been accountable to disseminate Scripture—a duty now carried by the church.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1025"
+    },
+    {
+      "book": "Romans",
+      "chapter": 12,
+      "verse": 2,
+      "reference_text": "Romans 12:2",
+      "context": "proven what is acceptable unto the Lord",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 1159.6199951171875,
+      "end_time": 1229.3399658203125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1159"
+    },
+    {
+      "book": "Romans",
+      "chapter": 16,
+      "verse": 19,
+      "reference_text": "Romans 16:19",
+      "context": "Look at Romans chapter 16 if you will... in Romans chapter 16, in verse number 19, notice what the Bible says here in this verse of Scripture",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 1284.3399658203125,
+      "end_time": 1343.3399658203125,
+      "point_summary": "Personal accountability before God requires knowing what is good, and Romans 16:19's call to be \"wise unto that which is good\" is fulfilled through the ongoing discipline of proving and studying Scripture.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1284"
+    },
+    {
+      "book": "Romans",
+      "chapter": 12,
+      "verse": 19,
+      "reference_text": "Romans 12:19",
+      "context": "For your obedience has come abroad unto all men. I am glad therefore on your behalf, but yet I would have you wise unto that which is good and simple concerning evil.",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 1343.3399658203125,
+      "end_time": 1415.3399658203125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1343"
     }
   ]
 }

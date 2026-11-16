@@ -1,6 +1,6 @@
 {
   "book": "Proverbs",
-  "total_references": 599,
+  "total_references": 600,
   "chapters": {
     "3": [
       {
@@ -2127,6 +2127,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Through Faith Sara",
         "url": "https://www.youtube.com/watch?v=fbc-2026-05-13mw-through-faith-sara&t=1929"
+      },
+      {
+        "book": "Proverbs",
+        "chapter": 14,
+        "verse": 12,
+        "reference_text": "Proverbs 14:12",
+        "context": "there's a way that seemeth right unto a man but the ends there over the way of death",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 781.9999847412109,
+        "end_time": 843.5199737548828,
+        "point_summary": "Human accountability before God is grounded in the fact that He has clearly communicated His truth through Scripture, so \"every man doing what is right in his own sight\" — the way that seems right but ends in death — is without excuse.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=781"
       },
       {
         "book": "Proverbs",
@@ -18031,6 +18046,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=730"
+    },
+    {
+      "book": "Proverbs",
+      "chapter": 14,
+      "verse": 12,
+      "reference_text": "Proverbs 14:12",
+      "context": "there's a way that seemeth right unto a man but the ends there over the way of death",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 781.9999847412109,
+      "end_time": 843.5199737548828,
+      "point_summary": "Human accountability before God is grounded in the fact that He has clearly communicated His truth through Scripture, so \"every man doing what is right in his own sight\" — the way that seems right but ends in death — is without excuse.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=781"
     }
   ]
 }

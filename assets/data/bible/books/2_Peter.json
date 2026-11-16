@@ -1,6 +1,6 @@
 {
   "book": "2_Peter",
-  "total_references": 425,
+  "total_references": 426,
   "chapters": {
     "3": [
       {
@@ -527,6 +527,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "God Remembered Noah",
         "url": "https://www.youtube.com/watch?v=fbc-2019-12-08pm-god-remembered-noah&t=1358"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 3,
+        "verse": null,
+        "reference_text": "2 Peter 3",
+        "context": "Peter even acknowledged as he writes in 2 Peter chapter number three, with regard to the epistles that Paul penned, he says, which are some things hard to be understood",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 843.5199737548828,
+        "end_time": 902.9999694824219,
+        "point_summary": "Peter's own acknowledgment that some of Paul's writings are \"hard to be understood\" is cited to validate the difficulty of Scripture while affirming the Holy Spirit's role as teacher to guide believers through it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=843"
       },
       {
         "book": "2 Peter",
@@ -12761,6 +12776,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
       "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=1660"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "2 Peter 3",
+      "context": "Peter even acknowledged as he writes in 2 Peter chapter number three, with regard to the epistles that Paul penned, he says, which are some things hard to be understood",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 843.5199737548828,
+      "end_time": 902.9999694824219,
+      "point_summary": "Peter's own acknowledgment that some of Paul's writings are \"hard to be understood\" is cited to validate the difficulty of Scripture while affirming the Holy Spirit's role as teacher to guide believers through it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=843"
     }
   ]
 }

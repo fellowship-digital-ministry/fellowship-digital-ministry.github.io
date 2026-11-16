@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 969,
+  "total_references": 970,
   "chapters": {
     "1": [
       {
@@ -2207,6 +2207,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
         "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1520"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 1,
+        "verse": 6,
+        "reference_text": "1 Peter 1:6",
+        "context": "if need be, for a season",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 1837.4199676513672,
+        "end_time": 1900.0199661254883,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1837"
       },
       {
         "book": "1 Peter",
@@ -29085,6 +29100,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Judging Or Doing\" James 4:11-12",
       "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=0"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 1,
+      "verse": 6,
+      "reference_text": "1 Peter 1:6",
+      "context": "if need be, for a season",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 1837.4199676513672,
+      "end_time": 1900.0199661254883,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1837"
     }
   ]
 }

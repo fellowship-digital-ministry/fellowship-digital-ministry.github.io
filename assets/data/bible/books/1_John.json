@@ -1,6 +1,6 @@
 {
   "book": "1_John",
-  "total_references": 1140,
+  "total_references": 1143,
   "chapters": {
     "2": [
       {
@@ -1082,6 +1082,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Marvel At Jesus\" Matthew 8:23-27",
         "url": "https://www.youtube.com/watch?v=BGQCm4jm-rE&t=1316"
+      },
+      {
+        "book": "1 John",
+        "chapter": 2,
+        "verse": 1,
+        "reference_text": "1 John 2:1",
+        "context": "We thank you that we have an advocate with the Father, Jesus Christ the righteous",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 2951.0799560546875,
+        "end_time": 3030.3999633789062,
+        "point_summary": "When believers fail to do the good they know to do, confession and forsaking of sin restores fellowship, with Christ as the righteous Advocate before the Father.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2951"
       },
       {
         "book": "1 John",
@@ -11397,6 +11412,21 @@
       {
         "book": "1 John",
         "chapter": 5,
+        "verse": 3,
+        "reference_text": "1 John 5:3",
+        "context": "God, you told us if we love you that we're to keep your commandments",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 2951.0799560546875,
+        "end_time": 3030.3999633789062,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2951"
+      },
+      {
+        "book": "1 John",
+        "chapter": 5,
         "verse": 4,
         "reference_text": "1 John 5:4",
         "context": "for whatsoever is born of God overcometh the world, and this is the victory that overcometh the world, even our faith.",
@@ -16450,6 +16480,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Biblical Response To Worldliness - Part 2\"  James 4:6-10",
         "url": "https://www.youtube.com/watch?v=Z1UCPWdB4J4&t=2150"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
+        "verse": 9,
+        "reference_text": "First John one and verse number nine",
+        "context": "he is faithful and just to forgive us",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 2805.93994140625,
+        "end_time": 2878.0799560546875,
+        "point_summary": "When sin of omission is identified — failing to do the known good of James 4:17 — confession to a faithful and just God is the believer's immediate recourse.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2805"
       },
       {
         "book": "1 John",
@@ -34217,6 +34262,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2230"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 9,
+      "reference_text": "First John one and verse number nine",
+      "context": "he is faithful and just to forgive us",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 2805.93994140625,
+      "end_time": 2878.0799560546875,
+      "point_summary": "When sin of omission is identified — failing to do the known good of James 4:17 — confession to a faithful and just God is the believer's immediate recourse.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2805"
+    },
+    {
+      "book": "1 John",
+      "chapter": 5,
+      "verse": 3,
+      "reference_text": "1 John 5:3",
+      "context": "God, you told us if we love you that we're to keep your commandments",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 2951.0799560546875,
+      "end_time": 3030.3999633789062,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2951"
+    },
+    {
+      "book": "1 John",
+      "chapter": 2,
+      "verse": 1,
+      "reference_text": "1 John 2:1",
+      "context": "We thank you that we have an advocate with the Father, Jesus Christ the righteous",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 2951.0799560546875,
+      "end_time": 3030.3999633789062,
+      "point_summary": "When believers fail to do the good they know to do, confession and forsaking of sin restores fellowship, with Christ as the righteous Advocate before the Father.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2951"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 750,
+  "total_references": 751,
   "chapters": {
     "5": [
       {
@@ -3467,6 +3467,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Ponder The Promises",
         "url": "https://www.youtube.com/watch?v=fbc-2024-05-01mw-ponder-the-promises&t=1258"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 5,
+        "verse": 21,
+        "reference_text": "1 Thessalonians 5:21",
+        "context": "Prove all things",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 1229.3399658203125,
+        "end_time": 1284.3399658203125,
+        "point_summary": "Knowing what is good requires personal diligence—\"prove all things\" means each believer bears individual responsibility to study God's word as the standard for acceptable conduct.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1229"
       },
       {
         "book": "1 Thessalonians",
@@ -22515,6 +22530,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2611"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 5,
+      "verse": 21,
+      "reference_text": "1 Thessalonians 5:21",
+      "context": "Prove all things",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 1229.3399658203125,
+      "end_time": 1284.3399658203125,
+      "point_summary": "Knowing what is good requires personal diligence—\"prove all things\" means each believer bears individual responsibility to study God's word as the standard for acceptable conduct.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1229"
     }
   ]
 }

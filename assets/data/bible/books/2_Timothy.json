@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 1002,
+  "total_references": 1007,
   "chapters": {
     "3": [
       {
@@ -5931,6 +5931,21 @@
       {
         "book": "2 Timothy",
         "chapter": 3,
+        "verse": 16,
+        "reference_text": "2 Timothy 3:16",
+        "context": "all scripture is given by inspiration of God",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 515.4600219726562,
+        "end_time": 583.719970703125,
+        "point_summary": "Scripture's divine inspiration and providential preservation mean that those who possess the Bible are fully accountable before God, leaving them without excuse for failing to do good.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=515"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 3,
         "verse": 17,
         "reference_text": "2 Timothy 3:17",
         "context": "You see in verse 17 that the man of God might be perfect, throughly furnished unto all good works.",
@@ -7373,6 +7388,21 @@
       {
         "book": "2 Timothy",
         "chapter": 4,
+        "verse": 2,
+        "reference_text": "2 Timothy 4:2",
+        "context": "preach the word",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 902.9999694824219,
+        "end_time": 963.1399841308594,
+        "point_summary": "Amid warnings that people will not endure sound doctrine, the command to \"preach the word\" stands as the abiding admonition for faithful ministry and the reason believers must remain students of Scripture.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 4,
         "verse": 3,
         "reference_text": "2 Timothy 4:3",
         "context": "They're not going to endorse sound doctrine, right? They're going to have itching ears, right?",
@@ -7519,6 +7549,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=185"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 4,
+        "verse": 3,
+        "reference_text": "2 Timothy 4:3",
+        "context": "the time will come while they will not endure sound doctrine",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 902.9999694824219,
+        "end_time": 963.1399841308594,
+        "point_summary": "Paul's warning that people will not endure sound doctrine frames the present age as one demanding faithful preaching of the Word despite cultural resistance.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
       },
       {
         "book": "2 Timothy",
@@ -14483,6 +14528,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"That Ye May Be Able To Withstand In The Evil Day\" Ephesians 6:10-18",
         "url": "https://www.youtube.com/watch?v=IRL8UsBTrPc&t=2341"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 2,
+        "verse": 15,
+        "reference_text": "2 Timothy 2:15",
+        "context": "study to show thyself approved unto God",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 843.5199737548828,
+        "end_time": 902.9999694824219,
+        "point_summary": "Diligent, Spirit-aided study of Scripture is required because God holds believers accountable for what He has revealed, making the command to \"study to show thyself approved\" a matter of divine stewardship.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=843"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 2,
+        "verse": 15,
+        "reference_text": "2 Timothy 2:15",
+        "context": "a workman that needs not to be ashamed, rightly dividing the word of truth",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 902.9999694824219,
+        "end_time": 963.1399841308594,
+        "point_summary": "Diligent study of Scripture is framed as an act of accountability before God, with 2 Timothy 2:15's call to be a \"workman approved\" cited as the reason believers must search and rightly divide a book the Holy Spirit alone can fully illuminate.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
       },
       {
         "book": "2 Timothy",
@@ -30075,6 +30150,81 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2017"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 3,
+      "verse": 16,
+      "reference_text": "2 Timothy 3:16",
+      "context": "all scripture is given by inspiration of God",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 515.4600219726562,
+      "end_time": 583.719970703125,
+      "point_summary": "Scripture's divine inspiration and providential preservation mean that those who possess the Bible are fully accountable before God, leaving them without excuse for failing to do good.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=515"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 2,
+      "verse": 15,
+      "reference_text": "2 Timothy 2:15",
+      "context": "study to show thyself approved unto God",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 843.5199737548828,
+      "end_time": 902.9999694824219,
+      "point_summary": "Diligent, Spirit-aided study of Scripture is required because God holds believers accountable for what He has revealed, making the command to \"study to show thyself approved\" a matter of divine stewardship.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=843"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 2,
+      "verse": 15,
+      "reference_text": "2 Timothy 2:15",
+      "context": "a workman that needs not to be ashamed, rightly dividing the word of truth",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 902.9999694824219,
+      "end_time": 963.1399841308594,
+      "point_summary": "Diligent study of Scripture is framed as an act of accountability before God, with 2 Timothy 2:15's call to be a \"workman approved\" cited as the reason believers must search and rightly divide a book the Holy Spirit alone can fully illuminate.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 4,
+      "verse": 3,
+      "reference_text": "2 Timothy 4:3",
+      "context": "the time will come while they will not endure sound doctrine",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 902.9999694824219,
+      "end_time": 963.1399841308594,
+      "point_summary": "Paul's warning that people will not endure sound doctrine frames the present age as one demanding faithful preaching of the Word despite cultural resistance.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 4,
+      "verse": 2,
+      "reference_text": "2 Timothy 4:2",
+      "context": "preach the word",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 902.9999694824219,
+      "end_time": 963.1399841308594,
+      "point_summary": "Amid warnings that people will not endure sound doctrine, the command to \"preach the word\" stands as the abiding admonition for faithful ministry and the reason believers must remain students of Scripture.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
     }
   ]
 }

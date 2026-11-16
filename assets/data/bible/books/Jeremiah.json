@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 365,
+  "total_references": 367,
   "chapters": {
     "31": [
       {
@@ -4947,6 +4947,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Loving God With All Your Heart\" John 21:15-19",
         "url": "https://www.youtube.com/watch?v=eKXXb-CvsCo&t=2261"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 4,
+        "verse": 22,
+        "reference_text": "Jeremiah 4:22",
+        "context": "they are wise to do evil, but to do good, they have no knowledge",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 317.6000061035156,
+        "end_time": 384.239990234375,
+        "point_summary": "Jeremiah 4:22 is cited as a sobering contrast: Judah was skilled at doing evil yet had no knowledge of doing good—the very failure James warns his readers against repeating.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=317"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": 4,
+        "verse": 22,
+        "reference_text": "Jeremiah 4:22",
+        "context": "Jeremiah 4 verse 22",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 583.719970703125,
+        "end_time": 658.2599792480469,
+        "point_summary": "Judah's indictment in Jeremiah 4:22—that they had no knowledge to do good—was not God's failure to provide, but their willful rejection of the word and prophets He had already given them.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=583"
       }
     ],
     "6": [
@@ -11015,6 +11045,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
       "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=944"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 4,
+      "verse": 22,
+      "reference_text": "Jeremiah 4:22",
+      "context": "they are wise to do evil, but to do good, they have no knowledge",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 317.6000061035156,
+      "end_time": 384.239990234375,
+      "point_summary": "Jeremiah 4:22 is cited as a sobering contrast: Judah was skilled at doing evil yet had no knowledge of doing good—the very failure James warns his readers against repeating.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=317"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": 4,
+      "verse": 22,
+      "reference_text": "Jeremiah 4:22",
+      "context": "Jeremiah 4 verse 22",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 583.719970703125,
+      "end_time": 658.2599792480469,
+      "point_summary": "Judah's indictment in Jeremiah 4:22—that they had no knowledge to do good—was not God's failure to provide, but their willful rejection of the word and prophets He had already given them.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=583"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "John",
-  "total_references": 2988,
+  "total_references": 2989,
   "chapters": {
     "14": [
       {
@@ -13043,6 +13043,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Judging Or Doing\" James 4:11-12",
         "url": "https://www.youtube.com/watch?v=spkzWGQNXlY&t=548"
+      },
+      {
+        "book": "John",
+        "chapter": 13,
+        "verse": null,
+        "reference_text": "John 13",
+        "context": "when the Lord Jesus Christ is washing the feet of the disciples and Peter says, no, no, no, not so, Lord",
+        "is_implicit": false,
+        "video_id": "381OiXEwp68",
+        "start_time": 2143.9599609375,
+        "end_time": 2203.919952392578,
+        "point_summary": "Jesus washing the disciples' feet illustrates that believers, already saved, still need ongoing cleansing from the world's defilement through continual return to God's Word.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2143"
       },
       {
         "book": "John",
@@ -89687,6 +89702,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=387"
+    },
+    {
+      "book": "John",
+      "chapter": 13,
+      "verse": null,
+      "reference_text": "John 13",
+      "context": "when the Lord Jesus Christ is washing the feet of the disciples and Peter says, no, no, no, not so, Lord",
+      "is_implicit": false,
+      "video_id": "381OiXEwp68",
+      "start_time": 2143.9599609375,
+      "end_time": 2203.919952392578,
+      "point_summary": "Jesus washing the disciples' feet illustrates that believers, already saved, still need ongoing cleansing from the world's defilement through continual return to God's Word.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2143"
     }
   ]
 }

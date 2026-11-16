@@ -1,6 +1,6 @@
 {
   "book": "1_Timothy",
-  "total_references": 600,
+  "total_references": 601,
   "chapters": {
     "2": [
       {
@@ -3034,6 +3034,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Workers Together With God\"  II Corinthians 6:1-10",
         "url": "https://www.youtube.com/watch?v=Ryn7Axm_fJs&t=311"
+      },
+      {
+        "book": "1 Timothy",
+        "chapter": 3,
+        "verse": 15,
+        "reference_text": "1 Timothy 3:15",
+        "context": "the church is the pillar and ground of the truth",
+        "is_implicit": true,
+        "video_id": "381OiXEwp68",
+        "start_time": 1025.8999633789062,
+        "end_time": 1093.8599853515625,
+        "point_summary": "The church's designation as \"the pillar and ground of the truth\" establishes its responsibility to preserve and disseminate Scripture to those who do not yet have it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Do Good\"  James 4:17",
+        "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1025"
       },
       {
         "book": "1 Timothy",
@@ -18019,6 +18034,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=1852"
+    },
+    {
+      "book": "1 Timothy",
+      "chapter": 3,
+      "verse": 15,
+      "reference_text": "1 Timothy 3:15",
+      "context": "the church is the pillar and ground of the truth",
+      "is_implicit": true,
+      "video_id": "381OiXEwp68",
+      "start_time": 1025.8999633789062,
+      "end_time": 1093.8599853515625,
+      "point_summary": "The church's designation as \"the pillar and ground of the truth\" establishes its responsibility to preserve and disseminate Scripture to those who do not yet have it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Do Good\"  James 4:17",
+      "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1025"
     }
   ]
 }
