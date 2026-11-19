@@ -1,6 +1,6 @@
 {
   "book": "1_Peter",
-  "total_references": 970,
+  "total_references": 971,
   "chapters": {
     "1": [
       {
@@ -11845,6 +11845,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Law Of The Lord\"  Psalm 19:7-14",
         "url": "https://www.youtube.com/watch?v=IN5r7ZtpkKY&t=1271"
+      },
+      {
+        "book": "1 Peter",
+        "chapter": 2,
+        "verse": 2,
+        "reference_text": "1 Peter 2:2",
+        "context": "as newborn babes desire the sincere milk of the word that ye may grow thereby",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 485.44000244140625,
+        "end_time": 567.6400146484375,
+        "point_summary": "Just as a healthy infant naturally craves milk, believers ought to have an instinctive, urgent desire for God's Word as the necessary means of growing in truth.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=485"
       },
       {
         "book": "1 Peter",
@@ -29115,6 +29130,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1837"
+    },
+    {
+      "book": "1 Peter",
+      "chapter": 2,
+      "verse": 2,
+      "reference_text": "1 Peter 2:2",
+      "context": "as newborn babes desire the sincere milk of the word that ye may grow thereby",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 485.44000244140625,
+      "end_time": 567.6400146484375,
+      "point_summary": "Just as a healthy infant naturally craves milk, believers ought to have an instinctive, urgent desire for God's Word as the necessary means of growing in truth.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=485"
     }
   ]
 }

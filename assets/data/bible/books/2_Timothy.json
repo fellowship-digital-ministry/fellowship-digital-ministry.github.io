@@ -1,6 +1,6 @@
 {
   "book": "2_Timothy",
-  "total_references": 1007,
+  "total_references": 1009,
   "chapters": {
     "3": [
       {
@@ -14558,6 +14558,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do Good\"  James 4:17",
         "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 2,
+        "verse": 15,
+        "reference_text": "2 Timothy 2:15",
+        "context": "Study to show thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 1475.4600219726562,
+        "end_time": 1530.6800231933594,
+        "point_summary": "Proper biblical position on truth is established through diligent personal study of Scripture, as 2 Timothy 2:15 commands, so that one rightly divides the word of truth rather than adopting the world's relativism.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1475"
+      },
+      {
+        "book": "2 Timothy",
+        "chapter": 2,
+        "verse": 15,
+        "reference_text": "2 Timothy 2:15",
+        "context": "study to show thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth",
+        "is_implicit": true,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 266.0,
+        "end_time": 324.0,
+        "point_summary": "Rightly dividing the Word of truth requires diligent personal study, a standard AI-generated content cannot meet because it produces plausible-sounding falsehood rather than verified truth.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=266"
       },
       {
         "book": "2 Timothy",
@@ -30225,6 +30255,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=902"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 2,
+      "verse": 15,
+      "reference_text": "2 Timothy 2:15",
+      "context": "Study to show thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 1475.4600219726562,
+      "end_time": 1530.6800231933594,
+      "point_summary": "Proper biblical position on truth is established through diligent personal study of Scripture, as 2 Timothy 2:15 commands, so that one rightly divides the word of truth rather than adopting the world's relativism.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1475"
+    },
+    {
+      "book": "2 Timothy",
+      "chapter": 2,
+      "verse": 15,
+      "reference_text": "2 Timothy 2:15",
+      "context": "study to show thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth",
+      "is_implicit": true,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 266.0,
+      "end_time": 324.0,
+      "point_summary": "Rightly dividing the Word of truth requires diligent personal study, a standard AI-generated content cannot meet because it produces plausible-sounding falsehood rather than verified truth.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=266"
     }
   ]
 }

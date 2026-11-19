@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1874,
+  "total_references": 1875,
   "chapters": {
     "4": [
       {
@@ -2117,6 +2117,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do I Have Blood On My Hands?\"  Acts 20:26-27",
         "url": "https://www.youtube.com/watch?v=3Ct-Lh8Rchw&t=1883"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 4,
+        "verse": 4,
+        "reference_text": "2 Corinthians 4:4",
+        "context": "the little g God of this world has blinded the minds of them which believe not, lest the light of the glorious gospel should shine unto them",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 358.94000244140625,
+        "end_time": 422.67999267578125,
+        "point_summary": "Satan's blinding of unbelievers' minds (2 Cor. 4:4) is invoked to underscore the privilege of those who have free access to Scripture, contrasting spiritual darkness with the knowable truth available to believers.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=358"
       },
       {
         "book": "2 Corinthians",
@@ -56253,6 +56268,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1957"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 4,
+      "verse": 4,
+      "reference_text": "2 Corinthians 4:4",
+      "context": "the little g God of this world has blinded the minds of them which believe not, lest the light of the glorious gospel should shine unto them",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 358.94000244140625,
+      "end_time": 422.67999267578125,
+      "point_summary": "Satan's blinding of unbelievers' minds (2 Cor. 4:4) is invoked to underscore the privilege of those who have free access to Scripture, contrasting spiritual darkness with the knowable truth available to believers.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=358"
     }
   ]
 }

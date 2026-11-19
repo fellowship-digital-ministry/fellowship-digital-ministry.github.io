@@ -1,6 +1,6 @@
 {
   "book": "Ecclesiastes",
-  "total_references": 40,
+  "total_references": 41,
   "chapters": {
     "7": [
       {
@@ -603,6 +603,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Meet For The Master's Use\"  II Corinthians 8:18-24",
         "url": "https://www.youtube.com/watch?v=X_Uu37pLEd0&t=1567"
+      },
+      {
+        "book": "Ecclesiastes",
+        "chapter": 1,
+        "verse": 9,
+        "reference_text": "Ecclesiastes 1:9",
+        "context": "There's nothing new under the sun",
+        "is_implicit": true,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 864.5400085449219,
+        "end_time": 925.0,
+        "point_summary": "Ecclesiastes 1:9's declaration that there is nothing new under the sun is invoked to contrast the Athenians' craving for novelty with the timeless, unchanging nature of truth.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=864"
       }
     ],
     "5": [
@@ -1223,6 +1238,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
       "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2769"
+    },
+    {
+      "book": "Ecclesiastes",
+      "chapter": 1,
+      "verse": 9,
+      "reference_text": "Ecclesiastes 1:9",
+      "context": "There's nothing new under the sun",
+      "is_implicit": true,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 864.5400085449219,
+      "end_time": 925.0,
+      "point_summary": "Ecclesiastes 1:9's declaration that there is nothing new under the sun is invoked to contrast the Athenians' craving for novelty with the timeless, unchanging nature of truth.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=864"
     }
   ]
 }

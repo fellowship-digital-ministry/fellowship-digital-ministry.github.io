@@ -1,6 +1,6 @@
 {
   "book": "Daniel",
-  "total_references": 246,
+  "total_references": 248,
   "chapters": {
     "6": [
       {
@@ -3335,6 +3335,21 @@
       {
         "book": "Daniel",
         "chapter": 12,
+        "verse": null,
+        "reference_text": "Daniel 12",
+        "context": "Look at the book of Daniel. Daniel chapter number 12",
+        "is_implicit": false,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 658.5800018310547,
+        "end_time": 727.7200012207031,
+        "point_summary": "Diligent study of Scripture produces settled, rooted knowledge—illustrated by Daniel being commanded to preserve God's words until the appointed time, implying the book's contents reward those who search them out.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=658"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 12,
         "verse": 1,
         "reference_text": "Daniel 12:1",
         "context": "and at that time shall Michael stand up, the great prince, which standeth for the children of thy people, and there shall be a time of trouble, such as never was since there was a nation even to that same time. And at that time, thy people shall be delivered, everyone that shall be found written in the book.",
@@ -3391,6 +3406,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Lord Hath Prevailed And Is Worthy Of Worship\" Revelation 5:1-14",
         "url": "https://www.youtube.com/watch?v=1PzvpRN8FKE&t=514"
+      },
+      {
+        "book": "Daniel",
+        "chapter": 12,
+        "verse": 4,
+        "reference_text": "Daniel 12:4",
+        "context": "but thou, O Daniel, shut up the words and seal the book even to the time of the end. Many shall run to and fro, and knowledge shall be increased",
+        "is_implicit": false,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 727.7200012207031,
+        "end_time": 795.9400024414062,
+        "point_summary": "Daniel 12:4's prophecy that \"knowledge shall be increased\" is applied to the present era as evidence that the end-times explosion of information and technology fulfills what God foretold.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=727"
       }
     ],
     "1": [
@@ -7411,6 +7441,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
       "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1122"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 12,
+      "verse": null,
+      "reference_text": "Daniel 12",
+      "context": "Look at the book of Daniel. Daniel chapter number 12",
+      "is_implicit": false,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 658.5800018310547,
+      "end_time": 727.7200012207031,
+      "point_summary": "Diligent study of Scripture produces settled, rooted knowledge—illustrated by Daniel being commanded to preserve God's words until the appointed time, implying the book's contents reward those who search them out.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=658"
+    },
+    {
+      "book": "Daniel",
+      "chapter": 12,
+      "verse": 4,
+      "reference_text": "Daniel 12:4",
+      "context": "but thou, O Daniel, shut up the words and seal the book even to the time of the end. Many shall run to and fro, and knowledge shall be increased",
+      "is_implicit": false,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 727.7200012207031,
+      "end_time": 795.9400024414062,
+      "point_summary": "Daniel 12:4's prophecy that \"knowledge shall be increased\" is applied to the present era as evidence that the end-times explosion of information and technology fulfills what God foretold.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=727"
     }
   ]
 }

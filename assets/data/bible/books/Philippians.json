@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 785,
+  "total_references": 787,
   "chapters": {
     "2": [
       {
@@ -5080,6 +5080,21 @@
       {
         "book": "Philippians",
         "chapter": 4,
+        "verse": null,
+        "reference_text": "Philippians 4",
+        "context": "Let me illustrate it by the passage over in the book of Philippians. Look in Philippians four, and look at what the apostle Paul says",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 1217.680025100708,
+        "end_time": 1279.2000274658203,
+        "point_summary": "Philippians 4:9 is cited to show that Paul not only proclaimed truth but embodied it, illustrating that walking in truth must accompany knowing it.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1217"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
         "verse": 1,
         "reference_text": "Philippians 4:1",
         "context": "In Philippians chapter number 4, he begins in verse number 1, he says, Therefore, my brethren, dearly beloved, and longed for my joy and crown, so stand fast in the Lord, my dearly beloved.",
@@ -7566,6 +7581,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Peace Of God\"  John 14:27",
         "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=2204"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 4,
+        "verse": 9,
+        "reference_text": "Philippians 4:9",
+        "context": "those things which you have both learned and received and heard, and notice what he says, and seen in me",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 1279.2000274658203,
+        "end_time": 1338.5000305175781,
+        "point_summary": "Walking in truth requires embodying it, as Paul's charge to imitate what was \"seen in me\" demonstrates that lived obedience must accompany proclaimed doctrine.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1279"
       },
       {
         "book": "Philippians",
@@ -23563,6 +23593,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2359"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": null,
+      "reference_text": "Philippians 4",
+      "context": "Let me illustrate it by the passage over in the book of Philippians. Look in Philippians four, and look at what the apostle Paul says",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 1217.680025100708,
+      "end_time": 1279.2000274658203,
+      "point_summary": "Philippians 4:9 is cited to show that Paul not only proclaimed truth but embodied it, illustrating that walking in truth must accompany knowing it.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1217"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 4,
+      "verse": 9,
+      "reference_text": "Philippians 4:9",
+      "context": "those things which you have both learned and received and heard, and notice what he says, and seen in me",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 1279.2000274658203,
+      "end_time": 1338.5000305175781,
+      "point_summary": "Walking in truth requires embodying it, as Paul's charge to imitate what was \"seen in me\" demonstrates that lived obedience must accompany proclaimed doctrine.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1279"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Genesis",
-  "total_references": 4538,
+  "total_references": 4541,
   "chapters": {
     "37": [
       {
@@ -21822,6 +21822,21 @@
       {
         "book": "Genesis",
         "chapter": 3,
+        "verse": null,
+        "reference_text": "Genesis 3",
+        "context": "the idea of the enemy to do what he did in Genesis chapter number three",
+        "is_implicit": true,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 1414.9800109863281,
+        "end_time": 1476.02001953125,
+        "point_summary": "Genesis 3 is cited as the original pattern of satanic confusion—casting doubt on God's word with \"Yea, hath God said?\"—which the sermon identifies as the same strategy used today to erode biblical confidence.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1414"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
         "verse": 1,
         "reference_text": "Genesis 3:1",
         "context": "now the serpent was more subtle than any beast of the field which the Lord God had made. And he said unto the woman, Yea, hath God said, Ye shall not eat of every tree of the garden.",
@@ -22722,6 +22737,21 @@
       {
         "book": "Genesis",
         "chapter": 3,
+        "verse": 1,
+        "reference_text": "Genesis 3:1",
+        "context": "chapter number three of the book of Genesis. This is all he did, yea hath God said",
+        "is_implicit": true,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 1476.02001953125,
+        "end_time": 1541.4599914550781,
+        "point_summary": "Satan's tactic in Genesis 3:1 — casting doubt through the question \"Yea hath God said?\" — is identified as the origin of the strategy of using confusing words to undermine confidence in Scripture.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1476"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
         "verse": 2,
         "reference_text": "Genesis 3:2",
         "context": "you read in the first four verses of Genesis three how that the truth that God had given to Adam and Eve has been attacked",
@@ -23168,6 +23198,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Gods Judgement Announced",
         "url": "https://www.youtube.com/watch?v=fbc-081119pm-gods-judgement-announced&t=349"
+      },
+      {
+        "book": "Genesis",
+        "chapter": 3,
+        "verse": 4,
+        "reference_text": "Genesis 3:4",
+        "context": "ye shall not surely die",
+        "is_implicit": true,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 1476.02001953125,
+        "end_time": 1541.4599914550781,
+        "point_summary": "Satan's tactic in Genesis 3 is identified as sowing confusion and doubt through the question \"Yea hath God said,\" a pattern the sermon connects to modern challenges that subtly undermine confidence in Scripture's literal truth.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1476"
       },
       {
         "book": "Genesis",
@@ -136247,6 +136292,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"God Hath Not Given Us The Spirit Of Fear\"  II Timothy 1:7",
       "url": "https://www.youtube.com/watch?v=fLU-33BSzYo&t=1826"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "Genesis 3",
+      "context": "the idea of the enemy to do what he did in Genesis chapter number three",
+      "is_implicit": true,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 1414.9800109863281,
+      "end_time": 1476.02001953125,
+      "point_summary": "Genesis 3 is cited as the original pattern of satanic confusion—casting doubt on God's word with \"Yea, hath God said?\"—which the sermon identifies as the same strategy used today to erode biblical confidence.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1414"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 1,
+      "reference_text": "Genesis 3:1",
+      "context": "chapter number three of the book of Genesis. This is all he did, yea hath God said",
+      "is_implicit": true,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 1476.02001953125,
+      "end_time": 1541.4599914550781,
+      "point_summary": "Satan's tactic in Genesis 3:1 — casting doubt through the question \"Yea hath God said?\" — is identified as the origin of the strategy of using confusing words to undermine confidence in Scripture.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1476"
+    },
+    {
+      "book": "Genesis",
+      "chapter": 3,
+      "verse": 4,
+      "reference_text": "Genesis 3:4",
+      "context": "ye shall not surely die",
+      "is_implicit": true,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 1476.02001953125,
+      "end_time": 1541.4599914550781,
+      "point_summary": "Satan's tactic in Genesis 3 is identified as sowing confusion and doubt through the question \"Yea hath God said,\" a pattern the sermon connects to modern challenges that subtly undermine confidence in Scripture's literal truth.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1476"
     }
   ]
 }

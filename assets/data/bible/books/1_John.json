@@ -1,6 +1,6 @@
 {
   "book": "1_John",
-  "total_references": 1143,
+  "total_references": 1144,
   "chapters": {
     "2": [
       {
@@ -13855,6 +13855,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=434"
+      },
+      {
+        "book": "1 John",
+        "chapter": 1,
+        "verse": 1,
+        "reference_text": "1 John 1:1",
+        "context": "we're eyewitnesses of these things, that we're providing this eyewitness account",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 143.72000122070312,
+        "end_time": 210.33999633789062,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=143"
       },
       {
         "book": "1 John",
@@ -34307,6 +34322,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2951"
+    },
+    {
+      "book": "1 John",
+      "chapter": 1,
+      "verse": 1,
+      "reference_text": "1 John 1:1",
+      "context": "we're eyewitnesses of these things, that we're providing this eyewitness account",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 143.72000122070312,
+      "end_time": 210.33999633789062,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=143"
     }
   ]
 }

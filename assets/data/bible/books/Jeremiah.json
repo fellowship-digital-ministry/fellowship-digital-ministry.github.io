@@ -1,6 +1,6 @@
 {
   "book": "Jeremiah",
-  "total_references": 367,
+  "total_references": 368,
   "chapters": {
     "31": [
       {
@@ -4823,6 +4823,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"What Can The Righteous Do\"  Psalm 11:3",
         "url": "https://www.youtube.com/watch?v=KYuUFAMK1Vk&t=1195"
+      },
+      {
+        "book": "Jeremiah",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Jeremiah",
+        "context": "Jeremiah goes and prays. Jeremiah comes back and says, here's what God said",
+        "is_implicit": false,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 1973.040023803711,
+        "end_time": 2038.3600311279297,
+        "point_summary": "Jeremiah's experience of being asked to seek God's word and then having that word rejected illustrates the danger of claiming to want truth while refusing to walk in it when it costs something.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1973"
       }
     ],
     "44": [
@@ -11075,6 +11090,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=583"
+    },
+    {
+      "book": "Jeremiah",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Jeremiah",
+      "context": "Jeremiah goes and prays. Jeremiah comes back and says, here's what God said",
+      "is_implicit": false,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 1973.040023803711,
+      "end_time": 2038.3600311279297,
+      "point_summary": "Jeremiah's experience of being asked to seek God's word and then having that word rejected illustrates the danger of claiming to want truth while refusing to walk in it when it costs something.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1973"
     }
   ]
 }

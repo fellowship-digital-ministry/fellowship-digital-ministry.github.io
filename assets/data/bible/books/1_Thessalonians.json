@@ -1,6 +1,6 @@
 {
   "book": "1_Thessalonians",
-  "total_references": 751,
+  "total_references": 752,
   "chapters": {
     "5": [
       {
@@ -6126,6 +6126,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"They Were All Filled With The Holy Ghost\"  Acts 4:31",
         "url": "https://www.youtube.com/watch?v=zIV9O3o8Ckg&t=2558"
+      },
+      {
+        "book": "1 Thessalonians",
+        "chapter": 2,
+        "verse": 7,
+        "reference_text": "1 Thessalonians 2:7",
+        "context": "Paul, he cared for them as a nurse, cherished with her children in Thessalonica",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 1589.0400390625,
+        "end_time": 1652.2400207519531,
+        "point_summary": "Holding the right doctrinal position must be matched by the right disposition, illustrated by Paul's tender, nurse-like care for the Thessalonians as the model for speaking truth without ugliness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1589"
       },
       {
         "book": "1 Thessalonians",
@@ -22545,6 +22560,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=1229"
+    },
+    {
+      "book": "1 Thessalonians",
+      "chapter": 2,
+      "verse": 7,
+      "reference_text": "1 Thessalonians 2:7",
+      "context": "Paul, he cared for them as a nurse, cherished with her children in Thessalonica",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 1589.0400390625,
+      "end_time": 1652.2400207519531,
+      "point_summary": "Holding the right doctrinal position must be matched by the right disposition, illustrated by Paul's tender, nurse-like care for the Thessalonians as the model for speaking truth without ugliness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1589"
     }
   ]
 }

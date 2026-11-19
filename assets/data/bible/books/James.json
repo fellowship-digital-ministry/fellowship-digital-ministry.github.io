@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 1151,
+  "total_references": 1154,
   "chapters": {
     "4": [
       {
@@ -4652,6 +4652,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Your Live Is A Vapor\"  James 4:13-16",
         "url": "https://www.youtube.com/watch?v=AiH6dA61jsE&t=2690"
+      },
+      {
+        "book": "James",
+        "chapter": 4,
+        "verse": 14,
+        "reference_text": "James 4:14",
+        "context": "What is your life? It's a vapor that appears for a little time and then vanishes away",
+        "is_implicit": true,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 65.0,
+        "end_time": 126.0,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=65"
       },
       {
         "book": "James",
@@ -11569,6 +11584,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Do Good\"  James 4:17",
         "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2951"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "James 1:22",
+        "context": "from James one and verse 22, doers of the word",
+        "is_implicit": true,
+        "video_id": "o1Jy7FCh5qo",
+        "start_time": 1154.8200073242188,
+        "end_time": 1217.680025100708,
+        "point_summary": "Being a doer of the Word, not merely a knower of truth, is the stated theme driving the sermon's movement from knowing truth (2 John 1–3) to walking in it (2 John 4–6).",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+        "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1154"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "James 1:22",
+        "context": "be doers of the word and not hearers only",
+        "is_implicit": true,
+        "video_id": "pj3f7Vssgas",
+        "start_time": 2600.300033569336,
+        "end_time": 2653.1200408935547,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+        "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=2600"
       },
       {
         "book": "James",
@@ -34547,6 +34592,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2951"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "James 1:22",
+      "context": "from James one and verse 22, doers of the word",
+      "is_implicit": true,
+      "video_id": "o1Jy7FCh5qo",
+      "start_time": 1154.8200073242188,
+      "end_time": 1217.680025100708,
+      "point_summary": "Being a doer of the Word, not merely a knower of truth, is the stated theme driving the sermon's movement from knowing truth (2 John 1–3) to walking in it (2 John 4–6).",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
+      "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1154"
+    },
+    {
+      "book": "James",
+      "chapter": 4,
+      "verse": 14,
+      "reference_text": "James 4:14",
+      "context": "What is your life? It's a vapor that appears for a little time and then vanishes away",
+      "is_implicit": true,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 65.0,
+      "end_time": 126.0,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=65"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "James 1:22",
+      "context": "be doers of the word and not hearers only",
+      "is_implicit": true,
+      "video_id": "pj3f7Vssgas",
+      "start_time": 2600.300033569336,
+      "end_time": 2653.1200408935547,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
+      "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=2600"
     }
   ]
 }
