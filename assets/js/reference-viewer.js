@@ -402,6 +402,11 @@
 
   function applyRoute() {
     var r = readHash();
+    if (r && r.chapter && (r.chapter < 1 || r.chapter > CHAPTER_COUNTS[r.book.slug])) {
+      setHash([r.book.slug]);
+      showDetail(r.book, null, null);
+      return;
+    }
     if (r && r.chapter) {
       showDetail(r.book, r.chapter, r.verse);
     } else if (r && !r.chapter) {
@@ -585,7 +590,10 @@
   function renderChapterGrid(book, data) {
     var chapters = data.chapters || {};
     var entries = Object.keys(chapters)
-      .filter(function (k) { return k !== 'None' && k !== 'unknown' && !isNaN(parseInt(k, 10)); })
+      .filter(function (k) {
+        var chapter = Number(k);
+        return Number.isInteger(chapter) && chapter >= 1 && chapter <= CHAPTER_COUNTS[book.slug];
+      })
       .map(function (k) { return { chapter: parseInt(k, 10), count: chapters[k].length }; })
       .sort(function (a, b) { return a.chapter - b.chapter; });
 
