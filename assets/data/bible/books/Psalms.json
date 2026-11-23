@@ -1,6 +1,6 @@
 {
   "book": "Psalms",
-  "total_references": 2838,
+  "total_references": 2840,
   "chapters": {
     "90": [
       {
@@ -6190,6 +6190,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Let Me Not Wander From Thy Commandments",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-22pm-let-me-not-wander-from-thy-commandments&t=566"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 119,
+        "verse": 105,
+        "reference_text": "Psalm 119:105",
+        "context": "Psalm 119 verse 105 says, thy word is a lamp unto my feet and a light unto my path",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 595.1400146484375,
+        "end_time": 668.1000289916992,
+        "point_summary": "God's word functions today as the believer's guiding light, paralleling the pillar of cloud and fire that directed Israel, providing direction through its principles when seeking God's will.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=595"
       },
       {
         "book": "Psalms",
@@ -22097,6 +22112,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"O How Love I Thy Law - Part 1\" Psalm 119:97",
         "url": "https://www.youtube.com/watch?v=yV-HhfyMF_o&t=123"
+      },
+      {
+        "book": "Psalms",
+        "chapter": 116,
+        "verse": 1,
+        "reference_text": "Psalm 116",
+        "context": "we were looking at Psalm 116",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1788.4200439453125,
+        "end_time": 1853.9000434875488,
+        "point_summary": "Knowing God's wondrous works is a prerequisite for speaking of them, so ignorance of Scripture leaves believers unable to fulfill that calling.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1788"
       },
       {
         "book": "Psalms",
@@ -85377,6 +85407,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
       "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=2196"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 119,
+      "verse": 105,
+      "reference_text": "Psalm 119:105",
+      "context": "Psalm 119 verse 105 says, thy word is a lamp unto my feet and a light unto my path",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 595.1400146484375,
+      "end_time": 668.1000289916992,
+      "point_summary": "God's word functions today as the believer's guiding light, paralleling the pillar of cloud and fire that directed Israel, providing direction through its principles when seeking God's will.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=595"
+    },
+    {
+      "book": "Psalms",
+      "chapter": 116,
+      "verse": 1,
+      "reference_text": "Psalm 116",
+      "context": "we were looking at Psalm 116",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1788.4200439453125,
+      "end_time": 1853.9000434875488,
+      "point_summary": "Knowing God's wondrous works is a prerequisite for speaking of them, so ignorance of Scripture leaves believers unable to fulfill that calling.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1788"
     }
   ]
 }

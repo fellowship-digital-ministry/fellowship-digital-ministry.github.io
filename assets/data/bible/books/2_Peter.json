@@ -1,6 +1,6 @@
 {
   "book": "2_Peter",
-  "total_references": 426,
+  "total_references": 428,
   "chapters": {
     "3": [
       {
@@ -3938,6 +3938,21 @@
       {
         "book": "2 Peter",
         "chapter": 1,
+        "verse": 3,
+        "reference_text": "2 Peter 1:3",
+        "context": "according as his divine power hath given unto us all things that pertain unto life and godliness",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1643.4200439453125,
+        "end_time": 1720.4200439453125,
+        "point_summary": "God's divine power has already granted believers all things pertaining to life and godliness — not some or most things, but everything — making spiritual lack inexcusable.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1643"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 1,
         "verse": 4,
         "reference_text": "2 Peter 1:4",
         "context": "Peter says that they're exceeding great and precious promises in 2 Peter 1 and verse number 4.",
@@ -4189,6 +4204,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Danger Of Growing Weary\" Galatians 6:7-10",
         "url": "https://www.youtube.com/watch?v=S1o4pyCcW3Q&t=1797"
+      },
+      {
+        "book": "2 Peter",
+        "chapter": 1,
+        "verse": 4,
+        "reference_text": "2 Peter 1:4",
+        "context": "are given unto us exceeding great and precious promises, that by these ye might be partakers of the divine nature, having escaped the corruption that is in the world through lust",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1720.4200439453125,
+        "end_time": 1788.4200439453125,
+        "point_summary": "God has given believers \"exceeding great and precious promises\" through His Word, and ignorance of those promises means failing to access what He has already fully provided for life and godliness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1720"
       },
       {
         "book": "2 Peter",
@@ -12791,6 +12821,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=843"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 1,
+      "verse": 3,
+      "reference_text": "2 Peter 1:3",
+      "context": "according as his divine power hath given unto us all things that pertain unto life and godliness",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1643.4200439453125,
+      "end_time": 1720.4200439453125,
+      "point_summary": "God's divine power has already granted believers all things pertaining to life and godliness — not some or most things, but everything — making spiritual lack inexcusable.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1643"
+    },
+    {
+      "book": "2 Peter",
+      "chapter": 1,
+      "verse": 4,
+      "reference_text": "2 Peter 1:4",
+      "context": "are given unto us exceeding great and precious promises, that by these ye might be partakers of the divine nature, having escaped the corruption that is in the world through lust",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1720.4200439453125,
+      "end_time": 1788.4200439453125,
+      "point_summary": "God has given believers \"exceeding great and precious promises\" through His Word, and ignorance of those promises means failing to access what He has already fully provided for life and godliness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1720"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Psalm",
-  "total_references": 514,
+  "total_references": 516,
   "chapters": {
     "90": [
       {
@@ -4712,6 +4712,21 @@
       {
         "book": "Psalm",
         "chapter": 103,
+        "verse": 1,
+        "reference_text": "Psalm 103:1",
+        "context": "he said this in Psalm 103 in verse one, bless the Lord, O my soul, and all that is within me. Bless His holy name",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 0.0,
+        "end_time": 63.119998931884766,
+        "point_summary": "Psalm 103:1 is invoked to establish that God's people are called to wholehearted, soul-deep blessing of His holy name, grounding the sermon's theme that the church ought to be a thankful, praising people.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=0"
+      },
+      {
+        "book": "Psalm",
+        "chapter": 103,
         "verse": 2,
         "reference_text": "Psalm 103:2",
         "context": "To come to this place where the psalmist says, forget not all His benefits.",
@@ -7843,6 +7858,21 @@
       }
     ],
     "31": [
+      {
+        "book": "Psalm",
+        "chapter": 31,
+        "verse": null,
+        "reference_text": "Psalm 31",
+        "context": "On Wednesday evening, we've been studying through Psalm 31, and we had our second lesson this past week. And as we were looking there, we understood that one of the requests of David in Psalm 31 in the midst of that great trial and all of that hardship, he requested that God would guide him and lead him",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 525.7999877929688,
+        "end_time": 595.1400146484375,
+        "point_summary": "David's request in Psalm 31 for divine guidance parallels God's provision of the pillar of cloud and fire, illustrating the universal need for God's direction in the midst of trial.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=525"
+      },
       {
         "book": "Psalm",
         "chapter": 31,
@@ -15587,6 +15617,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=444"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 103,
+      "verse": 1,
+      "reference_text": "Psalm 103:1",
+      "context": "he said this in Psalm 103 in verse one, bless the Lord, O my soul, and all that is within me. Bless His holy name",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 0.0,
+      "end_time": 63.119998931884766,
+      "point_summary": "Psalm 103:1 is invoked to establish that God's people are called to wholehearted, soul-deep blessing of His holy name, grounding the sermon's theme that the church ought to be a thankful, praising people.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=0"
+    },
+    {
+      "book": "Psalm",
+      "chapter": 31,
+      "verse": null,
+      "reference_text": "Psalm 31",
+      "context": "On Wednesday evening, we've been studying through Psalm 31, and we had our second lesson this past week. And as we were looking there, we understood that one of the requests of David in Psalm 31 in the midst of that great trial and all of that hardship, he requested that God would guide him and lead him",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 525.7999877929688,
+      "end_time": 595.1400146484375,
+      "point_summary": "David's request in Psalm 31 for divine guidance parallels God's provision of the pillar of cloud and fire, illustrating the universal need for God's direction in the midst of trial.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=525"
     }
   ]
 }

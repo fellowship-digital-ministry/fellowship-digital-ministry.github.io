@@ -1,6 +1,6 @@
 {
   "book": "Hebrews",
-  "total_references": 2037,
+  "total_references": 2041,
   "chapters": {
     "12": [
       {
@@ -7602,6 +7602,21 @@
       {
         "book": "Hebrews",
         "chapter": 13,
+        "verse": null,
+        "reference_text": "Hebrews 13",
+        "context": "I'm thankful for the truth in Hebrews 13",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 395.8399963378906,
+        "end_time": 455.17999267578125,
+        "point_summary": "God's faithfulness to Israel in the wilderness—not forsaking them despite their murmuring—finds its New Testament anchor in Hebrews 13:5–6, where the same promise of God's unfailing presence grounds Christian contentment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=395"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
         "verse": 4,
         "reference_text": "Hebrews 13:4",
         "context": "marriage is honorable in all and the bed undefiled. But the Bible says that whoremongers and adulterers, God will judge.",
@@ -8652,6 +8667,36 @@
       {
         "book": "Hebrews",
         "chapter": 13,
+        "verse": 5,
+        "reference_text": "Hebrews 13:5",
+        "context": "let your conversation be without covetousness, and be content with such things as ye have",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 455.17999267578125,
+        "end_time": 525.7999877929688,
+        "point_summary": "God's promise never to leave or forsake His people, quoted from Hebrews 13:5, is presented as the New Testament confirmation of the same mercy shown to rebellious Israel in the wilderness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=455"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
+        "verse": 5,
+        "reference_text": "Hebrews 13:5",
+        "context": "he'll never leave us nor forsake us",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 2559.340042114258,
+        "end_time": 2625.260055541992,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2559"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
         "verse": 6,
         "reference_text": "Hebrews 13:6",
         "context": "so that we may boldly say, the Lord is my helper and I will not fear what man shall do unto me",
@@ -9038,6 +9083,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
         "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=2017"
+      },
+      {
+        "book": "Hebrews",
+        "chapter": 13,
+        "verse": 6,
+        "reference_text": "Hebrews 13:6",
+        "context": "for he hath said, I will never leave thee, nor forsake thee, so that we may boldly say, the Lord is my helper, and I will not fear what man shall do unto me",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 455.17999267578125,
+        "end_time": 525.7999877929688,
+        "point_summary": "God's refusal to forsake rebellious Israel in the wilderness is confirmed by Hebrews 13:6's promise that He will never leave nor forsake His people, grounding present boldness and contentment in His unchanging character.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=455"
       },
       {
         "book": "Hebrews",
@@ -61141,6 +61201,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2442"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": null,
+      "reference_text": "Hebrews 13",
+      "context": "I'm thankful for the truth in Hebrews 13",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 395.8399963378906,
+      "end_time": 455.17999267578125,
+      "point_summary": "God's faithfulness to Israel in the wilderness—not forsaking them despite their murmuring—finds its New Testament anchor in Hebrews 13:5–6, where the same promise of God's unfailing presence grounds Christian contentment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=395"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 5,
+      "reference_text": "Hebrews 13:5",
+      "context": "let your conversation be without covetousness, and be content with such things as ye have",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 455.17999267578125,
+      "end_time": 525.7999877929688,
+      "point_summary": "God's promise never to leave or forsake His people, quoted from Hebrews 13:5, is presented as the New Testament confirmation of the same mercy shown to rebellious Israel in the wilderness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=455"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 6,
+      "reference_text": "Hebrews 13:6",
+      "context": "for he hath said, I will never leave thee, nor forsake thee, so that we may boldly say, the Lord is my helper, and I will not fear what man shall do unto me",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 455.17999267578125,
+      "end_time": 525.7999877929688,
+      "point_summary": "God's refusal to forsake rebellious Israel in the wilderness is confirmed by Hebrews 13:6's promise that He will never leave nor forsake His people, grounding present boldness and contentment in His unchanging character.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=455"
+    },
+    {
+      "book": "Hebrews",
+      "chapter": 13,
+      "verse": 5,
+      "reference_text": "Hebrews 13:5",
+      "context": "he'll never leave us nor forsake us",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 2559.340042114258,
+      "end_time": 2625.260055541992,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2559"
     }
   ]
 }

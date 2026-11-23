@@ -1,6 +1,6 @@
 {
   "book": "Revelation",
-  "total_references": 1682,
+  "total_references": 1686,
   "chapters": {
     "3": [
       {
@@ -452,6 +452,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
         "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2021"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 3,
+        "verse": null,
+        "reference_text": "Revelation 3",
+        "context": "Reminds me of what we read in Revelation 3 of the church of the Laodiceans, that they were increased with goods and they had need of nothing.",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 2425.980049133301,
+        "end_time": 2490.2600479125977,
+        "point_summary": "Prosperity and self-sufficiency, illustrated by the Laodicean church's declaration that they \"had need of nothing,\" can breed the same spiritual complacency and rebellion seen repeatedly in Israel's cycle through Judges.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2425"
       },
       {
         "book": "Revelation",
@@ -4219,6 +4234,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"In Heaven - Part One\"   Revelation 4:2-11",
         "url": "https://www.youtube.com/watch?v=p7s9XgLeAg0&t=1440"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 5,
+        "verse": 6,
+        "reference_text": "Revelation 5:6",
+        "context": "he sees a lamb that had been slain",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 2380.4600219726562,
+        "end_time": 2449.3800048828125,
+        "point_summary": "The image of the slain Lamb in Revelation 5:6 serves as the eternal reminder that heaven's worship is grounded in the cost Christ paid to bring believers there.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2380"
       },
       {
         "book": "Revelation",
@@ -12640,6 +12670,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Unto The Church In Smyrna",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08pm-unto-the-church-in-smyrna&t=613"
+      },
+      {
+        "book": "Revelation",
+        "chapter": 1,
+        "verse": 18,
+        "reference_text": "Revelation 1:18",
+        "context": "I was dead, but now I'm alive forevermore",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 2380.4600219726562,
+        "end_time": 2449.3800048828125,
+        "point_summary": "Christ's declaration \"I was dead, but now I am alive forevermore\" is cited as the eternal reminder heaven's inhabitants will carry of what His redemption cost.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2380"
       },
       {
         "book": "Revelation",
@@ -21828,6 +21873,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Rapture\"  Revelation 4:1",
         "url": "https://www.youtube.com/watch?v=6B69_TA9xVw&t=1160"
+      },
+      {
+        "book": "Revelation",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Revelation",
+        "context": "as you read the book of Revelation and as you begin to understand the visions",
+        "is_implicit": false,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 2312.4600219726562,
+        "end_time": 2380.4600219726562,
+        "point_summary": "Heaven is heaven because of God's presence, and Revelation's vision of the slain Lamb ensures that for all eternity the redeemed will be reminded of what Christ's death cost to bring them there.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2312"
       }
     ],
     "22": [
@@ -50511,6 +50571,66 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"The Biblical Response To Worldliness - Part 1\" James 4:6-10",
       "url": "https://www.youtube.com/watch?v=pguzDbTJCFM&t=2021"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 3,
+      "verse": null,
+      "reference_text": "Revelation 3",
+      "context": "Reminds me of what we read in Revelation 3 of the church of the Laodiceans, that they were increased with goods and they had need of nothing.",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 2425.980049133301,
+      "end_time": 2490.2600479125977,
+      "point_summary": "Prosperity and self-sufficiency, illustrated by the Laodicean church's declaration that they \"had need of nothing,\" can breed the same spiritual complacency and rebellion seen repeatedly in Israel's cycle through Judges.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2425"
+    },
+    {
+      "book": "Revelation",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Revelation",
+      "context": "as you read the book of Revelation and as you begin to understand the visions",
+      "is_implicit": false,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 2312.4600219726562,
+      "end_time": 2380.4600219726562,
+      "point_summary": "Heaven is heaven because of God's presence, and Revelation's vision of the slain Lamb ensures that for all eternity the redeemed will be reminded of what Christ's death cost to bring them there.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2312"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 5,
+      "verse": 6,
+      "reference_text": "Revelation 5:6",
+      "context": "he sees a lamb that had been slain",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 2380.4600219726562,
+      "end_time": 2449.3800048828125,
+      "point_summary": "The image of the slain Lamb in Revelation 5:6 serves as the eternal reminder that heaven's worship is grounded in the cost Christ paid to bring believers there.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2380"
+    },
+    {
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 18,
+      "reference_text": "Revelation 1:18",
+      "context": "I was dead, but now I'm alive forevermore",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 2380.4600219726562,
+      "end_time": 2449.3800048828125,
+      "point_summary": "Christ's declaration \"I was dead, but now I am alive forevermore\" is cited as the eternal reminder heaven's inhabitants will carry of what His redemption cost.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2380"
     }
   ]
 }

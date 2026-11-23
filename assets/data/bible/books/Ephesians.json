@@ -1,6 +1,6 @@
 {
   "book": "Ephesians",
-  "total_references": 1507,
+  "total_references": 1508,
   "chapters": {
     "2": [
       {
@@ -11588,6 +11588,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
         "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1276"
+      },
+      {
+        "book": "Ephesians",
+        "chapter": 6,
+        "verse": 4,
+        "reference_text": "Ephesians 6:4",
+        "context": "bring them up in the nurture and admonition of the Lord",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 989.6000366210938,
+        "end_time": 1041.3200378417969,
+        "point_summary": "Ephesians 6:4's language of nurturing children in the \"admonition of the Lord\" is cited as evidence that Scripture itself serves as the parenting instruction manual people claim does not exist.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=989"
       },
       {
         "book": "Ephesians",
@@ -45229,6 +45244,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
       "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1276"
+    },
+    {
+      "book": "Ephesians",
+      "chapter": 6,
+      "verse": 4,
+      "reference_text": "Ephesians 6:4",
+      "context": "bring them up in the nurture and admonition of the Lord",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 989.6000366210938,
+      "end_time": 1041.3200378417969,
+      "point_summary": "Ephesians 6:4's language of nurturing children in the \"admonition of the Lord\" is cited as evidence that Scripture itself serves as the parenting instruction manual people claim does not exist.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=989"
     }
   ]
 }

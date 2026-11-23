@@ -1,6 +1,6 @@
 {
   "book": "Exodus",
-  "total_references": 932,
+  "total_references": 935,
   "chapters": {
     "14": [
       {
@@ -3280,6 +3280,21 @@
       {
         "book": "Exodus",
         "chapter": 16,
+        "verse": 4,
+        "reference_text": "Exodus 16:4",
+        "context": "God rained down that manna from heaven",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 1459.6800231933594,
+        "end_time": 1523.3200073242188,
+        "point_summary": "God's miraculous provision of manna from heaven (Exodus 16:4) is cited as the referent behind Nehemiah 9:15's \"bread from heaven,\" illustrating His direct, physical sustenance of Israel in the wilderness.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1459"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 16,
         "verse": 5,
         "reference_text": "verse five",
         "context": "and it shall come to pass that on the sixth day, they shall prepare that which they bring in, and it shall be twice as much as they gather daily",
@@ -4658,6 +4673,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Proved At Meribah",
         "url": "https://www.youtube.com/watch?v=fbc-2025-11-19mw-proved-at-meribah&t=1386"
+      },
+      {
+        "book": "Exodus",
+        "chapter": 17,
+        "verse": 6,
+        "reference_text": "Exodus 17:6",
+        "context": "brought us forth water for them out of the rock for their thirst",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 1459.6800231933594,
+        "end_time": 1523.3200073242188,
+        "point_summary": "God's provision of water from the rock, cited from Exodus 17:6's background, illustrates His miraculous meeting of His people's physical needs during the wilderness journey.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1459"
       },
       {
         "book": "Exodus",
@@ -9077,6 +9107,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Gods Judgement Announced",
         "url": "https://www.youtube.com/watch?v=fbc-081119pm-gods-judgement-announced&t=934"
+      },
+      {
+        "book": "Exodus",
+        "chapter": null,
+        "verse": null,
+        "reference_text": "Exodus",
+        "context": "we could go back to the book of Exodus and we can read about the account",
+        "is_implicit": false,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 504.55999755859375,
+        "end_time": 576.5800170898438,
+        "point_summary": "God's descent to Mount Sinai, referenced from Exodus, is cited as the historical backdrop for the theological point that God reaches down to humanity—a pattern fulfilled ultimately in the incarnation of Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=504"
       }
     ],
     "20": [
@@ -28041,6 +28086,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1870"
+    },
+    {
+      "book": "Exodus",
+      "chapter": null,
+      "verse": null,
+      "reference_text": "Exodus",
+      "context": "we could go back to the book of Exodus and we can read about the account",
+      "is_implicit": false,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 504.55999755859375,
+      "end_time": 576.5800170898438,
+      "point_summary": "God's descent to Mount Sinai, referenced from Exodus, is cited as the historical backdrop for the theological point that God reaches down to humanity—a pattern fulfilled ultimately in the incarnation of Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=504"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 16,
+      "verse": 4,
+      "reference_text": "Exodus 16:4",
+      "context": "God rained down that manna from heaven",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 1459.6800231933594,
+      "end_time": 1523.3200073242188,
+      "point_summary": "God's miraculous provision of manna from heaven (Exodus 16:4) is cited as the referent behind Nehemiah 9:15's \"bread from heaven,\" illustrating His direct, physical sustenance of Israel in the wilderness.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1459"
+    },
+    {
+      "book": "Exodus",
+      "chapter": 17,
+      "verse": 6,
+      "reference_text": "Exodus 17:6",
+      "context": "brought us forth water for them out of the rock for their thirst",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 1459.6800231933594,
+      "end_time": 1523.3200073242188,
+      "point_summary": "God's provision of water from the rock, cited from Exodus 17:6's background, illustrates His miraculous meeting of His people's physical needs during the wilderness journey.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1459"
     }
   ]
 }

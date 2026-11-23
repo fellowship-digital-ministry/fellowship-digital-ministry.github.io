@@ -1,6 +1,6 @@
 {
   "book": "Galatians",
-  "total_references": 713,
+  "total_references": 714,
   "chapters": {
     "2": [
       {
@@ -10392,6 +10392,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
         "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=2285"
+      },
+      {
+        "book": "Galatians",
+        "chapter": 3,
+        "verse": 24,
+        "reference_text": "Galatians 3:24",
+        "context": "Galatians says that the law is a schoolmaster",
+        "is_implicit": false,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 1977.0600280761719,
+        "end_time": 2047.500015258789,
+        "point_summary": "The law functions as a schoolmaster that condemns and points sinners to Christ, demonstrating that life cannot be earned by law-keeping but only through Christ's finished work.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1977"
       },
       {
         "book": "Galatians",
@@ -21407,6 +21422,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Humble Yourselves\"  James 4:10",
       "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2038"
+    },
+    {
+      "book": "Galatians",
+      "chapter": 3,
+      "verse": 24,
+      "reference_text": "Galatians 3:24",
+      "context": "Galatians says that the law is a schoolmaster",
+      "is_implicit": false,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 1977.0600280761719,
+      "end_time": 2047.500015258789,
+      "point_summary": "The law functions as a schoolmaster that condemns and points sinners to Christ, demonstrating that life cannot be earned by law-keeping but only through Christ's finished work.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1977"
     }
   ]
 }

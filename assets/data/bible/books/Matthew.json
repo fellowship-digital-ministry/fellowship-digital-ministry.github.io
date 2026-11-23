@@ -1,6 +1,6 @@
 {
   "book": "Matthew",
-  "total_references": 1553,
+  "total_references": 1559,
   "chapters": {
     "16": [
       {
@@ -407,6 +407,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=839"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 16,
+        "verse": null,
+        "reference_text": "Matthew 16",
+        "context": "he declares in Matthew 16, thou art the Christ, the son of the living God",
+        "is_implicit": false,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 1043.1400146484375,
+        "end_time": 1111.5800170898438,
+        "point_summary": "Peter's confession in Matthew 16 — \"Thou art the Christ, the Son of the living God\" — is invoked as the standard of bold, Spirit-given declaration against which Peter's equally powerful response in John 6 is measured.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1043"
       },
       {
         "book": "Matthew",
@@ -16960,6 +16975,21 @@
       {
         "book": "Matthew",
         "chapter": 6,
+        "verse": null,
+        "reference_text": "Matthew 6",
+        "context": "In fact, look at Matthew chapter number 6, if you will,",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1161.3200073242188,
+        "end_time": 1225.4200553894043,
+        "point_summary": "God's provision of manna and water for Israel in the wilderness illustrates the truth of Matthew 6 that God knows what his people need before they ask.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1161"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 6,
         "verse": 2,
         "reference_text": "Matthew 6:2",
         "context": "When you give, don't give so everyone else can see what you gave so that people can recognize",
@@ -18235,6 +18265,21 @@
       {
         "book": "Matthew",
         "chapter": 6,
+        "verse": 31,
+        "reference_text": "Matthew 6:31",
+        "context": "Therefore, take no thought, saying, what shall we eat, or what shall we drink, or wherewithal shall we be clothed?",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1225.4200553894043,
+        "end_time": 1295.2200546264648,
+        "point_summary": "God's provision of manna and water for Israel in the wilderness illustrates the New Testament assurance that the heavenly Father already knows His people's needs for food, drink, and clothing.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1225"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 6,
         "verse": 32,
         "reference_text": "Matthew 6:32",
         "context": "I want you to look at verse 32 along with it",
@@ -18291,6 +18336,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Wilt Thou Hearken",
         "url": "https://www.youtube.com/watch?v=fbc-2025-12-03mw-wilt-thou-hearken&t=1506"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 6,
+        "verse": 32,
+        "reference_text": "Matthew 6:32",
+        "context": "for after all these things do the Gentiles seek. And then notice this wonderful truth, for your heavenly Father knoweth that ye have need of all these things.",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1225.4200553894043,
+        "end_time": 1295.2200546264648,
+        "point_summary": "God's provision of manna and water for Israel in the wilderness illustrates the abiding truth of Matthew 6:32 that the heavenly Father already knows what his people need, and that knowledge should produce comfort rather than anxiety.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1225"
       },
       {
         "book": "Matthew",
@@ -18501,6 +18561,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Wilt Thou Hearken",
         "url": "https://www.youtube.com/watch?v=fbc-2025-12-03mw-wilt-thou-hearken&t=1577"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 6,
+        "verse": 33,
+        "reference_text": "Matthew 6:33",
+        "context": "but seek ye first, verse 33, the kingdom of God and his righteousness",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1225.4200553894043,
+        "end_time": 1295.2200546264648,
+        "point_summary": "Seeking God's kingdom first carries the promise that He who already knows every need will add all necessary provision — just as He sustained Israel in the wilderness without lack.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1225"
+      },
+      {
+        "book": "Matthew",
+        "chapter": 6,
+        "verse": 33,
+        "reference_text": "Matthew 6:33",
+        "context": "and all these things shall be added unto you",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1295.2200546264648,
+        "end_time": 1362.1200561523438,
+        "point_summary": "God's provision for Israel's physical needs in the wilderness illustrates the Matthew 6:33 principle that seeking God first brings the assurance that the Father already knows and supplies what his people need.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1295"
       },
       {
         "book": "Matthew",
@@ -46653,6 +46743,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Will Rejoice\"  Habakkuk 3:17-19",
       "url": "https://www.youtube.com/watch?v=ks6EAPRsuLA&t=1148"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 6,
+      "verse": null,
+      "reference_text": "Matthew 6",
+      "context": "In fact, look at Matthew chapter number 6, if you will,",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1161.3200073242188,
+      "end_time": 1225.4200553894043,
+      "point_summary": "God's provision of manna and water for Israel in the wilderness illustrates the truth of Matthew 6 that God knows what his people need before they ask.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1161"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 6,
+      "verse": 31,
+      "reference_text": "Matthew 6:31",
+      "context": "Therefore, take no thought, saying, what shall we eat, or what shall we drink, or wherewithal shall we be clothed?",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1225.4200553894043,
+      "end_time": 1295.2200546264648,
+      "point_summary": "God's provision of manna and water for Israel in the wilderness illustrates the New Testament assurance that the heavenly Father already knows His people's needs for food, drink, and clothing.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1225"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 6,
+      "verse": 32,
+      "reference_text": "Matthew 6:32",
+      "context": "for after all these things do the Gentiles seek. And then notice this wonderful truth, for your heavenly Father knoweth that ye have need of all these things.",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1225.4200553894043,
+      "end_time": 1295.2200546264648,
+      "point_summary": "God's provision of manna and water for Israel in the wilderness illustrates the abiding truth of Matthew 6:32 that the heavenly Father already knows what his people need, and that knowledge should produce comfort rather than anxiety.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1225"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 6,
+      "verse": 33,
+      "reference_text": "Matthew 6:33",
+      "context": "but seek ye first, verse 33, the kingdom of God and his righteousness",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1225.4200553894043,
+      "end_time": 1295.2200546264648,
+      "point_summary": "Seeking God's kingdom first carries the promise that He who already knows every need will add all necessary provision — just as He sustained Israel in the wilderness without lack.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1225"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 6,
+      "verse": 33,
+      "reference_text": "Matthew 6:33",
+      "context": "and all these things shall be added unto you",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1295.2200546264648,
+      "end_time": 1362.1200561523438,
+      "point_summary": "God's provision for Israel's physical needs in the wilderness illustrates the Matthew 6:33 principle that seeking God first brings the assurance that the Father already knows and supplies what his people need.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1295"
+    },
+    {
+      "book": "Matthew",
+      "chapter": 16,
+      "verse": null,
+      "reference_text": "Matthew 16",
+      "context": "he declares in Matthew 16, thou art the Christ, the son of the living God",
+      "is_implicit": false,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 1043.1400146484375,
+      "end_time": 1111.5800170898438,
+      "point_summary": "Peter's confession in Matthew 16 — \"Thou art the Christ, the Son of the living God\" — is invoked as the standard of bold, Spirit-given declaration against which Peter's equally powerful response in John 6 is measured.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1043"
     }
   ]
 }

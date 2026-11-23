@@ -1,6 +1,6 @@
 {
   "book": "Luke",
-  "total_references": 902,
+  "total_references": 905,
   "chapters": {
     "10": [
       {
@@ -3027,6 +3027,21 @@
       {
         "book": "Luke",
         "chapter": 24,
+        "verse": 5,
+        "reference_text": "Why seek ye the living among the dead?",
+        "context": "Why seek ye the living among the dead?",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 2047.500015258789,
+        "end_time": 2118.4200134277344,
+        "point_summary": "The empty tomb's angelic question — \"Why seek ye the living among the dead?\" — is cited as proof that Christ rose victoriously, conquering sin, death, and the grave, securing redemption as a free gift.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2047"
+      },
+      {
+        "book": "Luke",
+        "chapter": 24,
         "verse": 6,
         "reference_text": "Luke 24:6",
         "context": "He is not here. Why? For He is risen.",
@@ -3068,6 +3083,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Jesus Drew Near And Went With Them",
         "url": "https://www.youtube.com/watch?v=fbc-2025-04-20am-jesus-drew-near-and-went-with-them&t=0"
+      },
+      {
+        "book": "Luke",
+        "chapter": 24,
+        "verse": 6,
+        "reference_text": "He is not here, for he is risen",
+        "context": "He is not here, for he is risen, as he said.",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 2047.500015258789,
+        "end_time": 2118.4200134277344,
+        "point_summary": "Christ's resurrection — confirmed by the empty tomb and the angel's declaration \"He is not here, for He is risen\" — is presented as the victorious completion of His atoning work, securing redemption freely offered to all.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2047"
       },
       {
         "book": "Luke",
@@ -5650,6 +5680,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"This Day Is Salvation Come To This House\"  Luke 19:1-10",
         "url": "https://www.youtube.com/watch?v=bLroMQe43GY&t=1200"
+      },
+      {
+        "book": "Luke",
+        "chapter": 19,
+        "verse": 10,
+        "reference_text": "Luke 19:10",
+        "context": "he came to seek and to save that which was lost",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 1917.3800201416016,
+        "end_time": 1977.0600280761719,
+        "point_summary": "Christ's descent to earth to seek and save the lost—not merely to meet physical needs like manna and water—fulfills the greatest human need: eternal life freely given, not earned.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1917"
       },
       {
         "book": "Luke",
@@ -27107,6 +27152,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=2730"
+    },
+    {
+      "book": "Luke",
+      "chapter": 19,
+      "verse": 10,
+      "reference_text": "Luke 19:10",
+      "context": "he came to seek and to save that which was lost",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 1917.3800201416016,
+      "end_time": 1977.0600280761719,
+      "point_summary": "Christ's descent to earth to seek and save the lost—not merely to meet physical needs like manna and water—fulfills the greatest human need: eternal life freely given, not earned.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1917"
+    },
+    {
+      "book": "Luke",
+      "chapter": 24,
+      "verse": 5,
+      "reference_text": "Why seek ye the living among the dead?",
+      "context": "Why seek ye the living among the dead?",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 2047.500015258789,
+      "end_time": 2118.4200134277344,
+      "point_summary": "The empty tomb's angelic question — \"Why seek ye the living among the dead?\" — is cited as proof that Christ rose victoriously, conquering sin, death, and the grave, securing redemption as a free gift.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2047"
+    },
+    {
+      "book": "Luke",
+      "chapter": 24,
+      "verse": 6,
+      "reference_text": "He is not here, for he is risen",
+      "context": "He is not here, for he is risen, as he said.",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 2047.500015258789,
+      "end_time": 2118.4200134277344,
+      "point_summary": "Christ's resurrection — confirmed by the empty tomb and the angel's declaration \"He is not here, for He is risen\" — is presented as the victorious completion of His atoning work, securing redemption freely offered to all.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2047"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Acts",
-  "total_references": 2286,
+  "total_references": 2292,
   "chapters": {
     "12": [
       {
@@ -16700,6 +16700,21 @@
       {
         "book": "Acts",
         "chapter": 16,
+        "verse": null,
+        "reference_text": "Acts 16",
+        "context": "Notice if you will also in Acts chapter 16. In Acts chapter number 16, we read in this portion of scripture about the call during the second missionary journey",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 595.1400146484375,
+        "end_time": 668.1000289916992,
+        "point_summary": "God still leads His people today, as Acts 16's Macedonian call illustrates the Holy Spirit's active role in guiding believers—a ministry He continues by indwelling every believer at salvation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=595"
+      },
+      {
+        "book": "Acts",
+        "chapter": 16,
         "verse": 6,
         "reference_text": "Acts 16:6",
         "context": "Now when they had gone throughout Phrygia, the region of Galatia, and were forbidden of the Holy Ghost to preach the word in Asia,",
@@ -16726,6 +16741,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"To The Saints At Colosse\" Colossians 1:1-8",
         "url": "https://www.youtube.com/watch?v=NDFKzTPUOA0&t=264"
+      },
+      {
+        "book": "Acts",
+        "chapter": 16,
+        "verse": 6,
+        "reference_text": "Acts 16:6",
+        "context": "And the Bible says in verse number six of Acts 16. Now, when they had gone throughout Phrygia and the region of Galatia, notice what the Bible says here. And we're forbidden of the Holy Ghost to preach the word in Asia.",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 668.1000289916992,
+        "end_time": 736.02001953125,
+        "point_summary": "God's guidance includes closed doors as much as open ones, and Acts 16:6 illustrates that the Holy Spirit's forbidding Paul to preach in Asia is itself a form of divine leading to be received with gratitude.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=668"
+      },
+      {
+        "book": "Acts",
+        "chapter": 16,
+        "verse": 6,
+        "reference_text": "Acts 16:6",
+        "context": "God, the Holy Ghost was forbidding them to go",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 736.02001953125,
+        "end_time": 799.6600341796875,
+        "point_summary": "God leads His people through closed doors just as surely as open ones, and the Holy Spirit's forbidding Paul to preach in Asia illustrates that a divine \"no\" is itself a form of guidance to be received with gratitude.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=736"
       },
       {
         "book": "Acts",
@@ -16760,6 +16805,21 @@
       {
         "book": "Acts",
         "chapter": 16,
+        "verse": 7,
+        "reference_text": "Acts 16:7",
+        "context": "but the spirit suffered them not",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 736.02001953125,
+        "end_time": 799.6600341796875,
+        "point_summary": "God's guidance includes closed doors just as much as open ones, as the Spirit's forbidding Paul to enter Bithynia demonstrates that divine redirection is itself a form of leadership to be received with obedience.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=736"
+      },
+      {
+        "book": "Acts",
+        "chapter": 16,
         "verse": 9,
         "reference_text": "Acts 16:9",
         "context": "And a vision appeared to Paul in the night. And there stood a man of Macedonia and prayed him, saying, come over into Macedonia and help us.",
@@ -16771,6 +16831,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - 2023 Missions Conference",
         "url": "https://www.youtube.com/watch?v=rsDeJmgGGS8&t=98"
+      },
+      {
+        "book": "Acts",
+        "chapter": 16,
+        "verse": 9,
+        "reference_text": "Acts 16:9",
+        "context": "and a vision appeared to Paul in the night. There stood a man of Macedonia and prayed him saying, come over into Macedonia and help us.",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 799.6600341796875,
+        "end_time": 865.3200378417969,
+        "point_summary": "God's closed doors are as much a part of his leadership as open ones, illustrated by the Macedonian vision confirming that divine calling—not human invitation alone—determines where his servants go.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=799"
       },
       {
         "book": "Acts",
@@ -16801,6 +16876,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - July 5, 2020 (Morning Worship)",
         "url": "https://www.youtube.com/watch?v=SfucrRfy8nw&t=2271"
+      },
+      {
+        "book": "Acts",
+        "chapter": 16,
+        "verse": 10,
+        "reference_text": "Acts 16:10",
+        "context": "Assuredly gathering that the Lord had called us for to preach the gospel unto them",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 799.6600341796875,
+        "end_time": 865.3200378417969,
+        "point_summary": "God's closed doors are as much a part of his leadership as open ones, and Paul's assurance in Acts 16:10 that the Lord had called them illustrates the need to seek God's specific direction rather than responding to every apparent need or invitation.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=799"
       },
       {
         "book": "Acts",
@@ -68643,6 +68733,96 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
       "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=1901"
+    },
+    {
+      "book": "Acts",
+      "chapter": 16,
+      "verse": null,
+      "reference_text": "Acts 16",
+      "context": "Notice if you will also in Acts chapter 16. In Acts chapter number 16, we read in this portion of scripture about the call during the second missionary journey",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 595.1400146484375,
+      "end_time": 668.1000289916992,
+      "point_summary": "God still leads His people today, as Acts 16's Macedonian call illustrates the Holy Spirit's active role in guiding believers—a ministry He continues by indwelling every believer at salvation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=595"
+    },
+    {
+      "book": "Acts",
+      "chapter": 16,
+      "verse": 6,
+      "reference_text": "Acts 16:6",
+      "context": "And the Bible says in verse number six of Acts 16. Now, when they had gone throughout Phrygia and the region of Galatia, notice what the Bible says here. And we're forbidden of the Holy Ghost to preach the word in Asia.",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 668.1000289916992,
+      "end_time": 736.02001953125,
+      "point_summary": "God's guidance includes closed doors as much as open ones, and Acts 16:6 illustrates that the Holy Spirit's forbidding Paul to preach in Asia is itself a form of divine leading to be received with gratitude.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=668"
+    },
+    {
+      "book": "Acts",
+      "chapter": 16,
+      "verse": 6,
+      "reference_text": "Acts 16:6",
+      "context": "God, the Holy Ghost was forbidding them to go",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 736.02001953125,
+      "end_time": 799.6600341796875,
+      "point_summary": "God leads His people through closed doors just as surely as open ones, and the Holy Spirit's forbidding Paul to preach in Asia illustrates that a divine \"no\" is itself a form of guidance to be received with gratitude.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=736"
+    },
+    {
+      "book": "Acts",
+      "chapter": 16,
+      "verse": 7,
+      "reference_text": "Acts 16:7",
+      "context": "but the spirit suffered them not",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 736.02001953125,
+      "end_time": 799.6600341796875,
+      "point_summary": "God's guidance includes closed doors just as much as open ones, as the Spirit's forbidding Paul to enter Bithynia demonstrates that divine redirection is itself a form of leadership to be received with obedience.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=736"
+    },
+    {
+      "book": "Acts",
+      "chapter": 16,
+      "verse": 9,
+      "reference_text": "Acts 16:9",
+      "context": "and a vision appeared to Paul in the night. There stood a man of Macedonia and prayed him saying, come over into Macedonia and help us.",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 799.6600341796875,
+      "end_time": 865.3200378417969,
+      "point_summary": "God's closed doors are as much a part of his leadership as open ones, illustrated by the Macedonian vision confirming that divine calling—not human invitation alone—determines where his servants go.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=799"
+    },
+    {
+      "book": "Acts",
+      "chapter": 16,
+      "verse": 10,
+      "reference_text": "Acts 16:10",
+      "context": "Assuredly gathering that the Lord had called us for to preach the gospel unto them",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 799.6600341796875,
+      "end_time": 865.3200378417969,
+      "point_summary": "God's closed doors are as much a part of his leadership as open ones, and Paul's assurance in Acts 16:10 that the Lord had called them illustrates the need to seek God's specific direction rather than responding to every apparent need or invitation.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=799"
     }
   ]
 }

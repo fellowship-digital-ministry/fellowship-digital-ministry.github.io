@@ -1,6 +1,6 @@
 {
   "book": "Philippians",
-  "total_references": 787,
+  "total_references": 788,
   "chapters": {
     "2": [
       {
@@ -242,6 +242,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Humble Yourselves\"  James 4:10",
         "url": "https://www.youtube.com/watch?v=5WkuygO7LrM&t=2654"
+      },
+      {
+        "book": "Philippians",
+        "chapter": 2,
+        "verse": null,
+        "reference_text": "Philippians 2",
+        "context": "Philippians chapter 2 that He was made in the likeness of men",
+        "is_implicit": false,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 2449.3800048828125,
+        "end_time": 2524.3800048828125,
+        "point_summary": "Philippians 2's declaration that Christ \"was made in the likeness of men\" grounds the sermon's first movement: the incarnation as God literally coming down to sinful humanity, paralleling God's descent to Sinai.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2449"
       },
       {
         "book": "Philippians",
@@ -23623,6 +23638,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
       "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=1279"
+    },
+    {
+      "book": "Philippians",
+      "chapter": 2,
+      "verse": null,
+      "reference_text": "Philippians 2",
+      "context": "Philippians chapter 2 that He was made in the likeness of men",
+      "is_implicit": false,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 2449.3800048828125,
+      "end_time": 2524.3800048828125,
+      "point_summary": "Philippians 2's declaration that Christ \"was made in the likeness of men\" grounds the sermon's first movement: the incarnation as God literally coming down to sinful humanity, paralleling God's descent to Sinai.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2449"
     }
   ]
 }

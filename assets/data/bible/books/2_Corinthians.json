@@ -1,6 +1,6 @@
 {
   "book": "2_Corinthians",
-  "total_references": 1875,
+  "total_references": 1876,
   "chapters": {
     "4": [
       {
@@ -25884,6 +25884,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"The Peace Of God\"  John 14:27",
         "url": "https://www.youtube.com/watch?v=BVKCM6yyZSM&t=636"
+      },
+      {
+        "book": "2 Corinthians",
+        "chapter": 8,
+        "verse": 9,
+        "reference_text": "2 Corinthians 8:9",
+        "context": "for you know the grace of our Lord Jesus Christ that though he was rich, yet for your sakes he became poor. Why? That ye through his poverty might be rich",
+        "is_implicit": false,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 702.2400054931641,
+        "end_time": 768.2200012207031,
+        "point_summary": "Christ's incarnation is framed as the ultimate \"coming down,\" with 2 Corinthians 8:9 confirming that the eternally rich Son became poor so that believers might be made rich through him.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=702"
       },
       {
         "book": "2 Corinthians",
@@ -56283,6 +56298,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"I Have Chosen The Way Of Truth\"  II John 1:1-13",
       "url": "https://www.youtube.com/watch?v=o1Jy7FCh5qo&t=358"
+    },
+    {
+      "book": "2 Corinthians",
+      "chapter": 8,
+      "verse": 9,
+      "reference_text": "2 Corinthians 8:9",
+      "context": "for you know the grace of our Lord Jesus Christ that though he was rich, yet for your sakes he became poor. Why? That ye through his poverty might be rich",
+      "is_implicit": false,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 702.2400054931641,
+      "end_time": 768.2200012207031,
+      "point_summary": "Christ's incarnation is framed as the ultimate \"coming down,\" with 2 Corinthians 8:9 confirming that the eternally rich Son became poor so that believers might be made rich through him.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=702"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "Deuteronomy",
-  "total_references": 400,
+  "total_references": 401,
   "chapters": {
     "33": [
       {
@@ -1737,6 +1737,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Shew Thyself A Man\"   I Kings 2:1-4",
         "url": "https://www.youtube.com/watch?v=ZDhKpCNVWRw&t=1109"
+      },
+      {
+        "book": "Deuteronomy",
+        "chapter": 6,
+        "verse": null,
+        "reference_text": "Deuteronomy 6",
+        "context": "Deuteronomy 6 gave them a warning that when you go into the land and you live, dwell in houses that you didn't build and you eat from vineyards that you didn't plant, beware lest thou forget the Lord. That's the warning of Deuteronomy 6.",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1979.4400482177734,
+        "end_time": 2045.0800476074219,
+        "point_summary": "Deuteronomy 6's warning against forgetting God when enjoying unearned prosperity—houses, vineyards, abundance—frames Israel's later spiritual failure as precisely the covenant unfaithfulness Moses had foretold.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1979"
       },
       {
         "book": "Deuteronomy",
@@ -12049,6 +12064,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
       "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=2482"
+    },
+    {
+      "book": "Deuteronomy",
+      "chapter": 6,
+      "verse": null,
+      "reference_text": "Deuteronomy 6",
+      "context": "Deuteronomy 6 gave them a warning that when you go into the land and you live, dwell in houses that you didn't build and you eat from vineyards that you didn't plant, beware lest thou forget the Lord. That's the warning of Deuteronomy 6.",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1979.4400482177734,
+      "end_time": 2045.0800476074219,
+      "point_summary": "Deuteronomy 6's warning against forgetting God when enjoying unearned prosperity—houses, vineyards, abundance—frames Israel's later spiritual failure as precisely the covenant unfaithfulness Moses had foretold.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1979"
     }
   ]
 }

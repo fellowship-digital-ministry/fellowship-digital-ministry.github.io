@@ -1,6 +1,6 @@
 {
   "book": "Haggai",
-  "total_references": 8,
+  "total_references": 9,
   "chapters": {
     "1": [
       {
@@ -92,6 +92,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "FBC Oakton, VA - Fall Revival - Paul Mershon (Sunday School)",
         "url": "https://www.youtube.com/watch?v=ecW69mkE0VU&t=731"
+      },
+      {
+        "book": "Haggai",
+        "chapter": 1,
+        "verse": 5,
+        "reference_text": "Haggai 1:5",
+        "context": "Consider your ways. They go out and they earn wages, but they put them in bags that have holes",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 1295.2200546264648,
+        "end_time": 1362.1200561523438,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1295"
       },
       {
         "book": "Haggai",
@@ -245,6 +260,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "FBC Oakton, VA - December 13, 2020 (Morning Worship)",
       "url": "https://www.youtube.com/watch?v=Mg6Jl4Z1Y9c&t=3007"
+    },
+    {
+      "book": "Haggai",
+      "chapter": 1,
+      "verse": 5,
+      "reference_text": "Haggai 1:5",
+      "context": "Consider your ways. They go out and they earn wages, but they put them in bags that have holes",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 1295.2200546264648,
+      "end_time": 1362.1200561523438,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=1295"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "book": "1_Corinthians",
-  "total_references": 1631,
+  "total_references": 1634,
   "chapters": {
     "10": [
       {
@@ -2479,6 +2479,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Awake To Righteousness, and Sin Not\" I Corinthians 15:33-34; Genesis 39:1-23",
         "url": "https://www.youtube.com/watch?v=kys_Aov71eo&t=0"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 15,
+        "verse": null,
+        "reference_text": "1 Corinthians 15",
+        "context": "turn over to 1 Corinthians chapter 15, if you will. In 1 Corinthians chapter 15",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 2045.0800476074219,
+        "end_time": 2104.6000366210938,
+        "point_summary": "Israel's God-given military victories in Canaan serve as a springboard to affirm that believers today stand on the winning side, with 1 Corinthians 15 invoked as the scriptural anchor for that present, assured victory in Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2045"
       },
       {
         "book": "1 Corinthians",
@@ -8063,6 +8078,21 @@
       {
         "book": "1 Corinthians",
         "chapter": 15,
+        "verse": 57,
+        "reference_text": "1 Corinthians 15:57",
+        "context": "but thanks be to God, which giveth us the victory through our Lord Jesus Christ",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 2104.6000366210938,
+        "end_time": 2172.8800354003906,
+        "point_summary": "Just as God gave Israel complete victory over Sihon and Og, believers today are on the winning side because God gives them victory over sin, death, and the grave through the risen Lord Jesus Christ.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2104"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 15,
         "verse": 58,
         "reference_text": "1 Corinthians 15:58",
         "context": "therefore my beloved brethren be",
@@ -8554,6 +8584,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "Unto The Church In Smyrna",
         "url": "https://www.youtube.com/watch?v=fbc-2024-12-08pm-unto-the-church-in-smyrna&t=2240"
+      },
+      {
+        "book": "1 Corinthians",
+        "chapter": 15,
+        "verse": 58,
+        "reference_text": "1 Corinthians 15:58",
+        "context": "therefore, my beloved brethren, be ye steadfast, unmovable, always abounding in the work of the Lord for as much as you know that your labor is not in vain in the Lord",
+        "is_implicit": false,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 2173.9600524902344,
+        "end_time": 2241.56005859375,
+        "point_summary": "Because Christ conquered sin, death, and the grave, the \"therefore\" of verse 58 grounds the call to steadfast, unmovable labor in the assurance that such work is never in vain.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2173"
       }
     ],
     "11": [
@@ -48967,6 +49012,51 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Do Good\"  James 4:17",
       "url": "https://www.youtube.com/watch?v=381OiXEwp68&t=781"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "verse": null,
+      "reference_text": "1 Corinthians 15",
+      "context": "turn over to 1 Corinthians chapter 15, if you will. In 1 Corinthians chapter 15",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 2045.0800476074219,
+      "end_time": 2104.6000366210938,
+      "point_summary": "Israel's God-given military victories in Canaan serve as a springboard to affirm that believers today stand on the winning side, with 1 Corinthians 15 invoked as the scriptural anchor for that present, assured victory in Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2045"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "verse": 57,
+      "reference_text": "1 Corinthians 15:57",
+      "context": "but thanks be to God, which giveth us the victory through our Lord Jesus Christ",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 2104.6000366210938,
+      "end_time": 2172.8800354003906,
+      "point_summary": "Just as God gave Israel complete victory over Sihon and Og, believers today are on the winning side because God gives them victory over sin, death, and the grave through the risen Lord Jesus Christ.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2104"
+    },
+    {
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "verse": 58,
+      "reference_text": "1 Corinthians 15:58",
+      "context": "therefore, my beloved brethren, be ye steadfast, unmovable, always abounding in the work of the Lord for as much as you know that your labor is not in vain in the Lord",
+      "is_implicit": false,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 2173.9600524902344,
+      "end_time": 2241.56005859375,
+      "point_summary": "Because Christ conquered sin, death, and the grave, the \"therefore\" of verse 58 grounds the call to steadfast, unmovable labor in the assurance that such work is never in vain.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=2173"
     }
   ]
 }

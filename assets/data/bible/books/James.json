@@ -1,6 +1,6 @@
 {
   "book": "James",
-  "total_references": 1154,
+  "total_references": 1156,
   "chapters": {
     "4": [
       {
@@ -11614,6 +11614,36 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
         "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=2600"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "James 1:22",
+        "context": "I wanna be a doer of the word and not a hearer only",
+        "is_implicit": true,
+        "video_id": "oeznXQiYYoo",
+        "start_time": 252.9600067138672,
+        "end_time": 326.8800048828125,
+        "point_summary": "Observing Israel's refusal to obey warns believers to guard their own hearts, ensuring they are doers of the Word and not hearers only.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+        "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=252"
+      },
+      {
+        "book": "James",
+        "chapter": 1,
+        "verse": 22,
+        "reference_text": "James 1:22",
+        "context": "be doers of the word, not hearers only",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 2728.3800048828125,
+        "end_time": 2796.3800048828125,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2728"
       },
       {
         "book": "James",
@@ -34637,6 +34667,36 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"Words of Knowledge\"  Proverbs 19:27",
       "url": "https://www.youtube.com/watch?v=pj3f7Vssgas&t=2600"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "James 1:22",
+      "context": "I wanna be a doer of the word and not a hearer only",
+      "is_implicit": true,
+      "video_id": "oeznXQiYYoo",
+      "start_time": 252.9600067138672,
+      "end_time": 326.8800048828125,
+      "point_summary": "Observing Israel's refusal to obey warns believers to guard their own hearts, ensuring they are doers of the Word and not hearers only.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part Two\"  Nehemiah 9:16-31",
+      "url": "https://www.youtube.com/watch?v=oeznXQiYYoo&t=252"
+    },
+    {
+      "book": "James",
+      "chapter": 1,
+      "verse": 22,
+      "reference_text": "James 1:22",
+      "context": "be doers of the word, not hearers only",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 2728.3800048828125,
+      "end_time": 2796.3800048828125,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=2728"
     }
   ]
 }

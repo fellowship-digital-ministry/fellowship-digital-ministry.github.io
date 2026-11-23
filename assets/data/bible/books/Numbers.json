@@ -1,6 +1,6 @@
 {
   "book": "Numbers",
-  "total_references": 256,
+  "total_references": 257,
   "chapters": {
     "11": [
       {
@@ -212,6 +212,21 @@
         "point_summary_model": "anthropic/claude-sonnet-4.6",
         "sermon_title": "\"My Soul Doth Magnify The Lord\"  Luke 1:46-55",
         "url": "https://www.youtube.com/watch?v=0ddFDZGUSg8&t=1776"
+      },
+      {
+        "book": "Numbers",
+        "chapter": 11,
+        "verse": 6,
+        "reference_text": "Numbers 11:6",
+        "context": "their soul loatheth this light bread",
+        "is_implicit": true,
+        "video_id": "HYeUBdxk7xg",
+        "start_time": 1459.6800231933594,
+        "end_time": 1523.3200073242188,
+        "point_summary": "Brief mention; no exposition in this segment.",
+        "point_summary_model": "anthropic/claude-sonnet-4.6",
+        "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+        "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1459"
       },
       {
         "book": "Numbers",
@@ -7727,6 +7742,21 @@
       "point_summary_model": "anthropic/claude-sonnet-4.6",
       "sermon_title": "\"A Little Maid Who Made A Big Difference\" II Kings 5:1-4",
       "url": "https://www.youtube.com/watch?v=Dhzx0Flx8mE&t=2434"
+    },
+    {
+      "book": "Numbers",
+      "chapter": 11,
+      "verse": 6,
+      "reference_text": "Numbers 11:6",
+      "context": "their soul loatheth this light bread",
+      "is_implicit": true,
+      "video_id": "HYeUBdxk7xg",
+      "start_time": 1459.6800231933594,
+      "end_time": 1523.3200073242188,
+      "point_summary": "Brief mention; no exposition in this segment.",
+      "point_summary_model": "anthropic/claude-sonnet-4.6",
+      "sermon_title": "\"Stand Up And Bless The Lord Your God - Part One\" Nehemiah 9:1-15",
+      "url": "https://www.youtube.com/watch?v=HYeUBdxk7xg&t=1459"
     }
   ]
 }
